@@ -1,0 +1,76 @@
+<?php
+
+use SqlParser\Token;
+
+class TokenTest extends PHPUnit_Framework_TestCase
+{
+
+    public function testExtractKeyword()
+    {
+        $tok = new Token('SelecT', Token::TYPE_KEYWORD);
+        $this->assertEquals($tok->value, 'SELECT');
+
+        $tok = new Token('aS', Token::TYPE_KEYWORD);
+        $this->assertEquals($tok->value, 'AS');
+    }
+
+    public function testExtractWhitespace()
+    {
+        $tok = new Token(" \t \r \n ", Token::TYPE_WHITESPACE);
+        $this->assertEquals($tok->value, ' ');
+    }
+
+    public function testExtractBool()
+    {
+        $tok = new Token('false', Token::TYPE_BOOL);
+        $this->assertFalse($tok->value);
+
+        $tok = new Token('True', Token::TYPE_BOOL);
+        $this->assertTrue($tok->value);
+    }
+
+    public function testExtractNumber()
+    {
+        $tok = new Token('--42', Token::TYPE_NUMBER, Token::FLAG_NUMBER_NEGATIVE);
+        $this->assertEquals($tok->value, 42);
+
+        $tok = new Token('---42', Token::TYPE_NUMBER, Token::FLAG_NUMBER_NEGATIVE);
+        $this->assertEquals($tok->value, -42);
+
+        $tok = new Token('0xFE', Token::TYPE_NUMBER, Token::FLAG_NUMBER_HEX);
+        $this->assertEquals($tok->value, 0xFE);
+
+        $tok = new Token('-0xEF', Token::TYPE_NUMBER, Token::FLAG_NUMBER_NEGATIVE | Token::FLAG_NUMBER_HEX);
+        $this->assertEquals($tok->value, -0xEF);
+
+        $tok = new Token('3.14', Token::TYPE_NUMBER, Token::FLAG_NUMBER_FLOAT);
+        $this->assertEquals($tok->value, 3.14);
+    }
+
+    public function testExtractString()
+    {
+        $tok = new Token('"foo bar "', Token::TYPE_STRING);
+        $this->assertEquals($tok->value, 'foo bar ');
+
+        $tok = new Token("' bar foo '", Token::TYPE_STRING);
+        $this->assertEquals($tok->value, ' bar foo ');
+    }
+
+    public function testExtractSymbol()
+    {
+        $tok = new Token('@foo', Token::TYPE_SYMBOL, Token::FLAG_SYMBOL_VARIABLE);
+        $this->assertEquals($tok->value, 'foo');
+
+        $tok = new Token('`foo`', Token::TYPE_SYMBOL, Token::FLAG_SYMBOL_BACKTICK);
+        $this->assertEquals($tok->value, 'foo');
+
+        $tok = new Token('@`foo`', Token::TYPE_SYMBOL, Token::FLAG_SYMBOL_VARIABLE);
+        $this->assertEquals($tok->value, 'foo');
+    }
+
+    public function testInlineToken()
+    {
+        $token = new Token(" \r \n \t ");
+        $this->assertEquals($token->getInlineToken(), ' \r \n \t ');
+    }
+}
