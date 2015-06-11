@@ -82,6 +82,11 @@ class LexerTest extends TestCase
         $this->runLexerTest('lexSymbol');
     }
 
+    public function testLexSymbolUser()
+    {
+        $this->runLexerTest('lexSymbolUser');
+    }
+
     public function testLexSymbolErr1()
     {
         $this->runLexerTest('lexSymbolErr1');

@@ -23,7 +23,7 @@ class ParamDefFragment extends Fragment
     public $name;
 
     /**
-     * Parameter's type (IN, OUT or INOUT).
+     * Parameter's direction (IN, OUT or INOUT).
      *
      * @var string
      */
@@ -91,6 +91,9 @@ class ParamDefFragment extends Fragment
                 if (($token->value === 'IN') || ($token->value === 'OUT') || ($token->value === 'INOUT')) {
                     $expr->inOut = $token->value;
                     ++$list->idx;
+                } else if ($token->value === ')') {
+                    ++$list->idx;
+                    break;
                 } else {
                     $expr->name = $token->value;
                     $state = 2;

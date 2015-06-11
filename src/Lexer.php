@@ -115,6 +115,7 @@ class Lexer
         $this->len = ($str instanceof UtfString) ?
             $str->length() : strlen($str);
         $this->strict = $strict;
+        $this->lex();
     }
 
     /**
@@ -134,6 +135,7 @@ class Lexer
         // Another example is `parseComment`.
 
         $tokens = new TokensList();
+        $lastToken = NULL;
 
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
             /** @var Token The new token. */
@@ -150,6 +152,17 @@ class Lexer
                 $token = new Token($this->str[$this->last]);
                 if ($this->delimiter !== $this->str[$this->last]) {
                     $this->error('Unexpected character.', $this->str[$this->last], $this->last);
+                }
+            } else if (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE) &&
+                    ($lastToken !== NULL)) {
+                // Handles ```... FROM 'user'@'%' ...```.
+                if ((($lastToken->type === Token::TYPE_SYMBOL) && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK)) ||
+                       ($lastToken->type === Token::TYPE_STRING)) {
+                    $lastToken->token .= $token->token;
+                    $lastToken->type = Token::TYPE_SYMBOL;
+                    $lastToken->flags = Token::FLAG_SYMBOL_USER;
+                    $lastToken->value .= '@' . $token->value;
+                    continue;
                 }
             }
             $token->position = $lastIdx;
@@ -172,6 +185,8 @@ class Lexer
                 $token->type = Token::TYPE_DELIMITER;
                 $token->flags = 0;
             }
+
+            $lastToken = $token;
         }
 
         // Adding a final delimite at the end to mark the ending.
@@ -479,20 +494,31 @@ class Lexer
     /**
      * Parses a string.
      *
+     * @param string $quote Additional start symbol.
+     *
      * @return Token
      */
-    public function parseString()
+    public function parseString($quote = '')
     {
-        $quote = $token = $this->str[$this->last];
-        if (!($flags = Context::isString($token))) {
+        $token = $this->str[$this->last];
+        if ((!($flags = Context::isString($token))) && ($token !== $quote)) {
             return null;
         }
-        while ((++$this->last < $this->len) && ($this->str[$this->last] !== $quote)) {
-            $token .= $this->str[$this->last];
-            if (($this->str[$this->last] === '\\') && (++$this->last < $this->len)) {
+        $quote = $token;
+
+        while (++$this->last < $this->len) {
+            if (($this->last + 1 < $this->len) &&
+                ((($this->str[$this->last] === $quote) && ($this->str[$this->last + 1] === $quote)) ||
+                (($this->str[$this->last] === '\\') && ($quote !== '`')))) {
+                $token .= $this->str[$this->last] . $this->str[++$this->last];
+            } else {
+                if ($this->str[$this->last] === $quote) {
+                    break;
+                }
                 $token .= $this->str[$this->last];
             }
         }
+
         if (($this->last >= $this->len) || ($this->str[$this->last] !== $quote)) {
             $this->error('Ending quote ' . $quote . ' was expected.', '', $this->last);
         } else {
@@ -508,36 +534,27 @@ class Lexer
      */
     public function parseSymbol()
     {
-        // TODO: `@` can be used in queries like ```... FROM 'user'@'%' ...```.
         $token = $this->str[$this->last];
         if (!($flags = Context::isSymbol($token))) {
             return null;
         }
-        if ($flags === Token::FLAG_SYMBOL_VARIABLE) {
+
+        if ($flags & Token::FLAG_SYMBOL_VARIABLE) {
             ++$this->last;
-            if (($name = static::parseString($this->str, $this->last, $this->len))) {
-                $token .= $name->token;
-            } elseif (($name = static::parseSymbol($this->str, $this->last, $this->len))) {
-                $token .= $name->token;
-            } else {
-                $name = static::parseUnknown($this->str, $this->last, $this->len);
-                if ($name === null) {
-                    $this->error('Variable name was expected.', $this->str[$this->last], $this->last);
-                    return null;
-                }
-                $token .= $name->token;
-            }
-        } elseif ($flags === Token::FLAG_SYMBOL_BACKTICK) {
-            $token = $this->str[$this->last];
-            while ((++$this->last < $this->len) && ($this->str[$this->last] !== '`')) {
-                $token .= $this->str[$this->last];
-            }
-            if ($this->last >= $this->len) {
-                $this->error('Ending backtick ` was expected.', '', $this->last);
-            } else {
-                $token .= $this->str[$this->last];
+        } else {
+            $token = '';
+        }
+
+        if (($str = $this->parseString('`')) === null) {
+            if (($str = static::parseUnknown()) === null) {
+                $this->error('Variable name was expected.', $this->str[$this->last], $this->last);
             }
         }
+
+        if ($str !== null) {
+            $token .= $str->token;
+        }
+
         return new Token($token, Token::TYPE_SYMBOL, $flags);
     }
 

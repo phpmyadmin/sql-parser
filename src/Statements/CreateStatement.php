@@ -30,6 +30,7 @@ class CreateStatement extends Statement
 
         'TEMPORARY'                     => 2,
         'IF NOT EXISTS'                 => 3,
+        'DEFINER'                       => array(4, 'var'),
     );
 
     /**

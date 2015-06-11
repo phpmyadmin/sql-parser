@@ -13,11 +13,14 @@
         <log type="coverage-clover" target="coverage.xml" />
     </logging>
     <testsuites>
-        <testsuite name="Lexer's Test Suite">
+        <testsuite name="Lexer">
             <directory suffix=".php">./tests/lexer</directory>
         </testsuite>
-        <testsuite name="Parser's Test Suite">
+        <testsuite name="Parser">
             <directory suffix=".php">./tests/parser</directory>
+        </testsuite>
+        <testsuite name="Utils">
+            <directory suffix=".php">./tests/utils</directory>
         </testsuite>
     </testsuites>
 </phpunit>

@@ -10,24 +10,40 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * `RETURN` keyword parser.
+ * Parses a data type.
  */
 class DataTypeFragment extends Fragment
 {
 
+    public static $OPTIONS = array(
+        'BINARY'                        => 1,
+        'CHARACTER SET'                 => array(2, 'var'),
+        'CHARSET'                       => array(3, 'var'),
+        'COLLATE'                       => 4,
+        'UNSIGNED'                      => 5,
+        'ZEROFILL'                      => 6,
+    );
+
     /**
-     * The data type returned.
+     * The name of the data type.
      *
      * @var string
      */
-    public $type;
+    public $name;
 
     /**
-     * The size of this variable.
+     * The size of this data type.
      *
      * @var array
      */
-    public $size;
+    public $size = array();
+
+    /**
+     * The options of this data type.
+     *
+     * @var OptionsFragment
+     */
+    public $options = array();
 
     /**
      * @param Parser $parser
@@ -47,8 +63,7 @@ class DataTypeFragment extends Fragment
          *
          *      0 -------------------[ data type ]--------------------> 1
          *
-         *      1 ------------------[ size (array) ]------------------> 4
-         *      1 ----------------------[ else ]----------------------> -1
+         *      1 ----------------[ size and options ]----------------> 2
          *
          * @var int
          */
@@ -64,7 +79,7 @@ class DataTypeFragment extends Fragment
             }
 
             if ($state === 0) {
-                $ret->type = $token->value;
+                $ret->name = $token->value;
                 $ret->tokens[] = $token;
                 if (!isset(Context::$DATA_TYPES[$token->value])) {
                     $parser->error('Unrecognized data type.', $token);
@@ -75,18 +90,20 @@ class DataTypeFragment extends Fragment
                     $size = ArrayFragment::parse($parser, $list);
                     $ret->size = $size->array;
                     $ret->tokens = array_merge($ret->tokens, $size->tokens);
-                } else {
-                    --$list->idx;
+                    ++$list->idx;
                 }
+                $ret->options = OptionsFragment::parse($parser, $list, static::$OPTIONS);
+                ++$list->idx;
                 break;
             }
 
         }
 
-        if (empty($ret->type)) {
+        if (empty($ret->name)) {
             return null;
         }
 
+        --$list->idx;
         return $ret;
     }
 }

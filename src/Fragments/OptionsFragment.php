@@ -19,7 +19,7 @@ class OptionsFragment extends Fragment
      *
      * @var array
      */
-    public $options;
+    public $options = array();
 
     /**
      * @param Parser $parser
@@ -108,6 +108,8 @@ class OptionsFragment extends Fragment
             $ret->tokens[] = $token;
 
         }
+
+        ksort($ret->options);
 
         --$list->idx;
         return $ret;

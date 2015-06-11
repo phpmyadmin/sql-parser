@@ -6,6 +6,18 @@ use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Token;
 
+/**
+ * Implements useful methods for testing.
+ *
+ * Each test consists of a string that represents the serialized Lexer or Parser
+ * instance. Because exceptions include information like file name, which may
+ * change due to environment's configuration, their information is extracted
+ * in an array which is serialized.
+ *
+ * For example, a parser test consists of an array with two keys, `parser`
+ * which holds the Parser instance, without errors and the `errors` key which
+ * holds the array that was previously extracted.
+ */
 abstract class TestCase extends PHPUnit_Framework_TestCase
 {
 
@@ -35,9 +47,15 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
         list($input, $output) = $this->getData($name);
 
         $lexer = new Lexer($input);
-        $lexer->lex();
 
-        $this->assertEquals($output, $lexer);
+        $errors = array();
+        foreach ($lexer->errors as $err) {
+            $errors[] = array($err->getMessage(), $err->ch, $err->pos, $err->getCode());
+        }
+        $lexer->errors = array();
+
+        $this->assertEquals($output['errors'], $errors);
+        $this->assertEquals($output['lexer'], $lexer);
 
         return $lexer;
     }
@@ -54,12 +72,16 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
         list($input, $output) = $this->getData($name);
 
         $lexer = new Lexer($input);
-        $lexer->lex();
-
         $parser = new Parser($lexer->tokens);
-        $parser->parse();
 
-        $this->assertEquals($output, $parser);
+        $errors = array();
+        foreach ($parser->errors as $err) {
+            $errors[] = array($err->getMessage(), $err->token, $err->getCode());
+        }
+        $parser->errors = array();
+
+        $this->assertEquals($output['errors'], $errors);
+        $this->assertEquals($output['parser'], $parser);
 
         return $parser;
     }

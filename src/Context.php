@@ -116,7 +116,7 @@ abstract class Context
         'END' => 2,
         'INDEX' => 2, 'VALUE' => 2,
         'ENGINE' => 2,
-        'COMMENT' => 2, 'RETURNS' => 2, 'STORAGE' => 2,
+        'CHARSET' => 2, 'COMMENT' => 2, 'RETURNS' => 2, 'STORAGE' => 2,
         'CHECKSUM' => 2, 'MAX_ROWS' => 2, 'MIN_ROWS' => 2, 'NOT NULL' => 2,
         'PASSWORD' => 2,
         'INDEX KEY' => 2, 'PACK_KEYS' => 2,

@@ -115,14 +115,19 @@ class Parser
     /**
      * Constructor.
      *
-     * @param Parser $parser
-     * @param TokensList $list
+     * @param mixed $list
      * @param bool $strict
      */
-    public function __construct(TokensList $list, $strict = false)
+    public function __construct($list, $strict = false)
     {
-        $this->list = $list;
+        if ((is_string($list)) || ($list instanceof UtfString)) {
+            $lexer = new Lexer($list, $strict);
+            $this->list = $lexer->tokens;
+        } elseif ($list instanceof TokensList) {
+            $this->list = $list;
+        }
         $this->strict = $strict;
+        $this->parse();
     }
 
     /**

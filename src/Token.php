@@ -136,6 +136,7 @@ class Token
     // Symbols related flags.
     const FLAG_SYMBOL_VARIABLE          =  1;
     const FLAG_SYMBOL_BACKTICK          =  2;
+    const FLAG_SYMBOL_USER              =  4;
 
     /**
      * The token it its raw string representation.
@@ -224,15 +225,14 @@ class Token
             case Token::TYPE_STRING:
                 return mb_substr($this->token, 1, -1); // trims quotes
             case Token::TYPE_SYMBOL:
-                if ($this->flags & Token::FLAG_SYMBOL_VARIABLE) {
-                    if ($this->token[1] === '`') {
-                        return mb_substr($this->token, 2, -1); // trims @` and `
-                    } else {
-                        return mb_substr($this->token, 1); // trims @
-                    }
-                } elseif ($this->flags & Token::FLAG_SYMBOL_BACKTICK) {
-                    return mb_substr($this->token, 1, -1); // trims backticks
+                $str = $this->token;
+                if ((isset($str[0])) && ($str[0] === '@')) {
+                    $str = mb_substr($str, 1);
                 }
+                if ((isset($str[0])) && (($str[0] === '`') || ($str[0] === '"') || ($str[0] === '\''))) {
+                    $str = mb_substr($str, 1, -1);
+                }
+                return $str;
         }
         return $this->token;
     }
