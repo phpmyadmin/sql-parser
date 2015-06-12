@@ -66,6 +66,7 @@ class Parser
         'GROUP'         => 'SqlParser\\Fragments\\GroupFragment',
         'HAVING'        => 'SqlParser\\Fragments\\WhereKeyword',
         'INTO'          => 'SqlParser\\Fragments\\IntoKeyword',
+        'JOIN'          => 'SqlParser\\Fragments\\JoinKeyword',
         'LIMIT'         => 'SqlParser\\Fragments\\LimitKeyword',
         'ORDER'         => 'SqlParser\\Fragments\\OrderKeyword',
         'PARTITION'     => 'SqlParser\\Fragments\\ArrayFragment',

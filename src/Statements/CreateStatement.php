@@ -50,6 +50,13 @@ class CreateStatement extends Statement
     public $options;
 
     /**
+     * The parameters of this routine.
+     *
+     * @var ParamDefFragment[]
+     */
+    public $parameters;
+
+    /**
      * The options of the table.
      *
      * @var OptionsFragment

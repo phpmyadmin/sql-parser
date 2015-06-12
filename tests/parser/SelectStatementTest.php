@@ -10,6 +10,11 @@ class SelectStatementTest extends TestCase
         $this->assertEquals(10, $stmt->options->has('MAX_STATEMENT_TIME'));
     }
 
+    public function testSelect2()
+    {
+        $this->runParserTest('parseSelect2');
+    }
+
     public function testSelectErr1()
     {
         $this->runParserTest('parseSelectErr1');

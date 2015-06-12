@@ -120,4 +120,11 @@ class SelectStatement extends Statement
      * @var LimitKeyword
      */
     public $limit;
+
+    /**
+     * Joins.
+     *
+     * @var JoinKeyword
+     */
+    public $join;
 }

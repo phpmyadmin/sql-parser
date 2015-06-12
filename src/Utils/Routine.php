@@ -8,7 +8,7 @@ class Routine
     /**
      * Gets the parameters of a routine from the parse tree.
      *
-     * @param array $tree
+     * @param Statement $tree
      *
      * @return array
      */

@@ -63,6 +63,12 @@ class FieldFragment extends Fragment
         /** @var bool Whether current tokens make an expression or a table reference. */
         $isExpr = false;
 
+        /** @var bool Whether a period was previously found. */
+        $period = false;
+
+        /** @var int Whether an alias is expected. Is 2 if `AS` keyword was found. */
+        $alias = 0;
+
         /** @var int Counts brackets. */
         $brackets = 0;
 
@@ -77,9 +83,12 @@ class FieldFragment extends Fragment
 
             // Skipping whitespaces and comments.
             if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
-                if ($isExpr) {
+                if (($isExpr) && (!$alias)) {
                     $ret->expr .= $token->token;
                     $ret->tokens[] = $token;
+                }
+                if (($alias === 0) && (!$isExpr) && (!$period) && (!empty($ret->expr))) {
+                    $alias = 1;
                 }
                 continue;
             }
@@ -87,6 +96,10 @@ class FieldFragment extends Fragment
             if ($token->type === Token::TYPE_KEYWORD) {
                 // Keywords may be found only between brackets.
                 if ($brackets === 0) {
+                    if ($token->value === 'AS') {
+                        $alias = 2;
+                        continue;
+                    }
                     break;
                 }
             }
@@ -109,26 +122,45 @@ class FieldFragment extends Fragment
             }
 
             if (($token->type === Token::TYPE_NUMBER) || ($token->type === Token::TYPE_BOOL) ||
+                (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)) ||
                 (($token->type === Token::TYPE_OPERATOR)) && ($token->value !== '.')) {
                 // Numbers, booleans and operators are usually part of expressions.
                 $isExpr = true;
             }
 
-            if (!$isExpr) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '.')) {
-                    $ret->database = $ret->table;
-                    $ret->table = $ret->column;
-                } else {
-                    if (!empty($options['skipColumn'])) {
-                        $ret->table = $token->value;
+            if ($alias) {
+                $ret->alias = $token->value;
+                $alias = 0;
+            } else {
+                if (!$isExpr) {
+                    if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '.')) {
+                        $ret->database = $ret->table;
+                        $ret->table = $ret->column;
+                        $period = true;
                     } else {
-                        $ret->column = $token->value;
+                        if (!empty($options['skipColumn'])) {
+                            $ret->table = $token->value;
+                        } else {
+                            $ret->column = $token->value;
+                        }
+                        $period = false;
+                    }
+                } else {
+                    if ($brackets === 0) {
+                        if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING) ||
+                            (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))) {
+                            $ret->alias = $token->value;
+                        }
                     }
                 }
-            }
 
-            $ret->expr .= $token->token;
-            $ret->tokens[] = $token;
+                $ret->expr .= $token->token;
+                $ret->tokens[] = $token;
+            }
+        }
+
+        if ($alias === 2) {
+            $parser->error('Alias was expected.', $token);
         }
 
         if (empty($ret->tokens)) {

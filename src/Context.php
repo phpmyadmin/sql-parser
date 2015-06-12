@@ -309,14 +309,19 @@ abstract class Context
      * Checks if the given string is a keyword.
      *
      * @param string $str
+     * @param bool $strict
      *
      * @return bool
      */
-    public static function isKeyword($str)
+    public static function isKeyword($str, $strict = false)
     {
         $str = strtoupper($str);
 
-        return isset(static::$KEYWORDS[$str]);
+        if (isset(static::$KEYWORDS[$str])) {
+            return $strict ? static::$KEYWORDS[$str] === 1 : true;
+        }
+
+        return false;
     }
 
     // -------------------------------------------------------------------------
