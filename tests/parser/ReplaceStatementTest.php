@@ -1,15 +1,25 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class ReplaceStatementTest extends TestCase
 {
 
-    public function testReplace()
+    /**
+     * @dataProvider testReplaceProvider
+     */
+    public function testReplace($test)
     {
-        $this->runParserTest('parseReplace');
+        $this->runParserTest($test);
     }
 
-    public function testReplace2()
+    public function testReplaceProvider()
     {
-        $this->runParserTest('parseReplace2');
+        return array(
+            array('parseReplace'),
+            array('parseReplace2'),
+        );
     }
 }

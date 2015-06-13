@@ -1,30 +1,28 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class CreateStatementTest extends TestCase
 {
 
-    public function testCreateTable()
+    /**
+     * @dataProvider testCreateProvider
+     */
+    public function testCreate($test)
     {
-        $this->runParserTest('parseCreateTable');
+        $this->runParserTest($test);
     }
 
-    public function testCreateProcedure()
+    public function testCreateProvider()
     {
-        $this->runParserTest('parseCreateProcedure');
-    }
-
-    public function testCreateProcedure2()
-    {
-        $this->runParserTest('parseCreateProcedure2');
-    }
-
-    public function testCreateFunction()
-    {
-        $this->runParserTest('parseCreateFunction');
-    }
-
-    public function testCreateFunctionErr1()
-    {
-        $this->runParserTest('parseCreateFunctionErr1');
+        return array(
+            array('parseCreateTable'),
+            array('parseCreateProcedure'),
+            array('parseCreateProcedure2'),
+            array('parseCreateFunction'),
+            array('parseCreateFunctionErr1'),
+        );
     }
 }

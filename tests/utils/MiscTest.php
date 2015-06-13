@@ -1,7 +1,11 @@
 <?php
 
+namespace SqlParser\Tests\Utils;
+
 use SqlParser\Parser;
 use SqlParser\Utils\Misc;
+
+use SqlParser\Tests\TestCase;
 
 class MiscTest extends TestCase
 {
@@ -82,5 +86,4 @@ class MiscTest extends TestCase
             ),
         );
     }
-
 }

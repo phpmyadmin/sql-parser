@@ -1,10 +1,24 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class InsertStatementTest extends TestCase
 {
 
-    public function testInsert()
+    /**
+     * @dataProvider testInsertProvider
+     */
+    public function testInsert($test)
     {
-        $this->runParserTest('parseInsert');
+        $this->runParserTest($test);
+    }
+
+    public function testInsertProvider()
+    {
+        return array(
+            array('parseInsert'),
+        );
     }
 }

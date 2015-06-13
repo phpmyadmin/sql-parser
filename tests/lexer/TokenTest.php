@@ -1,8 +1,12 @@
 <?php
 
+namespace SqlParser\Tests\Lexer;
+
 use SqlParser\Token;
 
-class TokenTest extends PHPUnit_Framework_TestCase
+use SqlParser\Tests\TestCase;
+
+class TokenTest extends TestCase
 {
 
     public function testExtractKeyword()

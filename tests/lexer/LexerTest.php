@@ -1,7 +1,11 @@
 <?php
 
+namespace SqlParser\Tests\Lexer;
+
 use SqlParser\Exceptions\LexerException;
 use SqlParser\Lexer;
+
+use SqlParser\Tests\TestCase;
 
 class LexerTest extends TestCase
 {
@@ -32,78 +36,32 @@ class LexerTest extends TestCase
         $lexer->error('strict error', 'foo', 1, 4);
     }
 
-    public function testLex()
+    /**
+     * @dataProvider testLexProvider
+     */
+    public function testLex($test)
     {
-        $this->runLexerTest('lex');
+        $this->runLexerTest($test);
     }
 
-    public function testLexKeyword()
+    public function testLexProvider()
     {
-        $this->runLexerTest('lexKeyword');
-    }
-
-    public function testLexOperator()
-    {
-        $this->runLexerTest('lexOperator');
-    }
-
-    public function testLexWhitespace()
-    {
-        $this->runLexerTest('lexWhitespace');
-    }
-
-    public function testLexComment()
-    {
-        $this->runLexerTest('lexComment');
-    }
-
-    public function testLexBool()
-    {
-        $this->runLexerTest('lexBool');
-    }
-
-    public function testLexNumber()
-    {
-        $this->runLexerTest('lexNumber');
-    }
-
-    public function testLexString()
-    {
-        $this->runLexerTest('lexString');
-    }
-
-    public function testLexStringErr1()
-    {
-        $this->runLexerTest('lexStringErr1');
-    }
-
-    public function testLexSymbol()
-    {
-        $this->runLexerTest('lexSymbol');
-    }
-
-    public function testLexSymbolUser()
-    {
-        $this->runLexerTest('lexSymbolUser');
-    }
-
-    public function testLexSymbolErr1()
-    {
-        $this->runLexerTest('lexSymbolErr1');
-    }
-
-    public function testLexSymbolErr2()
-    {
-        $this->runLexerTest('lexSymbolErr2');
-    }
-
-    public function testLexSymbolErr3()
-    {
-        $this->runLexerTest('lexSymbolErr3');
-    }
-
-    public function testLexDelimiter()
-    {
-        $this->runLexerTest('lexDelimiter');
+        return array(
+            array('lex'),
+            array('lexKeyword'),
+            array('lexOperator'),
+            array('lexWhitespace'),
+            array('lexComment'),
+            array('lexBool'),
+            array('lexNumber'),
+            array('lexString'),
+            array('lexStringErr1'),
+            array('lexSymbol'),
+            array('lexSymbolUser'),
+            array('lexSymbolErr1'),
+            array('lexSymbolErr2'),
+            array('lexSymbolErr3'),
+            array('lexDelimiter'),
+        );
     }
 }

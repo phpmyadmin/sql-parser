@@ -1,10 +1,24 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class DeleteStatementTest extends TestCase
 {
 
-    public function testDelete()
+    /**
+     * @dataProvider testDeleteProvider
+     */
+    public function testDelete($test)
     {
-        $this->runParserTest('parseDelete');
+        $this->runParserTest($test);
+    }
+
+    public function testDeleteProvider()
+    {
+        return array(
+            array('parseDelete'),
+        );
     }
 }

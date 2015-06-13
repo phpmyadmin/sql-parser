@@ -1,27 +1,33 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class SelectStatementTest extends TestCase
 {
 
-    public function testSelect()
+    public function testSelectOptions()
     {
         $parser = $this->runParserTest('parseSelect');
         $stmt = $parser->statements[0];
         $this->assertEquals(10, $stmt->options->has('MAX_STATEMENT_TIME'));
     }
 
-    public function testSelect2()
+    /**
+     * @dataProvider testSelectProvider
+     */
+    public function testSelect($test)
     {
-        $this->runParserTest('parseSelect2');
+        $this->runParserTest($test);
     }
 
-    public function testSelectErr1()
+    public function testSelectProvider()
     {
-        $this->runParserTest('parseSelectErr1');
-    }
-
-    public function testSelectNested()
-    {
-        $this->runParserTest('parseSelectNested');
+        return array(
+            array('parseSelect2'),
+            array('parseSelectErr1'),
+            array('parseSelectNested'),
+        );
     }
 }

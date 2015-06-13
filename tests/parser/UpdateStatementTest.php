@@ -1,15 +1,25 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class UpdateStatementTest extends TestCase
 {
 
-    public function testUpdate()
+    /**
+     * @dataProvider testUpdateProvider
+     */
+    public function testUpdate($test)
     {
-        $this->runParserTest('parseUpdate');
+        $this->runParserTest($test);
     }
 
-    public function testUpdate2()
+    public function testUpdateProvider()
     {
-        $this->runParserTest('parseUpdate2');
+        return array(
+            array('parseUpdate'),
+            array('parseUpdate2'),
+        );
     }
 }

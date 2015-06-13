@@ -1,20 +1,26 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class ArrayFragmentTest extends TestCase
 {
 
-    public function testArrayErr1()
+    /**
+     * @dataProvider testArrayProvider
+     */
+    public function testArray($test)
     {
-        $this->runParserTest('parseArrayErr1');
+        $this->runParserTest($test);
     }
 
-    public function testArrayErr2()
+    public function testArrayProvider()
     {
-        $this->runParserTest('parseArrayErr2');
-    }
-
-    public function testArrayErr3()
-    {
-        $this->runParserTest('parseArrayErr3');
+        return array(
+            array('parseArrayErr1'),
+            array('parseArrayErr2'),
+            array('parseArrayErr3'),
+        );
     }
 }

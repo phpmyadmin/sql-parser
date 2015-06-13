@@ -1,15 +1,25 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class RenameStatementTest extends TestCase
 {
 
-    public function testRename()
+    /**
+     * @dataProvider testRenameProvider
+     */
+    public function testRename($test)
     {
-        $this->runParserTest('parseRename');
+        $this->runParserTest($test);
     }
 
-    public function testRename2()
+    public function testRenameProvider()
     {
-        $this->runParserTest('parseRename2');
+        return array(
+            array('parseRename'),
+            array('parseRename2'),
+        );
     }
 }

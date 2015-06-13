@@ -1,5 +1,7 @@
 <?php
 
+namespace SqlParser\Tests;
+
 require('vendor/autoload.php');
 
 use SqlParser\Lexer;
@@ -18,7 +20,7 @@ use SqlParser\Token;
  * which holds the Parser instance, without errors and the `errors` key which
  * holds the array that was previously extracted.
  */
-abstract class TestCase extends PHPUnit_Framework_TestCase
+abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
 
     /**

@@ -1,15 +1,25 @@
 <?php
 
+namespace SqlParser\Tests\Parser;
+
+use SqlParser\Tests\TestCase;
+
 class CallStatementTest extends TestCase
 {
 
-    public function testCall()
+    /**
+     * @dataProvider testCallProvider
+     */
+    public function testCall($test)
     {
-        $this->runParserTest('parseCall');
+        $this->runParserTest($test);
     }
 
-    public function testCall2()
+    public function testCallProvider()
     {
-        $this->runParserTest('parseCall2');
+        return array(
+            array('parseCall'),
+            array('parseCall2'),
+        );
     }
 }

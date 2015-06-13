@@ -1,7 +1,11 @@
 <?php
 
+namespace SqlParser\Tests\Lexer;
+
 use SqlParser\Token;
 use SqlParser\TokensList;
+
+use SqlParser\Tests\TestCase;
 
 class TokensListCase extends TestCase
 {

@@ -1,9 +1,13 @@
 <?php
 
+namespace SqlParser\Tests\Lexer;
+
 use SqlParser\Context;
 use SqlParser\Token;
 
-class IsMethodsTest extends PHPUnit_Framework_TestCase
+use SqlParser\Tests\TestCase;
+
+class IsMethodsTest extends TestCase
 {
 
     public function testIsKeyword()

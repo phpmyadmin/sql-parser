@@ -1,7 +1,11 @@
 <?php
 
+namespace SqlParser\Tests\Utils;
+
 use SqlParser\Parser;
 use SqlParser\Utils\Routine;
+
+use SqlParser\Tests\TestCase;
 
 class RoutineTest extends TestCase
 {
@@ -72,7 +76,8 @@ class RoutineTest extends TestCase
                 )
             ),
             array(
-                'CREATE PROCEDURE `foo`(IN `baz\\` INT(001) zerofill, out bazz varchar(15) charset utf8) BEGIN SELECT NULL; END',
+                'CREATE PROCEDURE `foo`(IN `baz\\` INT(001) zerofill, out bazz varchar(15) charset utf8) '.
+                'BEGIN SELECT NULL; END',
                 array(
                     'num' => 2,
                     'dir' => array(
@@ -99,5 +104,4 @@ class RoutineTest extends TestCase
             ),
         );
     }
-
 }
