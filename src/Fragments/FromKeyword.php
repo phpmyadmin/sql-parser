@@ -15,9 +15,9 @@ class FromKeyword extends Fragment
 {
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return FieldFragment[]
      */

@@ -18,10 +18,10 @@ class DataTypeFragment extends Fragment
     public static $OPTIONS = array(
         'BINARY'                        => 1,
         'CHARACTER SET'                 => array(2, 'var'),
-        'CHARSET'                       => array(3, 'var'),
-        'COLLATE'                       => 4,
-        'UNSIGNED'                      => 5,
-        'ZEROFILL'                      => 6,
+        'CHARSET'                       => array(2, 'var'),
+        'COLLATE'                       => 3,
+        'UNSIGNED'                      => 4,
+        'ZEROFILL'                      => 5,
     );
 
     /**
@@ -46,9 +46,9 @@ class DataTypeFragment extends Fragment
     public $options = array();
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return DataTypeFragment[]
      */

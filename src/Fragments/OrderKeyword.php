@@ -29,9 +29,9 @@ class OrderKeyword extends Fragment
     public $type = 'ASC';
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return OrderKeyword[]
      */

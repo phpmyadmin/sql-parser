@@ -50,9 +50,9 @@ class FieldFragment extends Fragment
     public $alias;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return FieldFragment
      */
@@ -121,9 +121,9 @@ class FieldFragment extends Fragment
                 }
             }
 
-            if (($token->type === Token::TYPE_NUMBER) || ($token->type === Token::TYPE_BOOL) ||
-                (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)) ||
-                (($token->type === Token::TYPE_OPERATOR)) && ($token->value !== '.')) {
+            if (($token->type === Token::TYPE_NUMBER) || ($token->type === Token::TYPE_BOOL)
+                || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
+                || (($token->type === Token::TYPE_OPERATOR)) && ($token->value !== '.')) {
                 // Numbers, booleans and operators are usually part of expressions.
                 $isExpr = true;
             }
@@ -147,8 +147,9 @@ class FieldFragment extends Fragment
                     }
                 } else {
                     if ($brackets === 0) {
-                        if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING) ||
-                            (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))) {
+                        if (($token->type === Token::TYPE_NONE) || ($token->type === Token::TYPE_STRING)
+                            || (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
+                        ) {
                             $ret->alias = $token->value;
                         }
                     }

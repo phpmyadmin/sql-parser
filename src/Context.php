@@ -372,12 +372,14 @@ abstract class Context
         $len = strlen($str);
         if ($str[0] === '#') {
             return Token::FLAG_COMMENT_BASH;
-        } elseif (($len > 1) && ((($str[0] === '/') && ($str[1] === '*')) ||
-                                  (($str[0] === '*') && ($str[1] === '/')))) {
+        } elseif (($len > 1) && ((($str[0] === '/') && ($str[1] === '*'))
+            || (($str[0] === '*') && ($str[1] === '/')))
+        ) {
             return Token::FLAG_COMMENT_C;
-        } elseif (($len > 2) && ($str[0] === '-') &&
-            ($str[1] === '-') && ($str[2] !== "\n") &&
-            (static::isWhitespace($str[2]))) {
+        } elseif (($len > 2) && ($str[0] === '-')
+            && ($str[1] === '-') && ($str[2] !== "\n")
+            && (static::isWhitespace($str[2]))
+        ) {
             return Token::FLAG_COMMENT_SQL;
         }
         return null;
@@ -413,8 +415,8 @@ abstract class Context
      */
     public static function isNumber($ch)
     {
-        return (($ch >= '0') && ($ch <= '9')) || ($ch === '.') ||
-            ($ch === '-') || ($ch === '+') || ($ch === 'e') || ($ch === 'E');
+        return (($ch >= '0') && ($ch <= '9')) || ($ch === '.')
+            || ($ch === '-') || ($ch === '+') || ($ch === 'e') || ($ch === 'E');
     }
 
     // -------------------------------------------------------------------------

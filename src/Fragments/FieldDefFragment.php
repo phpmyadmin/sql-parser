@@ -52,9 +52,9 @@ class FieldDefFragment extends Fragment
     /**
      * The array of indexes.
      *
-     * @var array
+     * @var ArrayFragment
      */
-    public $indexes = array();
+    public $indexes;
 
     /**
      * The options of the new field fragment.
@@ -64,9 +64,9 @@ class FieldDefFragment extends Fragment
     public $options;
 
     /**
-     * @param Parser $parser
-     * @param TokensList $list
-     * @param array $options
+     * @param Parser $parser The parser that serves as context.
+     * @param TokensList $list The list of tokens that are being parsed.
+     * @param array $options Parameters for parsing.
      *
      * @return FieldDefFragment[]
      */

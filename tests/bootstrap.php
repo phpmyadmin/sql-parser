@@ -26,7 +26,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * Gets test's input and expected output.
      *
-     * @param string $name
+     * @param string $name The name of the test.
      *
      * @return array
      */
@@ -40,7 +40,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * Tests the `Lexer`.
      *
-     * @param string $name
+     * @param string $name The name of the test.
      *
      * @return Lexer
      */
@@ -65,7 +65,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     /**
      * Tests the `Parser`.
      *
-     * @param string $name
+     * @param string $name The name of the test.
      *
      * @return Parser
      */

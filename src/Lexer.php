@@ -106,8 +106,8 @@ class Lexer
     /**
      * Constructor.
      *
-     * @param string|UtfString $str
-     * @param bool $strict
+     * @param string|UtfString $str The query to be lexed.
+     * @param bool $strict Whether strict mode should be enabled or not.
      */
     public function __construct($str, $strict = false)
     {
@@ -120,8 +120,6 @@ class Lexer
 
     /**
      * Parses the string and extracts lexems.
-     *
-     * @param string|UtfString $str
      */
     public function lex()
     {
@@ -153,11 +151,15 @@ class Lexer
                 if ($this->delimiter !== $this->str[$this->last]) {
                     $this->error('Unexpected character.', $this->str[$this->last], $this->last);
                 }
-            } elseif (($token->type === Token::TYPE_SYMBOL) && ($token->flags & Token::FLAG_SYMBOL_VARIABLE) &&
-                    ($lastToken !== null)) {
+            } elseif (($token->type === Token::TYPE_SYMBOL)
+                && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)
+                && ($lastToken !== null)
+            ) {
                 // Handles ```... FROM 'user'@'%' ...```.
-                if ((($lastToken->type === Token::TYPE_SYMBOL) && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK)) ||
-                       ($lastToken->type === Token::TYPE_STRING)) {
+                if ((($lastToken->type === Token::TYPE_SYMBOL)
+                    && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK))
+                    || ($lastToken->type === Token::TYPE_STRING)
+                ) {
                     $lastToken->token .= $token->token;
                     $lastToken->type = Token::TYPE_SYMBOL;
                     $lastToken->flags = Token::FLAG_SYMBOL_USER;
@@ -199,9 +201,10 @@ class Lexer
     /**
      * Creates a new error log.
      *
-     * @param string $msg
-     * @param string $str
-     * @param int $code
+     * @param string $msg The error message.
+     * @param string $ch The character that produced the error.
+     * @param int $pos The position of the character.
+     * @param int $code The code of the error.
      */
     public function error($msg = '', $str = '', $pos = 0, $code = 0)
     {
@@ -427,8 +430,9 @@ class Lexer
                 } elseif ($this->str[$this->last] === '-') {
                     $flags |= Token::FLAG_NUMBER_NEGATIVE;
                     // Do nothing.
-                } elseif (($this->str[$this->last] === '0') && ($this->last + 1 < $this->len) &&
-                        (($this->str[$this->last + 1] === 'x') || ($this->str[$this->last + 1] === 'X'))) {
+                } elseif (($this->str[$this->last] === '0') && ($this->last + 1 < $this->len)
+                    && (($this->str[$this->last + 1] === 'x') || ($this->str[$this->last + 1] === 'X'))
+                ) {
                     $token .= $this->str[$this->last++];
                     $state = 2;
                 } elseif (($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9')) {
@@ -440,9 +444,10 @@ class Lexer
                 }
             } elseif ($state === 2) {
                 $flags |= Token::FLAG_NUMBER_HEX;
-                if ((($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9')) ||
-                    (($this->str[$this->last] >= 'A') && ($this->str[$this->last] <= 'F')) ||
-                    (($this->str[$this->last] >= 'a') && ($this->str[$this->last] <= 'f'))) {
+                if ((($this->str[$this->last] >= '0') && ($this->str[$this->last] <= '9'))
+                    || (($this->str[$this->last] >= 'A') && ($this->str[$this->last] <= 'F'))
+                    || (($this->str[$this->last] >= 'a') && ($this->str[$this->last] <= 'f'))
+                ) {
                     // Do nothing.
                 } else {
                     break;
@@ -494,7 +499,7 @@ class Lexer
     /**
      * Parses a string.
      *
-     * @param string $quote Additional start symbol.
+     * @param string $quote Additional starting symbol.
      *
      * @return Token
      */
@@ -507,9 +512,10 @@ class Lexer
         $quote = $token;
 
         while (++$this->last < $this->len) {
-            if (($this->last + 1 < $this->len) &&
-                ((($this->str[$this->last] === $quote) && ($this->str[$this->last + 1] === $quote)) ||
-                (($this->str[$this->last] === '\\') && ($quote !== '`')))) {
+            if (($this->last + 1 < $this->len)
+                && ((($this->str[$this->last] === $quote) && ($this->str[$this->last + 1] === $quote))
+                || (($this->str[$this->last] === '\\') && ($quote !== '`')))
+            ) {
                 $token .= $this->str[$this->last] . $this->str[++$this->last];
             } else {
                 if ($this->str[$this->last] === $quote) {
