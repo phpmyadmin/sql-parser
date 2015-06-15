@@ -26,6 +26,12 @@ class Lexer
         // (ascending) and their occurance rate (descending).
         //
         // Conflicts:
+        //
+        // 1. `parseDelimiter` and `parseUnknown`, `parseKeyword`, `parseNumber`
+        // They fight over delimiter. The delimiter may be a keyword, a number
+        // or almost any character which makes the delimiter one of the first
+        // tokens that must be parsed.
+        //
         // 1. `parseNumber` and `parseOperator`
         // They fight over `+` and `-`.
         //
@@ -38,9 +44,9 @@ class Lexer
         // 4. `parseKeyword` and `parseUnknown`
         // They fight over words. `parseUnknown` does not know about keywords.
 
-        'parseWhitespace', 'parseNumber', 'parseComment', 'parseOperator',
-        'parseBool', 'parseString', 'parseSymbol', 'parseKeyword',
-        'parseUnknown'
+        'parseDelimiter', 'parseWhitespace', 'parseNumber', 'parseComment',
+        'parseOperator', 'parseBool', 'parseString', 'parseSymbol',
+        'parseKeyword', 'parseUnknown'
     );
 
     /**
@@ -89,6 +95,17 @@ class Lexer
      * @var string
      */
     public $delimiter = ';';
+
+    /**
+     * The length of the delimiter.
+     *
+     * Because `parseDelimter` can be called a lot, it would perform a lot of
+     * calls to `strlen`, which might affect performance when the delimiter is
+     * big.
+     *
+     * @var int
+     */
+    public $delimiterLen = 1;
 
     /**
      * List of errors that occured during lexing.
@@ -148,9 +165,7 @@ class Lexer
             if ($token === null) {
                 // @assert($this->last === $lastIdx);
                 $token = new Token($this->str[$this->last]);
-                if ($this->delimiter !== $this->str[$this->last]) {
-                    $this->error('Unexpected character.', $this->str[$this->last], $this->last);
-                }
+                $this->error('Unexpected character.', $this->str[$this->last], $this->last);
             } elseif (($token->type === Token::TYPE_SYMBOL)
                 && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)
                 && ($lastToken !== null)
@@ -172,20 +187,40 @@ class Lexer
             $tokens->tokens[$tokens->count++] = $token;
 
             // Handling delimiters.
-            if ($this->delimiter === '') {
-                // Updating the delimiter.
-                if ($token->type !== Token::TYPE_WHITESPACE) {
-                    $this->delimiter = $token->value;
-                }
-            } elseif ($token->value === 'DELIMITER') {
-                // `DELIMITER` keyword found, looking for a delimiter.
-                $this->delimiter = '';
-            }
+            if (($token->type === Token::TYPE_NONE) && ($token->value === 'DELIMITER')) {
 
-            // Overwriting token if delimiter.
-            if ($token->value === $this->delimiter) {
-                $token->type = Token::TYPE_DELIMITER;
-                $token->flags = 0;
+                if ($this->last + 1 >= $this->len) {
+                    $this->error('Expected whitespace(s) before delimiter.', '', $this->last + 1);
+                    continue;
+                }
+
+                // Skipping last R (from `delimiteR`) and whitespaces between
+                // the keyword `DELIMITER` and the actual delimiter.
+                $pos = ++$this->last;
+                if (($token = $this->parseWhitespace()) !== null) {
+                    $token->position = $pos;
+                    $tokens->tokens[$tokens->count++] = $token;
+                }
+
+                // Preparing the token that holds the new delimiter.
+                if ($this->last + 1 >= $this->len) {
+                    $this->error('Expected delimiter.', '', $this->last + 1);
+                    continue;
+                }
+                $pos = $this->last + 1;
+
+                // Parsing the delimiter.
+                $this->delimiter = '';
+                while ((++$this->last < $this->len) && (!Context::isWhitespace($this->str[$this->last]))) {
+                    $this->delimiter .= $this->str[$this->last];
+                }
+                --$this->last;
+
+                // Saving the delimiter and its token.
+                $this->delimiterLen = strlen($this->delimiter);
+                $token = new Token($this->delimiter, Token::TYPE_DELIMITER);
+                $token->position = $pos;
+                $tokens->tokens[$tokens->count++] = $token;
             }
 
             $lastToken = $token;
@@ -580,5 +615,25 @@ class Lexer
         }
         --$this->last;
         return new Token($token);
+    }
+
+    /**
+     * Parses the delimiter of the query.
+     *
+     * @return Token
+     */
+    public function parseDelimiter()
+    {
+        $idx = 0;
+
+        while ($idx < $this->delimiterLen) {
+            if ($this->delimiter[$idx] !== $this->str[$this->last + $idx]) {
+                return null;
+            }
+            ++$idx;
+        }
+
+        $this->last += $this->delimiterLen - 1;
+        return new Token($this->delimiter, Token::TYPE_DELIMITER);
     }
 }

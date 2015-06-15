@@ -48,20 +48,23 @@ class LexerTest extends TestCase
     {
         return array(
             array('lex'),
-            array('lexKeyword'),
-            array('lexOperator'),
-            array('lexWhitespace'),
-            array('lexComment'),
             array('lexBool'),
+            array('lexComment'),
+            array('lexDelimiter'),
+            array('lexDelimiter2'),
+            array('lexDelimiterErr1'),
+            array('lexDelimiterErr2'),
+            array('lexKeyword'),
             array('lexNumber'),
+            array('lexOperator'),
             array('lexString'),
             array('lexStringErr1'),
             array('lexSymbol'),
-            array('lexSymbolUser'),
             array('lexSymbolErr1'),
             array('lexSymbolErr2'),
             array('lexSymbolErr3'),
-            array('lexDelimiter'),
+            array('lexSymbolUser'),
+            array('lexWhitespace'),
         );
     }
 }
