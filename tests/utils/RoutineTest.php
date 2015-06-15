@@ -11,6 +11,82 @@ class RoutineTest extends TestCase
 {
 
     /**
+     * @dataProvider getReturnTypeProvider
+     */
+    public function testGetReturnType($def, array $expected)
+    {
+        $this->assertEquals($expected, Routine::getReturnType($def));
+    }
+
+    public function getReturnTypeProvider()
+    {
+        return array(
+            array('TEXT', array('', '', 'TEXT', '', '')),
+            array('INT(20)', array('', '', 'INT', '20', '')),
+            array(
+                'INT UNSIGNED',
+                array('', '', 'INT', '', 'UNSIGNED')
+            ),
+            array(
+                'VARCHAR(1) CHARSET utf8',
+                array('', '', 'VARCHAR', '1', 'utf8')
+            ),
+            array(
+                'ENUM(\'a\', \'b\') CHARSET latin1',
+                array('', '', 'ENUM', '\'a\',\'b\'', 'latin1')
+            ),
+            array(
+                'DECIMAL(5,2) UNSIGNED ZEROFILL',
+                array('', '', 'DECIMAL', '5,2', 'UNSIGNED ZEROFILL')
+            ),
+            array(
+                'SET(\'test\'\'esc"\',   \'more\\\'esc\')',
+                array(
+                    '', '', 'SET', '\'test\'\'esc"\',\'more\\\'esc\'', ''
+                )
+            )
+        );
+    }
+
+    /**
+     * @dataProvider getParameterProvider
+     */
+    public function testGetParameter($def, array $expected)
+    {
+        $this->assertEquals($expected, Routine::getParameter($def));
+    }
+
+    public function getParameterProvider()
+    {
+        return array(
+            array('`foo` TEXT', array('', 'foo', 'TEXT', '', '')),
+            array('`foo` INT(20)', array('', 'foo', 'INT', '20', '')),
+            array(
+                'IN `fo``fo` INT UNSIGNED',
+                array('IN', 'fo`fo', 'INT', '', 'UNSIGNED')
+            ),
+            array(
+                'OUT bar VARCHAR(1) CHARSET utf8',
+                array('OUT', 'bar', 'VARCHAR', '1', 'utf8')
+            ),
+            array(
+                '`"baz\'\'` ENUM(\'a\', \'b\') CHARSET latin1',
+                array('', '"baz\'\'', 'ENUM', '\'a\',\'b\'', 'latin1')
+            ),
+            array(
+                'INOUT `foo` DECIMAL(5,2) UNSIGNED ZEROFILL',
+                array('INOUT', 'foo', 'DECIMAL', '5,2', 'UNSIGNED ZEROFILL')
+            ),
+            array(
+                '`foo``s func` SET(\'test\'\'esc"\',   \'more\\\'esc\')',
+                array(
+                    '', 'foo`s func', 'SET', '\'test\'\'esc"\',\'more\\\'esc\'', ''
+                )
+            )
+        );
+    }
+
+    /**
      * @dataProvider getParametersProvider
      */
     public function testGetParameters($query, array $expected)
