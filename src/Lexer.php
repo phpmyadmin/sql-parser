@@ -268,8 +268,8 @@ class Lexer
         for ($j = 1; $j < Context::KEYWORD_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
             $token .= $this->str[$this->last];
             if (($this->last + 1 === $this->len) || (Context::isSeparator($this->str[$this->last + 1]))) {
-                if (Context::isKeyword($token)) {
-                    $ret = new Token($token, Token::TYPE_KEYWORD);
+                if (($flags = Context::isKeyword($token))) {
+                    $ret = new Token($token, Token::TYPE_KEYWORD, $flags);
                     $iEnd = $this->last;
                     // We don't break so we find longest keyword.
                     // For example, `OR` and `ORDER` have a common prefix `OR`.

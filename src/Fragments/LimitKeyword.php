@@ -55,8 +55,7 @@ class LimitKeyword extends Fragment
                 continue;
             }
 
-            // NOTE: `OFFSET` is not a keyword.
-            if (($token->type === Token::TYPE_NONE) && ($token->value === 'OFFSET')) {
+            if ($token->value === 'OFFSET') {
                 if ($offset) {
                     $parser->error('An offset was expected.');
                 }

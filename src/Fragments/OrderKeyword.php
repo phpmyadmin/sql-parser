@@ -55,7 +55,7 @@ class OrderKeyword extends Fragment
                 continue;
             }
 
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 // Type of ordering. By default, it is `ASC`.
                 if (($token->value === 'ASC') || ($token->value === 'DESC')) {
                     $expr->type = $token->value;

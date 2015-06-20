@@ -124,7 +124,7 @@ class FieldDefFragment extends Fragment
                 }
                 continue;
             } elseif ($state === 1) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                     if ($token->value === 'CONSTRAINT') {
                         $state = 4;
                     } elseif (isset(Context::$KEY_TYPES[$token->value])) {

@@ -16,6 +16,7 @@ class MiscTest extends TestCase
     public function testGetAliases($query, $db, array $expected)
     {
         $parser = new Parser($query);
+        // print_r($parser->statements); exit;
         $this->assertEquals($expected, Misc::getAliases($parser->statements[0], $db));
     }
 

@@ -93,7 +93,7 @@ class FieldFragment extends Fragment
                 continue;
             }
 
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 // Keywords may be found only between brackets.
                 if ($brackets === 0) {
                     if ($token->value === 'AS') {

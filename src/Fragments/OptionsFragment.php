@@ -55,8 +55,8 @@ class OptionsFragment extends Fragment
                 continue;
             }
 
-            if (isset($options[$token->value])) {
-                $lastOption = $options[$token->value];
+            if (isset($options[strtoupper($token->value)])) {
+                $lastOption = $options[strtoupper($token->value)];
                 $lastOptionId = is_array($lastOption) ? $lastOption[0] : $lastOption;
 
                 // Checking for option conflicts.
@@ -78,10 +78,9 @@ class OptionsFragment extends Fragment
 
                 // The only keywords that are expected are those which are
                 // options.
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                     break;
                 }
-
             }
 
             if (is_array($lastOption)) {

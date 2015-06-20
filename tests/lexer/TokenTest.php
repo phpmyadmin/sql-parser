@@ -11,10 +11,10 @@ class TokenTest extends TestCase
 
     public function testExtractKeyword()
     {
-        $tok = new Token('SelecT', Token::TYPE_KEYWORD);
+        $tok = new Token('SelecT', Token::TYPE_KEYWORD, Token::FLAG_KEYWORD_RESERVED);
         $this->assertEquals($tok->value, 'SELECT');
 
-        $tok = new Token('aS', Token::TYPE_KEYWORD);
+        $tok = new Token('aS', Token::TYPE_KEYWORD, Token::FLAG_KEYWORD_RESERVED);
         $this->assertEquals($tok->value, 'AS');
     }
 

@@ -73,7 +73,7 @@ class RenameKeyword extends Fragment
                 continue;
             }
 
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 if (($state === 1) && ($token->value === 'TO')) {
                     $state = 2;
                     continue;

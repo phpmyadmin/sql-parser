@@ -12,16 +12,18 @@ class IsMethodsTest extends TestCase
 
     public function testIsKeyword()
     {
-        $this->assertTrue(Context::isKeyword('SELECT'));
-        $this->assertTrue(Context::isKeyword('ALL'));
-        $this->assertTrue(Context::isKeyword('DISTINCT'));
-        $this->assertTrue(Context::isKeyword('FROM'));
+        $this->assertEquals(Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('SELECT'));
+        $this->assertEquals(Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('ALL'));
+        $this->assertEquals(Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('DISTINCT'));
 
-        $this->assertTrue(Context::isKeyword('PRIMARY KEY'));
-        $this->assertTrue(Context::isKeyword('CHARACTER SET'));
+        $this->assertEquals(Token::FLAG_KEYWORD_COMPOSED, Context::isKeyword('PRIMARY KEY'));
+        $this->assertEquals(Token::FLAG_KEYWORD_COMPOSED, Context::isKeyword('CHARACTER SET'));
 
-        $this->assertFalse(Context::isKeyword('foo'));
-        $this->assertFalse(Context::isKeyword('bar baz'));
+        $this->assertEquals(Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('FROM', true));
+        $this->assertEquals(null, Context::isKeyword('PRIMARY KEY', true));
+
+        $this->assertEquals(null, Context::isKeyword('foo'));
+        $this->assertEquals(null, Context::isKeyword('bar baz'));
     }
 
     public function testIsOperator()
