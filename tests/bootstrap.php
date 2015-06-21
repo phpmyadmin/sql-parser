@@ -2,7 +2,7 @@
 
 namespace SqlParser\Tests;
 
-require('vendor/autoload.php');
+require 'vendor/autoload.php';
 
 use SqlParser\Lexer;
 use SqlParser\Parser;

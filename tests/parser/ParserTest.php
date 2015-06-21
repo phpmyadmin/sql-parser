@@ -49,10 +49,12 @@ class ParserTest extends TestCase
         $parser->error('error #1', new Token('foo'), 1);
         $parser->error('error #2', new Token('bar'), 2);
 
-        $this->assertEquals($parser->errors, array(
+        $this->assertEquals(
+            $parser->errors, array(
             new ParserException('error #1', new Token('foo'), 1),
             new ParserException('error #2', new Token('bar'), 2),
-        ));
+            )
+        );
     }
 
     /**
