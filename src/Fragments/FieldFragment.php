@@ -85,7 +85,6 @@ class FieldFragment extends Fragment
             if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
                 if (($isExpr) && (!$alias)) {
                     $ret->expr .= $token->token;
-                    $ret->tokens[] = $token;
                 }
                 if (($alias === 0) && (!$isExpr) && (!$period) && (!empty($ret->expr))) {
                     $alias = 1;
@@ -156,7 +155,6 @@ class FieldFragment extends Fragment
                 }
 
                 $ret->expr .= $token->token;
-                $ret->tokens[] = $token;
             }
         }
 
@@ -164,7 +162,7 @@ class FieldFragment extends Fragment
             $parser->error('Alias was expected.', $token);
         }
 
-        if (empty($ret->tokens)) {
+        if (empty($ret->expr)) {
             return null;
         }
 

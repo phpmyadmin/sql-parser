@@ -96,7 +96,6 @@ class ValuesKeyword extends Fragment
                 break;
             }
 
-            $expr->tokens[] = $token;
             if ($state === 1) {
                 $value .= $token->value;
                 $state = 2;
@@ -105,7 +104,7 @@ class ValuesKeyword extends Fragment
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->values)) {
             $ret[] = $expr;
         }
 

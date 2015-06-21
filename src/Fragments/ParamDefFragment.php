@@ -112,12 +112,10 @@ class ParamDefFragment extends Fragment
                     break;
                 }
             }
-
-            $expr->tokens[] = $token;
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->name)) {
             $ret[] = $expr;
         }
 

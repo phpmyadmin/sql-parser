@@ -59,7 +59,6 @@ class OrderKeyword extends Fragment
                 // Type of ordering. By default, it is `ASC`.
                 if (($token->value === 'ASC') || ($token->value === 'DESC')) {
                     $expr->type = $token->value;
-                    $expr->tokens[] = $token;
                     continue;
                 }
 
@@ -74,13 +73,12 @@ class OrderKeyword extends Fragment
                 continue;
             }
 
-            $expr->tokens[] = $token;
             $expr->column .= $token->token;
 
         }
 
         // Last iteration was not processed.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->column)) {
             $ret[] = $expr;
         }
 

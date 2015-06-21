@@ -268,12 +268,15 @@ abstract class Context
      * @var array
      */
     public static $DATA_TYPES = array(
-        'ARRAY' => 1, 'BIGINT' => 1, 'BINARY VARYING' => 1, 'BINARY' => 1,
-        'BOOLEAN' => 1, 'CHARACTER' => 1, 'CHARACTER' => 1, 'DATE' => 1,
-        'DECIMAL' => 1, 'DOUBLE' => 1, 'FLOAT' => 1, 'FLOAT' => 1, 'INT' => 1,
-        'INTEGER' => 1, 'INTERVAL' => 1, 'MULTISET' => 1, 'NUMERIC' => 1,
-        'REAL' => 1, 'SMALLINT' => 1, 'TIME' => 1, 'TIMESTAMP' => 1,
-        'VARBINARY' => 1, 'VARCHAR' => 1, 'XML' => 1,
+        'ARRAY' => 1, 'BIGINT' => 1, 'BINARY' => 1, 'BINARY VARYING' => 1,
+        'BLOB' => 1, 'BOOLEAN' => 1, 'CHAR' => 1, 'CHARACTER' => 1, 'DATE' => 1,
+        'DATETIME' => 1, 'DECIMAL' => 1, 'DOUBLE' => 1, 'ENUM' => 1,
+        'FLOAT' => 1, 'INT' => 1, 'INTEGER' => 1, 'INTERVAL' => 1,
+        'LONGBLOB' => 1, 'LONGTEXT' => 1, 'MEDIUMBLOB' => 1, 'MEDIUMINT' => 1,
+        'MEDIUMTEXT' => 1, 'MULTISET' => 1, 'NUMERIC' => 1, 'REAL' => 1,
+        'SET' => 1, 'SMALLINT' => 1, 'TEXT' => 1, 'TIME' => 1, 'TIMESTAMP' => 1,
+        'TINYBLOB' => 1, 'TINYINT' => 1, 'TINYTEXT' => 1, 'VARBINARY' => 1,
+        'VARCHAR' => 1, 'XML' => 1, 'YEAR' => 1
     );
 
     // -------------------------------------------------------------------------

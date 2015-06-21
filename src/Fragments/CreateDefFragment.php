@@ -98,7 +98,6 @@ class CreateDefFragment extends Fragment
                 break;
             }
 
-            $ret->tokens[] = $token;
             $ret->name .= $token->value;
         }
 

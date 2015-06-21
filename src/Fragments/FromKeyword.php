@@ -58,7 +58,7 @@ class FromKeyword extends Fragment
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if ($expr !== null) {
             $ret[] = $expr;
         }
 

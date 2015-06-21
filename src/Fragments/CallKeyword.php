@@ -68,13 +68,11 @@ class CallKeyword extends Fragment
 
             if ($state === 0) {
                 $ret->name = $token->value;
-                $ret->tokens[] = $token;
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $parameters = ArrayFragment::parse($parser, $list);
                     $ret->parameters = $parameters->array;
-                    $ret->tokens = array_merge($ret->tokens, $parameters->tokens);
                 }
                 break;
             }

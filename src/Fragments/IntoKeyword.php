@@ -92,7 +92,6 @@ class IntoKeyword extends Fragment
                 break;
             }
 
-            $ret->tokens[] = $token;
             if ($state === 0) {
                 $ret->table .= $token->value;
             } elseif ($state === 1) {

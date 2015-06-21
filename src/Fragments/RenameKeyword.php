@@ -95,7 +95,6 @@ class RenameKeyword extends Fragment
                 break;
             }
 
-            $expr->tokens[] = $token;
             if ($state == 0) {
                 $expr->old = $token->value;
                 $state = 1;
@@ -107,7 +106,7 @@ class RenameKeyword extends Fragment
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->old)) {
             $ret[] = $expr;
         }
 

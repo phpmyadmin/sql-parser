@@ -85,17 +85,15 @@ class SetKeyword extends Fragment
                 }
             }
 
-            $expr->tokens[] = $token;
             if ($state === 0) {
                 $expr->column .= $token->value;
             } else { // } else if ($state === 1) {
                 $expr->value = $token->value;
             }
-
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->column)) {
             $ret[] = $expr;
         }
 

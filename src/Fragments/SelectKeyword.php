@@ -58,7 +58,7 @@ class SelectKeyword extends Fragment
         }
 
         // Last iteration was not processed.
-        if (!empty($expr->tokens)) {
+        if ($expr !== null) {
             $ret[] = $expr;
         }
 

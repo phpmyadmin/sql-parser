@@ -104,8 +104,6 @@ class OptionsFragment extends Fragment
                 $ret->options[$lastOptionId] = $token->value;
                 $lastOption = null;
             }
-            $ret->tokens[] = $token;
-
         }
 
         ksort($ret->options);

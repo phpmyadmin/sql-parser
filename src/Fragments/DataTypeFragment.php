@@ -80,7 +80,6 @@ class DataTypeFragment extends Fragment
 
             if ($state === 0) {
                 $ret->name = $token->value;
-                $ret->tokens[] = $token;
                 if (!isset(Context::$DATA_TYPES[$token->value])) {
                     $parser->error('Unrecognized data type.', $token);
                 }
@@ -88,11 +87,9 @@ class DataTypeFragment extends Fragment
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $size = ArrayFragment::parse($parser, $list);
-                    foreach ($size->tokens as $token) {
-                        $ret->size[] = $token->token;
-                    }
-                    $ret->tokens = array_merge($ret->tokens, $size->tokens);
                     ++$list->idx;
+                    $ret->size = (($ret->name === 'ENUM') || ($ret->name === 'SET')) ?
+                        $size->raw : $size->array;
                 }
                 $ret->options = OptionsFragment::parse($parser, $list, static::$OPTIONS);
                 ++$list->idx;

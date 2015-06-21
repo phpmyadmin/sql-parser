@@ -64,14 +64,13 @@ class WhereKeyword extends Fragment
 
             // Conditions are delimited by logical operators.
             if (in_array($token->value, static::$OPERATORS, true)) {
-                if (!empty($expr->tokens)) {
+                if (!empty($expr->condition)) {
                     $ret[] = $expr;
                 }
 
                 $expr = new WhereKeyword();
                 $expr->isOperator = true;
                 $expr->condition = $token->value;
-                $epxr->tokens[] = $token;
                 $ret[] = $expr;
 
                 $expr = new WhereKeyword();
@@ -84,13 +83,12 @@ class WhereKeyword extends Fragment
                 break;
             }
 
-            $expr->tokens[] = $token;
             $expr->condition .= $token->token;
 
         }
 
         // Last iteration was not processed.
-        if (!empty($expr->tokens)) {
+        if (!empty($expr->condition)) {
             $ret[] = $expr;
         }
 

@@ -75,9 +75,6 @@ class LimitKeyword extends Fragment
             } else {
                 $ret->row_count = $token->value;
             }
-
-            $ret->tokens[] = $token;
-
         }
 
         if ($offset) {
