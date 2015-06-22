@@ -12,14 +12,17 @@ class IsMethodsTest extends TestCase
 
     public function testIsKeyword()
     {
-        $this->assertEquals(Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('SELECT'));
-        $this->assertEquals(Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('ALL'));
-        $this->assertEquals(Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('DISTINCT'));
+        $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('SELECT'));
+        $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('ALL'));
+        $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('DISTINCT'));
 
-        $this->assertEquals(Token::FLAG_KEYWORD_COMPOSED, Context::isKeyword('PRIMARY KEY'));
-        $this->assertEquals(Token::FLAG_KEYWORD_COMPOSED, Context::isKeyword('CHARACTER SET'));
+        $this->assertEquals(
+            1 | Token::FLAG_KEYWORD_COMPOSED | Token::FLAG_KEYWORD_KEY,
+            Context::isKeyword('PRIMARY KEY')
+        );
+        $this->assertEquals(1 | Token::FLAG_KEYWORD_COMPOSED, Context::isKeyword('CHARACTER SET'));
 
-        $this->assertEquals(Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('FROM', true));
+        $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('FROM', true));
         $this->assertEquals(null, Context::isKeyword('PRIMARY KEY', true));
 
         $this->assertEquals(null, Context::isKeyword('foo'));
