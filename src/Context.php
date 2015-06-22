@@ -36,14 +36,22 @@ abstract class Context
      *
      * @var string
      */
-    public static $defaultContext = '\\SqlParser\\Contexts\\Context_MySQL50700';
+    public static $defaultContext = '\\SqlParser\\Contexts\\ContextMySql50700';
 
     /**
      * The name of the loaded context.
      *
      * @var string
      */
-    public static $loadedContext = '\\SqlParser\\Contexts\\Context_MySQL50700';
+    public static $loadedContext = '\\SqlParser\\Contexts\\ContextMySql50700';
+
+    /**
+     * The prefix concatenated to the context name when an incomplete class name
+     * is specified.
+     *
+     * @var string
+     */
+    public static $contextPrefix = '\\SqlParser\\Contexts\\Context';
 
     // -------------------------------------------------------------------------
     // Keywords.
@@ -474,13 +482,13 @@ abstract class Context
     /**
      * Checks if the given character is a whitespace.
      *
-     * @param string $ch String to be checked.
+     * @param string $str String to be checked.
      *
      * @return bool
      */
-    public static function isWhitespace($ch)
+    public static function isWhitespace($str)
     {
-        return ($ch === ' ') || ($ch === "\r") || ($ch === "\n") || ($ch === "\t");
+        return ($str === ' ') || ($str === "\r") || ($str === "\n") || ($str === "\t");
     }
 
     // -------------------------------------------------------------------------
@@ -519,14 +527,14 @@ abstract class Context
      * This actually check only for `TRUE` and `FALSE` because `1` or `0` are
      * actually numbers and are parsed by specific methods.
      *
-     * @param string $ch String to be checked.
+     * @param string $str String to be checked.
      *
      * @return bool
      */
-    public static function isBool($ch)
+    public static function isBool($str)
     {
-        $ch = strtoupper($ch);
-        return ($ch === 'TRUE') || ($ch === 'FALSE');
+        $str = strtoupper($str);
+        return ($str === 'TRUE') || ($str === 'FALSE');
     }
 
     // -------------------------------------------------------------------------
@@ -535,14 +543,14 @@ abstract class Context
     /**
      * Checks if the given character can be a part of a number.
      *
-     * @param string $ch String to be checked.
+     * @param string $str String to be checked.
      *
      * @return bool
      */
-    public static function isNumber($ch)
+    public static function isNumber($str)
     {
-        return (($ch >= '0') && ($ch <= '9')) || ($ch === '.')
-            || ($ch === '-') || ($ch === '+') || ($ch === 'e') || ($ch === 'E');
+        return (($str >= '0') && ($str <= '9')) || ($str === '.')
+            || ($str === '-') || ($str === '+') || ($str === 'e') || ($str === 'E');
     }
 
     // -------------------------------------------------------------------------
@@ -552,15 +560,15 @@ abstract class Context
      * Checks if the given character is the beginning of a symbol. A symbol
      * can be either a variable or a field name.
      *
-     * @param string $ch String to be checked.
+     * @param string $str String to be checked.
      *
      * @return int The appropriate flag for the symbol type.
      */
-    public static function isSymbol($ch)
+    public static function isSymbol($str)
     {
-        if ($ch[0] === '@') {
+        if ($str[0] === '@') {
             return Token::FLAG_SYMBOL_VARIABLE;
-        } elseif ($ch[0] === '`') {
+        } elseif ($str[0] === '`') {
             return Token::FLAG_SYMBOL_BACKTICK;
         }
         return null;
@@ -592,13 +600,13 @@ abstract class Context
     /**
      * Checks if the given character can be a separator for two lexems.
      *
-     * @param string $ch String to be checked.
+     * @param string $str String to be checked.
      *
      * @return bool
      */
-    public static function isSeparator($ch)
+    public static function isSeparator($str)
     {
-        return !ctype_alnum($ch) && $ch !== '_';
+        return !ctype_alnum($str) && $str !== '_';
     }
 
     /**
@@ -618,12 +626,12 @@ abstract class Context
         }
         if ($context[0] !== '\\') {
             // Short context name (must be formatted into class name).
-            $context = '\\SqlParser\\Contexts\\Context_' . $context;
+            $context = self::$contextPrefix . $context;
         }
         if (!class_exists($context)) {
             throw new \Exception('Specified context ("' . $context . '") doesn\'t exist.');
         }
-        static::$loadedContext = $context;
-        static::$KEYWORDS = $context::$KEYWORDS;
+        self::$loadedContext = $context;
+        self::$KEYWORDS = $context::$KEYWORDS;
     }
 }
