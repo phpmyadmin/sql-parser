@@ -106,6 +106,7 @@ class RoutineTest extends TestCase
                     'name' => array(),
                     'type' => array(),
                     'length' => array(),
+                    'length_arr' => array(),
                     'opts' => array()
                 )
             ),
@@ -124,6 +125,9 @@ class RoutineTest extends TestCase
                     ),
                     'length' => array(
                         0 => ''
+                    ),
+                    'length_arr' => array(
+                        0 => array(),
                     ),
                     'opts' => array(
                         0 => ''
@@ -145,6 +149,9 @@ class RoutineTest extends TestCase
                     ),
                     'length' => array(
                         0 => '25'
+                    ),
+                    'length_arr' => array(
+                        0 => array('25'),
                     ),
                     'opts' => array(
                         0 => 'UNSIGNED ZEROFILL'
@@ -171,6 +178,10 @@ class RoutineTest extends TestCase
                     'length' => array(
                         0 => '1',
                         1 => '15'
+                    ),
+                    'length_arr' => array(
+                        0 => array('1'),
+                        1 => array('15')
                     ),
                     'opts' => array(
                         0 => 'ZEROFILL',
