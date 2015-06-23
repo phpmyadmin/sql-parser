@@ -20,11 +20,11 @@ class OrderKeyword extends Fragment
 {
 
     /**
-     * The name of the column that is being used for ordering.
+     * The field that is used for ordering.
      *
-     * @var string
+     * @var FieldFragment
      */
-    public $column;
+    public $field;
 
     /**
      * The order type.
@@ -46,6 +46,20 @@ class OrderKeyword extends Fragment
 
         $expr = new OrderKeyword();
 
+        /**
+         * The state of the parser.
+         *
+         * Below are the states of the parser.
+         *
+         *      0 ----------------------[ field ]----------------------> 1
+         *
+         *      1 ------------------------[ , ]------------------------> 0
+         *      1 -------------------[ ASC / DESC ]--------------------> 1
+         *
+         * @var int
+         */
+        $state = 0;
+
         for (; $list->idx < $list->count; ++$list->idx) {
 
             /**
@@ -64,30 +78,27 @@ class OrderKeyword extends Fragment
                 continue;
             }
 
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
-                // Type of ordering. By default, it is `ASC`.
-                if (($token->value === 'ASC') || ($token->value === 'DESC')) {
+            if ($state === 0) {
+                $expr->field = FieldFragment::parse($parser, $list);
+                $state = 1;
+            } elseif ($state === 1) {
+                if (($token->type === Token::TYPE_KEYWORD) && (($token->value === 'ASC') || ($token->value === 'DESC'))) {
                     $expr->type = $token->value;
-                    continue;
+                } else if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
+                    if (!empty($expr->field)) {
+                        $ret[] = $expr;
+                    }
+                    $expr = new OrderKeyword();
+                    $state = 0;
+                } else {
+                    break;
                 }
-
-                // No other keyword is expected.
-                break;
             }
-
-            // Saving field.
-            if (($token->type === Token::TYPE_OPERATOR) && ($token->token === ',')) {
-                $ret[] = $expr;
-                $expr = new OrderKeyword();
-                continue;
-            }
-
-            $expr->column .= $token->token;
 
         }
 
         // Last iteration was not processed.
-        if (!empty($expr->column)) {
+        if (!empty($expr->field)) {
             $ret[] = $expr;
         }
 

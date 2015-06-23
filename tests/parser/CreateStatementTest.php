@@ -19,10 +19,14 @@ class CreateStatementTest extends TestCase
     {
         return array(
             array('parseCreateTable'),
+            array('parseCreateTable2'),
+            array('parseCreateTableErr1'),
             array('parseCreateProcedure'),
             array('parseCreateProcedure2'),
             array('parseCreateFunction'),
             array('parseCreateFunctionErr1'),
+            array('parseCreateFunctionErr2'),
+            array('parseCreateUser'),
         );
     }
 }

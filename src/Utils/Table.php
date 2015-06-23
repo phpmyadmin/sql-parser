@@ -51,9 +51,9 @@ class Table
                     $tmp['on_delete'] = str_replace(' ', '_', $opt);
                 }
 
-                if (($opt = $field->references->options->has('MATCH'))) {
-                    $tmp['match'] = str_replace(' ', '_', $opt);
-                }
+                // if (($opt = $field->references->options->has('MATCH'))) {
+                //     $tmp['match'] = str_replace(' ', '_', $opt);
+                // }
             }
 
             $ret[] = $tmp;

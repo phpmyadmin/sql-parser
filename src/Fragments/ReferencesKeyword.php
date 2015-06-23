@@ -99,7 +99,7 @@ class ReferencesKeyword extends Fragment
                 $ret->table = $token->value;
                 $state = 1;
             } else if ($state === 1) {
-                $ret->columns = ArrayFragment::parse($parser, $list)->array;
+                $ret->columns = ArrayFragment::parse($parser, $list)->values;
                 $state = 2;
             } else if ($state === 2) {
                 $ret->options = OptionsFragment::parse($parser, $list, static::$REFERENCES_OPTIONS);

@@ -4,7 +4,7 @@ namespace SqlParser\Tests\Parser;
 
 use SqlParser\Tests\TestCase;
 
-class CallStatementTest extends TestCase
+class LimitKeywordTest extends TestCase
 {
 
     /**
@@ -18,9 +18,8 @@ class CallStatementTest extends TestCase
     public function testCallProvider()
     {
         return array(
-            array('parseCall'),
-            array('parseCall2'),
-            array('parseCall3'),
+            array('parseLimitErr1'),
+            array('parseLimitErr2'),
         );
     }
 }

@@ -70,20 +70,12 @@ class KeyFragment extends Fragment
          *
          * Below are the states of the parser.
          *
-         *      0 -----------------------[ ( ]------------------------> 1
+         *      0 ----------------------[ type ]-----------------------> 1
          *
-         *      1 --------------------[ CONSTRAINT ]------------------> 1
-         *      1 -----------------------[ key ]----------------------> 2
-         *      1 -------------[ constraint / column name ]-----------> 2
+         *      1 ----------------------[ name ]-----------------------> 1
+         *      1 ---------------------[ columns ]---------------------> 2
          *
-         *      2 --------------------[ data type ]-------------------> 3
-         *
-         *      3 ---------------------[ options ]--------------------> 4
-         *
-         *      4 --------------------[ REFERENCES ]------------------> 4
-         *
-         *      5 ------------------------[ , ]-----------------------> 1
-         *      5 ------------------------[ ) ]-----------------------> -1
+         *      2 ---------------------[ options ]---------------------> 3
          *
          * @var int
          */
@@ -112,7 +104,7 @@ class KeyFragment extends Fragment
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $ret->columns = ArrayFragment::parse($parser, $list)->array;
+                    $ret->columns = ArrayFragment::parse($parser, $list)->values;
                     $state = 2;
                 } else {
                     $ret->name = $token->value;

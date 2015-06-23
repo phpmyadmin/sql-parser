@@ -21,6 +21,7 @@ class RoutineTest extends TestCase
     public function getReturnTypeProvider()
     {
         return array(
+            array('', array('', '', '', '', '')),
             array('TEXT', array('', '', 'TEXT', '', '')),
             array('INT(20)', array('', '', 'INT', '20', '')),
             array(
@@ -59,6 +60,7 @@ class RoutineTest extends TestCase
     public function getParameterProvider()
     {
         return array(
+            array('', array('', '', '', '', '')),
             array('`foo` TEXT', array('', 'foo', 'TEXT', '', '')),
             array('`foo` INT(20)', array('', 'foo', 'INT', '20', '')),
             array(
