@@ -99,7 +99,8 @@ abstract class Statement
                 if (!$parsedOptions) {
                     ++$list->idx; // Skipping keyword.
                     $this->options = OptionsFragment::parse(
-                        $parser, $list,
+                        $parser,
+                        $list,
                         static::$OPTIONS
                     );
                     $parsedOptions = true;
