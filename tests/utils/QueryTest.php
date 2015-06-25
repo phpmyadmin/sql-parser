@@ -30,15 +30,12 @@ class QueryTest extends TestCase
                 array('reload' => true)
             ),
             array(
-                'CREATE TABLE tbl (id INT)',
-                array('reload' => true)
+                'CALL test()',
+                array('is_procedure' => true)
             ),
             array(
-                'ANALYZE TABLE tbl',
-                array(
-                    'is_maint' => true,
-                    'is_analyze' => true
-                )
+                'CREATE TABLE tbl (id INT)',
+                array('reload' => true)
             ),
             array(
                 'CHECK TABLE tbl',
@@ -47,8 +44,8 @@ class QueryTest extends TestCase
             array(
                 'DELETE FROM tbl',
                 array(
-                    'is_delete' => true,
-                    'is_affected' => true
+                    'is_affected' => true,
+                    'is_delete' => true
                 ),
             ),
             array(
@@ -58,8 +55,8 @@ class QueryTest extends TestCase
             array(
                 'DROP DATABASE db',
                 array(
-                    'reload' => true,
-                    'drop_database' => true
+                    'drop_database' => true,
+                    'reload' => true
                 )
             ),
             array(
@@ -82,37 +79,62 @@ class QueryTest extends TestCase
             ),
             array(
                 'SELECT 1',
-                array()
+                array('is_select' => true)
             ),
             array(
                 'SELECT * FROM tbl',
-                array('select_from' => true)
+                array(
+                    'is_select' => true,
+                    'select_from' => true
+                )
             ),
             array(
                 'SELECT DISTINCT * FROM tbl',
                 array(
-                    'select_from' => true,
-                    'distinct' => true
+                    'distinct' => true,
+                    'is_select' => true,
+                    'select_from' => true
+                )
+            ),
+            array(
+                'SELECT * FROM actor GROUP BY actor_id',
+                array(
+                    'is_group' => true,
+                    'is_select' => true,
+                    'select_from' => true
+                )
+            ),
+            array(
+                'SELECT col1, col2 FROM table1 PROCEDURE ANALYSE(10, 2000);',
+                array(
+                    'is_analyse' => true,
+                    'is_select' => true,
+                    'select_from' => true
                 )
             ),
             array(
                 'SELECT * FROM tbl INTO OUTFILE "/tmp/export.txt"',
                 array(
-                    'select_from' => true,
-                    'is_export' => true
+                    'is_export' => true,
+                    'is_select' => true,
+                    'select_from' => true
                 )
             ),
             array(
                 'SELECT COUNT(id), SUM(id) FROM tbl',
                 array(
-                    'select_from' => true,
+                    'is_count' => true,
                     'is_func' => true,
-                    'is_count' => true
+                    'is_select' => true,
+                    'select_from' => true
                 )
             ),
             array(
                 'SELECT (SELECT "foo")',
-                array('is_subquery' => true)
+                array(
+                    'is_select' => true,
+                    'is_subquery' => true
+                )
             ),
             array(
                 'SHOW CREATE TABLE tbl',
@@ -123,6 +145,32 @@ class QueryTest extends TestCase
                 array('is_affected' => true)
             )
         );
+    }
+
+    public function testGetAll()
+    {
+        $query = 'SELECT *, actor.actor_id, sakila2.film.*
+            FROM sakila2.city, sakila2.film, actor';
+        $parser = new Parser($query);
+        $this->assertEquals(
+            array_merge(
+                Query::getFlags($parser->statements[0], true),
+                array(
+                    'parser' => $parser,
+                    'statement' => $parser->statements[0],
+                    'tables' => array(
+                        array('actor', null),
+                        array('film', 'sakila2')
+                    )
+                )
+            ),
+            Query::getAll($query)
+        );
+    }
+
+    public function testGetAllEmpty()
+    {
+        $this->assertEquals(array(), Query::getAll(''));
     }
 
 }
