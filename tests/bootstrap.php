@@ -73,8 +73,7 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     {
         list($input, $output) = $this->getData($name);
 
-        $lexer = new Lexer($input);
-        $parser = new Parser($lexer->tokens);
+        $parser = new Parser($input);
 
         $errors = array();
         foreach ($parser->errors as $err) {

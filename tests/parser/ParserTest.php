@@ -20,10 +20,7 @@ class ParserTest extends TestCase
 
     public function testUnrecognizedStatement()
     {
-        $lexer = new Lexer("SELECT 1; FROM");
-        $lexer->lex();
-        $parser = new Parser($lexer->tokens);
-        $parser->parse();
+        $parser = new Parser('SELECT 1; FROM');
         $this->assertEquals(
             $parser->errors[0]->getMessage(),
             'Unrecognized statement type "FROM".'
@@ -32,10 +29,7 @@ class ParserTest extends TestCase
 
     public function testUnrecognizedKeyword()
     {
-        $lexer = new Lexer("SELECT 1 FROM foo PARTITION(bar, baz) AS");
-        $lexer->lex();
-        $parser = new Parser($lexer->tokens);
-        $parser->parse();
+        $parser = new Parser('SELECT 1 FROM foo PARTITION(bar, baz) AS');
         $this->assertEquals(
             $parser->errors[0]->getMessage(),
             'Unrecognized keyword "AS".'
