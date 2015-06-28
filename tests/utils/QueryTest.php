@@ -116,11 +116,13 @@ class QueryTest extends TestCase
                 )
             ),
             array(
-                'SELECT DISTINCT * FROM tbl',
+                'SELECT DISTINCT * FROM tbl LIMIT 0, 10 ORDER BY id',
                 array(
                     'distinct' => true,
                     'is_select' => true,
                     'select_from' => true,
+                    'limit' => true,
+                    'order' => true,
                     'querytype' => 'SELECT'
                 )
             ),
@@ -207,6 +209,24 @@ class QueryTest extends TestCase
             ),
             Query::getAll($query)
         );
+
+        $query = 'SELECT * FROM sakila.actor, film';
+        $parser = new Parser($query);
+        $this->assertEquals(
+            array_merge(
+                Query::getFlags($parser->statements[0], true),
+                array(
+                    'parser' => $parser,
+                    'statement' => $parser->statements[0],
+                    'select_expr' => array('*'),
+                    'select_tables' => array(
+                        array('actor', 'sakila'),
+                        array('film', null)
+                    )
+                )
+            ),
+            Query::getAll($query)
+        );
     }
 
     public function testGetAllEmpty()
@@ -214,15 +234,34 @@ class QueryTest extends TestCase
         $this->assertEquals(array(), Query::getAll(''));
     }
 
+    public function testGetClauseType()
+    {
+        $this->assertEquals('LIMIT', Query::getClauseType(' LIMIT 0, 10 '));
+    }
+
     public function testReplaceClause()
     {
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10');
         $this->assertEquals(
-            'SELECT *, (SELECT 1) FROM film  WHERE film_id > 0 LIMIT 0, 10',
+            'SELECT *, (SELECT 1) FROM film WHERE film_id > 0 LIMIT 0, 10',
             Query::replaceClause(
                 $parser->statements[0],
                 $parser->list,
                 'WHERE film_id > 0'
+            )
+        );
+    }
+
+    public function testReplaceClauseOnlyKeyword()
+    {
+        $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10');
+        $this->assertEquals(
+            ' SELECT SQL_CALC_FOUND_ROWS *, (SELECT 1) FROM film LIMIT 0, 10',
+            Query::replaceClause(
+                $parser->statements[0],
+                $parser->list,
+                'SELECT SQL_CALC_FOUND_ROWS',
+                true
             )
         );
     }
