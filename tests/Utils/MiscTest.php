@@ -16,8 +16,9 @@ class MiscTest extends TestCase
     public function testGetAliases($query, $db, array $expected)
     {
         $parser = new Parser($query);
-        // print_r($parser->statements); exit;
-        $this->assertEquals($expected, Misc::getAliases($parser->statements[0], $db));
+        $statement = empty($parser->statements[0]) ?
+            null : $parser->statements[0];
+        $this->assertEquals($expected, Misc::getAliases($statement, $db));
     }
 
     public function getAliasesProvider()
@@ -85,6 +86,16 @@ class MiscTest extends TestCase
                     )
                 )
             ),
+            array(
+                'SELECT film_id FROM (SELECT * FROM film) as f;',
+                'sakila',
+                array()
+            ),
+            array(
+                '',
+                null,
+                array()
+            )
         );
     }
 }

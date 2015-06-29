@@ -13,14 +13,20 @@
         <log type="coverage-clover" target="coverage.xml" />
     </logging>
     <testsuites>
+        <testsuite name="Builder">
+            <directory suffix=".php">./tests/Builder</directory>
+        </testsuite>
+        <testsuite name="Fragments">
+            <directory suffix=".php">./tests/Fragments</directory>
+        </testsuite>
         <testsuite name="Lexer">
-            <directory suffix=".php">./tests/lexer</directory>
+            <directory suffix=".php">./tests/Lexer</directory>
         </testsuite>
         <testsuite name="Parser">
-            <directory suffix=".php">./tests/parser</directory>
+            <directory suffix=".php">./tests/Parser</directory>
         </testsuite>
         <testsuite name="Utils">
-            <directory suffix=".php">./tests/utils</directory>
+            <directory suffix=".php">./tests/Utils</directory>
         </testsuite>
     </testsuites>
 </phpunit>

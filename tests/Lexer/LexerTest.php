@@ -18,7 +18,8 @@ class LexerTest extends TestCase
         $lexer->error('error #2', 'bar', 3, 4);
 
         $this->assertEquals(
-            $lexer->errors, array(
+            $lexer->errors,
+            array(
             new LexerException('error #1', 'foo', 1, 2),
             new LexerException('error #2', 'bar', 3, 4),
             )

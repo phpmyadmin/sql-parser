@@ -173,6 +173,25 @@ class QueryTest extends TestCase
                 )
             ),
             array(
+                'SELECT * FROM customer HAVING store_id = 2;',
+                array(
+                    'is_select' => true,
+                    'select_from' => true,
+                    'is_group' => true,
+                    'having' => true,
+                    'querytype' => 'SELECT'
+                )
+            ),
+            array(
+                'SELECT * FROM table1 INNER JOIN table2 ON table1.id=table2.id;',
+                array(
+                    'is_select' => true,
+                    'select_from' => true,
+                    'join' => true,
+                    'querytype' => 'SELECT'
+                )
+            ),
+            array(
                 'SHOW CREATE TABLE tbl',
                 array(
                     'is_show' => true,
@@ -185,7 +204,48 @@ class QueryTest extends TestCase
                     'is_affected' => true,
                     'querytype' => 'UPDATE'
                 )
-            )
+            ),
+            array(
+                'ANALYZE TABLE tbl',
+                array(
+                    'is_maint' => true,
+                    'querytype' => 'ANALYZE'
+                )
+            ),
+            array(
+                'CHECKSUM TABLE tbl',
+                array(
+                    'is_maint' => true,
+                    'querytype' => 'CHECKSUM'
+                )
+            ),
+            array(
+                'OPTIMIZE TABLE tbl',
+                array(
+                    'is_maint' => true,
+                    'querytype' => 'OPTIMIZE'
+                )
+            ),
+            array(
+                'REPAIR TABLE tbl',
+                array(
+                    'is_maint' => true,
+                    'querytype' => 'REPAIR'
+                )
+            ),
+            array(
+                '(SELECT a FROM t1 WHERE a=10 AND B=1 ORDER BY a LIMIT 10) ' .
+                'UNION ' .
+                '(SELECT a FROM t2 WHERE a=11 AND B=2 ORDER BY a LIMIT 10);',
+                array(
+                    'is_select' => true,
+                    'select_from' => true,
+                    'limit' => true,
+                    'order' => true,
+                    'union' => true,
+                    'querytype' => 'SELECT'
+                )
+            ),
         );
     }
 
@@ -241,7 +301,7 @@ class QueryTest extends TestCase
 
     public function testReplaceClause()
     {
-        $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10');
+        $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10;');
         $this->assertEquals(
             'SELECT *, (SELECT 1) FROM film WHERE film_id > 0 LIMIT 0, 10',
             Query::replaceClause(
@@ -265,5 +325,4 @@ class QueryTest extends TestCase
             )
         );
     }
-
 }
