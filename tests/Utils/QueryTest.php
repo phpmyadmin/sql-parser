@@ -294,11 +294,6 @@ class QueryTest extends TestCase
         $this->assertEquals(array(), Query::getAll(''));
     }
 
-    public function testGetClauseType()
-    {
-        $this->assertEquals('LIMIT', Query::getClauseType(' LIMIT 0, 10 '));
-    }
-
     public function testReplaceClause()
     {
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10;');
@@ -321,6 +316,7 @@ class QueryTest extends TestCase
                 $parser->statements[0],
                 $parser->list,
                 'SELECT SQL_CALC_FOUND_ROWS',
+                null,
                 true
             )
         );
