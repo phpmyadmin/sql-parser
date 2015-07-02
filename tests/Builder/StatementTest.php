@@ -32,14 +32,12 @@ class StatementTest extends TestCase
 
         $stmt->limit = new LimitKeyword(1, 10);
 
-        $builder = new Builder($stmt);
-
         $this->assertEquals(
             'SELECT DISTINCT sakila.film.film_id AS fid, COUNT(film_id) ' .
             'FROM film, actor ' .
             'WHERE film_id > 10 OR actor.age > 25 ' .
             'LIMIT 10, 1 ',
-            $builder->query
+            $stmt->build()
         );
     }
 }

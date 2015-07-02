@@ -64,6 +64,84 @@ abstract class Statement
     public $last;
 
     /**
+     * Constructor.
+     *
+     * @param Parser     $parser The instance that requests parsing.
+     * @param TokensList $list   The list of tokens to be parsed.
+     */
+    public function __construct(Parser $parser = null, TokensList $list = null)
+    {
+        if (($parser !== null) && ($list !== null)) {
+            $this->parse($parser, $list);
+        }
+    }
+
+    /**
+     * Builds the statement.
+     *
+     * @return void
+     */
+    public function build()
+    {
+        /**
+         * Query to be returned.
+         * @var string
+         */
+        $query = '';
+
+        foreach (static::$CLAUSES as $clause) {
+
+            /**
+             * The name of the clause.
+             * @var string
+             */
+            $name = $clause[0];
+
+            /**
+             * The type of the clause.
+             * @see self::$CLAUSES
+             * @var int
+             */
+            $type = $clause[1];
+
+            // Checking if there is any parser (builder) for this clause.
+            if (empty(Parser::$KEYWORD_PARSERS[$name])) {
+                continue;
+            }
+
+            /**
+             * The builder (parser) of this clause.
+             * @var string
+             */
+            $class = Parser::$KEYWORD_PARSERS[$name]['class'];
+
+            /**
+             * The name of the field that is used as source for the builder.
+             * Same field is used to store the result of parsing.
+             * @var string
+             */
+            $field = Parser::$KEYWORD_PARSERS[$name]['field'];
+
+            // The field is empty, there is nothing to be built.
+            if (empty($this->$field)) {
+                continue;
+            }
+
+            // Checking if the name of the clause should be added.
+            if ($type & 2) {
+                $query .= $name . ' ';
+            }
+
+            // Checking if the result of the builder should be added.
+            if ($type & 1) {
+                $query .= $class::build($this->$field) . ' ';
+            }
+        }
+
+        return $query;
+    }
+
+    /**
      * Parses the statements defined by the tokens list.
      *
      * @param Parser     $parser The instance that requests parsing.
@@ -73,6 +151,9 @@ abstract class Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
+        // This may be corrected by the parser.
+        $this->first = $list->idx;
+
         /**
          * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
@@ -162,7 +243,8 @@ abstract class Statement
             $this->after($parser, $list, $token);
         }
 
-        --$list->idx; // Go back to last used token.
+        // This may be corrected by the parser.
+        $this->last = --$list->idx; // Go back to last used token.
     }
 
     /**
