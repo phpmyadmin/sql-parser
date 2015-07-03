@@ -27,6 +27,8 @@ class OptionsFragmentTest extends TestCase
                 2 => array(
                     'name' => 'B',
                     'value' => 'test',
+                    'value_' => 'test',
+                    'equal' => false,
                 ),
                 3 => 'C',
             ),
@@ -50,6 +52,8 @@ class OptionsFragmentTest extends TestCase
                 array(
                     'name' => 'MAX_STATEMENT_TIME',
                     'value' => '42',
+                    'value_' => '42',
+                    'equal' => true,
                 ),
             )
         );

@@ -38,7 +38,7 @@ abstract class Statement
      *
      * @var array
      */
-    public static $CLAUSES;
+    public static $CLAUSES = array();
 
     /**
      * The options of this query.
@@ -79,7 +79,7 @@ abstract class Statement
     /**
      * Builds the statement.
      *
-     * @return void
+     * @return string
      */
     public function build()
     {

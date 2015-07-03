@@ -7,7 +7,7 @@ use SqlParser\TokensList;
 
 use SqlParser\Tests\TestCase;
 
-class TokensListCase extends TestCase
+class TokensListTest extends TestCase
 {
 
     /**
@@ -24,24 +24,20 @@ class TokensListCase extends TestCase
     {
         $this->tokens = array(
             new Token('SELECT', Token::TYPE_KEYWORD),
+            new Token(' ', Token::TYPE_WHITESPACE),
             new Token('*', Token::TYPE_OPERATOR),
+            new Token(' ', Token::TYPE_WHITESPACE),
             new Token('FROM', Token::TYPE_KEYWORD),
-            new Token('`test`', Token::TYPE_SYMBOL)
+            new Token(' ', Token::TYPE_WHITESPACE),
+            new Token('`test`', Token::TYPE_SYMBOL),
+            new Token(' ', Token::TYPE_WHITESPACE),
         );
     }
 
-    /**
-     * Gets a list used for testing.
-     *
-     * @return TokensList
-     */
-    public function getList()
+    public function testBuild()
     {
-        $list = new TokensList();
-        foreach ($this->tokens as $token) {
-            $list[] = $token;
-        }
-        return $list;
+        $list = new TokensList($this->tokens);
+        $this->assertEquals('SELECT * FROM `test` ', TokensList::build($list));
     }
 
     public function testAdd()
@@ -50,30 +46,30 @@ class TokensListCase extends TestCase
         foreach ($this->tokens as $token) {
             $list->add($token);
         }
-        $this->assertEquals($this->getList(), $list);
+        $this->assertEquals(new TokensList($this->tokens), $list);
     }
 
     public function testGetNext()
     {
-        $list = $this->getList();
+        $list = new TokensList($this->tokens);
         $this->assertEquals($this->tokens[0], $list->getNext());
-        $this->assertEquals($this->tokens[1], $list->getNext());
         $this->assertEquals($this->tokens[2], $list->getNext());
-        $this->assertEquals($this->tokens[3], $list->getNext());
+        $this->assertEquals($this->tokens[4], $list->getNext());
+        $this->assertEquals($this->tokens[6], $list->getNext());
         $this->assertEquals(null, $list->getNext());
     }
 
     public function testGetNextOfType()
     {
-        $list = $this->getList();
+        $list = new TokensList($this->tokens);
         $this->assertEquals($this->tokens[0], $list->getNextOfType(Token::TYPE_KEYWORD));
-        $this->assertEquals($this->tokens[2], $list->getNextOfType(Token::TYPE_KEYWORD));
+        $this->assertEquals($this->tokens[4], $list->getNextOfType(Token::TYPE_KEYWORD));
         $this->assertEquals(null, $list->getNextOfType(Token::TYPE_KEYWORD));
     }
 
     public function testGetNextOfTypeAndValue()
     {
-        $list = $this->getList();
+        $list = new TokensList($this->tokens);
         $this->assertEquals($this->tokens[0], $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'SELECT'));
         $this->assertEquals(null, $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'SELECT'));
     }
@@ -97,11 +93,10 @@ class TokensListCase extends TestCase
 
         // offsetExists($offset)
         $this->assertTrue(isset($list[2]));
-        $this->assertFalse(isset($list[5]));
+        $this->assertFalse(isset($list[8]));
 
         // offsetUnset($offset)
         unset($list[2]);
         $this->assertEquals($this->tokens[3], $list[2]);
-
     }
 }

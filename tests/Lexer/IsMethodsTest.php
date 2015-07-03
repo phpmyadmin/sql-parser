@@ -17,13 +17,16 @@ class IsMethodsTest extends TestCase
         $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('DISTINCT'));
 
         $this->assertEquals(
-            1 | Token::FLAG_KEYWORD_COMPOSED | Token::FLAG_KEYWORD_KEY,
+            1 | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED | Token::FLAG_KEYWORD_KEY,
             Context::isKeyword('PRIMARY KEY')
         );
-        $this->assertEquals(1 | Token::FLAG_KEYWORD_COMPOSED, Context::isKeyword('CHARACTER SET'));
+        $this->assertEquals(
+            1 | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
+            Context::isKeyword('CHARACTER SET')
+        );
 
         $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('FROM', true));
-        $this->assertEquals(null, Context::isKeyword('PRIMARY KEY', true));
+        $this->assertEquals(null, Context::isKeyword('MODIFY', true));
 
         $this->assertEquals(null, Context::isKeyword('foo'));
         $this->assertEquals(null, Context::isKeyword('bar baz'));

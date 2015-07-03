@@ -36,4 +36,29 @@ class ContextTest extends TestCase
     {
         Context::load('Foo');
     }
+
+    public function testMode()
+    {
+        Context::setMode('REAL_AS_FLOAT,ANSI_QUOTES,IGNORE_SPACE');
+        $this->assertEquals(
+            Context::REAL_AS_FLOAT | Context::ANSI_QUOTES | Context::IGNORE_SPACE,
+            Context::$MODE
+        );
+        Context::setMode();
+        $this->assertEquals(0, Context::$MODE);
+    }
+
+    public function testEscape()
+    {
+        Context::setMode('ANSI_QUOTES');
+        $this->assertEquals('"test"', Context::escape('test'));
+
+        Context::setMode();
+        $this->assertEquals('`test`', Context::escape('test'));
+
+        $this->assertEquals(
+            array('`a`', '`b`'),
+            Context::escape(array('a', 'b'))
+        );
+    }
 }

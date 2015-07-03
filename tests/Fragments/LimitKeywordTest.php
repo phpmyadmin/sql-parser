@@ -21,4 +21,20 @@ class LimitKeywordTest extends TestCase
         $fragment = new LimitKeyword(1, 2);
         $this->assertEquals(LimitKeyword::build($fragment), '2, 1');
     }
+
+    /**
+     * @dataProvider testParseProvider
+     */
+    public function testParse($test)
+    {
+        $this->runParserTest($test);
+    }
+
+    public function testParseProvider()
+    {
+        return array(
+            array('parseLimitErr1'),
+            array('parseLimitErr2'),
+        );
+    }
 }

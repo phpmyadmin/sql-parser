@@ -35,6 +35,6 @@ class FieldFragmentTest extends TestCase
     public function testBuild()
     {
         $fragment = new FieldFragment('1 + 2', 'three');
-        $this->assertEquals(FieldFragment::build($fragment), '1 + 2 AS three');
+        $this->assertEquals(FieldFragment::build($fragment), '1 + 2 AS `three`');
     }
 }

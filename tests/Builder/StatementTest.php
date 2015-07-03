@@ -2,7 +2,6 @@
 
 namespace SqlParser\Tests\Builder;
 
-use SqlParser\Builder;
 use SqlParser\Fragments\OptionsFragment;
 use SqlParser\Fragments\FieldFragment;
 use SqlParser\Fragments\WhereKeyword;
@@ -33,8 +32,8 @@ class StatementTest extends TestCase
         $stmt->limit = new LimitKeyword(1, 10);
 
         $this->assertEquals(
-            'SELECT DISTINCT sakila.film.film_id AS fid, COUNT(film_id) ' .
-            'FROM film, actor ' .
+            'SELECT DISTINCT `sakila`.`film`.`film_id` AS `fid`, COUNT(film_id) ' .
+            'FROM `film`, `actor` ' .
             'WHERE film_id > 10 OR actor.age > 25 ' .
             'LIMIT 10, 1 ',
             $stmt->build()
