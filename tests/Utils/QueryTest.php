@@ -251,6 +251,8 @@ class QueryTest extends TestCase
 
     public function testGetAll()
     {
+        $this->assertEquals(array(), Query::getAll(''));
+
         $query = 'SELECT *, actor.actor_id, sakila2.film.*
             FROM sakila2.city, sakila2.film, actor';
         $parser = new Parser($query);
@@ -263,7 +265,7 @@ class QueryTest extends TestCase
                     'select_expr' => array('*'),
                     'select_tables' => array(
                         array('actor', null),
-                        array('film', 'sakila2')
+                        array('film', 'sakila2'),
                     )
                 )
             ),
@@ -281,7 +283,24 @@ class QueryTest extends TestCase
                     'select_expr' => array('*'),
                     'select_tables' => array(
                         array('actor', 'sakila'),
-                        array('film', null)
+                        array('film', null),
+                    )
+                )
+            ),
+            Query::getAll($query)
+        );
+
+        $query = 'SELECT a.actor_id FROM sakila.actor AS a, film';
+        $parser = new Parser($query);
+        $this->assertEquals(
+            array_merge(
+                Query::getFlags($parser->statements[0], true),
+                array(
+                    'parser' => $parser,
+                    'statement' => $parser->statements[0],
+                    'select_expr' => array(),
+                    'select_tables' => array(
+                        array('actor', 'sakila'),
                     )
                 )
             ),
@@ -289,9 +308,24 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testGetAllEmpty()
+    public function testGetClause()
     {
-        $this->assertEquals(array(), Query::getAll(''));
+        $parser = new Parser(
+            'SELECT c.city_id, c.country_id ' .
+            'FROM `city` ' .
+            'WHERE city_id < 1 ' .
+            'ORDER BY city_id ASC ' .
+            'LIMIT 0, 1 ' .
+            'INTO OUTFILE "/dev/null"'
+        );
+        $this->assertEquals(
+            'WHERE city_id < 1 ORDER BY city_id ASC',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'LIMIT', 'FROM'
+            )
+        );
     }
 
     public function testReplaceClause()
@@ -318,6 +352,48 @@ class QueryTest extends TestCase
                 'SELECT SQL_CALC_FOUND_ROWS',
                 null,
                 true
+            )
+        );
+    }
+
+    public function testRepalceClauses()
+    {
+        $this->assertEquals('', Query::replaceClauses(null, null, array()));
+
+        $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10;');
+        $this->assertEquals(
+            'SELECT *, (SELECT 1) FROM film WHERE film_id > 0 LIMIT 0, 10',
+            Query::replaceClauses(
+                $parser->statements[0],
+                $parser->list,
+                array(
+                    array('WHERE', 'WHERE film_id > 0'),
+                )
+            )
+        );
+
+        $parser = new Parser(
+            'SELECT c.city_id, c.country_id ' .
+            'FROM `city` ' .
+            'WHERE city_id < 1 ' .
+            'ORDER BY city_id ASC ' .
+            'LIMIT 0, 1 ' .
+            'INTO OUTFILE "/dev/null"'
+        );
+        $this->assertEquals(
+            'SELECT c.city_id, c.country_id ' .
+            'FROM city AS c   ' .
+            'ORDER BY city_id ASC ' .
+            'LIMIT 0, 10 ' .
+            'INTO OUTFILE "/dev/null"',
+            Query::replaceClauses(
+                $parser->statements[0],
+                $parser->list,
+                array(
+                    array('FROM', 'FROM city AS c'),
+                    array('WHERE', ''),
+                    array('LIMIT', 'LIMIT 0, 10'),
+                )
             )
         );
     }
