@@ -308,6 +308,52 @@ class QueryTest extends TestCase
         );
     }
 
+    /**
+     * @dataProvider testGetTablesProvider
+     */
+    public function testGetTables($query, $expected)
+    {
+        $parser = new Parser($query);
+        $this->assertEquals(
+            Query::getTables($parser->statements[0]),
+            $expected
+        );
+    }
+
+    public function testGetTablesProvider()
+    {
+        return array(
+            array(
+                'INSERT INTO tbl(`id`, `name`) VALUES (1, "Name")',
+                array('`tbl`'),
+            ),
+            array(
+                'UPDATE tbl SET id = 0',
+                array('`tbl`'),
+            ),
+            array(
+                'DELETE FROM tbl WHERE id < 10',
+                array('`tbl`'),
+            ),
+            array(
+                'TRUNCATE tbl',
+                array('`tbl`'),
+            ),
+            array(
+                'DROP VIEW v',
+                array(),
+            ),
+            array(
+                'DROP TABLE tbl1, tbl2',
+                array('`tbl1`', '`tbl2`'),
+            ),
+            array(
+                'RENAME TABLE a TO b, c TO d',
+                array('`a`', '`c`'),
+            ),
+        );
+    }
+
     public function testGetClause()
     {
         $parser = new Parser(

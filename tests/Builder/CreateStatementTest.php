@@ -15,6 +15,13 @@ use SqlParser\Tests\TestCase;
 class CreateStatementTest extends TestCase
 {
 
+    public function testBuilderNull()
+    {
+        $stmt = new CreateStatement();
+        $stmt->options = new OptionsFragment();
+        $this->assertEquals('', $stmt->build());
+    }
+
     public function testBuilderTable()
     {
         $stmt = new CreateStatement();
@@ -45,15 +52,55 @@ class CreateStatementTest extends TestCase
 
     public function testBuilderView()
     {
-        $query = 'CREATE VIEW myView (vid, vfirstname) AS ' .
-            'SELECT id, first_name FROM employee WHERE id = 1';
-
-        $parser = new Parser($query);
+        $parser = new Parser(
+            'CREATE VIEW myView (vid, vfirstname) AS ' .
+            'SELECT id, first_name FROM employee WHERE id = 1'
+        );
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
             'CREATE VIEW myView (vid, vfirstname) AS  ' .
             'SELECT id, first_name FROM employee WHERE id = 1 ',
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderTrigger()
+    {
+        $stmt = new CreateStatement();
+
+        $stmt->options = new OptionsFragment(array('TRIGGER'));
+        $stmt->name = new FieldFragment('ins_sum');
+        $stmt->entityOptions = new OptionsFragment(array('BEFORE', 'INSERT'));
+        $stmt->table = new FieldFragment('account');
+        $stmt->body = 'SET @sum = @sum + NEW.amount';
+
+        $this->assertEquals(
+            'CREATE TRIGGER ins_sum BEFORE INSERT ON account ' .
+            'FOR EACH ROW SET @sum = @sum + NEW.amount',
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderRoutine()
+    {
+        $parser = new Parser(
+            'CREATE FUNCTION test (IN `i` INT) RETURNS VARCHAR ' .
+            'BEGIN ' .
+            'DECLARE name VARCHAR DEFAULT ""; ' .
+            'SELECT name INTO name FROM employees WHERE id = i; ' .
+            'RETURN name; ' .
+            'END'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE FUNCTION test (IN `i` INT) RETURNS VARCHAR ' .
+            'BEGIN ' .
+            'DECLARE name VARCHAR DEFAULT ""; ' .
+            'SELECT name INTO name FROM employees WHERE id = i; ' .
+            'RETURN name; ' .
+            'END',
             $stmt->build()
         );
     }

@@ -14,7 +14,7 @@ class IntoKeywordTest extends TestCase
     {
         $fragment = IntoKeyword::parse(new Parser(), $this->getTokensList('OUTFILE "/tmp/outfile.txt"'));
         $this->assertEquals($fragment->type, 'OUTFILE');
-        $this->assertEquals($fragment->name, '/tmp/outfile.txt');
+        $this->assertEquals($fragment->dest, '/tmp/outfile.txt');
     }
 
     public function testParseErr1()
