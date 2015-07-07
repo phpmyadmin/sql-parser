@@ -500,7 +500,7 @@ class Query
      *                                 0 only for the clause
      *                                 1 for everything after
      *                              If string, the name of the first clause that
-     *                              shouldn't be included.
+     *                              should not be included.
      * @param bool       $skipFirst Whether to skip the first keyword in clause.
      *
      * @return string

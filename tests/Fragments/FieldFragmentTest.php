@@ -19,7 +19,7 @@ class FieldFragmentTest extends TestCase
     public function testParseErr1()
     {
         $parser = new Parser();
-        $fragment = FieldFragment::parse($parser, $this->getTokensList('(1))'));
+        FieldFragment::parse($parser, $this->getTokensList('(1))'));
         $errors = $this->getErrorsAsArray($parser);
         $this->assertEquals($errors[0][0], 'Unexpected bracket.');
     }
@@ -27,7 +27,7 @@ class FieldFragmentTest extends TestCase
     public function testParseErr2()
     {
         $parser = new Parser();
-        $fragment = FieldFragment::parse($parser, $this->getTokensList('tbl..col'));
+        FieldFragment::parse($parser, $this->getTokensList('tbl..col'));
         $errors = $this->getErrorsAsArray($parser);
         $this->assertEquals($errors[0][0], 'Unexpected dot.');
     }

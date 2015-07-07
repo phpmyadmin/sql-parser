@@ -1,7 +1,7 @@
 <?php
 
 /**
- * `lIMIT` keyword parser.
+ * `LIMIT` keyword parser.
  *
  * @package    SqlParser
  * @subpackage Fragments
@@ -14,7 +14,7 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 /**
- * `lIMIT` keyword parser.
+ * `LIMIT` keyword parser.
  *
  * @category   Keywords
  * @package    SqlParser

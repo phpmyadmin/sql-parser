@@ -10,9 +10,6 @@
  */
 namespace SqlParser;
 
-use SqlParser\Parser;
-use SqlParser\Statement;
-use SqlParser\Token;
 use SqlParser\Fragments\OptionsFragment;
 
 /**
@@ -223,7 +220,7 @@ abstract class Statement
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
-                // There is no parser for this keyword and isn't the beggining
+                // There is no parser for this keyword and isn't the beginning
                 // of a statement (so no options) either.
                 $parser->error(
                     'Unrecognized keyword "' . $token->value . '".',

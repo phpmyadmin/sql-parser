@@ -95,7 +95,7 @@ class OptionsFragment extends Fragment
                     // For example, in `SELECT` statements the keywords `ALL` and `DISTINCT`
                     // conflict and if used together, they produce an invalid query.
                     // Usually, tokens can be identified in the array by the option ID,
-                    // but if conflicts occur, a psuedo option ID is used.
+                    // but if conflicts occur, a generated option ID is used.
                     // The first pseudo duplicate ID is the maximum value of the real
                     // options (e.g.  if there are 5 options, the first fake ID is 6).
                     if (isset($ret->options[$lastOptionId])) {

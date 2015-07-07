@@ -33,7 +33,7 @@ class WhereKeyword extends Fragment
     public static $DELIMITERS = array('&&', 'AND', 'OR', 'XOR', '||');
 
     /**
-     * Hashmap containing reserved keywords that are also operators.
+     * Hash map containing reserved keywords that are also operators.
      *
      * @var array
      */
