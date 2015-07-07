@@ -56,13 +56,13 @@ class OptionsFragment extends Fragment
 
          /**
           * The ID that will be assigned to duplicate options.
-          * @var int
+          * @var int $lastAssignedId
           */
         $lastAssignedId = count($options) + 1;
 
         /**
          * The option that was processed last time.
-         * @var array
+         * @var array $lastOption
          */
         $lastOption = null;
         $lastOptionId = 0;
@@ -72,7 +72,7 @@ class OptionsFragment extends Fragment
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             * @var Token
+             * @var Token $token
              */
             $token = $list->tokens[$list->idx];
 

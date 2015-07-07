@@ -278,25 +278,25 @@ class Parser
 
         /**
          * Last parsed statement.
-         * @var Statement
+         * @var Statement $lastStatement
          */
         $lastStatement = null;
 
         /**
          * Whether a union is parsed or not.
-         * @var bool
+         * @var bool $inUnion
          */
         $inUnion = true;
 
         /**
          * The index of the last token from the last statement.
-         * @var int
+         * @var int $prevLastIdx
          */
         $prevLastIdx = -1;
 
         /**
          * The list of tokens.
-         * @var TokensList
+         * @var TokensList $list
          */
         $list = &$this->list;
 
@@ -304,7 +304,7 @@ class Parser
 
             /**
              * Token parsed at this moment.
-             * @var Token
+             * @var Token $token
              */
             $token = $list->tokens[$list->idx];
 
@@ -334,13 +334,13 @@ class Parser
 
             /**
              * The name of the class that is used for parsing.
-             * @var string
+             * @var string $class
              */
             $class = static::$STATEMENT_PARSERS[$token->value];
 
             /**
              * Processed statement.
-             * @var Statement
+             * @var Statement $stmt
              */
             $stmt = new $class($this, $this->list);
 

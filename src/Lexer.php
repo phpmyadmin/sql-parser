@@ -287,19 +287,19 @@ class Lexer
 
         /**
          * Value to be returned.
-         * @var Token
+         * @var Token $ret
          */
         $ret = null;
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         * @var int
+         * @var int $iEnd
          */
         $iEnd = $this->last;
 
         /**
          * Whether last parsed character is a whitespace.
-         * @var bool
+         * @var bool $lastSpace
          */
         $lastSpace = false;
 
@@ -343,13 +343,13 @@ class Lexer
 
         /**
          * Value to be returned.
-         * @var Token|bool
+         * @var Token $ret
          */
         $ret = null;
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         * @var int
+         * @var int $iEnd
          */
         $iEnd = $this->last;
 
