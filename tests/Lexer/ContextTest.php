@@ -30,7 +30,7 @@ class ContextTest extends TestCase
 
     /**
      * @expectedException Exception
-     * @expectedExceptionMessage Specified context ("\SqlParser\Contexts\ContextFoo") doesn't exist.
+     * @expectedExceptionMessage Specified context ("\SqlParser\Contexts\ContextFoo") does not exist.
      */
     public function testLoadError()
     {
