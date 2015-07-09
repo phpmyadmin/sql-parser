@@ -22,6 +22,21 @@ class CreateStatementTest extends TestCase
         $this->assertEquals('', $stmt->build());
     }
 
+    public function testBuilderDatabase()
+    {
+        $parser = new Parser(
+            'CREATE DATABASE `mydb` ' .
+            'DEFAULT CHARACTER SET = utf8 DEFAULT COLLATE = utf8_general_ci'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE DATABASE `mydb` ' .
+            'DEFAULT CHARACTER SET=utf8 DEFAULT COLLATE=utf8_general_ci',
+            $stmt->build()
+        );
+    }
+
     public function testBuilderTable()
     {
         $stmt = new CreateStatement();
@@ -42,10 +57,10 @@ class CreateStatementTest extends TestCase
         );
 
         $this->assertEquals(
-            'CREATE TABLE `test` (' .
-            '`id` INT (11) UNSIGNED NOT NULL AUTO_INCREMENT, ' .
-            'PRIMARY KEY (`id`)' .
-            ') ',
+            "CREATE TABLE `test` (\n" .
+            "`id` INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,\n" .
+            "PRIMARY KEY (`id`)\n" .
+            ") ",
             $stmt->build()
         );
     }
