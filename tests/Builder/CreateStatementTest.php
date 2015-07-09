@@ -3,11 +3,11 @@
 namespace SqlParser\Tests\Builder;
 
 use SqlParser\Parser;
-use SqlParser\Fragments\DataTypeFragment;
-use SqlParser\Fragments\FieldFragment;
-use SqlParser\Fragments\FieldDefFragment;
-use SqlParser\Fragments\KeyFragment;
-use SqlParser\Fragments\OptionsFragment;
+use SqlParser\Components\DataType;
+use SqlParser\Components\Expression;
+use SqlParser\Components\FieldDefinition;
+use SqlParser\Components\Key;
+use SqlParser\Components\OptionsArray;
 use SqlParser\Statements\CreateStatement;
 
 use SqlParser\Tests\TestCase;
@@ -18,7 +18,7 @@ class CreateStatementTest extends TestCase
     public function testBuilderNull()
     {
         $stmt = new CreateStatement();
-        $stmt->options = new OptionsFragment();
+        $stmt->options = new OptionsArray();
         $this->assertEquals('', $stmt->build());
     }
 
@@ -41,18 +41,18 @@ class CreateStatementTest extends TestCase
     {
         $stmt = new CreateStatement();
 
-        $stmt->name = new FieldFragment('', 'test', '');
-        $stmt->options = new OptionsFragment(array('TABLE'));
+        $stmt->name = new Expression('', 'test', '');
+        $stmt->options = new OptionsArray(array('TABLE'));
         $stmt->fields = array(
-            new FieldDefFragment(
+            new FieldDefinition(
                 'id',
-                new OptionsFragment(array('NOT NULL', 'AUTO_INCREMENT')),
-                new DataTypeFragment('INT', array(11), new OptionsFragment(array('UNSIGNED')))
+                new OptionsArray(array('NOT NULL', 'AUTO_INCREMENT')),
+                new DataType('INT', array(11), new OptionsArray(array('UNSIGNED')))
             ),
-            new FieldDefFragment(
+            new FieldDefinition(
                 '',
                 null,
-                new KeyFragment('', array('id'), 'PRIMARY KEY')
+                new Key('', array('id'), 'PRIMARY KEY')
             )
         );
 
@@ -84,10 +84,10 @@ class CreateStatementTest extends TestCase
     {
         $stmt = new CreateStatement();
 
-        $stmt->options = new OptionsFragment(array('TRIGGER'));
-        $stmt->name = new FieldFragment('ins_sum');
-        $stmt->entityOptions = new OptionsFragment(array('BEFORE', 'INSERT'));
-        $stmt->table = new FieldFragment('account');
+        $stmt->options = new OptionsArray(array('TRIGGER'));
+        $stmt->name = new Expression('ins_sum');
+        $stmt->entityOptions = new OptionsArray(array('BEFORE', 'INSERT'));
+        $stmt->table = new Expression('account');
         $stmt->body = 'SET @sum = @sum + NEW.amount';
 
         $this->assertEquals(

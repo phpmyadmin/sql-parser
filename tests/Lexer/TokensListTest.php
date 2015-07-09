@@ -11,7 +11,7 @@ class TokensListTest extends TestCase
 {
 
     /**
-     * Array of tokens that are used for testing.
+     * ArrayObj of tokens that are used for testing.
      *
      * @var Token[]
      */

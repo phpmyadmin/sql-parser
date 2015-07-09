@@ -2,10 +2,10 @@
 
 namespace SqlParser\Tests\Builder;
 
-use SqlParser\Fragments\OptionsFragment;
-use SqlParser\Fragments\FieldFragment;
-use SqlParser\Fragments\WhereKeyword;
-use SqlParser\Fragments\LimitKeyword;
+use SqlParser\Components\OptionsArray;
+use SqlParser\Components\Expression;
+use SqlParser\Components\Condition;
+use SqlParser\Components\Limit;
 use SqlParser\Statements\SelectStatement;
 
 use SqlParser\Tests\TestCase;
@@ -17,19 +17,19 @@ class StatementTest extends TestCase
     {
         $stmt = new SelectStatement();
 
-        $stmt->options = new OptionsFragment(array('DISTINCT'));
+        $stmt->options = new OptionsArray(array('DISTINCT'));
 
-        $stmt->expr[] = new FieldFragment('sakila', 'film', 'film_id', 'fid');
-        $stmt->expr[] = new FieldFragment('COUNT(film_id)');
+        $stmt->expr[] = new Expression('sakila', 'film', 'film_id', 'fid');
+        $stmt->expr[] = new Expression('COUNT(film_id)');
 
-        $stmt->from[] = new FieldFragment('', 'film', '');
-        $stmt->from[] = new FieldFragment('', 'actor', '');
+        $stmt->from[] = new Expression('', 'film', '');
+        $stmt->from[] = new Expression('', 'actor', '');
 
-        $stmt->where[] = new WhereKeyword('film_id > 10');
-        $stmt->where[] = new WhereKeyword('OR');
-        $stmt->where[] = new WhereKeyword('actor.age > 25');
+        $stmt->where[] = new Condition('film_id > 10');
+        $stmt->where[] = new Condition('OR');
+        $stmt->where[] = new Condition('actor.age > 25');
 
-        $stmt->limit = new LimitKeyword(1, 10);
+        $stmt->limit = new Limit(1, 10);
 
         $this->assertEquals(
             'SELECT DISTINCT `sakila`.`film`.`film_id` AS `fid`, COUNT(film_id) ' .
