@@ -94,11 +94,11 @@ class FieldDefinition extends Component
     /**
      * Constructor.
      *
-     * @param string                       $name         The name of the field.
-     * @param OptionsArray              $options      The options of this field.
+     * @param string       $name         The name of the field.
+     * @param OptionsArray $options      The options of this field.
      * @param DataType|Key $type         The data type of this field or the key.
-     * @param bool                         $isConstraint Whether this field is a constraint or not.
-     * @param Reference            $references   References.
+     * @param bool         $isConstraint Whether this field is a constraint or not.
+     * @param Reference    $references   References.
      */
     public function __construct($name = null, $options = null, $type = null,
         $isConstraint = false, $references = null
@@ -232,7 +232,7 @@ class FieldDefinition extends Component
     {
         $ret = array();
 
-        foreach ($component as $f) {
+        foreach ($component as $c) {
             $tmp = '';
 
             if ($f->isConstraint) {

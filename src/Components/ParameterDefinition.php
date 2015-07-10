@@ -145,7 +145,7 @@ class ParameterDefinition extends Component
     public static function build($component)
     {
         $ret = array();
-        foreach ($component as $f) {
+        foreach ($component as $c) {
             $tmp = '';
             if (!empty($f->inOut)) {
                 $tmp .= $f->inOut . ' ';

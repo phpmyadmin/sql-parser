@@ -200,7 +200,7 @@ class Condition extends Component
     public static function build($component)
     {
         $ret = array();
-        foreach ($component as $f) {
+        foreach ($component as $c) {
             $ret[] = $f->expr;
         }
         return implode(' ', $ret);
