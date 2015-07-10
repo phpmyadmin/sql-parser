@@ -201,7 +201,7 @@ class Condition extends Component
     {
         $ret = array();
         foreach ($component as $c) {
-            $ret[] = $f->expr;
+            $ret[] = $c->expr;
         }
         return implode(' ', $ret);
     }

@@ -36,6 +36,34 @@ class OptionsArrayTest extends TestCase
         );
     }
 
+    public function testHas()
+    {
+        $component = new OptionsArray(
+            array(
+                1 => 'A',
+                2 => array(
+                    'name' => 'B',
+                    'value' => 'test',
+                    'value_' => 'test',
+                    'equal' => false,
+                ),
+                3 => 'C'
+            )
+        );
+        $this->assertTrue($component->has('A'));
+        $this->assertEquals('test', $component->has('B'));
+        $this->assertTrue($component->has('C'));
+        $this->assertFalse($component->has('D'));
+    }
+
+    public function testRemove()
+    {
+        $component = new OptionsArray(array('a', 'b', 'c'));
+        $this->assertTrue($component->remove('b'));
+        $this->assertFalse($component->remove('d'));
+        $this->assertEquals($component->options, array(0 => 'a', 2 => 'c'));
+    }
+
     public function testMerge()
     {
         $component = new OptionsArray(array('a'));
