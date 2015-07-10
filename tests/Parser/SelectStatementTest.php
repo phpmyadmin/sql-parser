@@ -26,6 +26,7 @@ class SelectStatementTest extends TestCase
     {
         return array(
             array('parseSelect2'),
+            array('parseSelect3'),
             array('parseSelectErr1'),
             array('parseSelectNested'),
         );

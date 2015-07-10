@@ -37,8 +37,16 @@ class Condition extends Component
      *
      * @var array
      */
-    public static $OPERATORS = array('AND' => 1, 'BETWEEN' => 1, 'LIKE' => 1,
-        'OR' => 1, 'XOR' => 1
+    public static $OPERATORS = array(
+        'AND'                           => 1,
+        'BETWEEN'                       => 1,
+        'IN'                            => 1,
+        'IS'                            => 1,
+        'LIKE'                          => 1,
+        'NOT NULL'                      => 1,
+        'NULL'                          => 1,
+        'OR'                            => 1,
+        'XOR'                           => 1,
     );
 
     /**
@@ -115,6 +123,13 @@ class Condition extends Component
 
             // Skipping whitespaces and comments.
             if ($token->type === Token::TYPE_COMMENT) {
+                continue;
+            }
+
+            // Replacing all whitespaces (new lines, tabs, etc.) with a single
+            // space character.
+            if ($token->type === Token::TYPE_WHITESPACE) {
+                $expr->expr .= ' ';
                 continue;
             }
 
