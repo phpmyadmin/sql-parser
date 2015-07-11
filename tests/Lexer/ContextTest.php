@@ -21,6 +21,11 @@ class ContextTest extends TestCase
         $this->assertFalse(isset(Context::$KEYWORDS['STORED']));
         $this->assertTrue(isset(Context::$KEYWORDS['AUTHORS']));
 
+        Context::loadClosest('MySql50712');
+        $this->assertEquals('\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
+
+        $this->assertEquals(null, Context::loadClosest('Sql'));
+
         // Restoring context.
         Context::load('');
         $this->assertEquals('\\SqlParser\\Contexts\\ContextMySql50700', Context::$defaultContext);
