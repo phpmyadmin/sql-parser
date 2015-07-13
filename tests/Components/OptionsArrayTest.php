@@ -14,7 +14,7 @@ class OptionsArrayTest extends TestCase
     {
         $component = OptionsArray::parse(
             new Parser(),
-            $this->getTokensList('A B = (test) C'),
+            $this->getTokensList('A B = /*comment*/ (test) C'),
             array(
                 'A' => 1,
                 'B' => array(2, 'var'),
@@ -26,14 +26,28 @@ class OptionsArrayTest extends TestCase
                 1 => 'A',
                 2 => array(
                     'name' => 'B',
-                    'value' => 'test',
-                    'value_' => 'test',
-                    'equal' => false,
+                    'value' => '(test)',
+                    'value_' => '(test)',
+                    'equal' => true,
                 ),
                 3 => 'C',
             ),
             $component->options
         );
+    }
+
+    public function testParseExpr()
+    {
+        $component = OptionsArray::parse(
+            new Parser(),
+            $this->getTokensList('SUM = (3 + 5) RESULT = 8'),
+            array(
+                'SUM' => array(1, 'expr', array('bracketsDelimited' => true)),
+                'RESULT' => array(2, 'var'),
+            )
+        );
+        $this->assertEquals('(3 + 5)', (string) $component->has('SUM'));
+        $this->assertEquals('8', $component->has('RESULT'));
     }
 
     public function testHas()
