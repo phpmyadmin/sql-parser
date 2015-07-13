@@ -139,33 +139,33 @@ class TableTest extends TestCase
                 array(
                     'address_id' => array(
                         'type' => 'SMALLINT',
-                        'timestamp_not_null' => null,
+                        'timestamp_not_null' => false,
                     ),
                     'address' => array(
                         'type' => 'VARCHAR',
-                        'timestamp_not_null' => null,
+                        'timestamp_not_null' => false,
                     ),
                     'address2' => array(
                         'type' => 'VARCHAR',
-                        'timestamp_not_null' => null,
+                        'timestamp_not_null' => false,
                         'default_value' => 'NULL',
                     ),
                     'district' => array(
                         'type' => 'VARCHAR',
-                        'timestamp_not_null' => null,
+                        'timestamp_not_null' => false,
                     ),
                     'city_id' => array(
                         'type' => 'SMALLINT',
-                        'timestamp_not_null' => null,
+                        'timestamp_not_null' => false,
                     ),
                     'postal_code' => array(
                         'type' => 'VARCHAR',
-                        'timestamp_not_null' => null,
+                        'timestamp_not_null' => false,
                         'default_value' => 'NULL',
                     ),
                     'phone' => array(
                         'type' => 'VARCHAR',
-                        'timestamp_not_null' => null,
+                        'timestamp_not_null' => false,
                     ),
                     'last_update' => array(
                         'type' => 'TIMESTAMP',
@@ -175,6 +175,36 @@ class TableTest extends TestCase
                         'on_update_current_timestamp' => true
                     )
                 )
+            ),
+            array(
+                'CREATE TABLE table1 (
+                    a INT NOT NULL,
+                    b VARCHAR(32),
+                    c INT AS (a mod 10) VIRTUAL,
+                    d VARCHAR(5) AS (left(b,5)) PERSISTENT
+                )',
+                array(
+                    'a' => array(
+                        'type' => 'INT',
+                        'timestamp_not_null' => false,
+                    ),
+                    'b' => array(
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                    ),
+                    'c' => array(
+                        'type' => 'INT',
+                        'timestamp_not_null' => false,
+                        'generated' => true,
+                        'expr' => '(a mod 10)',
+                    ),
+                    'd' => array(
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                        'generated' => true,
+                        'expr' => '(left(b,5))',
+                    ),
+                ),
             ),
         );
     }

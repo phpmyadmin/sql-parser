@@ -53,6 +53,8 @@ class FieldDefinition extends Component
         'AS'                            => array(2, 'expr', array('bracketsDelimited' => true)),
         'VIRTUAL'                       => 3,
         'PERSISTENT'                    => 3,
+        // 'UNIQUE'                        => 4, // common
+        // 'UNIQUE KEY'                    => 4, // common
     );
 
     /**

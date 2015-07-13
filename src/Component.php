@@ -65,7 +65,8 @@ abstract class Component
      *
      * @return string
      */
-    public function __toString() {
+    public function __toString() 
+    {
         return static::build($this);
     }
 }
