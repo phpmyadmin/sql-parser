@@ -110,7 +110,7 @@ class OptionsArray extends Component
                 continue;
             }
 
-            // Skipping whitespaces if not parsing value.
+            // Skipping whitespace if not parsing value.
             if (($token->type === Token::TYPE_WHITESPACE) && ($brackets === 0)) {
                 continue;
             }
@@ -153,19 +153,19 @@ class OptionsArray extends Component
                     $lastOption = null;
                     $state = 0;
                 } elseif (($lastOption[1] === 'var') || ($lastOption[1] === 'var=')) {
-                    // This is a keyword that is followewd by a value.
+                    // This is a keyword that is followed by a value.
                     // This is only the beginning. The value is parsed in state
                     // 1 and 2. State 1 is used to skip the first equals sign
                     // and state 2 to parse the actual value.
                     $ret->options[$lastOptionId] = array(
-                        // @var The name of the option.
+                        // @var string The name of the option.
                         'name' => $token->value,
-                        // @var Whether it contains an equal sign.
-                        //      This is used by the builder to rebuild it.
+                        // @var bool Whether it contains an equal sign.
+                        //           This is used by the builder to rebuild it.
                         'equal' => $lastOption[1] === 'var=',
-                        // @var Raw value.
+                        // @var string Raw value.
                         'value' => '',
-                        // @var Processed value.
+                        // @var string Processed value.
                         'value_' => '',
                     );
                     $state = 1;
@@ -176,7 +176,9 @@ class OptionsArray extends Component
                     // Skipping this option in order to parse the expression.
                     ++$list->idx;
                     $ret->options[$lastOptionId] = array(
+                        // @var string The name of the option.
                         'name' => $token->value,
+                        // @var Expression The parsed expression.
                         'value' => null,
                     );
                     $state = 1;
