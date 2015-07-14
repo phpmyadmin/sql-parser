@@ -26,9 +26,9 @@ class OptionsArrayTest extends TestCase
                 1 => 'A',
                 2 => array(
                     'name' => 'B',
-                    'value' => '(test)',
-                    'value_' => '(test)',
-                    'equal' => true,
+                    'expr' => '(test)',
+                    'value' => 'test',
+                    'equals' => true,
                 ),
                 3 => 'C',
             ),
@@ -46,22 +46,19 @@ class OptionsArrayTest extends TestCase
                 'RESULT' => array(2, 'var'),
             )
         );
-        $this->assertEquals('(3 + 5)', (string) $component->has('SUM'));
+        $this->assertEquals('(3 + 5)', (string) $component->has('SUM', true));
         $this->assertEquals('8', $component->has('RESULT'));
     }
 
     public function testHas()
     {
-        $component = new OptionsArray(
+        $component = OptionsArray::parse(
+            new Parser(),
+            $this->getTokensList('A B = /*comment*/ (test) C'),
             array(
-                1 => 'A',
-                2 => array(
-                    'name' => 'B',
-                    'value' => 'test',
-                    'value_' => 'test',
-                    'equal' => false,
-                ),
-                3 => 'C'
+                'A' => 1,
+                'B' => array(2, 'var'),
+                'C' => 3,
             )
         );
         $this->assertTrue($component->has('A'));
@@ -94,8 +91,7 @@ class OptionsArrayTest extends TestCase
                 array(
                     'name' => 'MAX_STATEMENT_TIME',
                     'value' => '42',
-                    'value_' => '42',
-                    'equal' => true,
+                    'equals' => true,
                 ),
             )
         );

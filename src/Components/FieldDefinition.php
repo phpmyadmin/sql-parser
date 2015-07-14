@@ -36,6 +36,11 @@ class FieldDefinition extends Component
      * @var array
      */
     public static $FIELD_OPTIONS = array(
+
+        // Tells the `OptionsArray` to not sort the options.
+        // See the note below.
+        '_UNSORTED'                     => true,
+
         'NOT NULL'                      => 1,
         'NULL'                          => 1,
         'DEFAULT'                       => array(2, 'var'),
@@ -48,14 +53,26 @@ class FieldDefinition extends Component
         'COLUMN_FORMAT'                 => array(6, 'var'),
         'ON UPDATE'                     => array(7, 'var'),
 
-        // generated columns options.
-        'GENERATED ALWAYS'              => 1,
-        'AS'                            => array(2, 'expr', array('bracketsDelimited' => true)),
-        'VIRTUAL'                       => 3,
-        'PERSISTENT'                    => 3,
-        'STORED'                        => 3,
-        // 'UNIQUE'                        => 4, // common
-        // 'UNIQUE KEY'                    => 4, // common
+        // Generated columns options.
+        'GENERATED ALWAYS'              => 8,
+        'AS'                            => array(9, 'expr', array('bracketsDelimited' => true)),
+        'VIRTUAL'                       => 10,
+        'PERSISTENT'                    => 11,
+        'STORED'                        => 11,
+        // Common entries.
+        //
+        // NOTE: Some of the common options are not in the same order which
+        // causes troubles when checking if the options are in the right order.
+        // I should find a way to define multiple sets of options and make the
+        // parser select the right set.
+        //
+        // 'UNIQUE'                        => 4,
+        // 'UNIQUE KEY'                    => 4,
+        // 'COMMENT'                       => array(5, 'var'),
+        // 'NOT NULL'                      => 1,
+        // 'NULL'                          => 1,
+        // 'PRIMARY'                       => 4,
+        // 'PRIMARY KEY'                   => 4,
     );
 
     /**
