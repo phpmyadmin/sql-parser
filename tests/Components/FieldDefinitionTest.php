@@ -22,7 +22,8 @@ class FieldDefinitionTest extends TestCase
         $this->assertEquals('FULLTEXT INDEX `indx` (`str`)', $component[1]);
     }
 
-    public function testBuild() {
+    public function testBuild()
+    {
         $parser = new Parser(
             'CREATE TABLE `payment` (' .
             '-- snippet' . "\n" .

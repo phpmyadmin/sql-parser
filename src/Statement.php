@@ -300,8 +300,8 @@ abstract class Statement
      *
      * @return string
      */
-    public function __toString() 
+    public function __toString()
     {
-        return static::build($this);
+        return $this->build();
     }
 }

@@ -88,10 +88,6 @@ class SetOperation extends Component
                 break;
             }
 
-            if ($token->type === Token::TYPE_OPERATOR) {
-
-            }
-
             if ($state === 0) {
                 if ($token->token === '=') {
                     $state = 1;

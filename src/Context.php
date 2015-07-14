@@ -454,7 +454,6 @@ abstract class Context
 
         // As long as a new context can be generated, we try to laod it.
         do {
-            $loaded = true;
             try {
                 // Trying to load the new context.
                 static::load($context);

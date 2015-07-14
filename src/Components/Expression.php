@@ -269,7 +269,7 @@ class Expression extends Component
                             // Example: SELECT 1`foo`
                             if (($token->type === Token::TYPE_STRING)
                                 || (($token->type === Token::TYPE_SYMBOL)
-                                    && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
+                                && ($token->flags & Token::FLAG_SYMBOL_BACKTICK))
                             ) {
                                 $ret->alias = $token->value;
                             }
