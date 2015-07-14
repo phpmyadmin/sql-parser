@@ -22,8 +22,8 @@ class ParserTest extends TestCase
     {
         $parser = new Parser('SELECT 1; FROM');
         $this->assertEquals(
-            $parser->errors[0]->getMessage(),
-            'Unrecognized statement type "FROM".'
+            'Unrecognized statement type.',
+            $parser->errors[0]->getMessage()
         );
     }
 
@@ -31,8 +31,8 @@ class ParserTest extends TestCase
     {
         $parser = new Parser('SELECT 1 FROM foo PARTITION(bar, baz) AS');
         $this->assertEquals(
-            $parser->errors[0]->getMessage(),
-            'Unrecognized keyword "AS".'
+            'Unrecognized keyword "AS".',
+            $parser->errors[0]->getMessage()
         );
     }
 

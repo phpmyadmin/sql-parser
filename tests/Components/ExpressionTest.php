@@ -16,6 +16,11 @@ class ExpressionTest extends TestCase
         $this->assertEquals($component->expr, 'IF(film_id > 0, film_id, film_id)');
     }
 
+    public function testParse2()
+    {
+        $component = Expression::parse(new Parser(), $this->getTokensList('col`test`'));
+    }
+
     public function testParseErr1()
     {
         $parser = new Parser();

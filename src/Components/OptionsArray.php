@@ -319,4 +319,14 @@ class OptionsArray extends Component
             $this->options = array_merge_recursive($this->options, $options->options);
         }
     }
+
+    /**
+     * Checks tf there are no options set.
+     *
+     * @return bool
+     */
+    public function isEmpty()
+    {
+        return empty($this->options);
+    }
 }
