@@ -92,7 +92,7 @@ class Array2d extends Component
                     if ($count === -1) {
                         $count = $arrCount;
                     } elseif ($arrCount != $count) {
-                        $parser->error("Expected {$count} values, found {$arrCount}.", $token);
+                        $parser->error("{$count} values were expected, but found {$arrCount}.", $token);
                     }
                     $ret[] = $arr;
                     $parsed = true;
@@ -112,7 +112,7 @@ class Array2d extends Component
 
         if (!$parsed) {
             $parser->error(
-                "Expected open bracket followed by a set of values.",
+                'An opening bracket followed by a set of values was expected.',
                 $list->tokens[$list->idx]
             );
         }

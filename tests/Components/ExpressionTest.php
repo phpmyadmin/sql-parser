@@ -26,7 +26,7 @@ class ExpressionTest extends TestCase
         $parser = new Parser();
         Expression::parse($parser, $this->getTokensList('(1))'));
         $errors = $this->getErrorsAsArray($parser);
-        $this->assertEquals($errors[0][0], 'Unexpected bracket.');
+        $this->assertEquals($errors[0][0], 'Unexpected closing bracket.');
     }
 
     public function testParseErr2()

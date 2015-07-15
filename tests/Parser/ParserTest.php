@@ -31,7 +31,7 @@ class ParserTest extends TestCase
     {
         $parser = new Parser('SELECT 1 FROM foo PARTITION(bar, baz) AS');
         $this->assertEquals(
-            'Unrecognized keyword "AS".',
+            'Unrecognized keyword.',
             $parser->errors[0]->getMessage()
         );
     }

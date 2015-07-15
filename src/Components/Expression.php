@@ -146,7 +146,7 @@ class Expression extends Component
          * Keeps track of the previous token.
          * Possible values:
          *     string, if function was previously found;
-         *     true, if open bracket was previously found;
+         *     true, if opening bracket was previously found;
          *     null, in any other case.
          * @var string|bool $prev
          */
@@ -219,7 +219,7 @@ class Expression extends Component
                             break;
                         }
                     } elseif ($brackets < 0) {
-                        $parser->error('Unexpected bracket.', $token);
+                        $parser->error('Unexpected closing bracket.', $token);
                         $brackets = 0;
                     }
                 } elseif ($token->value === ',') {
@@ -304,7 +304,7 @@ class Expression extends Component
 
         }
         if ($alias === 2) {
-            $parser->error('Alias was expected.', $list->tokens[$list->idx - 1]);
+            $parser->error('An alias was expected.', $list->tokens[$list->idx - 1]);
         }
 
         // Whitespaces might be added at the end.

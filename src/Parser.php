@@ -376,6 +376,10 @@ class Parser
                 && ($lastStatement instanceof SelectStatement)
                 && ($stmt instanceof SelectStatement)
             ) {
+                /**
+                 * Last SELECT statement.
+                 * @var SelectStatement $lastStatement
+                 */
                 $lastStatement->union[] = $stmt;
                 $inUnion = false;
             } else {

@@ -266,7 +266,7 @@ class OptionsArray extends Component
      * Checks if it has the specified option and returns it value or true.
      *
      * @param string $key     The key to be checked.
-     * @param string $getExpr Gets the expression instead of the value.
+     * @param bool   $getExpr Gets the expression instead of the value.
      *                        The value is the processed form of the expression.
      *
      * @return mixed

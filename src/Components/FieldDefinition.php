@@ -171,7 +171,7 @@ class FieldDefinition extends Component
          *      4 --------------------[ REFERENCES ]------------------> 4
          *
          *      5 ------------------------[ , ]-----------------------> 1
-         *      5 ------------------------[ ) ]-----------------------> -1
+         *      5 ------------------------[ ) ]-----------------------> 6 (-1)
          *
          * @var int
          */
@@ -197,6 +197,9 @@ class FieldDefinition extends Component
             if ($state === 0) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $state = 1;
+                } else {
+                    $parser->error('An opening bracket was expected.', $token);
+                    break;
                 }
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'CONSTRAINT')) {
@@ -231,13 +234,12 @@ class FieldDefinition extends Component
                 $expr = new FieldDefinition();
                 if ($token->value === ',') {
                     $state = 1;
-                    continue;
                 } elseif ($token->value === ')') {
+                    $state = 6;
                     ++$list->idx;
                     break;
                 }
             }
-
         }
 
         // Last iteration was not saved.
@@ -245,12 +247,16 @@ class FieldDefinition extends Component
             $ret[] = $expr;
         }
 
+        if (($state !== 0) && ($state !== 6)) {
+            $parser->error('A closing bracket was expected.', $list->tokens[$list->idx - 1]);
+        }
+
         --$list->idx;
         return $ret;
     }
 
     /**
-     * @param FieldDefinition[] $component The component to be built.
+     * @param FieldDefinition|FieldDefinition[] $component The component to be built.
      *
      * @return string
      */
