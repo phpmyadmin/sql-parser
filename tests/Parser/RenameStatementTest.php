@@ -20,10 +20,10 @@ class RenameStatementTest extends TestCase
         return array(
             array('parseRename'),
             array('parseRename2'),
-            array('parseRename3'),
-            array('parseRename4'),
-            array('parseRename5'),
             array('parseRenameErr1'),
+            array('parseRenameErr2'),
+            array('parseRenameErr3'),
+            array('parseRenameErr4'),
         );
     }
 }

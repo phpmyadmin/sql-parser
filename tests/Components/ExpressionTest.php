@@ -21,20 +21,41 @@ class ExpressionTest extends TestCase
         $component = Expression::parse(new Parser(), $this->getTokensList('col`test`'));
     }
 
-    public function testParseErr1()
+    /**
+     * @dataProvider testParseErrProvider
+     */
+    public function testParseErr($expr, $error)
     {
         $parser = new Parser();
-        Expression::parse($parser, $this->getTokensList('(1))'));
+        Expression::parse($parser, $this->getTokensList($expr));
         $errors = $this->getErrorsAsArray($parser);
-        $this->assertEquals($errors[0][0], 'Unexpected closing bracket.');
+        $this->assertEquals($errors[0][0], $error);
     }
 
-    public function testParseErr2()
+    public function testParseErrProvider()
     {
-        $parser = new Parser();
-        Expression::parse($parser, $this->getTokensList('tbl..col'));
-        $errors = $this->getErrorsAsArray($parser);
-        $this->assertEquals($errors[0][0], 'Unexpected dot.');
+        return array(
+            array(
+                '(1))',
+                'Unexpected closing bracket.',
+            ),
+            array(
+                'tbl..col',
+                'Unexpected dot.',
+            ),
+            array(
+                'id AS id2 AS id3',
+                'An alias was previously found.',
+            ),
+            array(
+                'id`id2`\'id3\'',
+                'An alias was previously found.',
+            ),
+            array(
+                '(id) id2 id3',
+                'An alias was previously found.',
+            ),
+        );
     }
 
     public function testBuild()
