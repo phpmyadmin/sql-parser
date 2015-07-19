@@ -36,8 +36,6 @@ class ExpressionArray extends Component
     {
         $ret = array();
 
-        $expr = null;
-
         /**
          * The state of the parser.
          *
