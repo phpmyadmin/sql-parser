@@ -13,6 +13,16 @@ namespace SqlParser;
 
 use SqlParser\Exceptions\LexerException;
 
+if (!defined('USE_GETTEXT')) {
+
+    /**
+     * Whether `gettext` function should be used to translate error messages
+     * before throwing exceptions.
+     * @var bool
+     */
+    define('USE_GETTEXT', function_exists('gettext'));
+}
+
 if (!defined('USE_UTF_STRINGS')) {
 
     /**
@@ -302,14 +312,22 @@ class Lexer
      * @param string $msg  The error message.
      * @param string $str  The character that produced the error.
      * @param int    $pos  The position of the character.
+     * @param array  $args The arguments to be replaced in the message.
      * @param int    $code The code of the error.
      *
      * @throws LexerException Throws the exception, if strict mode is enabled.
      *
      * @return void
      */
-    public function error($msg = '', $str = '', $pos = 0, $code = 0)
-    {
+    public function error(
+        $msg = '', $str = '', $pos = 0, $args = null, $code = 0
+    ) {
+        if (USE_GETTEXT) {
+            $msg = gettext($msg);
+        }
+        if (!empty($args)) {
+            $msg = vsprintf($msg, $args);
+        }
         $error = new LexerException($msg, $str, $pos, $code);
         if ($this->strict) {
             throw $error;
@@ -652,7 +670,9 @@ class Lexer
         }
 
         if (($this->last >= $this->len) || ($this->str[$this->last] !== $quote)) {
-            $this->error('Ending quote ' . $quote . ' was expected.', '', $this->last);
+            $this->error(
+                'Ending quote %1$s was expected.', '', $this->last, array($quote)
+            );
         } else {
             $token .= $this->str[$this->last];
         }

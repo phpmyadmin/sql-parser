@@ -326,7 +326,7 @@ class CreateStatement extends Statement
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
                 if ($token->value !== 'RETURNS') {
                     $parser->error(
-                        'A \'RETURNS\' keyword was expected.',
+                        'A "RETURNS" keyword was expected.',
                         $token
                     );
                 } else {

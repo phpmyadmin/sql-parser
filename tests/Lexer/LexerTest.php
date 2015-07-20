@@ -10,18 +10,22 @@ use SqlParser\Tests\TestCase;
 class LexerTest extends TestCase
 {
 
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testError()
     {
         $lexer = new Lexer('');
 
-        $lexer->error('error #1', 'foo', 1, 2);
-        $lexer->error('error #2', 'bar', 3, 4);
+        $lexer->error('error #1', 'foo', 1, array(), 2);
+        $lexer->error('%2$s #%1$d', 'bar', 3, array(2, 'error'), 4);
 
         $this->assertEquals(
             $lexer->errors,
             array(
-            new LexerException('error #1', 'foo', 1, 2),
-            new LexerException('error #2', 'bar', 3, 4),
+                new LexerException('error #1', 'foo', 1, 2),
+                new LexerException('error #2', 'bar', 3, 4),
             )
         );
     }
@@ -36,7 +40,7 @@ class LexerTest extends TestCase
         $lexer = new Lexer('');
         $lexer->strict = true;
 
-        $lexer->error('strict error', 'foo', 1, 4);
+        $lexer->error('strict error', 'foo', 1, array(), 4);
     }
 
     /**

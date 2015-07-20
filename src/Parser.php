@@ -12,6 +12,16 @@ namespace SqlParser;
 use SqlParser\Statements\SelectStatement;
 use SqlParser\Exceptions\ParserException;
 
+if (!defined('USE_GETTEXT')) {
+
+    /**
+     * Whether `gettext` function should be used to translate error messages
+     * before throwing exceptions.
+     * @var bool
+     */
+    define('USE_GETTEXT', function_exists('gettext'));
+}
+
 /**
  * Takes multiple tokens (contained in a Lexer instance) as input and builds a
  * parse tree.
@@ -399,14 +409,22 @@ class Parser
      *
      * @param string $msg   The error message.
      * @param Token  $token The token that produced the error.
+     * @param array  $args  The arguments to be replaced in the message.
      * @param int    $code  The code of the error.
      *
      * @throws ParserException Throws the exception, if strict mode is enabled.
      *
      * @return void
      */
-    public function error($msg = '', Token $token = null, $code = 0)
-    {
+    public function error(
+        $msg = '', Token $token = null, $args = null, $code = 0
+    ) {
+        if (USE_GETTEXT) {
+            $msg = gettext($msg);
+        }
+        if (!empty($args)) {
+            $msg = vsprintf($msg, $args);
+        }
         $error = new ParserException($msg, $token, $code);
         if ($this->strict) {
             throw $error;

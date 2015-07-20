@@ -3,7 +3,6 @@
 namespace SqlParser\Tests\Parser;
 
 use SqlParser\Exceptions\ParserException;
-use SqlParser\Lexer;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
@@ -36,12 +35,16 @@ class ParserTest extends TestCase
         );
     }
 
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
     public function testError()
     {
         $parser = new Parser(new TokensList());
 
-        $parser->error('error #1', new Token('foo'), 1);
-        $parser->error('error #2', new Token('bar'), 2);
+        $parser->error('error #1', new Token('foo'), array(), 1);
+        $parser->error('%2$s #%1$d', new Token('bar'), array(2, 'error'), 2);
 
         $this->assertEquals(
             $parser->errors,
@@ -62,6 +65,6 @@ class ParserTest extends TestCase
         $parser = new Parser(new TokensList());
         $parser->strict = true;
 
-        $parser->error('strict error', new Token('foo'), 3);
+        $parser->error('strict error', new Token('foo'), array(), 3);
     }
 }
