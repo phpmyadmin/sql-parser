@@ -419,8 +419,8 @@ class Parser
     public function error(
         $msg = '', Token $token = null, $args = null, $code = 0
     ) {
-        if (!empty(TRANSLATE)) {
-            $func = TRANSLATE;
+        $func = constant('TRANSLATE');
+        if (!empty($func)) {
             $msg = $func($msg);
         }
         if (!empty($args)) {

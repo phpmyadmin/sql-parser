@@ -322,8 +322,8 @@ class Lexer
     public function error(
         $msg = '', $str = '', $pos = 0, $args = null, $code = 0
     ) {
-        if (!empty(TRANSLATE)) {
-            $func = TRANSLATE;
+        $func = constant('TRANSLATE');
+        if (!empty($func)) {
             $msg = $func($msg);
         }
         if (!empty($args)) {
