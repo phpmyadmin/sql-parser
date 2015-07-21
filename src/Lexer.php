@@ -13,14 +13,14 @@ namespace SqlParser;
 
 use SqlParser\Exceptions\LexerException;
 
-if (!defined('USE_GETTEXT')) {
+if (!defined('TRANSLATE')) {
 
     /**
-     * Whether `gettext` function should be used to translate error messages
-     * before throwing exceptions.
-     * @var bool
+     * The name of the function that translates error messages.
+     * By default `__` (if exists).
+     * @var string
      */
-    define('USE_GETTEXT', function_exists('gettext'));
+    define('TRANSLATE', function_exists('__') ? '__' : '');
 }
 
 if (!defined('USE_UTF_STRINGS')) {
@@ -322,8 +322,9 @@ class Lexer
     public function error(
         $msg = '', $str = '', $pos = 0, $args = null, $code = 0
     ) {
-        if (USE_GETTEXT) {
-            $msg = gettext($msg);
+        if (!empty(TRANSLATE)) {
+            $func = TRANSLATE;
+            $msg = $func($msg);
         }
         if (!empty($args)) {
             $msg = vsprintf($msg, $args);

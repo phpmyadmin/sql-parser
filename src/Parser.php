@@ -12,14 +12,14 @@ namespace SqlParser;
 use SqlParser\Statements\SelectStatement;
 use SqlParser\Exceptions\ParserException;
 
-if (!defined('USE_GETTEXT')) {
+if (!defined('TRANSLATE')) {
 
     /**
-     * Whether `gettext` function should be used to translate error messages
-     * before throwing exceptions.
-     * @var bool
+     * The name of the function that translates error messages.
+     * By default `__` (if exists).
+     * @var string
      */
-    define('USE_GETTEXT', function_exists('gettext'));
+    define('TRANSLATE', function_exists('__') ? '__' : '');
 }
 
 /**
@@ -419,8 +419,9 @@ class Parser
     public function error(
         $msg = '', Token $token = null, $args = null, $code = 0
     ) {
-        if (USE_GETTEXT) {
-            $msg = gettext($msg);
+        if (!empty(TRANSLATE)) {
+            $func = TRANSLATE;
+            $msg = $func($msg);
         }
         if (!empty($args)) {
             $msg = vsprintf($msg, $args);

@@ -9,6 +9,19 @@ use SqlParser\Parser;
 use SqlParser\Token;
 
 /**
+ * Dummy function used to test if errors are translated.
+ *
+ * It translates only "TO_TRANSLATE" to "***".
+ *
+ * @param  string $msg
+ *
+ * @return string
+ */
+function translate($msg) {
+    return str_replace('TO_TRANSLATE', '***' , $msg);
+}
+
+/**
  * Implements useful methods for testing.
  *
  * Each test consists of a string that represents the serialized Lexer or Parser

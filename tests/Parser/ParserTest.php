@@ -49,9 +49,27 @@ class ParserTest extends TestCase
         $this->assertEquals(
             $parser->errors,
             array(
-            new ParserException('error #1', new Token('foo'), 1),
-            new ParserException('error #2', new Token('bar'), 2),
+                new ParserException('error #1', new Token('foo'), 1),
+                new ParserException('error #2', new Token('bar'), 2),
             )
+        );
+    }
+
+    /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function testErrorTranslate()
+    {
+        define('TRANSLATE', '\\SqlParser\\Tests\\translate');
+
+        $parser = new Parser(new TokensList());
+
+        $parser->error('TO_TRANSLATE', null);
+
+        $this->assertEquals(
+            $parser->errors,
+            array(new ParserException('***', null, 0))
         );
     }
 

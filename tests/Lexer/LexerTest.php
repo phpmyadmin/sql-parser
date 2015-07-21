@@ -31,6 +31,24 @@ class LexerTest extends TestCase
     }
 
     /**
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
+     */
+    public function testErrorTranslate()
+    {
+        define('TRANSLATE', '\\SqlParser\\Tests\\translate');
+
+        $lexer = new Lexer('');
+
+        $lexer->error('TO_TRANSLATE', null);
+
+        $this->assertEquals(
+            $lexer->errors,
+            array(new LexerException('***', null, 0))
+        );
+    }
+
+    /**
      * @expectedException SqlParser\Exceptions\LexerException
      * @expectedExceptionMessage strict error
      * @expectedExceptionCode 4
