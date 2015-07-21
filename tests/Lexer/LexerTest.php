@@ -18,8 +18,10 @@ class LexerTest extends TestCase
     {
         $lexer = new Lexer('');
 
-        $lexer->error('error #1', 'foo', 1, array(), 2);
-        $lexer->error('%2$s #%1$d', 'bar', 3, array(2, 'error'), 4);
+        $lexer->error(__('error #1'), 'foo', 1, 2);
+        $lexer->error(
+            sprintf(__('%2$s #%1$d'), 2, 'error'), 'bar', 3, 4
+        );
 
         $this->assertEquals(
             $lexer->errors,
@@ -27,24 +29,6 @@ class LexerTest extends TestCase
                 new LexerException('error #1', 'foo', 1, 2),
                 new LexerException('error #2', 'bar', 3, 4),
             )
-        );
-    }
-
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function testErrorTranslate()
-    {
-        define('TRANSLATE', '\\SqlParser\\Tests\\translate');
-
-        $lexer = new Lexer('');
-
-        $lexer->error('TO_TRANSLATE', null);
-
-        $this->assertEquals(
-            $lexer->errors,
-            array(new LexerException('***', null, 0))
         );
     }
 
@@ -58,7 +42,7 @@ class LexerTest extends TestCase
         $lexer = new Lexer('');
         $lexer->strict = true;
 
-        $lexer->error('strict error', 'foo', 1, array(), 4);
+        $lexer->error(__('strict error'), 'foo', 1, 4);
     }
 
     /**

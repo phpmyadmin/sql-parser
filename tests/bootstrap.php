@@ -13,12 +13,13 @@ use SqlParser\Token;
  *
  * It translates only "TO_TRANSLATE" to "***".
  *
- * @param  string $msg
+ * @param string $msg
  *
  * @return string
  */
-function translate($msg) {
-    return str_replace('TO_TRANSLATE', '***' , $msg);
+function __($msg)
+{
+    return str_replace('TO_TRANSLATE', '***', $msg);
 }
 
 /**

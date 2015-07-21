@@ -43,8 +43,8 @@ class ParserTest extends TestCase
     {
         $parser = new Parser(new TokensList());
 
-        $parser->error('error #1', new Token('foo'), array(), 1);
-        $parser->error('%2$s #%1$d', new Token('bar'), array(2, 'error'), 2);
+        $parser->error(__('error #1'), new Token('foo'), 1);
+        $parser->error(sprintf(__('%2$s #%1$d'), 2, 'error'), new Token('bar'), 2);
 
         $this->assertEquals(
             $parser->errors,
@@ -52,24 +52,6 @@ class ParserTest extends TestCase
                 new ParserException('error #1', new Token('foo'), 1),
                 new ParserException('error #2', new Token('bar'), 2),
             )
-        );
-    }
-
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
-    public function testErrorTranslate()
-    {
-        define('TRANSLATE', '\\SqlParser\\Tests\\translate');
-
-        $parser = new Parser(new TokensList());
-
-        $parser->error('TO_TRANSLATE', null);
-
-        $this->assertEquals(
-            $parser->errors,
-            array(new ParserException('***', null, 0))
         );
     }
 
@@ -83,6 +65,6 @@ class ParserTest extends TestCase
         $parser = new Parser(new TokensList());
         $parser->strict = true;
 
-        $parser->error('strict error', new Token('foo'), array(), 3);
+        $parser->error(__('strict error'), new Token('foo'), 3);
     }
 }
