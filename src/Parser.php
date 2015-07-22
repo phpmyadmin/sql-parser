@@ -28,8 +28,9 @@ namespace {
 
 namespace SqlParser {
 
-    use SqlParser\Statements\SelectStatement;
     use SqlParser\Exceptions\ParserException;
+    use SqlParser\Statements\SelectStatement;
+    use SqlParser\Statements\TransactionStatement;
 
     /**
      * Takes multiple tokens (contained in a Lexer instance) as input and builds a
@@ -50,47 +51,54 @@ namespace SqlParser {
          */
         public static $STATEMENT_PARSERS = array(
 
-            'EXPLAIN'       => 'SqlParser\\Statements\\ExplainStatement',
+            'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
 
             // Table Maintenance Statements
             // https://dev.mysql.com/doc/refman/5.7/en/table-maintenance-sql.html
-            'ANALYZE'       => 'SqlParser\\Statements\\AnalyzeStatement',
-            'BACKUP'        => 'SqlParser\\Statements\\BackupStatement',
-            'CHECK'         => 'SqlParser\\Statements\\CheckStatement',
-            'CHECKSUM'      => 'SqlParser\\Statements\\ChecksumStatement',
-            'OPTIMIZE'      => 'SqlParser\\Statements\\OptimizeStatement',
-            'REPAIR'        => 'SqlParser\\Statements\\RepairStatement',
-            'RESTORE'       => 'SqlParser\\Statements\\RestoreStatement',
+            'ANALYZE'           => 'SqlParser\\Statements\\AnalyzeStatement',
+            'BACKUP'            => 'SqlParser\\Statements\\BackupStatement',
+            'CHECK'             => 'SqlParser\\Statements\\CheckStatement',
+            'CHECKSUM'          => 'SqlParser\\Statements\\ChecksumStatement',
+            'OPTIMIZE'          => 'SqlParser\\Statements\\OptimizeStatement',
+            'REPAIR'            => 'SqlParser\\Statements\\RepairStatement',
+            'RESTORE'           => 'SqlParser\\Statements\\RestoreStatement',
 
             // Database Administration Statements
             // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-server-administration.html
-            'SET'           => '',
-            'SHOW'          => 'SqlParser\\Statements\\ShowStatement',
+            'SET'               => '',
+            'SHOW'              => 'SqlParser\\Statements\\ShowStatement',
 
             // Data Definition Statements.
             // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-definition.html
-            'ALTER'         => 'SqlParser\\Statements\\AlterStatement',
-            'CREATE'        => 'SqlParser\\Statements\\CreateStatement',
-            'DROP'          => 'SqlParser\\Statements\\DropStatement',
-            'RENAME'        => 'SqlParser\\Statements\\RenameStatement',
-            'TRUNCATE'      => 'SqlParser\\Statements\\TruncateStatement',
+            'ALTER'             => 'SqlParser\\Statements\\AlterStatement',
+            'CREATE'            => 'SqlParser\\Statements\\CreateStatement',
+            'DROP'              => 'SqlParser\\Statements\\DropStatement',
+            'RENAME'            => 'SqlParser\\Statements\\RenameStatement',
+            'TRUNCATE'          => 'SqlParser\\Statements\\TruncateStatement',
 
             // Data Manipulation Statements.
             // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-data-manipulation.html
-            'CALL'          => 'SqlParser\\Statements\\CallStatement',
-            'DELETE'        => 'SqlParser\\Statements\\DeleteStatement',
-            'DO'            => '',
-            'HANDLER'       => '',
-            'INSERT'        => 'SqlParser\\Statements\\InsertStatement',
-            'LOAD'          => '',
-            'REPLACE'       => 'SqlParser\\Statements\\ReplaceStatement',
-            'SELECT'        => 'SqlParser\\Statements\\SelectStatement',
-            'UPDATE'        => 'SqlParser\\Statements\\UpdateStatement',
+            'CALL'              => 'SqlParser\\Statements\\CallStatement',
+            'DELETE'            => 'SqlParser\\Statements\\DeleteStatement',
+            'DO'                => '',
+            'HANDLER'           => '',
+            'INSERT'            => 'SqlParser\\Statements\\InsertStatement',
+            'LOAD'              => '',
+            'REPLACE'           => 'SqlParser\\Statements\\ReplaceStatement',
+            'SELECT'            => 'SqlParser\\Statements\\SelectStatement',
+            'UPDATE'            => 'SqlParser\\Statements\\UpdateStatement',
 
             // Prepared Statements.
             // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-prepared-statements.html
-            'PREPARE'       => '',
-            'EXECUTE'       => '',
+            'PREPARE'           => '',
+            'EXECUTE'           => '',
+
+            // Transactional and Locking Statements
+            // https://dev.mysql.com/doc/refman/5.7/en/commit.html
+            'START TRANSACTION' => 'SqlParser\\Statements\\TransactionStatement',
+            'BEGIN'             => 'SqlParser\\Statements\\TransactionStatement',
+            'COMMIT'            => 'SqlParser\\Statements\\TransactionStatement',
+            'ROLLBACK'          => 'SqlParser\\Statements\\TransactionStatement',
         );
 
         /**
@@ -312,6 +320,13 @@ namespace SqlParser {
         {
 
             /**
+             * Last transaction.
+             *
+             * @var TransactionStatement
+             */
+            $lastTransaction = null;
+
+            /**
              * Last parsed statement.
              * @var Statement $lastStatement
              */
@@ -400,21 +415,40 @@ namespace SqlParser {
                 $statement->last = $list->idx;
                 $prevLastIdx = $list->idx;
 
-                // Finally, storing the statement.
+                // Handles unions.
                 if (($inUnion)
                     && ($lastStatement instanceof SelectStatement)
                     && ($statement instanceof SelectStatement)
                 ) {
+
                     /**
                      * Last SELECT statement.
                      * @var SelectStatement $lastStatement
                      */
                     $lastStatement->union[] = $statement;
                     $inUnion = false;
+                    continue;
+                }
+
+                // Handles transactions.
+                if ($statement instanceof TransactionStatement) {
+                    if ($statement->type === TransactionStatement::TYPE_BEGIN) {
+                        $lastTransaction = $statement;
+                        $this->statements[] = $statement;
+                    } elseif ($statement->type === TransactionStatement::TYPE_END) {
+                        $lastTransaction->end = $statement;
+                        $lastTransaction = null;
+                    }
+                    continue;
+                }
+
+                // Finally, storing the statement.
+                if ($lastTransaction !== null) {
+                    $lastTransaction->statements[] = $statement;
                 } else {
                     $this->statements[] = $statement;
-                    $lastStatement = $statement;
                 }
+                $lastStatement = $statement;
 
             }
         }

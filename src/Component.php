@@ -39,7 +39,7 @@ abstract class Component
     ) {
         // This method should be abstract, but it can't be both static and
         // abstract.
-        return null;
+        throw new \Exception('Not implemented yet.');
     }
 
     /**
@@ -56,7 +56,7 @@ abstract class Component
     {
         // This method should be abstract, but it can't be both static and
         // abstract.
-        return null;
+        throw new \Exception('Not implemented yet.');
     }
 
     /**
