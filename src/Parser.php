@@ -321,7 +321,6 @@ namespace SqlParser {
 
             /**
              * Last transaction.
-             *
              * @var TransactionStatement
              */
             $lastTransaction = null;
@@ -336,7 +335,7 @@ namespace SqlParser {
              * Whether a union is parsed or not.
              * @var bool $inUnion
              */
-            $inUnion = true;
+            $inUnion = false;
 
             /**
              * The index of the last token from the last statement.
@@ -436,7 +435,14 @@ namespace SqlParser {
                         $lastTransaction = $statement;
                         $this->statements[] = $statement;
                     } elseif ($statement->type === TransactionStatement::TYPE_END) {
-                        $lastTransaction->end = $statement;
+                        if ($lastTransaction === null) {
+                            $this->error(
+                                __('No transaction was previously started.'),
+                                $token
+                            );
+                        } else {
+                            $lastTransaction->end = $statement;
+                        }
                         $lastTransaction = null;
                     }
                     continue;

@@ -169,6 +169,16 @@ abstract class Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
+        /**
+         * Whether the beginning of this statement was previously parsed.
+         *
+         * This is used to delimit statements that don't use the usual
+         * delimiters.
+         *
+         * @var bool
+         */
+        $parsedBeginning = false;
+
         // This may be corrected by the parser.
         $this->first = $list->idx;
 
@@ -236,6 +246,16 @@ abstract class Statement
             }
 
             if (!empty(Parser::$STATEMENT_PARSERS[$token->value])) {
+                if ($parsedBeginning) {
+                    // New statement has started. We let the parser construct a
+                    // new statement and parse that one
+                    $parser->error(
+                        __('A new statement was found, but no delimiter between them.'),
+                        $token
+                    );
+                    break;
+                }
+                $parsedBeginning = true;
                 if (!$parsedOptions) {
                     ++$list->idx; // Skipping keyword.
                     $this->options = OptionsArray::parse(
