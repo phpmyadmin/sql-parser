@@ -160,7 +160,7 @@ class TestGenerator
                 }
 
                 // Generating tests recursively.
-                static::buildAll($inputFile, $outputFile , $debugFile);
+                static::buildAll($inputFile, $outputFile, $debugFile);
             } elseif (substr($inputFile, -3) === '.in') {
 
                 // Generating file names by replacing `.in` with `.out` and
