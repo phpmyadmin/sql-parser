@@ -14,7 +14,7 @@ class ParserTest extends TestCase
 
     public function testParse()
     {
-        $this->runParserTest('parse');
+        $this->runParserTest('parser/parse');
     }
 
     public function testUnrecognizedStatement()

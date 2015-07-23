@@ -32,9 +32,9 @@ class ArrayObjTest extends TestCase
     public function testParseProvider()
     {
         return array(
-            array('parseArrayErr1'),
-            array('parseArrayErr2'),
-            array('parseArrayErr3'),
+            array('parser/parseArrayErr1'),
+            array('parser/parseArrayErr2'),
+            array('parser/parseArrayErr3'),
         );
     }
 }

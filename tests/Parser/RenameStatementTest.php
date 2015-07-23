@@ -18,12 +18,12 @@ class RenameStatementTest extends TestCase
     public function testRenameProvider()
     {
         return array(
-            array('parseRename'),
-            array('parseRename2'),
-            array('parseRenameErr1'),
-            array('parseRenameErr2'),
-            array('parseRenameErr3'),
-            array('parseRenameErr4'),
+            array('parser/parseRename'),
+            array('parser/parseRename2'),
+            array('parser/parseRenameErr1'),
+            array('parser/parseRenameErr2'),
+            array('parser/parseRenameErr3'),
+            array('parser/parseRenameErr4'),
         );
     }
 }

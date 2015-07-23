@@ -2,18 +2,17 @@
 
 namespace SqlParser\Tests;
 
-require 'vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 use SqlParser\Lexer;
 use SqlParser\Parser;
-use SqlParser\Token;
 
 /**
  * Dummy function used to test if errors are translated.
  *
- * It translates only "TO_TRANSLATE" to "***".
+ * It only translates "TO_TRANSLATE" to "***".
  *
- * @param string $msg
+ * @param string $msg The message to be translated.
  *
  * @return string
  */
@@ -25,14 +24,11 @@ function __($msg)
 /**
  * Implements useful methods for testing.
  *
- * Each test consists of a string that represents the serialized Lexer or Parser
- * instance. Because exceptions include information like file name, which may
- * change due to environment's configuration, their information is extracted
- * in an array which is serialized.
- *
- * For example, a parser test consists of an array with two keys, `parser`
- * which holds the Parser instance, without errors and the `errors` key which
- * holds the array that was previously extracted.
+ * @category   Tests
+ * @package    SqlParser
+ * @subpackage Tests
+ * @author     Dan Ungureanu <udan1107@gmail.com>
+ * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {
@@ -77,52 +73,43 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function getData($name)
     {
-        $input = file_get_contents('tests/data/' . $name . '.in');
-        $output = unserialize(file_get_contents('tests/data/' . $name . '.out'));
-        return array($input, $output);
+        return unserialize(file_get_contents('tests/data/' . $name . '.out'));
     }
 
     /**
-     * Tests the `Lexer`.
+     * Runs a test.
      *
      * @param string $name The name of the test.
      *
-     * @return Lexer
-     */
-    public function runLexerTest($name)
-    {
-        list($input, $output) = $this->getData($name);
-
-        $lexer = new Lexer($input);
-
-        $errors = $this->getErrorsAsArray($lexer);
-        $lexer->errors = array();
-
-        $this->assertEquals($output['errors'], $errors);
-        $this->assertEquals($output['lexer'], $lexer);
-
-        return $lexer;
-    }
-
-    /**
-     * Tests the `Parser`.
-     *
-     * @param string $name The name of the test.
-     *
-     * @return Parser
+     * @return void
      */
     public function runParserTest($name)
     {
-        list($input, $output) = $this->getData($name);
+        /**
+         * Test's data.
+         * @var array
+         */
+        $data = $this->getData($name);
 
-        $parser = new Parser($input);
+        // Lexer.
+        $lexer = new Lexer($data['query']);
+        $lexerErrors = $this->getErrorsAsArray($lexer);
+        $lexer->errors = array();
 
-        $errors = $this->getErrorsAsArray($parser);
-        $parser->errors = array();
+        // Parser.
+        $parser = empty($data['parser']) ? null : new Parser($lexer->list);
+        $parserErrors = array();
+        if ($parser !== null) {
+            $parserErrors = $this->getErrorsAsArray($parser);
+            $parser->errors = array();
+        }
 
-        $this->assertEquals($output['errors'], $errors);
-        $this->assertEquals($output['parser'], $parser);
+        // Testing objects.
+        $this->assertEquals($data['lexer'], $lexer);
+        $this->assertEquals($data['parser'], $parser);
 
-        return $parser;
+        // Testing errors.
+        $this->assertEquals($data['errors']['parser'], $parserErrors);
+        $this->assertEquals($data['errors']['lexer'], $lexerErrors);
     }
 }

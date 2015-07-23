@@ -18,7 +18,7 @@ class InsertStatementTest extends TestCase
     public function testInsertProvider()
     {
         return array(
-            array('parseInsert'),
+            array('parser/parseInsert'),
         );
     }
 }

@@ -18,7 +18,7 @@ class DeleteStatementTest extends TestCase
     public function testDeleteProvider()
     {
         return array(
-            array('parseDelete'),
+            array('parser/parseDelete'),
         );
     }
 }

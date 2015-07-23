@@ -33,8 +33,8 @@ class LimitTest extends TestCase
     public function testParseProvider()
     {
         return array(
-            array('parseLimitErr1'),
-            array('parseLimitErr2'),
+            array('parser/parseLimitErr1'),
+            array('parser/parseLimitErr2'),
         );
     }
 }

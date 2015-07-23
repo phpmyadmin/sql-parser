@@ -18,8 +18,8 @@ class ReplaceStatementTest extends TestCase
     public function testReplaceProvider()
     {
         return array(
-            array('parseReplace'),
-            array('parseReplace2'),
+            array('parser/parseReplace'),
+            array('parser/parseReplace2'),
         );
     }
 }

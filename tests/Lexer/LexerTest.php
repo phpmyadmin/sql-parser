@@ -50,31 +50,31 @@ class LexerTest extends TestCase
      */
     public function testLex($test)
     {
-        $this->runLexerTest($test);
+        $this->runParserTest($test);
     }
 
     public function testLexProvider()
     {
         return array(
-            array('lex'),
-            array('lexUtf8'),
-            array('lexBool'),
-            array('lexComment'),
-            array('lexDelimiter'),
-            array('lexDelimiter2'),
-            array('lexDelimiterErr1'),
-            array('lexDelimiterErr2'),
-            array('lexKeyword'),
-            array('lexNumber'),
-            array('lexOperator'),
-            array('lexString'),
-            array('lexStringErr1'),
-            array('lexSymbol'),
-            array('lexSymbolErr1'),
-            array('lexSymbolErr2'),
-            array('lexSymbolErr3'),
-            array('lexSymbolUser'),
-            array('lexWhitespace'),
+            array('lexer/lex'),
+            array('lexer/lexUtf8'),
+            array('lexer/lexBool'),
+            array('lexer/lexComment'),
+            array('lexer/lexDelimiter'),
+            array('lexer/lexDelimiter2'),
+            array('lexer/lexDelimiterErr1'),
+            array('lexer/lexDelimiterErr2'),
+            array('lexer/lexKeyword'),
+            array('lexer/lexNumber'),
+            array('lexer/lexOperator'),
+            array('lexer/lexString'),
+            array('lexer/lexStringErr1'),
+            array('lexer/lexSymbol'),
+            array('lexer/lexSymbolErr1'),
+            array('lexer/lexSymbolErr2'),
+            array('lexer/lexSymbolErr3'),
+            array('lexer/lexSymbolUser'),
+            array('lexer/lexWhitespace'),
         );
     }
 }

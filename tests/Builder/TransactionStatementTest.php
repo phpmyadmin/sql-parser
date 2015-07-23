@@ -9,7 +9,7 @@ use SqlParser\Tests\TestCase;
 class TransactionStatementTest extends TestCase
 {
 
-    public function testBuilderView()
+    public function testBuilder()
     {
         $query = 'START TRANSACTION;' .
             'SELECT @A:=SUM(salary) FROM table1 WHERE type=1;' .

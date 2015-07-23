@@ -18,9 +18,9 @@ class CallStatementTest extends TestCase
     public function testCallProvider()
     {
         return array(
-            array('parseCall'),
-            array('parseCall2'),
-            array('parseCall3'),
+            array('parser/parseCall'),
+            array('parser/parseCall2'),
+            array('parser/parseCall3'),
         );
     }
 }

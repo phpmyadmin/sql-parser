@@ -18,20 +18,20 @@ class CreateStatementTest extends TestCase
     public function testCreateProvider()
     {
         return array(
-            array('parseCreateFunction'),
-            array('parseCreateFunctionErr1'),
-            array('parseCreateFunctionErr2'),
-            array('parseCreateProcedure'),
-            array('parseCreateProcedure2'),
-            array('parseCreateTable'),
-            array('parseCreateTable2'),
-            array('parseCreateTable3'),
-            array('parseCreateTableErr1'),
-            array('parseCreateTableErr2'),
-            array('parseCreateTrigger'),
-            array('parseCreateUser'),
-            array('parseCreateView'),
-            array('parseCreateView2'),
+            array('parser/parseCreateFunction'),
+            array('parser/parseCreateFunctionErr1'),
+            array('parser/parseCreateFunctionErr2'),
+            array('parser/parseCreateProcedure'),
+            array('parser/parseCreateProcedure2'),
+            array('parser/parseCreateTable'),
+            array('parser/parseCreateTable2'),
+            array('parser/parseCreateTable3'),
+            array('parser/parseCreateTableErr1'),
+            array('parser/parseCreateTableErr2'),
+            array('parser/parseCreateTrigger'),
+            array('parser/parseCreateUser'),
+            array('parser/parseCreateView'),
+            array('parser/parseCreateView2'),
         );
     }
 }

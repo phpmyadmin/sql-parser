@@ -18,8 +18,8 @@ class AlterStatementTest extends TestCase
     public function testAlterProvider()
     {
         return array(
-            array('parseAlter'),
-            array('parseAlter2'),
+            array('parser/parseAlter'),
+            array('parser/parseAlter2'),
         );
     }
 }
