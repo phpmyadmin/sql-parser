@@ -436,6 +436,9 @@ namespace SqlParser {
                         $this->statements[] = $statement;
                     } elseif ($statement->type === TransactionStatement::TYPE_END) {
                         if ($lastTransaction === null) {
+                            // Even though an error occurred, the query is being
+                            // saved.
+                            $this->statements[] = $statement;
                             $this->error(
                                 __('No transaction was previously started.'),
                                 $token

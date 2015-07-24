@@ -188,7 +188,7 @@ abstract class Statement
          * default.
          * @var bool $parsedOptions
          */
-        $parsedOptions = !empty(static::$OPTIONS) ? false : true;
+        $parsedOptions = empty(static::$OPTIONS);
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -257,7 +257,10 @@ abstract class Statement
                 }
                 $parsedBeginning = true;
                 if (!$parsedOptions) {
-                    ++$list->idx; // Skipping keyword.
+                    if (empty(static::$OPTIONS[$token->value])) {
+                        // Skipping keyword because if it is not a option.
+                        ++$list->idx;
+                    }
                     $this->options = OptionsArray::parse(
                         $parser,
                         $list,
@@ -276,7 +279,7 @@ abstract class Statement
 
             // Parsing this keyword.
             if ($class !== null) {
-                ++$list->idx; // Skipping keyword.
+                ++$list->idx; // Skipping keyword or last option.
                 $this->$field = $class::parse($parser, $list, $options);
             }
 

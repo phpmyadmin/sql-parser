@@ -88,11 +88,7 @@ class TransactionStatement extends Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
-        $this->options = OptionsArray::parse(
-            $parser,
-            $list,
-            static::$OPTIONS
-        );
+        parent::parse($parser, $list);
 
         // Checks the type of this query.
         if (($this->options->has('START TRANSACTION'))
