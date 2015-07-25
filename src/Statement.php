@@ -122,11 +122,6 @@ abstract class Statement
              */
             $type = $clause[1];
 
-            // Checking if there is any parser (builder) for this clause.
-            if (empty(Parser::$KEYWORD_PARSERS[$name])) {
-                continue;
-            }
-
             /**
              * The builder (parser) of this clause.
              * @var string $class

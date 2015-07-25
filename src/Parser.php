@@ -114,6 +114,12 @@ namespace SqlParser {
                 'field'     => 'options',
             ),
 
+            // This is used only for building.
+            'UNION'         => array(
+                'class'     => 'SqlParser\\Components\\UnionKeyword',
+                'field'     => 'union',
+            ),
+
             'ALTER'         => array(
                 'class'     => 'SqlParser\\Components\\Expression',
                 'field'     => 'table',
@@ -425,6 +431,18 @@ namespace SqlParser {
                      * @var SelectStatement $lastStatement
                      */
                     $lastStatement->union[] = $statement;
+
+                    // if there are no no delimiting brackets, the `ORDER` and
+                    // `LIMIT` keywords actually belong to the first statement.
+                    $lastStatement->order = $statement->order;
+                    $lastStatement->limit = $statement->limit;
+                    $statement->order = null;
+                    $statement->limit = null;
+
+                    // The statement actually ends where the last statement in
+                    // union ends.
+                    $lastStatement->last = $statement->last;
+
                     $inUnion = false;
                     continue;
                 }

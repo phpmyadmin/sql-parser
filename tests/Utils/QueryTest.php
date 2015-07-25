@@ -385,6 +385,21 @@ class QueryTest extends TestCase
                 'WHERE film_id > 0'
             )
         );
+
+        $parser = new Parser(
+            'select supplier.city, supplier.id from supplier '
+            . 'union select customer.city, customer.id from customer'
+        );
+        $this->assertEquals(
+            'select supplier.city, supplier.id from supplier '
+            . 'union select customer.city, customer.id from customer'
+            . ' ORDER BY city ',
+            Query::replaceClause(
+                $parser->statements[0],
+                $parser->list,
+                'ORDER BY city'
+            )
+        );
     }
 
     public function testReplaceClauseOnlyKeyword()
