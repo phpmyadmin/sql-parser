@@ -436,7 +436,7 @@ namespace SqlParser {
                     // `LIMIT` keywords actually belong to the first statement.
                     $lastStatement->order = $statement->order;
                     $lastStatement->limit = $statement->limit;
-                    $statement->order = null;
+                    $statement->order = array();
                     $statement->limit = null;
 
                     // The statement actually ends where the last statement in

@@ -536,7 +536,7 @@ class Query
         // This is a cheap fix for `SELECT` statements that contain `UNION`.
         // Replacing the `ORDER BY` or `LIMIT` clauses should replace the last
         // clause.
-        if (!empty($statement->union)) {
+        if (($statement instanceof SelectStatement) && (!empty($statement->union))) {
             $clauses['ORDER BY'] = count($clauses) + 1;
             $clauses['LIMIT'] = count($clauses) + 2;
         }
