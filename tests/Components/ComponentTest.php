@@ -14,6 +14,8 @@ class ComponentTest extends TestCase
     /**
      * @expectedException \Exception
      * @expectedExceptionMessage Not implemented yet.
+     * @runInSeparateProcess
+     * @preserveGlobalState disabled
      */
     public function testParse()
     {

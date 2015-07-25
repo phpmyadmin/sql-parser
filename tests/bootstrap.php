@@ -1,25 +1,18 @@
 <?php
 
-namespace SqlParser\Tests;
+/**
+ * Bootstrap for tests.
+ *
+ * @package    SqlParser
+ * @subpackage Tests
+ */
 
-require_once 'vendor/autoload.php';
+namespace SqlParser\Tests;
 
 use SqlParser\Lexer;
 use SqlParser\Parser;
 
-/**
- * Dummy function used to test if errors are translated.
- *
- * It only translates "TO_TRANSLATE" to "***".
- *
- * @param string $msg The message to be translated.
- *
- * @return string
- */
-function __($msg)
-{
-    return str_replace('TO_TRANSLATE', '***', $msg);
-}
+require_once 'vendor/autoload.php';
 
 /**
  * Implements useful methods for testing.
