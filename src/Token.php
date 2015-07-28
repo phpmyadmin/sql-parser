@@ -254,7 +254,9 @@ class Token
         case Token::TYPE_SYMBOL:
             $str = $this->token;
             if ((isset($str[0])) && ($str[0] === '@')) {
-                $str = mb_substr($str, 1, null, 'UTF-8');
+                // `mb_strlen($str)` must be used instead of `null` because
+                // in PHP 5.3- the `null` parameter isn't handled correctly.
+                $str = mb_substr($str, 1, mb_strlen($str), 'UTF-8');
             }
             if ((isset($str[0])) && (($str[0] === '`')
                 || ($str[0] === '"') || ($str[0] === '\''))
