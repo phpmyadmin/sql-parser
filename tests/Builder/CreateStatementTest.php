@@ -58,7 +58,7 @@ class CreateStatementTest extends TestCase
 
         $this->assertEquals(
             "CREATE TABLE `test` (\n" .
-            "`id` INT (11) UNSIGNED NOT NULL AUTO_INCREMENT,\n" .
+            "`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,\n" .
             "PRIMARY KEY (`id`)\n" .
             ") ",
             $stmt->build()

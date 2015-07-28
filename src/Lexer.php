@@ -34,6 +34,11 @@ namespace SqlParser {
 
     if (!defined('USE_UTF_STRINGS')) {
 
+        // NOTE: In previous versions of PHP (5.5 and older) the default
+        // internal encoding is "ISO-8859-1".
+        // All `mb_` functions must specify the correct encoding, which is
+        // 'UTF-8' in order to work properly.
+
         /**
          * Forces usage of `UtfString` if the string is multibyte.
          * `UtfString` may be slower, but it gives better results.
