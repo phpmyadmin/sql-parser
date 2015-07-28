@@ -42,13 +42,6 @@ namespace SqlParser {
         define('USE_UTF_STRINGS', true);
     }
 
-    // Set internal character to UTF-8.
-    // In previous versions of PHP (5.5 and older) the default internal encoding is
-    // "ISO-8859-1".
-    if ((defined('USE_UTF_STRINGS')) && (USE_UTF_STRINGS)) {
-        mb_internal_encoding('UTF-8');
-    }
-
     /**
      * Performs lexical analysis over a SQL statement and splits it in multiple
      * tokens.
@@ -192,7 +185,7 @@ namespace SqlParser {
             // For multi-byte strings, a new instance of `UtfString` is
             // initialized (only if `UtfString` usage is forced.
             if (!($str instanceof UtfString)) {
-                if ((USE_UTF_STRINGS) && ($len != mb_strlen($str))) {
+                if ((USE_UTF_STRINGS) && ($len !== mb_strlen($str, 'UTF-8'))) {
                     $str = new UtfString($str);
                 }
             }

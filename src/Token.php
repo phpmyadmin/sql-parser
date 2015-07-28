@@ -250,18 +250,18 @@ class Token
         case Token::TYPE_STRING:
             $quote = $this->token[0];
             $str = str_replace($quote . $quote, $quote, $this->token);
-            return mb_substr($str, 1, -1); // trims quotes
+            return mb_substr($str, 1, -1, 'UTF-8'); // trims quotes
         case Token::TYPE_SYMBOL:
             $str = $this->token;
             if ((isset($str[0])) && ($str[0] === '@')) {
-                $str = mb_substr($str, 1);
+                $str = mb_substr($str, 1, null, 'UTF-8');
             }
             if ((isset($str[0])) && (($str[0] === '`')
                 || ($str[0] === '"') || ($str[0] === '\''))
             ) {
                 $quote = $str[0];
                 $str = str_replace($quote . $quote, $quote, $str);
-                $str = mb_substr($str, 1, -1);
+                $str = mb_substr($str, 1, -1, 'UTF-8');
             }
             return $str;
         }
