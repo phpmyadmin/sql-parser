@@ -134,6 +134,7 @@ class Token
     const FLAG_NUMBER_FLOAT             =  2;
     const FLAG_NUMBER_APPROXIMATE       =  4;
     const FLAG_NUMBER_NEGATIVE          =  8;
+    const FLAG_NUMBER_BINARY            = 16;
 
     // Strings related flags.
     const FLAG_STRING_SINGLE_QUOTES     =  1;
