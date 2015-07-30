@@ -251,22 +251,32 @@ namespace SqlParser {
                         $this->str[$this->last],
                         $this->last
                     );
-                } elseif (($token->type === Token::TYPE_SYMBOL)
+                } elseif (($lastToken !== null)
+                    && ($token->type === Token::TYPE_SYMBOL)
                     && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)
-                    && ($lastToken !== null)
+                    && (($lastToken->type === Token::TYPE_STRING)
+                        || (($lastToken->type === Token::TYPE_SYMBOL)
+                            && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK)))
                 ) {
                     // Handles ```... FROM 'user'@'%' ...```.
-                    if ((($lastToken->type === Token::TYPE_SYMBOL)
-                        && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK))
-                        || ($lastToken->type === Token::TYPE_STRING)
-                    ) {
-                        $lastToken->token .= $token->token;
-                        $lastToken->type = Token::TYPE_SYMBOL;
-                        $lastToken->flags = Token::FLAG_SYMBOL_USER;
-                        $lastToken->value .= '@' . $token->value;
-                        continue;
-                    }
+                    $lastToken->token .= $token->token;
+                    $lastToken->type = Token::TYPE_SYMBOL;
+                    $lastToken->flags = Token::FLAG_SYMBOL_USER;
+                    $lastToken->value .= '@' . $token->value;
+                    continue;
+                } elseif (($lastToken !== null)
+                    && ($token->type === Token::TYPE_KEYWORD)
+                    && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
+                    && ($lastToken->type === Token::TYPE_OPERATOR)
+                    && ($lastToken->value === '.')
+                ) {
+                    // Handles ```... tbl.FROM ...```. In this case, FROM is not
+                    // a reserved word.
+                    $token->type = Token::TYPE_NONE;
+                    $token->flags = 0;
+                    $token->value = $token->token;
                 }
+
                 $token->position = $lastIdx;
 
                 $list->tokens[$list->count++] = $token;
