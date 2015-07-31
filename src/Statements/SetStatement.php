@@ -9,11 +9,7 @@
 namespace SqlParser\Statements;
 
 use SqlParser\Statement;
-use SqlParser\Components\Expression;
-use SqlParser\Components\Limit;
-use SqlParser\Components\OrderKeyword;
 use SqlParser\Components\SetOperation;
-use SqlParser\Components\Condition;
 
 /**
  * `SET` statement.

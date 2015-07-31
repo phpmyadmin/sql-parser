@@ -332,7 +332,7 @@ namespace SqlParser {
 
             /**
              * Last transaction.
-             * @var TransactionStatement
+             * @var TransactionStatement $lastTransaction
              */
             $lastTransaction = null;
 
@@ -435,6 +435,10 @@ namespace SqlParser {
                     && ($lastStatement instanceof SelectStatement)
                     && ($statement instanceof SelectStatement)
                 ) {
+                    /**
+                     * This SELECT statement.
+                     * @var SelectStatement $statement
+                     */
 
                     /**
                      * Last SELECT statement.
@@ -459,6 +463,10 @@ namespace SqlParser {
 
                 // Handles transactions.
                 if ($statement instanceof TransactionStatement) {
+
+                    /**
+                     * @var TransactionStatement $statement
+                     */
                     if ($statement->type === TransactionStatement::TYPE_BEGIN) {
                         $lastTransaction = $statement;
                         $this->statements[] = $statement;

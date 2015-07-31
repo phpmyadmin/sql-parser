@@ -64,6 +64,7 @@ class LexerTest extends TestCase
             array('lexer/lexDelimiter2'),
             array('lexer/lexDelimiterErr1'),
             array('lexer/lexDelimiterErr2'),
+            array('lexer/lexDelimiterErr3'),
             array('lexer/lexKeyword'),
             array('lexer/lexKeyword2'),
             array('lexer/lexNumber'),

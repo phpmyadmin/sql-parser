@@ -124,7 +124,7 @@ abstract class Statement
 
             /**
              * The builder (parser) of this clause.
-             * @var string $class
+             * @var Component $class
              */
             $class = Parser::$KEYWORD_PARSERS[$name]['class'];
 
@@ -213,7 +213,7 @@ abstract class Statement
 
             /**
              * The name of the class that is used for parsing.
-             * @var string $class
+             * @var Component $class
              */
             $class = null;
 

@@ -255,8 +255,8 @@ namespace SqlParser {
                     && ($token->type === Token::TYPE_SYMBOL)
                     && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)
                     && (($lastToken->type === Token::TYPE_STRING)
-                        || (($lastToken->type === Token::TYPE_SYMBOL)
-                            && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK)))
+                    || (($lastToken->type === Token::TYPE_SYMBOL)
+                    && ($lastToken->flags & Token::FLAG_SYMBOL_BACKTICK)))
                 ) {
                     // Handles ```... FROM 'user'@'%' ...```.
                     $lastToken->token .= $token->token;
@@ -266,7 +266,6 @@ namespace SqlParser {
                     continue;
                 } elseif (($lastToken !== null)
                     && ($token->type === Token::TYPE_KEYWORD)
-                    && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
                     && ($lastToken->type === Token::TYPE_OPERATOR)
                     && ($lastToken->value === '.')
                 ) {
@@ -316,6 +315,16 @@ namespace SqlParser {
                     while ((++$this->last < $this->len) && (!Context::isWhitespace($this->str[$this->last]))) {
                         $this->delimiter .= $this->str[$this->last];
                     }
+
+                    if (empty($this->delimiter)) {
+                        $this->error(
+                            __('Expected delimiter.'),
+                            '',
+                            $this->last
+                        );
+                        $this->delimiter = ';';
+                    }
+
                     --$this->last;
 
                     // Saving the delimiter and its token.
@@ -608,7 +617,7 @@ namespace SqlParser {
                     } elseif (($this->last + 1 < $this->len)
                         && ($this->str[$this->last] === '0')
                         && (($this->str[$this->last + 1] === 'x')
-                            || ($this->str[$this->last + 1] === 'X'))
+                        || ($this->str[$this->last + 1] === 'X'))
                     ) {
                         $token .= $this->str[$this->last++];
                         $state = 2;
