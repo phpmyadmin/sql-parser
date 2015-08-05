@@ -416,10 +416,6 @@ abstract class Context
      */
     public static function load($context = '')
     {
-        /**
-         * @var Context $context
-         */
-
         if (empty($context)) {
             $context = self::$defaultContext;
         }
