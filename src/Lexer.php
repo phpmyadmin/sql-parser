@@ -506,7 +506,7 @@ namespace SqlParser {
                 while ((++$this->last < $this->len) && ($this->str[$this->last] !== "\n")) {
                     $token .= $this->str[$this->last];
                 }
-                $token .= $this->str[$this->last];
+                $token .= "\n";  // Adding the line ending.
                 return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_BASH);
             }
 
@@ -519,11 +519,14 @@ namespace SqlParser {
                         // It is a MySQL-specific command.
                         $flags |= Token::FLAG_COMMENT_MYSQL_CMD;
                     }
-                    while ((++$this->last < $this->len) &&
-                    (($this->str[$this->last - 1] !== '*') || ($this->str[$this->last] !== '/'))) {
+                    while ((++$this->last < $this->len)
+                        && (($this->str[$this->last - 1] !== '*') || ($this->str[$this->last] !== '/'))
+                    ) {
                         $token .= $this->str[$this->last];
                     }
-                    $token .= $this->str[$this->last];
+                    if ($this->last < $this->len) {
+                        $token .= $this->str[$this->last];
+                    }
                     return new Token($token, Token::TYPE_COMMENT, $flags);
                 }
             }
@@ -532,14 +535,12 @@ namespace SqlParser {
             if (++$this->last < $this->len) {
                 $token .= $this->str[$this->last];
                 if (Context::isComment($token)) {
+                    // Checking if this comment did not end already (```--\n```).
                     if ($this->str[$this->last] !== "\n") {
-                        // Checking if this comment did not end already (```--\n```).
                         while ((++$this->last < $this->len) && ($this->str[$this->last] !== "\n")) {
                             $token .= $this->str[$this->last];
                         }
-
-                        // Adding the line ending.
-                        $token .= "\n";
+                        $token .= "\n"; // Adding the line ending.
                     }
                     return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_SQL);
                 }
@@ -779,13 +780,17 @@ namespace SqlParser {
                 $token = '';
             }
 
-            if (($str = $this->parseString('`')) === null) {
-                if (($str = static::parseUnknown()) === null) {
-                    $this->error(
-                        __('Variable name was expected.'),
-                        $this->str[$this->last],
-                        $this->last
-                    );
+            $str = null;
+
+            if ($this->last < $this->len) {
+                if (($str = $this->parseString('`')) === null) {
+                    if (($str = static::parseUnknown()) === null) {
+                        $this->error(
+                            __('Variable name was expected.'),
+                            $this->str[$this->last],
+                            $this->last
+                        );
+                    }
                 }
             }
 
@@ -823,7 +828,7 @@ namespace SqlParser {
         {
             $idx = 0;
 
-            while ($idx < $this->delimiterLen) {
+            while (($idx < $this->delimiterLen) && ($this->last + $idx < $this->len)) {
                 if ($this->delimiter[$idx] !== $this->str[$this->last + $idx]) {
                     return null;
                 }

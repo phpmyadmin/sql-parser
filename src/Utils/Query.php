@@ -743,14 +743,16 @@ class Query
         for ($list->idx = 0; $list->idx < $list->count; ++$list->idx) {
             $token = $list->tokens[$list->idx];
 
-            if ($token->type === Token::TYPE_COMMENT) {
+            if (($token->type === Token::TYPE_COMMENT)
+                && (!($token->flags & Token::FLAG_COMMENT_MYSQL_CMD))
+            ) {
                 continue;
             }
 
             $statement .= $token->token;
 
-            if (($token->type === Token::TYPE_DELIMITER) && (!empty($token->value))) {
-                $delimiter = $token->value;
+            if (($token->type === Token::TYPE_DELIMITER) && (!empty($token->token))) {
+                $delimiter = $token->token;
                 $fullStatement = true;
                 break;
             }
@@ -766,7 +768,7 @@ class Query
         // remaining query.
         $query = '';
         for (++$list->idx; $list->idx < $list->count; ++$list->idx) {
-            $query .= $list->tokens[$list->idx]->value;
+            $query .= $list->tokens[$list->idx]->token;
         }
 
         return array(trim($statement), $query, $delimiter);

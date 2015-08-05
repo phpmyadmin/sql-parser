@@ -64,13 +64,13 @@ class IsMethodsTest extends TestCase
         $this->assertEquals(Token::FLAG_COMMENT_C, Context::isComment('*/'));
         $this->assertEquals(Token::FLAG_COMMENT_SQL, Context::isComment('-- '));
         $this->assertEquals(Token::FLAG_COMMENT_SQL, Context::isComment("--\t"));
+        $this->assertEquals(Token::FLAG_COMMENT_SQL, Context::isComment("--\n"));
 
         $this->assertEquals(Token::FLAG_COMMENT_BASH, Context::isComment('# a comment'));
         $this->assertEquals(Token::FLAG_COMMENT_C, Context::isComment('/*comment */'));
         $this->assertEquals(Token::FLAG_COMMENT_SQL, Context::isComment('-- my comment'));
 
-        $this->assertEquals(Context::isComment("--\n"), null);
-        $this->assertEquals(Context::isComment('--not a comment'), null);
+        $this->assertEquals(null, Context::isComment('--not a comment'));
     }
 
     public function testIsBool()

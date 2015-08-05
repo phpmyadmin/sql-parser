@@ -359,7 +359,7 @@ class QueryTest extends TestCase
         $parser = new Parser(
             'SELECT c.city_id, c.country_id ' .
             'FROM `city` ' .
-            'WHERE city_id < 1 ' .
+            'WHERE city_id < 1 /* test */' .
             'ORDER BY city_id ASC ' .
             'LIMIT 0, 1 ' .
             'INTO OUTFILE "/dev/null"'
@@ -457,5 +457,44 @@ class QueryTest extends TestCase
                 )
             )
         );
+    }
+
+    public function testGetFirstStatement()
+    {
+        $query = 'USE saki';
+        $delimiter = null;
+        list($statement, $query, $delimiter) =
+            Query::getFirstStatement($query, $delimiter);
+        $this->assertEquals(null, $statement);
+        $this->assertEquals('USE saki', $query);
+
+        $query = 'USE sakila; ' .
+            '/*test comment*/' .
+            'SELECT * FROM actor; '.
+            'DELIMITER $$ ' .
+            'UPDATE actor SET last_name = "abc"$$' .
+            '/*!SELECT * FROM actor WHERE last_name = "abc"*/$$';
+        $delimiter = null;
+
+        list($statement, $query, $delimiter) =
+            Query::getFirstStatement($query, $delimiter);
+        $this->assertEquals('USE sakila;', $statement);
+
+        list($statement, $query, $delimiter) =
+            Query::getFirstStatement($query, $delimiter);
+        $this->assertEquals('SELECT * FROM actor;', $statement);
+
+        list($statement, $query, $delimiter) =
+            Query::getFirstStatement($query, $delimiter);
+        $this->assertEquals('DELIMITER $$', $statement);
+        $this->assertEquals('$$', $delimiter);
+
+        list($statement, $query, $delimiter) =
+            Query::getFirstStatement($query, $delimiter);
+        $this->assertEquals('UPDATE actor SET last_name = "abc"$$', $statement);
+
+        list($statement, $query, $delimiter) =
+            Query::getFirstStatement($query, $delimiter);
+        $this->assertEquals('/*!SELECT * FROM actor WHERE last_name = "abc"*/$$', $statement);
     }
 }
