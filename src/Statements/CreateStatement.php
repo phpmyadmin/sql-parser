@@ -307,7 +307,7 @@ class CreateStatement extends Statement
             $this->fields = FieldDefinition::parse($parser, $list);
             if (empty($this->fields)) {
                 $parser->error(
-                    __('At least one field definition was expected.'),
+                    __('At least one column definition was expected.'),
                     $list->tokens[$list->idx]
                 );
             }
