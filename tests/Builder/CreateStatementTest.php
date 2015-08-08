@@ -5,7 +5,7 @@ namespace SqlParser\Tests\Builder;
 use SqlParser\Parser;
 use SqlParser\Components\DataType;
 use SqlParser\Components\Expression;
-use SqlParser\Components\FieldDefinition;
+use SqlParser\Components\CreateDefinition;
 use SqlParser\Components\Key;
 use SqlParser\Components\OptionsArray;
 use SqlParser\Statements\CreateStatement;
@@ -44,12 +44,12 @@ class CreateStatementTest extends TestCase
         $stmt->name = new Expression('', 'test', '');
         $stmt->options = new OptionsArray(array('TABLE'));
         $stmt->fields = array(
-            new FieldDefinition(
+            new CreateDefinition(
                 'id',
                 new OptionsArray(array('NOT NULL', 'AUTO_INCREMENT')),
                 new DataType('INT', array(11), new OptionsArray(array('UNSIGNED')))
             ),
-            new FieldDefinition(
+            new CreateDefinition(
                 '',
                 null,
                 new Key('', array('id'), 'PRIMARY KEY')

@@ -3,16 +3,16 @@
 namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
-use SqlParser\Components\FieldDefinition;
+use SqlParser\Components\CreateDefinition;
 
 use SqlParser\Tests\TestCase;
 
-class FieldDefinitionTest extends TestCase
+class CreateDefinitionTest extends TestCase
 {
 
     public function testParse()
     {
-        $component = FieldDefinition::parse(
+        $component = CreateDefinition::parse(
             new Parser(),
             $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str))')
         );
@@ -25,7 +25,7 @@ class FieldDefinitionTest extends TestCase
     public function testParseErr1()
     {
         $parser = new Parser();
-        $component = FieldDefinition::parse(
+        $component = CreateDefinition::parse(
             $parser,
             $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str)')
         );
@@ -39,7 +39,7 @@ class FieldDefinitionTest extends TestCase
     public function testParseErr2()
     {
         $parser = new Parser();
-        $component = FieldDefinition::parse(
+        $component = CreateDefinition::parse(
             $parser,
             $this->getTokensList(')')
         );
@@ -61,7 +61,7 @@ class FieldDefinitionTest extends TestCase
         );
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
-            FieldDefinition::build($parser->statements[0]->fields[1])
+            CreateDefinition::build($parser->statements[0]->fields[1])
         );
     }
 }
