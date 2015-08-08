@@ -43,7 +43,7 @@ class OrderKeyword extends Component
      * Constructor.
      *
      * @param Expression $expr The expression that we are sorting by.
-     * @param string     $type  The sorting type.
+     * @param string     $type The sorting type.
      */
     public function __construct($expr = null, $type = 'ASC')
     {
