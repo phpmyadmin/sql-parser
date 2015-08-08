@@ -495,6 +495,6 @@ class QueryTest extends TestCase
 
         list($statement, $query, $delimiter) =
             Query::getFirstStatement($query, $delimiter);
-        $this->assertEquals('/*!SELECT * FROM actor WHERE last_name = "abc"*/$$', $statement);
+        $this->assertEquals('SELECT * FROM actor WHERE last_name = "abc"$$', $statement);
     }
 }
