@@ -113,7 +113,7 @@ class BufferedQuery
             $options
         );
 
-        $this->query = '';
+        $this->query = $query;
         $this->setDelimiter($this->options['delimiter']);
     }
 
