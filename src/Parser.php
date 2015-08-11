@@ -375,6 +375,7 @@ namespace SqlParser {
                 ) {
                     // Skipping to the end of this statement.
                     $list->getNextOfType(Token::TYPE_DELIMITER);
+                    $prevLastIdx = $list->idx;
                     continue;
                 }
 
@@ -412,7 +413,6 @@ namespace SqlParser {
                     }
                     // Skipping to the end of this statement.
                     $list->getNextOfType(Token::TYPE_DELIMITER);
-                    //
                     $prevLastIdx = $list->idx;
                     continue;
                 }
