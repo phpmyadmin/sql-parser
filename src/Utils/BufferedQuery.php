@@ -83,8 +83,8 @@ class BufferedQuery
     /**
      * Constructor.
      *
-     * @param string $query     The query to be parsed.
-     * @param array  $options   The options of this parser.
+     * @param string $query   The query to be parsed.
+     * @param array  $options The options of this parser.
      */
     public function __construct($query = '', array $options = array())
     {
