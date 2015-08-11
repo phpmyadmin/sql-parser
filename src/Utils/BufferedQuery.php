@@ -180,7 +180,7 @@ class BufferedQuery
          */
         $loopLen = $end ? $len : $len - 16;
 
-        for (; $i < $loopLen; ++$i)  {
+        for (; $i < $loopLen; ++$i) {
 
             /*
              * Handling special parses statuses.
