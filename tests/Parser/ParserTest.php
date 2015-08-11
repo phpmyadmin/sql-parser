@@ -12,9 +12,20 @@ use SqlParser\Tests\TestCase;
 class ParserTest extends TestCase
 {
 
-    public function testParse()
+    /**
+     * @dataProvider testParseProvider
+     */
+    public function testParse($test)
     {
-        $this->runParserTest('parser/parse');
+        $this->runParserTest($test);
+    }
+
+    public function testParseProvider()
+    {
+        return array(
+            array('parser/parse'),
+            array('parser/parseDelimiter'),
+        );
     }
 
     public function testUnrecognizedStatement()
