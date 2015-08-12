@@ -799,7 +799,11 @@ namespace SqlParser {
             }
 
             if ($flags & Token::FLAG_SYMBOL_VARIABLE) {
-                ++$this->last;
+                if ($this->str[++$this->last] === '@') {
+                    // This is a system variable (e.g. `@@hostname`).
+                    $token .= $this->str[$this->last++];
+                    $flags |= Token::FLAG_SYMBOL_SYSTEM;
+                }
             } else {
                 $token = '';
             }

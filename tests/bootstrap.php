@@ -66,7 +66,9 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function getData($name)
     {
-        return unserialize(file_get_contents('tests/data/' . $name . '.out'));
+        $data = unserialize(file_get_contents('tests/data/' . $name . '.out'));
+        $data['query'] = file_get_contents('tests/data/' . $name . '.in');
+        return $data;
     }
 
     /**
