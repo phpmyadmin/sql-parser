@@ -44,7 +44,7 @@ class RenameOperation extends Component
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return RenameOperation
+     * @return RenameOperation[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
@@ -156,5 +156,24 @@ class RenameOperation extends Component
 
         --$list->idx;
         return $ret;
+    }
+
+    /**
+     * @param RenameOperation $component The component to be built.
+     *
+     * @return string
+     */
+    public static function build($component)
+    {
+        if (is_array($component)) {
+            $values = array();
+            foreach ($component as $c) {
+                $values[] = static::build($c);
+            }
+            return implode(', ', $values);
+        } else {
+            return Expression::build($component->old) . ' TO '
+                . Expression::build($component->new);
+        }
     }
 }

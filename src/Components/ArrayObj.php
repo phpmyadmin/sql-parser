@@ -133,20 +133,28 @@ class ArrayObj extends Component
     }
 
     /**
-     * @param ArrayObj $component The component to be built.
+     * @param ArrayObj|ArrayObj[] $component The component to be built.
      *
      * @return string
      */
     public static function build($component)
     {
-        $values = array();
-        if (!empty($component->raw)) {
-            $values = $component->raw;
-        } else {
-            foreach ($component->values as $value) {
-                $values[] = $value;
+        if (is_array($component)) {
+            $values = array();
+            foreach ($component as $c) {
+                $values[] = static::build($c);
             }
+            return implode(', ', $values);
+        } else {
+            $values = array();
+            if (!empty($component->raw)) {
+                $values = $component->raw;
+            } else {
+                foreach ($component->values as $value) {
+                    $values[] = $value;
+                }
+            }
+            return '(' . implode(', ', $values) . ')';
         }
-        return '(' . implode(', ', $values) . ')';
     }
 }

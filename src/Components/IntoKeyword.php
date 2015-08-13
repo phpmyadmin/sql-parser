@@ -128,4 +128,20 @@ class IntoKeyword extends Component
         --$list->idx;
         return $ret;
     }
+
+    /**
+     * @param IntoKeyword $component The component to be built.
+     *
+     * @return string
+     */
+    public static function build($component)
+    {
+        if ($component->type === 'OUTFILE') {
+            return 'OUTFILE "' . $component->dest . '"';
+        } else {
+            $columns = !empty($component->columns) ?
+                '(' . implode(', ', $component->columns) . ')' : '';
+            return Expression::build($component->dest) . $columns;
+        }
+    }
 }

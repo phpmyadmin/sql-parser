@@ -20,6 +20,15 @@ class Array2dTest extends TestCase
         );
     }
 
+    public function testBuild()
+    {
+        $arrays = Array2d::parse(new Parser(), $this->getTokensList('(1, 2), (3, 4), (5, 6)'));
+        $this->assertEquals(
+            '(1, 2), (3, 4), (5, 6)',
+            Array2d::build($arrays)
+        );
+    }
+
     public function testParseErr1()
     {
         $parser = new Parser();

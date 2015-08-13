@@ -118,4 +118,14 @@ class Array2d extends Component
         --$list->idx;
         return $ret;
     }
+
+    /**
+     * @param ArrayObj[] $component The component to be built.
+     *
+     * @return string
+     */
+    public static function build($component)
+    {
+        return ArrayObj::build($component);
+    }
 }
