@@ -332,30 +332,35 @@ namespace SqlParser {
 
             /**
              * Last transaction.
+             *
              * @var TransactionStatement $lastTransaction
              */
             $lastTransaction = null;
 
             /**
              * Last parsed statement.
+             *
              * @var Statement $lastStatement
              */
             $lastStatement = null;
 
             /**
              * Whether a union is parsed or not.
+             *
              * @var bool $inUnion
              */
             $inUnion = false;
 
             /**
              * The index of the last token from the last statement.
+             *
              * @var int $prevLastIdx
              */
             $prevLastIdx = -1;
 
             /**
              * The list of tokens.
+             *
              * @var TokensList $list
              */
             $list = &$this->list;
@@ -364,6 +369,7 @@ namespace SqlParser {
 
                 /**
                  * Token parsed at this moment.
+                 *
                  * @var Token $token
                  */
                 $token = $list->tokens[$list->idx];
@@ -419,12 +425,14 @@ namespace SqlParser {
 
                 /**
                  * The name of the class that is used for parsing.
+                 *
                  * @var string $class
                  */
                 $class = static::$STATEMENT_PARSERS[$token->value];
 
                 /**
                  * Processed statement.
+                 *
                  * @var Statement $statement
                  */
                 $statement = new $class($this, $this->list);
@@ -445,13 +453,16 @@ namespace SqlParser {
                     && ($lastStatement instanceof SelectStatement)
                     && ($statement instanceof SelectStatement)
                 ) {
+
                     /**
                      * This SELECT statement.
+                     *
                      * @var SelectStatement $statement
                      */
 
                     /**
                      * Last SELECT statement.
+                     *
                      * @var SelectStatement $lastStatement
                      */
                     $lastStatement->union[] = $statement;

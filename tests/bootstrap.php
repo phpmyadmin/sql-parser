@@ -82,7 +82,8 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
     {
         /**
          * Test's data.
-         * @var array
+         *
+         * @var array $data
          */
         $data = $this->getData($name);
 

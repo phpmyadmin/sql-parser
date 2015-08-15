@@ -72,15 +72,17 @@ class ArrayObj extends Component
          *      1 ------------------[ array element ]-----------------> 2
          *
          *      2 ------------------------[ , ]-----------------------> 1
-         *      2 ------------------------[ ) ]-----------------------> -1
+         *      2 ------------------------[ ) ]-----------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

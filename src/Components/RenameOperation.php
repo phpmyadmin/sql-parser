@@ -64,15 +64,17 @@ class RenameOperation extends Component
          *      2 ---------------------[ old name ]--------------------> 3
          *
          *      3 ------------------------[ , ]------------------------> 0
-         *      3 -----------------------[ else ]----------------------> -1
+         *      3 -----------------------[ else ]----------------------> (END)
          *
-         * @var int
+         * @var int $state
          */
         $state = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
+
             /**
              * Token parsed at this moment.
+             *
              * @var Token $token
              */
             $token = $list->tokens[$list->idx];

@@ -348,7 +348,7 @@ class CreateStatement extends Statement
              * previously. At least one bracket is required to validate the
              * expression.
              *
-             * @var int|bool
+             * @var int|bool $brackets
              */
             $brackets = false;
 
@@ -359,6 +359,7 @@ class CreateStatement extends Statement
 
                 /**
                  * Token parsed at this moment.
+                 *
                  * @var Token $token
                  */
                 $token = $list->tokens[$list->idx];

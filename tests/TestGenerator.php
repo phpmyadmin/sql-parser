@@ -32,26 +32,30 @@ class TestGenerator
 
         /**
          * Lexer used for tokenizing the query.
-         * @var Lexer
+         *
+         * @var Lexer $lexer
          */
         $lexer = new Lexer($query);
 
         /**
          * Parsed used for analyzing the query.
          * A new instance of parser is generated only if the test requires.
-         * @var Parser
+         *
+         * @var Parser $parser
          */
         $parser = ($type === 'parser') ? new Parser($lexer->list) : null;
 
         /**
          * Lexer's errors.
-         * @var array
+         *
+         * @var array $lexerErrors
          */
         $lexerErrors = array();
 
         /**
          * Parser's errors.
-         * @var array
+         *
+         * @var array $parserErrors
          */
         $parserErrors = array();
 
@@ -109,7 +113,7 @@ class TestGenerator
         /**
          * The query that is used to generate the test.
          *
-         * @var string
+         * @var string $query
          */
         $query = file_get_contents($input);
 

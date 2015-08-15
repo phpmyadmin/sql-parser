@@ -20,12 +20,14 @@ class BufferedQueryTest extends TestCase
 
         /**
          * The array of extracted statements.
+         *
          * @var array $statements
          */
         $statements = array();
 
         /**
          * The `BufferedQuery` instance used for extraction.
+         *
          * @var BufferedQuery $bq
          */
         $bq = new BufferedQuery('', $options);
