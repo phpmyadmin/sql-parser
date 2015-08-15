@@ -41,8 +41,12 @@ class Formatter
      */
     public static $INLINE_CLAUSES = array(
         'CREATE'                        => true,
-        'PROCEDURE'                     => true,
         'LIMIT'                         => true,
+        'PARTITION BY'                  => true,
+        'PARTITION'                     => true,
+        'PROCEDURE'                     => true,
+        'SUBPARTITION BY'               => true,
+        'VALUES'                        => true,
     );
 
     /**

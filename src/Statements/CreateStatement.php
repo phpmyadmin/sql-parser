@@ -15,6 +15,7 @@ use SqlParser\TokensList;
 use SqlParser\Components\ArrayObj;
 use SqlParser\Components\DataType;
 use SqlParser\Components\CreateDefinition;
+use SqlParser\Components\PartitionDefinition;
 use SqlParser\Components\Expression;
 use SqlParser\Components\OptionsArray;
 use SqlParser\Components\ParameterDefinition;
@@ -174,6 +175,41 @@ class CreateStatement extends Statement
     public $fields;
 
     /**
+     * Expression used for partitioning.
+     *
+     * @var string
+     */
+    public $partitionBy;
+
+    /**
+     * The number of partitions.
+     *
+     * @var int
+     */
+    public $partitionsNum;
+
+    /**
+     * Expression used for subpartitioning.
+     *
+     * @var string
+     */
+    public $subpartitionBy;
+
+    /**
+     * The number of subpartitions.
+     *
+     * @var int
+     */
+    public $subpartitionsNum;
+
+    /**
+     * The partition of the new table.
+     *
+     * @var PartitionDefinition[]
+     */
+    public $partitions;
+
+    /**
      * If `CREATE TRIGGER` the name of the table.
      *
      * Used by `CREATE TRIGGER`.
@@ -232,16 +268,19 @@ class CreateStatement extends Statement
             $partition = '';
 
             if (!empty($this->partitionBy)) {
-                $partition .= ' PARTITION BY ' . $this->partitionBy;
+                $partition .= "\nPARTITION BY " . $this->partitionBy;
             }
             if (!empty($this->partitionsNum)) {
-                $partition .= ' PARTITIONS ' . $this->partitionsNum;
+                $partition .= "\nPARTITIONS " . $this->partitionsNum;
             }
             if (!empty($this->subpartitionBy)) {
-                $partition .= ' SUBPARTITION BY ' . $this->subpartitionBy;
+                $partition .= "\nSUBPARTITION BY " . $this->subpartitionBy;
             }
             if (!empty($this->subpartitionsNum)) {
-                $partition .= ' SUBPARTITIONS ' . $this->subpartitionsNum;
+                $partition .= "\nSUBPARTITIONS " . $this->subpartitionsNum;
+            }
+            if (!empty($this->partitions)) {
+                $partition .= "\n" . PartitionDefinition::build($this->partitions);
             }
 
             return 'CREATE '
