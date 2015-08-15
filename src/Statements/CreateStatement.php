@@ -453,11 +453,13 @@ class CreateStatement extends Statement
                         $field = null;
                     }
                 } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $this->partitions = ArrayObj::parse(
-                        $parser,
-                        $list,
-                        array('type' => 'SqlParser\Components\PartitionDefinition')
-                    );
+                    if (!empty($this->partitionBy)) {
+                        $this->partitions = ArrayObj::parse(
+                            $parser,
+                            $list,
+                            array('type' => 'SqlParser\Components\PartitionDefinition')
+                        );
+                    }
                     break;
                 }
             }
