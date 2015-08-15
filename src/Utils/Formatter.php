@@ -390,7 +390,7 @@ class Formatter
                     if (!((($prev->type === Token::TYPE_OPERATOR) && (($prev->value === '.') || ($prev->value === '(')))
                         // No space after . (
                         || (($curr->type === Token::TYPE_OPERATOR) && (($curr->value === '.') || ($curr->value === ',') || ($curr->value === '(') || ($curr->value === ')')))
-                        // No space before . , )
+                        // No space before . , ( )
                         || (($curr->type === Token::TYPE_DELIMITER)) && (mb_strlen($curr->value, 'UTF-8') < 2))
                         // A space after delimiters that are longer than 2 characters.
                         || ($prev->value === 'DELIMITER')
