@@ -155,7 +155,18 @@ class PartitionDefinition extends Component
                 $ret->type = $token->value;
                 $state = 4;
             } elseif ($state === 4) {
-                $ret->expr = Expression::parse($parser, $list, array('noAlias' => true, 'bracketsDelimited' => true));
+                if ($token->value === 'MAXVALUE') {
+                    $ret->expr = $token->value;
+                } else {
+                    $ret->expr = Expression::parse(
+                        $parser,
+                        $list,
+                        array(
+                            'bracketsDelimited' => true,
+                            'noAlias' => true,
+                        )
+                    );
+                }
                 $state = 5;
             } elseif ($state === 5) {
                 $ret->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
@@ -166,12 +177,12 @@ class PartitionDefinition extends Component
                         $parser,
                         $list,
                         array(
-                            'type' => 'SqlParser\Components\PartitionDefinition'
+                            'type' => 'SqlParser\\Components\\PartitionDefinition'
                         )
                     );
-                } else {
-                    break;
+                    ++$list->idx;
                 }
+                break;
             }
         }
 
@@ -196,11 +207,10 @@ class PartitionDefinition extends Component
             if ($component->isSubpartition) {
                 return 'SUBPARTITION ' . $component->name;
             } else {
-                if (!empty($component->subpartitions)) {
-                    $subpartitions = ' ' . PartitionDefinition::build($component->subpartitions);
-                }
+                $subpartitions = empty($component->subpartitions)
+                    ? '' : ' ' . PartitionDefinition::build($component->subpartitions);
                 return 'PARTITION ' . $component->name
-                    . ' VALUES ' . $component->type . $component->expr
+                    . ' VALUES ' . $component->type . ' ' . $component->expr
                     . $subpartitions;
             }
 

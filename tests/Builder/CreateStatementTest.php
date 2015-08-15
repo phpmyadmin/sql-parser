@@ -65,6 +65,34 @@ class CreateStatementTest extends TestCase
         );
     }
 
+    public function testBuilderPartitions()
+    {
+        $query = 'CREATE TABLE ts (' . "\n"
+            . '`id` INT,' . "\n"
+            . '`purchased` DATE' . "\n"
+            . ') ' . "\n"
+            . 'PARTITION BY RANGE(YEAR(purchased))' . "\n"
+            . 'PARTITIONS 3' . "\n"
+            . 'SUBPARTITION BY HASH(TO_DAYS(purchased))' . "\n"
+            . 'SUBPARTITIONS 2' . "\n"
+            . '(' . "\n"
+            . 'PARTITION p0 VALUES LESS THAN (1990) (' . "\n"
+            . 'SUBPARTITION s0,' . "\n"
+            . 'SUBPARTITION s1' . "\n"
+            . '),' . "\n"
+            . 'PARTITION p1 VALUES LESS THAN (2000) (' . "\n"
+            . 'SUBPARTITION s2,' . "\n"
+            . 'SUBPARTITION s3' . "\n"
+            . '),' . "\n"
+            . 'PARTITION p2 VALUES LESS THAN MAXVALUE (' . "\n"
+            . 'SUBPARTITION s4,' . "\n"
+            . 'SUBPARTITION s5' . "\n"
+            . ')' . "\n"
+            . ')';
+        $parser = new Parser($query);
+        $this->assertEquals($query, $parser->statements[0]->build());
+    }
+
     public function testBuilderView()
     {
         $parser = new Parser(

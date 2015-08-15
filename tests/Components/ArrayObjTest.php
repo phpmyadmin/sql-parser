@@ -2,6 +2,7 @@
 
 namespace SqlParser\Tests\Components;
 
+use SqlParser\Parser;
 use SqlParser\Components\ArrayObj;
 
 use SqlParser\Tests\TestCase;
@@ -19,6 +20,22 @@ class ArrayObjTest extends TestCase
     {
         $component = new ArrayObj(array(), array('a', 'b'));
         $this->assertEquals('(a, b)', ArrayObj::build($component));
+    }
+
+    public function testParseType()
+    {
+        $components = ArrayObj::parse(
+            new Parser(),
+            $this->getTokensList('(1 + 2, 3 + 4)'),
+            array(
+                'type' => 'SqlParser\\Components\\Expression',
+                'typeOptions' => array(
+                    'noBrackets' => true,
+                ),
+            )
+        );
+        $this->assertEquals($components[0]->expr, '1 + 2');
+        $this->assertEquals($components[1]->expr, '3 + 4');
     }
 
     /**

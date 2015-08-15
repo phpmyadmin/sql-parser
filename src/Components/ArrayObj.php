@@ -115,7 +115,11 @@ class ArrayObj extends Component
                     $ret->values[] = $token->value;
                     $ret->raw[] = $token->token;
                 } else {
-                    $ret[] = $options['type']::parse($parser, $list);
+                    $ret[] = $options['type']::parse(
+                        $parser,
+                        $list,
+                        empty($options['typeOptions']) ? array() : $options['typeOptions']
+                    );
                 }
                 $state = 2;
             } elseif ($state === 2) {

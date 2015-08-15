@@ -421,9 +421,11 @@ class CreateStatement extends Statement
                     $brackets = false;
                 } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'PARTITIONS')) {
                     $token = $list->getNextOfType(Token::TYPE_NUMBER);
+                    --$list->idx; // `getNextOfType` also advances one position.
                     $this->partitionsNum = $token->value;
                 } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'SUBPARTITIONS')) {
                     $token = $list->getNextOfType(Token::TYPE_NUMBER);
+                    --$list->idx; // `getNextOfType` also advances one position.
                     $this->subpartitionsNum = $token->value;
                 } elseif (!empty($field)) {
 
@@ -457,7 +459,9 @@ class CreateStatement extends Statement
                         $this->partitions = ArrayObj::parse(
                             $parser,
                             $list,
-                            array('type' => 'SqlParser\Components\PartitionDefinition')
+                            array(
+                                'type' => 'SqlParser\\Components\\PartitionDefinition'
+                            )
                         );
                     }
                     break;
