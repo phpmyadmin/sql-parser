@@ -56,11 +56,11 @@ class ArrayObj extends Component
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
      *
-     * @return ArrayObj
+     * @return mixed
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new ArrayObj();
+        $ret = empty($options['type']) ? new ArrayObj() : array();
 
         /**
          * The state of the parser.
@@ -109,8 +109,12 @@ class ArrayObj extends Component
                     // Empty array.
                     break;
                 }
-                $ret->values[] = $token->value;
-                $ret->raw[] = $token->token;
+                if (empty($options['type'])) {
+                    $ret->values[] = $token->value;
+                    $ret->raw[] = $token->token;
+                } else {
+                    $ret[] = $options['type']::parse($parser, $list);
+                }
                 $state = 2;
             } elseif ($state === 2) {
                 if (($token->type !== Token::TYPE_OPERATOR) || (($token->value !== ',') && ($token->value !== ')'))) {
