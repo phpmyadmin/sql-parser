@@ -1,6 +1,6 @@
 <?php
 
-namespace SqlParser\Tests;
+namespace SqlParser\Tools;
 
 require_once '../vendor/autoload.php';
 
@@ -12,7 +12,7 @@ use SqlParser\Parser;
  *
  * @category   Tests
  * @package    SqlParser
- * @subpackage Tests
+ * @subpackage Tools
  * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
@@ -195,10 +195,10 @@ class TestGenerator
 //
 // Example of usage:
 //
-//      php TestGenerator.php data data
+//      php TestGenerator.php ../tests/data ../tests/data
 //
-// Input data must be in the `data` folder.
-// The output will be generated in the same `data` folder.
+// Input data must be in the `../tests/data` folder.
+// The output will be generated in the same `../tests/data` folder.
 //
 if (count($argv) >= 3) {
 
