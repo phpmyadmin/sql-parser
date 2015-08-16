@@ -19,6 +19,7 @@ class BugsTest extends TestCase
     {
         return array(
             array('bugs/gh9'),
+            array('bugs/gh14'),
         );
     }
 }
