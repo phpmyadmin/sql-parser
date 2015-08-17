@@ -136,7 +136,6 @@ class ArrayObj extends Component
                     break;
                 }
             }
-
         }
 
         return $ret;
@@ -150,21 +149,11 @@ class ArrayObj extends Component
     public static function build($component)
     {
         if (is_array($component)) {
-            $values = array();
-            foreach ($component as $c) {
-                $values[] = static::build($c);
-            }
-            return implode(', ', $values);
+            return implode(', ', $component);
+        } elseif (!empty($component->raw)) {
+            return '(' . implode(', ', $component->raw) . ')';
         } else {
-            $values = array();
-            if (!empty($component->raw)) {
-                $values = $component->raw;
-            } else {
-                foreach ($component->values as $value) {
-                    $values[] = $value;
-                }
-            }
-            return '(' . implode(', ', $values) . ')';
+            return '(' . implode(', ', $component->values) . ')';
         }
     }
 }

@@ -202,10 +202,10 @@ class Condition extends Component
      */
     public static function build($component)
     {
-        $ret = array();
-        foreach ($component as $c) {
-            $ret[] = $c->expr;
+        if (is_array($component)) {
+            return implode(' ', $component);
+        } else {
+            return $component->expr;
         }
-        return implode(' ', $ret);
     }
 }

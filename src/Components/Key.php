@@ -145,7 +145,6 @@ class Key extends Component
                 ++$list->idx;
                 break;
             }
-
         }
 
         --$list->idx;
@@ -163,8 +162,8 @@ class Key extends Component
         if (!empty($component->name)) {
             $ret .= Context::escape($component->name) . ' ';
         }
-        $ret .= '(' . implode(', ', Context::escape($component->columns)) . ')';
-        $ret .= OptionsArray::build($component->options);
+        $ret .= '(' . implode(', ', Context::escape($component->columns)) . ') '
+            . $component->options;
         return trim($ret);
     }
 }

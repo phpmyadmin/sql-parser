@@ -350,32 +350,36 @@ class Expression extends Component
     }
 
     /**
-     * @param Expression $component The component to be built.
+     * @param Expression|Expression[] $component The component to be built.
      *
      * @return string
      */
     public static function build($component)
     {
-        if (!empty($component->expr)) {
-            $ret = $component->expr;
+        if (is_array($component)) {
+            return implode($component, ', ');
         } else {
-            $fields = array();
-            if (!empty($component->database)) {
-                $fields[] = $component->database;
+            if (!empty($component->expr)) {
+                $ret = $component->expr;
+            } else {
+                $fields = array();
+                if ((isset($component->database)) && ($component->database !== '')) {
+                    $fields[] = $component->database;
+                }
+                if ((isset($component->table)) && ($component->table !== '')) {
+                    $fields[] = $component->table;
+                }
+                if ((isset($component->column)) && ($component->column !== '')) {
+                    $fields[] = $component->column;
+                }
+                $ret = implode('.', Context::escape($fields));
             }
-            if (!empty($component->table)) {
-                $fields[] = $component->table;
-            }
-            if (!empty($component->column)) {
-                $fields[] = $component->column;
-            }
-            $ret = implode('.', Context::escape($fields));
-        }
 
-        if (!empty($component->alias)) {
-            $ret .= ' AS ' . Context::escape($component->alias);
-        }
+            if (!empty($component->alias)) {
+                $ret .= ' AS ' . Context::escape($component->alias);
+            }
 
-        return $ret;
+            return $ret;
+        }
     }
 }

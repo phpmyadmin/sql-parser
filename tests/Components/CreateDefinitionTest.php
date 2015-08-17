@@ -19,7 +19,7 @@ class CreateDefinitionTest extends TestCase
         $this->assertEquals('str', $component[0]->name);
         $this->assertEquals('FULLTEXT INDEX', $component[1]->key->type);
         $this->assertEquals('indx', $component[1]->key->name);
-        $this->assertEquals('FULLTEXT INDEX `indx` (`str`)', $component[1]);
+        $this->assertEquals('FULLTEXT INDEX `indx` (`str`)', (string) $component[1]);
     }
 
     public function testParseErr1()

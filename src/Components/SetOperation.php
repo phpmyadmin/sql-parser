@@ -128,11 +128,7 @@ class SetOperation extends Component
     public static function build($component)
     {
         if (is_array($component)) {
-            $ret = array();
-            foreach ($component as $c) {
-                $ret[] = static::build($c);
-            }
-            return implode(", ", $ret);
+            return implode(', ', $component);
         } else {
             return $component->column . ' = ' . $component->value;
         }

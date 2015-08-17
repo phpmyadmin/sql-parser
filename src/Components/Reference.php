@@ -145,7 +145,7 @@ class Reference extends Component
         return trim(
             Context::escape($component->table)
             . ' (' . implode(', ', Context::escape($component->columns)) . ') '
-            . OptionsArray::build($component->options)
+            . $component->options
         );
     }
 }

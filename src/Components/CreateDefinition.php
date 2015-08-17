@@ -278,11 +278,7 @@ class CreateDefinition extends Component
     public static function build($component)
     {
         if (is_array($component)) {
-            $ret = array();
-            foreach ($component as $c) {
-                $ret[] = static::build($c);
-            }
-            return "(\n" . implode(",\n", $ret) . "\n)";
+            return "(\n" . implode(",\n", $component) . "\n)";
         } else {
             $tmp = '';
 
@@ -290,23 +286,23 @@ class CreateDefinition extends Component
                 $tmp .= 'CONSTRAINT ';
             }
 
-            if (!empty($component->name)) {
+            if ((isset($component->name)) && ($component->name !== '')) {
                 $tmp .= Context::escape($component->name) . ' ';
             }
 
             if (!empty($component->type)) {
-                $tmp .= DataType::build($component->type) . ' ';
+                $tmp .= $component->type . ' ';
             }
 
             if (!empty($component->key)) {
-                $tmp .= Key::build($component->key) . ' ';
+                $tmp .= $component->key . ' ';
             }
 
             if (!empty($component->references)) {
-                $tmp .= 'REFERENCES ' . Reference::build($component->references) . ' ';
+                $tmp .= 'REFERENCES ' . $component->references . ' ';
             }
 
-            $tmp .= OptionsArray::build($component->options);
+            $tmp .= $component->options;
 
             return trim($tmp);
         }

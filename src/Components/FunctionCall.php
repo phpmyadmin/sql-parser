@@ -120,6 +120,6 @@ class FunctionCall extends Component
      */
     public static function build($component)
     {
-        return $component->name . ArrayObj::build($component->parameters);
+        return $component->name . $component->parameters;
     }
 }

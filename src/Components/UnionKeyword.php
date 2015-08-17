@@ -30,10 +30,6 @@ class UnionKeyword extends Component
      */
     public static function build($component)
     {
-        $ret = array();
-        foreach ($component as $c) {
-            $ret[] = $c->build();
-        }
-        return implode(" UNION ", $ret);
+        return implode(' UNION ', $component);
     }
 }

@@ -158,9 +158,11 @@ class TestGenerator
 
                 // Creating required directories to maintain the structure.
                 // Ignoring errors if the folder structure exists already.
-                @mkdir($outputFile);
-                if ($debug !== null) {
-                    @mkdir($debugFile);
+                if (!is_dir($outputFile)) {
+                    mkdir($outputFile);
+                }
+                if (($debug !== null) && (!is_dir($debugFile))) {
+                    mkdir($debugFile);
                 }
 
                 // Generating tests recursively.

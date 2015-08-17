@@ -60,7 +60,13 @@ class ExpressionTest extends TestCase
 
     public function testBuild()
     {
-        $component = new Expression('1 + 2', 'three');
-        $this->assertEquals(Expression::build($component), '1 + 2 AS `three`');
+        $component = array(
+            new Expression('1 + 2', 'three'),
+            new Expression('1 + 3', 'four')
+        );
+        $this->assertEquals(
+            Expression::build($component),
+            '1 + 2 AS `three`, 1 + 3 AS `four`'
+        );
     }
 }

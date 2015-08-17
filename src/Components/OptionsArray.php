@@ -256,9 +256,10 @@ class OptionsArray extends Component
      */
     public static function build($component)
     {
-        if ((empty($component)) || (!is_array($component->options))) {
+        if (empty($component->options)) {
             return '';
         }
+
         $options = array();
         foreach ($component->options as $option) {
             if (!is_array($option)) {
@@ -266,9 +267,7 @@ class OptionsArray extends Component
             } else {
                 $options[] = $option['name']
                     . (!empty($option['equals']) ? '=' : ' ')
-                    . (!empty($option['expr']) ? ((string) $option['expr']) : $option['value']);
-                // If `$option['expr']` happens to be a component, the magic
-                // method will build it automatically.
+                    . (!empty($option['expr']) ? $option['expr'] : $option['value']);
             }
         }
         return implode(' ', $options);

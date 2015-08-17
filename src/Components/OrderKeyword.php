@@ -126,20 +126,16 @@ class OrderKeyword extends Component
     }
 
     /**
-     * @param OrderKeyword $component The component to be built.
+     * @param OrderKeyword|OrderKeyword[] $component The component to be built.
      *
      * @return string
      */
     public static function build($component)
     {
         if (is_array($component)) {
-            $ret = array();
-            foreach ($component as $c) {
-                $ret[] = static::build($c);
-            }
-            return implode(", ", $ret);
+            return implode(', ', $component);
         } else {
-            return Expression::build($component->expr) . ' ' . $component->type;
+            return $component->expr . ' ' . $component->type;
         }
     }
 }
