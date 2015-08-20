@@ -152,17 +152,18 @@ class Key extends Component
     }
 
     /**
-     * @param Key $component The component to be built.
+     * @param Key   $component The component to be built.
+     * @param array $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         $ret = $component->type . ' ';
         if (!empty($component->name)) {
             $ret .= Context::escape($component->name) . ' ';
         }
-        $ret .= '(' . implode(', ', Context::escape($component->columns)) . ') '
+        $ret .= '(' . implode(',', Context::escape($component->columns)) . ') '
             . $component->options;
         return trim($ret);
     }

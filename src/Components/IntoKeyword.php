@@ -133,10 +133,11 @@ class IntoKeyword extends Component
 
     /**
      * @param IntoKeyword $component The component to be built.
+     * @param array       $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         if ($component->dest instanceof Expression) {
             $columns = !empty($component->columns) ?

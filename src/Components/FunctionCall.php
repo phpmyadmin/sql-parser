@@ -115,10 +115,11 @@ class FunctionCall extends Component
 
     /**
      * @param FunctionCall $component The component to be built.
+     * @param array        $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         return $component->name . $component->parameters;
     }

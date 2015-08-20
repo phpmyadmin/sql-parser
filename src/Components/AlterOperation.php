@@ -210,10 +210,11 @@ class AlterOperation extends Component
 
     /**
      * @param AlterOperation $component The component to be built.
+     * @param array          $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         $ret = $component->options . ' ';
         if ((isset($component->field)) && ($component->field !== '')) {

@@ -58,8 +58,8 @@ class CreateStatementTest extends TestCase
 
         $this->assertEquals(
             "CREATE TABLE `test` (\n" .
-            "`id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,\n" .
-            "PRIMARY KEY (`id`)\n" .
+            "  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,\n" .
+            "  PRIMARY KEY (`id`)\n" .
             ") ",
             $stmt->build()
         );
@@ -68,8 +68,8 @@ class CreateStatementTest extends TestCase
     public function testBuilderPartitions()
     {
         $query = 'CREATE TABLE ts (' . "\n"
-            . '`id` INT,' . "\n"
-            . '`purchased` DATE' . "\n"
+            . '  `id` int,' . "\n"
+            . '  `purchased` date' . "\n"
             . ') ' . "\n"
             . 'PARTITION BY RANGE(YEAR(purchased))' . "\n"
             . 'PARTITIONS 3' . "\n"

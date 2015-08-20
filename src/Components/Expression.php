@@ -351,10 +351,11 @@ class Expression extends Component
 
     /**
      * @param Expression|Expression[] $component The component to be built.
+     * @param array                   $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         if (is_array($component)) {
             return implode($component, ', ');

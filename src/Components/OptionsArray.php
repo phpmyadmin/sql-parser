@@ -251,10 +251,11 @@ class OptionsArray extends Component
 
     /**
      * @param OptionsArray $component The component to be built.
+     * @param array        $options   Parameters for building.
      *
      * @return string
      */
-    public static function build($component)
+    public static function build($component, array $options = array())
     {
         if (empty($component->options)) {
             return '';
