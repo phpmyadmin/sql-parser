@@ -123,7 +123,7 @@ class ContextGenerator
             $type = 1;
             $value = trim($words[$i]);
 
-             // Reserved keyword.
+            // Reserved keyword.
             if (strstr($value, '(R)') !== false) {
                 $type |= 2;
                 $value = trim(str_replace('(R)', '', $value));

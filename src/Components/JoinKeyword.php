@@ -160,7 +160,7 @@ class JoinKeyword extends Component
         $ret = array();
         foreach ($component as $c) {
             $ret[] = (($c->type === 'JOIN') ? 'JOIN ' : ($c->type . ' JOIN '))
-               . $c->expr . ' ON ' . Condition::build($c->on);
+                . $c->expr . ' ON ' . Condition::build($c->on);
         }
         return implode(' ', $ret);
     }
