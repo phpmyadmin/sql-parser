@@ -17,6 +17,18 @@ class ContextGenerator
 {
 
     /**
+     * Labels and flags that may be used when defining keywords.
+     *
+     * @var array
+     */
+    public static $LABELS_FLAGS = array(
+        '(R)'   =>  2,
+        '(D)'   =>  8,
+        '(K)'   => 16,
+        '(F)'   => 32,
+    );
+
+    /**
      * Documentation links for each context.
      *
      * @var array
@@ -123,28 +135,12 @@ class ContextGenerator
             $type = 1;
             $value = trim($words[$i]);
 
-            // Reserved keyword.
-            if (strstr($value, '(R)') !== false) {
-                $type |= 2;
-                $value = trim(str_replace('(R)', '', $value));
-            }
-
-            // Data type keyword.
-            if (strstr($value, '(D)') !== false) {
-                $type |= 8;
-                $value = trim(str_replace('(D)', '', $value));
-            }
-
-            // Key keyword.
-            if (strstr($value, '(K)') !== false) {
-                $type |= 16;
-                $value = trim(str_replace('(K)', '', $value));
-            }
-
-            // Function keyword.
-            if (strstr($value, '(F)') !== false) {
-                $type |= 32;
-                $value = trim(str_replace('(F)', '', $value));
+            // Reserved, data types, keys, functions, etc. keywords.
+            foreach (static::$LABELS_FLAGS as $label => $flags) {
+                if (strstr($value, $label) !== false) {
+                    $type |= $flags;
+                    $value = trim(str_replace($label, '', $value));
+                }
             }
 
             // Composed keyword.
@@ -338,7 +334,7 @@ class ContextGenerator
             }
 
             // Building the context.
-            print("Building context for {$file}...\n");
+            sprintf("Building context for %s...\n", $file);
             static::build($input . '/' . $file, $output);
         }
     }
