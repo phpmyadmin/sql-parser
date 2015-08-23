@@ -136,6 +136,9 @@ class TestGenerator
     /**
      * Generates recursively all tests preserving the directory structure.
      *
+     * @param string $input  The input directory.
+     * @param string $output The output directory.
+     *
      * @return void
      */
     public static function buildAll($input, $output, $debug = null)

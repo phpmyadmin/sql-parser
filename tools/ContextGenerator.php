@@ -226,8 +226,7 @@ class ContextGenerator
     /**
      * Generates a context's class.
      *
-     * @param string $query The query to be analyzed.
-     * @param string $type  Test's type (may be `lexer` or `parser`).
+     * @param array $options The options that are used in generating this context.
      *
      * @return array
      */
@@ -322,9 +321,12 @@ class ContextGenerator
     /**
      * Generates recursively all tests preserving the directory structure.
      *
+     * @param string $input  The input directory.
+     * @param string $output The output directory.
+     *
      * @return void
      */
-    public static function buildAll($input, $output, $debug = null)
+    public static function buildAll($input, $output)
     {
         $files = scandir($input);
 
