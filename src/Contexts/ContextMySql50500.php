@@ -181,7 +181,7 @@ class ContextMySql50500 extends Context
         'WITH CONSISTENT SNAPSHOT' => 7,
 
         'XML' => 9,
-        'ENUM' => 9, 'TEXT' => 9,
+        'ENUM' => 9, 'JSON' => 9, 'TEXT' => 9,
         'ARRAY' => 9,
         'SERIAL' => 9,
         'BOOLEAN' => 9,
