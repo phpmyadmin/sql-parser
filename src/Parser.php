@@ -354,7 +354,6 @@ class Parser
         $list = &$this->list;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
@@ -441,7 +440,6 @@ class Parser
                 && ($lastStatement instanceof SelectStatement)
                 && ($statement instanceof SelectStatement)
             ) {
-
                 /**
                  * This SELECT statement.
                  *
@@ -472,7 +470,6 @@ class Parser
 
             // Handles transactions.
             if ($statement instanceof TransactionStatement) {
-
                 /**
                  * @var TransactionStatement $statement
                  */

@@ -98,7 +98,6 @@ class JoinKeyword extends Component
         }
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *
@@ -132,7 +131,7 @@ class JoinKeyword extends Component
                 if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'ON')) {
                     $state = 3;
                 }
-            } else if ($state === 3) {
+            } elseif ($state === 3) {
                 $expr->on = Condition::parse($parser, $list);
                 $ret[] = $expr;
                 $expr = new JoinKeyword();

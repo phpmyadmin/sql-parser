@@ -131,7 +131,6 @@ class ContextGenerator
         $types = array();
 
         for ($i = 0, $count = count($words); $i != $count; ++$i) {
-
             $type = 1;
             $value = trim($words[$i]);
 
@@ -191,7 +190,6 @@ class ContextGenerator
         $ret = '';
 
         foreach ($words as $type => $wordsByType) {
-
             foreach ($wordsByType as $len => $wordsByLen) {
                 $count = round(($line - $spaces) / ($len + 9)); // strlen("'' => 1, ") = 9
                 $i = 0;
@@ -327,7 +325,6 @@ class ContextGenerator
         $files = scandir($input);
 
         foreach ($files as $file) {
-
             // Skipping current and parent directories.
             if (($file === '.') || ($file === '..') || ($file[0] === '_')) {
                 continue;
@@ -350,7 +347,6 @@ class ContextGenerator
 // The output will be generated in the same `data` folder.
 //
 if (count($argv) >= 3) {
-
     // Extracting directories' name from command line and trimming unnecessary
     // slashes at the end.
     $input = rtrim($argv[1], '/');

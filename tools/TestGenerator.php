@@ -146,7 +146,6 @@ class TestGenerator
         $files = scandir($input);
 
         foreach ($files as $file) {
-
             // Skipping current and parent directories.
             if (($file === '.') || ($file === '..')) {
                 continue;
@@ -158,7 +157,6 @@ class TestGenerator
             $debugFile = ($debug !== null) ? $debug . '/' . $file : null;
 
             if (is_dir($inputFile)) {
-
                 // Creating required directories to maintain the structure.
                 // Ignoring errors if the folder structure exists already.
                 if (!is_dir($outputFile)) {
@@ -171,7 +169,6 @@ class TestGenerator
                 // Generating tests recursively.
                 static::buildAll($inputFile, $outputFile, $debugFile);
             } elseif (substr($inputFile, -3) === '.in') {
-
                 // Generating file names by replacing `.in` with `.out` and
                 // `.debug`.
                 $outputFile = substr($outputFile, 0, -3) . '.out';
@@ -206,7 +203,6 @@ class TestGenerator
 // The output will be generated in the same `../tests/data` folder.
 //
 if (count($argv) >= 3) {
-
     // Extracting directories' name from command line and trimming unnecessary
     // slashes at the end.
     $input = rtrim($argv[1], '/');

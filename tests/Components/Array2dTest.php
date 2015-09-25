@@ -69,5 +69,4 @@ class Array2dTest extends TestCase
             $parser->errors[0]->getMessage()
         );
     }
-
 }

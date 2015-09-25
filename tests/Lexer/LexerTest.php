@@ -20,7 +20,10 @@ class LexerTest extends TestCase
 
         $lexer->error(__('error #1'), 'foo', 1, 2);
         $lexer->error(
-            sprintf(__('%2$s #%1$d'), 2, 'error'), 'bar', 3, 4
+            sprintf(__('%2$s #%1$d'), 2, 'error'),
+            'bar',
+            3,
+            4
         );
 
         $this->assertEquals(

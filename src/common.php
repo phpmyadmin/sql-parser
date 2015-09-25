@@ -7,7 +7,6 @@
  */
 
 if (!function_exists('__')) {
-
     /**
      * Translates the given string.
      *

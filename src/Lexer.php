@@ -16,7 +16,6 @@ require_once 'common.php';
 use SqlParser\Exceptions\LexerException;
 
 if (!defined('USE_UTF_STRINGS')) {
-
     // NOTE: In previous versions of PHP (5.5 and older) the default
     // internal encoding is "ISO-8859-1".
     // All `mb_` functions must specify the correct encoding, which is
@@ -232,7 +231,6 @@ class Lexer
         $lastToken = null;
 
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
-
             /**
              * The new token.
              *
@@ -399,7 +397,6 @@ class Lexer
         $lastSpace = false;
 
         for ($j = 1; $j < Context::KEYWORD_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
-
             // Composed keywords shouldn't have more than one whitespace between
             // keywords.
             if (Context::isWhitespace($this->str[$this->last])) {

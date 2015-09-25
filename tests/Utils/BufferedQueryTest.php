@@ -13,7 +13,10 @@ class BufferedQueryTest extends TestCase
      * @dataProvider testExtractProvider
      */
     public function testExtract(
-        $query, $chunkSize, array $options = array(), array $expected
+        $query,
+        $chunkSize,
+        array $options = array(),
+        array $expected
     ) {
         $chunks = str_split($query, $chunkSize);
         $count = count($chunks);

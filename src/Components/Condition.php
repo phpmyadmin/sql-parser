@@ -111,7 +111,6 @@ class Condition extends Component
         $betweenBefore = false;
 
         for (; $list->idx < $list->count; ++$list->idx) {
-
             /**
              * Token parsed at this moment.
              *

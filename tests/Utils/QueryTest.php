@@ -369,7 +369,8 @@ class QueryTest extends TestCase
             Query::getClause(
                 $parser->statements[0],
                 $parser->list,
-                'LIMIT', 'FROM'
+                'LIMIT',
+                'FROM'
             )
         );
     }

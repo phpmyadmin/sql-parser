@@ -39,7 +39,9 @@ abstract class Component
      * @return mixed
      */
     public static function parse(
-        Parser $parser, TokensList $list, array $options = array()
+        Parser $parser,
+        TokensList $list,
+        array $options = array()
     ) {
         // This method should be abstract, but it can't be both static and
         // abstract.
