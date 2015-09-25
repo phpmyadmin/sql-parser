@@ -52,7 +52,7 @@ class CreateStatementTest extends TestCase
             new CreateDefinition(
                 '',
                 null,
-                new Key('', array('id'), 'PRIMARY KEY')
+                new Key('', array(array('name' => 'id')), 'PRIMARY KEY')
             )
         );
 
@@ -63,6 +63,21 @@ class CreateStatementTest extends TestCase
             ") ",
             $stmt->build()
         );
+
+        $query =
+            "CREATE TABLE `jos_core_acl_aro` (\n" .
+            "  `id` int(11) NOT NULL,\n" .
+            "  `section_value` varchar(240) NOT NULL DEFAULT '0',\n" .
+            "  `value` varchar(240) NOT NULL DEFAULT '',\n" .
+            "  `order_value` int(11) NOT NULL DEFAULT '0',\n" .
+            "  `name` varchar(255) NOT NULL DEFAULT '',\n" .
+            "  `hidden` int(11) NOT NULL DEFAULT '0',\n" .
+            "  PRIMARY KEY (`id`),\n" .
+            "  UNIQUE KEY `jos_section_value_value_aro` (`section_value`(100),`value`(15)) USING BTREE,\n" .
+            "  KEY `jos_gacl_hidden_aro` (`hidden`)\n" .
+            ") ENGINE=InnoDB DEFAULT CHARSET=latin1";
+        $parser = new Parser($query);
+        $this->assertEquals($query, $parser->statements[0]->build());
     }
 
     public function testBuilderPartitions()
