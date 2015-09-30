@@ -160,6 +160,22 @@ class Lexer
     public $errors = array();
 
     /**
+     * Gets the tokens list parsed by a new instance of a lexer.
+     *
+     * @param string|UtfString $str       The query to be lexed.
+     * @param bool             $strict    Whether strict mode should be
+     *                                    enabled or not.
+     * @param string           $delimiter The delimiter to be used.
+     *
+     * @return TokensList
+     */
+    public static function getTokens($str, $strict = false, $delimiter = null)
+    {
+        $lexer = new Lexer($str);
+        return $lexer->list;
+    }
+
+    /**
      * Constructor.
      *
      * @param string|UtfString $str       The query to be lexed.
