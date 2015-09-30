@@ -43,6 +43,7 @@ class Condition extends Component
         'IN'                            => 1,
         'IS'                            => 1,
         'LIKE'                          => 1,
+        'NOT IN'                        => 1,
         'NOT NULL'                      => 1,
         'NULL'                          => 1,
         'OR'                            => 1,
