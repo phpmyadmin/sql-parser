@@ -38,6 +38,7 @@ class PartitionDefinition extends Component
     public static $OPTIONS = array(
         'STORAGE'                       => array(1, 'var'),
         'STORAGE ENGINE'                => array(1, 'var'),
+        'ENGINE'                        => array(1, 'var'),
         'COMMENT'                       => array(2, 'var'),
         'DATA DIRECTORY'                => array(3, 'var'),
         'INDEX DIRECTORY'               => array(4, 'var'),
@@ -201,13 +202,13 @@ class PartitionDefinition extends Component
             return "(\n" . implode(",\n", $component) . "\n)";
         } else {
             if ($component->isSubpartition) {
-                return 'SUBPARTITION ' . $component->name;
+                return 'SUBPARTITION ' . $component->name . ' ' . $component->options;
             } else {
                 $subpartitions = empty($component->subpartitions)
                     ? '' : ' ' . PartitionDefinition::build($component->subpartitions);
                 return 'PARTITION ' . $component->name
                     . ' VALUES ' . $component->type . ' ' . $component->expr
-                    . $subpartitions;
+                    . $component->options . $subpartitions;
             }
         }
     }
