@@ -201,7 +201,7 @@ class PartitionDefinition extends Component
             return "(\n" . implode(",\n", $component) . "\n)";
         } else {
             if ($component->isSubpartition) {
-                return 'SUBPARTITION ' . $component->name . ' ' . $component->options;
+                return trim('SUBPARTITION ' . $component->name . ' ' . $component->options);
             } else {
                 $subpartitions = empty($component->subpartitions)
                     ? '' : ' ' . PartitionDefinition::build($component->subpartitions);
