@@ -27,8 +27,8 @@ class Tokens
     /**
      * Checks if a pattern is a match for the specified token.
      *
-     * @param  Token  $token   The token to be matched.
-     * @param  array $pattern The pattern to be matches.
+     * @param Token $token   The token to be matched.
+     * @param array $pattern The pattern to be matches.
      *
      * @return bool
      */
@@ -71,7 +71,8 @@ class Tokens
         return true;
     }
 
-    public static function replaceTokens($list, array $find, array $replace) {
+    public static function replaceTokens($list, array $find, array $replace)
+    {
 
         /**
          * Whether the first parameter is a list.
@@ -107,7 +108,6 @@ class Tokens
         $i = 0;
 
         while ($i < $list->count) {
-
             // A sequence may not start with a comment.
             if ($list->tokens[$i]->type === Token::TYPE_COMMENT) {
                 $newList[] = $list->tokens[$i];
@@ -137,7 +137,6 @@ class Tokens
 
             // Checking if the next tokens match the pattern described.
             while (($j < $list->count) && ($k < $findCount)) {
-
                 // Comments are being skipped.
                 if ($list->tokens[$j]->type === Token::TYPE_COMMENT) {
                     ++$j;
@@ -156,7 +155,6 @@ class Tokens
 
             // Checking if the sequence was found.
             if ($k === $findCount) {
-
                 // Inserting new tokens.
                 foreach ($replace as $token) {
                     $newList[] = $token;
@@ -174,5 +172,4 @@ class Tokens
         return $isList ?
             new TokensList($newList) : TokensList::build($newList);
     }
-
 }
