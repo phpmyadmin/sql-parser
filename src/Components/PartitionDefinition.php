@@ -36,7 +36,6 @@ class PartitionDefinition extends Component
      * @var array
      */
     public static $OPTIONS = array(
-        'STORAGE'                       => array(1, 'var'),
         'STORAGE ENGINE'                => array(1, 'var'),
         'ENGINE'                        => array(1, 'var'),
         'COMMENT'                       => array(2, 'var'),
