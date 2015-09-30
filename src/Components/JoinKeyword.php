@@ -35,7 +35,9 @@ class JoinKeyword extends Component
         'INNER JOIN'                    => 'INNER',
         'JOIN'                          => 'JOIN',
         'LEFT JOIN'                     => 'LEFT',
+        'LEFT OUTER JOIN'               => 'LEFT',
         'RIGHT JOIN'                    => 'RIGHT',
+        'RIGHT OUTER JOIN'              => 'RIGHT',
     );
 
     /**
