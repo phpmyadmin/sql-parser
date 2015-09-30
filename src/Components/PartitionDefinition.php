@@ -147,7 +147,16 @@ class PartitionDefinition extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 $ret->name = $token->value;
-                $state = $ret->isSubpartition ? 5 : 2;
+
+                // Looking ahead for a 'VALUES' keyword.
+                $idx = $list->idx;
+                $list->getNext();
+                $nextToken = $list->getNext();
+                $list->idx = $idx;
+
+                $state = ($nextToken->type === Token::TYPE_KEYWORD)
+                    && ($nextToken->value === 'VALUES')
+                    ? 2 : 5;
             } elseif ($state === 2) {
                 $state = 3;
             } elseif ($state === 3) {
@@ -205,9 +214,11 @@ class PartitionDefinition extends Component
             } else {
                 $subpartitions = empty($component->subpartitions)
                     ? '' : ' ' . PartitionDefinition::build($component->subpartitions);
-                return 'PARTITION ' . $component->name
-                    . ' VALUES ' . $component->type . ' ' . $component->expr
-                    . $component->options . $subpartitions;
+                return trim(
+                    'PARTITION ' . $component->name
+                    . (empty($component->type) ? '' : ' VALUES ' . $component->type . ' ' . $component->expr)
+                    . $component->options . $subpartitions
+                );
             }
         }
     }
