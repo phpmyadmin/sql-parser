@@ -47,6 +47,7 @@ class TableTest extends TestCase
                     array(
                         'constraint' => 'fk_payment_customer',
                         'index_list' => array('customer_id'),
+                        'ref_db_name' => null,
                         'ref_table_name' => 'customer',
                         'ref_index_list' => array('customer_id'),
                         'on_update' => 'CASCADE',
@@ -54,6 +55,7 @@ class TableTest extends TestCase
                     array(
                         'constraint' => 'fk_payment_rental',
                         'index_list' => array('rental_id'),
+                        'ref_db_name' => null,
                         'ref_table_name' => 'rental',
                         'ref_index_list' => array('rental_id'),
                         'on_delete' => 'SET_NULL',
@@ -62,6 +64,7 @@ class TableTest extends TestCase
                     array(
                         'constraint' => 'fk_payment_staff',
                         'index_list' => array('staff_id'),
+                        'ref_db_name' => null,
                         'ref_table_name' => 'staff',
                         'ref_index_list' => array('staff_id'),
                         'on_update' => 'CASCADE',
@@ -97,6 +100,7 @@ class TableTest extends TestCase
                     array(
                         'constraint' => 'fk_address_city',
                         'index_list' => array('city_id'),
+                        'ref_db_name' => null,
                         'ref_table_name' => 'city',
                         'ref_index_list' => array('city_id'),
                         'on_update' => 'CASCADE',
