@@ -151,7 +151,7 @@ class Parser
         'FROM'                  => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'from',
-            'options'           => array('skipColumn' => true),
+            'options'           => array('skipColumn' => true, 'noBrackets' => true),
         ),
         'GROUP BY'              => array(
             'class'             => 'SqlParser\\Components\\OrderKeyword',
@@ -298,6 +298,13 @@ class Parser
     public $statements = array();
 
     /**
+     * The number of opened brackets.
+     *
+     * @var int
+     */
+    public $brackets = 0;
+
+    /**
      * Constructor.
      *
      * @param string|UtfString|TokensList $list   The list of tokens to be parsed.
@@ -378,6 +385,12 @@ class Parser
                 // Skipping to the end of this statement.
                 $list->getNextOfType(Token::TYPE_DELIMITER);
                 $prevLastIdx = $list->idx;
+                continue;
+            }
+
+            // Counting the brackets around statements.
+            if ($token->value === '(') {
+                ++$this->brackets;
                 continue;
             }
 
