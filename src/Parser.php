@@ -37,10 +37,11 @@ class Parser
         // MySQL Utility Statements
         'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
         'DESCRIBE'          => 'SqlParser\\Statements\\ExplainStatement',
-        'HELP'              => '',
-        'USE'               => '',
-        'STATUS'            => '',
         'GRANT'             => '',
+        'HELP'              => '',
+        'SET PASSWORD'      => '',
+        'STATUS'            => '',
+        'USE'               => '',
 
         // Table Maintenance Statements
         // https://dev.mysql.com/doc/refman/5.7/en/table-maintenance-sql.html
