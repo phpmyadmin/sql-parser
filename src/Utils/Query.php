@@ -295,7 +295,14 @@ class Query
                 $flags['is_export'] = true;
             }
 
-            foreach ($statement->expr as $expr) {
+            $expressions = $statement->expr;
+            if (!empty($statement->join)) {
+                foreach ($statement->join as $join) {
+                    $expressions[] = $join->expr;
+                }
+            }
+
+            foreach ($expressions as $expr) {
                 if (!empty($expr->function)) {
                     if ($expr->function === 'COUNT') {
                         $flags['is_count'] = true;
