@@ -24,6 +24,7 @@ class ParserTest extends TestCase
     {
         return array(
             array('parser/parse'),
+            array('parser/parse2'),
             array('parser/parseDelimiter'),
         );
     }

@@ -15,11 +15,16 @@ use SqlParser\Tests\TestCase;
 class CreateStatementTest extends TestCase
 {
 
-    public function testBuilderNull()
+    public function testBuilder()
     {
-        $stmt = new CreateStatement();
-        $stmt->options = new OptionsArray();
-        $this->assertEquals('', $stmt->build());
+        $parser = new Parser(
+            'CREATE USER "jeffrey"@"localhost" IDENTIFIED BY "mypass"'
+        );
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'CREATE USER "jeffrey"@"localhost" IDENTIFIED BY "mypass"',
+            $stmt->build()
+        );
     }
 
     public function testBuilderDatabase()

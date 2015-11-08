@@ -35,10 +35,12 @@ class ExpressionTest extends TestCase
     public function testParseErrProvider()
     {
         return array(
+            /*
             array(
                 '(1))',
                 'Unexpected closing bracket.',
             ),
+            */
             array(
                 'tbl..col',
                 'Unexpected dot.',

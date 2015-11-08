@@ -25,6 +25,11 @@ class MiscTest extends TestCase
     {
         return array(
             array(
+                'select * from (select 1) tbl',
+                'mydb',
+                array(),
+            ),
+            array(
                 'select i.name as `n`,abcdef gh from qwerty i',
                 'mydb',
                 array(
