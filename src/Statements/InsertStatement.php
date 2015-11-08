@@ -84,7 +84,8 @@ class InsertStatement extends Statement
     /**
      * @return string
      */
-    public function build() {
+    public function build()
+    {
         return 'INSERT ' . $this->options
             . ' INTO ' . $this->into
             . ' VALUES ' . ArrayObj::build($this->values);
