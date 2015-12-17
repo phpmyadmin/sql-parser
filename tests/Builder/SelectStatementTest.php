@@ -23,4 +23,14 @@ class SelectStatementTest extends TestCase
             $stmt->build()
         );
     }
+
+    public function testBuilderUnion() {
+        $parser = new Parser('SELECT 1 UNION SELECT 2');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT  1 UNION SELECT  2  ',
+            $stmt->build()
+        );
+    }
 }

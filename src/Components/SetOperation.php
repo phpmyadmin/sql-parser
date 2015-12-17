@@ -85,10 +85,8 @@ class SetOperation extends Component
             }
 
             // No keyword is expected.
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
-                if ($state == 0) {
-                    break;
-                }
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED) && ($state == 0)) {
+                break;
             }
 
             if ($state === 0) {
@@ -115,13 +113,6 @@ class SetOperation extends Component
                 $expr = new SetOperation();
                 $state = 0;
             }
-        }
-
-        // Last iteration was not saved.
-        if (!empty($expr->column)) {
-            $expr->column = trim($expr->column);
-            $expr->value = trim($expr->value);
-            $ret[] = $expr;
         }
 
         --$list->idx;
