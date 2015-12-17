@@ -159,6 +159,7 @@ class ContextMySql50100 extends Context
         'GROUP BY' => 7, 'NOT NULL' => 7, 'ORDER BY' => 7, 'SET NULL' => 7,
         'AND CHAIN' => 7, 'FULL JOIN' => 7, 'IF EXISTS' => 7, 'LEFT JOIN' => 7,
         'LESS THAN' => 7, 'NO ACTION' => 7, 'ON DELETE' => 7, 'ON UPDATE' => 7,
+        'UNION ALL' => 7,
         'INNER JOIN' => 7, 'LINEAR KEY' => 7, 'NO RELEASE' => 7, 'OR REPLACE' => 7,
         'RIGHT JOIN' => 7,
         'LINEAR HASH' => 7,
