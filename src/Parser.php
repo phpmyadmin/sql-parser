@@ -196,6 +196,10 @@ class Parser
             'class'             => 'SqlParser\\Components\\JoinKeyword',
             'field'             => 'join',
         ),
+        'STRAIGHT_JOIN'         => array(
+            'class'             => 'SqlParser\\Components\\JoinKeyword',
+            'field'             => 'join',
+        ),
         'LIMIT'                 => array(
             'class'             => 'SqlParser\\Components\\Limit',
             'field'             => 'limit',
