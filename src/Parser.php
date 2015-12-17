@@ -35,8 +35,9 @@ class Parser
     public static $STATEMENT_PARSERS = array(
 
         // MySQL Utility Statements
-        'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
         'DESCRIBE'          => 'SqlParser\\Statements\\ExplainStatement',
+        'EXPLAIN'           => 'SqlParser\\Statements\\ExplainStatement',
+        'FLUSH'             => '',
         'GRANT'             => '',
         'HELP'              => '',
         'SET PASSWORD'      => '',
@@ -80,15 +81,16 @@ class Parser
 
         // Prepared Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-prepared-statements.html
-        'PREPARE'           => '',
+        'DEALLOCATE'        => '',
         'EXECUTE'           => '',
+        'PREPARE'           => '',
 
         // Transactional and Locking Statements
         // https://dev.mysql.com/doc/refman/5.7/en/commit.html
-        'START TRANSACTION' => 'SqlParser\\Statements\\TransactionStatement',
         'BEGIN'             => 'SqlParser\\Statements\\TransactionStatement',
         'COMMIT'            => 'SqlParser\\Statements\\TransactionStatement',
         'ROLLBACK'          => 'SqlParser\\Statements\\TransactionStatement',
+        'START TRANSACTION' => 'SqlParser\\Statements\\TransactionStatement',
     );
 
     /**
