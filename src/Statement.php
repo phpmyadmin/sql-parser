@@ -170,7 +170,6 @@ abstract class Statement
                 if (!empty($built[$field])) {
                     continue;
                 }
-
                 $built[$field] = true;
             }
 
