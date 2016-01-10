@@ -22,10 +22,10 @@ class ContextGenerator
      * @var array
      */
     public static $LABELS_FLAGS = array(
-        '(R)'   =>  2,
-        '(D)'   =>  8,
-        '(K)'   => 16,
-        '(F)'   => 32,
+        '(R)'   =>  2, // reserved
+        '(D)'   =>  8, // data type
+        '(K)'   => 16, // keyword
+        '(F)'   => 32, // function name
     );
 
     /**
