@@ -21,6 +21,11 @@ class BugsTest extends TestCase
             array('bugs/gh9'),
             array('bugs/gh14'),
             array('bugs/gh16'),
+            array('bugs/pma11800'),
+            array('bugs/pma11836'),
+            array('bugs/pma11843'),
+            array('bugs/pma11867'),
+            array('bugs/pma11879'),
         );
     }
 }
