@@ -24,7 +24,8 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderUnion() {
+    public function testBuilderUnion()
+    {
         $parser = new Parser('SELECT 1 UNION SELECT 2');
         $stmt = $parser->statements[0];
 
