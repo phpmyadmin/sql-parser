@@ -185,7 +185,7 @@ class Condition extends Component
             $expr->expr .= $token->token;
             if (($token->type === Token::TYPE_NONE)
                 || (($token->type === Token::TYPE_KEYWORD)
-                    && (!($token->flags & Token::FLAG_KEYWORD_RESERVED)))
+                && (!($token->flags & Token::FLAG_KEYWORD_RESERVED)))
                 || ($token->type === Token::TYPE_STRING)
                 || ($token->type === Token::TYPE_SYMBOL)
             ) {

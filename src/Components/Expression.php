@@ -237,7 +237,7 @@ class Expression extends Component
                         && (($prev[1]->type === Token::TYPE_NONE)
                         || ($prev[1]->type === Token::TYPE_SYMBOL)
                         || (($prev[1]->type === Token::TYPE_KEYWORD)
-                            && ($prev[1]->flags & Token::FLAG_KEYWORD_FUNCTION)))
+                        && ($prev[1]->flags & Token::FLAG_KEYWORD_FUNCTION)))
                     ) {
                         $ret->function = $prev[1]->value;
                     }
