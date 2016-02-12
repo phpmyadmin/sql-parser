@@ -42,7 +42,7 @@ class OptionsArrayTest extends TestCase
             new Parser(),
             $this->getTokensList('SUM = (3 + 5) RESULT = 8'),
             array(
-                'SUM' => array(1, 'expr', array('bracketsDelimited' => true)),
+                'SUM' => array(1, 'expr', array('parenthesesDelimited' => true)),
                 'RESULT' => array(2, 'var'),
             )
         );

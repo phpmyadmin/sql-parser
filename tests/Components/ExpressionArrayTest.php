@@ -16,7 +16,7 @@ class ExpressionArrayTest extends TestCase
             new Parser(),
             $this->getTokensList('(expr)'),
             array(
-                'noBrackets' => true,
+                'breakOnParentheses' => true,
             )
         );
         $this->assertEquals(array(), $component);
@@ -28,7 +28,7 @@ class ExpressionArrayTest extends TestCase
             new Parser(),
             $this->getTokensList('(expr) +'),
             array(
-                'bracketsDelimited' => true,
+                'parenthesesDelimited' => true,
             )
         );
         $this->assertEquals(1, count($component));

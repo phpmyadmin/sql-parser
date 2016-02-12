@@ -30,7 +30,7 @@ class ArrayObjTest extends TestCase
             array(
                 'type' => 'SqlParser\\Components\\Expression',
                 'typeOptions' => array(
-                    'noBrackets' => true,
+                    'breakOnParentheses' => true,
                 ),
             )
         );
