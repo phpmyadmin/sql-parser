@@ -251,7 +251,38 @@ class QueryTest extends TestCase
 
     public function testGetAll()
     {
-        $this->assertEquals(array(), Query::getAll(''));
+        $this->assertEquals(
+            array(
+                'distinct' => false,
+                'drop_database' => false,
+                'group' => false,
+                'having' => false,
+                'is_affected' => false,
+                'is_analyse' => false,
+                'is_count' => false,
+                'is_delete' => false,
+                'is_explain' => false,
+                'is_export' => false,
+                'is_func' => false,
+                'is_group' => false,
+                'is_insert' => false,
+                'is_maint' => false,
+                'is_procedure' => false,
+                'is_replace' => false,
+                'is_select' => false,
+                'is_show' => false,
+                'is_subquery' => false,
+                'join' => false,
+                'limit' => false,
+                'offset' => false,
+                'order' => false,
+                'querytype' => false,
+                'reload' => false,
+                'select_from' => false,
+                'union' => false,
+            ),
+            Query::getAll('')
+        );
 
         $query = 'SELECT *, actor.actor_id, sakila2.film.*
             FROM sakila2.city, sakila2.film, actor';
