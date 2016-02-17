@@ -380,7 +380,7 @@ class Query
         $parser = new Parser($query);
 
         if (empty($parser->statements[0])) {
-            return array();
+            return static::getFlags(null, true);
         }
 
         $statement = $parser->statements[0];
