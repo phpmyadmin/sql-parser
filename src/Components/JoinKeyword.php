@@ -62,6 +62,7 @@ class JoinKeyword extends Component
      * @var Condition[]
      */
     public $on;
+    public $using;
 
     /**
      * @param Parser     $parser  The parser that serves as context.
@@ -85,9 +86,11 @@ class JoinKeyword extends Component
          *
          *      1 -----------------------[ expr ]----------------------> 2
          *
-         *      2 ------------------------[ ON ]-----------------------> 3
+         *      2 ---------------------[ ON|USING ]--------------------> 3/4
          *
          *      3 --------------------[ conditions ]-------------------> 0
+         *
+         *      4 ----------------------[ columns ]--------------------> 0
          *
          * @var int $state
          */
@@ -131,11 +134,16 @@ class JoinKeyword extends Component
                 $expr->expr = Expression::parse($parser, $list, array('field' => 'table'));
                 $state = 2;
             } elseif ($state === 2) {
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'ON')) {
-                    $state = 3;
+                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'ON' || $token->value === 'USING')) {
+                    $state = $token->value === 'ON' ? 3 : 4;
                 }
             } elseif ($state === 3) {
                 $expr->on = Condition::parse($parser, $list);
+                $ret[] = $expr;
+                $expr = new JoinKeyword();
+                $state = 0;
+            } elseif ($state === 4) {
+                $expr->using = ArrayObj::parse($parser, $list);
                 $ret[] = $expr;
                 $expr = new JoinKeyword();
                 $state = 0;
