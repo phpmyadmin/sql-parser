@@ -179,8 +179,10 @@ class JoinKeyword extends Component
     {
         $ret = array();
         foreach ($component as $c) {
-            $ret[] = array_search($c->type, static::$JOINS) . ' '
-                . $c->expr . ' ON ' . Condition::build($c->on);
+            $ret[] = array_search($c->type, static::$JOINS) . ' ' . $c->expr
+                . (! empty($c->on)
+                    ? ' ON ' . Condition::build($c->on)
+                    : ' USING ' . ArrayObj::build($c->using));
         }
         return implode(' ', $ret);
     }
