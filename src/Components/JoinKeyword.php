@@ -62,6 +62,11 @@ class JoinKeyword extends Component
      * @var Condition[]
      */
     public $on;
+    /**
+     * Columns in Using clause
+     *
+     * @var ArrayObj
+     */
     public $using;
 
     /**
@@ -86,7 +91,8 @@ class JoinKeyword extends Component
          *
          *      1 -----------------------[ expr ]----------------------> 2
          *
-         *      2 ---------------------[ ON|USING ]--------------------> 3/4
+         *      2 ------------------------[ ON ]-----------------------> 3
+         *      2 -----------------------[ USING ]---------------------> 4
          *
          *      3 --------------------[ conditions ]-------------------> 0
          *
@@ -134,8 +140,12 @@ class JoinKeyword extends Component
                 $expr->expr = Expression::parse($parser, $list, array('field' => 'table'));
                 $state = 2;
             } elseif ($state === 2) {
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'ON' || $token->value === 'USING')) {
-                    $state = $token->value === 'ON' ? 3 : 4;
+                if ($token->type === Token::TYPE_KEYWORD) {
+                    if ($token->value === 'ON') {
+                        $state = 3;
+                    } elseif ($token->value === 'USING') {
+                        $state = 4;
+                    }
                 }
             } elseif ($state === 3) {
                 $expr->on = Condition::parse($parser, $list);
