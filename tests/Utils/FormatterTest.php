@@ -28,6 +28,12 @@ class FormatTest extends TestCase
                 '  <span class="sql-number">1</span>'
             ),
             array(
+                'SELECT 1 # Comment',
+                '<span class="sql-reserved">SELECT</span>' . "\n" .
+                '  <span class="sql-number">1</span> <span class="sql-comment"># Comment' . "\n" .
+                '</span>'
+            ),
+            array(
                 'SELECT HEX("1")',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)'
