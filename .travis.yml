@@ -19,6 +19,7 @@ sudo: false
 
 before_install:
   - travis_retry composer self-update && composer --version
+  - pip install --user codecov
 
 install:
   - travis_retry composer install
@@ -29,6 +30,9 @@ after_script:
       [[ -f ocular.phar ]] || travis_retry wget https://scrutinizer-ci.com/ocular.phar
       php ocular.phar code-coverage:upload --format=php-clover coverage.xml
     fi
+
+after_success:
+  - codecov
 
 cache:
   directories:
