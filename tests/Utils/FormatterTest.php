@@ -11,11 +11,11 @@ class FormatTest extends TestCase
     /**
      * @dataProvider formatQueries
      */
-    public function testFormat($query, $expected)
+    public function testFormat($query, $expected, $type)
     {
         $this->assertEquals(
             $expected,
-            Formatter::format($query, array('type' => 'html'))
+            Formatter::format($query, array('type' => $type))
         );
     }
 
@@ -25,18 +25,21 @@ class FormatTest extends TestCase
             array(
                 'SELECT 1',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
-                '  <span class="sql-number">1</span>'
+                '  <span class="sql-number">1</span>',
+                'html'
             ),
             array(
                 'SELECT 1 # Comment',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-number">1</span> <span class="sql-comment"># Comment' . "\n" .
-                '</span>'
+                '</span>',
+                'html'
             ),
             array(
                 'SELECT HEX("1")',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
-                '  <span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)'
+                '  <span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
+                'html'
             ),
             array(
                 'SELECT * FROM foo WHERE bar=1',
@@ -45,7 +48,8 @@ class FormatTest extends TestCase
                 '<span class="sql-reserved">FROM</span>' . "\n" .
                 '  foo' . "\n" .
                 '<span class="sql-reserved">WHERE</span>' . "\n" .
-                '  bar = <span class="sql-number">1</span>'
+                '  bar = <span class="sql-number">1</span>',
+                'html'
             ),
             array(
                 'CREATE PROCEDURE SPTEST() BEGIN FROM a SELECT *; END',
@@ -56,7 +60,8 @@ class FormatTest extends TestCase
                 '  a' . "\n" .
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  *;' . "\n" .
-                '<span class="sql-keyword">END</span>'
+                '<span class="sql-keyword">END</span>',
+                'html'
             ),
         );
     }
