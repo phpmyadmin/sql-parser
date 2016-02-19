@@ -64,6 +64,16 @@ class FormatTest extends TestCase
                 'html'
             ),
             array(
+                'INSERT INTO foo VALUES (0, 0, 0), (1, 1, 1)',
+                '<span class="sql-reserved">INSERT</span>' . "\n" .
+                '<span class="sql-reserved">INTO</span>' . "\n" .
+                '  foo' . "\n" .
+                '<span class="sql-reserved">VALUES</span>' .
+                '(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),' .
+                '(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
+                'html'
+            ),
+            array(
                 'SELECT 1',
                 "\x1b[35mSELECT\n  \x1b[92m1",
                 'cli'
