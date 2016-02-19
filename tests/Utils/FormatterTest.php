@@ -47,6 +47,17 @@ class FormatTest extends TestCase
                 '<span class="sql-reserved">WHERE</span>' . "\n" .
                 '  bar = <span class="sql-number">1</span>'
             ),
+            array(
+                'CREATE PROCEDURE SPTEST() BEGIN FROM a SELECT *; END',
+                '<span class="sql-reserved">CREATE</span>' . "\n" .
+                '<span class="sql-reserved">PROCEDURE</span> SPTEST()' . "\n" .
+                '<span class="sql-keyword">BEGIN</span>' . "\n" .
+                '<span class="sql-reserved">FROM</span>' . "\n" .
+                '  a' . "\n" .
+                '<span class="sql-reserved">SELECT</span>' . "\n" .
+                '  *;' . "\n" .
+                '<span class="sql-keyword">END</span>'
+            ),
         );
     }
 }
