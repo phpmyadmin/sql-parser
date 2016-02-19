@@ -27,6 +27,20 @@ class FormatTest extends TestCase
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-number">1</span>'
             ),
+            array(
+                'SELECT HEX("1")',
+                '<span class="sql-reserved">SELECT</span>' . "\n" .
+                '  <span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)'
+            ),
+            array(
+                'SELECT * FROM foo WHERE bar=1',
+                '<span class="sql-reserved">SELECT</span>' . "\n" .
+                '  *' . "\n" .
+                '<span class="sql-reserved">FROM</span>' . "\n" .
+                '  foo' . "\n" .
+                '<span class="sql-reserved">WHERE</span>' . "\n" .
+                '  bar = <span class="sql-number">1</span>'
+            ),
         );
     }
 }
