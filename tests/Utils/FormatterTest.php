@@ -63,6 +63,11 @@ class FormatTest extends TestCase
                 '<span class="sql-keyword">END</span>',
                 'html'
             ),
+            array(
+                'SELECT 1',
+                "\x1b[35mSELECT\n  \x1b[92m1",
+                'cli'
+            ),
         );
     }
 }
