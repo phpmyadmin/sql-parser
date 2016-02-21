@@ -183,6 +183,17 @@ class AlterOperation extends Component
 
             if ($state === 0) {
                 $ret->options = OptionsArray::parse($parser, $list, $options);
+
+                if ($ret->options->has('AS')) {
+                    for (; $list->idx < $list->count; ++$list->idx) {
+                        if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {
+                            break;
+                        }
+                        $ret->unknown[] = $list->tokens[$list->idx];
+                    }
+                    break;
+                }
+
                 $state = 1;
             } elseif ($state === 1) {
                 $ret->field = Expression::parse(
