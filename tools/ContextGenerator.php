@@ -117,7 +117,7 @@ class ContextGenerator
     /**
      * Reads a list of words and sorts it by type, length and keyword.
      *
-     * @param array $files
+     * @param string[] $files
      *
      * @return array
      */
@@ -198,7 +198,7 @@ class ContextGenerator
                     if ($i == 0) {
                         $ret .= str_repeat(' ', $spaces);
                     }
-                    $ret .= "'" . $word . "' => " . $type . ", ";
+                    $ret .= "'" . $word . "' => " . $type . ', ';
                     if (++$i == $count) {
                         $ret .= "\n";
                         $i = 0;
@@ -222,7 +222,7 @@ class ContextGenerator
      *
      * @param array $options The options that are used in generating this context.
      *
-     * @return array
+     * @return string
      */
     public static function generate($options)
     {

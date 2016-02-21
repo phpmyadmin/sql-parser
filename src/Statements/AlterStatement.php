@@ -151,7 +151,7 @@ class AlterStatement extends Statement
         }
 
         return 'ALTER ' . OptionsArray::build($this->options)
-               . ' '    . Expression::build($this->table)
-               . ' '    . implode(', ', $tmp);
+            . ' ' . Expression::build($this->table)
+            . ' ' . implode(', ', $tmp);
     }
 }

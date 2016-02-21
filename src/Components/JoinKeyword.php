@@ -62,6 +62,7 @@ class JoinKeyword extends Component
      * @var Condition[]
      */
     public $on;
+
     /**
      * Columns in Using clause
      *
@@ -180,7 +181,7 @@ class JoinKeyword extends Component
         $ret = array();
         foreach ($component as $c) {
             $ret[] = array_search($c->type, static::$JOINS) . ' ' . $c->expr
-                . (! empty($c->on)
+                . (!empty($c->on)
                     ? ' ON ' . Condition::build($c->on)
                     : ' USING ' . ArrayObj::build($c->using));
         }
