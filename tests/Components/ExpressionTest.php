@@ -46,8 +46,8 @@ class ExpressionTest extends TestCase
                 'Unexpected dot.',
             ),
             array(
-                'id AS id2 AS id3',
-                'An alias was previously found.',
+                'id AS AS id2',
+                'An alias was expected.',
             ),
             array(
                 'id`id2`\'id3\'',
