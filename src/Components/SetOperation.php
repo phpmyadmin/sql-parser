@@ -104,7 +104,6 @@ class SetOperation extends Component
                     )
                 );
                 if ($tmp == null) {
-                    $expr = null;
                     break;
                 }
                 $expr->column = trim($expr->column);

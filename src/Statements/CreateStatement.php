@@ -317,13 +317,11 @@ class CreateStatement extends Statement
                 . Expression::build($this->name) . ' '
                 . ParameterDefinition::build($this->parameters) . ' '
                 . $tmp . ' ' . TokensList::build($this->body);
-        } else {
-            return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
-                . TokensList::build($this->body);
         }
-        return '';
+        return 'CREATE '
+            . OptionsArray::build($this->options) . ' '
+            . Expression::build($this->name) . ' '
+            . TokensList::build($this->body);
     }
 
     /**

@@ -27,7 +27,7 @@ class AlterOperation extends Component
 
     /**
      * All database options
-     * 
+     *
      * @var array
      */
     public static $DB_OPTIONS = array(

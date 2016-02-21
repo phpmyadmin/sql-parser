@@ -178,7 +178,7 @@ class TestGenerator
 
                 // Building the test.
                 if (!file_exists($outputFile)) {
-                    print("Building test for {$inputFile}...\n");
+                    sprintf("Building test for %s...\n", $inputFile);
                     static::build(
                         strpos($inputFile, 'lex') !== false ? 'lexer' : 'parser',
                         $inputFile,
@@ -186,7 +186,7 @@ class TestGenerator
                         $debugFile
                     );
                 } else {
-                    print("Test for {$inputFile} already built!\n");
+                    sprintf("Test for %s already built!\n", $inputFile);
                 }
             }
         }
