@@ -348,7 +348,7 @@ class Lexer extends Core
      *
      * @return void
      */
-    public function error($msg = '', $str = '', $pos = 0, $code = 0)
+    public function error($msg, $str = '', $pos = 0, $code = 0)
     {
         $error = new LexerException(
             Translator::getInstance()->gettext($msg),
