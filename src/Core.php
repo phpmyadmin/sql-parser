@@ -7,8 +7,6 @@
  */
 namespace SqlParser;
 
-use MoTranslator;
-
 class Core
 {
 
@@ -33,14 +31,6 @@ class Core
      * @see Core::error()
      */
     public $errors = array();
-
-    /**
-     * Constructor.
-     */
-    public function __construct()
-    {
-        MoTranslator\Loader::load_functions();
-    }
 
     /**
      * Creates a new error log.
