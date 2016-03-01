@@ -89,7 +89,7 @@ class Array2d extends Component
                     } elseif ($arrCount != $count) {
                         $parser->error(
                             sprintf(
-                                Translator::getInstance()->gettext('%1$d values were expected, but found %2$d.'),
+                                Translator::gettext('%1$d values were expected, but found %2$d.'),
                                 $count,
                                 $arrCount
                             ),

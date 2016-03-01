@@ -12,49 +12,46 @@ use MoTranslator;
 class Translator
 {
     /**
-     * Translator instance
-     *
-     * @access private
-     * @static
-     * @var Translator
-     */
-    private static $_instance;
-
-    /**
      * The MoTranslator loader object.
      *
      * @var MoTranslator\Loader
      */
-    private $loader;
+    private static $loader;
 
     /**
      * The MoTranslator translator object.
      *
      * @var MoTranslator\Translator
      */
-    private $translator;
+    private static $translator;
 
     /**
-     * Constructor.
+     * Loads transator
+     *
+     * @return void
      */
-    public function __construct()
+    public static function load()
     {
-        // Create loader object
-        $this->loader = new MoTranslator\Loader();
+        if (is_null(self::$loader)) {
+            // Create loader object
+            self::$loader = new MoTranslator\Loader();
 
-        // Set locale
-        $this->loader->setlocale(
-            $this->loader->detectlocale()
-        );
+            // Set locale
+            self::$loader->setlocale(
+                self::$loader->detectlocale()
+            );
 
-        // Set default text domain
-        $this->loader->textdomain('sqlparser');
+            // Set default text domain
+            self::$loader->textdomain('sqlparser');
 
-        // Set path where to look for a domain
-        $this->loader->bindtextdomain('sqlparser', __DIR__ . '/../locale/');
+            // Set path where to look for a domain
+            self::$loader->bindtextdomain('sqlparser', __DIR__ . '/../locale/');
+        }
 
-        // Get translator
-        $this->translator = $this->loader->get_translator();
+        if (is_null(self::$translator)) {
+            // Get translator
+            self::$translator = self::$loader->get_translator();
+        }
     }
 
     /**
@@ -64,21 +61,9 @@ class Translator
      *
      * @return string translated string (or original, if not found)
      */
-    public function gettext($msgid)
+    public static function gettext($msgid)
     {
-        return $this->translator->gettext($msgid);
-    }
-
-    /**
-     * Returns the singleton Translator object
-     *
-     * @return Translator object
-     */
-    public static function getInstance()
-    {
-        if (empty(self::$_instance)) {
-            self::$_instance = new Translator();
-        }
-        return self::$_instance;
+        self::load();
+        return self::$translator->gettext($msgid);
     }
 }

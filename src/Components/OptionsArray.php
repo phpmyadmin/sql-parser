@@ -144,7 +144,7 @@ class OptionsArray extends Component
                     if (isset($ret->options[$lastOptionId])) {
                         $parser->error(
                             sprintf(
-                                Translator::getInstance()->gettext('This option conflicts with "%1$s".'),
+                                Translator::gettext('This option conflicts with "%1$s".'),
                                 is_array($ret->options[$lastOptionId])
                                 ? $ret->options[$lastOptionId]['name']
                                 : $ret->options[$lastOptionId]

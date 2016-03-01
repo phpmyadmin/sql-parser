@@ -42,7 +42,7 @@ abstract class Component
     ) {
         // This method should be abstract, but it can't be both static and
         // abstract.
-        throw new \Exception(Translator::getInstance()->gettext('Not implemented yet.'));
+        throw new \Exception(Translator::gettext('Not implemented yet.'));
     }
 
     /**
@@ -62,7 +62,7 @@ abstract class Component
     {
         // This method should be abstract, but it can't be both static and
         // abstract.
-        throw new \Exception(Translator::getInstance()->gettext('Not implemented yet.'));
+        throw new \Exception(Translator::gettext('Not implemented yet.'));
     }
 
     /**

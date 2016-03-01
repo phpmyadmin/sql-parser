@@ -351,7 +351,7 @@ class Lexer extends Core
     public function error($msg, $str = '', $pos = 0, $code = 0)
     {
         $error = new LexerException(
-            Translator::getInstance()->gettext($msg),
+            Translator::gettext($msg),
             $str, $pos, $code
         );
         parent::error($error);
@@ -811,7 +811,7 @@ class Lexer extends Core
         if (($this->last >= $this->len) || ($this->str[$this->last] !== $quote)) {
             $this->error(
                 sprintf(
-                    Translator::getInstance()->gettext('Ending quote %1$s was expected.'),
+                    Translator::gettext('Ending quote %1$s was expected.'),
                     $quote
                 ),
                 '',

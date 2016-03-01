@@ -575,7 +575,7 @@ class Parser extends Core
     public function error($msg, Token $token = null, $code = 0)
     {
         $error = new ParserException(
-            Translator::getInstance()->gettext($msg),
+            Translator::gettext($msg),
             $token, $code
         );
         parent::error($error);
