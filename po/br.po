@@ -1,0 +1,6752 @@
+# phpMyAdmin translation.
+# Copyright (C) 2003 - 2011 phpMyAdmin devel team
+# This file is distributed under the same license as the phpMyAdmin package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SQL parser 0\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
+"POT-Creation-Date: 2016-03-01 16:18+0100\n"
+"PO-Revision-Date: 2014-03-28 11:07+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"br/>\n"
+"Language: br\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 1.9-dev\n"
+
+#: src/Component.php:48 src/Component.php:68
+msgid "Not implemented yet."
+msgstr ""
+
+#: src/Components/AlterOperation.php:229
+msgid "Unrecognized alter operation."
+msgstr ""
+
+#: src/Components/Array2d.php:92
+#, php-format
+msgid "%1$d values were expected, but found %2$d."
+msgstr ""
+
+#: src/Components/Array2d.php:115
+msgid "An opening bracket followed by a set of values was expected."
+msgstr ""
+
+#: src/Components/ArrayObj.php:119 src/Components/CreateDefinition.php:207
+msgid "An opening bracket was expected."
+msgstr ""
+
+#: src/Components/CreateDefinition.php:251
+#, fuzzy
+#| msgid "No rows selected"
+msgid "A comma or a closing bracket was expected."
+msgstr "N'eus bet diuzet linenn ebet"
+
+#: src/Components/CreateDefinition.php:267
+msgid "A closing bracket was expected."
+msgstr ""
+
+#: src/Components/DataType.php:128
+msgid "Unrecognized data type."
+msgstr ""
+
+#: src/Components/Expression.php:248 src/Components/Expression.php:385
+#, fuzzy
+#| msgid "No rows selected"
+msgid "An alias was expected."
+msgstr "N'eus bet diuzet linenn ebet"
+
+#: src/Components/Expression.php:323 src/Components/Expression.php:342
+#: src/Components/Expression.php:374
+msgid "An alias was previously found."
+msgstr ""
+
+#: src/Components/Expression.php:355
+msgid "Unexpected dot."
+msgstr ""
+
+#: src/Components/ExpressionArray.php:99
+#, fuzzy
+#| msgid "No rows selected"
+msgid "An expression was expected."
+msgstr "N'eus bet diuzet linenn ebet"
+
+#: src/Components/Limit.php:91 src/Components/Limit.php:113
+msgid "An offset was expected."
+msgstr ""
+
+#: src/Components/OptionsArray.php:147
+#, php-format
+msgid "This option conflicts with \"%1$s\"."
+msgstr ""
+
+#: src/Components/RenameOperation.php:102
+msgid "The old name of the table was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:112
+msgid "Keyword \"TO\" was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:128
+msgid "The new name of the table was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:146
+#, fuzzy
+#| msgid "The bookmark has been deleted."
+msgid "A rename operation was expected."
+msgstr "Diverket eo bet ar sined."
+
+#: src/Lexer.php:267
+msgid "Unexpected character."
+msgstr ""
+
+#: src/Lexer.php:304
+msgid "Expected whitespace(s) before delimiter."
+msgstr ""
+
+#: src/Lexer.php:322 src/Lexer.php:338
+msgid "Expected delimiter."
+msgstr ""
+
+#: src/Lexer.php:784
+#, fuzzy, php-format
+#| msgid "Routine %1$s has been created."
+msgid "Ending quote %1$s was expected."
+msgstr "Krouet eo bet an argerzh %1s."
+
+#: src/Lexer.php:824
+#, fuzzy
+#| msgid "Table name template"
+msgid "Variable name was expected."
+msgstr "Patrom anv taolenn"
+
+#: src/Parser.php:423
+#, fuzzy
+#| msgid "Number of inserted rows"
+msgid "Unexpected beginning of statement."
+msgstr "Niver a linennoù da ensoc'hañ"
+
+#: src/Parser.php:442
+msgid "Unrecognized statement type."
+msgstr ""
+
+#: src/Parser.php:524
+msgid "No transaction was previously started."
+msgstr ""
+
+#: src/Statement.php:246
+msgid "Unexpected token."
+msgstr ""
+
+#: src/Statement.php:284
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: src/Statement.php:312
+msgid ""
+"A new statement was found, but no delimiter between it and the previous one."
+msgstr ""
+
+#: src/Statement.php:332
+msgid "Unrecognized keyword."
+msgstr ""
+
+#: src/Statements/CreateStatement.php:353
+msgid "The name of the entity was expected."
+msgstr ""
+
+#: src/Statements/CreateStatement.php:370
+#, fuzzy
+#| msgid "The bookmark has been deleted."
+msgid "At least one column definition was expected."
+msgstr "Diverket eo bet ar sined."
+
+#: src/Statements/CreateStatement.php:481
+msgid "A \"RETURNS\" keyword was expected."
+msgstr ""
+
+#: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
+#, fuzzy
+#| msgid "Error"
+msgid "error #1"
+msgstr "Fazi"
+
+#: tests/Lexer/LexerTest.php:23 tests/Parser/ParserTest.php:59
+#, php-format
+msgid "%2$s #%1$d"
+msgstr ""
+
+#: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
+#, fuzzy
+#| msgid "Gather errors"
+msgid "strict error"
+msgstr "Dastum ar fazioù"
+
+#~ msgid ""
+#~ "The %s file is not available on this system, please visit www.phpmyadmin."
+#~ "net for more information."
+#~ msgstr ""
+#~ "N'eo ket hegerz ar restr %s er reizhiad-mañ. Kit da welet war www."
+#~ "phpmyadmin.net evit gouzout hiroc'h."
+
+#, fuzzy
+#~| msgid "Click to select"
+#~ msgid "Click to sort."
+#~ msgstr "Klikañ evit diuzañ"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "Showing rows %1$s - %2$s."
+#~ msgstr "Arventennoù pouezus all"
+
+#~ msgid "Database comment"
+#~ msgstr "Evezhiadenn diwar-benn an diaz roadennoù :"
+
+#~ msgid "Table comments:"
+#~ msgstr "Evezhiadennoù diwar-benn an daolenn :"
+
+#~ msgid "Column"
+#~ msgstr "Bann"
+
+#~ msgid "Type"
+#~ msgstr "Seurt"
+
+#~ msgid "Null"
+#~ msgstr "Null"
+
+#~ msgid "Default"
+#~ msgstr "Dre ziouer"
+
+#~ msgid "Links to"
+#~ msgstr "Liammet ouzh"
+
+#~ msgid "Comments"
+#~ msgstr "Evezhiadennoù"
+
+#~ msgid "No"
+#~ msgstr "Ket"
+
+#~ msgid "Yes"
+#~ msgstr "Ya"
+
+#~ msgid "View dump (schema) of database"
+#~ msgstr "Gwelet un ezporzhiadenn (chema) eus an diaz roadennoù"
+
+#~ msgid "No tables found in database."
+#~ msgstr "N'eus bet kavet taolenn ebet en diaz roadennoù."
+
+#~ msgid "Tables"
+#~ msgstr "Taolennoù"
+
+#~ msgid "Structure"
+#~ msgstr "Framm"
+
+#~ msgid "Data"
+#~ msgstr "Roadennoù"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select all"
+#~ msgstr "Diuzañ pep tra"
+
+#~ msgid "The database name is empty!"
+#~ msgstr "Goullo eo anv an diaz roadennoù !"
+
+#, fuzzy
+#~| msgid "Database %1$s has been renamed to %2$s."
+#~ msgid "Database %1$s has been renamed to %2$s."
+#~ msgstr "Deuet eo anv an diaz roadennoù %1$s da vezañ %2$s"
+
+#, fuzzy
+#~| msgid "Database %1$s has been copied to %2$s."
+#~ msgid "Database %1$s has been copied to %2$s."
+#~ msgstr "Eilet eo bet an diaz roadennoù %1$s war %2$s"
+
+#, fuzzy
+#~| msgid ""
+#~| "The phpMyAdmin configuration storage has been deactivated. To find out "
+#~| "why click %shere%s."
+#~ msgid ""
+#~ "The phpMyAdmin configuration storage has been deactivated. %sFind out why"
+#~ "%s."
+#~ msgstr ""
+#~ "Diweredekaet eo bet ar stokañ kefluniadurioù evit phpMyAdmin. Evit "
+#~ "gouzout perak klikañ %samañ%s."
+
+#, fuzzy
+#~| msgid "You have to choose at least one column to display"
+#~ msgid "You have to choose at least one column to display!"
+#~ msgstr "Ret eo deoc'h dibab da nebeutañ ur bann da vezañ diskwelet"
+
+#~ msgid "Switch to %svisual builder%s"
+#~ msgstr "Cheñch evit ar %ssavour gwelet%s"
+
+#~ msgid "Access denied!"
+#~ msgstr "Moned nac'het !"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Tracking data deleted successfully."
+#~ msgstr "Diverket eo bet an diaz roadennoù %s."
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "No tables selected."
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#~ msgid "Database Log"
+#~ msgstr "Marilh an diaz roadennoù"
+
+#~ msgid ""
+#~ "An error has been detected and an error report has been automatically "
+#~ "submitted based on your settings."
+#~ msgstr ""
+#~ "Kavet ez eus bet ur fazi hag un danevell fazioù zo bet kaset war-eeun, "
+#~ "diouzh hoc'h arventennoù."
+
+#~ msgid "Thank you for submitting this report."
+#~ msgstr "Ho trugarekaat evit bezañ kaset an danevell-mañ."
+
+#~ msgid ""
+#~ "An error has been detected and an error report has been generated but "
+#~ "failed to be sent."
+#~ msgstr ""
+#~ "Kavet ez eus bet ur fazi hag un danevell fazioù zo bet savet. Siwazh "
+#~ "n'eus ket bet gallet kas anezhi."
+
+#~ msgid "If you experience any problems please submit a bug report manually."
+#~ msgstr ""
+#~ "Ma welit tra pe dra a-dreuz, kasit keloù war-eeun a-zivout an draen "
+#~ "diskoachet ganeoc'h."
+
+#~ msgid "You may want to refresh the page."
+#~ msgstr "C'hoant hoc'h eus da freskaat ar bajenn marteze a-walc'h."
+
+#~ msgid "Bad type!"
+#~ msgstr "Seurt faziek !"
+
+#~ msgid "Bad parameters!"
+#~ msgstr "Arventennoù fall !"
+
+#~ msgid "Invalid export type"
+#~ msgstr "Seurt ezporzhiadenn direizh"
+
+#~ msgid "Value for the column \"%s\""
+#~ msgstr "Talvoud evit ar bann \"%s\""
+
+#~ msgid "Use OpenStreetMaps as Base Layer"
+#~ msgstr "Ober gant OpenStreetMaps evit ar gwiskad diazez"
+
+#~ msgid "SRID:"
+#~ msgstr "SRID :"
+
+#~ msgid "Geometry %d:"
+#~ msgstr "Mentoniezh %d :"
+
+#~ msgid "Point:"
+#~ msgstr "Poent :"
+
+#~ msgid "X"
+#~ msgstr "X"
+
+#~ msgid "Y"
+#~ msgstr "Y"
+
+#~ msgid "Point %d"
+#~ msgstr "Poent %d"
+
+#~ msgid "Add a point"
+#~ msgstr "Ouzhpennañ ur poent"
+
+#~ msgid "Linestring %d:"
+#~ msgstr "Aradennad linennoù %d :"
+
+#, fuzzy
+#~| msgid "Outer Ring:"
+#~ msgid "Outer ring:"
+#~ msgstr "Kelc'h diavaez :"
+
+#, fuzzy
+#~| msgid "Inner Ring"
+#~ msgid "Inner ring %d:"
+#~ msgstr "Kelc'h diabarzh"
+
+#~ msgid "Add a linestring"
+#~ msgstr "Ouzhpennañ un aradennad linennoù"
+
+#~ msgid "Add an inner ring"
+#~ msgstr "Ouzhpennañ ur c'helc'h diabarzh"
+
+#, fuzzy
+#~| msgid "Polygon"
+#~ msgid "Polygon %d:"
+#~ msgstr "Lieskorneg"
+
+#~ msgid "Add a polygon"
+#~ msgstr "Ouzhpennañ ul lieskorneg"
+
+#~ msgid "Add geometry"
+#~ msgstr "Ouzhpennañ mentoniezh"
+
+#~ msgid "Go"
+#~ msgstr "Mont"
+
+#~ msgid "Output"
+#~ msgstr "Disoc'h"
+
+#, fuzzy
+#~| msgid ""
+#~| "Chose \"GeomFromText\" from the \"Function\" column and paste the below "
+#~| "string into the \"Value\" field"
+#~ msgid ""
+#~ "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
+#~ "below into the \"Value\" field."
+#~ msgstr ""
+#~ "Dibab \"GeomFromText\" er bann \"Arc'hwel\" ha pegañ an neudennad er "
+#~ "vaezienn \"Talvoud\" a-is"
+
+#, fuzzy
+#~| msgid "Access denied!"
+#~ msgid "Succeeded"
+#~ msgstr "Moned nac'het !"
+
+#, fuzzy
+#~| msgid "complete inserts"
+#~ msgid "Incomplete params"
+#~ msgstr "Ensoc'hadennoù sevenet"
+
+#, fuzzy
+#~| msgid ""
+#~| "You probably tried to upload too large file. Please refer to "
+#~| "%sdocumentation%s for ways to workaround this limit."
+#~ msgid ""
+#~ "You probably tried to upload a file that is too large. Please refer to "
+#~ "%sdocumentation%s for a workaround for this limit."
+#~ msgstr ""
+#~ "Evit doare hoc'h eus klasket enrollañ ur restr re vras. Sellit ouzh an "
+#~ "%steulioù titouriñ%s evit gwelet penaos c'hoari an dro d'ar vevenn-se."
+
+#~ msgid "Showing bookmark"
+#~ msgstr "O tiskouez ar sined"
+
+#~ msgid "The bookmark has been deleted."
+#~ msgstr "Diverket eo bet ar sined."
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "File could not be read!"
+#~ msgstr "N'haller ket lenn ar restr"
+
+#~ msgid ""
+#~ "You attempted to load file with unsupported compression (%s). Either "
+#~ "support for it is not implemented or disabled by your configuration."
+#~ msgstr ""
+#~ "Klasket hoc'h eus enporzhiañ ur restr n'eo ket skoret ar mod m'eo bet "
+#~ "gwasket (%s). Pe n'eo ket emplementet ar mod gwaskañ-se en ho "
+#~ "kefluniadur, pe eo bet diweredekaet."
+
+#~ msgid ""
+#~ "No data was received to import. Either no file name was submitted, or the "
+#~ "file size exceeded the maximum size permitted by your PHP configuration. "
+#~ "See [doc@faq1-16]FAQ 1.16[/doc]."
+#~ msgstr ""
+#~ "N'eus bet resevet roadenn ebet da vezañ enporzhiet. Pe n'eus bet "
+#~ "pourchaset anv restr ebet pe ez a ar vent anezhi dreist d'ar vent vrasañ "
+#~ "aotreet gant ho kefluniadur PHP. Gwelet [doc@faq1-16]FAQ 1.16[/doc]."
+
+#~ msgid "Could not load import plugins, please check your installation!"
+#~ msgstr "Dibosupl enporzhiañ an adveziantoù. Gwiriit ho staliadur !"
+
+#, fuzzy
+#~| msgid "Bookmark %s created"
+#~ msgid "Bookmark %s has been created."
+#~ msgstr "Krouet eo bet ar sined %s"
+
+#, fuzzy
+#~| msgid "Import has been successfully finished, %d queries executed."
+#~ msgid "Import has been successfully finished, %d query executed."
+#~ msgid_plural "Import has been successfully finished, %d queries executed."
+#~ msgstr[0] "Enporzhiet eo bet an traoù ervat, %d reked zo bet kaset da benn."
+#~ msgstr[1] "Enporzhiet eo bet an traoù ervat, %d reked zo bet kaset da benn."
+
+#, fuzzy
+#~| msgid ""
+#~| "Script timeout passed, if you want to finish import, please resubmit "
+#~| "same file and import will resume."
+#~ msgid ""
+#~ "Script timeout passed, if you want to finish import, please %sresubmit "
+#~ "the same file%s and import will resume."
+#~ msgstr ""
+#~ "Aet eur dreist d'ar vevenn amzer. Mar fell deoc'h kenderc'hel gant an "
+#~ "enporzhiañ, adkasit ar restr hag e kendalc'ho an argerzh."
+
+#~ msgid ""
+#~ "However on last run no data has been parsed, this usually means "
+#~ "phpMyAdmin won't be able to finish this import unless you increase php "
+#~ "time limits."
+#~ msgstr ""
+#~ "Koulskoude n'eus ket bet dielfennet roadenn ebet er gasadenn ziwezhañ. "
+#~ "Peurliesañ e talvez n'hallo ket PhpMyAdmin echuiñ da enporzhiañ an traoù "
+#~ "ma ne vez ket kresket ganeoc'h bevenn amzer PHP."
+
+#~ msgid "Back"
+#~ msgstr "Distreiñ"
+
+#, fuzzy
+#~| msgid "Change settings"
+#~ msgid "General settings"
+#~ msgstr "Kemmañ an arventennoù"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Server connection collation"
+#~ msgstr "Kefluniadur ar servijer"
+
+#, fuzzy
+#~| msgid "Change settings"
+#~ msgid "Appearance settings"
+#~ msgstr "Kemmañ an arventennoù"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database server"
+#~ msgstr "Diazoù roadennoù"
+
+#~ msgid "Server:"
+#~ msgstr "Servijer :"
+
+#, fuzzy
+#~| msgid "Server"
+#~ msgid "Server type:"
+#~ msgstr "Servijer"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Server version:"
+#~ msgstr "Stumm diwezhañ"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Protocol version:"
+#~ msgstr "Stumm diwezhañ"
+
+#, fuzzy
+#~| msgid "Username:"
+#~ msgid "User:"
+#~ msgstr "Anv implijer :"
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Server charset:"
+#~ msgstr "Dilemel ar grafik"
+
+#, fuzzy
+#~| msgid "Database comment"
+#~ msgid "Database client version:"
+#~ msgstr "Evezhiadenn diwar-benn an diaz roadennoù : "
+
+#, fuzzy
+#~| msgid "Versions"
+#~ msgid "PHP version:"
+#~ msgstr "Stummoù"
+
+#~ msgid "Documentation"
+#~ msgstr "Teuliadur"
+
+#, fuzzy
+#~| msgid ""
+#~| "The phpMyAdmin configuration storage has been deactivated. To find out "
+#~| "why click %shere%s."
+#~ msgid ""
+#~ "The phpMyAdmin configuration storage is not completely configured, some "
+#~ "extended features have been deactivated. %sFind out why%s. "
+#~ msgstr ""
+#~ "Diweredekaet eo bet ar stokañ kefluniadurioù evit phpMyAdmin. Evit "
+#~ "gouzout perak klikañ %samañ%s."
+
+#~ msgid "\"DROP DATABASE\" statements are disabled."
+#~ msgstr "Diweredekaet eo an urzhad ''DROP DATABASE'."
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute \"%s\"?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#~ msgid "You are about to DESTROY a complete database!"
+#~ msgstr "Emaoc'h war-nes DISTRUJ un diaz roadennoù klok !"
+
+#~ msgid "You are about to DESTROY a complete table!"
+#~ msgstr "Emaoc'h war-nes DISTRUJ un daolennad glok !"
+
+#~ msgid "You are about to TRUNCATE a complete table!"
+#~ msgstr "Emaoc'h war-nes RIÑSAÑ un daolennad penn-da-benn !"
+
+#, fuzzy
+#~| msgid "Delete tracking data for this table"
+#~ msgid "Delete tracking data for this table?"
+#~ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
+
+#, fuzzy
+#~| msgid "Delete tracking data for this table"
+#~ msgid "Delete tracking data for these tables?"
+#~ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
+
+#, fuzzy
+#~| msgid "Delete tracking data for this table"
+#~ msgid "Delete tracking data for this version?"
+#~ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
+
+#, fuzzy
+#~| msgid "Delete tracking data for this table"
+#~ msgid "Delete tracking data for these versions?"
+#~ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
+
+#, fuzzy
+#~| msgid "Deleting tracking data"
+#~ msgid "Delete entry from tracking report?"
+#~ msgstr "O tiverkañ ar roadennoù heuliañ"
+
+#~ msgid "Deleting tracking data"
+#~ msgstr "O tiverkañ ar roadennoù heuliañ"
+
+#~ msgid "Dropping Primary Key/Index"
+#~ msgstr "O tistruj an Alc'hwez kentidik/Meneger"
+
+#, fuzzy
+#~| msgid "Select Foreign Key"
+#~ msgid "Dropping Foreign key."
+#~ msgstr "Diuzit an alc'hwez estren"
+
+#~ msgid "This operation could take a long time. Proceed anyway?"
+#~ msgstr "Pell e c'hall padout an oberiadenn-mañ. Kenderc'hel memes tra ?"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete user group \"%s\"?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete the search \"%s\"?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to revoke the selected user(s) ?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete this central column?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete the selected items?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to TRUNCATE the selected partition(s)?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to remove partitioning?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to RESET SLAVE?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save & close"
+#~ msgstr "Enrollañ evel restr"
+
+#~ msgid "Reset"
+#~ msgstr "Adderaouekaat"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Reset all"
+#~ msgstr "Diuzañ pep tra"
+
+#~ msgid "Missing value in the form!"
+#~ msgstr "Furmskrid diglok !"
+
+#, fuzzy
+#~| msgid "at least one of the words"
+#~ msgid "Select at least one of the options!"
+#~ msgstr "unan eus ar gerioù da nebeutañ"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid number!"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid length!"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Indexes"
+#~ msgid "Add index"
+#~ msgstr "Menegerioù"
+
+#, fuzzy
+#~| msgid "Edit mode"
+#~ msgid "Edit index"
+#~ msgstr "Mod aozañ"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Add %s column(s) to index"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Columns terminated by"
+#~ msgid "Composite with:"
+#~ msgstr "Bannoù a echu gant"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Please select column(s) for the index."
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgid "Simulate query"
+#~ msgstr "Hizivaat ar reked"
+
+#, fuzzy
+#~| msgid "Affected rows:"
+#~ msgid "Matched rows:"
+#~ msgstr "Linennoù a sell outo :"
+
+#, fuzzy
+#~| msgid "SQL query"
+#~ msgid "SQL query:"
+#~ msgstr "Reked SQL"
+
+#, fuzzy
+#~| msgid "Use this value"
+#~ msgid "Y values"
+#~ msgstr "Ober gant an talvoud-mañ"
+
+#~ msgid "The host name is empty!"
+#~ msgstr "Goullo eo anv ar servijer !"
+
+#~ msgid "The user name is empty!"
+#~ msgstr "Goullo eo anv an implijer !"
+
+#~ msgid "The password is empty!"
+#~ msgstr "Goullo eo ar ger-tremen !"
+
+#~ msgid "The passwords aren't the same!"
+#~ msgstr "Ne glot ket ar gerioù-tremen !"
+
+#~ msgid "Removing Selected Users"
+#~ msgstr "O lemel kuit an implijerien diuzet"
+
+#~ msgid "Close"
+#~ msgstr "Serriñ"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "Template was created."
+#~ msgstr "%s daolenn"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "Template was deleted."
+#~ msgstr "Diverket eo bet ar sined."
+
+#~ msgid "Other"
+#~ msgstr "Udb all"
+
+#~ msgid ","
+#~ msgstr " "
+
+#~ msgid "."
+#~ msgstr "."
+
+#~ msgid "Connections / Processes"
+#~ msgstr "Kevreadennoù/Argerzhioù"
+
+#, fuzzy
+#~| msgid "Local monitor configuration incompatible"
+#~ msgid "Local monitor configuration incompatible!"
+#~ msgstr "N'eo ket kenglotus kefluniadur lec'hel an evezhiañ"
+
+#~ msgid "Query cache efficiency"
+#~ msgstr "Efeduster ar grubuilh rekedoù"
+
+#~ msgid "Query cache usage"
+#~ msgstr "Implij ar grubuilh rekedoù"
+
+#~ msgid "Query cache used"
+#~ msgstr "Krubuilh rekedoù implijet"
+
+#, fuzzy
+#~| msgid "System CPU Usage"
+#~ msgid "System CPU usage"
+#~ msgstr "Implij CPU ar reizhiad"
+
+#~ msgid "System memory"
+#~ msgstr "Memor reizhiad"
+
+#~ msgid "System swap"
+#~ msgstr "Takad eskemm reizhiad (swap)"
+
+#~ msgid "Average load"
+#~ msgstr "Karg keitat"
+
+#~ msgid "Total memory"
+#~ msgstr "Memor hollek"
+
+#~ msgid "Cached memory"
+#~ msgstr "Memor krubuilh"
+
+#~ msgid "Buffered memory"
+#~ msgstr "Memor skurzer"
+
+#~ msgid "Free memory"
+#~ msgstr "Memor vak"
+
+#~ msgid "Used memory"
+#~ msgstr "Memor implijet"
+
+#, fuzzy
+#~| msgid "Total Swap"
+#~ msgid "Total swap"
+#~ msgstr "Takad eskemm klok"
+
+#, fuzzy
+#~| msgid "Cached Swap"
+#~ msgid "Cached swap"
+#~ msgstr "Takad eskemm krubuilhet"
+
+#, fuzzy
+#~| msgid "Used Swap"
+#~ msgid "Used swap"
+#~ msgstr "Takad eskemm implijet"
+
+#, fuzzy
+#~| msgid "Free Swap"
+#~ msgid "Free swap"
+#~ msgstr "Takad eskemm vak"
+
+#~ msgid "Bytes sent"
+#~ msgstr "Oktedoù kaset"
+
+#~ msgid "Bytes received"
+#~ msgstr "Oktedoù resevet"
+
+#~ msgid "Connections"
+#~ msgstr "Kevreadennoù"
+
+#~ msgid "Processes"
+#~ msgstr "Argerzhioù"
+
+#~ msgid "B"
+#~ msgstr "o"
+
+#~ msgid "KiB"
+#~ msgstr "Kio"
+
+#~ msgid "MiB"
+#~ msgstr "Mio"
+
+#~ msgid "GiB"
+#~ msgstr "Gio"
+
+#~ msgid "TiB"
+#~ msgstr "Tio"
+
+#~ msgid "PiB"
+#~ msgstr "Pio"
+
+#~ msgid "EiB"
+#~ msgstr "Eio"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "%d table(s)"
+#~ msgstr "%s daolenn"
+
+#~ msgid "Questions"
+#~ msgstr "Goulennoù"
+
+#~ msgid "Traffic"
+#~ msgstr "Tremenerezh"
+
+#~ msgid "Settings"
+#~ msgstr "Arventennoù"
+
+#~ msgid "Add chart to grid"
+#~ msgstr "Ouzhpennañ ur grafik d'ar gael"
+
+#, fuzzy
+#~| msgid "Please add at least one variable to the series"
+#~ msgid "Please add at least one variable to the series!"
+#~ msgstr "Ouzhpennit da nebeutañ unan eus an argemennoù d'an heuliad"
+
+#~ msgid "None"
+#~ msgstr "Hini"
+
+#~ msgid "Resume monitor"
+#~ msgstr "Adkregiñ gant an evezhiañ"
+
+#~ msgid "Pause monitor"
+#~ msgstr "Paouez gant an evezhiañ"
+
+#~ msgid "general_log and slow_query_log are enabled."
+#~ msgstr "Gweredekaet eo general_log ha slow_query_log."
+
+#~ msgid "general_log is enabled."
+#~ msgstr "Gweredekaet eo general_log."
+
+#~ msgid "slow_query_log is enabled."
+#~ msgstr "Gweredekaet eo slow_query_log."
+
+#~ msgid "slow_query_log and general_log are disabled."
+#~ msgstr "Diweredekaet eo general_log ha slow_query_log."
+
+#~ msgid "log_output is not set to TABLE."
+#~ msgstr "N'eo ket bet lakaet log_output da TABLE."
+
+#~ msgid "log_output is set to TABLE."
+#~ msgstr "Lakaet eo bet log_output da TABLE."
+
+#~ msgid ""
+#~ "slow_query_log is enabled, but the server logs only queries that take "
+#~ "longer than %d seconds. It is advisable to set this long_query_time 0-2 "
+#~ "seconds, depending on your system."
+#~ msgstr ""
+#~ "Gweredekaet eo slow_query_log met ne enroll ar servijer nemet ar rekedoù "
+#~ "a bad pelloc'h eget %d eilenn. Erbedet eo reizhañ long_query_time war 0-2 "
+#~ "eilenn, hervez ho reizhiad."
+
+#~ msgid "long_query_time is set to %d second(s)."
+#~ msgstr "Reizhet eo bet long_query_time da %d eilenn."
+
+#~ msgid ""
+#~ "Following settings will be applied globally and reset to default on "
+#~ "server restart:"
+#~ msgstr ""
+#~ "Lakaet e vo e pleustr dre-vras ar reizhadurioù da-heul hag adlakaet e "
+#~ "vint d'an talvoud dre ziouer pa adloc'ho ar servijer :"
+
+#~ msgid "Set log_output to %s"
+#~ msgstr "Reizhañ log_output da %s"
+
+#~ msgid "Enable %s"
+#~ msgstr "Gweredekaat %s"
+
+#~ msgid "Disable %s"
+#~ msgstr "Diweredekaat %s"
+
+#, fuzzy
+#~| msgid "Set long_query_time to %ds"
+#~ msgid "Set long_query_time to %d seconds."
+#~ msgstr "Reizhañ long_query_time da %ds"
+
+#~ msgid ""
+#~ "You can't change these variables. Please log in as root or contact your "
+#~ "database administrator."
+#~ msgstr ""
+#~ "N'hallit ket cheñch an arventennoù-mañ. Kevreit dindan root pe kit e "
+#~ "darempred gant merour ar servijer."
+
+#~ msgid "Change settings"
+#~ msgstr "Kemmañ an arventennoù"
+
+#~ msgid "Current settings"
+#~ msgstr "Arventennoù zo bremañ"
+
+#~ msgid "Differential"
+#~ msgstr "Diforc'herezh"
+
+#, fuzzy
+#~| msgid "Divided by %s:"
+#~ msgid "Divided by %s"
+#~ msgstr "Rannet dre %s:"
+
+#~ msgid "From slow log"
+#~ msgstr "Diwar ar marilh rekedoù gorrek"
+
+#~ msgid "From general log"
+#~ msgstr "Diwar ar marilh hollek"
+
+#, fuzzy
+#~| msgid "Loading logs"
+#~ msgid "Analysing logs"
+#~ msgstr "O kargañ ar marilhoù"
+
+#~ msgid "Analysing & loading logs. This may take a while."
+#~ msgstr "O tielfennañ hag o kargañ marilhoù. Padout pellik a c'hall ober."
+
+#, fuzzy
+#~| msgid "Cancel"
+#~ msgid "Cancel request"
+#~ msgstr "Nullañ"
+
+#~ msgid "Log data loaded. Queries executed in this time span:"
+#~ msgstr "Restr varilh karget. Rekedoù kaset da benn en amzer-mañ :"
+
+#~ msgid "Jump to Log table"
+#~ msgstr "Mont da taolenn ar marilh"
+
+#~ msgid "Log analysed, but no data found in this time span."
+#~ msgstr ""
+#~ "Dielfennet eo bet ar marilh hep kavout roadenn ebet evit ar prantad amzer-"
+#~ "mañ."
+
+#, fuzzy
+#~| msgid "Authenticating…"
+#~ msgid "Analyzing…"
+#~ msgstr "O tilesa…"
+
+#, fuzzy
+#~| msgid "Explain SQL"
+#~ msgid "Explain output"
+#~ msgstr "Displegañ SQL"
+
+#~ msgid "Status"
+#~ msgstr "Statud"
+
+#, fuzzy
+#~| msgid "Total:"
+#~ msgid "Total time:"
+#~ msgstr "Hollad :"
+
+#, fuzzy
+#~| msgid "Profiling"
+#~ msgid "Profiling results"
+#~ msgstr "O profilañ"
+
+#, fuzzy
+#~| msgid "Table"
+#~ msgctxt "Display format"
+#~ msgid "Table"
+#~ msgstr "Taolenn"
+
+#, fuzzy
+#~| msgid "Chart Title"
+#~ msgid "Chart"
+#~ msgstr "Titl ar grafik"
+
+#~ msgid "Log table filter options"
+#~ msgstr "Dibarzhioù silañ taolenn ar marilhoù"
+
+# verb pe ak. ?
+#~ msgid "Filter"
+#~ msgstr "Silañ"
+
+#~ msgid "Filter queries by word/regexp:"
+#~ msgstr "Silañ ar rekedoù dre c'her pe lavarennoù reoliek :"
+
+#~ msgid "Sum of grouped rows:"
+#~ msgstr "Sammad al linennoù bodet :"
+
+#~ msgid "Total:"
+#~ msgstr "Hollad :"
+
+#~ msgid "Loading logs"
+#~ msgstr "O kargañ ar marilhoù"
+
+#~ msgid "Reload page"
+#~ msgstr "Adkargañ ar bajenn"
+
+#~ msgid "Affected rows:"
+#~ msgstr "Linennoù a sell outo :"
+
+#~ msgid "Import"
+#~ msgstr "Enporzhiañ"
+
+#, fuzzy
+#~| msgid "Local monitor configuration incompatible"
+#~ msgid "Import monitor configuration"
+#~ msgstr "N'eo ket kenglotus kefluniadur lec'hel an evezhiañ"
+
+#, fuzzy
+#~| msgid "Please select the primary key or a unique key"
+#~ msgid "Please select the file you want to import."
+#~ msgstr "Diuzit an alc'hwez kentidik pe un alc'hwez nemetañ"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgid "Analyse query"
+#~ msgstr "Hizivaat ar reked"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Recommendation"
+#~ msgstr "Teuliadur"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "Justification"
+#~ msgstr "Dilesadur"
+
+#, fuzzy
+#~| msgid "Bad parameters!"
+#~ msgid "No parameters found!"
+#~ msgstr "Arventennoù fall !"
+
+#~ msgid "Cancel"
+#~ msgstr "Nullañ"
+
+#, fuzzy
+#~| msgid "Change settings"
+#~ msgid "Page-related settings"
+#~ msgstr "Kemmañ an arventennoù"
+
+#~ msgid "Loading…"
+#~ msgstr "O kargañ…"
+
+#, fuzzy
+#~| msgid "Processing Request"
+#~ msgid "Processing request"
+#~ msgstr "O plediñ gant ar reked"
+
+#, fuzzy
+#~| msgid "Query \"%s\" failed"
+#~ msgid "Request failed!!"
+#~ msgstr "C'hwitet eo bet ar reked \"%s\""
+
+#, fuzzy
+#~| msgid "Error in processing request"
+#~ msgid "Error in processing request"
+#~ msgstr "Fazi en ur seveniñ ar reked"
+
+#, fuzzy
+#~| msgid "Dropping Column"
+#~ msgid "Dropping column"
+#~ msgstr "Diverkañ ar bann"
+
+#, fuzzy
+#~| msgid "Adding Primary Key"
+#~ msgid "Adding primary key"
+#~ msgstr "Ouzhpennañ un alc'hwez kentidik"
+
+#~ msgid "OK"
+#~ msgstr "Mat eo"
+
+#, fuzzy
+#~| msgid "Renaming Databases"
+#~ msgid "Renaming databases"
+#~ msgstr "Oc'h adenvel an diaz roadennoù"
+
+#, fuzzy
+#~| msgid "Copying Database"
+#~ msgid "Copying database"
+#~ msgstr "Oc'h eilañ an diaz roadennoù"
+
+#, fuzzy
+#~| msgid "Changing Charset"
+#~ msgid "Changing charset"
+#~ msgstr "O cheñch ar strobad arouezennoù"
+
+#, fuzzy
+#~| msgid "Disable foreign key checks"
+#~ msgid "Enable foreign key checks"
+#~ msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "Failed to fetch headers"
+#~ msgid "Failed to get real row count."
+#~ msgstr "Dibosupl tapout an talbennoù"
+
+#~ msgid "Searching"
+#~ msgstr "O klask"
+
+#~ msgid "Hide search results"
+#~ msgstr "Kuzhat disoc'hoù an enklask"
+
+#~ msgid "Show search results"
+#~ msgstr "Diskouez disoc'hoù an enklask"
+
+#~ msgid "Browsing"
+#~ msgstr "O furchal"
+
+#~ msgid "Deleting"
+#~ msgstr "O tiverkañ"
+
+#~ msgid "The definition of a stored function must contain a RETURN statement!"
+#~ msgstr ""
+#~ "Bez' e rank bezañ un embannadenn RETURN e termenadur un arc'hwel stoket !"
+
+#~ msgid "Export"
+#~ msgstr "Ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Values for the column \"%s\""
+#~ msgid "Values for column %s"
+#~ msgstr "Talvoudoù evit ar bann \"%s\""
+
+#, fuzzy
+#~| msgid "Values for the column \"%s\""
+#~ msgid "Values for a new column"
+#~ msgstr "Talvoudoù evit ar bann \"%s\""
+
+#, fuzzy
+#~| msgid "Enter each value in a separate field."
+#~ msgid "Enter each value in a separate field."
+#~ msgstr "Merkañ pep talvoud en ur vaezienn a-ziforc'h."
+
+#~ msgid ""
+#~ "Note: If the file contains multiple tables, they will be combined into "
+#~ "one."
+#~ msgstr "Notenn : ma vez meur a daolenn er restr e vint unanet."
+
+#~ msgid "Hide query box"
+#~ msgstr "Kuzhat ar voest rekedoù SQL"
+
+#~ msgid "Show query box"
+#~ msgstr "Diskouez ar voest rekedoù SQL"
+
+#~ msgid "Edit"
+#~ msgstr "Kemmañ"
+
+#~ msgid "Delete"
+#~ msgstr "Diverkañ"
+
+#, fuzzy
+#~| msgid "Disable %s"
+#~ msgid "Variable %d:"
+#~ msgstr "Diweredekaat %s"
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "Column selector"
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#, fuzzy
+#~| msgid "Search in database"
+#~ msgid "Search this list"
+#~ msgstr "Klask en diaz roadennoù"
+
+#, fuzzy
+#~| msgid "Free memory"
+#~ msgid "See more"
+#~ msgstr "Memor vak"
+
+#, fuzzy
+#~| msgid "Edit routine"
+#~ msgid "Continue"
+#~ msgstr "Kemmañ un argerzh"
+
+#, fuzzy
+#~| msgid "The primary key has been dropped."
+#~ msgid "Primary key added."
+#~ msgstr "Diverket eo bet an alc'hwez kentidik."
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to next step…"
+#~ msgstr "Danevell heuliañ"
+
+#~ msgid "Done"
+#~ msgstr "Graet"
+
+#, fuzzy
+#~| msgid "Check privileges for database \"%s\"."
+#~ msgid "Create the following table"
+#~ msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù \"%s\"."
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "No dependencies selected!"
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#~ msgid "Save"
+#~ msgstr "Enrollañ"
+
+#~ msgid "Hide search criteria"
+#~ msgstr "Kuzhat an dezverkoù klask"
+
+#~ msgid "Show search criteria"
+#~ msgstr "Diskouez an dezverkoù enklask"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Range search"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Column maximum:"
+#~ msgstr "Bann"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Column minimum:"
+#~ msgstr "Bann"
+
+#, fuzzy
+#~| msgid "Hide search criteria"
+#~ msgid "Hide find and replace criteria"
+#~ msgstr "Kuzhat an dezverkoù klask"
+
+#, fuzzy
+#~| msgid "Show search criteria"
+#~ msgid "Show find and replace criteria"
+#~ msgstr "Diskouez an dezverkoù enklask"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Select two columns"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#~ msgid "Ignore"
+#~ msgstr "Na ober van"
+
+#~ msgid "Point"
+#~ msgstr "Poent"
+
+#~ msgid "Linestring"
+#~ msgstr "Aradennad linennoù"
+
+#~ msgid "Polygon"
+#~ msgstr "Lieskorneg"
+
+#~ msgid "Geometry"
+#~ msgstr "Mentoniezh"
+
+#, fuzzy
+#~| msgid "Inner Ring"
+#~ msgid "Inner ring"
+#~ msgstr "Kelc'h diabarzh"
+
+#, fuzzy
+#~| msgid "Outer Ring:"
+#~ msgid "Outer ring"
+#~ msgstr "Kelc'h diavaez :"
+
+#~ msgid "Select referenced key"
+#~ msgstr "Diuzit an alc'hwez daveet"
+
+#~ msgid "Select Foreign Key"
+#~ msgstr "Diuzit an alc'hwez estren"
+
+#, fuzzy
+#~| msgid "Please select the primary key or a unique key"
+#~ msgid "Please select the primary key or a unique key!"
+#~ msgstr "Diuzit an alc'hwez kentidik pe un alc'hwez nemetañ"
+
+#~ msgid "Choose column to display"
+#~ msgstr "Dibab ar bann da ziskouez"
+
+#~ msgid ""
+#~ "You haven't saved the changes in the layout. They will be lost if you "
+#~ "don't save them. Do you want to continue?"
+#~ msgstr ""
+#~ "N'eo ket bet enrollet ar c'hemmoù degaset d'an tres ganeoc'h. Kollet e "
+#~ "vint ma n'o enrollit ket. Kenderc'hel memes tra ?"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save page"
+#~ msgstr "Enrollañ evel restr"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save page as"
+#~ msgstr "Enrollañ evel restr"
+
+#, fuzzy
+#~| msgid "Open"
+#~ msgid "Open page"
+#~ msgstr "Digor"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Delete page"
+#~ msgstr "Diverkañ"
+
+#, fuzzy
+#~| msgid "Please select the primary key or a unique key"
+#~ msgid "Please select a page to continue"
+#~ msgstr "Diuzit an alc'hwez kentidik pe un alc'hwez nemetañ"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid page name"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Edit or export relational schema"
+#~ msgid "Export relational schema"
+#~ msgstr "Embann pe ezporzhiañ ur chema kar"
+
+#, fuzzy
+#~| msgid "Add an option for column "
+#~ msgid "Add an option for column \"%s\"."
+#~ msgstr "Ouzhpennañ un dibarzh evit ar bann "
+
+#~ msgid "Show all"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgid "Linestring"
+#~ msgid "Original length"
+#~ msgstr "Aradennad linennoù"
+
+#, fuzzy
+#~| msgid "Cancel"
+#~ msgid "cancel"
+#~ msgstr "Nullañ"
+
+#, fuzzy
+#~| msgid "Import defaults"
+#~ msgid "Import status"
+#~ msgstr "Talvoudoù enporzhiañ dre ziouer"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select database first"
+#~ msgstr "Diuzañ pep tra"
+
+#~ msgid "Print"
+#~ msgstr "Moullañ"
+
+#, fuzzy
+#~| msgid "Set value: %s"
+#~ msgid "Go to link:"
+#~ msgstr "Lakaat an talvoud da %s"
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "Copy column name."
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#~ msgid "Generate password"
+#~ msgstr "Genel ur ger-tremen"
+
+#~ msgid "Generate"
+#~ msgstr "Genel"
+
+#~ msgid "More"
+#~ msgstr "Muioc'h"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show panel"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgid "Hide indexes"
+#~ msgid "Hide panel"
+#~ msgstr "Kuzhat menegerioù"
+
+#, fuzzy
+#~| msgid "Show logo in left frame"
+#~ msgid "Show hidden navigation tree items."
+#~ msgstr "Diskouez al logo er banell verdeiñ gleiz"
+
+#, fuzzy
+#~| msgid "Customize main frame"
+#~ msgid "Link with main panel"
+#~ msgstr "Personelaat ar framm pennañ"
+
+#, fuzzy
+#~| msgid "Customize main frame"
+#~ msgid "Unlink from main panel"
+#~ msgstr "Personelaat ar framm pennañ"
+
+#~ msgid ""
+#~ "A newer version of phpMyAdmin is available and you should consider "
+#~ "upgrading. The newest version is %s, released on %s."
+#~ msgstr ""
+#~ "Ur stumm nevesoc'h eus phpMyAdmin zo bremañ ha mat e vefe deoc'h soñjal "
+#~ "hizivaat ho hini. Setu ar stumm nevesañ %s, embannet eo bet d'an %s."
+
+#~ msgid ", latest stable version:"
+#~ msgstr ", stumm stabil diwezhañ :"
+
+#~ msgid "up to date"
+#~ msgstr "hizivaet"
+
+#, fuzzy
+#~| msgid "Change settings"
+#~ msgid "Change report settings"
+#~ msgstr "Kemmañ an arventennoù"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show report details"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgid "Ignore"
+#~ msgid "Ignore All"
+#~ msgstr "Na ober van"
+
+#, fuzzy
+#~| msgid "Issued queries"
+#~ msgid "Execute this query again?"
+#~ msgstr "Rekedoù resevet"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete this bookmark?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show arguments"
+#~ msgstr "Evezhiadennoù diwar-benn an daolenn"
+
+#, fuzzy
+#~| msgid "Hide search results"
+#~ msgid "Hide arguments"
+#~ msgstr "Kuzhat disoc'hoù an enklask"
+
+#, fuzzy
+#~| msgid "Copy database to"
+#~ msgid "Copy tables to"
+#~ msgstr "Eilañ an diaz roadennoù war"
+
+#, fuzzy
+#~| msgid "Replace table prefix"
+#~ msgid "Add table prefix"
+#~ msgstr "Erlec'hiañ rakger an daolenn"
+
+#, fuzzy
+#~| msgid "Replace table prefix"
+#~ msgid "Replace table with prefix"
+#~ msgstr "Erlec'hiañ rakger an daolenn"
+
+#~ msgid "Copy table with prefix"
+#~ msgstr "Eilañ an daolenn enni ur rakger"
+
+#, fuzzy
+#~| msgid "Prev"
+#~ msgctxt "Previous month"
+#~ msgid "Prev"
+#~ msgstr "Kent"
+
+#, fuzzy
+#~| msgid "Next"
+#~ msgctxt "Next month"
+#~ msgid "Next"
+#~ msgstr "War-lerc'h"
+
+#~ msgid "Today"
+#~ msgstr "Hiziv"
+
+#~ msgid "January"
+#~ msgstr "Genver"
+
+#~ msgid "February"
+#~ msgstr "C'hwevrer"
+
+#~ msgid "March"
+#~ msgstr "Meurzh"
+
+#~ msgid "April"
+#~ msgstr "Ebrel"
+
+#~ msgid "May"
+#~ msgstr "Mae"
+
+#~ msgid "June"
+#~ msgstr "Mezheven"
+
+#~ msgid "July"
+#~ msgstr "Gouere"
+
+#~ msgid "August"
+#~ msgstr "Eost"
+
+#~ msgid "September"
+#~ msgstr "Gwengolo"
+
+#~ msgid "October"
+#~ msgstr "Here"
+
+#~ msgid "November"
+#~ msgstr "Du"
+
+#~ msgid "December"
+#~ msgstr "Kerzu"
+
+#~ msgid "Jan"
+#~ msgstr "Gen"
+
+#~ msgid "Feb"
+#~ msgstr "C'hwe"
+
+#~ msgid "Mar"
+#~ msgstr "Meu"
+
+#~ msgid "Apr"
+#~ msgstr "Ebr"
+
+#~ msgctxt "Short month name"
+#~ msgid "May"
+#~ msgstr "Mae"
+
+#~ msgid "Jun"
+#~ msgstr "Mezh"
+
+#~ msgid "Jul"
+#~ msgstr "Goue"
+
+#~ msgid "Aug"
+#~ msgstr "Eost"
+
+#~ msgid "Sep"
+#~ msgstr "Gwen"
+
+#~ msgid "Oct"
+#~ msgstr "Here"
+
+#~ msgid "Nov"
+#~ msgstr "Du"
+
+#~ msgid "Dec"
+#~ msgstr "Kzu"
+
+#~ msgid "Sunday"
+#~ msgstr "Sul"
+
+#~ msgid "Monday"
+#~ msgstr "Lun"
+
+#~ msgid "Tuesday"
+#~ msgstr "Meurzh"
+
+#~ msgid "Wednesday"
+#~ msgstr "Merc'her"
+
+#~ msgid "Thursday"
+#~ msgstr "Yaou"
+
+#~ msgid "Friday"
+#~ msgstr "Gwener"
+
+#~ msgid "Saturday"
+#~ msgstr "Sadorn"
+
+#, fuzzy
+#~| msgctxt "Short week day name"
+#~| msgid "Sun"
+#~ msgid "Sun"
+#~ msgstr "Sul"
+
+#~ msgid "Mon"
+#~ msgstr "Lun"
+
+#~ msgid "Tue"
+#~ msgstr "Meu"
+
+#~ msgid "Wed"
+#~ msgstr "Mer"
+
+#~ msgid "Thu"
+#~ msgstr "Yaou"
+
+#~ msgid "Fri"
+#~ msgstr "Gwe"
+
+#~ msgid "Sat"
+#~ msgstr "Sad"
+
+#~ msgid "Su"
+#~ msgstr "Su"
+
+#~ msgid "Mo"
+#~ msgstr "L"
+
+#~ msgid "Tu"
+#~ msgstr "Mz"
+
+#~ msgid "We"
+#~ msgstr "Mc"
+
+#~ msgid "Th"
+#~ msgstr "Y"
+
+#~ msgid "Fr"
+#~ msgstr "G"
+
+#~ msgid "Sa"
+#~ msgstr "Sa"
+
+#~ msgid "Wk"
+#~ msgstr "Sizh."
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "Year suffix"
+#~ msgid "none"
+#~ msgstr "Hini"
+
+#~ msgid "Hour"
+#~ msgstr "Eur"
+
+#~ msgid "Minute"
+#~ msgstr "Munut"
+
+#~ msgid "Second"
+#~ msgstr "Eilenn"
+
+#, fuzzy
+#~| msgid "Text fields"
+#~ msgid "Please fix this field"
+#~ msgstr "Maeziennoù testenn"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid email address"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid URL"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid date"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid date ( ISO )"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid number"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid credit card number"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter only digits"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter the same value again"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter at least {0} characters"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a value between {0} and {1}"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a value less than or equal to {0}"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a value greater than or equal to {0}"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid date or time"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Please enter a valid HEX input"
+#~ msgstr "Niverenn borzh direizh"
+
+#~ msgid "Error"
+#~ msgstr "Fazi"
+
+#, fuzzy
+#~| msgid "Invalid server index: %s"
+#~ msgid "Invalid rule declaration on line %s."
+#~ msgstr "Meneger servijer faziek : %s"
+
+#~ msgid "Font size"
+#~ msgstr "Ment an destenn"
+
+#, fuzzy
+#~| msgid "SQL query"
+#~ msgid "Requery"
+#~ msgstr "Reked SQL"
+
+#~ msgid "Database"
+#~ msgstr "Diaz roadennoù"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "No bookmarks"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Explain SQL"
+#~ msgid "Explain"
+#~ msgstr "Displegañ SQL"
+
+#~ msgid "Profiling"
+#~ msgstr "O profilañ"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Bookmark"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Query \"%s\" failed"
+#~ msgid "Query failed"
+#~ msgstr "C'hwitet eo bet ar reked \"%s\""
+
+#, fuzzy
+#~| msgid "Maximum execution time"
+#~ msgid "Queried time"
+#~ msgstr "Pad seveniñ hirañ"
+
+#, fuzzy
+#~| msgid "SQL Query box"
+#~ msgid "SQL Query Console"
+#~ msgstr "Boest rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL Validator"
+#~ msgid "History"
+#~ msgstr "Kadarnataer SQL"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Bookmarks"
+#~ msgstr "Klask"
+
+#~ msgid "Debug SQL"
+#~ msgstr "Dizreinañ SQL"
+
+#, fuzzy
+#~| msgid "Execute"
+#~ msgid "Press Ctrl+Enter to execute query"
+#~ msgstr "Seveniñ"
+
+#, fuzzy
+#~| msgid "Execute"
+#~ msgid "Press Enter to execute query"
+#~ msgstr "Seveniñ"
+
+#, fuzzy
+#~| msgid "Ascending"
+#~ msgid "ascending"
+#~ msgstr "War gresk"
+
+#, fuzzy
+#~| msgid "Descending"
+#~ msgid "descending"
+#~ msgstr "War zigresk"
+
+#, fuzzy
+#~| msgid "Other"
+#~ msgid "Order:"
+#~ msgstr "Udb all"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Count"
+#~ msgstr "Bann"
+
+#, fuzzy
+#~| msgid "Execute"
+#~ msgid "Execution order"
+#~ msgstr "Seveniñ"
+
+#, fuzzy
+#~| msgid "Other"
+#~ msgid "Order by:"
+#~ msgstr "Udb all"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Group queries"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Ungroup queries"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show trace"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgid "Hide indexes"
+#~ msgid "Hide trace"
+#~ msgstr "Kuzhat menegerioù"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Count:"
+#~ msgstr "Bann"
+
+#~ msgid "Refresh"
+#~ msgstr "Freskaat"
+
+#, fuzzy
+#~| msgid "And"
+#~ msgid "Add"
+#~ msgstr "Ha"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Add bookmark"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Label key"
+#~ msgid "Label"
+#~ msgstr "Alc'hwez an dikedenn"
+
+#, fuzzy
+#~| msgid "Create Table"
+#~ msgid "Target database"
+#~ msgstr "Krouiñ un daolenn"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Share this bookmark"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Restore default value"
+#~ msgid "Set default"
+#~ msgstr "Adlakaat an talvoud dre ziouer"
+
+#, fuzzy
+#~| msgid "Show query box"
+#~ msgid "Show query history at start"
+#~ msgstr "Diskouez ar voest rekedoù SQL"
+
+#, fuzzy
+#~| msgid "Switch to copied database"
+#~ msgid "Switch to dark theme"
+#~ msgstr "Mont d'an diaz roadennoù eilet"
+
+#, fuzzy
+#~| msgid "Failed to read configuration file"
+#~ msgid "Failed to set configured collation connection!"
+#~ msgstr "Dibosupl lenn ar restr keluniañ"
+
+#~ msgid "Ascending"
+#~ msgstr "War gresk"
+
+#~ msgid "Descending"
+#~ msgstr "War zigresk"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Column:"
+#~ msgstr "Bann"
+
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Sort:"
+#~ msgstr "Urzhiañ"
+
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Sort order:"
+#~ msgstr "Urzhiañ"
+
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show:"
+#~ msgstr "Diskouez"
+
+#, fuzzy
+#~| msgid "Criteria"
+#~ msgid "Criteria:"
+#~ msgstr "Dezverk"
+
+#~ msgid "Add/Delete criteria rows"
+#~ msgstr "Ouzhpennañ/Diverkañ linennoù dezverkoù"
+
+#~ msgid "Add/Delete columns"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#~ msgid "Update Query"
+#~ msgstr "Hizivaat ar reked"
+
+#~ msgid "Use Tables"
+#~ msgstr "Implijout taolennoù"
+
+#, fuzzy
+#~| msgid "Or"
+#~ msgid "Or:"
+#~ msgstr "Pe"
+
+#~ msgid "Ins"
+#~ msgstr "Ensoc'hañ"
+
+#~ msgid "Del"
+#~ msgstr "Diverk."
+
+#, fuzzy
+#~| msgid "Modify"
+#~ msgid "Modify:"
+#~ msgstr "Kemmañ"
+
+#~ msgid "SQL query on database <b>%s</b>:"
+#~ msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b> :"
+
+#~ msgid "Submit Query"
+#~ msgstr "Kas ar reked"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Saved bookmarked search:"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "New bookmark"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Create bookmark"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Showing bookmark"
+#~ msgid "Update bookmark"
+#~ msgstr "O tiskouez ar sined"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Delete bookmark"
+#~ msgstr "Klask"
+
+#~ msgid "at least one of the words"
+#~ msgstr "unan eus ar gerioù da nebeutañ"
+
+#~ msgid "all words"
+#~ msgstr "an holl c'herioù"
+
+#~ msgid "the exact phrase"
+#~ msgstr "ar frazenn-rik"
+
+#~ msgid "as regular expression"
+#~ msgstr "evel un droienn reoliek"
+
+#~ msgid "Search results for \"<i>%s</i>\" %s:"
+#~ msgstr "Disoc'hoù ar c'hlask evit \"<i>%s</i>\" %s : "
+
+#~ msgid "<b>Total:</b> <i>%s</i> match"
+#~ msgid_plural "<b>Total:</b> <i>%s</i> matches"
+#~ msgstr[0] "<b>Hollad :</b> <i>%s</i> glotadenn"
+#~ msgstr[1] "<b>Hollad :</b> <i>%s</i> klotadenn"
+
+#, fuzzy
+#~| msgid "%s match inside table <i>%s</i>"
+#~| msgid_plural "%s matches inside table <i>%s</i>"
+#~ msgid "%1$s match in <strong>%2$s</strong>"
+#~ msgid_plural "%1$s matches in <strong>%2$s</strong>"
+#~ msgstr[0] "%s glotadenn en daolenn <i>%s</i>"
+#~ msgstr[1] "%s klotadenn en daolenn <i>%s</i>"
+
+#~ msgid "Browse"
+#~ msgstr "Furchal"
+
+#~ msgid "Delete the matches for the %s table?"
+#~ msgstr "Diverkañ ar c'hlotadennoù a-ziouzh an daolenn %s ?"
+
+#~ msgid "Search in database"
+#~ msgstr "Klask en diaz roadennoù"
+
+#~ msgid "Words or values to search for (wildcard: \"%\"):"
+#~ msgstr "Gerioù pe dalvoudoù da glask (Joker: \"%\") :"
+
+#~ msgid "Find:"
+#~ msgstr "Kavout :"
+
+#~ msgid "Words are separated by a space character (\" \")."
+#~ msgstr "Dispartiet e vez ar gerioù gant un esaouenn (\" \")."
+
+#~ msgid "Inside tables:"
+#~ msgstr "E diabarzh an taolennoù :"
+
+#, fuzzy
+#~| msgid "Unselect All"
+#~ msgid "Unselect all"
+#~ msgstr "Diziuzañ pep tra"
+
+#~ msgid "Inside column:"
+#~ msgstr "Er bann :"
+
+# verb pe ak. ?
+#, fuzzy
+#~| msgid "Filter"
+#~ msgid "Filter rows"
+#~ msgstr "Silañ"
+
+#, fuzzy
+#~| msgid "Search in database"
+#~ msgid "Search this table"
+#~ msgstr "Klask en diaz roadennoù"
+
+#, fuzzy
+#~| msgid "Begin"
+#~ msgctxt "First page"
+#~ msgid "Begin"
+#~ msgstr "Kregiñ"
+
+#, fuzzy
+#~| msgid "Previous"
+#~ msgctxt "Previous page"
+#~ msgid "Previous"
+#~ msgstr "Kent"
+
+#, fuzzy
+#~| msgid "Next"
+#~ msgctxt "Next page"
+#~ msgid "Next"
+#~ msgstr "War-lerc'h"
+
+#, fuzzy
+#~| msgid "End"
+#~ msgctxt "Last page"
+#~ msgid "End"
+#~ msgstr "Fin"
+
+#, fuzzy
+#~| msgid "Display direction for altering/creating columns"
+#~ msgid "Display column for relations"
+#~ msgstr "Durc'hadur an diskwel evit kemmañ/krouiñ bannoù"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "The row has been deleted."
+#~ msgstr "Diverket eo bet ar sined."
+
+#, fuzzy
+#~| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#~ msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
+#~ msgstr ""
+#~ "Fazi en ur zilec'hiañ ar restr pellgarget; gwelet [doc@faq1-11]FAQ 1.11[/"
+#~ "doc]"
+
+#, fuzzy
+#~| msgid "Your SQL query has been executed successfully."
+#~ msgid "Your SQL query has been executed successfully."
+#~ msgstr "Sevenet eo bet ho reked SQL ervat"
+
+#~ msgid ""
+#~ "This view has at least this number of rows. Please refer to "
+#~ "%sdocumentation%s."
+#~ msgstr ""
+#~ "Da nebeutañ emañ an niver a linennoù-mañ er Gweled-mañ. Sellit ouzh an "
+#~ "%steulioù titouriñ%s."
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "%d total"
+#~ msgstr "%s daolenn"
+
+#~ msgid "With selected:"
+#~ msgstr "Evit ar re zo diuzet :"
+
+#, fuzzy
+#~| msgid "Check All"
+#~ msgid "Check all"
+#~ msgstr "Askañ pep tra"
+
+#, fuzzy
+#~| msgid "Theme %s not found!"
+#~ msgid "Link not found!"
+#~ msgstr "N'eo ket bet kavet an tem %s !"
+
+#, fuzzy
+#~| msgid "Import"
+#~ msgid "Report"
+#~ msgstr "Enporzhiañ"
+
+#~ msgid ""
+#~ "The uploaded file exceeds the upload_max_filesize directive in php.ini."
+#~ msgstr ""
+#~ "Brasoc'h eo ment ar restr pellgarget eget ar vevenn aotreet gant ar "
+#~ "c'hemennad upload_max_filesize directive e php.ini."
+
+#~ msgid ""
+#~ "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified "
+#~ "in the HTML form."
+#~ msgstr ""
+#~ "Brasoc'h eo ment ar restr pellgarget eget ar vevenn aotreet gant ar "
+#~ "c'hemennad MAX_FILE_SIZE spisaet er furmskrid HTML."
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "Hanter bellgarget eo bet ar restr nemetken."
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "Mankout a ra ur c'havlec'h padennek."
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "Fazi en ur skrivañ ar restr war ar bladenn."
+
+#~ msgid "File upload stopped by extension."
+#~ msgstr "Harzet eo bet ar pellgargañ gant an astenn."
+
+#~ msgid "Unknown error in file upload."
+#~ msgstr "Fazi dianav en ur bellgargañ ar restr."
+
+#, fuzzy
+#~| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#~ msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
+#~ msgstr ""
+#~ "Fazi en ur zilec'hiañ ar restr pellgarget; gwelet [doc@faq1-11]FAQ 1.11[/"
+#~ "doc]"
+
+#~ msgid "Print view"
+#~ msgstr "Stumm da voullañ"
+
+#, fuzzy
+#~| msgid "Cookies must be enabled past this point."
+#~ msgid "Javascript must be enabled past this point!"
+#~ msgstr "Evit gallout kenderc'hel e rankit gweredekaat an toupinoù."
+
+#~ msgid "No index defined!"
+#~ msgstr "N'eus bet termenet meneger ebet !"
+
+#~ msgid "Indexes"
+#~ msgstr "Menegerioù"
+
+#~ msgid "Action"
+#~ msgstr "Oberiadenn"
+
+#~ msgid "Keyname"
+#~ msgstr "Anv ar meneger"
+
+#~ msgid "Unique"
+#~ msgstr "Dibar"
+
+#~ msgid "Packed"
+#~ msgstr "Gwasket"
+
+#~ msgid "Cardinality"
+#~ msgstr "Kardinalegezh"
+
+#~ msgid "Collation"
+#~ msgstr "Etrerummadiñ"
+
+#~ msgid "Comment"
+#~ msgstr "Evezhiadenn"
+
+#~ msgid "The primary key has been dropped."
+#~ msgstr "Diverket eo bet an alc'hwez kentidik."
+
+#~ msgid "Index %s has been dropped."
+#~ msgstr "Diverket eo bet ar meneger %s."
+
+#~ msgid "Drop"
+#~ msgstr "Dilezel"
+
+#~ msgid ""
+#~ "The indexes %1$s and %2$s seem to be equal and one of them could possibly "
+#~ "be removed."
+#~ msgstr ""
+#~ "Evit doare eo kevatal an menegerioù %1$s ha %2$s hag unan anezho a "
+#~ "c'hallfe bezañ dilamet."
+
+#~ msgid "Page number:"
+#~ msgstr "Pajenn niv. : "
+
+#~ msgid "Server"
+#~ msgstr "Servijer"
+
+#~ msgid "View"
+#~ msgstr "Gwelet"
+
+#~ msgid "Table"
+#~ msgstr "Taolenn"
+
+#~ msgid "SQL"
+#~ msgstr "SQL"
+
+#~ msgid "Search"
+#~ msgstr "Klask"
+
+#~ msgid "Insert"
+#~ msgstr "Ensoc'hañ"
+
+#~ msgid "Operations"
+#~ msgstr "Oberiadennoù"
+
+#, fuzzy
+#~| msgid "CHAR textarea columns"
+#~ msgid "Central columns"
+#~ msgstr "Bannoù evit an takadoù skrid CHAR"
+
+#~ msgid "Databases"
+#~ msgstr "Diazoù roadennoù"
+
+#~ msgid "Replication"
+#~ msgstr "Eilañ"
+
+#~ msgid "%1$d row affected."
+#~ msgid_plural "%1$d rows affected."
+#~ msgstr[0] "%1$d linenn tizhet."
+#~ msgstr[1] "%1$d linenn tizhet."
+
+#~ msgid "%1$d row deleted."
+#~ msgid_plural "%1$d rows deleted."
+#~ msgstr[0] "%1$d linenn diverket."
+#~ msgstr[1] "%1$d linenn diverket."
+
+#~ msgid "%1$d row inserted."
+#~ msgid_plural "%1$d rows inserted."
+#~ msgstr[0] "%1$d linenn ensoc'het."
+#~ msgstr[1] "%1$d linenn ensoc'het."
+
+#, fuzzy
+#~| msgid "Could not save recent table"
+#~ msgid "Could not save recent table!"
+#~ msgstr "N'eus ket bet gallet enrollañ an daolenn envez"
+
+#, fuzzy
+#~| msgid "Could not save recent table"
+#~ msgid "Could not save favorite table!"
+#~ msgstr "N'eus ket bet gallet enrollañ an daolenn envez"
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Remove from Favorites"
+#~ msgstr "Dilemel ar grafik"
+
+#, fuzzy
+#~| msgid "There are no recent tables"
+#~ msgid "There are no recent tables."
+#~ msgstr "N'eus taolenn nevez ebet"
+
+#, fuzzy
+#~| msgid "There are no recent tables"
+#~ msgid "There are no favorite tables."
+#~ msgstr "N'eus taolenn nevez ebet"
+
+#~ msgid "Recent tables"
+#~ msgstr "Taolennoù nevez"
+
+#, fuzzy
+#~| msgid "Reset"
+#~ msgid "Recent"
+#~ msgstr "Adderaouekaat"
+
+#, fuzzy
+#~| msgid "Tracked tables"
+#~ msgid "Favorite tables"
+#~ msgstr "Taolennoù heuliet-pizh"
+
+#, fuzzy
+#~| msgid "Tracked tables"
+#~ msgid "Favorites"
+#~ msgstr "Taolennoù heuliet-pizh"
+
+#, fuzzy
+#~ msgid "Error while loading the search."
+#~ msgstr "Fazi dianav en ur bellgargañ ar restr."
+
+#~ msgid "SQL query"
+#~ msgstr "Reked SQL"
+
+#~ msgid "Query statistics"
+#~ msgstr "Stadegoù war ar rekedoù"
+
+#~ msgid ""
+#~ "There is no detailed status information available for this storage engine."
+#~ msgstr "N'eus tamm titour dre ar munud ebet evit al lusker stokañ-mañ."
+
+#~ msgid "%s is the default storage engine on this MySQL server."
+#~ msgstr ""
+#~ "War ar servijer MySQL-mañ ez eo %s ar c'heflusker stokañ dre ziouer."
+
+#~ msgid "%s is available on this MySQL server."
+#~ msgstr "Hegerz eo %s war ar servijer MySQL-mañ."
+
+#~ msgid "%s has been disabled for this MySQL server."
+#~ msgstr "Diweredekaet eo bet %s war ar servijer MySQL-mañ."
+
+#~ msgid "This MySQL server does not support the %s storage engine."
+#~ msgstr "N'eo ket skoret al lusker stokañ %s gant ar servijer MySQL-mañ."
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Unknown table status:"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgid "Theme %s not found!"
+#~ msgid "Target database `%s` was not found!"
+#~ msgstr "N'eo ket bet kavet an tem %s !"
+
+#, fuzzy
+#~| msgid "Invalid database"
+#~ msgid "Invalid database:"
+#~ msgstr "Diaz roadennoù direizh"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "Invalid table name:"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Error renaming table %1$s to %2$s"
+#~ msgid "Failed to rename table %1$s to %2$s!"
+#~ msgstr "Fazi en ur adenvel %1$s e %2$s"
+
+#, fuzzy
+#~| msgid "Table %s has been renamed to %s."
+#~ msgid "Table %1$s has been renamed to %2$s."
+#~ msgstr "Anv an daolenn %s zo %s bremañ"
+
+#, fuzzy
+#~| msgid "Could not save table UI preferences"
+#~ msgid "Could not save table UI preferences!"
+#~ msgstr "N'eus ket bet gallet enrollañ dibaboù etrefas an taolennoù"
+
+#~ msgid "No valid image path for theme %s found!"
+#~ msgstr "N'eus ket eus un hent reizh evit skeudennoù an tem %s !"
+
+#~ msgid "No preview available."
+#~ msgstr "N'haller ket rakwelet."
+
+#~ msgid "take it"
+#~ msgstr "tapit-eñ"
+
+#~ msgid "Default theme %s not found!"
+#~ msgstr "N'eo ket bet kavet an tem dre ziouer %s !"
+
+#~ msgid "Theme %s not found!"
+#~ msgstr "N'eo ket bet kavet an tem %s !"
+
+#~ msgid "Theme path not found for theme %s!"
+#~ msgstr "N'eo ket bet kavet an hent evit an tem  %s !"
+
+#, fuzzy
+#~| msgid "Theme"
+#~ msgid "Theme:"
+#~ msgstr "Tem"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "A date, supported range is %1$s to %2$s"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Error renaming table %1$s to %2$s"
+#~ msgid "A time, range is %1$s to %2$s"
+#~ msgstr "Fazi en ur adenvel %1$s e %2$s"
+
+#, fuzzy
+#~| msgid "Add a polygon"
+#~ msgid "A polygon"
+#~ msgstr "Ouzhpennañ ul lieskorneg"
+
+#, fuzzy
+#~| msgid "Create an index"
+#~ msgctxt "date and time types"
+#~ msgid "Date and time"
+#~ msgstr "Krouiñ un argerzh"
+
+#, fuzzy
+#~| msgid "Linestring"
+#~ msgctxt "string types"
+#~ msgid "String"
+#~ msgstr "Aradennad linennoù"
+
+#~ msgid "Max: %s%s"
+#~ msgstr "Ment vrasañ : %s%s"
+
+#, fuzzy
+#~| msgid "Static data"
+#~ msgid "Static analysis:"
+#~ msgstr "Roadennoù stadegel"
+
+#~ msgid "MySQL said: "
+#~ msgstr "respontet eo bet gant MySQL : "
+
+#~ msgid "Explain SQL"
+#~ msgstr "Displegañ SQL"
+
+#~ msgid "Skip Explain SQL"
+#~ msgstr "N'eo ket dav displegañ SQL"
+
+#, fuzzy
+#~| msgid "Without PHP Code"
+#~ msgid "Without PHP code"
+#~ msgstr "Hep kod PHP"
+
+#, fuzzy
+#~| msgid "Submit Query"
+#~ msgid "Submit query"
+#~ msgstr "Kas ar reked"
+
+#, fuzzy
+#~| msgid "Create PHP Code"
+#~ msgid "Create PHP code"
+#~ msgstr "Krouiñ kod PHP"
+
+#, fuzzy
+#~| msgid "Edit mode"
+#~ msgctxt "Inline edit query"
+#~ msgid "Edit inline"
+#~ msgstr "Mod aozañ"
+
+#~ msgctxt "Short week day name"
+#~ msgid "Sun"
+#~ msgstr "Sul"
+
+#~ msgid "%B %d, %Y at %I:%M %p"
+#~ msgstr "%A %d %B %Y da %H:%M"
+
+#~ msgid "%s days, %s hours, %s minutes and %s seconds"
+#~ msgstr "%s deiz, %s eur, %s munut ha %s eilenn"
+
+#~ msgid "Jump to database \"%s\"."
+#~ msgstr "Mont d'an diaz roadennoù \"%s\"."
+
+#~ msgid "The %s functionality is affected by a known bug, see %s"
+#~ msgstr "Direizhet eo an arc'hwel %s gant un draen anavezet, sellit ouzh %s"
+
+#~ msgid "Click to toggle"
+#~ msgstr "Klikañ evit gwintañ"
+
+#~ msgid "Browse your computer:"
+#~ msgstr "Furchal en hoc'h urzhiataer :"
+
+#~ msgid "Select from the web server upload directory <b>%s</b>:"
+#~ msgstr "Diuzit e-mesk kavlec'h pellgargañ ar servijer web <b>%s</b> :"
+
+#~ msgid "The directory you set for upload work cannot be reached."
+#~ msgstr "Ar c'havlec'h treuzkas n'hall ket bezañ diraezet."
+
+#, fuzzy
+#~| msgid "There are no files to upload"
+#~ msgid "There are no files to upload!"
+#~ msgstr "N'eus restr ebet da enporzhiañ"
+
+#~ msgid "Empty"
+#~ msgstr "Goullonderiñ"
+
+#~ msgid "Execute"
+#~ msgstr "Seveniñ"
+
+#~ msgid "shared"
+#~ msgstr "kenrannet"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search:"
+#~ msgstr "Klask"
+
+#~ msgid "Description"
+#~ msgstr "Deskrivadur"
+
+#~ msgid "Use this value"
+#~ msgstr "Ober gant an talvoud-mañ"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Could not add columns!"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Could not save recent table"
+#~ msgid "Could not remove columns!"
+#~ msgstr "N'eus ket bet gallet enrollañ an daolenn envez"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select a table"
+#~ msgstr "Diuzañ pep tra"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Select a column."
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Add new column"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Failed to read configuration file"
+#~ msgid "Failed to read configuration file!"
+#~ msgstr "Dibosupl lenn ar restr keluniañ"
+
+#~ msgid ""
+#~ "This usually means there is a syntax error in it, please check any errors "
+#~ "shown below."
+#~ msgstr ""
+#~ "Peurliesañ e talvez ez eus ur fazi ereadurezh enni. Gwiriit ha n'eus ket "
+#~ "ur fazi o tont war wel a-is."
+
+#~ msgid "Could not load default configuration from: %1$s"
+#~ msgstr "N'eus ket bet gallet kargañ ar c'hefluniadur dre ziouer adalek %1$s"
+
+#~ msgid "Invalid server index: %s"
+#~ msgstr "Meneger servijer faziek : %s"
+
+#~ msgid "Invalid hostname for server %1$s. Please review your configuration."
+#~ msgstr "Anv ostiz direizh evit ar servijer %1$s. Gwiriit ar c'hefluniadur."
+
+#, fuzzy
+#~| msgid "Server"
+#~ msgid "Server %d"
+#~ msgstr "Servijer"
+
+#~ msgid "Invalid authentication method set in configuration:"
+#~ msgstr "Termenet ez eus bet c'hefluniadur un hentenn dilesa direizh :"
+
+#~ msgid "You should upgrade to %s %s or later."
+#~ msgstr ""
+#~ "Ret e vefe deoc'h ober gant ar stumm %s %s pe unan nevesoc'h c'hoazh."
+
+#, fuzzy
+#~| msgid "Ins"
+#~ msgid "Icons"
+#~ msgstr "Ensoc'hañ"
+
+#, fuzzy
+#~| msgid "Next"
+#~ msgid "Text"
+#~ msgstr "War-lerc'h"
+
+#~ msgid "Both"
+#~ msgstr "An daou"
+
+#~ msgid "Nowhere"
+#~ msgstr "Neblec'h"
+
+#~ msgid "Left"
+#~ msgstr "Kleiz"
+
+#~ msgid "Right"
+#~ msgstr "Dehou"
+
+#~ msgid "Disabled"
+#~ msgstr "Diweredekaet"
+
+#, fuzzy
+#~| msgid "Inside column:"
+#~ msgid "display column"
+#~ msgstr "Er bann :"
+
+#, fuzzy
+#~| msgid "Welcome to %s"
+#~ msgid "Welcome"
+#~ msgstr "Degemer mat e %s"
+
+#~ msgid "Open"
+#~ msgstr "Digor"
+
+#~ msgid "Closed"
+#~ msgstr "Serr"
+
+#, fuzzy
+#~| msgid "Restore default value"
+#~ msgid "Server default"
+#~ msgstr "Adlakaat an talvoud dre ziouer"
+
+#, fuzzy
+#~| msgid "Enable %s"
+#~ msgid "Enable"
+#~ msgstr "Gweredekaat %s"
+
+#, fuzzy
+#~| msgid "Disabled"
+#~ msgid "Disable"
+#~ msgstr "Diweredekaet"
+
+#~ msgid "structure"
+#~ msgstr "Framm"
+
+#~ msgid "data"
+#~ msgstr "roadennoù"
+
+#~ msgid "structure and data"
+#~ msgstr "Framm ha roadennoù"
+
+#~ msgid "Quick - display only the minimal options to configure"
+#~ msgstr "Prim - na ziskouez nemet nebeudik-tre a zibarzhioù da gefluniañ"
+
+#~ msgid "Custom - display all possible options to configure"
+#~ msgstr "Personelaet - diskouez an holl zibarzhioù kefluniañ posupl"
+
+#~ msgid "Custom - like above, but without the quick/custom choice"
+#~ msgstr "Personelaet - evel a-us nemet hep an dibaboù prim/personelaet"
+
+#~ msgid "complete inserts"
+#~ msgstr "Ensoc'hadennoù sevenet"
+
+#~ msgid "extended inserts"
+#~ msgstr "Ensoc'hadennoù astennet"
+
+#~ msgid "both of the above"
+#~ msgstr "Kement dibab zo a-us"
+
+#~ msgid "neither of the above"
+#~ msgstr "Dibab ebet a-zouez ar re zo a-us"
+
+#, fuzzy
+#~| msgid "Not a positive number"
+#~ msgid "Not a positive number!"
+#~ msgstr "N'eo ket un niver pozitivel"
+
+#, fuzzy
+#~| msgid "Not a non-negative number"
+#~ msgid "Not a non-negative number!"
+#~ msgstr "N'eo ket un niver annegativel"
+
+#, fuzzy
+#~| msgid "Not a valid port number"
+#~ msgid "Not a valid port number!"
+#~ msgstr "Niverenn borzh direizh"
+
+#, fuzzy
+#~| msgid "Incorrect value"
+#~ msgid "Incorrect value!"
+#~ msgstr "Talvoud direizh"
+
+#, fuzzy
+#~| msgid "Value must be equal or lower than %s"
+#~ msgid "Value must be equal or lower than %s!"
+#~ msgstr "Rankout a ra an talvoud bezañ par da pe bihanoc'h eget %s"
+
+#~ msgid "Missing data for %s"
+#~ msgstr "Roadennoù a vank evit %s"
+
+#~ msgid "unavailable"
+#~ msgstr "N'eo ket hegerz"
+
+#~ msgid "\"%s\" requires %s extension"
+#~ msgstr "\"%s\" zo rekis dezhañ an astenn %s"
+
+#, fuzzy
+#~| msgid "import will not work, missing function (%s)"
+#~ msgid "Compressed import will not work due to missing function %s."
+#~ msgstr "Ne'z aio ket an enporzhiañ en-dro, un arc'hwel a vank (%s)"
+
+#, fuzzy
+#~| msgid "export will not work, missing function (%s)"
+#~ msgid "Compressed export will not work due to missing function %s."
+#~ msgstr "Ne'z aio ket an ezporzhiañ en-dro, un arc'hwel a vank (%s)"
+
+#~ msgid "maximum %s"
+#~ msgstr "%s d'ar muiañ"
+
+#~ msgid ""
+#~ "This setting is disabled, it will not be applied to your configuration."
+#~ msgstr ""
+#~ "Diweredekaet eo an arventenn; ne vo ket lakaet e pleustr gant ho "
+#~ "kefluniadur."
+
+#~ msgid "Set value: %s"
+#~ msgstr "Lakaat an talvoud da %s"
+
+#~ msgid "Restore default value"
+#~ msgstr "Adlakaat an talvoud dre ziouer"
+
+#~ msgid "Allow users to customize this value"
+#~ msgstr "Aotren an implijerien da bersonelaat an talvoud-mañ"
+
+#, fuzzy
+#~| msgid "Could not open file: %s"
+#~ msgid "Could not connect to the database server!"
+#~ msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
+
+#, fuzzy
+#~| msgid "Can not find signon authentication script:"
+#~ msgid "Empty username while using [kbd]config[/kbd] authentication method!"
+#~ msgstr "N'hall ket kavout ar skript dilesa evit ar mod \"signon\" :"
+
+#, fuzzy
+#~| msgid "Can not find signon authentication script:"
+#~ msgid ""
+#~ "Empty signon session name while using [kbd]signon[/kbd] authentication "
+#~ "method!"
+#~ msgstr "N'hall ket kavout ar skript dilesa evit ar mod \"signon\" :"
+
+#, fuzzy
+#~| msgid "Can not find signon authentication script:"
+#~ msgid ""
+#~ "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
+#~ msgstr "N'hall ket kavout ar skript dilesa evit ar mod \"signon\" :"
+
+#, fuzzy
+#~| msgid "Incorrect value"
+#~ msgid "Incorrect value:"
+#~ msgstr "Talvoud direizh"
+
+#, fuzzy
+#~| msgid ""
+#~| "If enabled user can enter any MySQL server in login form for cookie auth"
+#~ msgid ""
+#~ "If enabled, user can enter any MySQL server in login form for cookie auth."
+#~ msgstr ""
+#~ "Ma c'hall an implijer aotreet monet e ne vern pe servijer MySQL er "
+#~ "furmskrid kevreañ evit ar gwiriekaat dre doupinoù"
+
+#~ msgid "Allow login to any MySQL server"
+#~ msgstr "Aotren kevreañ ouzh ne vern pe servijer MySQL"
+
+#, fuzzy
+#~| msgid "Cannot log in to the MySQL server"
+#~ msgid "Restrict login to MySQL server"
+#~ msgstr "Dibosupl kevreañ ouzh ar servijer MySQL"
+
+#, fuzzy
+#~| msgid ""
+#~| "Enabling this allows a page located on a different domain to call "
+#~| "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
+#~| "strong] allowing cross-frame scripting attacks"
+#~ msgid ""
+#~ "Enabling this allows a page located on a different domain to call "
+#~ "phpMyAdmin inside a frame, and is a potential [strong]security hole[/"
+#~ "strong] allowing cross-frame scripting (XSS) attacks."
+#~ msgstr ""
+#~ "Gweredekaat kement-mañ a aotre ur bajenn zo en un domani disheñvel da "
+#~ "c'hervel phpMyAdmin e diabarzh ur framm, ar pezh a ya d'ober un "
+#~ "[strong]toull surentez[/strong] posupl evit tagadennoù skript etre frammoù"
+
+#~ msgid "Allow third party framing"
+#~ msgstr "Aotren ar frammoù a-berzh tud all"
+
+#~ msgid "Show \"Drop database\" link to normal users"
+#~ msgstr ""
+#~ "Diskouez al liamm evit \"Skarzhañ un diaz roadennoù\" d'an implijerien "
+#~ "voutin"
+
+#, fuzzy
+#~| msgid ""
+#~| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#~| "authentication"
+#~ msgid ""
+#~ "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#~ "authentication."
+#~ msgstr ""
+#~ "Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
+#~ "[kbd]cookie[/kbd]"
+
+#~ msgid "Blowfish secret"
+#~ msgstr "Kevrin Blow fish"
+
+#~ msgid "Highlight selected rows."
+#~ msgstr "Lakaat al linennoù dibabet da skediñ."
+
+#~ msgid "Row marker"
+#~ msgstr "Merker linennoù"
+
+#, fuzzy
+#~| msgid "Highlight row pointed by the mouse cursor"
+#~ msgid "Highlight row pointed by the mouse cursor."
+#~ msgstr "Lakaat al linenn a vuk al logodenn daveti da usskediñ"
+
+#~ msgid "Highlight pointer"
+#~ msgstr "Lakaat ar reti da usskediñ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
+#~| "import and export operations"
+#~ msgid ""
+#~ "Enable [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] compression for "
+#~ "import operations."
+#~ msgstr ""
+#~ "Aotren ar gwaskañ [a@http://en.wikipedia.org/wiki/Bzip2]bzip2[/a] evit an "
+#~ "oberiadennoù enporzhiañ hag ezporzhiañ"
+
+#~ msgid "Bzip2"
+#~ msgstr "Bzip2"
+
+#, fuzzy
+#~| msgid ""
+#~| "Defines which type of editing controls should be used for CHAR and "
+#~| "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#~| "[kbd]textarea[/kbd] - allows newlines in columns"
+#~ msgid ""
+#~ "Defines which type of editing controls should be used for CHAR and "
+#~ "VARCHAR columns; [kbd]input[/kbd] - allows limiting of input length, "
+#~ "[kbd]textarea[/kbd] - allows newlines in columns."
+#~ msgstr ""
+#~ "Spisaat peseurt doare kontrolloù kemmañ a zleer ober ganto evit ar bannoù "
+#~ "CHAR ha VARCHAR; [kbd]input[/kbd] - a dalvez da grennañ ar vent, "
+#~ "[kbd]textarea[/kbd] - a aotren lakaat linennoù nevez er bannoù"
+
+#~ msgid "CHAR columns editing"
+#~ msgstr "Kemmañ ar bannoù CHAR"
+
+#, fuzzy
+#~| msgid "Enable %s"
+#~ msgid "Enable linter"
+#~ msgstr "Gweredekaat %s"
+
+#, fuzzy
+#~| msgid "Customize text input fields"
+#~ msgid "Minimum size for input field"
+#~ msgstr "Personelaat ar maeziennoù ebarzhiñ testenn"
+
+#, fuzzy
+#~| msgid "Customize text input fields"
+#~ msgid "Maximum size for input field"
+#~ msgstr "Personelaat ar maeziennoù ebarzhiñ testenn"
+
+#, fuzzy
+#~| msgid "Number of columns for CHAR/VARCHAR textareas"
+#~ msgid "Number of columns for CHAR/VARCHAR textareas."
+#~ msgstr "Niver a vannoù evit an takadoù skrid CHAR/VARCHAR"
+
+#~ msgid "CHAR textarea columns"
+#~ msgstr "Bannoù evit an takadoù skrid CHAR"
+
+#, fuzzy
+#~| msgid "Number of rows for CHAR/VARCHAR textareas"
+#~ msgid "Number of rows for CHAR/VARCHAR textareas."
+#~ msgstr "Niver a linennoù evit an takadoù skrid CHAR/VARCHAR"
+
+#~ msgid "CHAR textarea rows"
+#~ msgstr "Linennoù evit an takadoù skrid CHAR"
+
+#~ msgid "Check config file permissions"
+#~ msgstr "Gwiriañ aotreoù ar restr gefluniañ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Compress gzip/bzip2 exports on the fly without the need for much memory; "
+#~| "if you encounter problems with created gzip/bzip2 files disable this "
+#~| "feature"
+#~ msgid ""
+#~ "Compress gzip exports on the fly without the need for much memory; if you "
+#~ "encounter problems with created gzip files disable this feature."
+#~ msgstr ""
+#~ "Gwaskañ a ra an ezporzhiadennoù gzip/bzip2 war ar prim hep sunañ nemeur a "
+#~ "vemor; Mar bez kudennoù gant ar restroù gzip/bzip2 krouet, diweredekait "
+#~ "an dibarzh."
+
+#~ msgid "Compress on the fly"
+#~ msgstr "Gwaskañ war ar prim"
+
+#~ msgid "Configuration file"
+#~ msgstr "Restr gefluniañ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Whether a warning (\"Are your really sure…\") should be displayed when "
+#~| "you're about to lose data"
+#~ msgid ""
+#~ "Whether a warning (\"Are your really sure…\") should be displayed when "
+#~ "you're about to lose data."
+#~ msgstr ""
+#~ "Ur gemennadenn (\"Ha sur oc'h…\") a zlefe dont war wel pa vezer war-nes "
+#~ "koll roadennoù."
+
+#~ msgid "Confirm DROP queries"
+#~ msgstr "Kadarnaat ar rekedoù diverkañ DROP"
+
+#, fuzzy
+#~| msgid "Tab that is displayed when entering a database"
+#~ msgid "Tab that is displayed when entering a database."
+#~ msgstr "Ivinell diskouezet pa'z eer tre en un diaz roadennoù"
+
+#~ msgid "Default database tab"
+#~ msgstr "Ivinell dre ziouer evit un diaz roadennoù"
+
+#, fuzzy
+#~| msgid "Tab that is displayed when entering a server"
+#~ msgid "Tab that is displayed when entering a server."
+#~ msgstr "Ivinell diskouezet pa'z eer tre en ur servijer"
+
+#~ msgid "Default server tab"
+#~ msgstr "Ivinell dre ziouer evit ar servijer"
+
+#, fuzzy
+#~| msgid "Tab that is displayed when entering a table"
+#~ msgid "Tab that is displayed when entering a table."
+#~ msgstr "Ivinell diskouezet pa'z eer tre en un daolenn"
+
+#~ msgid "Default table tab"
+#~ msgstr "Ivinell dre ziouer evit an taolennoù"
+
+#, fuzzy
+#~| msgid "Enclose table and column names with backquotes"
+#~ msgid "Autocomplete of the table and column names in the SQL queries."
+#~ msgstr ""
+#~ "Lakaat krochedoù stouet a bep tu da anvioù an taolennoù hag ar bannoù"
+
+#, fuzzy
+#~| msgid "Enclose table and column names with backquotes"
+#~ msgid "Enable autocomplete for table and column names"
+#~ msgstr ""
+#~ "Lakaat krochedoù stouet a bep tu da anvioù an taolennoù hag ar bannoù"
+
+#, fuzzy
+#~| msgid "Include table caption"
+#~ msgid "Whether the table structure actions should be hidden."
+#~ msgstr "Enklozañ an istitloù"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show column comments"
+#~ msgstr "Evezhiadennoù diwar-benn an daolenn"
+
+#, fuzzy
+#~| msgid "Include table caption"
+#~ msgid "Hide table structure actions"
+#~ msgstr "Enklozañ an istitloù"
+
+#~ msgid "Show server listing as a list instead of a drop down."
+#~ msgstr "Diskouez roll ar servijerioù e-lec'h ur roll desachañ."
+
+#~ msgid "Display servers as a list"
+#~ msgstr "Diskouez a ra ar servijerioù e stumm ur roll"
+
+#~ msgid ""
+#~ "Disable the table maintenance mass operations, like optimizing or "
+#~ "repairing the selected tables of a database."
+#~ msgstr ""
+#~ "Diweredekaat an oberiadennoù trezalc'h a-vras, evel gwellekaat pe kempenn "
+#~ "taolennoù diuzet un diaz roadennoù."
+
+#~ msgid "Disable multi table maintenance"
+#~ msgstr "Diweredekaat trezalc'h an taolennoù lies"
+
+#, fuzzy
+#~| msgid ""
+#~| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for "
+#~| "no limit)"
+#~ msgid ""
+#~ "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
+#~ "limit)."
+#~ msgstr ""
+#~ "Niver a eilennoù lakaet evit seveniñ ar skriptoù ([kbd]0[/kbd] a dalvez "
+#~ "hep bevenn)"
+
+#~ msgid "Maximum execution time"
+#~ msgstr "Pad seveniñ hirañ"
+
+#~ msgid "Save as file"
+#~ msgstr "Enrollañ evel restr"
+
+#~ msgid "Character set of the file"
+#~ msgstr "Strobad arouezennoù ar restr"
+
+#~ msgid "Format"
+#~ msgstr "Furmad"
+
+#~ msgid "Compression"
+#~ msgstr "Gwaskadur"
+
+#~ msgid "Put columns names in the first row"
+#~ msgstr "Diskouez anvioù ar bannoù diouzhtu el linenn gentañ"
+
+#, fuzzy
+#~| msgid "Columns enclosed by"
+#~ msgid "Columns enclosed with"
+#~ msgstr "Bannoù gronnet gant"
+
+#, fuzzy
+#~| msgid "Columns escaped by"
+#~ msgid "Columns escaped with"
+#~ msgstr "Arouezenn dec'hout"
+
+#, fuzzy
+#~| msgid "Replace NULL by"
+#~ msgid "Replace NULL with"
+#~ msgstr "Erlec'hiañ NULL gant"
+
+#~ msgid "Remove CRLF characters within columns"
+#~ msgstr "Tennañ an arouezennoù dibenn linenn e dibarzh ar bannoù"
+
+#, fuzzy
+#~| msgid "Columns terminated by"
+#~ msgid "Columns terminated with"
+#~ msgstr "Bannoù a echu gant"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Lines terminated with"
+#~ msgstr "Linennoù a echu gant"
+
+#~ msgid "Excel edition"
+#~ msgstr "Stumm Excel"
+
+#~ msgid "Database name template"
+#~ msgstr "Patrom anv diaz roadennoù"
+
+#~ msgid "Server name template"
+#~ msgstr "Patrom anv servijer"
+
+#~ msgid "Table name template"
+#~ msgstr "Patrom anv taolenn"
+
+#~ msgid "Dump table"
+#~ msgstr "Ezporzhiañ an daolenn"
+
+#~ msgid "Include table caption"
+#~ msgstr "Enklozañ an istitloù"
+
+#~ msgid "Table caption"
+#~ msgstr "Istitl eus an daolenn"
+
+#~ msgid "Continued table caption"
+#~ msgstr "Enklozañ an istitloù"
+
+#~ msgid "Label key"
+#~ msgstr "Alc'hwez an dikedenn"
+
+#~ msgid "MIME type"
+#~ msgstr "Seurt MIME"
+
+#~ msgid "Relations"
+#~ msgstr "Darempredoù"
+
+#~ msgid "Export method"
+#~ msgstr "Doare ezporzhiañ"
+
+#~ msgid "Save on server"
+#~ msgstr "Enrollañ war ar servijer"
+
+#~ msgid "Overwrite existing file(s)"
+#~ msgstr "Frikañ ar restroù zo c'hoazh"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export as separate files"
+#~ msgstr "Doare ezporzhiañ"
+
+#~ msgid "Remember file name template"
+#~ msgstr "Derc'hel soñj eus patrom anv ar restr"
+
+#~ msgid "Add AUTO_INCREMENT value"
+#~ msgstr "Ouzhpennañ talvoud an AUTO_INCREMENT"
+
+#~ msgid "Enclose table and column names with backquotes"
+#~ msgstr ""
+#~ "Lakaat krochedoù stouet a bep tu da anvioù an taolennoù hag ar bannoù"
+
+#~ msgid "SQL compatibility mode"
+#~ msgstr "Mod kenglotañ gant SQL"
+
+#~ msgid "Creation/Update/Check dates"
+#~ msgstr "Deiziad krouiñ/hizivaat/gwiriañ"
+
+#~ msgid "Use delayed inserts"
+#~ msgstr "Ensoc'hadennoù gant dale"
+
+#~ msgid "Disable foreign key checks"
+#~ msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "Export views as tables"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid ""
+#~| "Tracking of changes made in database. Requires the phpMyAdmin "
+#~| "configuration storage."
+#~ msgid "Export related metadata from phpMyAdmin configuration storage"
+#~ msgstr ""
+#~ "Heuliañ ar c'hemmoù graet en diaz roadennoù. Rekis eo kaout ar stokañ "
+#~ "kefluniadurioù phpMyAdmin."
+
+#~ msgid "Add %s"
+#~ msgstr "Ouzhpennañ %s"
+
+#, fuzzy
+#~| msgid "Use hexadecimal for BLOB"
+#~ msgid "Use hexadecimal for BINARY & BLOB"
+#~ msgstr "Implijout an eizhdekvedennad evit BLOB"
+
+#~ msgid "Use ignore inserts"
+#~ msgstr "Arabat ensoc'hañ ul linenn a dalvez kement hag un alc'hwez nemetañ"
+
+#~ msgid "Syntax to use when inserting data"
+#~ msgstr "Ereadur d'ober gantañ pa vez ensoc'het roadennoù"
+
+#~ msgid "Maximal length of created query"
+#~ msgstr "Ment vrasañ ar reked krouet"
+
+#~ msgid "Export type"
+#~ msgstr "Seurt ezporzhiadenn"
+
+#~ msgid "Enclose export in a transaction"
+#~ msgstr "Enklozañ an ezporzhiadenn en un treuzgread"
+
+#~ msgid "Export time in UTC"
+#~ msgstr "Ezporzhiañ an eur er furmad UTC"
+
+#, fuzzy
+#~| msgid ""
+#~| "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] "
+#~| "is the referenced data, [kbd]id[/kbd] is the key value"
+#~ msgid ""
+#~ "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
+#~ "the referenced data, [kbd]id[/kbd] is the key value."
+#~ msgstr ""
+#~ "Urzh renkañ evit an elfennoù en ur voest desachañ alc'hwezioù estren; "
+#~ "[kbd]content[/kbd] zo evit an roadenn a zaveer dezhi, [kbd]id[/kbd] zo "
+#~ "evit talvout an alc'hwez"
+
+#~ msgid "Foreign key dropdown order"
+#~ msgstr "Urzh dispakañ an alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "A dropdown will be used if fewer items are present"
+#~ msgid "A dropdown will be used if fewer items are present."
+#~ msgstr "Ul lañser desachañ a vo implijet ma vez nebeutoc'h a elfennoù"
+
+#~ msgid "Foreign key limit"
+#~ msgstr "Bevenn evit an alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "Disable foreign key checks"
+#~ msgid "Foreign key checks"
+#~ msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
+
+#~ msgid "Browse mode"
+#~ msgstr "Mod merdeiñ"
+
+#, fuzzy
+#~| msgid "Customize browse mode"
+#~ msgid "Customize browse mode."
+#~ msgstr "Personelaat ar mod merdeiñ"
+
+#, fuzzy
+#~| msgid "Customize default options"
+#~ msgid "Customize default options."
+#~ msgstr "Personelaat an dibarzhioù dre ziouer"
+
+#~ msgid "CSV"
+#~ msgstr "CSV"
+
+#~ msgid "Developer"
+#~ msgstr "Diorroer"
+
+#, fuzzy
+#~| msgid "Settings for phpMyAdmin developers"
+#~ msgid "Settings for phpMyAdmin developers."
+#~ msgstr "Arventennoù evit diorroerien phpMyAdmin"
+
+#~ msgid "Edit mode"
+#~ msgstr "Mod aozañ"
+
+#, fuzzy
+#~| msgid "Customize edit mode"
+#~ msgid "Customize edit mode."
+#~ msgstr "Personelaat ar mod aozañ"
+
+#~ msgid "Export defaults"
+#~ msgstr "Talvoudoù dre ziouer evit an ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Customize default export options"
+#~ msgid "Customize default export options."
+#~ msgstr "Personelaat an talvoudoù ezporzhiañ implijet dre ziouer"
+
+#~ msgid "Features"
+#~ msgstr "Dezverkoù"
+
+#~ msgid "General"
+#~ msgstr "Dre-vras"
+
+#, fuzzy
+#~| msgid "Set some commonly used options"
+#~ msgid "Set some commonly used options."
+#~ msgstr "Termeniñ un nebeud dibarzhioù implijet ingal"
+
+#~ msgid "Import defaults"
+#~ msgstr "Talvoudoù enporzhiañ dre ziouer"
+
+#, fuzzy
+#~| msgid "Customize default common import options"
+#~ msgid "Customize default common import options."
+#~ msgstr "Personelaat an talvoudoù implijet dre ziouer"
+
+#~ msgid "Import / export"
+#~ msgstr "Enporzhiañ / Ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Set import and export directories and compression options"
+#~ msgid "Set import and export directories and compression options."
+#~ msgstr "Kefluniañ ar c'havlec'hioù enporzhiañ hag an dibarzhioù gwaskañ"
+
+#~ msgid "LaTeX"
+#~ msgstr "LaTex"
+
+#, fuzzy
+#~| msgid "Databases display options"
+#~ msgid "Databases display options."
+#~ msgstr "Dibarzhioù diskwel an diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Navigation frame"
+#~ msgid "Navigation panel"
+#~ msgstr "Taolenn verdeiñ"
+
+#, fuzzy
+#~| msgid "Customize appearance of the navigation frame"
+#~ msgid "Customize appearance of the navigation panel."
+#~ msgstr "Personelaat tres an daolenn verdeiñ"
+
+#, fuzzy
+#~| msgid "Navigation frame"
+#~ msgid "Navigation tree"
+#~ msgstr "Taolenn verdeiñ"
+
+#, fuzzy
+#~| msgid "Customize navigation frame"
+#~ msgid "Customize the navigation tree."
+#~ msgstr "Personelaat ar framm merdeiñ"
+
+#~ msgid "Servers"
+#~ msgstr "Servijerioù"
+
+#, fuzzy
+#~| msgid "Servers display options"
+#~ msgid "Servers display options."
+#~ msgstr "Dibarzhioù diskwel ar servijerioù"
+
+#, fuzzy
+#~| msgid "Tables display options"
+#~ msgid "Tables display options."
+#~ msgstr "Dibarzhioù diskwel an taolennoù"
+
+#, fuzzy
+#~| msgid "Main frame"
+#~ msgid "Main panel"
+#~ msgstr "Taolenn bennañ"
+
+#~ msgid "Microsoft Office"
+#~ msgstr "Microsoft Office"
+
+#~ msgid "Other core settings"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Settings that didn't fit anywhere else"
+#~ msgid "Settings that didn't fit anywhere else."
+#~ msgstr "Arventennoù a bep seurt"
+
+#~ msgid "Page titles"
+#~ msgstr "Titloù pajennoù"
+
+#, fuzzy
+#~| msgid ""
+#~| "Specify browser's title bar text. Refer to "
+#~| "[doc@cfg_TitleTable]documentation[/doc] for magic strings that can be "
+#~| "used to get special values."
+#~ msgid ""
+#~ "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/"
+#~ "doc] for magic strings that can be used to get special values."
+#~ msgstr ""
+#~ "Spisaat testenn barrenn ditl ar merdeer. En em zaveiñ d'an  "
+#~ "[doc@cfg_TitleTable]teuliadur[/doc] evit an neudennadoù hud a c'haller "
+#~ "ober ganto."
+
+#~ msgid "Security"
+#~ msgstr "Surentez"
+
+#, fuzzy
+#~| msgid ""
+#~| "Please note that phpMyAdmin is just a user interface and its features do "
+#~| "not limit MySQL"
+#~ msgid ""
+#~ "Please note that phpMyAdmin is just a user interface and its features do "
+#~ "not limit MySQL."
+#~ msgstr ""
+#~ "Notennit mat n'eo phpMyAdmin nemet un etrefas ha n'eo ket bevennet e mod "
+#~ "ebet MySQL gant an perzhioù anezhi"
+
+#~ msgid "Basic settings"
+#~ msgstr "Arventennoù diazez"
+
+#~ msgid "Authentication"
+#~ msgstr "Dilesadur"
+
+#, fuzzy
+#~| msgid "Authentication settings"
+#~ msgid "Authentication settings."
+#~ msgstr "Arventennoù dilesañ"
+
+#~ msgid "Server configuration"
+#~ msgstr "Kefluniadur ar servijer"
+
+#, fuzzy
+#~| msgid ""
+#~| "Advanced server configuration, do not change these options unless you "
+#~| "know what they are for"
+#~ msgid ""
+#~ "Advanced server configuration, do not change these options unless you "
+#~ "know what they are for."
+#~ msgstr ""
+#~ "Kefluniadur pishoc'h; bezit sur e ouzit ar pezh a rit a-raok mont da "
+#~ "gemmañ tra pe dra"
+
+#, fuzzy
+#~| msgid "Enter server connection parameters"
+#~ msgid "Enter server connection parameters."
+#~ msgstr "Merkañ arventennoù kevreañ ar servijer"
+
+#~ msgid "Configuration storage"
+#~ msgstr "Mirlec'h ar c'hefluniadurioù"
+
+#, fuzzy
+#~| msgid ""
+#~| "Configure phpMyAdmin configuration storage to gain access to additional "
+#~| "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
+#~| "in documentation"
+#~ msgid ""
+#~ "Configure phpMyAdmin configuration storage to gain access to additional "
+#~ "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] "
+#~ "in documentation."
+#~ msgstr ""
+#~ "Kefluniañ ar stokañ kefluniadurioùl phpMyAdmin evit gweredekaat perzhioù "
+#~ "ouzhpenn, gwelet [doc@linked-tables]phpMyAdmin configuration storage[/"
+#~ "doc] en teuliadur"
+
+#~ msgid "Changes tracking"
+#~ msgstr "Heuliañ ar c'hemmoù"
+
+#~ msgid ""
+#~ "Tracking of changes made in database. Requires the phpMyAdmin "
+#~ "configuration storage."
+#~ msgstr ""
+#~ "Heuliañ ar c'hemmoù graet en diaz roadennoù. Rekis eo kaout ar stokañ "
+#~ "kefluniadurioù phpMyAdmin."
+
+#~ msgid "Customize export options"
+#~ msgstr "Personelaat an dibarzhioù ezporzhiañ"
+
+#~ msgid "Customize import defaults"
+#~ msgstr "Personelaat an arventennoù enporzhiañ dre ziouer"
+
+#, fuzzy
+#~| msgid "Customize navigation frame"
+#~ msgid "Customize navigation panel"
+#~ msgstr "Personelaat ar framm merdeiñ"
+
+#, fuzzy
+#~| msgid "Customize main frame"
+#~ msgid "Customize main panel"
+#~ msgstr "Personelaat ar framm pennañ"
+
+#~ msgid "SQL queries"
+#~ msgstr "Rekedoù SQL"
+
+#~ msgid "SQL Query box"
+#~ msgstr "Boest rekedoù SQL"
+
+#, fuzzy
+#~| msgid "Customize links shown in SQL Query boxes"
+#~ msgid "Customize links shown in SQL Query boxes."
+#~ msgstr "Personelaat al liammoù diskwelet er boestoù rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL queries settings"
+#~ msgid "SQL queries settings."
+#~ msgstr "Arventennoù ar rekedoù SQL"
+
+#~ msgid "Startup"
+#~ msgstr "Pajenn deraouiñ"
+
+#, fuzzy
+#~| msgid "Customize startup page"
+#~ msgid "Customize startup page."
+#~ msgstr "Personelaat ar bajenn deraouiñ"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database structure"
+#~ msgstr "Diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Table structure"
+#~ msgstr "Diazoù roadennoù"
+
+#~ msgid "Tabs"
+#~ msgstr "Ivinelloù"
+
+#, fuzzy
+#~| msgid "Choose how you want tabs to work"
+#~ msgid "Choose how you want tabs to work."
+#~ msgstr "Personelaat an ivinelloù"
+
+#~ msgid "Text fields"
+#~ msgstr "Maeziennoù testenn"
+
+#, fuzzy
+#~| msgid "Customize text input fields"
+#~ msgid "Customize text input fields."
+#~ msgstr "Personelaat ar maeziennoù ebarzhiñ testenn"
+
+#~ msgid "Texy! text"
+#~ msgstr "Testenn Texy!"
+
+#~ msgid "Customize default options"
+#~ msgstr "Personelaat an dibarzhioù dre ziouer"
+
+#~ msgid "Warnings"
+#~ msgstr "Kemennoù diwall"
+
+#, fuzzy
+#~| msgid "Disable some of the warnings shown by phpMyAdmin"
+#~ msgid "Disable some of the warnings shown by phpMyAdmin."
+#~ msgstr ""
+#~ "Diweredekaat lod eus ar c'hemennoù diwall diskouezet gant phpMyAdmin"
+
+#, fuzzy
+#~| msgid ""
+#~| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#~| "import and export operations"
+#~ msgid ""
+#~ "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#~ "import and export operations."
+#~ msgstr ""
+#~ "Gweredekaat ar gwaskañ [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] evit "
+#~ "an oberiadennoù enporzhiañ hag ezporzhiañ"
+
+#~ msgid "GZip"
+#~ msgstr "GZip"
+
+#~ msgid "Extra parameters for iconv"
+#~ msgstr "Arventennoù ouzhpenn evit iconv"
+
+#, fuzzy
+#~| msgid ""
+#~| "If enabled, phpMyAdmin continues computing multiple-statement queries "
+#~| "even if one of the queries failed"
+#~ msgid ""
+#~ "If enabled, phpMyAdmin continues computing multiple-statement queries "
+#~ "even if one of the queries failed."
+#~ msgstr ""
+#~ "Ma vez gweredekaet e kendalc'h phpMyAdmin da blediñ gant ar rekedoù "
+#~ "liesfrazennek ha pa vefe ur fazi gant unan anezho."
+
+#~ msgid "Ignore multiple statement errors"
+#~ msgstr "Na ober van ouzh ar fazioù er rekedoù liesfrazennek"
+
+#~ msgid ""
+#~ "Allow interrupt of import in case script detects it is close to time "
+#~ "limit. This might be a good way to import large files, however it can "
+#~ "break transactions."
+#~ msgstr ""
+#~ "Aotren paouez gant an enporzhiañ m'emeur war-nes tizhout ar vevenn amzer. "
+#~ "Gallout a ra sikour da enporzhiañ restroù bras, ha pa c'hallfe terriñ "
+#~ "treuzgreadoù zo."
+
+#~ msgid "Partial import: allow interrupt"
+#~ msgstr "Enporzhiañ darnek : aotren paouez"
+
+#~ msgid "Do not abort on INSERT error"
+#~ msgstr "Arabat paouez gant an enporzhiañ pa vez ur fazi gant INSERT"
+
+#, fuzzy
+#~| msgid ""
+#~| "Default format; be aware that this list depends on location (database, "
+#~| "table) and only SQL is always available"
+#~ msgid ""
+#~ "Default format; be aware that this list depends on location (database, "
+#~ "table) and only SQL is always available."
+#~ msgstr ""
+#~ "Furmad dre ziouer; bezit emskiantek ez eo ar roll-mañ diouzh al "
+#~ "lec'hiadur (diaz roadennoù, taolenn) ha n'eus nemet SQL zo hegerz "
+#~ "dalc'hmat"
+
+#~ msgid "Format of imported file"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#~ msgid "Use LOCAL keyword"
+#~ msgstr "Ober gant ar ger-alc'hwez LOCAL"
+
+#~ msgid "Column names in first row"
+#~ msgstr "Anvioù bannoù el linenn gentañ"
+
+#~ msgid "Do not import empty rows"
+#~ msgstr "Arabat enporzhiañ linennoù goullo"
+
+#~ msgid "Import currencies ($5.00 to 5.00)"
+#~ msgstr "Enporzhiañ moneizioù ($5.00 a zeu da vezañ 5.00)"
+
+#~ msgid "Import percentages as proper decimals (12.00% to .12)"
+#~ msgstr ""
+#~ "Enporzhiañ an dregantadoù evel degelennoù (12.00% a zeu da vezañ .12)"
+
+#, fuzzy
+#~| msgid "Number of queries to skip from start"
+#~ msgid "Number of queries to skip from start."
+#~ msgstr "Niver a rekedoù da lezel a-gostez adalek ar penn-kentañ"
+
+#~ msgid "Partial import: skip queries"
+#~ msgstr "Enporzhiañ darnek : lezel ar rekedoù a gostez"
+
+#~ msgid "Do not use AUTO_INCREMENT for zero values"
+#~ msgstr "Arabat ober gant AUTO_INCREMENT evit an talvoudoù par da mann"
+
+#~ msgid "Initial state for sliders"
+#~ msgstr "Talvoud dre ziouer evit an takadoù riklañ"
+
+#, fuzzy
+#~| msgid "How many rows can be inserted at one time"
+#~ msgid "How many rows can be inserted at one time."
+#~ msgstr "An niver a linennoù a c'haller ober ganto war un dro"
+
+#~ msgid "Number of inserted rows"
+#~ msgstr "Niver a linennoù da ensoc'hañ"
+
+#, fuzzy
+#~| msgid ""
+#~| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#~| "authentication"
+#~ msgid ""
+#~ "Define whether the previous login should be recalled or not in "
+#~ "[kbd]cookie[/kbd] authentication mode."
+#~ msgstr ""
+#~ "Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
+#~ "[kbd]cookie[/kbd]"
+
+#, fuzzy
+#~| msgid "Customize text input fields"
+#~ msgid "Maximum items on first level"
+#~ msgstr "Personelaat ar maeziennoù ebarzhiñ testenn"
+
+#, fuzzy
+#~| msgid ""
+#~| "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for "
+#~| "no limit)"
+#~ msgid ""
+#~ "The number of bytes a script is allowed to allocate, eg. [kbd]32M[/kbd] "
+#~ "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
+#~ msgstr ""
+#~ "Niver a eilennoù lakaet evit seveniñ ar skriptoù ([kbd]0[/kbd] a dalvez "
+#~ "hep bevenn)"
+
+#, fuzzy
+#~| msgid "Show logo in left frame"
+#~ msgid "Show databases navigation as tree"
+#~ msgstr "Diskouez al logo er banell verdeiñ gleiz"
+
+#, fuzzy
+#~| msgid "Show logo in left frame"
+#~ msgid "Show logo in navigation panel."
+#~ msgstr "Diskouez al logo er banell verdeiñ gleiz"
+
+#~ msgid "Display logo"
+#~ msgstr "Diskouez al logo"
+
+#, fuzzy
+#~| msgid "Show logo in left frame"
+#~ msgid "URL where logo in the navigation panel will point to."
+#~ msgstr "Diskouez al logo er banell verdeiñ gleiz"
+
+#, fuzzy
+#~| msgid "Display server choice at the top of the left frame"
+#~ msgid "Display server choice at the top of the navigation panel."
+#~ msgstr "Diskouez dibab ar servijerioù e laez ar banell gefluniañ"
+
+#~ msgid "Target for quick access icon"
+#~ msgstr "Bukadenn evit an arlun moned prim"
+
+#, fuzzy
+#~| msgid "Target for quick access icon"
+#~ msgid "Target for second quick access icon"
+#~ msgstr "Bukadenn evit an arlun moned prim"
+
+#, fuzzy
+#~| msgid "Highlight row pointed by the mouse cursor"
+#~ msgid "Highlight server under the mouse cursor."
+#~ msgstr "Lakaat al linenn a vuk al logodenn daveti da usskediñ"
+
+#, fuzzy
+#~| msgid "Table caption"
+#~ msgid "Enable navigation tree expansion"
+#~ msgstr "Istitl eus an daolenn"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show tables in tree"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgid "Show logo in left frame"
+#~ msgid "Whether to show tables under database in the navigation tree"
+#~ msgstr "Diskouez al logo er banell verdeiñ gleiz"
+
+#, fuzzy
+#~| msgid "Show indexes"
+#~ msgid "Show views in tree"
+#~ msgstr "Diskouez menegerioù"
+
+#, fuzzy
+#~| msgid "Show logo in left frame"
+#~ msgid "Whether to show views under database in the navigation tree"
+#~ msgstr "Diskouez al logo er banell verdeiñ gleiz"
+
+#, fuzzy
+#~| msgid "Connections since last refresh"
+#~ msgid "Show functions in tree"
+#~ msgstr "Kevreadennoù abaoe ar freskadenn ziwezhañ"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "Show procedures in tree"
+#~ msgstr "Argerzhioù"
+
+#, fuzzy
+#~| msgid "Show indexes"
+#~ msgid "Show events in tree"
+#~ msgstr "Diskouez menegerioù"
+
+#, fuzzy
+#~| msgid "Show logo in left frame"
+#~ msgid "Whether to show events under database in the navigation tree"
+#~ msgstr "Diskouez al logo er banell verdeiñ gleiz"
+
+#, fuzzy
+#~| msgid "Disable foreign key checks"
+#~ msgid "Disable shortcut keys"
+#~ msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "Table caption"
+#~ msgid "Table navigation bar"
+#~ msgstr "Istitl eus an daolenn"
+
+#, fuzzy
+#~| msgid "The primary key has been dropped."
+#~ msgid "Primary key default sort order"
+#~ msgstr "Diverket eo bet an alc'hwez kentidik."
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Relational display"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Servers display options"
+#~ msgid "For display Options"
+#~ msgstr "Dibarzhioù diskwel ar servijerioù"
+
+#, fuzzy
+#~| msgid "Authentication settings"
+#~ msgid "Authentication method to use."
+#~ msgstr "Arventennoù dilesañ"
+
+#, fuzzy
+#~| msgid "Cannot log in to the MySQL server"
+#~ msgid "Compress connection to MySQL server."
+#~ msgstr "Dibosupl kevreañ ouzh ar servijer MySQL"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "Export templates table"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "CHAR textarea columns"
+#~ msgid "Central columns table"
+#~ msgstr "Bannoù evit an takadoù skrid CHAR"
+
+#, fuzzy
+#~| msgid "Tracked tables"
+#~ msgid "Favorites table"
+#~ msgstr "Taolennoù heuliet-pizh"
+
+#, fuzzy
+#~| msgid "%s has been disabled for this MySQL server."
+#~ msgid "Enable SSL for connection to MySQL server."
+#~ msgstr "Diweredekaet eo bet %s war ar servijer MySQL-mañ."
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Users table"
+#~ msgstr "Implijout taolennoù"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show table comments"
+#~ msgstr "Evezhiadennoù diwar-benn an daolenn"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show creation timestamp"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgid "Show indexes"
+#~ msgid "Show hint"
+#~ msgstr "Diskouez menegerioù"
+
+#, fuzzy
+#~| msgid "Hide query box"
+#~ msgid "Retain query box"
+#~ msgstr "Kuzhat ar voest rekedoù SQL"
+
+#, fuzzy
+#~| msgid ""
+#~| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#~| "authentication"
+#~ msgid ""
+#~ "Disable the default warning that is displayed on the main page if Suhosin "
+#~ "is detected."
+#~ msgstr ""
+#~ "Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
+#~ "[kbd]cookie[/kbd]"
+
+#, fuzzy
+#~| msgid ""
+#~| "Secret passphrase used for encrypting cookies in [kbd]cookie[/kbd] "
+#~| "authentication"
+#~ msgid ""
+#~ "Disable the default warning that is displayed on the main page if the "
+#~ "value of the PHP setting session.gc_maxlifetime is less than the value of "
+#~ "`LoginCookieValidity`."
+#~ msgstr ""
+#~ "Ger-tremen implijet evit enrinegañ toupinoù pa vez gwiriekaet dre "
+#~ "[kbd]cookie[/kbd]"
+
+#, fuzzy
+#~| msgid "Username:"
+#~ msgid "Proxy username"
+#~ msgstr "Anv implijer :"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Proxy password"
+#~ msgstr "Ger-tremen :"
+
+#, fuzzy
+#~| msgid ""
+#~| "Enable [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] compression for "
+#~| "import and export operations"
+#~ msgid ""
+#~ "Enable [a@http://en.wikipedia.org/wiki/ZIP_(file_format)]ZIP[/a] "
+#~ "compression for import and export operations."
+#~ msgstr ""
+#~ "Gweredekaat ar gwaskañ [a@http://en.wikipedia.org/wiki/Gzip]gzip[/a] evit "
+#~ "an oberiadennoù enporzhiañ hag ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Enable Zero Configuration mode"
+#~ msgstr "Kefluniadur ar servijer"
+
+#, fuzzy
+#~| msgid "Open Document"
+#~ msgid "OpenDocument Spreadsheet"
+#~ msgstr "Testenn Open Document"
+
+#, fuzzy
+#~| msgid "Open Document"
+#~ msgid "OpenDocument Text"
+#~ msgstr "Testenn Open Document"
+
+#~ msgid "Table %s has been emptied."
+#~ msgstr "Goullonderet eo bet an daolenn %s."
+
+#, fuzzy
+#~| msgid "View %s has been dropped."
+#~ msgid "View %s has been dropped."
+#~ msgstr "Diverket eo bet ar Gweled %s"
+
+#, fuzzy
+#~| msgid "Table %s has been dropped."
+#~ msgid "Table %s has been dropped."
+#~ msgstr "Diverket eo bet an daolenn %s"
+
+#~ msgid "Database %1$s has been created."
+#~ msgstr "Krouet eo bet an diaz roadennoù %1$s."
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "%1$d database has been dropped successfully."
+#~ msgid_plural "%1$d databases have been dropped successfully."
+#~ msgstr[0] "Diverket eo bet an diaz roadennoù %s."
+#~ msgstr[1] "Diverket eo bet an diaz roadennoù %s."
+
+#~ msgid "Rows"
+#~ msgstr "Linennoù"
+
+#~ msgid "Total"
+#~ msgstr "Hollad"
+
+#~ msgid "Not replicated"
+#~ msgstr "N'eo ket eilet"
+
+#~ msgid "Replicated"
+#~ msgstr "Eilet"
+
+#, fuzzy
+#~| msgid "Query statistics"
+#~ msgid "Enable statistics"
+#~ msgstr "Stadegoù war ar rekedoù"
+
+#, fuzzy
+#~| msgid "Choose column to display"
+#~ msgid "No data to display"
+#~ msgstr "Dibab ar bann da ziskouez"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "Internal relations were successfully updated."
+#~ msgstr "Diverket eo bet ar sined."
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Table search"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Zoom search"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Hide search criteria"
+#~ msgid "Find and replace"
+#~ msgstr "Kuzhat an dezverkoù klask"
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "No column selected."
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "The columns have been moved successfully."
+#~ msgstr "Diverket eo bet an diaz roadennoù %s."
+
+#, fuzzy
+#~| msgid "Routine %1$s has been modified."
+#~ msgid ""
+#~ "Table %1$s has been altered successfully. Privileges have been adjusted."
+#~ msgstr "Kemmet eo bet an argerzh %1$s."
+
+#~ msgid "Change"
+#~ msgstr "Kemmañ"
+
+#, fuzzy
+#~| msgid "Use this value"
+#~ msgid "Distinct values"
+#~ msgstr "Ober gant an talvoud-mañ"
+
+#, fuzzy
+#~| msgid "Could not load import plugins, please check your installation!"
+#~ msgid "Could not load schema plugins, please check your installation!"
+#~ msgstr "Dibosupl enporzhiañ an adveziantoù. Gwiriit ho staliadur !"
+
+#~ msgid "Password:"
+#~ msgstr "Ger-tremen :"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Password Hashing:"
+#~ msgstr "Ger-tremen :"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "Export templates:"
+#~ msgstr "Seurt ezporzhiadenn"
+
+#, fuzzy
+#~| msgctxt "PDF"
+#~| msgid "page"
+#~ msgid "New template:"
+#~ msgstr "Kemmañ"
+
+#, fuzzy
+#~| msgid "The database name is empty!"
+#~ msgid "Template name"
+#~ msgstr "Goullo eo anv an diaz roadennoù !"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "Template:"
+#~ msgstr "%s daolenn"
+
+#, fuzzy
+#~| msgid "Updated"
+#~ msgid "Update"
+#~ msgstr "Hizivaet"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select a template"
+#~ msgstr "Diuzañ pep tra"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export method:"
+#~ msgstr "Doare ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Databases:"
+#~ msgstr "Diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "Tables:"
+#~ msgstr "Taolennoù"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "Export databases as separate files"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export tables as separate files"
+#~ msgstr "Doare ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select database"
+#~ msgstr "Diuzañ pep tra"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select table"
+#~ msgstr "Diuzañ pep tra"
+
+#, fuzzy
+#~| msgid "The database name is empty!"
+#~ msgid "New database name"
+#~ msgstr "Goullo eo anv an diaz roadennoù !"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "New table name"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "Old column name"
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "New column name"
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "committed on %1$s by %2$s"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "authored on %1$s by %2$s"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Partial import: skip queries"
+#~ msgid "Partial import:"
+#~ msgstr "Enporzhiañ darnek : lezel ar rekedoù a gostez"
+
+#, fuzzy
+#~| msgid ""
+#~| "Allow interrupt of import in case script detects it is close to time "
+#~| "limit. This might be a good way to import large files, however it can "
+#~| "break transactions."
+#~ msgid ""
+#~ "Allow the interruption of an import in case the script detects it is "
+#~ "close to the PHP timeout limit. <i>(This might be a good way to import "
+#~ "large files, however it can break transactions.)</i>"
+#~ msgstr ""
+#~ "Aotren paouez gant an enporzhiañ m'emeur war-nes tizhout ar vevenn amzer. "
+#~ "Gallout a ra sikour da enporzhiañ restroù bras, ha pa c'hallfe terriñ "
+#~ "treuzgreadoù zo."
+
+#, fuzzy
+#~| msgid "Operations"
+#~ msgid "Other options:"
+#~ msgstr "Oberiadennoù"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Uploading your import file…"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#~ msgid "Insufficient space to save the file %s."
+#~ msgstr "N'eus ket pealec'h da enrollañ ar restr %s."
+
+#~ msgid ""
+#~ "File %s already exists on server, change filename or check overwrite "
+#~ "option."
+#~ msgstr ""
+#~ "Emañ ar restr %s war ar servijer c'hoazh; cheñch an anv pe gwiriañ al log "
+#~ "frikañ ar restroù."
+
+#~ msgid "The web server does not have permission to save the file %s."
+#~ msgstr "N'eo ket aotreet ar servijer web da enrollañ ar restr %s."
+
+#~ msgid "Dump has been saved to file %s."
+#~ msgstr "Enrollet eo bet ar restr ezporzhiañ e%s."
+
+#~ msgid "MySQL returned an empty result set (i.e. zero rows)."
+#~ msgstr "Distroet ez eus un disoc'h goullo gant MySQL (linenn ebet)."
+
+#, fuzzy
+#~| msgid "Jump to database"
+#~ msgid "Go to database: %s"
+#~ msgstr "Mont d'an diaz roadennoù"
+
+#, fuzzy
+#~| msgid "Missing data for %s"
+#~ msgid "Edit settings for %s"
+#~ msgstr "Roadennoù a vank evit %s"
+
+#, fuzzy
+#~| msgid "Set value: %s"
+#~ msgid "Go to table: %s"
+#~ msgstr "Lakaat an talvoud da %s"
+
+#, fuzzy
+#~| msgid "Structure only"
+#~ msgid "Structure of %s"
+#~ msgstr "Ar framm hepken"
+
+#~ msgid "Hide"
+#~ msgstr "Kuzhat"
+
+#~ msgid "Or"
+#~ msgstr "Pe"
+
+#, fuzzy
+#~| msgid "Select from the web server upload directory <b>%s</b>:"
+#~ msgid "web server upload directory:"
+#~ msgstr "Diuzit e-mesk kavlec'h pellgargañ ar servijer web <b>%s</b> :"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgid "Edit/Insert"
+#~ msgstr "Ensoc'hañ"
+
+#~ msgid "Structure only"
+#~ msgstr "Ar framm hepken"
+
+#~ msgid "Structure and data"
+#~ msgstr "Ar framm hag ar roadennoù ennañ"
+
+#~ msgid "Data only"
+#~ msgstr "Ar roadennoù hepken"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "Add AUTO INCREMENT value"
+#~ msgstr "Ouzhpennañ talvoud an AUTO_INCREMENT"
+
+#~ msgid "Add constraints"
+#~ msgstr "Ouzhpennañ ar strishadurioù"
+
+#, fuzzy
+#~| msgid "Reloading Privileges"
+#~ msgid "Adjust privileges"
+#~ msgstr "Oc'h adkargañ an dreistgwirioù"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute the following query?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Username:"
+#~ msgid "Groups:"
+#~ msgstr "Anv implijer :"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Functions:"
+#~ msgstr "Kevreadennoù"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "Procedures:"
+#~ msgstr "Argerzhioù"
+
+#, fuzzy
+#~| msgid "View"
+#~ msgid "Views:"
+#~ msgstr "Gwelet"
+
+#~ msgid "Show"
+#~ msgstr "Diskouez"
+
+#~ msgid "phpMyAdmin documentation"
+#~ msgstr "Teuliadur phpMyAdmin"
+
+#, fuzzy
+#~| msgid "Navigation frame"
+#~ msgid "Navigation panel settings"
+#~ msgstr "Taolenn verdeiñ"
+
+#, fuzzy
+#~| msgid "Navigation frame"
+#~ msgid "Reload navigation panel"
+#~ msgstr "Taolenn verdeiñ"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Clear fast filter"
+#~ msgstr "Enrollañ evel restr"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Could not load class \"%1$s\""
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Databases display options"
+#~ msgid "Database operations"
+#~ msgstr "Dibarzhioù diskwel an diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Show indexes"
+#~ msgid "Show hidden items"
+#~ msgstr "Diskouez menegerioù"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "Procedure"
+#~ msgstr "Argerzhioù"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Select one…"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Inside column:"
+#~ msgid "No such column"
+#~ msgstr "Er bann :"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "+ Add a new primary key column"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Remove redundant columns"
+#~ msgstr "Dilemel ar grafik"
+
+#, fuzzy
+#~| msgid "Removing Selected Users"
+#~ msgid "Remove selected"
+#~ msgstr "O lemel kuit an implijerien diuzet"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "No redundant column"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Error in processing request"
+#~ msgid "Error in processing!"
+#~ msgstr "Fazi en ur seveniñ ar reked"
+
+#, fuzzy
+#~| msgid "Sep"
+#~ msgid "Step 3."
+#~ msgstr "Gwen"
+
+#, fuzzy
+#~| msgid "Include table caption"
+#~ msgid "Improve table structure (Normalization):"
+#~ msgstr "Enklozañ an istitloù"
+
+#, fuzzy
+#~| msgid "Rename database to"
+#~ msgid "Rename database to"
+#~ msgstr "Cheñch anv an diaz roadennoù hag e envel"
+
+#~ msgid "Database %s has been dropped."
+#~ msgstr "Diverket eo bet an diaz roadennoù %s."
+
+#~ msgid "Remove database"
+#~ msgstr "Dilemel an diaz roadennoù"
+
+#~ msgid "Drop the database (DROP)"
+#~ msgstr "Diverkañ an diaz roadennoù (DROP)"
+
+#, fuzzy
+#~| msgid "Copy database to"
+#~ msgid "Copy database to"
+#~ msgstr "Eilañ an diaz roadennoù war"
+
+#~ msgid "CREATE DATABASE before copying"
+#~ msgstr "KROUIÑ AN DIAZ ROADENNOÙ a-raok eilañ"
+
+#~ msgid "Switch to copied database"
+#~ msgstr "Mont d'an diaz roadennoù eilet"
+
+#~ msgid "Table comments"
+#~ msgstr "Evezhiadennoù diwar-benn an daolenn"
+
+#~ msgid "Analyze table"
+#~ msgstr "Dielfennañ an daolenn"
+
+#~ msgid "Check table"
+#~ msgstr "Gwiriañ an daolenn"
+
+#, fuzzy
+#~| msgid "Check table"
+#~ msgid "Checksum table"
+#~ msgstr "Gwiriañ an daolenn"
+
+#~ msgid "Optimize table"
+#~ msgstr "Lakaat an daolenn diouzh ar gwellañ"
+
+#~ msgid "Repair table"
+#~ msgstr "Dresañ an daolenn"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgid "Coalesce"
+#~ msgstr "Serriñ"
+
+#, fuzzy
+#~| msgid "Routine %1$s has been modified."
+#~ msgid "Table %s has been moved to %s. Privileges have been adjusted."
+#~ msgstr "Kemmet eo bet an argerzh %1$s."
+
+#, fuzzy
+#~| msgid "Routine %1$s has been modified."
+#~ msgid "Table %s has been copied to %s. Privileges have been adjusted."
+#~ msgstr "Kemmet eo bet an argerzh %1$s."
+
+#~ msgid ""
+#~ "Login without a password is forbidden by configuration (see "
+#~ "AllowNoPassword)"
+#~ msgstr ""
+#~ "Berzet eo kevreañ hep ger-tremen gant ar c'hefluniadur (gwelet "
+#~ "AllowNoPassword)"
+
+#~ msgid "No activity within %s seconds; please log in again."
+#~ msgstr "Tamm obererezh ebet abaoe %s eilenn; kevreit en-dro."
+
+#~ msgid "Cannot log in to the MySQL server"
+#~ msgstr "Dibosupl kevreañ ouzh ar servijer MySQL"
+
+#~ msgid "Cannot connect: invalid settings."
+#~ msgstr "Dibosupl kevreañ : arventennoù direizh."
+
+#~ msgid "Welcome to %s"
+#~ msgstr "Degemer mat e %s"
+
+#~ msgid ""
+#~ "You probably did not create a configuration file. You might want to use "
+#~ "the %1$ssetup script%2$s to create one."
+#~ msgstr ""
+#~ "Evit doare n'hoc'h eus krouet a restr kefluniañ. Gallout a rit implijout "
+#~ "ar %1$sskript kefluniañ%2$s da sevel unan."
+
+#~ msgid ""
+#~ "phpMyAdmin tried to connect to the MySQL server, and the server rejected "
+#~ "the connection. You should check the host, username and password in your "
+#~ "configuration and make sure that they correspond to the information given "
+#~ "by the administrator of the MySQL server."
+#~ msgstr ""
+#~ "Klasket en deus phpMyAdmin kevreañ ouzh ar servijer MySQL ha nac'het eo "
+#~ "bet ar gevreadenn gantañ. Gwiriit mat talvoudoù an ostiz, an anv implijer "
+#~ "hag ar ger-tremen en ho kefluniadur ha bezit sur e klotont gant an "
+#~ "titouroù pourchaset gant merour ar servijer MySQL."
+
+#~ msgid "Log in"
+#~ msgstr "Kevreañ"
+
+#~ msgid "You can enter hostname/IP address and port separated by space."
+#~ msgstr ""
+#~ "Gallout a rit merkañ anv ar servijer pe e chomlec'h IP, gant ar porzh "
+#~ "dispartiet dre un esaouenn."
+
+#~ msgid "Username:"
+#~ msgstr "Anv implijer :"
+
+#, fuzzy
+#~| msgid "Server Choice"
+#~ msgid "Server Choice:"
+#~ msgstr "Dibab ar servijer"
+
+#, fuzzy
+#~| msgid "Cannot log in to the MySQL server"
+#~ msgid "You are not allowed to log in to this MySQL server!"
+#~ msgstr "Dibosupl kevreañ ouzh ar servijer MySQL"
+
+#~ msgid "Wrong username/password. Access denied."
+#~ msgstr "Ger-tremen/anv implijer fall. Moned nac'het."
+
+#~ msgid "Can not find signon authentication script:"
+#~ msgstr "N'hall ket kavout ar skript dilesa evit ar mod \"signon\" :"
+
+#, fuzzy
+#~| msgid "Table caption"
+#~ msgid "Table caption:"
+#~ msgstr "Istitl eus an daolenn"
+
+#, fuzzy
+#~| msgid "Table caption"
+#~ msgid "Table caption (continued):"
+#~ msgstr "Istitl eus an daolenn"
+
+#, fuzzy
+#~| msgid "Label key"
+#~ msgid "Label key:"
+#~ msgstr "Alc'hwez an dikedenn"
+
+#, fuzzy
+#~| msgid "Put columns names in the first row"
+#~ msgid "Put columns names in the first row:"
+#~ msgstr "Diskouez anvioù ar bannoù diouzhtu el linenn gentañ"
+
+#, fuzzy
+#~| msgid "Generate"
+#~ msgid "Generation Time:"
+#~ msgstr "Genel"
+
+#, fuzzy
+#~| msgid "Versions"
+#~ msgid "PHP Version:"
+#~ msgstr "Stummoù"
+
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database:"
+#~ msgstr "Diaz roadennoù"
+
+#, fuzzy
+#~| msgid "Data"
+#~ msgid "Data:"
+#~ msgstr "Roadennoù"
+
+#, fuzzy
+#~| msgid "Structure"
+#~ msgid "Structure:"
+#~ msgstr "Framm"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "Export table names"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export table headers"
+#~ msgstr "Doare ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Dump table"
+#~ msgid "Dumping data"
+#~ msgstr "Ezporzhiañ an daolenn"
+
+#, fuzzy
+#~| msgid "structure"
+#~ msgid "View structure"
+#~ msgstr "Framm"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export metadata"
+#~ msgstr "Doare ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Use this value"
+#~ msgid "%s value"
+#~ msgstr "Ober gant an talvoud-mañ"
+
+#, fuzzy
+#~| msgid "Databases display options"
+#~ msgid "Data creation options"
+#~ msgstr "Dibarzhioù diskwel an diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Missing data for %s"
+#~ msgid "Metadata"
+#~ msgstr "Roadennoù a vank evit %s"
+
+#, fuzzy
+#~| msgid "Missing data for %s"
+#~ msgid "Metadata for table %s"
+#~ msgstr "Roadennoù a vank evit %s"
+
+#, fuzzy
+#~| msgid "Missing data for %s"
+#~ msgid "Metadata for database %s"
+#~ msgstr "Roadennoù a vank evit %s"
+
+#~ msgid "Creation:"
+#~ msgstr "Krouiñ :"
+
+#~ msgid "Last update:"
+#~ msgstr "Hizivadenn ziwezhañ :"
+
+#~ msgid "Last check:"
+#~ msgstr "Gwiriet da ziwezhañ :"
+
+#~ msgid "in use"
+#~ msgstr "en implij"
+
+#, fuzzy
+#~| msgid "Inside tables:"
+#~ msgid "Indexes for dumped tables"
+#~ msgstr "E diabarzh an taolennoù :"
+
+#, fuzzy
+#~| msgid "Inside tables:"
+#~ msgid "Indexes for table"
+#~ msgstr "E diabarzh an taolennoù :"
+
+#, fuzzy
+#~| msgid "Do not use AUTO_INCREMENT for zero values"
+#~ msgid "AUTO_INCREMENT for dumped tables"
+#~ msgstr "Arabat ober gant AUTO_INCREMENT evit an talvoudoù par da mann"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "AUTO_INCREMENT for table"
+#~ msgstr "Ouzhpennañ talvoud an AUTO_INCREMENT"
+
+#, fuzzy
+#~| msgid "Table"
+#~ msgid "Table:"
+#~ msgstr "Taolenn"
+
+#, fuzzy
+#~| msgid "MIME type"
+#~ msgid "MIME"
+#~ msgstr "Seurt MIME"
+
+#, fuzzy
+#~| msgid "Open Document"
+#~ msgid "Could not parse OpenDocument Spreadsheet!"
+#~ msgstr "Testenn Open Document"
+
+#, fuzzy
+#~| msgid "File %s does not contain any key id"
+#~ msgid "The imported file does not contain any data!"
+#~ msgstr "N'eus anaouder alc'hwez ebet er restr %s"
+
+#, fuzzy
+#~| msgid "Point"
+#~ msgid "Portrait"
+#~ msgstr "Poent"
+
+#, fuzzy
+#~| msgid "Data Dictionary"
+#~ msgid "Data dictionary"
+#~ msgstr "Geriadur roadennoù"
+
+#, fuzzy
+#~| msgid "neither of the above"
+#~ msgid "Order of the tables"
+#~ msgstr "Dibab ebet a-zouez ar re zo a-us"
+
+#, fuzzy
+#~| msgid "Ascending"
+#~ msgid "Name (Ascending)"
+#~ msgstr "War gresk"
+
+#, fuzzy
+#~| msgid "Descending"
+#~ msgid "Name (Descending)"
+#~ msgstr "War zigresk"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "PDF export page"
+#~ msgstr "Seurt ezporzhiadenn direizh"
+
+#, fuzzy
+#~| msgid "Search in database"
+#~ msgid "Schema of the %s database"
+#~ msgstr "Klask en diaz roadennoù"
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "Error: FOREIGN KEY relation could not be added!"
+#~ msgstr "N'haller ket lenn ar restr"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "Internal relation has been added."
+#~ msgstr "Diverket eo bet ar sined."
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "Error: Internal relation could not be added!"
+#~ msgstr "N'haller ket lenn ar restr"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "FOREIGN KEY relation has been removed."
+#~ msgstr "Diverket eo bet ar sined."
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "Error: FOREIGN KEY relation could not be removed!"
+#~ msgstr "N'haller ket lenn ar restr"
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "Error: Internal relation could not be removed!"
+#~ msgstr "N'haller ket lenn ar restr"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "Internal relation has been removed."
+#~ msgstr "Diverket eo bet ar sined."
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly working"
+#~ msgid "OK"
+#~ msgstr "Mat eo"
+
+#, fuzzy
+#~| msgid "Configuration file"
+#~ msgid "Configuration of pmadb…"
+#~ msgstr "Restr gefluniañ"
+
+#, fuzzy
+#~| msgid "There are no recent tables"
+#~ msgid "Persistent favorite tables"
+#~ msgstr "N'eus taolenn nevez ebet"
+
+#, fuzzy
+#~| msgid "Configuration file"
+#~ msgid "Configurable menus"
+#~ msgstr "Restr gefluniañ"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "Saving export templates"
+#~ msgstr "Seurt ezporzhiadenn direizh"
+
+#, fuzzy
+#~| msgid ""
+#~| "Tracking of changes made in database. Requires the phpMyAdmin "
+#~| "configuration storage."
+#~ msgid ""
+#~ "%sCreate%s a database named 'phpmyadmin' and setup the phpMyAdmin "
+#~ "configuration storage there."
+#~ msgstr ""
+#~ "Heuliañ ar c'hemmoù graet en diaz roadennoù. Rekis eo kaout ar stokañ "
+#~ "kefluniadurioù phpMyAdmin."
+
+#, fuzzy
+#~| msgid ""
+#~| "Tracking of changes made in database. Requires the phpMyAdmin "
+#~| "configuration storage."
+#~ msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
+#~ msgstr ""
+#~ "Heuliañ ar c'hemmoù graet en diaz roadennoù. Rekis eo kaout ar stokañ "
+#~ "kefluniadurioù phpMyAdmin."
+
+#, fuzzy
+#~| msgid "Force SSL connection"
+#~ msgid "Master connection:"
+#~ msgstr "Rediañ ar c'hevreadennoù SSL"
+
+#, fuzzy
+#~| msgid "Username:"
+#~ msgid "User name:"
+#~ msgstr "Anv implijer :"
+
+#, fuzzy
+#~| msgid "Text fields"
+#~ msgid "Use text field:"
+#~ msgstr "Maeziennoù testenn"
+
+#, fuzzy
+#~| msgid "Generate password"
+#~ msgid "Generate password:"
+#~ msgstr "Genel ur ger-tremen"
+
+#, fuzzy
+#~| msgid "Error"
+#~ msgid "Error."
+#~ msgstr "Fazi"
+
+#~ msgid "The following query has failed: \"%s\""
+#~ msgstr "C'hwitet eo bet ar reked da-heul : \"%s\""
+
+#, fuzzy
+#~| msgid "Sorry, we failed to restore the dropped routine."
+#~ msgid "Sorry, we failed to restore the dropped event."
+#~ msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
+
+#, fuzzy
+#~| msgid "Routine %1$s has been modified."
+#~ msgid "Event %1$s has been modified."
+#~ msgstr "Kemmet eo bet an argerzh %1s."
+
+#, fuzzy
+#~| msgid "Routine %1$s has been created."
+#~ msgid "Event %1$s has been created."
+#~ msgstr "Krouet eo bet an argerzh %1s."
+
+#, fuzzy
+#~| msgid ""
+#~| "<b>One or more errors have occured while processing your request:</b>"
+#~ msgid "One or more errors have occurred while processing your request:"
+#~ msgstr "<b>Ur fazi, pe meur a hini, zo bet en ur seveniñ ho koulenn :</b>"
+
+#, fuzzy
+#~| msgid "Execute"
+#~ msgid "Execute at"
+#~ msgstr "Seveniñ"
+
+#, fuzzy
+#~| msgid "Execute"
+#~ msgid "Execute every"
+#~ msgstr "Seveniñ"
+
+#, fuzzy
+#~| msgid "Startup"
+#~ msgctxt "Start of recurring event"
+#~ msgid "Start"
+#~ msgstr "Pajenn deraouiñ"
+
+#, fuzzy
+#~| msgid "End"
+#~ msgctxt "End of recurring event"
+#~ msgid "End"
+#~ msgstr "Fin"
+
+#, fuzzy
+#~| msgid "complete inserts"
+#~ msgid "On completion preserve"
+#~ msgstr "Ensoc'hadennoù sevenet"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "You must provide an event name!"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Error in processing request"
+#~ msgid "Error in processing request:"
+#~ msgstr "Fazi en ur seveniñ ar reked"
+
+#~ msgid "The backed up query was:"
+#~ msgstr "Setu amañ ar reked a oa bet miret :"
+
+#, fuzzy
+#~| msgid ""
+#~| "You are using PHP's deprecated 'mysql' extension, which is not capable "
+#~| "of handling multi queries. <b>The execution of some stored routines may "
+#~| "fail!</b> Please use the improved 'mysqli' extension to avoid any "
+#~| "problems."
+#~ msgid ""
+#~ "You are using PHP's deprecated 'mysql' extension, which is not capable of "
+#~ "handling multi queries. [strong]The execution of some stored routines may "
+#~ "fail![/strong] Please use the improved 'mysqli' extension to avoid any "
+#~ "problems."
+#~ msgstr ""
+#~ "Emaoc'h oc'h implijout an astenn PHP 'mysql' a zo dispredet. N'hall ket "
+#~ "merañ ar rekedoù lies. <b>Gallout a ra ar seveniñ argerzhioù stoket zo "
+#~ "c'hwitañ !</b> Grit gant an astenn 'mysqli' gwellaet, kuit da gaout "
+#~ "kudennoù."
+
+#~ msgid "Edit routine"
+#~ msgstr "Kemmañ un argerzh"
+
+#~ msgid "Invalid routine type: \"%s\""
+#~ msgstr "Seurt argerzh faziek : \"%s\""
+
+#~ msgid "Routine %1$s has been created."
+#~ msgstr "Krouet eo bet an argerzh %1$s."
+
+#~ msgid "Sorry, we failed to restore the dropped routine."
+#~ msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
+
+#, fuzzy
+#~| msgid "Routine %1$s has been modified."
+#~ msgid "Routine %1$s has been modified. Privileges have been adjusted."
+#~ msgstr "Kemmet eo bet an argerzh %1$s."
+
+#~ msgid "Routine %1$s has been modified."
+#~ msgstr "Kemmet eo bet an argerzh %1$s."
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "You must provide a routine name!"
+#~ msgstr "Anv taolenn direizh"
+
+#~ msgid "Execution results of routine %s"
+#~ msgstr "Disoc'hoù seveniñ an argerzh %s"
+
+#, fuzzy
+#~| msgid "%d row affected by the last statement inside the procedure"
+#~| msgid_plural "%d rows affected by the last statement inside the procedure"
+#~ msgid "%d row affected by the last statement inside the procedure."
+#~ msgid_plural "%d rows affected by the last statement inside the procedure."
+#~ msgstr[0] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
+#~ msgstr[1] "Tizhet ez eus bet %d linenn dre embannadenn ziwezhañ an argerzh"
+
+#~ msgid "Execute routine"
+#~ msgstr "Seveniñ an argerzh"
+
+#, fuzzy
+#~| msgid "Sorry, we failed to restore the dropped routine."
+#~ msgid "Sorry, we failed to restore the dropped trigger."
+#~ msgstr "Ho tigarez, disposupl eo bet assevel an argerzh."
+
+#, fuzzy
+#~| msgid "Routine %1$s has been modified."
+#~ msgid "Trigger %1$s has been modified."
+#~ msgstr "Kemmet eo bet an argerzh %1s."
+
+#, fuzzy
+#~| msgid "Routine %1$s has been created."
+#~ msgid "Trigger %1$s has been created."
+#~ msgstr "Krouet eo bet an argerzh %1s."
+
+#, fuzzy
+#~| msgid "Edit routine"
+#~ msgid "Edit trigger"
+#~ msgstr "Kemmañ un argerzh"
+
+#, fuzzy
+#~| msgid "Theme"
+#~ msgctxt "Trigger action time"
+#~ msgid "Time"
+#~ msgstr "Tem"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "You must provide a trigger name!"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "You must provide a valid timing for the trigger!"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "You must provide a valid event for the trigger!"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "You must provide a valid table name!"
+#~ msgstr "Anv taolenn direizh"
+
+#~ msgid "Export of routine %s"
+#~ msgstr "Ezporzhiañ an argerzh %s"
+
+#, fuzzy
+#~| msgid "Edit routine"
+#~ msgid "routine"
+#~ msgstr "Kemmañ un argerzh"
+
+#~ msgid "No routine with name %1$s found in database %2$s"
+#~ msgstr ""
+#~ "N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
+
+#, fuzzy
+#~| msgid "Add user"
+#~ msgid "Add trigger"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#, fuzzy
+#~| msgid "No routine with name %1$s found in database %2$s"
+#~ msgid "No trigger with name %1$s found in database %2$s"
+#~ msgstr ""
+#~ "N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
+
+#, fuzzy
+#~| msgid "No routine with name %1$s found in database %2$s"
+#~ msgid "No event with name %1$s found in database %2$s"
+#~ msgstr ""
+#~ "N'eus bet kavet argerzh ebet gantañ an anv a %1$s en diaz roadennoù %2$s"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "Current server:"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Force SSL connection"
+#~ msgid "Does not require SSL-encrypted connections."
+#~ msgstr "Rediañ ar c'hevreadennoù SSL"
+
+#, fuzzy
+#~| msgid "Force SSL connection"
+#~ msgid "Requires SSL-encrypted connections."
+#~ msgstr "Rediañ ar c'hevreadennoù SSL"
+
+#, fuzzy
+#~| msgid "Edit routine"
+#~ msgid "Routine"
+#~ msgstr "Kemmañ un argerzh"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "Native MySQL authentication"
+#~ msgstr "Dilesadur"
+
+#, fuzzy
+#~| msgid "Change Password"
+#~ msgid "SHA256 password authentication"
+#~ msgstr "Cheñch ger-tremen"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "Native MySQL Authentication"
+#~ msgstr "Dilesadur"
+
+#, fuzzy
+#~| msgid "Username:"
+#~ msgid "Host name:"
+#~ msgstr "Anv implijer :"
+
+#, fuzzy
+#~| msgid "Add constraints"
+#~ msgid "Host name"
+#~ msgstr "Ouzhpennañ ar strishadurioù"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "Authentication Plugin"
+#~ msgstr "Dilesadur"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Password Hashing Method"
+#~ msgstr "Ger-tremen :"
+
+#, fuzzy
+#~| msgid "Add user"
+#~ msgid "Add user account"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#, fuzzy
+#~| msgid "Databases display options"
+#~ msgid "Database for user account"
+#~ msgstr "Dibarzhioù diskwel an diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Reloading Privileges"
+#~ msgid "Edit privileges"
+#~ msgstr "Oc'h adkargañ an dreistgwirioù"
+
+#, fuzzy
+#~| msgid "Check Privileges"
+#~ msgid "Routine-specific privileges"
+#~ msgstr "Gwiriañ ar gwirioù"
+
+#, fuzzy
+#~| msgid "Removing Selected Users"
+#~ msgid "Remove selected user accounts"
+#~ msgstr "O lemel kuit an implijerien diuzet"
+
+#, fuzzy
+#~| msgid "Check Privileges"
+#~ msgid "Privileges for %s"
+#~ msgstr "Gwiriañ ar gwirioù"
+
+#, fuzzy
+#~| msgid "Reloading Privileges"
+#~ msgid "Edit privileges:"
+#~ msgstr "Oc'h adkargañ an dreistgwirioù"
+
+#, fuzzy
+#~| msgid "Force SSL connection"
+#~ msgid "Max. concurrent connections"
+#~ msgstr "Rediañ ar c'hevreadennoù SSL"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Instructions"
+#~ msgstr "Kevreadennoù"
+
+#, fuzzy
+#~| msgid "Query statistics"
+#~ msgid "Log statistics"
+#~ msgstr "Stadegoù war ar rekedoù"
+
+#, fuzzy
+#~| msgid "Pause monitor"
+#~ msgid "Using the monitor:"
+#~ msgstr "Paouez gant an evezhiañ"
+
+#~ msgid "Chart Title"
+#~ msgstr "Titl ar grafik"
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Preset chart"
+#~ msgstr "Dilemel ar grafik"
+
+#, fuzzy
+#~| msgid "Select Foreign Key"
+#~ msgid "Select series:"
+#~ msgstr "Diuzit an alc'hwez estren"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "or type variable name:"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Add user"
+#~ msgid "Add this series"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Series in chart:"
+#~ msgstr "Dilemel ar grafik"
+
+#, fuzzy
+#~| msgid "Refresh"
+#~ msgid "Refresh rate"
+#~ msgstr "Freskaat"
+
+#, fuzzy
+#~| msgid "CHAR textarea columns"
+#~ msgid "Chart columns"
+#~ msgstr "Bannoù evit an takadoù skrid CHAR"
+
+#, fuzzy
+#~| msgid "Restore default value"
+#~ msgid "Reset to default"
+#~ msgstr "Adlakaat an talvoud dre ziouer"
+
+#~ msgid "Command"
+#~ msgstr "Urzhiad"
+
+# verb pe ak. ?
+#, fuzzy
+#~| msgid "Filter"
+#~ msgid "Filters"
+#~ msgstr "Silañ"
+
+#, fuzzy
+#~| msgid "not active"
+#~ msgid "Show only active"
+#~ msgstr "dizoberiant"
+
+#, fuzzy
+#~| msgid "Customize startup page"
+#~ msgid "Questions since startup: %s"
+#~ msgstr "Personelaat ar bajenn deraouiñ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of used key cache (calculated value)"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "Thread cache hit rate (calculated value)"
+#~ msgstr "N'eo ket oberiant an heuliañ."
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Server level tabs"
+#~ msgstr "Stumm diwezhañ"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database level tabs"
+#~ msgstr "Diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Table level tabs"
+#~ msgstr "Evezhiadennoù diwar-benn an daolenn"
+
+#, fuzzy
+#~ msgid "View users"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#, fuzzy
+#~| msgid "Add user"
+#~ msgid "Add user group"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#, fuzzy
+#~| msgid "Username:"
+#~ msgid "Group name:"
+#~ msgstr "Anv implijer :"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Server-level tabs"
+#~ msgstr "Stumm diwezhañ"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database-level tabs"
+#~ msgstr "Diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Table-level tabs"
+#~ msgstr "Evezhiadennoù diwar-benn an daolenn"
+
+#, fuzzy
+#~| msgid "Other"
+#~ msgid "Order"
+#~ msgstr "Udb all"
+
+#, fuzzy
+#~| msgid "Startup"
+#~ msgid "State"
+#~ msgstr "Pajenn deraouiñ"
+
+#, fuzzy
+#~| msgid "Total:"
+#~ msgid "Total Time"
+#~ msgstr "Hollad :"
+
+#, fuzzy
+#~| msgid "Theme"
+#~ msgid "% Time"
+#~ msgstr "Tem"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgid "Calls"
+#~ msgstr "Serriñ"
+
+#, fuzzy
+#~| msgid "Theme"
+#~ msgid "ø Time"
+#~ msgstr "Tem"
+
+#, fuzzy
+#~| msgid "Label key"
+#~ msgid "Label:"
+#~ msgstr "Alc'hwez an dikedenn"
+
+#, fuzzy
+#~| msgid "Bookmark %s created"
+#~ msgid "Bookmark not created!"
+#~ msgstr "Krouet eo bet ar sined %s"
+
+#, fuzzy
+#~| msgid "SQL query on database <b>%s</b>:"
+#~ msgid "Run SQL query/queries on table %s"
+#~ msgstr "Reked SQL ouzh an diaz roadennoù <b>%s</b> :"
+
+#, fuzzy
+#~| msgid "Bad parameters!"
+#~ msgid "Bind parameters"
+#~ msgstr "Arventennoù fall !"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "Create version %1$s of %2$s"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "Create version %1$s"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Missing data for %s"
+#~ msgid "Activate tracking for %s"
+#~ msgstr "Roadennoù a vank evit %s"
+
+#, fuzzy
+#~| msgid "Delete tracking data for this table"
+#~ msgid "Deactivate tracking for %s"
+#~ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
+
+#~ msgid "Created"
+#~ msgstr "Krouet"
+
+#~ msgid "Updated"
+#~ msgstr "Hizivaet"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Delete version"
+#~ msgstr "Stumm diwezhañ"
+
+#~ msgid "Tracking report"
+#~ msgstr "Danevell heuliañ"
+
+#~ msgid "Structure snapshot"
+#~ msgstr "Gwel prim eus ar framm"
+
+#~ msgid "active"
+#~ msgstr "oberiant"
+
+#~ msgid "not active"
+#~ msgstr "dizoberiant"
+
+#, fuzzy
+#~| msgid "Tracking is active."
+#~ msgid "Tracking for %1$s was activated at version %2$s."
+#~ msgstr "Oberiant eo an heuliañ."
+
+#, fuzzy
+#~| msgid "Tracking is active."
+#~ msgid "Tracking for %1$s was deactivated at version %2$s."
+#~ msgstr "Oberiant eo an heuliañ."
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "Version %1$s of %2$s was deleted."
+#~ msgstr "Arventennoù pouezus all"
+
+#~ msgid "Untracked tables"
+#~ msgstr "Taolennoù n'int ket heuliet"
+
+#~ msgid "Track table"
+#~ msgstr "Heuliañ an daolenn"
+
+#~ msgid "Tracked tables"
+#~ msgstr "Taolennoù heuliet-pizh"
+
+#~ msgid "Last version"
+#~ msgstr "Stumm diwezhañ"
+
+#, fuzzy
+#~| msgid "Deleting tracking data"
+#~ msgid "Delete tracking"
+#~ msgstr "O tiverkañ ar roadennoù heuliañ"
+
+#~ msgid "Versions"
+#~ msgstr "Stummoù"
+
+#~ msgid "Invalid table name"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "No row selected."
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#, fuzzy
+#~| msgid "Tracking is active."
+#~ msgid "Tracking of %s is activated."
+#~ msgstr "Oberiant eo an heuliañ."
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Tracking versions deleted successfully."
+#~ msgstr "Diverket eo bet an diaz roadennoù %s."
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "No versions selected."
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#, fuzzy
+#~| msgid "Collation"
+#~ msgid "Collation:"
+#~ msgstr "Etrerummadiñ"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Connection:"
+#~ msgstr "Kevreadennoù"
+
+#, fuzzy
+#~| msgid "Select referenced key"
+#~ msgid "Referenced by %s."
+#~ msgstr "Diuzit an alc'hwez daveet"
+
+#, fuzzy
+#~| msgid "Select Foreign Key"
+#~ msgid "Is a foreign key."
+#~ msgstr "Diuzit an alc'hwez estren"
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Pick from Central Columns"
+#~ msgstr "Dilemel ar grafik"
+
+#, fuzzy
+#~| msgid "Compression"
+#~ msgid "Expression"
+#~ msgstr "Gwaskadur"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition by:"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Values for the column \"%s\""
+#~ msgid "Expression or column list"
+#~ msgstr "Talvoudoù evit ar bann \"%s\""
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partitions:"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartition by:"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartitions:"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Use this value"
+#~ msgid "Values"
+#~ msgstr "Ober gant an talvoud-mañ"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartition"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Data Dictionary"
+#~ msgid "Data directory"
+#~ msgstr "Geriadur roadennoù"
+
+#, fuzzy
+#~| msgid "Affected rows:"
+#~ msgid "Max rows"
+#~ msgstr "Linennoù a sell outo :"
+
+#, fuzzy
+#~| msgid "rows"
+#~ msgid "Min rows"
+#~ msgstr "Furchal"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Table space"
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Add user"
+#~ msgid "Node group"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#, fuzzy
+#~| msgid "Inside column:"
+#~ msgid "Move column"
+#~ msgstr "Er bann :"
+
+#, fuzzy
+#~| msgid "Servers display options"
+#~ msgid "Browser display transformation"
+#~ msgstr "Dibarzhioù diskwel ar servijerioù"
+
+#, fuzzy
+#~| msgid "Servers display options"
+#~ msgid "Browser display transformation options"
+#~ msgstr "Dibarzhioù diskwel ar servijerioù"
+
+#, fuzzy
+#~| msgid "Databases display options"
+#~ msgid "Input transformation options"
+#~ msgstr "Dibarzhioù diskwel an diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Show/hide columns"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "See table structure"
+#~ msgstr "Diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Page titles"
+#~ msgid "Page to open"
+#~ msgstr "Titloù pajennoù"
+
+#, fuzzy
+#~| msgid "Page titles"
+#~ msgid "Page to delete"
+#~ msgstr "Titloù pajennoù"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "Save to selected page"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show/Hide tables list"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgctxt "PDF"
+#~| msgid "page"
+#~ msgid "New page"
+#~ msgstr "Kemmañ"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Delete pages"
+#~ msgstr "Diverkañ"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Export schema"
+#~ msgstr "Ezporzhiañ"
+
+#, fuzzy
+#~| msgid "Point"
+#~ msgid "Pin text"
+#~ msgstr "Poent"
+
+#, fuzzy
+#~| msgid "Number of inserted rows"
+#~ msgid "Number of tables:"
+#~ msgstr "Niver a linennoù da ensoc'hañ"
+
+#~ msgid "%s table"
+#~ msgid_plural "%s tables"
+#~ msgstr[0] "%s daolenn"
+#~ msgstr[1] "%s taolenn"
+
+#~ msgid "Sum"
+#~ msgstr "Sammad"
+
+#~ msgid "Check tables having overhead"
+#~ msgstr "Askañ an taolennoù gant dilerc'hioù"
+
+#, fuzzy
+#~| msgid "Dump table"
+#~ msgid "Copy table"
+#~ msgstr "Ezporzhiañ an daolenn"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show create"
+#~ msgstr "Diskouez pep tra"
+
+#~ msgid "Add prefix to table"
+#~ msgstr "Ouzhpennañ ur rakger d'an daolenn"
+
+#~ msgid "Replace table prefix"
+#~ msgstr "Erlec'hiañ rakger an daolenn"
+
+#, fuzzy
+#~| msgid "CHAR textarea columns"
+#~ msgid "Add columns to central list"
+#~ msgstr "Bannoù evit an takadoù skrid CHAR"
+
+#, fuzzy
+#~| msgid "CHAR textarea columns"
+#~ msgid "Make consistent with central list"
+#~ msgstr "Bannoù evit an takadoù skrid CHAR"
+
+#, fuzzy
+#~| msgid "Add user"
+#~ msgid "Add to Favorites"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#~ msgid "Sort"
+#~ msgstr "Urzhiañ"
+
+#, fuzzy
+#~| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
+#~ msgid ""
+#~ "May be approximate. Click on the number to get the exact count. See "
+#~ "[doc@faq3-11]FAQ 3.11[/doc]."
+#~ msgstr ""
+#~ "Fazi en ur zilec'hiañ ar restr pellgarget; gwelet [doc@faq1-11]FAQ 1.11[/"
+#~ "doc]"
+
+#~ msgid "Size"
+#~ msgstr "Ment"
+
+#~ msgid "Overhead"
+#~ msgstr "Dilerc'hioù"
+
+#~ msgid "Creation"
+#~ msgstr "Krouiñ"
+
+#~ msgid "Last update"
+#~ msgstr "Hizivadenn ziwezhañ"
+
+#~ msgid "Last check"
+#~ msgstr "Gwiriadenn ziwezhañ"
+
+#~ msgid "Tracking is active."
+#~ msgstr "Oberiant eo an heuliañ."
+
+#~ msgid "Tracking is not active."
+#~ msgstr "N'eo ket oberiant an heuliañ."
+
+#, fuzzy
+#~| msgid "Check privileges for database \"%s\"."
+#~ msgid "Add privileges on the following database(s):"
+#~ msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù \"%s\"."
+
+#, fuzzy
+#~| msgid "Check privileges for database \"%s\"."
+#~ msgid "Add privileges on the following routine:"
+#~ msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù \"%s\"."
+
+#~ msgid "Jump to database"
+#~ msgstr "Mont d'an diaz roadennoù"
+
+#~ msgid "Check privileges for database \"%s\"."
+#~ msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù \"%s\"."
+
+#, fuzzy
+#~| msgid "Check Privileges"
+#~ msgid "Check privileges"
+#~ msgstr "Gwiriañ ar gwirioù"
+
+#, fuzzy
+#~| msgid "Disabled"
+#~ msgid "disabled"
+#~ msgstr "Diweredekaet"
+
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Start row:"
+#~ msgstr "Urzhiañ"
+
+#, fuzzy
+#~| msgid "Mar"
+#~ msgctxt "Chart type"
+#~ msgid "Bar"
+#~ msgstr "Meu"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgctxt "Chart type"
+#~ msgid "Column"
+#~ msgstr "Bann"
+
+#, fuzzy
+#~| msgctxt "Inline edit query"
+#~| msgid "Inline"
+#~ msgctxt "Chart type"
+#~ msgid "Spline"
+#~ msgstr "Enlinenn"
+
+#, fuzzy
+#~| msgid "PiB"
+#~ msgctxt "Chart type"
+#~ msgid "Pie"
+#~ msgstr "Pio"
+
+#, fuzzy
+#~| msgid "Theme"
+#~ msgctxt "Chart type"
+#~ msgid "Timeline"
+#~ msgstr "Tem"
+
+#, fuzzy
+#~| msgid "Chart Title"
+#~ msgid "Chart title:"
+#~ msgstr "Titl ar grafik"
+
+#, fuzzy
+#~| msgid "Inside column:"
+#~ msgid "Series column:"
+#~ msgstr "Er bann :"
+
+#, fuzzy
+#~| msgid "Values for the column \"%s\""
+#~ msgid "Value Column:"
+#~ msgstr "Talvoudoù evit ar bann \"%s\""
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save chart as image"
+#~ msgstr "Enrollañ evel restr"
+
+#, fuzzy
+#~| msgid "Indexes"
+#~ msgid "Index choice:"
+#~ msgstr "Menegerioù"
+
+#, fuzzy
+#~| msgid "Username:"
+#~ msgid "Parser:"
+#~ msgstr "Anv implijer :"
+
+#, fuzzy
+#~| msgid "Comment"
+#~ msgid "Comment:"
+#~ msgstr "Evezhiadenn"
+
+#, fuzzy
+#~| msgid "Foreign key limit"
+#~ msgid "Foreign key constraints"
+#~ msgstr "Bevenn evit an alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "Action"
+#~ msgid "Actions"
+#~ msgstr "Oberiadenn"
+
+#, fuzzy
+#~| msgid "Add constraints"
+#~ msgid "Constraint properties"
+#~ msgstr "Ouzhpennañ ar strishadurioù"
+
+#, fuzzy
+#~| msgid "Add constraints"
+#~ msgid "+ Add constraint"
+#~ msgstr "Ouzhpennañ ar strishadurioù"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "Internal relations"
+#~ msgstr "Diverket eo bet ar sined."
+
+#, fuzzy
+#~| msgid "Choose column to display"
+#~ msgid "Choose column to display:"
+#~ msgstr "Dibab ar bann da ziskouez"
+
+#, fuzzy
+#~| msgid "Foreign key limit"
+#~ msgid "Foreign key constraint %s has been dropped"
+#~ msgstr "Bevenn evit an alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "Add constraints"
+#~ msgid "Constraint name"
+#~ msgstr "Ouzhpennañ ar strishadurioù"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "+ Add column"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Linestring"
+#~ msgid "Original string"
+#~ msgstr "Aradennad linennoù"
+
+#, fuzzy
+#~| msgid "Replace table prefix"
+#~ msgid "Replaced string"
+#~ msgstr "Erlec'hiañ rakger an daolenn"
+
+#, fuzzy
+#~| msgid "Replicated"
+#~ msgid "Replace"
+#~ msgstr "Eilet"
+
+#, fuzzy
+#~| msgid "Hide search criteria"
+#~ msgid "Additional search criteria"
+#~ msgstr "Kuzhat an dezverkoù klask"
+
+#, fuzzy
+#~| msgid "Replace NULL by"
+#~ msgid "Replace with:"
+#~ msgstr "Erlec'hiañ NULL gant"
+
+#, fuzzy
+#~| msgid "as regular expression"
+#~ msgid "Use regular expression"
+#~ msgstr "evel un droienn reoliek"
+
+#, fuzzy
+#~| msgid "Reset"
+#~ msgid "Reset zoom"
+#~ msgstr "Adderaouekaat"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Relation view"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Remove from central columns"
+#~ msgstr "Dilemel ar grafik"
+
+#, fuzzy
+#~| msgid "CHAR textarea columns"
+#~ msgid "Add to central columns"
+#~ msgstr "Bannoù evit an takadoù skrid CHAR"
+
+#, fuzzy
+#~| msgid "Number of inserted rows"
+#~ msgid "at beginning of table"
+#~ msgstr "Niver a linennoù da ensoc'hañ"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partitions"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "No index defined!"
+#~ msgid "No partitioning defined!"
+#~ msgstr "N'eus bet termenet meneger ebet !"
+
+#, fuzzy
+#~| msgid "Linestring"
+#~ msgid "Data length"
+#~ msgstr "Aradennad linennoù"
+
+#, fuzzy
+#~| msgid "Indexes"
+#~ msgid "Index length"
+#~ msgstr "Menegerioù"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition table"
+#~ msgstr "Darempredoù"
+
+#, fuzzy
+#~| msgid "Edit mode"
+#~ msgid "Edit partitioning"
+#~ msgstr "Mod aozañ"
+
+#, fuzzy
+#~| msgid "Print view"
+#~ msgid "Edit view"
+#~ msgstr "Stumm da voullañ"
+
+#, fuzzy
+#~| msgid "Table comments:"
+#~ msgid "Table comments: "
+#~ msgstr "Evezhiadennoù diwar-benn an daolenn :"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Move columns"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Improve table structure"
+#~ msgstr "Diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Track table"
+#~ msgid "Track view"
+#~ msgstr "Heuliañ an daolenn"
+
+#, fuzzy
+#~| msgid "Query statistics"
+#~ msgid "Row statistics"
+#~ msgstr "Stadegoù war ar rekedoù"
+
+#~ msgid "Theme"
+#~ msgstr "Tem"
+
+#, fuzzy
+#~| msgid "Tables display options"
+#~ msgid "Available browser display transformations"
+#~ msgstr "Dibarzhioù diskwel an taolennoù"
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to the target site."
+#~ msgstr "Danevell heuliañ"
+
+#, fuzzy
+#~| msgid "Drop the database (DROP)"
+#~ msgid "Delete the view (DROP)"
+#~ msgstr "Diverkañ an diaz roadennoù (DROP)"
+
+#, fuzzy
+#~| msgid "Questions"
+#~ msgid "Questions below 1,000"
+#~ msgstr "Goulennoù"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "Current amount of Questions: %s"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Percentage of slow queries"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "Show query box"
+#~ msgid "Slow query rate"
+#~ msgstr "Diskouez ar voest rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Long query time"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "long_query_time is set to %d second(s)."
+#~ msgid "long_query_time is currently set to %ds."
+#~ msgstr "Reizhet eo bet long_query_time da %d eilenn."
+
+#, fuzzy
+#~| msgid "Show query box"
+#~ msgid "Slow query logging"
+#~ msgstr "Diskouez ar voest rekedoù SQL"
+
+#, fuzzy
+#~| msgid "slow_query_log is enabled."
+#~ msgid "The slow query log is disabled."
+#~ msgstr "Gweredekaet eo slow_query_log."
+
+#, fuzzy
+#~| msgid "long_query_time is set to %d second(s)."
+#~ msgid "log_slow_queries is set to 'OFF'"
+#~ msgstr "Reizhet eo bet long_query_time da %d eilenn."
+
+#, fuzzy
+#~| msgid "long_query_time is set to %d second(s)."
+#~ msgid "slow_query_log is set to 'OFF'"
+#~ msgstr "Reizhet eo bet long_query_time da %d eilenn."
+
+#, fuzzy
+#~| msgid "Select Foreign Key"
+#~ msgid "Release Series"
+#~ msgstr "Diuzit an alc'hwez estren"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "Current version: %s"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Versions"
+#~ msgid "Minor Version"
+#~ msgstr "Stummoù"
+
+#, fuzzy
+#~| msgid "You should upgrade to %s %s or later."
+#~ msgid "You should upgrade, to a stable version of MySQL 5.5."
+#~ msgstr ""
+#~ "Ret e vefe deoc'h ober gant ar stumm %s %s pe unan nevesoc'h c'hoazh."
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Distribution"
+#~ msgstr "Deskrivadur"
+
+#, fuzzy
+#~| msgid "Query cache used"
+#~ msgid "Query cache disabled"
+#~ msgstr "Krubuilh rekedoù implijet"
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "The query cache is not enabled."
+#~ msgstr "N'eo ket oberiant an heuliañ."
+
+#, fuzzy
+#~| msgid "Query cache used"
+#~ msgid "Query caching method"
+#~ msgstr "Krubuilh rekedoù implijet"
+
+#, fuzzy
+#~| msgid "Query cache used"
+#~ msgid "Suboptimal caching method."
+#~ msgstr "Krubuilh rekedoù implijet"
+
+#, fuzzy
+#~| msgid "Query cache efficiency"
+#~ msgid "Query cache efficiency (%%)"
+#~ msgstr "Efeduster ar grubuilh rekedoù"
+
+#, fuzzy
+#~| msgid "Query cache usage"
+#~ msgid "Query Cache usage"
+#~ msgstr "Implij ar grubuilh rekedoù"
+
+#, fuzzy
+#~| msgid "Query cache usage"
+#~ msgid "Query cache fragmentation"
+#~ msgstr "Implij ar grubuilh rekedoù"
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "The query cache is considerably fragmented."
+#~ msgstr "N'eo ket oberiant an heuliañ."
+
+#, fuzzy
+#~| msgid "Query cache used"
+#~ msgid "Query cache low memory prunes"
+#~ msgstr "Krubuilh rekedoù implijet"
+
+#, fuzzy
+#~| msgid "Query cache used"
+#~ msgid "Query cache max size"
+#~ msgstr "Krubuilh rekedoù implijet"
+
+#, fuzzy
+#~| msgid "Other core settings"
+#~ msgid "Current query cache size: %s"
+#~ msgstr "Arventennoù pouezus all"
+
+#, fuzzy
+#~| msgid "Query cache used"
+#~ msgid "Query cache min result size"
+#~ msgstr "Krubuilh rekedoù implijet"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Percentage of sorts that cause temporary tables"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Too many sorts are causing temporary tables."
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Rate of sorts that cause temporary tables"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Sort rows"
+#~ msgstr "Urzhiañ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of reading first index entry"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "The rate of reading the first index entry is high."
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of reading fixed position"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "The rate of reading data from a fixed position is high."
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Create Table"
+#~ msgid "Rate of reading next table row"
+#~ msgstr "Krouiñ un daolenn"
+
+#, fuzzy
+#~| msgid "Create Table"
+#~ msgid "The rate of reading the next table row is high."
+#~ msgstr "Krouiñ un daolenn"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of temp tables on disk"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "Temp disk rate"
+#~ msgstr "%s daolenn"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "MyISAM key buffer size"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Max %% MyISAM key buffer ever used"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Percentage of MyISAM key buffer used"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Percentage of index reads from memory"
+#~ msgstr "Rekedoù SQL"
+
+#, fuzzy
+#~| msgid "Create Table"
+#~ msgid "Rate of table open"
+#~ msgstr "Krouiñ un daolenn"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "The rate of opening tables is high."
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of used open files limit"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of open files"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "The rate of opening files is high."
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "Thread cache"
+#~ msgstr "N'eo ket oberiant an heuliañ."
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "The thread cache is set to 0"
+#~ msgstr "N'eo ket oberiant an heuliañ."
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "Thread cache hit rate %%"
+#~ msgstr "N'eo ket oberiant an heuliañ."
+
+#, fuzzy
+#~| msgid "Tracking is not active."
+#~ msgid "Thread cache is not efficient."
+#~ msgstr "N'eo ket oberiant an heuliañ."
+
+#, fuzzy
+#~| msgid "long_query_time is set to %d second(s)."
+#~ msgid "Slow_launch_threads is above 2s."
+#~ msgstr "Reizhet eo bet long_query_time da %d eilenn."
+
+#, fuzzy
+#~| msgid "long_query_time is set to %d second(s)."
+#~ msgid "slow_launch_time is set to %s"
+#~ msgstr "Reizhet eo bet long_query_time da %d eilenn."
+
+#, fuzzy
+#~| msgid "Force SSL connection"
+#~ msgid "Percentage of used connections"
+#~ msgstr "Rediañ ar c'hevreadennoù SSL"
+
+#, fuzzy
+#~| msgid "Force SSL connection"
+#~ msgid "Percentage of aborted connections"
+#~ msgstr "Rediañ ar c'hevreadennoù SSL"
+
+#, fuzzy
+#~| msgid "Force SSL connection"
+#~ msgid "Rate of aborted connections"
+#~ msgstr "Rediañ ar c'hevreadennoù SSL"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Percentage of aborted clients"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Format of imported file"
+#~ msgid "Rate of aborted clients"
+#~ msgstr "Furmad ar restr enporzhiañ"
+
+#, fuzzy
+#~| msgid "Could not save recent table"
+#~ msgid "You do not have InnoDB enabled."
+#~ msgstr "N'eus ket bet gallet enrollañ an daolenn envez"
+
+#~ msgid "File %s does not contain any key id"
+#~ msgstr "N'eus anaouder alc'hwez ebet er restr %s"
+
+#~ msgid "Hardware authentication failed!"
+#~ msgstr "C'hwitet eo bet dilesadur ar periant !"
+
+#~ msgid "No valid authentication key plugged"
+#~ msgstr "N'eus bet luget alc'hwez dilesa reizh ebet"
+
+#~ msgid "Authenticating…"
+#~ msgstr "O tilesa…"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Total %d bookmark"
+#~ msgid_plural "Total %d bookmarks"
+#~ msgstr[0] "Klask"
+#~ msgstr[1] "Klask"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "%1$s, %2$s and %3$s bookmarks included"
+#~ msgstr "Diverket eo bet ar sined."
+
+#, fuzzy
+#~| msgid ""
+#~| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
+#~| "configuration file!"
+#~ msgid ""
+#~ "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
+#~ "configuration file!"
+#~ msgstr ""
+#~ "RET eo d'an arventenn <code>$cfg['PmaAbsoluteUri']</code> bezañ resisaet "
+#~ "er restr kefluniañ!"
+
+#, fuzzy
+#~| msgid "Force secured connection while using phpMyAdmin"
+#~ msgid "Force secured connection while using phpMyAdmin."
+#~ msgstr "Rediañ a ra kevreadennoù https etre ar servijer ha phpMyAdmin"
+
+#~ msgid "Force SSL connection"
+#~ msgstr "Rediañ ar c'hevreadennoù SSL"
+
+#, fuzzy
+#~| msgid "Replace table prefix"
+#~ msgid "Replace table prefix:"
+#~ msgstr "Erlec'hiañ rakger an daolenn"
+
+#, fuzzy
+#~| msgid "Copy table with prefix"
+#~ msgid "Copy table with prefix:"
+#~ msgstr "Eilañ an daolenn enni ur rakger"
+
+#, fuzzy
+#~| msgid "Create Table"
+#~ msgid "Create database:"
+#~ msgstr "Krouiñ un daolenn"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "tables"
+#~ msgstr "Taolennoù"
+
+#, fuzzy
+#~| msgid "View"
+#~ msgid "views"
+#~ msgstr "Gwelet"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "procedures"
+#~ msgstr "Argerzhioù"
+
+#, fuzzy
+#~| msgid "Reset"
+#~ msgid "events"
+#~ msgstr "Adderaouekaat"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "functions"
+#~ msgstr "Kevreadennoù"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "Filter databases by name or regex"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Invalid table name"
+#~ msgid "Filter by name or regex"
+#~ msgstr "Anv taolenn direizh"
+
+#, fuzzy
+#~| msgid "Tracking report"
+#~ msgid "Taking you to %s."
+#~ msgstr "Danevell heuliañ"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "MySQL Native Authentication"
+#~ msgstr "Dilesadur"
+
+#, fuzzy
+#~| msgid "Generate password"
+#~ msgid "MySQL native password"
+#~ msgstr "Genel ur ger-tremen"
+
+#, fuzzy
+#~| msgid ""
+#~| "Cannot convert file's character set without character set conversion "
+#~| "library"
+#~ msgid ""
+#~ "Cannot convert file's character set without character set conversion "
+#~ "library!"
+#~ msgstr "Dibosupl amdreiñ an arouezennoù hep levraoueg amdreiñ"
+
+#~ msgid "Error in Processing Request"
+#~ msgstr "Fazi en ur blediñ gant ar reked"
+
+#~ msgid "Outer Ring"
+#~ msgstr "Kelc'h diavaez"
+
+#~ msgid "Change Password"
+#~ msgstr "Cheñch ger-tremen"
+
+#~ msgid "Select All"
+#~ msgstr "Diuzañ pep tra"
+
+#, fuzzy
+#~| msgid "Generate password"
+#~ msgid "Generate Password:"
+#~ msgstr "Genel ur ger-tremen"
+
+#~ msgid "<code>CREATE TABLE</code> options:"
+#~ msgstr "Dibarzhioù evit <code>CREATE TABLE</code> :"
+
+#~ msgid "Begin"
+#~ msgstr "Kregiñ"
+
+#~ msgid "Add user"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#~ msgid "Uncheck All"
+#~ msgstr "Diaskañ pep tra"
+
+#, fuzzy
+#~| msgid "Generate"
+#~ msgid "Generated by:"
+#~ msgstr "Genel"
+
+#, fuzzy
+#~| msgid "Query statistics"
+#~ msgid "Row Statistics:"
+#~ msgstr "Stadegoù war ar rekedoù"
+
+#, fuzzy
+#~| msgid "Query cache usage"
+#~ msgid "Space usage:"
+#~ msgstr "Implij ar grubuilh rekedoù"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Showing tables:"
+#~ msgstr "Diskouez pep tra"
+
+#, fuzzy
+#~| msgid "Enable %s"
+#~ msgid "(Enabled)"
+#~ msgstr "Gweredekaat %s"
+
+#, fuzzy
+#~| msgid "Disabled"
+#~ msgid "(Disabled)"
+#~ msgstr "Diweredekaet"
+
+#, fuzzy
+#~| msgid "Disable foreign key checks"
+#~ msgid "Temporarily disable foreign key checks while importing"
+#~ msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "Disable foreign key checks"
+#~ msgid "Disable foreign key check"
+#~ msgstr "Diweredekaat ar gwiriañ alc'hwezioù estren"
+
+#, fuzzy
+#~| msgid "Reloading Privileges"
+#~ msgid "Realign Privileges"
+#~ msgstr "Oc'h adkargañ an dreistgwirioù"
+
+#~ msgid "Replace table data with file"
+#~ msgstr "Erlec'hiañ roadennoù an daolenn gant re ar restr"
+
+#~ msgid "Query window"
+#~ msgstr "Prenestr klask"
+
+#~ msgid "Customize query window options"
+#~ msgstr "Personelaat dibarzhioù ar prenestr klask"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Please select a database."
+#~ msgstr "Diuzañ pep tra"
+
+#, fuzzy
+#~| msgid "Display databases as a list"
+#~ msgid "Disable database expansion"
+#~ msgstr "Diskouez a ra an diazoù roadennoù e stumm ur roll"
+
+#~ msgid "Delete tracking data for this table"
+#~ msgstr "Diverkañ ar roadennoù heuliañ evit an daolenn-mañ"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Table Structure"
+#~ msgstr "Diazoù roadennoù"
+
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Show data row(s)."
+#~ msgstr "Urzhiañ"
+
+#~ msgctxt "Inline edit query"
+#~ msgid "Inline"
+#~ msgstr "Enlinenn"
+
+#, fuzzy
+#~| msgid "Other"
+#~ msgid "after"
+#~ msgstr "Udb all"
+
+#, fuzzy
+#~| msgid "More"
+#~ msgid "Mode:"
+#~ msgstr "Muioc'h"
+
+#~ msgid "Default display direction"
+#~ msgstr "Talvoud dre ziouer durc'hadur an diskwel"
+
+#~ msgid "Display errors"
+#~ msgstr "Diskouez ar fazioù"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "Dia export page"
+#~ msgstr "Seurt ezporzhiadenn direizh"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "EPS export page"
+#~ msgstr "Seurt ezporzhiadenn direizh"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "SVG export page"
+#~ msgstr "Seurt ezporzhiadenn direizh"
+
+#, fuzzy
+#~| msgid "Edit SQL queries in popup window"
+#~ msgid "Edit SQL queries in popup window."
+#~ msgstr "Aozañ ar rekedoù SQL en ur prenestr difoupañ"
+
+#~ msgid "Edit in window"
+#~ msgstr "Aozañ en ur prenestr"
+
+#, fuzzy
+#~| msgid "Tab that is displayed when entering a server"
+#~ msgid "Tab displayed when opening a new query window."
+#~ msgstr "Ivinell diskouezet pa'z eer tre en ur servijer"
+
+#, fuzzy
+#~| msgid "SQL Validator"
+#~ msgid "SQL history:"
+#~ msgstr "Kadarnataer SQL"
+
+#, fuzzy
+#~| msgid "SQL Validator is disabled"
+#~ msgid "Plugin is disabled"
+#~ msgstr "Diweredekaet eo kadarnataer SQL"
+
+#, fuzzy
+#~| msgid "Customize main frame"
+#~ msgid "Unlink with main panel"
+#~ msgstr "Personelaat ar framm pennañ"
+
+#, fuzzy
+#~| msgid "No index defined!"
+#~ msgid "No index defined! Create one below"
+#~ msgstr "N'eus bet termenet meneger ebet !"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "Seurt ezporzhiadenn"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "pdf export page"
+#~ msgstr "Seurt ezporzhiadenn direizh"
+
+#, fuzzy
+#~| msgid "Click to select"
+#~ msgid "Click to sort"
+#~ msgstr "Klikañ evit diuzañ"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "Hollad"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid " bookmarks, "
+#~ msgstr "Klask"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Select one ..."
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Have unique columns"
+#~ msgstr "Ouzhpennañ/Diverkañ bannoù"
+
+#~ msgid "Edit or export relational schema"
+#~ msgstr "Embann pe ezporzhiañ ur chema kar"
+
+#, fuzzy
+#~| msgid "Edit or export relational schema"
+#~ msgid "Import/Export coordinates for relational schema"
+#~ msgstr "Embann pe ezporzhiañ ur chema kar"
+
+#, fuzzy
+#~| msgid "PBMS connection failed:"
+#~ msgid "Page creation has failed!"
+#~ msgstr "C'hwitet eo bet ar gevreadenn PBMS :"
+
+#, fuzzy
+#~| msgid "No rows selected"
+#~ msgid "Import from selected page."
+#~ msgstr "N'eus bet diuzet linenn ebet"
+
+#~ msgid "Unfortunately the submission failed."
+#~ msgstr "Siwazh deoc'h, c'hwitet eo bet ar gasadenn."
+
+#~ msgid "Show binary contents as HEX"
+#~ msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù)"
+
+#~ msgid ""
+#~ "The target browser window could not be updated. Maybe you have closed the "
+#~ "parent window, or your browser's security settings are configured to "
+#~ "block cross-window updates."
+#~ msgstr ""
+#~ "N'haller ket freskaat ar prenestr goulennet gant ho merdeer. Marteze eo "
+#~ "bet serret ar prenestr orin ganeoc'h pe stanket eo an hizivadurioù etre "
+#~ "prenestroù gant ho merdeer evit abegoù surentez."
+
+#, fuzzy
+#~| msgid "Show binary contents as HEX by default"
+#~ msgid "Show binary contents as HEX by default."
+#~ msgstr "Diskouez an endalc'had binarel en HEX (eizhdekvedennoù) dre ziouer"
+
+#~ msgid "Failed to connect to SQL validator!"
+#~ msgstr "DIbosupl kevreañ d'ar c'hadarnataer SQL !"
+
+#~ msgid "Skip Validate SQL"
+#~ msgstr "N'eo ket dav kadarnaat SQL"
+
+#~ msgid "Validate SQL"
+#~ msgstr "Kadarnaat SQL"
+
+#~ msgid "SQL Validator is disabled"
+#~ msgstr "Diweredekaet eo kadarnataer SQL"
+
+#~ msgid "SOAP extension not found"
+#~ msgstr "N'eo ket bet kavet an astenn SOAP"
+
+#~ msgid "SQL Validator"
+#~ msgstr "Kadarnataer SQL"
+
+#~ msgid ""
+#~ "If you wish to use the SQL Validator service, you should be aware that "
+#~ "[strong]all SQL statements are stored anonymously for statistical "
+#~ "purposes[/strong].[br][em][a@http://sqlvalidator.mimer.com/]Mimer SQL "
+#~ "Validator[/a], Copyright 2002 Upright Database Technology. All rights "
+#~ "reserved.[/em]"
+#~ msgstr ""
+#~ "Ma rit gant ar servij SQL Validator, notit mat e vez miret [strong]an "
+#~ "disklêriadurioù en un doare dizanv evit sevel stadegoù[/strong].[br][em]"
+#~ "[a@http://sqlvalidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 "
+#~ "Upright Database Technology. All rights reserved.[/em]"
+
+#, fuzzy
+#~| msgid "SQL Validator is disabled"
+#~ msgid "Requires SQL Validator to be enabled."
+#~ msgstr "Diweredekaet eo kadarnataer SQL"
+
+#, fuzzy
+#~| msgid ""
+#~| "<b>One or more errors have occured while processing your request:</b>"
+#~ msgid ""
+#~ "<b>One or more errors have occurred while processing your request:</b>"
+#~ msgstr "<b>Ur fazi, pe meur a hini, zo bet en ur seveniñ ho koulenn :</b>"
+
+#~ msgid "Edit title and labels"
+#~ msgstr "Kemmañ an titl hag an tikedennoù"
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Edit chart"
+#~ msgstr "Dilemel ar grafik"
+
+#, fuzzy
+#~| msgid "SQL queries"
+#~ msgid "Series"
+#~ msgstr "Rekedoù SQL"
+
+#~ msgid "Reload Database"
+#~ msgstr "Adkargañ an diaz roadennoù"
+
+#~ msgid "Table must have at least one column"
+#~ msgstr "Ur bann a rank bezañ en daolenn, da nebeutañ"
+
+#~ msgid "Insert Table"
+#~ msgstr "Ensoc'hañ un daolenn"
+
+#~ msgid "Hide indexes"
+#~ msgstr "Kuzhat menegerioù"
+
+#~ msgid "Show indexes"
+#~ msgstr "Diskouez menegerioù"
+
+#, fuzzy
+#~| msgid "Hide search results"
+#~ msgid "Query results"
+#~ msgstr "Kuzhat disoc'hoù an enklask"
+
+#~ msgid "Selected export type has to be saved in file!"
+#~ msgstr "Ret eo enrollañ an diuzadenn ezporzhiañ en ur restr !"
+
+#~ msgid "This is not a number!"
+#~ msgstr "N'eo ket hemañ un niver !"
+
+#~ msgid "Inline edit of this query"
+#~ msgstr "Kemmañ ar reked-mañ enlinenn"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Kavout :"
+
+#, fuzzy
+#~| msgid "Execute"
+#~ msgid "Headers every %s rows"
+#~ msgstr "Seveniñ"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Enable reCaptcha"
+#~ msgstr "Klask"
+
+#~ msgid "Cookies must be enabled past this point."
+#~ msgstr "Evit gallout kenderc'hel e rankit gweredekaat an toupinoù."
+
+#, fuzzy
+#~| msgid "Remove chart"
+#~ msgid "Rearrange/edit charts"
+#~ msgstr "Dilemel ar grafik"
+
+#~ msgid "Live traffic chart"
+#~ msgstr "Grafik an tremenerezh evel m'emañ diouzhtu"
+
+#~ msgid "Live conn./process chart"
+#~ msgstr "Grafik ar c'hevreadennoù hag argerzhioù evel m'emaint diouzhtu"
+
+#~ msgid "Live query chart"
+#~ msgstr "Grafik ar rekedoù evel m'emaint diouzhtu"
+
+#~ msgid "ltr"
+#~ msgstr "ltr"
+
+#~ msgid "Total count"
+#~ msgstr "Sammad hollek"
+
+#~ msgid "Improves efficiency of screen refresh"
+#~ msgstr "Gwellaat a ra efeduster ar freskaat skrammoù"
+
+#~ msgid "Enable Ajax"
+#~ msgstr "Gweredekaat Ajax"
+
+#~ msgid "KiB sent since last refresh"
+#~ msgstr "Kio treuzkaset abaoe ar freskadenn ziwezhañ"
+
+#~ msgid "KiB received since last refresh"
+#~ msgstr "Kio resevet abaoe ar freskadenn ziwezhañ"
+
+#~ msgid "Server traffic (in KiB)"
+#~ msgstr "Tremenerezh war ar servijer (e Kio)"
+
+#~ msgid "Questions since last refresh"
+#~ msgstr "Goulennnoù abaoe ar freskadenn ziwezhañ"
+
+#~ msgid "Questions (executed statements by the server)"
+#~ msgstr "Goulennoù (lavarennoù sevenet gant ar servijer)"
+
+#, fuzzy
+#~| msgid "Refresh"
+#~ msgid "Refresh rate: "
+#~ msgstr "Freskaat"
+
+#~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
+#~ msgstr ""
+#~ "Un tamm aesoc'h eo phpMyAdmin gant ur merdeer a <b>skor ar frammoù</b>."
+
+#~ msgid "Show database listing as a list instead of a drop down."
+#~ msgstr "Diskouez roll an diazoù roadennoù e-lec'h ul lañser desachañ"
+
+#~ msgctxt "MySQL 5.5 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "MySQL 5.1 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "MySQL 5.0 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "PHP documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Ha sur oc'h e fell deoc'h "
+
+#, fuzzy
+#~| msgid "Check Privileges"
+#~ msgid "Privileges for all users"
+#~ msgstr "Gwiriañ ar gwirioù"
+
+#, fuzzy
+#~| msgid "Linestring"
+#~ msgid "String"
+#~ msgstr "Aradennad linennoù"
+
+#, fuzzy
+#~| msgid "Data only"
+#~ msgid "Dates only."
+#~ msgstr "Ar roadennoù hepken"
+
+#~ msgid "Show icons for warning, error and information messages"
+#~ msgstr "Diskouez an arlunioù evit ar c'hemennoù diwall, faziañ ha titouriñ"
+
+#~ msgid "Iconic errors"
+#~ msgstr "Arlunioù evit ar fazioù"
+
+#, fuzzy
+#~ msgid "Add a value"
+#~ msgstr "Ouzhpennañ un implijer"
+
+#~ msgid "Copy and paste the joined values into the \"Length/Values\" field"
+#~ msgstr "Eilañ an talvoudoù ha pegañ anezho er vaezienn \"Ment/Talvoudoù\""
+
+#, fuzzy
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "Mat eo"
+
+#~ msgid "No blob streaming server configured!"
+#~ msgstr "N'eus bet kefluniet servijer blob streaming ebet !"
+
+#~ msgid "Failed to open remote URL"
+#~ msgstr "Dibosupl digeriñ an URL a-bell"
+
+#~ msgid "You are about to DISABLE a BLOB Repository!"
+#~ msgstr "Emaoc'h war-nes DIWEREDEKAAT ur c'havlec'h BLOB !"
+
+#~ msgid ""
+#~ "Are you sure you want to disable all BLOB references for database %s?"
+#~ msgstr ""
+#~ "Ha sur oc'h e fell deoc'h diweredekaat an holl zaveennoù BLOB evit an "
+#~ "diaz roadennoù %s ?"
+
+#~ msgid "PBMS error"
+#~ msgstr "Fazi PBMS"
+
+#~ msgid "PBMS get BLOB info failed:"
+#~ msgstr "C'hwitet eo bet moned PBMS ouzh an titouroù BLOB :"
+
+#, fuzzy
+#~ msgid "PBMS get BLOB Content-Type failed"
+#~ msgstr "C'hwitet eo bet ar moned ouzh Content-Type ar BLOB"
+
+#~ msgid "View image"
+#~ msgstr "Gwelet ar skeudenn"
+
+#~ msgid "Play audio"
+#~ msgstr "Lenn ar son"
+
+#~ msgid "View video"
+#~ msgstr "Lenn ar video"
+
+#~ msgid "Download file"
+#~ msgstr "Pellgargañ"
+
+#~ msgid "Could not open file: %s"
+#~ msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
+
+#~ msgid "Click to unselect"
+#~ msgstr "Klikañ evit diziuzañ"
+
+#~ msgid "+ Restart insertion and add a new value"
+#~ msgstr "+ Adkregiñ gant an ensoc'hañ hag ouzhpennañ un talvoud nevez"
+
+#~ msgid ""
+#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] or a number that indicates "
+#~ "maximum number for which vertical model is used"
+#~ msgstr ""
+#~ "[kbd]horizontal[/kbd], [kbd]vertical[/kbd] pe un niver a verk an talvoud "
+#~ "brasañ a vo implijet ar mod a-serzh evitañ"
+
+#~ msgid "Data Label"
+#~ msgstr "Diaz roadennoù"
+
+#~ msgid "% open files"
+#~ msgstr "N'eus ket bet gallet digeriñ ar restr : %s"
+
+#~ msgid "% connections used"
+#~ msgstr "Kevreadennoù"
+
+#~ msgid "Inline Edit"
+#~ msgstr "Kemmañ enlinenn"
+
+#~ msgid "Previous"
+#~ msgstr "Kent"
+
+#~ msgid "Create event"
+#~ msgstr "Krouiñ un daolenn"
+
+#~ msgid "Create trigger"
+#~ msgstr "Krouiñ un argerzh"
+
+#~ msgid "Switch to"
+#~ msgstr "Mont da"
+
+#~ msgid "Issued queries since last refresh"
+#~ msgstr "Rekedoù resevet abaoe ar freskadenn ziwezhañ"
+
+#~ msgid "Value too long in the form!"
+#~ msgstr "Talvoud re hir er furmskrid !"
