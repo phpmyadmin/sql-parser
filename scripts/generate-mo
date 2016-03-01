@@ -7,12 +7,10 @@ else
 fi
 
 compile() {
-    lang=`echo $1 | sed 's@po/\(.*\)\.po@\1@'`
     if [ ! -z "$stats" ] ; then
-        echo -n "$lang: "
+        echo -n "$1: "
     fi
-    mkdir -p locale/$lang/LC_MESSAGES
-    msgfmt $stats --check -o locale/$lang/LC_MESSAGES/sqlparser.mo $1
+    msgfmt $stats --check -o ${1%.po}.mo $1
     return $?
 }
 
@@ -22,7 +20,7 @@ if [ ! -z "$1" ] ; then
 fi
 
 result=0
-for x in po/*.po  ; do
+for x in locale/*/LC_MESSAGES/sqlparser.po  ; do
     compile $x
     ret=$?
     if [ $ret != 0 ] ; then
