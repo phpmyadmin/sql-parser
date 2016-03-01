@@ -41,7 +41,7 @@ if (!defined('USE_UTF_STRINGS')) {
  * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  * @see      Context
  */
-class Lexer
+class Lexer extends Core
 {
 
     /**
@@ -78,15 +78,6 @@ class Lexer
         'parseComment', 'parseOperator', 'parseBool', 'parseString',
         'parseSymbol', 'parseKeyword', 'parseLabel', 'parseUnknown'
     );
-
-    /**
-     * Whether errors should throw exceptions or just be stored.
-     *
-     * @var bool
-     *
-     * @see static::$errors
-     */
-    public $strict = false;
 
     /**
      * The string to be parsed.
@@ -144,19 +135,6 @@ class Lexer
      * @var int
      */
     public $delimiterLen;
-
-    /**
-     * List of errors that occurred during lexing.
-     *
-     * Usually, the lexing does not stop once an error occurred because that
-     * error might be false positive or a partial result (even a bad one)
-     * might be needed.
-     *
-     * @var LexerException[]
-     *
-     * @see Lexer::error()
-     */
-    public $errors = array();
 
     /**
      * Gets the tokens list parsed by a new instance of a lexer.
@@ -375,10 +353,7 @@ class Lexer
     public function error($msg = '', $str = '', $pos = 0, $code = 0)
     {
         $error = new LexerException($msg, $str, $pos, $code);
-        if ($this->strict) {
-            throw $error;
-        }
-        $this->errors[] = $error;
+        parent::error($error);
     }
 
     /**

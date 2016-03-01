@@ -23,7 +23,7 @@ use SqlParser\Statements\TransactionStatement;
  * @package  SqlParser
  * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
-class Parser
+class Parser extends Core
 {
 
     /**
@@ -319,28 +319,6 @@ class Parser
     public $list;
 
     /**
-     * Whether errors should throw exceptions or just be stored.
-     *
-     * @var bool
-     *
-     * @see static::$errors
-     */
-    public $strict = false;
-
-    /**
-     * List of errors that occurred during parsing.
-     *
-     * Usually, the parsing does not stop once an error occurred because that
-     * error might be a false positive or a partial result (even a bad one)
-     * might be needed.
-     *
-     * @var ParserException[]
-     *
-     * @see Parser::error()
-     */
-    public $errors = array();
-
-    /**
      * List of statements parsed.
      *
      * @var Statement[]
@@ -599,9 +577,6 @@ class Parser
     public function error($msg = '', Token $token = null, $code = 0)
     {
         $error = new ParserException($msg, $token, $code);
-        if ($this->strict) {
-            throw $error;
-        }
-        $this->errors[] = $error;
+        parent::error($error);
     }
 }
