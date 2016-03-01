@@ -12,8 +12,6 @@
  */
 namespace SqlParser;
 
-require_once 'common.php';
-
 /**
  * A component (of a statement) is a part of a statement that is common to
  * multiple query types.
