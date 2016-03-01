@@ -41,8 +41,12 @@ for loc in $LOCS ; do
     msgmerge --previous -U po/$loc.po po/sqlparser.pot
 done
 
+# Generate mo files as well
+./scripts/generate-mo
+
 # Commit changes
 git add po/*.po po/sqlparser.pot
-git commit -s -m 'Update po files
+git add locale
+git commit -s -m 'Update translations
 
 [CI skip]'
