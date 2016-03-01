@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-03-01 16:18+0100\n"
+"POT-Creation-Date: 2016-03-01 17:26+0100\n"
 "PO-Revision-Date: 2016-02-22 22:10+0000\n"
 "Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: src/Component.php:48 src/Component.php:68
+#: src/Component.php:46 src/Component.php:66
 msgid "Not implemented yet."
 msgstr "Non ancora implementato."
 
@@ -23,12 +23,12 @@ msgstr "Non ancora implementato."
 msgid "Unrecognized alter operation."
 msgstr "Operazione di modifica non riconosciuta."
 
-#: src/Components/Array2d.php:92
+#: src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
 msgstr "Erano attesi %1$d valori, ma ne sono stati trovati %2$d."
 
-#: src/Components/Array2d.php:115
+#: src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
 msgstr "Era attesa una parentesi aperta seguita da un insieme di valori."
 
@@ -69,7 +69,7 @@ msgstr "Era attesa un'espressione."
 msgid "An offset was expected."
 msgstr "Era atteso un offset."
 
-#: src/Components/OptionsArray.php:147
+#: src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Questa opzione è in conflitto con \"%1$s\"."
@@ -90,36 +90,36 @@ msgstr "Era atteso il nuovo nome della tabella."
 msgid "A rename operation was expected."
 msgstr "Era attesa una operazione di rinomina."
 
-#: src/Lexer.php:267
+#: src/Lexer.php:243
 msgid "Unexpected character."
 msgstr "Carattere inatteso."
 
-#: src/Lexer.php:304
+#: src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
 msgstr "Erano attesi uno o più spazi bianchi prima del delimitatore."
 
-#: src/Lexer.php:322 src/Lexer.php:338
+#: src/Lexer.php:298 src/Lexer.php:314
 msgid "Expected delimiter."
 msgstr "Era atteso un delimitatore."
 
-#: src/Lexer.php:784
+#: src/Lexer.php:760
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Era atteso il fine quote %1$s."
 
-#: src/Lexer.php:824
+#: src/Lexer.php:800
 msgid "Variable name was expected."
 msgstr "Era atteso un nome di variabile."
 
-#: src/Parser.php:423
+#: src/Parser.php:399
 msgid "Unexpected beginning of statement."
 msgstr "Inizio di statement inatteso."
 
-#: src/Parser.php:442
+#: src/Parser.php:418
 msgid "Unrecognized statement type."
 msgstr "Tipo statement non riconosciuto."
 
-#: src/Parser.php:524
+#: src/Parser.php:500
 msgid "No transaction was previously started."
 msgstr "Non è stata iniziata alcuna transazione in precedenza."
 
@@ -158,14 +158,12 @@ msgstr "Era attesa una parola chiave \"RETURNS\"."
 msgid "error #1"
 msgstr "errore #1"
 
-#: tests/Lexer/LexerTest.php:23 tests/Parser/ParserTest.php:59
-#, php-format
-msgid "%2$s #%1$d"
-msgstr "%2$s %1$d"
-
 #: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
 msgid "strict error"
 msgstr "errore di tipo strict"
+
+#~ msgid "%2$s #%1$d"
+#~ msgstr "%2$s %1$d"
 
 #~ msgid ""
 #~ "The %s file is not available on this system, please visit www.phpmyadmin."

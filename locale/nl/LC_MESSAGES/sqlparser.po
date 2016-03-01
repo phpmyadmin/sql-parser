@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-03-01 16:18+0100\n"
+"POT-Creation-Date: 2016-03-01 17:26+0100\n"
 "PO-Revision-Date: 2016-02-22 20:18+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: src/Component.php:48 src/Component.php:68
+#: src/Component.php:46 src/Component.php:66
 msgid "Not implemented yet."
 msgstr "Nog niet geïmplementeerd."
 
@@ -23,12 +23,12 @@ msgstr "Nog niet geïmplementeerd."
 msgid "Unrecognized alter operation."
 msgstr "Onbekende bewerking."
 
-#: src/Components/Array2d.php:92
+#: src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
 msgstr "%1$d waarden werden verwacht, maar %2$d gevonden."
 
-#: src/Components/Array2d.php:115
+#: src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
 msgstr "Een openingshaakje gevolgd door een set met waardes werd verwacht."
 
@@ -69,7 +69,7 @@ msgstr "Een expressie werd verwacht."
 msgid "An offset was expected."
 msgstr "Een offset werd verwacht."
 
-#: src/Components/OptionsArray.php:147
+#: src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Deze optie conflicteert met \"%1$s\"."
@@ -90,36 +90,36 @@ msgstr "De nieuwe naam van de tabel werd verwacht."
 msgid "A rename operation was expected."
 msgstr "Een hernoem bewerking werd verwacht."
 
-#: src/Lexer.php:267
+#: src/Lexer.php:243
 msgid "Unexpected character."
 msgstr "Onverwachte letter."
 
-#: src/Lexer.php:304
+#: src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
 msgstr "Spatie(s) werd(en) verwacht voor het scheidingsteken."
 
-#: src/Lexer.php:322 src/Lexer.php:338
+#: src/Lexer.php:298 src/Lexer.php:314
 msgid "Expected delimiter."
 msgstr "Scheidingsteken verwacht."
 
-#: src/Lexer.php:784
+#: src/Lexer.php:760
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Eindquote %1$s werd verwacht."
 
-#: src/Lexer.php:824
+#: src/Lexer.php:800
 msgid "Variable name was expected."
 msgstr "Naam van variabele  werd verwacht."
 
-#: src/Parser.php:423
+#: src/Parser.php:399
 msgid "Unexpected beginning of statement."
 msgstr "Onverwacht begin van opdracht."
 
-#: src/Parser.php:442
+#: src/Parser.php:418
 msgid "Unrecognized statement type."
 msgstr "Opdracht type niet herkent."
 
-#: src/Parser.php:524
+#: src/Parser.php:500
 msgid "No transaction was previously started."
 msgstr "Er is geen transactie gestart."
 
@@ -158,14 +158,12 @@ msgstr "Een \"RETURNS\" sleutelwoord werd verwacht."
 msgid "error #1"
 msgstr "fout #1"
 
-#: tests/Lexer/LexerTest.php:23 tests/Parser/ParserTest.php:59
-#, php-format
-msgid "%2$s #%1$d"
-msgstr "%2$s#%1$d"
-
 #: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
 msgid "strict error"
 msgstr "strikte fout"
+
+#~ msgid "%2$s #%1$d"
+#~ msgstr "%2$s#%1$d"
 
 #~ msgid ""
 #~ "The %s file is not available on this system, please visit www.phpmyadmin."

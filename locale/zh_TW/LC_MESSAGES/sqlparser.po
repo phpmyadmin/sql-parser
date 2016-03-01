@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-03-01 16:18+0100\n"
+"POT-Creation-Date: 2016-03-01 17:26+0100\n"
 "PO-Revision-Date: 2016-01-09 03:03+0000\n"
 "Last-Translator: Kelvin Lee <leekalok804@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: src/Component.php:48 src/Component.php:68
+#: src/Component.php:46 src/Component.php:66
 msgid "Not implemented yet."
 msgstr "尚未實作。"
 
@@ -23,12 +23,12 @@ msgstr "尚未實作。"
 msgid "Unrecognized alter operation."
 msgstr "無法辨識的修改(Alter)操作。"
 
-#: src/Components/Array2d.php:92
+#: src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
 msgstr "預期要有 %1$d 個數值，但只找到 %2$d 個。"
 
-#: src/Components/Array2d.php:115
+#: src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
 msgstr "預期要於數值之後接著開始括號。"
 
@@ -69,7 +69,7 @@ msgstr "預期要有表示式。"
 msgid "An offset was expected."
 msgstr "預期要有偏移量(Offset)。"
 
-#: src/Components/OptionsArray.php:147
+#: src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr "此選項與 \"%1$s\" 發生衝突。"
@@ -90,36 +90,36 @@ msgstr "預期要有新的資料表名稱。"
 msgid "A rename operation was expected."
 msgstr "預期要有重新命名的操作。"
 
-#: src/Lexer.php:267
+#: src/Lexer.php:243
 msgid "Unexpected character."
 msgstr "預期之外的字元。"
 
-#: src/Lexer.php:304
+#: src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
 msgstr "預期要有空白於分隔符號之前。"
 
-#: src/Lexer.php:322 src/Lexer.php:338
+#: src/Lexer.php:298 src/Lexer.php:314
 msgid "Expected delimiter."
 msgstr "預期要有分隔符號。"
 
-#: src/Lexer.php:784
+#: src/Lexer.php:760
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "預期要於結束使用括號 %1$s。"
 
-#: src/Lexer.php:824
+#: src/Lexer.php:800
 msgid "Variable name was expected."
 msgstr "預期要有變數名稱。"
 
-#: src/Parser.php:423
+#: src/Parser.php:399
 msgid "Unexpected beginning of statement."
 msgstr "預期之外的陳述句開頭。"
 
-#: src/Parser.php:442
+#: src/Parser.php:418
 msgid "Unrecognized statement type."
 msgstr "無法辨識的陳述句類型。"
 
-#: src/Parser.php:524
+#: src/Parser.php:500
 msgid "No transaction was previously started."
 msgstr "前面未開啟交易(Transaction)模式。"
 
@@ -157,11 +157,6 @@ msgstr "預期要使用 \"RETURNS\" 關鍵字。"
 #| msgid "errors."
 msgid "error #1"
 msgstr "個錯誤。"
-
-#: tests/Lexer/LexerTest.php:23 tests/Parser/ParserTest.php:59
-#, php-format
-msgid "%2$s #%1$d"
-msgstr ""
 
 #: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
 #, fuzzy

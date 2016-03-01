@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-03-01 16:18+0100\n"
+"POT-Creation-Date: 2016-03-01 17:26+0100\n"
 "PO-Revision-Date: 2016-02-11 23:11+0000\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: src/Component.php:48 src/Component.php:68
+#: src/Component.php:46 src/Component.php:66
 msgid "Not implemented yet."
 msgstr "Encara no implementat."
 
@@ -23,12 +23,12 @@ msgstr "Encara no implementat."
 msgid "Unrecognized alter operation."
 msgstr "Operació de modificació no reconeguda."
 
-#: src/Components/Array2d.php:92
+#: src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
 msgstr "S'esperaven %1$d valors, però s'han trobat %2$d."
 
-#: src/Components/Array2d.php:115
+#: src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
 msgstr "S'esperava un claudàtor d'obertura seguit per un conjunt de valors."
 
@@ -69,7 +69,7 @@ msgstr "S'esperava una expressió."
 msgid "An offset was expected."
 msgstr "S'esperava un desplaçament."
 
-#: src/Components/OptionsArray.php:147
+#: src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Aquesta opció està en conflicte amb \"%1$s\"."
@@ -90,36 +90,36 @@ msgstr "S'esperava el nou nom de la taula."
 msgid "A rename operation was expected."
 msgstr "S'esperava una operació de canvi de nom."
 
-#: src/Lexer.php:267
+#: src/Lexer.php:243
 msgid "Unexpected character."
 msgstr "Caràcter no esperat."
 
-#: src/Lexer.php:304
+#: src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
 msgstr "S'esperava(en) espai(s) en blanc abans del delimitador."
 
-#: src/Lexer.php:322 src/Lexer.php:338
+#: src/Lexer.php:298 src/Lexer.php:314
 msgid "Expected delimiter."
 msgstr "S'esperava delimitador ."
 
-#: src/Lexer.php:784
+#: src/Lexer.php:760
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "S'esperava una cometa de tancament %1$s."
 
-#: src/Lexer.php:824
+#: src/Lexer.php:800
 msgid "Variable name was expected."
 msgstr "S'esperava un nom de variable."
 
-#: src/Parser.php:423
+#: src/Parser.php:399
 msgid "Unexpected beginning of statement."
 msgstr "Inici no esperat de declaració."
 
-#: src/Parser.php:442
+#: src/Parser.php:418
 msgid "Unrecognized statement type."
 msgstr "Tipus de declaració no reconegut."
 
-#: src/Parser.php:524
+#: src/Parser.php:500
 msgid "No transaction was previously started."
 msgstr "No s'ha iniciat cap transacció anteriorment."
 
@@ -159,11 +159,6 @@ msgstr "S'esperava una paraula clau \"RETURNS\"."
 #| msgid "errors."
 msgid "error #1"
 msgstr "errors."
-
-#: tests/Lexer/LexerTest.php:23 tests/Parser/ParserTest.php:59
-#, php-format
-msgid "%2$s #%1$d"
-msgstr ""
 
 #: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
 #, fuzzy

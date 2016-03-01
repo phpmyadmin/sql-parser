@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-03-01 16:18+0100\n"
+"POT-Creation-Date: 2016-03-01 17:26+0100\n"
 "PO-Revision-Date: 2016-01-13 15:59+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: src/Component.php:48 src/Component.php:68
+#: src/Component.php:46 src/Component.php:66
 msgid "Not implemented yet."
 msgstr "Chưa được viết mã thực thi."
 
@@ -28,12 +28,12 @@ msgstr "Chưa được viết mã thực thi."
 msgid "Unrecognized alter operation."
 msgstr "Không nhận ra thao tác thay đổi."
 
-#: src/Components/Array2d.php:92
+#: src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
 msgstr "Cần giá trị %1$d, nhưng lại nhận được %2$d."
 
-#: src/Components/Array2d.php:115
+#: src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
 msgstr "Cần một dấu ngoặc ôm mở theo sau bởi một tập hợp các giá trị."
 
@@ -74,7 +74,7 @@ msgstr "Cần một biểu thức."
 msgid "An offset was expected."
 msgstr "Cần vị trí tương đối."
 
-#: src/Components/OptionsArray.php:147
+#: src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Tùy chọn này xung đột với \"%1$s\"."
@@ -95,36 +95,36 @@ msgstr "Cần tên mới của bảng."
 msgid "A rename operation was expected."
 msgstr "Cần thao tác đổi tên."
 
-#: src/Lexer.php:267
+#: src/Lexer.php:243
 msgid "Unexpected character."
 msgstr "Gặp ký tự không cần."
 
-#: src/Lexer.php:304
+#: src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
 msgstr "Cần các khoảng trắng trước dấu phân tách."
 
-#: src/Lexer.php:322 src/Lexer.php:338
+#: src/Lexer.php:298 src/Lexer.php:314
 msgid "Expected delimiter."
 msgstr "Cần dấu phân tách."
 
-#: src/Lexer.php:784
+#: src/Lexer.php:760
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Cần trích dẫn đóng %1$s."
 
-#: src/Lexer.php:824
+#: src/Lexer.php:800
 msgid "Variable name was expected."
 msgstr "Cần tên biến."
 
-#: src/Parser.php:423
+#: src/Parser.php:399
 msgid "Unexpected beginning of statement."
 msgstr "Gặp phần đầu mệnh đề không cần."
 
-#: src/Parser.php:442
+#: src/Parser.php:418
 msgid "Unrecognized statement type."
 msgstr "Không thừa nhận kiểu mệnh đề."
 
-#: src/Parser.php:524
+#: src/Parser.php:500
 msgid "No transaction was previously started."
 msgstr "Chưa có giao địch nào đã bắt đầu trước đây."
 
@@ -163,11 +163,6 @@ msgstr "Cần từ khóa \"RETURNS\"."
 #| msgid "errors."
 msgid "error #1"
 msgstr "lỗi."
-
-#: tests/Lexer/LexerTest.php:23 tests/Parser/ParserTest.php:59
-#, php-format
-msgid "%2$s #%1$d"
-msgstr ""
 
 #: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
 #, fuzzy

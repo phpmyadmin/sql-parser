@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-03-01 16:18+0100\n"
+"POT-Creation-Date: 2016-03-01 17:26+0100\n"
 "PO-Revision-Date: 2016-02-23 09:36+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: src/Component.php:48 src/Component.php:68
+#: src/Component.php:46 src/Component.php:66
 msgid "Not implemented yet."
 msgstr "Hetkel veel rakendamata."
 
@@ -25,12 +25,12 @@ msgstr "Hetkel veel rakendamata."
 msgid "Unrecognized alter operation."
 msgstr "Tundmatu ALTER operatsioon."
 
-#: src/Components/Array2d.php:92
+#: src/Components/Array2d.php:93
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
 msgstr "Oodati %1$d väärtust, kuid leiti %2$d."
 
-#: src/Components/Array2d.php:115
+#: src/Components/Array2d.php:116
 msgid "An opening bracket followed by a set of values was expected."
 msgstr "Oodati avanevat sulgu, millele järgnevad väärtused."
 
@@ -71,7 +71,7 @@ msgstr "Oodati avaldist."
 msgid "An offset was expected."
 msgstr "Oodati nihet."
 
-#: src/Components/OptionsArray.php:147
+#: src/Components/OptionsArray.php:148
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr "See säte põhjustab konflikti sättega \"%1$s\"."
@@ -92,36 +92,36 @@ msgstr "Oodati tabeli uut nime."
 msgid "A rename operation was expected."
 msgstr "Oodati ümbernimetamist."
 
-#: src/Lexer.php:267
+#: src/Lexer.php:243
 msgid "Unexpected character."
 msgstr "Ootamatu sümbol."
 
-#: src/Lexer.php:304
+#: src/Lexer.php:280
 msgid "Expected whitespace(s) before delimiter."
 msgstr "Oodati eraldajale eelnevat tühemikku."
 
-#: src/Lexer.php:322 src/Lexer.php:338
+#: src/Lexer.php:298 src/Lexer.php:314
 msgid "Expected delimiter."
 msgstr "Oodati eraldajat."
 
-#: src/Lexer.php:784
+#: src/Lexer.php:760
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Oodati lõpetavat sümbolit %1$s."
 
-#: src/Lexer.php:824
+#: src/Lexer.php:800
 msgid "Variable name was expected."
 msgstr "Oodati muutuja nime."
 
-#: src/Parser.php:423
+#: src/Parser.php:399
 msgid "Unexpected beginning of statement."
 msgstr "Ootamatu lause algus."
 
-#: src/Parser.php:442
+#: src/Parser.php:418
 msgid "Unrecognized statement type."
 msgstr "Tundmatut tüüpi lause."
 
-#: src/Parser.php:524
+#: src/Parser.php:500
 msgid "No transaction was previously started."
 msgstr "Transaktsiooni ei olnud eelnevalt alustatud."
 
@@ -158,14 +158,12 @@ msgstr "Oodati võtmesõna \"RETURNS\"."
 msgid "error #1"
 msgstr "viga #1"
 
-#: tests/Lexer/LexerTest.php:23 tests/Parser/ParserTest.php:59
-#, php-format
-msgid "%2$s #%1$d"
-msgstr "%2$s #%1$d"
-
 #: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
 msgid "strict error"
 msgstr "otsene viga"
+
+#~ msgid "%2$s #%1$d"
+#~ msgstr "%2$s #%1$d"
 
 #~ msgid ""
 #~ "The %s file is not available on this system, please visit www.phpmyadmin."
