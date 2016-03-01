@@ -245,7 +245,7 @@ class Expression extends Component
                         }
                         if ($alias) {
                             $parser->error(
-                                __('An alias was expected.'),
+                                'An alias was expected.',
                                 $token
                             );
                             break;
@@ -314,7 +314,7 @@ class Expression extends Component
                             break;
                         }
                     } elseif ($brackets < 0) {
-                        // $parser->error(__('Unexpected closing bracket.'), $token);
+                        // $parser->error('Unexpected closing bracket.', $token);
                         // $brackets = 0;
                         break;
                     }
@@ -333,7 +333,7 @@ class Expression extends Component
             if ($alias) {
                 // An alias is expected (the keyword `AS` was previously found).
                 if (!empty($ret->alias)) {
-                    $parser->error(__('An alias was previously found.'), $token);
+                    $parser->error('An alias was previously found.', $token);
                     break;
                 }
                 $ret->alias = $token->value;
@@ -352,7 +352,7 @@ class Expression extends Component
                     || ($prev[1]->type === Token::TYPE_NONE))
                 ) {
                     if (!empty($ret->alias)) {
-                        $parser->error(__('An alias was previously found.'), $token);
+                        $parser->error('An alias was previously found.', $token);
                         break;
                     }
                     $ret->alias = $prev[1]->value;
@@ -365,7 +365,7 @@ class Expression extends Component
                     // the column name we parsed is actually the table name
                     // and the table name is actually a database name.
                     if ((!empty($ret->database)) || ($dot)) {
-                        $parser->error(__('Unexpected dot.'), $token);
+                        $parser->error('Unexpected dot.', $token);
                     }
                     $ret->database = $ret->table;
                     $ret->table = $ret->column;
@@ -384,7 +384,7 @@ class Expression extends Component
                             break;
                         }
                         if (!empty($ret->alias)) {
-                            $parser->error(__('An alias was previously found.'), $token);
+                            $parser->error('An alias was previously found.', $token);
                             break;
                         }
                         $ret->alias = $token->value;
@@ -395,7 +395,7 @@ class Expression extends Component
 
         if ($alias) {
             $parser->error(
-                __('An alias was expected.'),
+                'An alias was expected.',
                 $list->tokens[$list->idx - 1]
             );
         }

@@ -55,8 +55,8 @@ class ParserTest extends TestCase
     {
         $parser = new Parser(new TokensList());
 
-        $parser->error(__('error #1'), new Token('foo'), 1);
-        $parser->error(sprintf(__('%2$s #%1$d'), 2, 'error'), new Token('bar'), 2);
+        $parser->error('error #1', new Token('foo'), 1);
+        $parser->error(sprintf('%2$s #%1$d', 2, 'error'), new Token('bar'), 2);
 
         $this->assertEquals(
             $parser->errors,
@@ -77,6 +77,6 @@ class ParserTest extends TestCase
         $parser = new Parser(new TokensList());
         $parser->strict = true;
 
-        $parser->error(__('strict error'), new Token('foo'), 3);
+        $parser->error('strict error', new Token('foo'), 3);
     }
 }

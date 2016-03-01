@@ -14,6 +14,8 @@ use SqlParser\Parser;
 
 require_once 'vendor/autoload.php';
 
+$GLOBALS['lang'] = 'en';
+
 /**
  * Implements useful methods for testing.
  *

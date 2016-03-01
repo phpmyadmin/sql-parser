@@ -338,7 +338,6 @@ class Parser extends Core
      */
     public function __construct($list = null, $strict = false)
     {
-        parent::__construct();
         if ((is_string($list)) || ($list instanceof UtfString)) {
             $lexer = new Lexer($list, $strict);
             $this->list = $lexer->list;
@@ -430,7 +429,7 @@ class Parser extends Core
                     && ($token->type !== Token::TYPE_DELIMITER)
                 ) {
                     $this->error(
-                        __('Unexpected beginning of statement.'),
+                        'Unexpected beginning of statement.',
                         $token
                     );
                 }
@@ -449,7 +448,7 @@ class Parser extends Core
                     // is aware that it is a statement, but it does not have
                     // a parser for it yet.
                     $this->error(
-                        __('Unrecognized statement type.'),
+                        'Unrecognized statement type.',
                         $token
                     );
                 }
@@ -534,7 +533,7 @@ class Parser extends Core
                         // saved.
                         $this->statements[] = $statement;
                         $this->error(
-                            __('No transaction was previously started.'),
+                            'No transaction was previously started.',
                             $token
                         );
                     } else {

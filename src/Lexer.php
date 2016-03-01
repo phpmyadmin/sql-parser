@@ -160,7 +160,6 @@ class Lexer extends Core
      */
     public function __construct($str, $strict = false, $delimiter = null)
     {
-        parent::__construct();
         // `strlen` is used instead of `mb_strlen` because the lexer needs to
         // parse each byte of the input.
         $len = ($str instanceof UtfString) ? $str->length() : strlen($str);
@@ -240,7 +239,7 @@ class Lexer extends Core
                 // @assert($this->last === $lastIdx);
                 $token = new Token($this->str[$this->last]);
                 $this->error(
-                    __('Unexpected character.'),
+                    'Unexpected character.',
                     $this->str[$this->last],
                     $this->last
                 );
@@ -277,7 +276,7 @@ class Lexer extends Core
             if (($token->type === Token::TYPE_NONE) && ($token->value === 'DELIMITER')) {
                 if ($this->last + 1 >= $this->len) {
                     $this->error(
-                        __('Expected whitespace(s) before delimiter.'),
+                        'Expected whitespace(s) before delimiter.',
                         '',
                         $this->last + 1
                     );
@@ -295,7 +294,7 @@ class Lexer extends Core
                 // Preparing the token that holds the new delimiter.
                 if ($this->last + 1 >= $this->len) {
                     $this->error(
-                        __('Expected delimiter.'),
+                        'Expected delimiter.',
                         '',
                         $this->last + 1
                     );
@@ -311,7 +310,7 @@ class Lexer extends Core
 
                 if (empty($this->delimiter)) {
                     $this->error(
-                        __('Expected delimiter.'),
+                        'Expected delimiter.',
                         '',
                         $this->last
                     );
@@ -812,7 +811,7 @@ class Lexer extends Core
         if (($this->last >= $this->len) || ($this->str[$this->last] !== $quote)) {
             $this->error(
                 sprintf(
-                    __('Ending quote %1$s was expected.'),
+                    Translator::getInstance()->gettext('Ending quote %1$s was expected.'),
                     $quote
                 ),
                 '',
@@ -852,7 +851,7 @@ class Lexer extends Core
             if (($str = $this->parseString('`')) === null) {
                 if (($str = static::parseUnknown()) === null) {
                     $this->error(
-                        __('Variable name was expected.'),
+                        'Variable name was expected.',
                         $this->str[$this->last],
                         $this->last
                     );

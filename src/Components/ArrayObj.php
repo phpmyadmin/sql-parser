@@ -115,7 +115,7 @@ class ArrayObj extends Component
                 && (($token->type !== Token::TYPE_OPERATOR)
                 || ($token->value !== '('))
             ) {
-                $parser->error(__('An opening bracket was expected.'), $token);
+                $parser->error('An opening bracket was expected.', $token);
                 break;
             }
 
