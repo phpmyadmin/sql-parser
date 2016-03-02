@@ -42,6 +42,25 @@ class CreateStatementTest extends TestCase
         );
     }
 
+    public function testBuilderDefaultComment()
+    {
+        $parser = new Parser(
+            "CREATE TABLE `wp_audio` (" .
+            " `somedata` int(11) DEFAULT NULL COMMENT 'ma data', " .
+            " `someinfo` int(11) DEFAULT NULL COMMENT 'ma info' ".
+            " )"
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            "CREATE TABLE `wp_audio` (\n" .
+            "  `somedata` int(11) DEFAULT NULL COMMENT 'ma data',\n" .
+            "  `someinfo` int(11) DEFAULT NULL COMMENT 'ma info'\n".
+            ") ",
+            $stmt->build()
+        );
+    }
+
     public function testBuilderTable()
     {
         $stmt = new CreateStatement();
