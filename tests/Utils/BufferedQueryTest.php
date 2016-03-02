@@ -101,6 +101,19 @@ class BufferedQueryTest extends TestCase
         return array(
 
             array(
+                "SELECT '\'';\nSELECT '\'';",
+                8,
+                array(
+                    'parse_delimiter' => true,
+                    'add_delimiter' => true,
+                ),
+                array(
+                    "SELECT '\'';",
+                    "SELECT '\'';",
+                )
+            ),
+
+            array(
                 'SELECT """""""";' .
                 'SELECT """\\\\"""',
                 8,
