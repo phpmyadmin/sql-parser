@@ -9,6 +9,37 @@ A validating SQL lexer and parser with a focus on MySQL dialect.
 [![codecov.io](https://codecov.io/github/phpmyadmin/sql-parser/coverage.svg?branch=master)](https://codecov.io/github/phpmyadmin/sql-parser?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phpmyadmin/sql-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phpmyadmin/sql-parser/?branch=master)
 
+## Installation
+
+Please use [Composer][1] to install:
+
+```
+composer require phpmyadmin/sql-parser
+```
+
+## Usage
+
+### Formatting SQL query
+
+```php
+echo SqlParser\Utils\Formatter::format($query, array('type' => 'html');
+```
+
+### Parsing and building SQL query
+
+```php
+$parsed = new SqlParser\Parser($query);
+
+// you can now inspect or change query
+var_dump($parser->statements[0]);
+
+// and build it again
+$statement = $parser->statements[0];
+$statement->build()
+```
+
 ## More information
 
 This library was originally during the Google Summer of Code 2015 and has been used by phpMyAdmin since version 4.5.
+
+[1]:https://getcomposer.org/
