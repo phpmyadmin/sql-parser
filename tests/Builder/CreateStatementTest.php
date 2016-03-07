@@ -42,6 +42,23 @@ class CreateStatementTest extends TestCase
         );
     }
 
+    public function testBuilderDefaultInt()
+    {
+        $parser = new Parser(
+            "CREATE TABLE IF NOT EXISTS t1 (" .
+            " c1 int(11) NOT NULL DEFAULT '0' COMMENT 'xxx'" .
+            ") ENGINE=MyISAM"
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            "CREATE TABLE IF NOT EXISTS t1 (\n" .
+            "  `c1` int(11) NOT NULL DEFAULT '0' COMMENT 'xxx'\n" .
+            ") ENGINE=MyISAM",
+            $stmt->build()
+        );
+    }
+
     public function testBuilderDefaultComment()
     {
         $parser = new Parser(
