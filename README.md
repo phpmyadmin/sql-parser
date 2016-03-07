@@ -22,7 +22,7 @@ composer require phpmyadmin/sql-parser
 ### Formatting SQL query
 
 ```php
-echo SqlParser\Utils\Formatter::format($query, array('type' => 'html');
+echo SqlParser\Utils\Formatter::format($query, array('type' => 'html'));
 ```
 
 ### Parsing and building SQL query
