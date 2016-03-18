@@ -8,6 +8,9 @@
  */
 namespace SqlParser\Utils;
 
+use SqlParser\Parser;
+use SqlParser\Lexer;
+
 /**
  * CLI interface
  *
@@ -19,11 +22,6 @@ namespace SqlParser\Utils;
  */
 class CLI
 {
-    public function usage()
-    {
-        echo "Usage: highlight-query --query SQL [--format html|cli|text]\n";
-    }
-
     public function mergeLongOpts(&$params, &$longopts)
     {
         foreach ($longopts as $value) {
@@ -32,6 +30,11 @@ class CLI
                 $params[$value[0]] = $params[$value];
             }
         }
+    }
+
+    public function usageHighlight()
+    {
+        echo "Usage: highlight-query --query SQL [--format html|cli|text]\n";
     }
 
     public function parseHighlight()
@@ -58,7 +61,7 @@ class CLI
             return 1;
         }
         if (isset($params['h'])) {
-            $this->usage();
+            $this->usageHighlight();
             return 0;
         }
         if (isset($params['q'])) {
@@ -69,7 +72,49 @@ class CLI
             return 0;
         }
         echo "ERROR: Missing parameters!\n";
-        $this->usage();
+        $this->usageHighlight();
+        return 1;
+    }
+
+    public function usageLint()
+    {
+        echo "Usage: lint-query --query SQL\n";
+    }
+
+    public function parseLint()
+    {
+        $longopts = array('help', 'query:');
+        $params = getopt(
+            'hq:', $longopts
+        );
+        $this->mergeLongOpts($params, $longopts);
+        return $params;
+    }
+
+    public function runLint()
+    {
+        $params = $this->parseLint();
+        if ($params === false) {
+            return 1;
+        }
+        if (isset($params['h'])) {
+            $this->usageLint();
+            return 0;
+        }
+        if (isset($params['q'])) {
+            $lexer = new Lexer($params['q'], false);
+            $parser = new Parser($lexer->list);
+            $errors = Error::get(array($lexer, $parser));
+            if (count($errors) == 0) {
+                return 0;
+            }
+            $output = Error::format($errors);
+            echo implode("\n", $output);
+            echo "\n";
+            return 10;
+        }
+        echo "ERROR: Missing parameters!\n";
+        $this->usageLint();
         return 1;
     }
 }
