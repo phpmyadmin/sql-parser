@@ -19,6 +19,14 @@ composer require phpmyadmin/sql-parser
 
 ## Usage
 
+### Command line utility
+
+The package install command line utility to syntax highlight SQL query:
+
+```sh
+./vendor/bin/highlight-query --query "SELECT 1"
+```
+
 ### Formatting SQL query
 
 ```php
