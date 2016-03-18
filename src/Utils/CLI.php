@@ -40,6 +40,7 @@ class CLI
             $params['f'] = 'cli';
         }
         if (! in_array($params['f'], array('html', 'cli', 'text'))) {
+            echo "ERROR: Invalid value for format!\n";
             return false;
         }
         return $params;
