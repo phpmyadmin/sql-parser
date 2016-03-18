@@ -24,18 +24,23 @@ class CLI
         echo "Usage: highlight-query --query SQL [--format html|cli|text]\n";
     }
 
-    public function parse()
+    public function mergeLongOpts(&$params, &$longopts)
     {
-        $longopts = array('help', 'query:', 'format:');
-        $params = getopt(
-            'hq:f:', $longopts
-        );
         foreach ($longopts as $value) {
             $value = rtrim($value, ':');
             if (isset($params[$value])) {
                 $params[$value[0]] = $params[$value];
             }
         }
+    }
+
+    public function parseHighlight()
+    {
+        $longopts = array('help', 'query:', 'format:');
+        $params = getopt(
+            'hq:f:', $longopts
+        );
+        $this->mergeLongOpts($params, $longopts);
         if (! isset($params['f'])) {
             $params['f'] = 'cli';
         }
@@ -46,9 +51,9 @@ class CLI
         return $params;
     }
 
-    public function run()
+    public function runHighlight()
     {
-        $params = $this->parse();
+        $params = $this->parseHighlight();
         if ($params === false) {
             return 1;
         }
