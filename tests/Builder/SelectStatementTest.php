@@ -34,4 +34,23 @@ class SelectStatementTest extends TestCase
             $stmt->build()
         );
     }
+
+    public function testBuilderAlias()
+    {
+        $parser = new Parser(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
+            . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
+            . 'ORDER BY scb.id DESC LIMIT 0,300'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT  sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
+            . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id ASC '
+            . 'ORDER BY scb.id DESC LIMIT 300 ',
+            $stmt->build()
+        );
+    }
 }
