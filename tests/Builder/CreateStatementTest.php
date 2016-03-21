@@ -203,4 +203,15 @@ class CreateStatementTest extends TestCase
             $stmt->build()
         );
     }
+
+    public function testBuildSelect()
+    {
+        $parser = new Parser(
+            'CREATE TABLE new_tbl SELECT * FROM orig_tbl'
+        );
+        $this->assertEquals(
+            'CREATE TABLE new_tbl SELECT  * FROM orig_tbl ',
+            $parser->statements[0]->build()
+        );
+    }
 }
