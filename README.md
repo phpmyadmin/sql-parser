@@ -54,6 +54,6 @@ $statement->build()
 
 ## More information
 
-This library was originally during the Google Summer of Code 2015 and has been used by phpMyAdmin since version 4.5.
+This library was originally created during the Google Summer of Code 2015 and has been used by phpMyAdmin since version 4.5.
 
 [1]:https://getcomposer.org/
