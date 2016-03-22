@@ -184,6 +184,8 @@ class ContextMySql50000 extends Context
         'KEY' => 19,
         'INDEX' => 19,
         'UNIQUE' => 19,
+        'FULLTEXT' => 19,
+        'SPATIAL' => 19,
 
         'INDEX KEY' => 23,
         'UNIQUE KEY' => 23,
