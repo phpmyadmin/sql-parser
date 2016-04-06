@@ -396,7 +396,7 @@ class Expression extends Component
         // White-spaces might be added at the end.
         $ret->expr = trim($ret->expr);
 
-        if (empty($ret->expr)) {
+        if ($ret->expr === '') {
             return null;
         }
 
@@ -415,7 +415,7 @@ class Expression extends Component
         if (is_array($component)) {
             return implode($component, ', ');
         } else {
-            if (!empty($component->expr)) {
+            if ($component->expr !== '' && !is_null($component->expr)) {
                 $ret = $component->expr;
             } else {
                 $fields = array();
