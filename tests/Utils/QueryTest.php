@@ -346,8 +346,8 @@ class QueryTest extends TestCase
     {
         $parser = new Parser($query);
         $this->assertEquals(
-            Query::getTables($parser->statements[0]),
-            $expected
+            $expected,
+            Query::getTables($parser->statements[0])
         );
     }
 
