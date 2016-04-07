@@ -78,6 +78,19 @@ class FormatTest extends TestCase
                 "\x1b[35mSELECT\n  \x1b[92m1\e[0m",
                 'cli'
             ),
+            array(
+                'SELECT coditm AS Item, descripcion AS Descripcion, contenedores AS Contenedores, IF(suspendido = 1, Si, NO) AS Suspendido FROM `DW_articulos` WHERE superado = 0',
+                '<span class="sql-reserved">SELECT</span>' . "\n" .
+                '  coditm <span class="sql-reserved">AS</span> Item,' . "\n" .
+                '  descripcion <span class="sql-reserved">AS</span> Descripcion,' . "\n" .
+                '  contenedores <span class="sql-reserved">AS</span> Contenedores,' . "\n" .
+                '  <span class="sql-reserved">IF</span>(suspendido = <span class="sql-number">1</span>, Si, <span class="sql-keyword">NO</span>) <span class="sql-reserved">AS</span> Suspendido' . "\n" .
+                '<span class="sql-reserved">FROM</span>' . "\n" .
+                '  <span class="sql-variable">`DW_articulos`</span>' . "\n" .
+                '<span class="sql-reserved">WHERE</span>' . "\n" .
+                '  superado = <span class="sql-number">0</span>',
+                'html',
+            ),
         );
     }
 }
