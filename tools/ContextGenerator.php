@@ -326,7 +326,7 @@ class ContextGenerator
 
         foreach ($files as $file) {
             // Skipping current and parent directories.
-            if (($file === '.') || ($file === '..') || ($file[0] === '_')) {
+            if (($file[0] === '.') || ($file[0] === '_')) {
                 continue;
             }
 
