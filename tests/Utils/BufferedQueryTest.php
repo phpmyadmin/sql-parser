@@ -114,6 +114,28 @@ class BufferedQueryTest extends TestCase
             ),
 
             array(
+                "CREATE TABLE `test` (\n" .
+                "  `txt` varchar(10)\n" .
+                ");\n" .
+                "INSERT INTO `test` (`txt`) VALUES('abc');\n" .
+                "INSERT INTO `test` (`txt`) VALUES('\\\\');\n" .
+                "INSERT INTO `test` (`txt`) VALUES('xyz');\n",
+                8,
+                array(
+                    'parse_delimiter' => true,
+                    'add_delimiter' => true,
+                ),
+                array(
+                    "CREATE TABLE `test` (\n" .
+                    "  `txt` varchar(10)\n" .
+                    ");",
+                    "INSERT INTO `test` (`txt`) VALUES('abc');",
+                    "INSERT INTO `test` (`txt`) VALUES('\\\\');",
+                    "INSERT INTO `test` (`txt`) VALUES('xyz');",
+                )
+            ),
+
+            array(
                 'SELECT """""""";' .
                 'SELECT """\\\\"""',
                 8,
