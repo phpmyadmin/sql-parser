@@ -246,6 +246,14 @@ class QueryTest extends TestCase
                     'querytype' => 'SELECT'
                 )
             ),
+            array(
+                'SELECT * FROM orders AS ord WHERE 1',
+                array(
+                    'querytype' => 'SELECT',
+                    'is_select' => true,
+                    'select_from' => true,
+                )
+            ),
         );
     }
 

@@ -100,7 +100,22 @@ class MiscTest extends TestCase
                 '',
                 null,
                 array()
-            )
+            ),
+            array(
+                'SELECT * FROM orders AS ord WHERE 1',
+                'db',
+                array(
+                    'db' => array(
+                        'alias' => null,
+                        'tables' => array(
+                            'orders' => array(
+                                'alias' => 'ord',
+                                'columns' => array(),
+                            )
+                        ),
+                    ),
+                )
+            ),
         );
     }
 }
