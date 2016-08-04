@@ -17,7 +17,6 @@ sudo: false
 
 before_install:
   - travis_retry composer self-update && composer --version
-  - pip install --user codecov
 
 install:
   - travis_retry composer install
@@ -30,7 +29,7 @@ after_script:
     fi
 
 after_success:
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
 
 cache:
   directories:
