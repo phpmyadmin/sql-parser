@@ -262,13 +262,6 @@ class Lexer
 
             if ($token === null) {
                 // @assert($this->last === $lastIdx);
-                if(strpos($this->str, ':') !== false){
-                    $string = preg_replace('/\s+/', '', $this->str);
-                    $string = strtolower($string);
-                    if(strpos($this->str, ':loop') !== false){
-
-                    }
-                }
                 $token = new Token($this->str[$this->last]);
                 $this->error(
                     __('Unexpected character.'),

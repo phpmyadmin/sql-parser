@@ -259,7 +259,7 @@ class Token
                     // in PHP 5.3- the `null` parameter isn't handled correctly.
                     $str = mb_substr(
                         $str,
-                        ((!empty($str[1])) && ($str[1] === '@')) ? 2 : 1,
+                        ((!empty($str[1])) && (($str[1] === '@') || ($str[1] === ':'))) ? 2 : 1,
                         mb_strlen($str),
                         'UTF-8'
                     );
