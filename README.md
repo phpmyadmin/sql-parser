@@ -42,14 +42,22 @@ echo SqlParser\Utils\Formatter::format($query, array('type' => 'html'));
 ### Parsing and building SQL query
 
 ```php
-$parsed = new SqlParser\Parser($query);
+require __DIR__."/vendor/autoload.php";
 
-// you can now inspect or change query
-var_dump($parser->statements[0]);
+$query1 = "select * from a";
+$parser = new SqlParser\Parser($query1);
 
-// and build it again
+// inspect query
+var_dump($parser->statements[0]); // outputs object(SqlParser\Statements\SelectStatement)
+
+// modify query by replacing table a with table b
+$table2 = new \SqlParser\Components\Expression("", "b", "", "");
+$parser->statements[0]->from[0] = $table2;
+
+// build query again from an array of object(SqlParser\Statements\SelectStatement) to a string
 $statement = $parser->statements[0];
-$statement->build()
+$query2 = $statement->build();
+var_dump($query2); // outputs string(19) "SELECT  * FROM `b` "
 ```
 
 ## More information
