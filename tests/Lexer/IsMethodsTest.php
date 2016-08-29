@@ -134,6 +134,5 @@ class IsMethodsTest extends TestCase
         $this->assertFalse(Context::isSeparator('E'));
 		$this->assertFalse(Context::isSeparator('e'));
         $this->assertFalse(Context::isSeparator('_'));
-		
     }
 }
