@@ -51,6 +51,7 @@ class AlterOperation extends Component
         'AVG_ROW_LENGTH'                => array(1, 'var'),
         'MAX_ROWS'                      => array(1, 'var'),
         'ROW_FORMAT'                    => array(1, 'var'),
+        'COMMENT'                       => array(1, 'var'),
         'ADD'                           => 1,
         'ALTER'                         => 1,
         'ANALYZE'                       => 1,
