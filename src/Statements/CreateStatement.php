@@ -432,6 +432,13 @@ class CreateStatement extends Statement
                     'breakOnAlias' => true,
                 )
             );
+            // The 'LIKE' keyword was found, but no table_name was found next to it
+            if ($this->like == null) {
+                $parser->error(
+                    __('A table name was expected.'),
+                    $list->tokens[$list->idx]
+                );
+            }
         } elseif ($this->options->has('TABLE')) {
             $this->fields = CreateDefinition::parse($parser, $list);
             if (empty($this->fields)) {
