@@ -222,11 +222,14 @@ class AlterOperation extends Component
                 } elseif (!empty(Parser::$STATEMENT_PARSERS[$token->value])) {
                     // We have reached the end of ALTER operation and suddenly found
                     // a start to new statement, but have not find a delimiter between them
-                    $parser->error(
-                        __('A new statement was found, but no delimiter between it and the previous one.'),
-                        $token
-                    );
-                    break;
+
+                    if (! $token->value == 'SET' && $list->tokens[$list->idx - 1]->value == 'CHARACTER') {
+                        $parser->error(
+                            __('A new statement was found, but no delimiter between it and the previous one.'),
+                            $token
+                        );
+                        break;
+                    }
                 }
                 $ret->unknown[] = $token;
             }
