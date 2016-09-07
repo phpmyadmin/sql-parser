@@ -80,6 +80,7 @@ class CreateStatementTest extends TestCase
 
     public function testBuilderTable()
     {
+        /* Assertion 1 */
         $stmt = new CreateStatement();
 
         $stmt->name = new Expression('', 'test', '');
@@ -105,6 +106,7 @@ class CreateStatementTest extends TestCase
             $stmt->build()
         );
 
+        /* Assertion 2 */
         $query =
             "CREATE TABLE `jos_core_acl_aro` (\n" .
             "  `id` int(11) NOT NULL,\n" .
@@ -119,6 +121,12 @@ class CreateStatementTest extends TestCase
             ") ENGINE=InnoDB DEFAULT CHARSET=latin1";
         $parser = new Parser($query);
         $this->assertEquals($query, $parser->statements[0]->build());
+
+        /* Assertion 3 */
+        $query = "CREATE TABLE `table_copy` LIKE `old_table`";
+        $parser = new Parser($query);
+        $this->assertEquals($query, $parser->statements[0]->build());
+
     }
 
     public function testBuilderPartitions()
