@@ -424,7 +424,7 @@ class CreateStatement extends Statement
         ) {
             /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
             $list->idx = $nextidx;
-            $this->like = $this->table = Expression::parse(
+            $this->like = Expression::parse(
                 $parser,
                 $list,
                 array(
