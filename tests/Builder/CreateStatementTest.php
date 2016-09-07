@@ -123,6 +123,7 @@ class CreateStatementTest extends TestCase
 
     public function testBuilderPartitions()
     {
+        /* Assertion 1 */
         $query = 'CREATE TABLE ts (' . "\n"
             . '  `id` int,' . "\n"
             . '  `purchased` date' . "\n"
@@ -132,18 +133,36 @@ class CreateStatementTest extends TestCase
             . 'SUBPARTITION BY HASH(TO_DAYS(purchased))' . "\n"
             . 'SUBPARTITIONS 2' . "\n"
             . '(' . "\n"
-            . 'PARTITION p0 VALUES LESS THAN (1990) (' . "\n"
+            . 'PARTITION p0 VALUES LESS THAN (1990)  (' . "\n"
             . 'SUBPARTITION s0,' . "\n"
             . 'SUBPARTITION s1' . "\n"
             . '),' . "\n"
-            . 'PARTITION p1 VALUES LESS THAN (2000) (' . "\n"
+            . 'PARTITION p1 VALUES LESS THAN (2000)  (' . "\n"
             . 'SUBPARTITION s2,' . "\n"
             . 'SUBPARTITION s3' . "\n"
             . '),' . "\n"
-            . 'PARTITION p2 VALUES LESS THAN MAXVALUE (' . "\n"
+            . 'PARTITION p2 VALUES LESS THAN MAXVALUE  (' . "\n"
             . 'SUBPARTITION s4,' . "\n"
             . 'SUBPARTITION s5' . "\n"
             . ')' . "\n"
+            . ')';
+        $parser = new Parser($query);
+        $this->assertEquals($query, $parser->statements[0]->build());
+
+        /* Assertion 2 */
+        $query = 'CREATE TABLE `pma_test` (' . "\n"
+            . '  `test_id` int(32) NOT NULL,' . "\n"
+            . '  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP'. "\n"
+            . ') ENGINE=InnoDB DEFAULT CHARSET=utf8' . "\n"
+            . 'PARTITION BY RANGE (test_id)' . "\n"
+            . '(' . "\n"
+            . 'PARTITION p0 VALUES LESS THAN (250000) ENGINE=InnoDB,' . "\n"
+            . 'PARTITION p1 VALUES LESS THAN (500000) ENGINE=InnoDB,' . "\n"
+            . 'PARTITION p2 VALUES LESS THAN (750000) ENGINE=InnoDB,' . "\n"
+            . 'PARTITION p3 VALUES LESS THAN (1000000) ENGINE=InnoDB,' . "\n"
+            . 'PARTITION p4 VALUES LESS THAN (1250000) ENGINE=InnoDB,' . "\n"
+            . 'PARTITION p5 VALUES LESS THAN (1500000) ENGINE=InnoDB,' . "\n"
+            . 'PARTITION p6 VALUES LESS THAN MAXVALUE ENGINE=InnoDB' . "\n"
             . ')';
         $parser = new Parser($query);
         $this->assertEquals($query, $parser->statements[0]->build());
