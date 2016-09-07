@@ -29,6 +29,7 @@ class CreateStatementTest extends TestCase
             array('parser/parseCreateTable4'),
             array('parser/parseCreateTableErr1'),
             array('parser/parseCreateTableErr2'),
+            array('parser/parseCreateTableErr3'),
             array('parser/parseCreateTableSelect'),
             array('parser/parseCreateTableAsSelect'),
             array('parser/parseCreateTableLike'),
