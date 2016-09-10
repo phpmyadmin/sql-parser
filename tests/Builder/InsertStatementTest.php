@@ -21,7 +21,6 @@ class InsertStatementTest extends TestCase
             $stmt->build()
         );
 
-
         /* Assertion 2 */
         /* Reserved keywords (with backqoutes as field name) */
         $parser = new Parser(
@@ -30,6 +29,16 @@ class InsertStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'INSERT  INTO tbl(`order`) VALUES (1)',
+            $stmt->build()
+        );
+
+        /* Assertion 3 */
+        $parser = new Parser(
+            'INSERT INTO tbl VALUES (1)'
+        );
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'INSERT  INTO tbl VALUES (1)',
             $stmt->build()
         );
     }
