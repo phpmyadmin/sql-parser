@@ -15,7 +15,6 @@ use SqlParser\Statement;
 use SqlParser\Statements\SelectStatement;
 use SqlParser\Components\IntoKeyword;
 use SqlParser\Components\Array2d;
-use SqlParser\Components\ArrayObj;
 use SqlParser\Components\OptionsArray;
 use SqlParser\Components\SetOperation;
 
@@ -83,7 +82,7 @@ class InsertStatement extends Statement
     /**
      * Values to be inserted.
      *
-     * @var ArrayObj[]
+     * @var Array2d
      */
     public $values;
 
@@ -120,7 +119,7 @@ class InsertStatement extends Statement
             . ' INTO ' . $this->into;
 
         if ($this->values != NULL && count($this->values) > 0) {
-            $ret .= ' VALUES ' . ArrayObj::build($this->values);
+            $ret .= ' VALUES ' . Array2d::build($this->values);
         } elseif ($this->set != NULL && count($this->set) > 0) {
             $ret .= ' SET ' . SetOperation::build($this->set);
         } elseif ($this->select != NULL && count($this->select) > 0) {
