@@ -23,6 +23,7 @@ class ReplaceStatementTest extends TestCase
             array('parser/parseReplaceValues'),
             array('parser/parseReplaceSet'),
             array('parser/parseReplaceSelect'),
+            array('parser/parseReplaceErr'),
         );
     }
 }
