@@ -96,6 +96,13 @@ class FormatTest extends TestCase
                 '  superado = <span class="sql-number">0</span>',
                 'html',
             ),
+            array(
+                'SELECT 1 -- comment',
+                '<span class="sql-reserved">SELECT</span>' . "\n" .
+                '  <span class="sql-number">1</span> <span class="sql-comment">-- comment' . "\n" .
+                '</span>',
+                'html',
+            ),
         );
     }
 }
