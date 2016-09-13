@@ -11,7 +11,6 @@ namespace SqlParser\Statements;
 use SqlParser\Parser;
 use SqlParser\Statement;
 use SqlParser\Token;
-use SqlParser\Context;
 use SqlParser\TokensList;
 use SqlParser\Components\ArrayObj;
 use SqlParser\Components\DataType;
