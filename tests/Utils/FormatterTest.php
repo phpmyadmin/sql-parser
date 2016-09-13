@@ -11,11 +11,11 @@ class FormatTest extends TestCase
     /**
      * @dataProvider formatQueries
      */
-    public function testFormat($query, $expected, $type)
+    public function testFormat($query, $expected, $options)
     {
         $this->assertEquals(
             $expected,
-            Formatter::format($query, array('type' => $type))
+            Formatter::format($query, $options)
         );
     }
 
@@ -26,20 +26,20 @@ class FormatTest extends TestCase
                 'SELECT 1',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-number">1</span>',
-                'html'
+                array('type' => 'html')
             ),
             array(
                 'SELECT 1 # Comment',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-number">1</span> <span class="sql-comment"># Comment' . "\n" .
                 '</span>',
-                'html'
+                array('type' => 'html')
             ),
             array(
                 'SELECT HEX("1")',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
-                'html'
+                array('type' => 'html')
             ),
             array(
                 'SELECT * FROM foo WHERE bar=1',
@@ -49,7 +49,7 @@ class FormatTest extends TestCase
                 '  foo' . "\n" .
                 '<span class="sql-reserved">WHERE</span>' . "\n" .
                 '  bar = <span class="sql-number">1</span>',
-                'html'
+                array('type' => 'html')
             ),
             array(
                 'CREATE PROCEDURE SPTEST() BEGIN FROM a SELECT *; END',
@@ -61,7 +61,7 @@ class FormatTest extends TestCase
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  *;' . "\n" .
                 '<span class="sql-keyword">END</span>',
-                'html'
+                array('type' => 'html')
             ),
             array(
                 'INSERT INTO foo VALUES (0, 0, 0), (1, 1, 1)',
@@ -71,17 +71,17 @@ class FormatTest extends TestCase
                 '<span class="sql-reserved">VALUES</span>' .
                 '(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),' .
                 '(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
-                'html'
+                array('type' => 'html')
             ),
             array(
                 'SELECT 1',
                 "\x1b[35mSELECT\n  \x1b[92m1\x1b[0m",
-                'cli'
+                array('type' => 'cli')
             ),
             array(
                 'SELECT "Text" AS BAR',
                 "\x1b[35mSELECT\n  \x1b[91m\"Text\" \x1b[35mAS \x1b[39mBAR\x1b[0m",
-                'cli'
+                array('type' => 'cli')
             ),
             array(
                 'SELECT coditm AS Item, descripcion AS Descripcion, contenedores AS Contenedores, IF(suspendido = 1, Si, NO) AS Suspendido FROM `DW_articulos` WHERE superado = 0',
@@ -94,14 +94,14 @@ class FormatTest extends TestCase
                 '  <span class="sql-variable">`DW_articulos`</span>' . "\n" .
                 '<span class="sql-reserved">WHERE</span>' . "\n" .
                 '  superado = <span class="sql-number">0</span>',
-                'html',
+                array('type' => 'html'),
             ),
             array(
                 'SELECT 1 -- comment',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-number">1</span> <span class="sql-comment">-- comment' . "\n" .
                 '</span>',
-                'html',
+                array('type' => 'html'),
             ),
         );
     }
