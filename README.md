@@ -17,6 +17,11 @@ Please use [Composer][1] to install:
 composer require phpmyadmin/sql-parser
 ```
 
+## Documentation
+
+The API documentation is available at 
+<https://develdocs.phpmyadmin.net/sql-parser/>.
+
 ## Usage
 
 ### Command line utility
