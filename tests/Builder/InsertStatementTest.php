@@ -33,12 +33,13 @@ class InsertStatementTest extends TestCase
         );
 
         /* Assertion 3 */
+        /* INSERT ... SET ... */
         $parser = new Parser(
-            'INSERT INTO tbl VALUES (1)'
+            'INSERT INTO tbl SET FOO = 1'
         );
         $stmt = $parser->statements[0];
         $this->assertEquals(
-            'INSERT  INTO tbl VALUES (1)',
+            'INSERT  INTO tbl SET FOO = 1',
             $stmt->build()
         );
     }
