@@ -102,6 +102,11 @@ class MiscTest extends TestCase
                 array()
             ),
             array(
+                'SELECT 1',
+                null,
+                array()
+            ),
+            array(
                 'SELECT * FROM orders AS ord WHERE 1',
                 'db',
                 array(
