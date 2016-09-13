@@ -37,6 +37,11 @@ class CLITest extends TestCase
                 0,
             ),
             array(
+                array('q' => 'SELECT 1', 'f' => 'foo'),
+                "ERROR: Invalid value for format!\n",
+                1,
+            ),
+            array(
                 array('q' => 'SELECT 1', 'f' => 'html'),
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-number">1</span>' . "\n",
