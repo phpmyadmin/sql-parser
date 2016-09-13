@@ -73,7 +73,7 @@ class Formatter
                  *
                  * @var string
                  */
-                'line_ending' => $this->options['type'] == 'html' ? '<br/>' : "\n",
+                'line_ending' => NULL,
 
                 /**
                  * The string used for indentation.
@@ -171,6 +171,10 @@ class Formatter
             ),
             $options
         );
+
+        if (is_null($this->options['line_ending'])) {
+            $this->options['line_ending'] = $this->options['type'] == 'html' ? '<br/>' : "\n";
+        }
 
         // `parts_newline` requires `clause_newline`
         $this->options['parts_newline'] &= $this->options['clause_newline'];

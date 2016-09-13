@@ -43,7 +43,7 @@ class CLITest extends TestCase
             ),
             array(
                 array('q' => 'SELECT 1', 'f' => 'html'),
-                '<span class="sql-reserved">SELECT</span>' . "\n" .
+                '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '  <span class="sql-number">1</span>' . "\n",
                 0,
             ),
