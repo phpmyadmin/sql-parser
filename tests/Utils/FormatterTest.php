@@ -75,7 +75,7 @@ class FormatTest extends TestCase
             ),
             array(
                 'SELECT 1',
-                "\x1b[35mSELECT\n  \x1b[92m1\e[0m",
+                "\x1b[35mSELECT\n  \x1b[92m1\x1b[0m",
                 'cli'
             ),
             array(
