@@ -19,8 +19,8 @@ class IntoKeywordTest extends TestCase
 
     public function testBuild()
     {
-        $component = IntoKeyword::parse(new Parser(), $this->getTokensList('tbl(col1, col2)'));
-        $this->assertEquals('tbl(col1, col2)', IntoKeyword::build($component));
+        $component = IntoKeyword::parse(new Parser(), $this->getTokensList('tbl(`col1`, `col2`)'));
+        $this->assertEquals('tbl(`col1`, `col2`)', IntoKeyword::build($component));
     }
 
     public function testBuildOutfile()
