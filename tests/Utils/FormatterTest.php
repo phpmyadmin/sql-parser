@@ -79,6 +79,11 @@ class FormatTest extends TestCase
                 'cli'
             ),
             array(
+                'SELECT "Text" AS BAR',
+                "\x1b[35mSELECT\n  \x1b[91m\"Text\" \x1b[35mAS \x1b[39mBAR\x1b[0m",
+                'cli'
+            ),
+            array(
                 'SELECT coditm AS Item, descripcion AS Descripcion, contenedores AS Contenedores, IF(suspendido = 1, Si, NO) AS Suspendido FROM `DW_articulos` WHERE superado = 0',
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  coditm <span class="sql-reserved">AS</span> Item,' . "\n" .
