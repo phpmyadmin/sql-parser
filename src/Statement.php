@@ -269,7 +269,8 @@ abstract class Statement
                 $second = $list->getNextOfType(Token::TYPE_KEYWORD);
                 $third = $list->getNextOfType(Token::TYPE_KEYWORD);
 
-                if ($first->value === 'DUPLICATE'
+                if ($first && $second && $third
+                    && $first->value === 'DUPLICATE'
                     && $second->value === 'KEY'
                     && $third->value === 'UPDATE'
                 ) {
