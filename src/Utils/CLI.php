@@ -37,10 +37,15 @@ class CLI
         echo "Usage: highlight-query --query SQL [--format html|cli|text]\n";
     }
 
+    public function getopt($opt, $long)
+    {
+        return getopt($opt, $long);
+    }
+
     public function parseHighlight()
     {
         $longopts = array('help', 'query:', 'format:');
-        $params = getopt(
+        $params = $this->getopt(
             'hq:f:', $longopts
         );
         $this->mergeLongOpts($params, $longopts);
@@ -84,7 +89,7 @@ class CLI
     public function parseLint()
     {
         $longopts = array('help', 'query:');
-        $params = getopt(
+        $params = $this->getopt(
             'hq:', $longopts
         );
         $this->mergeLongOpts($params, $longopts);
