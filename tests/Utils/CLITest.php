@@ -48,6 +48,11 @@ class CLITest extends TestCase
                 'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n",
                 1,
             ),
+            array(
+                false,
+                '',
+                1,
+            ),
         );
     }
 
@@ -85,6 +90,11 @@ class CLITest extends TestCase
                 array(),
                 'ERROR: Missing parameters!' . "\n" .
                 'Usage: lint-query --query SQL' . "\n",
+                1,
+            ),
+            array(
+                false,
+                '',
                 1,
             ),
         );

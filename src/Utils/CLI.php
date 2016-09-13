@@ -48,6 +48,9 @@ class CLI
         $params = $this->getopt(
             'hq:f:', $longopts
         );
+        if ($params === false) {
+            return false;
+        }
         $this->mergeLongOpts($params, $longopts);
         if (! isset($params['f'])) {
             $params['f'] = 'cli';
