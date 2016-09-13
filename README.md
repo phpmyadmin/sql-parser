@@ -24,7 +24,7 @@ The API documentation is available at
 
 ## Usage
 
-### Command line utility
+### Command line utilities
 
 Command line utility to syntax highlight SQL query:
 
