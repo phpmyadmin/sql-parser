@@ -42,5 +42,16 @@ class InsertStatementTest extends TestCase
             'INSERT  INTO tbl SET FOO = 1',
             $stmt->build()
         );
+
+        /* Assertion 4 */
+        /* INSERT ... SELECT ... */
+        $parser = new Parser(
+            'INSERT INTO tbl SELECT * FROM bar'
+        );
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'INSERT  INTO tbl SELECT  * FROM bar ',
+            $stmt->build()
+        );
     }
 }
