@@ -5,6 +5,7 @@
 * Fix parsing of REPLACE INTO ...
 * Fix parsing of INSERT ... ON DUPLICATE KEY UPDATE ...
 * Extended testsuite
+* Re-enabled PHP 5.3 support
 
 ## [3.4.5] - 2016-09-13
 
