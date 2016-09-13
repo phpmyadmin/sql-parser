@@ -32,6 +32,11 @@ class CLITest extends TestCase
                 0,
             ),
             array(
+                array('query' => 'SELECT 1'),
+                "\x1b[35mSELECT\n  \x1b[92m1\x1b[0m\n",
+                0,
+            ),
+            array(
                 array('q' => 'SELECT 1', 'f' => 'html'),
                 '<span class="sql-reserved">SELECT</span>' . "\n" .
                 '  <span class="sql-number">1</span>' . "\n",
@@ -71,6 +76,11 @@ class CLITest extends TestCase
         return array(
             array(
                 array('q' => 'SELECT 1'),
+                '',
+                0,
+            ),
+            array(
+                array('query' => 'SELECT 1'),
                 '',
                 0,
             ),
