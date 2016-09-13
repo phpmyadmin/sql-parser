@@ -22,6 +22,7 @@ class InsertStatementTest extends TestCase
             array('parser/parseInsertSelect'),
             array('parser/parseInsertOnDuplicateKey'),
             array('parser/parseInsertSetOnDuplicateKey'),
+            array('parser/parseInsertSelectOnDuplicateKey'),
             array('parser/parseInsertOnDuplicateKeyErr'),
         );
     }
