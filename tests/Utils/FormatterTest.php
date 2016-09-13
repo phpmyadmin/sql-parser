@@ -103,6 +103,12 @@ class FormatTest extends TestCase
                 '</span>',
                 array('type' => 'html'),
             ),
+            array(
+                'SELECT 1 -- comment',
+                '<span class="sql-reserved">SELECT</span>' . "\n" .
+                '  <span class="sql-number">1</span>',
+                array('type' => 'html', 'remove_comments' => true),
+            ),
         );
     }
 }
