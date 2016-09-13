@@ -55,6 +55,9 @@ class ContextTest extends TestCase
 
     public function testEscape()
     {
+        Context::setMode('NO_ENCLOSING_QUOTES');
+        $this->assertEquals('test', Context::escape('test'));
+
         Context::setMode('ANSI_QUOTES');
         $this->assertEquals('"test"', Context::escape('test'));
 
