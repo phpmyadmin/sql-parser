@@ -39,6 +39,19 @@ Command line utility to lint SQL query:
 echo SqlParser\Utils\Formatter::format($query, array('type' => 'html'));
 ```
 
+### Discoverying query type
+
+```php
+use SqlParser\Parser;
+use SqlParser\Utils\Query;
+
+$query = 'OPTIMIZE TABLE tbl';
+$parser = new Parser($query);
+$flags = Query::getFlags($parser->statements[0])
+
+echo $flags['querytype'];
+```
+
 ### Parsing and building SQL query
 
 ```php
