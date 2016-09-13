@@ -109,6 +109,23 @@ class FormatTest extends TestCase
                 '  <span class="sql-number">1</span>',
                 array('type' => 'html', 'remove_comments' => true),
             ),
+            array(
+                'CREATE TABLE IF NOT EXISTS `pma__bookmark` (' . "\n" .
+                '  `id` int(11) NOT NULL auto_increment,' . "\n" .
+                '  `dbase` varchar(255) NOT NULL default "",' . "\n" .
+                '  `user` varchar(255) NOT NULL default "",' . "\n" .
+                '  `label` varchar(255) COLLATE utf8_general_ci NOT NULL default "",' . "\n" .
+                '  `query` text NOT NULL,' . "\n" .
+                '  PRIMARY KEY  (`id`)' . "\n",
+                '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">TABLE</span> <span class="sql-reserved">IF NOT EXISTS</span> <span class="sql-variable">`pma__bookmark`</span>(' . "\n" .
+                '  <span class="sql-variable">`id`</span> <span class="sql-reserved">INT</span>(<span class="sql-number">11</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-keyword">AUTO_INCREMENT</span>,' . "\n" .
+                '  <span class="sql-variable">`dbase`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . "\n" .
+                '  <span class="sql-variable">`user`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . "\n" .
+                '  <span class="sql-variable">`label`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">COLLATE</span> utf8_general_ci <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . "\n" .
+                '  <span class="sql-variable">`query`</span> <span class="sql-keyword">TEXT</span> <span class="sql-reserved">NOT NULL</span>,' . "\n" .
+                '  <span class="sql-reserved">PRIMARY KEY</span>(<span class="sql-variable">`id`</span>)',
+                array('type' => 'html'),
+            ),
         );
     }
 }
