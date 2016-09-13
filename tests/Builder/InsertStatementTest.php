@@ -53,5 +53,17 @@ class InsertStatementTest extends TestCase
             'INSERT  INTO tbl SELECT  * FROM bar ',
             $stmt->build()
         );
+
+        /* Assertion 5 */
+        /* INSERT ... ON DUPLICATE KEY UPDATE ... */
+        $parser = new Parser(
+            'INSERT INTO tbl SELECT * FROM bar ON DUPLICATE KEY UPDATE baz = 1'
+        );
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'INSERT  INTO tbl SELECT  * FROM bar ON DUPLICATE KEY UPDATE baz = 1',
+            $stmt->build()
+        );
+
     }
 }
