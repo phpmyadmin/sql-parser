@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.6] - 2016-09-13
 
 * Fix parsing of REPLACE INTO ...
 * Fix parsing of INSERT ... ON DUPLICATE KEY UPDATE ...
