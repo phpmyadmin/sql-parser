@@ -126,6 +126,16 @@ class FormatTest extends TestCase
                 '  <span class="sql-reserved">PRIMARY KEY</span>(<span class="sql-variable">`id`</span>)',
                 array('type' => 'html'),
             ),
+            array(
+                "select '<s>xss' from `<s>xss` , <s>nxss /*s<s>xss*/",
+                '<span class="sql-reserved">SELECT</span><br/>  <span class="sql-string">\'&lt;s&gt;xss\'</span><br/><span class="sql-reserved">FROM</span><br/>  <span class="sql-variable">`&lt;s&gt;xss`</span>,<br/>  &lt; s &gt; nxss <span class="sql-comment">/*s&lt;s&gt;xss*/</span>',
+                array('type' => 'html'),
+            ),
+            array(
+                "select 'text\x1b[33mcolor-inj' from tbl",
+                "\x1b[35mSELECT\n  \x1b[91m'text\\x1B[33mcolor-inj'\n\x1b[35mFROM\n  \x1b[39mtbl\x1b[0m",
+                array('type' => 'cli'),
+            ),
         );
     }
 }
