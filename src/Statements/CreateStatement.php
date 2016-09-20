@@ -47,7 +47,7 @@ class CreateStatement extends Statement
         'OR REPLACE'                    => array(2, 'var='),
         'ALGORITHM'                     => array(3, 'var='),
         // `DEFINER` is also used for `CREATE FUNCTION / PROCEDURE`
-        'DEFINER'                       => array(4, 'var='),
+        'DEFINER'                       => array(4, 'expr='),
         'SQL SECURITY'                  => array(5, 'var'),
 
         'DATABASE'                      => 6,
