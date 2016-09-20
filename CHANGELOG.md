@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Fix parsing of DEFINER without backquotes
+* Fixed escaping HTML entities in HTML formatter
 
 ## [3.4.6] - 2016-09-13
 

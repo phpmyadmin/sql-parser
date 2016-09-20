@@ -453,7 +453,7 @@ class Formatter
 
                 // Formatting HTML.
                 if ($this->options['type'] === 'html') {
-                    return '<span ' . $format['html'] . '>' . $text . '</span>';
+                    return '<span ' . $format['html'] . '>' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
                 } elseif ($this->options['type'] === 'cli') {
                     return $format['cli'] . $text;
                 }
@@ -464,8 +464,9 @@ class Formatter
 
         if ($this->options['type'] === 'cli') {
             return "\x1b[39m" . $text;
+        } elseif ($this->options['type'] === 'html') {
+            return htmlspecialchars($text, ENT_NOQUOTES);
         }
-        return $text;
     }
 
     /**
