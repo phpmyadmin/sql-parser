@@ -4,6 +4,7 @@
 
 * Fix parsing of DEFINER without backquotes
 * Fixed escaping HTML entities in HTML formatter
+* Fixed escaping of control chars in CLI formatter
 
 ## [3.4.6] - 2016-09-13
 
