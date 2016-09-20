@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fix parsing of DEFINER without backquotes
+
 ## [3.4.6] - 2016-09-13
 
 * Fix parsing of REPLACE INTO ...
