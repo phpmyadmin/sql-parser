@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.7] - 2016-09-20
 
 * Fix parsing of DEFINER without backquotes
 * Fixed escaping HTML entities in HTML formatter
