@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [3.4.8] - 2016-09-22
 
 * No change release to sync GitHub releases with Packagist
