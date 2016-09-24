@@ -13,7 +13,7 @@ class LimitTest extends TestCase
     public function testBuild()
     {
         $component = new Limit(1);
-        $this->assertEquals(Limit::build($component), '1');
+        $this->assertEquals(Limit::build($component), '0, 1');
     }
 
     public function testBuildWithOffset()
