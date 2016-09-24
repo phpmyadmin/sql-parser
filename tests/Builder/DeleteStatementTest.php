@@ -78,5 +78,13 @@ class DeleteStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals($query, $stmt->build());
+
+        /* Assertion 3 */
+        $query = 'DELETE QUICK FROM table1, table2.* USING table1 AS `t1`, table2 AS `t2` WHERE 1=1';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals($query, $stmt->build());
     }
 }
