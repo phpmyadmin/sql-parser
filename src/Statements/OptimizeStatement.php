@@ -20,7 +20,7 @@ use SqlParser\Components\Expression;
  * @category   Statements
  * @package    SqlParser
  * @subpackage Statements
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class OptimizeStatement extends Statement
 {

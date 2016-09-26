@@ -20,7 +20,7 @@ require_once 'vendor/autoload.php';
  * @category   Tests
  * @package    SqlParser
  * @subpackage Tests
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 abstract class TestCase extends \PHPUnit_Framework_TestCase
 {

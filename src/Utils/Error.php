@@ -17,7 +17,7 @@ use SqlParser\Parser;
  * @category   Exceptions
  * @package    SqlParser
  * @subpackage Utils
- * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Error
 {
