@@ -19,7 +19,6 @@ use SqlParser\Context;
  * @category   Contexts
  * @package    SqlParser
  * @subpackage Contexts
- * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class ContextMySql50100 extends Context

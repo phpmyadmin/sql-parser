@@ -14,7 +14,6 @@ namespace SqlParser\Exceptions;
  * @category   Exceptions
  * @package    SqlParser
  * @subpackage Exceptions
- * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class LexerException extends \Exception

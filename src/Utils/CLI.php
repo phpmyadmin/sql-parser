@@ -17,7 +17,6 @@ use SqlParser\Lexer;
  * @category   Exceptions
  * @package    SqlParser
  * @subpackage Utils
- * @author     Michal Čihař <michal@cihar.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class CLI

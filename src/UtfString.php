@@ -21,7 +21,6 @@ namespace SqlParser;
  *
  * @category Misc
  * @package  SqlParser
- * @author   Dan Ungureanu <udan1107@gmail.com>
  * @license  http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class UtfString implements \ArrayAccess

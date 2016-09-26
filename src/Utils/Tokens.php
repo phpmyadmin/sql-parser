@@ -18,7 +18,6 @@ use SqlParser\TokensList;
  * @category   Token
  * @package    SqlParser
  * @subpackage Utils
- * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class Tokens

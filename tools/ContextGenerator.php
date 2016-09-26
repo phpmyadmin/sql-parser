@@ -10,7 +10,6 @@ require_once '../vendor/autoload.php';
  * @category   Contexts
  * @package    SqlParser
  * @subpackage Tools
- * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class ContextGenerator
@@ -74,7 +73,6 @@ class ContextGenerator
         ' * @category   Contexts'                                                           . "\n" .
         ' * @package    SqlParser'                                                          . "\n" .
         ' * @subpackage Contexts'                                                           . "\n" .
-        ' * @author     Dan Ungureanu <udan1107@gmail.com>'                                 . "\n" .
         ' * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License'          . "\n" .
         ' */'                                                                               . "\n" .
         'class %2$s extends Context'                                                        . "\n" .

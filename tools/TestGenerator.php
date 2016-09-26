@@ -13,7 +13,6 @@ use SqlParser\Parser;
  * @category   Tests
  * @package    SqlParser
  * @subpackage Tools
- * @author     Dan Ungureanu <udan1107@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class TestGenerator
