@@ -77,7 +77,7 @@ class CaseExpression extends Component
      *
      * @return Expression
      */
-    public static function parse(Parser $parser, TokensList $list)
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new CaseExpression();
 
