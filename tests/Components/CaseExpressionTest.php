@@ -33,4 +33,56 @@ class CaseExpressionTest extends TestCase
             'CASE WHEN 1=1 THEN "India" ELSE "Other" END'
         );
     }
+
+    public function testParseBuild3()
+    {
+        $caseExprQuery = 'case 1 when 1 then "Some" '
+            . 'when 2 then "SomeOther" else "Other" end';
+        $component = CaseExpression::parse(
+            new Parser(),
+            $this->getTokensList($caseExprQuery));
+        $this->assertEquals(
+            CaseExpression::build($component),
+            'CASE 1 WHEN 1 THEN "Some" WHEN 2 THEN "SomeOther" ELSE "Other" END'
+        );
+    }
+
+    public function testParseBuild4()
+    {
+        $caseExprQuery = 'case 1 when 1 then "Some" '
+            . 'when 2 then "SomeOther" end';
+        $component = CaseExpression::parse(
+            new Parser(),
+            $this->getTokensList($caseExprQuery));
+        $this->assertEquals(
+            CaseExpression::build($component),
+            'CASE 1 WHEN 1 THEN "Some" WHEN 2 THEN "SomeOther" END'
+        );
+    }
+
+    public function testParseBuild5()
+    {
+        $caseExprQuery = 'case when 1=1 then "Some" '
+            . 'when 1=2 then "SomeOther" else "Other" end';
+        $component = CaseExpression::parse(
+            new Parser(),
+            $this->getTokensList($caseExprQuery));
+        $this->assertEquals(
+            CaseExpression::build($component),
+            'CASE WHEN 1=1 THEN "Some" WHEN 1=2 THEN "SomeOther" ELSE "Other" END'
+        );
+    }
+
+    public function testParseBuild6()
+    {
+        $caseExprQuery = 'case when 1=1 then "Some" '
+            . 'when 1=2 then "SomeOther" end';
+        $component = CaseExpression::parse(
+            new Parser(),
+            $this->getTokensList($caseExprQuery));
+        $this->assertEquals(
+            CaseExpression::build($component),
+            'CASE WHEN 1=1 THEN "Some" WHEN 1=2 THEN "SomeOther" END'
+        );
+    }
 }

@@ -105,11 +105,6 @@ class CaseExpression extends Component
              */
             $token = $list->tokens[$list->idx];
 
-            // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
-                break;
-            }
-
             // Skipping whitespaces and comments.
             if (($token->type === Token::TYPE_WHITESPACE)
                 || ($token->type === Token::TYPE_COMMENT)
@@ -172,9 +167,6 @@ class CaseExpression extends Component
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
                         $parser->error(__('Unexpected keyword.'), $token);
                         break;
-                    } else {
-                        $parser->error(__('Unexpected token.'), $token);
-                        break;
                     }
                 } else {
                     if ($token->type === Token::TYPE_KEYWORD
@@ -186,9 +178,6 @@ class CaseExpression extends Component
                         $ret->results[] = $new_result;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
                         $parser->error(__('Unexpected keyword.'), $token);
-                        break;
-                    } else {
-                        $parser->error(__('Unexpected token.'), $token);
                         break;
                     }
                 }
@@ -203,9 +192,6 @@ class CaseExpression extends Component
                         $state = 1;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
                         $parser->error(__('Unexpected keyword.'), $token);
-                        break;
-                    } else {
-                        $parser->error(__('Unexpected token.'), $token);
                         break;
                     }
                 }
@@ -238,7 +224,7 @@ class CaseExpression extends Component
             for (
                 $i = 0;
                 $i < count($component->compare_values) && $i < count($component->results);
-                $i++
+                ++$i
             ) {
                 $ret .= 'WHEN ' . $component->compare_values[$i] . ' ';
                 $ret .= 'THEN ' . $component->results[$i] . ' ';
@@ -248,7 +234,7 @@ class CaseExpression extends Component
             for (
                 $i = 0;
                 $i < count($component->conditions) && $i < count($component->results);
-                $i++
+                ++$i
             ) {
                 $ret .= 'WHEN ' . Condition::build($component->conditions[$i]) . ' ';
                 $ret .= 'THEN ' . $component->results[$i] . ' ';
