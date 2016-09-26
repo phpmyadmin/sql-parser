@@ -21,7 +21,6 @@ use SqlParser\TokensList;
  * @category   Components
  * @package    SqlParser
  * @subpackage Components
- * @author     Deven Bansod <devenbansod.bits@gmail.com>
  * @license    http://opensource.org/licenses/GPL-2.0 GNU Public License
  */
 class CaseExpression extends Component
