@@ -15,8 +15,6 @@ use SqlParser\Token;
 use SqlParser\TokensList;
 
 
-
-
 /**
  * Parses a reference to a CASE expression
  *
@@ -84,20 +82,6 @@ class CaseExpression extends Component
         $ret = new CaseExpression();
 
         /**
-         * Counts brackets.
-         *
-         * @var int $brackets
-         */
-        $brackets = 0;
-
-        /**
-         * Keeps track of the last two previous tokens.
-         *
-         * @var Token[] $prev
-         */
-        $prev = array(null, null);
-
-        /**
          * State of parser
          *
          * @var int $parser
@@ -157,7 +141,7 @@ class CaseExpression extends Component
                     ++$list->idx;
                     break;
                 } elseif ($token->type === Token::TYPE_KEYWORD) {
-                    $parser->error(__('Unexpected keyword'), $token);
+                    $parser->error(__('Unexpected keyword.'), $token);
                     break;
                 } else {
                     $ret->value = Expression::parse($parser, $list);
@@ -187,10 +171,10 @@ class CaseExpression extends Component
                         ++$list->idx;
                         break;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
-                        $parser->error(__('Unexpected keyword'), $token);
+                        $parser->error(__('Unexpected keyword.'), $token);
                         break;
                     } else {
-                        $parser->error(__('Unexpected token'), $token);
+                        $parser->error(__('Unexpected token.'), $token);
                         break;
                     }
                 } else {
@@ -202,10 +186,10 @@ class CaseExpression extends Component
                         $state = 0;
                         $ret->results[] = $new_result;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
-                        $parser->error(__('Unexpected keyword'), $token);
+                        $parser->error(__('Unexpected keyword.'), $token);
                         break;
                     } else {
-                        $parser->error(__('Unexpected token'), $token);
+                        $parser->error(__('Unexpected token.'), $token);
                         break;
                     }
                 }
@@ -219,15 +203,12 @@ class CaseExpression extends Component
                         $ret->results[] = $new_result;
                         $state = 1;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
-                        $parser->error(__('Unexpected keyword'), $token);
+                        $parser->error(__('Unexpected keyword.'), $token);
                         break;
                     } else {
-                        $parser->error(__('Unexpected token'), $token);
+                        $parser->error(__('Unexpected token.'), $token);
                         break;
                     }
-                } else {
-                    $parser->error(__('Unexpected token'), $token);
-                    break;
                 }
             }
         }
@@ -235,7 +216,7 @@ class CaseExpression extends Component
         if ($state !== 3) {
             $parser->error(
                 __('Unexpected end of CASE expression'),
-                $list->list[$list->idx - 1]
+                $list->tokens[$list->idx - 1]
             );
         }
 
