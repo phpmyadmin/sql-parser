@@ -457,7 +457,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testRepalceClauses()
+    public function testReplaceClauses()
     {
         $this->assertEquals('', Query::replaceClauses(null, null, array()));
 
@@ -475,18 +475,18 @@ class QueryTest extends TestCase
 
         $parser = new Parser(
             'SELECT c.city_id, c.country_id ' .
+            'INTO OUTFILE "/dev/null" ' .
             'FROM `city` ' .
             'WHERE city_id < 1 ' .
             'ORDER BY city_id ASC ' .
-            'LIMIT 0, 1 ' .
-            'INTO OUTFILE "/dev/null"'
+            'LIMIT 0, 1 '
         );
         $this->assertEquals(
             'SELECT c.city_id, c.country_id ' .
+            'INTO OUTFILE "/dev/null" ' .
             'FROM city AS c   ' .
             'ORDER BY city_id ASC ' .
-            'LIMIT 0, 10 ' .
-            'INTO OUTFILE "/dev/null"',
+            'LIMIT 0, 10 ',
             Query::replaceClauses(
                 $parser->statements[0],
                 $parser->list,
