@@ -200,7 +200,11 @@ class InsertStatement extends Statement
                     break;
                 } else {
                     ++$list->idx;
-                    $this->into = IntoKeyword::parse($parser, $list);
+                    $this->into = IntoKeyword::parse(
+                        $parser,
+                        $list,
+                        array('fromInsert' => true)
+                    );
                 }
 
                 $state = 1;
