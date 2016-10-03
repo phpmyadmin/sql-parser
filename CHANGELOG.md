@@ -1,6 +1,8 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.10] - 2016-10-03
+
+* Fixed API regression on DELETE statement
 
 ## [3.4.9] - 2016-10-03
 
