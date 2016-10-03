@@ -46,6 +46,13 @@ class IntoKeyword extends Component
     public $columns;
 
     /**
+     * The values to be selected into (SELECT .. INTO @var1)
+     *
+     * @var ExpressionArray
+     */
+    public $values;
+
+    /**
      * @param Parser     $parser  The parser that serves as context.
      * @param TokensList $list    The list of tokens that are being parsed.
      * @param array      $options Parameters for parsing.
@@ -102,14 +109,22 @@ class IntoKeyword extends Component
             }
 
             if ($state === 0) {
-                $ret->dest = Expression::parse(
-                    $parser,
-                    $list,
-                    array(
-                        'parseField' => 'table',
-                        'breakOnAlias' => true,
-                    )
-                );
+                if ((isset($options['fromInsert'])
+                    && $options['fromInsert'])
+                    || (isset($options['fromReplace'])
+                    && $options['fromReplace'])
+                ) {
+                    $ret->dest = Expression::parse(
+                        $parser,
+                        $list,
+                        array(
+                            'parseField' => 'table',
+                            'breakOnAlias' => true,
+                        )
+                    );
+                } else {
+                    $ret->values = ExpressionArray::parse($parser, $list);
+                }
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
@@ -140,6 +155,8 @@ class IntoKeyword extends Component
             $columns = !empty($component->columns) ?
                 '(`' . implode('`, `', $component->columns) . '`)' : '';
             return $component->dest . $columns;
+        } elseif (isset($component->values)) {
+            return ExpressionArray::build($component->values);
         } else {
             return 'OUTFILE "' . $component->dest . '"';
         }

@@ -166,7 +166,11 @@ class ReplaceStatement extends Statement
                     break;
                 } else {
                     ++$list->idx;
-                    $this->into = IntoKeyword::parse($parser, $list);
+                    $this->into = IntoKeyword::parse(
+                        $parser,
+                        $list,
+                        array('fromReplace' => true)
+                    );
                 }
 
                 $state = 1;

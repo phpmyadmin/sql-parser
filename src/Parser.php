@@ -162,7 +162,7 @@ class Parser
         'FROM'                  => array(
             'class'             => 'SqlParser\\Components\\ExpressionArray',
             'field'             => 'from',
-            'options'           => array('parseField' => 'table'),
+            'options'           => array('field' => 'table'),
         ),
         'GROUP BY'              => array(
             'class'             => 'SqlParser\\Components\\OrderKeyword',

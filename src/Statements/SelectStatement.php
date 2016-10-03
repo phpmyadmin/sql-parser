@@ -87,6 +87,7 @@ class SelectStatement extends Statement
         '_OPTIONS'                      => array('_OPTIONS',            1),
         // Used for selected expressions.
         '_SELECT'                       => array('SELECT',              1),
+        'INTO'                          => array('INTO',                3),
         'FROM'                          => array('FROM',                3),
         'PARTITION'                     => array('PARTITION',           3),
 
@@ -104,7 +105,6 @@ class SelectStatement extends Statement
         'ORDER BY'                      => array('ORDER BY',            3),
         'LIMIT'                         => array('LIMIT',               3),
         'PROCEDURE'                     => array('PROCEDURE',           3),
-        'INTO'                          => array('INTO',                3),
         'UNION'                         => array('UNION',               1),
         // These are available only when `UNION` is present.
         // 'ORDER BY'                      => array('ORDER BY',    3),

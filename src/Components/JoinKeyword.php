@@ -146,6 +146,9 @@ class JoinKeyword extends Component
                         $state = 3;
                     } elseif ($token->value === 'USING') {
                         $state = 4;
+                    } else {
+                        /* Next clause is starting */
+                        break;
                     }
                 }
             } elseif ($state === 3) {
@@ -182,8 +185,9 @@ class JoinKeyword extends Component
         foreach ($component as $c) {
             $ret[] = array_search($c->type, static::$JOINS) . ' ' . $c->expr
                 . (!empty($c->on)
-                    ? ' ON ' . Condition::build($c->on)
-                    : ' USING ' . ArrayObj::build($c->using));
+                    ? ' ON ' . Condition::build($c->on) : '')
+                . (!empty($c->using)
+                    ? ' USING ' . ArrayObj::build($c->using) : '');
         }
         return implode(' ', $ret);
     }
