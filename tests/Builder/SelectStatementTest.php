@@ -49,7 +49,7 @@ class SelectStatementTest extends TestCase
             'SELECT  sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
             . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id ASC '
-            . 'ORDER BY scb.id DESC LIMIT 300 ',
+            . 'ORDER BY scb.id DESC LIMIT 0, 300 ',
             $stmt->build()
         );
     }

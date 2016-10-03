@@ -10,10 +10,10 @@ use SqlParser\Tests\TestCase;
 class LimitTest extends TestCase
 {
 
-    public function testBuild()
+    public function testBuildWithoutOffset()
     {
         $component = new Limit(1);
-        $this->assertEquals(Limit::build($component), '1');
+        $this->assertEquals(Limit::build($component), '0, 1');
     }
 
     public function testBuildWithOffset()
