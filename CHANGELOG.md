@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.9] - 2016-10-03
 
 * Added support for CASE expressions
 * Support for parsing and building DELETE statement
