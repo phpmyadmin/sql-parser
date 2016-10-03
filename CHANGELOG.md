@@ -4,6 +4,7 @@
 
 * Added support for CASE expressions
 * Support for parsing and building DELETE statement
+* Support for parsing subqueries in FROM clause
 
 ## [3.4.8] - 2016-09-22
 
