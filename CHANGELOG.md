@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Added support for CASE expressions
+* Support for parsing and building DELETE statement
 
 ## [3.4.8] - 2016-09-22
 
