@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fixed parsing of ON UPDATE option in field definition of TIMESTAMP type with precision
+
 ## [3.4.10] - 2016-10-03
 
 * Fixed API regression on DELETE statement
