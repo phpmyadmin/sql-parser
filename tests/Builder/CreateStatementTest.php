@@ -127,6 +127,17 @@ class CreateStatementTest extends TestCase
         $parser = new Parser($query);
         $this->assertEquals($query, $parser->statements[0]->build());
 
+
+        /* Assertion 4 */
+        $query =
+            "CREATE TABLE `aa` (\n" .
+            "  `id` int(11) NOT NULL,\n" .
+            "  `rTime` timestamp(3) NOT NULL DEFAULT '0000-00-00 00:00:00.000' ON UPDATE CURRENT_TIMESTAMP(3),\n" .
+            "  PRIMARY KEY (`id`)\n" .
+            ") ENGINE=InnoDB DEFAULT CHARSET=latin1";
+        $parser = new Parser($query);
+        $this->assertEquals($query, $parser->statements[0]->build());
+
     }
 
     public function testBuilderPartitions()
