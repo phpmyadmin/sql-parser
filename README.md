@@ -52,7 +52,7 @@ use SqlParser\Utils\Query;
 
 $query = 'OPTIMIZE TABLE tbl';
 $parser = new Parser($query);
-$flags = Query::getFlags($parser->statements[0])
+$flags = Query::getFlags($parser->statements[0]);
 
 echo $flags['querytype'];
 ```
