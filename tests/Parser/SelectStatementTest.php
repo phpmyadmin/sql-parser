@@ -41,6 +41,7 @@ class SelectStatementTest extends TestCase
             array('parser/parseSelectCase2'),
             array('parser/parseSelectCase3'),
             array('parser/parseSelectCase4'),
+            array('parser/parseSelectCase5'),
             array('parser/parseSelectCaseErr1'),
             array('parser/parseSelectCaseErr2'),
             array('parser/parseSelectCaseErr3'),
