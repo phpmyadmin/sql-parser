@@ -80,6 +80,8 @@ class LexerTest extends TestCase
             array('lexer/lexSymbolErr3'),
             array('lexer/lexSymbolUser'),
             array('lexer/lexWhitespace'),
+            array('lexer/lexLabel1'),
+            array('lexer/lexLabel2'),
         );
     }
 }
