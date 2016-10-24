@@ -154,8 +154,17 @@ class JoinKeyword extends Component
                     } elseif ($token->value === 'USING') {
                         $state = 4;
                     } else {
-                        /* Next clause is starting */
-                        break;
+                        if (($token->type === Token::TYPE_KEYWORD)
+                            && (!empty(static::$JOINS[$token->value]))
+                        ) {
+                            $ret[] = $expr;
+                            $expr = new JoinKeyword();
+                            $expr->type = static::$JOINS[$token->value];
+                            $state = 1;
+                        } else {
+                            /* Next clause is starting */
+                            break;
+                        }
                     }
                 }
             } elseif ($state === 3) {
