@@ -30,6 +30,7 @@ class JoinKeyword extends Component
      * @var array
      */
     public static $JOINS = array(
+        'CROSS JOIN'                    => 'CROSS',
         'FULL JOIN'                     => 'FULL',
         'FULL OUTER JOIN'               => 'FULL',
         'INNER JOIN'                    => 'INNER',
@@ -38,6 +39,12 @@ class JoinKeyword extends Component
         'LEFT OUTER JOIN'               => 'LEFT',
         'RIGHT JOIN'                    => 'RIGHT',
         'RIGHT OUTER JOIN'              => 'RIGHT',
+        'NATURAL JOIN'                  => 'NATURAL',
+        'NATURAL LEFT JOIN'             => 'NATURAL LEFT',
+        'NATURAL LEFT JOIN'             => 'NATURAL LEFT',
+        'NATURAL RIGHT JOIN'            => 'NATURAL RIGHT',
+        'NATURAL LEFT OUTER JOIN'       => 'NATURAL LEFT OUTER',
+        'NATURAL RIGHT OUTER JOIN'      => 'NATURAL RIGHT OUTER',
         'STRAIGHT_JOIN'                 => 'STRAIGHT',
     );
 

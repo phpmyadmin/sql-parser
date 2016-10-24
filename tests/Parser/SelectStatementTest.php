@@ -47,6 +47,8 @@ class SelectStatementTest extends TestCase
             array('parser/parseSelectCaseErr3'),
             array('parser/parseSelectCaseErr4'),
             array('parser/parseSelectCaseErr5'),
+            array('parser/parseSelectJoinCross'),
+            array('parser/parseSelectJoinNatural'),
         );
     }
 }
