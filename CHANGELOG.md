@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.11] - 2016-10-25
 
 * Fixed parsing of ON UPDATE option in field definition of TIMESTAMP type with precision
 * Fixed parsing of NATURAL JOIN, CROSS JOIN and related joins.
