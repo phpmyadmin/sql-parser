@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Fixed parsing of ON UPDATE option in field definition of TIMESTAMP type with precision
+* Fixed parsing of NATURAL JOIN, CROSS JOIN and related joins.
 
 ## [3.4.10] - 2016-10-03
 
