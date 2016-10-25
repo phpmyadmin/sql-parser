@@ -69,10 +69,25 @@ class OptionsArrayTest extends TestCase
 
     public function testRemove()
     {
+        /* Assertion 1 */
         $component = new OptionsArray(array('a', 'b', 'c'));
         $this->assertTrue($component->remove('b'));
         $this->assertFalse($component->remove('d'));
         $this->assertEquals($component->options, array(0 => 'a', 2 => 'c'));
+
+        /* Assertion 2 */
+        $component = OptionsArray::parse(
+            new Parser(),
+            $this->getTokensList('A B = /*comment*/ (test) C'),
+            array(
+                'A' => 1,
+                'B' => array(2, 'var'),
+                'C' => 3,
+            )
+        );
+        $this->assertEquals('test', $component->has('B'));
+        $component->remove('B');
+        $this->assertFalse($component->has('B'));
     }
 
     public function testMerge()
