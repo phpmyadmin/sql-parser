@@ -795,14 +795,6 @@ class Query
      */
     public static function getClauseStartOffset($statement, $list, $clause)
     {
-
-        /**
-         * The index of the current clause.
-         *
-         * @var int $currIdx
-         */
-        $currIdx = 0;
-
         /**
          * The count of brackets.
          * We keep track of them so we won't insert the clause in a subquery.
