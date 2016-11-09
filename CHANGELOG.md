@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.12] - 2016-11-09
 
 * Added verification order of SELECT statement clauses.
 
