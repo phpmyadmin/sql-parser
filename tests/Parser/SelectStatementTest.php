@@ -56,6 +56,9 @@ class SelectStatementTest extends TestCase
             array('parser/parseSelectJoinNaturalRightOuter'),
             array('parser/parseSelectJoinMultiple'),
             array('parser/parseSelectWrongOrder'),
+            array('parser/parseSelectEndOptions1'),
+            array('parser/parseSelectEndOptions2'),
+            array('parser/parseSelectEndOptionsErr'),
         );
     }
 }
