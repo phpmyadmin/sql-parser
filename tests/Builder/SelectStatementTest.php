@@ -53,4 +53,27 @@ class SelectStatementTest extends TestCase
             $stmt->build()
         );
     }
+
+    public function testBuilderEndOptions()
+    {
+        /* Assertion 1 */
+        $query = 'SELECT  pid, name2 FROM tablename WHERE pid = 20 FOR UPDATE ';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            $query,
+            $stmt->build()
+        );
+
+        /* Assertion 2 */
+        $query = 'SELECT  pid, name2 FROM tablename WHERE pid = 20 LOCK IN SHARE MODE ';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            $query,
+            $stmt->build()
+        );
+    }
 }

@@ -352,10 +352,23 @@ abstract class Statement
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
-                // There is no parser for this keyword and isn't the beginning
-                // of a statement (so no options) either.
-                $parser->error(__('Unrecognized keyword.'), $token);
-                continue;
+                // Handle special end options in Select statement
+                // See Statements\SelectStatement::$END_OPTIONS
+                if (get_class($this) === 'SqlParser\Statements\SelectStatement'
+                    && ($token->value === 'FOR UPDATE'
+                    || $token->value === 'LOCK IN SHARE MODE')
+                ) {
+                    $this->end_options = OptionsArray::parse(
+                        $parser,
+                        $list,
+                        static::$END_OPTIONS
+                    );
+                } else {
+                    // There is no parser for this keyword and isn't the beginning
+                    // of a statement (so no options) either.
+                    $parser->error(__('Unrecognized keyword.'), $token);
+                    continue;
+                }
             }
 
             $this->before($parser, $list, $token);
