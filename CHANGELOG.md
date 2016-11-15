@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [3.4.13] - 2016-11-15
 
 * Fix broken incorrect clause order detection for Joins.
