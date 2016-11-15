@@ -76,7 +76,7 @@ class SelectStatement extends Statement
 
     public static $END_OPTIONS = array(
         'FOR UPDATE'                    => 1,
-        'LOCK IN SHARE MODE'           => 1
+        'LOCK IN SHARE MODE'            => 1
     );
 
     /**
