@@ -1,6 +1,9 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.13] - 2016-11-15
+
+* Fix broken incorrect clause order detection for Joins.
+* Add parsing of end options in Select statements.
 
 ## [3.4.12] - 2016-11-09
 
