@@ -261,7 +261,7 @@ class Expression extends Component
                         continue;
                     }
                     $isExpr = true;
-                } elseif ($brackets === 0 && count($ret->expr) > 0 && ! $alias) {
+                } elseif ($brackets === 0 && strlen($ret->expr) > 0 && ! $alias) {
                     /* End of expression */
                     break;
                 }

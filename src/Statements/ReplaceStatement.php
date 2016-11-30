@@ -99,7 +99,7 @@ class ReplaceStatement extends Statement
             $ret .= ' VALUES ' . Array2d::build($this->values);
         } elseif ($this->set != NULL && count($this->set) > 0) {
             $ret .= ' SET ' . SetOperation::build($this->set);
-        } elseif ($this->select != NULL && count($this->select) > 0) {
+        } elseif ($this->select != NULL && strlen($this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 
