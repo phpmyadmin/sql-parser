@@ -1,6 +1,9 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.14] - 2016-11-30
+
+* Improved parsing of UNION queries.
+* Recognize BINARY function.
 
 ## [3.4.13] - 2016-11-15
 
