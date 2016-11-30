@@ -154,7 +154,7 @@ class DeleteStatement extends Statement
         if ($this->order != NULL && count($this->order) > 0) {
             $ret .= ' ORDER BY ' . ExpressionArray::build($this->order);
         }
-        if ($this->limit != NULL && count($this->limit) > 0) {
+        if ($this->limit != NULL && strlen($this->limit) > 0) {
             $ret .= ' LIMIT ' . Limit::build($this->limit);
         }
 
