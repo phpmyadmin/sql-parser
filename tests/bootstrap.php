@@ -65,6 +65,11 @@ abstract class TestCase extends \PHPUnit_Framework_TestCase
      */
     public function getData($name)
     {
+        /*
+         * The unrestricted unserialize() is needed here as we do have
+         * serialized objects in the tests. There should be no security risk as
+         * the test data comes with the repository.
+         */
         $data = unserialize(file_get_contents('tests/data/' . $name . '.out'));
         $data['query'] = file_get_contents('tests/data/' . $name . '.in');
         return $data;
