@@ -81,7 +81,7 @@ class InsertStatement extends Statement
     /**
      * Values to be inserted.
      *
-     * @var Array2d
+     * @var ArrayObj[]|null
      */
     public $values;
 
