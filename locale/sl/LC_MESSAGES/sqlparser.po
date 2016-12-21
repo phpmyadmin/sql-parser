@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-03-01 17:26+0100\n"
+"POT-Creation-Date: 2016-12-21 15:07+0100\n"
 "PO-Revision-Date: 2016-02-22 16:50+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -16,144 +16,199 @@ msgstr ""
 "%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: src/Component.php:46 src/Component.php:66
+#: src/Component.php:45 src/Component.php:65
 msgid "Not implemented yet."
 msgstr "Ni še implementirano."
 
-#: src/Components/AlterOperation.php:229
-msgid "Unrecognized alter operation."
-msgstr "Neprepoznan poseg spremembe."
-
-#: src/Components/Array2d.php:93
-#, php-format
-msgid "%1$d values were expected, but found %2$d."
-msgstr "Pričakovali smo %1$d vrednosti, vendar smo jih našli %2$d."
-
-#: src/Components/Array2d.php:116
-msgid "An opening bracket followed by a set of values was expected."
-msgstr "Pričakovali smo začetni oklepaj, ki mu sledi množica vrednosti."
-
-#: src/Components/ArrayObj.php:119 src/Components/CreateDefinition.php:207
-msgid "An opening bracket was expected."
-msgstr "Pričakovali smo začetni oklepaj."
-
-#: src/Components/CreateDefinition.php:251
-msgid "A comma or a closing bracket was expected."
-msgstr "Pričakovali smo vejico ali zaklepaj."
-
-#: src/Components/CreateDefinition.php:267
-msgid "A closing bracket was expected."
-msgstr "Pričakovali smo zaklepaj."
-
-#: src/Components/DataType.php:128
-msgid "Unrecognized data type."
-msgstr "Neprepoznana vrsta podatkov."
-
-#: src/Components/Expression.php:248 src/Components/Expression.php:385
-msgid "An alias was expected."
-msgstr "Pričakovali smo vzdevek."
-
-#: src/Components/Expression.php:323 src/Components/Expression.php:342
-#: src/Components/Expression.php:374
-msgid "An alias was previously found."
-msgstr "Vzdevek smo našli že prej."
-
-#: src/Components/Expression.php:355
-msgid "Unexpected dot."
-msgstr "Nepričakovana pika."
-
-#: src/Components/ExpressionArray.php:99
-msgid "An expression was expected."
-msgstr "Pričakovali smo izraz."
-
-#: src/Components/Limit.php:91 src/Components/Limit.php:113
-msgid "An offset was expected."
-msgstr "Pričakovali smo odmik."
-
-#: src/Components/OptionsArray.php:148
-#, php-format
-msgid "This option conflicts with \"%1$s\"."
-msgstr "Izbira je v sporu z \"%1$s\"."
-
-#: src/Components/RenameOperation.php:102
-msgid "The old name of the table was expected."
-msgstr "Pričakovali smo staro ime tabele."
-
-#: src/Components/RenameOperation.php:112
-msgid "Keyword \"TO\" was expected."
-msgstr "Pričakovali smo ključno besedo \"TO\"."
-
-#: src/Components/RenameOperation.php:128
-msgid "The new name of the table was expected."
-msgstr "Pričakovali smo novo ime tabele."
-
-#: src/Components/RenameOperation.php:146
-msgid "A rename operation was expected."
-msgstr "Pričakovali smo poseg preimenovanja."
-
-#: src/Lexer.php:243
-msgid "Unexpected character."
-msgstr "Nepričakovan znak."
-
-#: src/Lexer.php:280
-msgid "Expected whitespace(s) before delimiter."
-msgstr "Pred ločitvenim znakom smo pričakoval prazne znake."
-
-#: src/Lexer.php:298 src/Lexer.php:314
-msgid "Expected delimiter."
-msgstr "Pričakovali smo ločitveni znak."
-
-#: src/Lexer.php:760
-#, php-format
-msgid "Ending quote %1$s was expected."
-msgstr "Pričakovali smo končni narekovaj %1$s."
-
-#: src/Lexer.php:800
-msgid "Variable name was expected."
-msgstr "Pričakovali smo ime spremenljivke."
-
-#: src/Parser.php:399
-msgid "Unexpected beginning of statement."
-msgstr "Nepričakovan začetek stavka."
-
-#: src/Parser.php:418
-msgid "Unrecognized statement type."
-msgstr "Neprepoznana vrsta stavka."
-
-#: src/Parser.php:500
-msgid "No transaction was previously started."
-msgstr "Začeli niste nobene transakcije."
-
-#: src/Statement.php:246
-msgid "Unexpected token."
-msgstr "Nepričakovan žeton."
-
-#: src/Statement.php:284
-msgid "This type of clause was previously parsed."
-msgstr "To vrsto stavka smo prej razčlenili."
-
-#: src/Statement.php:312
+#: src/Components/AlterOperation.php:228 src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Naleteli smo na nov stavek, vendar med njim in prejšnjim stavkom ni "
 "ločilnega znaka."
 
-#: src/Statement.php:332
+#: src/Components/AlterOperation.php:240
+msgid "Unrecognized alter operation."
+msgstr "Neprepoznan poseg spremembe."
+
+#: src/Components/Array2d.php:92
+#, php-format
+msgid "%1$d values were expected, but found %2$d."
+msgstr "Pričakovali smo %1$d vrednosti, vendar smo jih našli %2$d."
+
+#: src/Components/Array2d.php:115
+msgid "An opening bracket followed by a set of values was expected."
+msgstr "Pričakovali smo začetni oklepaj, ki mu sledi množica vrednosti."
+
+#: src/Components/ArrayObj.php:118 src/Components/CreateDefinition.php:206
+msgid "An opening bracket was expected."
+msgstr "Pričakovali smo začetni oklepaj."
+
+#: src/Components/CaseExpression.php:137 src/Components/CaseExpression.php:167
+#: src/Components/CaseExpression.php:179 src/Components/CaseExpression.php:193
+#: src/Statements/DeleteStatement.php:225
+#: src/Statements/DeleteStatement.php:241
+#: src/Statements/DeleteStatement.php:281
+#: src/Statements/DeleteStatement.php:292
+#: src/Statements/DeleteStatement.php:322
+#: src/Statements/DeleteStatement.php:333
+#: src/Statements/InsertStatement.php:199
+#: src/Statements/InsertStatement.php:227
+#: src/Statements/ReplaceStatement.php:165
+#: src/Statements/ReplaceStatement.php:193
+#, fuzzy
+#| msgid "Unexpected token."
+msgid "Unexpected keyword."
+msgstr "Nepričakovan žeton."
+
+#: src/Components/CaseExpression.php:202
+msgid "Unexpected end of CASE expression"
+msgstr ""
+
+#: src/Components/CreateDefinition.php:227
+msgid ""
+"A symbol name was expected! A reserved keyword can not be used as a column "
+"name without backquotes."
+msgstr ""
+
+#: src/Components/CreateDefinition.php:240
+#, fuzzy
+#| msgid "Variable name was expected."
+msgid "A symbol name was expected!"
+msgstr "Pričakovali smo ime spremenljivke."
+
+#: src/Components/CreateDefinition.php:272
+msgid "A comma or a closing bracket was expected."
+msgstr "Pričakovali smo vejico ali zaklepaj."
+
+#: src/Components/CreateDefinition.php:288
+msgid "A closing bracket was expected."
+msgstr "Pričakovali smo zaklepaj."
+
+#: src/Components/DataType.php:127
+msgid "Unrecognized data type."
+msgstr "Neprepoznana vrsta podatkov."
+
+#: src/Components/Expression.php:248 src/Components/Expression.php:398
+msgid "An alias was expected."
+msgstr "Pričakovali smo vzdevek."
+
+#: src/Components/Expression.php:336 src/Components/Expression.php:355
+#: src/Components/Expression.php:387
+msgid "An alias was previously found."
+msgstr "Vzdevek smo našli že prej."
+
+#: src/Components/Expression.php:368
+msgid "Unexpected dot."
+msgstr "Nepričakovana pika."
+
+#: src/Components/ExpressionArray.php:106
+msgid "An expression was expected."
+msgstr "Pričakovali smo izraz."
+
+#: src/Components/Limit.php:90 src/Components/Limit.php:112
+msgid "An offset was expected."
+msgstr "Pričakovali smo odmik."
+
+#: src/Components/OptionsArray.php:147
+#, php-format
+msgid "This option conflicts with \"%1$s\"."
+msgstr "Izbira je v sporu z \"%1$s\"."
+
+#: src/Components/RenameOperation.php:101
+msgid "The old name of the table was expected."
+msgstr "Pričakovali smo staro ime tabele."
+
+#: src/Components/RenameOperation.php:111
+msgid "Keyword \"TO\" was expected."
+msgstr "Pričakovali smo ključno besedo \"TO\"."
+
+#: src/Components/RenameOperation.php:127
+msgid "The new name of the table was expected."
+msgstr "Pričakovali smo novo ime tabele."
+
+#: src/Components/RenameOperation.php:145
+msgid "A rename operation was expected."
+msgstr "Pričakovali smo poseg preimenovanja."
+
+#: src/Lexer.php:242
+msgid "Unexpected character."
+msgstr "Nepričakovan znak."
+
+#: src/Lexer.php:279
+msgid "Expected whitespace(s) before delimiter."
+msgstr "Pred ločitvenim znakom smo pričakoval prazne znake."
+
+#: src/Lexer.php:297 src/Lexer.php:313
+msgid "Expected delimiter."
+msgstr "Pričakovali smo ločitveni znak."
+
+#: src/Lexer.php:814
+#, php-format
+msgid "Ending quote %1$s was expected."
+msgstr "Pričakovali smo končni narekovaj %1$s."
+
+#: src/Lexer.php:854
+msgid "Variable name was expected."
+msgstr "Pričakovali smo ime spremenljivke."
+
+#: src/Parser.php:432
+msgid "Unexpected beginning of statement."
+msgstr "Nepričakovan začetek stavka."
+
+#: src/Parser.php:451
+msgid "Unrecognized statement type."
+msgstr "Neprepoznana vrsta stavka."
+
+#: src/Parser.php:536
+msgid "No transaction was previously started."
+msgstr "Začeli niste nobene transakcije."
+
+#: src/Statement.php:245 src/Statements/DeleteStatement.php:250
+#: src/Statements/DeleteStatement.php:295
+#: src/Statements/InsertStatement.php:236
+#: src/Statements/InsertStatement.php:256
+#: src/Statements/ReplaceStatement.php:201
+msgid "Unexpected token."
+msgstr "Nepričakovan žeton."
+
+#: src/Statement.php:309
+msgid "This type of clause was previously parsed."
+msgstr "To vrsto stavka smo prej razčlenili."
+
+#: src/Statement.php:369
 msgid "Unrecognized keyword."
 msgstr "Nepričakovana ključna beseda."
 
-#: src/Statements/CreateStatement.php:353
+#: src/Statement.php:495
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Unexpected ordering of clauses."
+msgstr "Nepričakovan začetek stavka."
+
+#: src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
 msgstr "Pričakovali smo ime entitete."
 
-#: src/Statements/CreateStatement.php:370
+#: src/Statements/CreateStatement.php:436
+#, fuzzy
+#| msgid "Variable name was expected."
+msgid "A table name was expected."
+msgstr "Pričakovali smo ime spremenljivke."
+
+#: src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
 msgstr "Pričakovali smo vsaj eno opredelitev stolpca."
 
-#: src/Statements/CreateStatement.php:481
+#: src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Pričakovali smo ključno besedo \"RETURNS\"."
+
+#: src/Statements/DeleteStatement.php:303
+#, fuzzy
+#| msgid "This type of clause was previously parsed."
+msgid "This type of clause is not valid in Multi-table queries."
+msgstr "To vrsto stavka smo prej razčlenili."
 
 #: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
 msgid "error #1"

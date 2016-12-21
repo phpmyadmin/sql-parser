@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-03-01 17:26+0100\n"
+"POT-Creation-Date: 2016-12-21 15:07+0100\n"
 "PO-Revision-Date: 2015-11-12 10:41+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15,143 +15,196 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-#: src/Component.php:46 src/Component.php:66
+#: src/Component.php:45 src/Component.php:65
 msgid "Not implemented yet."
 msgstr "Ännu inte implementerat."
 
-#: src/Components/AlterOperation.php:229
-msgid "Unrecognized alter operation."
-msgstr "Okänd operation."
-
-#: src/Components/Array2d.php:93
-#, php-format
-msgid "%1$d values were expected, but found %2$d."
-msgstr "%1$d värden var väntat, men hittade %2$d."
-
-#: src/Components/Array2d.php:116
-msgid "An opening bracket followed by a set of values was expected."
-msgstr "En inledande hakparentes följt av en uppsättning värden förväntades."
-
-#: src/Components/ArrayObj.php:119 src/Components/CreateDefinition.php:207
-msgid "An opening bracket was expected."
-msgstr "En inledande hakparentes förväntades."
-
-#: src/Components/CreateDefinition.php:251
-msgid "A comma or a closing bracket was expected."
-msgstr "Semikolon eller en avslutande hakparentes förväntades."
-
-#: src/Components/CreateDefinition.php:267
-msgid "A closing bracket was expected."
-msgstr "En avslutande hakparentes förväntades."
-
-#: src/Components/DataType.php:128
-msgid "Unrecognized data type."
-msgstr "Okänd datatyp."
-
-#: src/Components/Expression.php:248 src/Components/Expression.php:385
-msgid "An alias was expected."
-msgstr "Ett alias förväntades."
-
-#: src/Components/Expression.php:323 src/Components/Expression.php:342
-#: src/Components/Expression.php:374
-msgid "An alias was previously found."
-msgstr "Ett alias hittades tidigare."
-
-#: src/Components/Expression.php:355
-msgid "Unexpected dot."
-msgstr "Oväntad punkt."
-
-#: src/Components/ExpressionArray.php:99
-msgid "An expression was expected."
-msgstr "Ett uttryck förväntades."
-
-#: src/Components/Limit.php:91 src/Components/Limit.php:113
-msgid "An offset was expected."
-msgstr "En förskjutning förväntades."
-
-#: src/Components/OptionsArray.php:148
-#, php-format
-msgid "This option conflicts with \"%1$s\"."
-msgstr "Det här alternativet är i konflikt med \"%1$s\"."
-
-#: src/Components/RenameOperation.php:102
-msgid "The old name of the table was expected."
-msgstr "Det gamla namnet på tabellen förväntades."
-
-#: src/Components/RenameOperation.php:112
-msgid "Keyword \"TO\" was expected."
-msgstr "Sökordet \"Till\" förväntades."
-
-#: src/Components/RenameOperation.php:128
-msgid "The new name of the table was expected."
-msgstr "Det nya namnet på tabellen förväntades."
-
-#: src/Components/RenameOperation.php:146
-msgid "A rename operation was expected."
-msgstr "Ett namnbyte förväntades."
-
-#: src/Lexer.php:243
-msgid "Unexpected character."
-msgstr "Oväntade tecken."
-
-#: src/Lexer.php:280
-msgid "Expected whitespace(s) before delimiter."
-msgstr ""
-
-#: src/Lexer.php:298 src/Lexer.php:314
-msgid "Expected delimiter."
-msgstr "Förväntade avgränsare."
-
-#: src/Lexer.php:760
-#, php-format
-msgid "Ending quote %1$s was expected."
-msgstr "Slut citat %1$s förväntades."
-
-#: src/Lexer.php:800
-msgid "Variable name was expected."
-msgstr "Variabel namn förväntades."
-
-#: src/Parser.php:399
-msgid "Unexpected beginning of statement."
-msgstr "Oväntad början av satsen."
-
-#: src/Parser.php:418
-msgid "Unrecognized statement type."
-msgstr "Okänd uttryckstyp."
-
-#: src/Parser.php:500
-msgid "No transaction was previously started."
-msgstr "Ingen transaktion startades tidigare."
-
-#: src/Statement.php:246
-msgid "Unexpected token."
-msgstr "Oväntad token."
-
-#: src/Statement.php:284
-msgid "This type of clause was previously parsed."
-msgstr ""
-
-#: src/Statement.php:312
+#: src/Components/AlterOperation.php:228 src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "En ny sats hittades, men ingen avgränsare mellan det och den föregående."
 
-#: src/Statement.php:332
+#: src/Components/AlterOperation.php:240
+msgid "Unrecognized alter operation."
+msgstr "Okänd operation."
+
+#: src/Components/Array2d.php:92
+#, php-format
+msgid "%1$d values were expected, but found %2$d."
+msgstr "%1$d värden var väntat, men hittade %2$d."
+
+#: src/Components/Array2d.php:115
+msgid "An opening bracket followed by a set of values was expected."
+msgstr "En inledande hakparentes följt av en uppsättning värden förväntades."
+
+#: src/Components/ArrayObj.php:118 src/Components/CreateDefinition.php:206
+msgid "An opening bracket was expected."
+msgstr "En inledande hakparentes förväntades."
+
+#: src/Components/CaseExpression.php:137 src/Components/CaseExpression.php:167
+#: src/Components/CaseExpression.php:179 src/Components/CaseExpression.php:193
+#: src/Statements/DeleteStatement.php:225
+#: src/Statements/DeleteStatement.php:241
+#: src/Statements/DeleteStatement.php:281
+#: src/Statements/DeleteStatement.php:292
+#: src/Statements/DeleteStatement.php:322
+#: src/Statements/DeleteStatement.php:333
+#: src/Statements/InsertStatement.php:199
+#: src/Statements/InsertStatement.php:227
+#: src/Statements/ReplaceStatement.php:165
+#: src/Statements/ReplaceStatement.php:193
+#, fuzzy
+#| msgid "Unexpected token."
+msgid "Unexpected keyword."
+msgstr "Oväntad token."
+
+#: src/Components/CaseExpression.php:202
+msgid "Unexpected end of CASE expression"
+msgstr ""
+
+#: src/Components/CreateDefinition.php:227
+msgid ""
+"A symbol name was expected! A reserved keyword can not be used as a column "
+"name without backquotes."
+msgstr ""
+
+#: src/Components/CreateDefinition.php:240
+#, fuzzy
+#| msgid "Variable name was expected."
+msgid "A symbol name was expected!"
+msgstr "Variabel namn förväntades."
+
+#: src/Components/CreateDefinition.php:272
+msgid "A comma or a closing bracket was expected."
+msgstr "Semikolon eller en avslutande hakparentes förväntades."
+
+#: src/Components/CreateDefinition.php:288
+msgid "A closing bracket was expected."
+msgstr "En avslutande hakparentes förväntades."
+
+#: src/Components/DataType.php:127
+msgid "Unrecognized data type."
+msgstr "Okänd datatyp."
+
+#: src/Components/Expression.php:248 src/Components/Expression.php:398
+msgid "An alias was expected."
+msgstr "Ett alias förväntades."
+
+#: src/Components/Expression.php:336 src/Components/Expression.php:355
+#: src/Components/Expression.php:387
+msgid "An alias was previously found."
+msgstr "Ett alias hittades tidigare."
+
+#: src/Components/Expression.php:368
+msgid "Unexpected dot."
+msgstr "Oväntad punkt."
+
+#: src/Components/ExpressionArray.php:106
+msgid "An expression was expected."
+msgstr "Ett uttryck förväntades."
+
+#: src/Components/Limit.php:90 src/Components/Limit.php:112
+msgid "An offset was expected."
+msgstr "En förskjutning förväntades."
+
+#: src/Components/OptionsArray.php:147
+#, php-format
+msgid "This option conflicts with \"%1$s\"."
+msgstr "Det här alternativet är i konflikt med \"%1$s\"."
+
+#: src/Components/RenameOperation.php:101
+msgid "The old name of the table was expected."
+msgstr "Det gamla namnet på tabellen förväntades."
+
+#: src/Components/RenameOperation.php:111
+msgid "Keyword \"TO\" was expected."
+msgstr "Sökordet \"Till\" förväntades."
+
+#: src/Components/RenameOperation.php:127
+msgid "The new name of the table was expected."
+msgstr "Det nya namnet på tabellen förväntades."
+
+#: src/Components/RenameOperation.php:145
+msgid "A rename operation was expected."
+msgstr "Ett namnbyte förväntades."
+
+#: src/Lexer.php:242
+msgid "Unexpected character."
+msgstr "Oväntade tecken."
+
+#: src/Lexer.php:279
+msgid "Expected whitespace(s) before delimiter."
+msgstr ""
+
+#: src/Lexer.php:297 src/Lexer.php:313
+msgid "Expected delimiter."
+msgstr "Förväntade avgränsare."
+
+#: src/Lexer.php:814
+#, php-format
+msgid "Ending quote %1$s was expected."
+msgstr "Slut citat %1$s förväntades."
+
+#: src/Lexer.php:854
+msgid "Variable name was expected."
+msgstr "Variabel namn förväntades."
+
+#: src/Parser.php:432
+msgid "Unexpected beginning of statement."
+msgstr "Oväntad början av satsen."
+
+#: src/Parser.php:451
+msgid "Unrecognized statement type."
+msgstr "Okänd uttryckstyp."
+
+#: src/Parser.php:536
+msgid "No transaction was previously started."
+msgstr "Ingen transaktion startades tidigare."
+
+#: src/Statement.php:245 src/Statements/DeleteStatement.php:250
+#: src/Statements/DeleteStatement.php:295
+#: src/Statements/InsertStatement.php:236
+#: src/Statements/InsertStatement.php:256
+#: src/Statements/ReplaceStatement.php:201
+msgid "Unexpected token."
+msgstr "Oväntad token."
+
+#: src/Statement.php:309
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: src/Statement.php:369
 msgid "Unrecognized keyword."
 msgstr "Okänt nyckelord."
 
-#: src/Statements/CreateStatement.php:353
+#: src/Statement.php:495
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Unexpected ordering of clauses."
+msgstr "Oväntad början av satsen."
+
+#: src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
 msgstr "Namnet på entiteten förväntades."
 
-#: src/Statements/CreateStatement.php:370
+#: src/Statements/CreateStatement.php:436
+#, fuzzy
+#| msgid "Variable name was expected."
+msgid "A table name was expected."
+msgstr "Variabel namn förväntades."
+
+#: src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
 msgstr "Minst en kolumndefinition förväntades."
 
-#: src/Statements/CreateStatement.php:481
+#: src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Ett nyckelord förväntades."
+
+#: src/Statements/DeleteStatement.php:303
+msgid "This type of clause is not valid in Multi-table queries."
+msgstr ""
 
 #: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
 #, fuzzy
