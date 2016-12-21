@@ -103,7 +103,7 @@ class ExpressionArray extends Component
 
         if ($state === 0) {
             $parser->error(
-                __('An expression was expected.'),
+                'An expression was expected.',
                 $list->tokens[$list->idx]
             );
         }

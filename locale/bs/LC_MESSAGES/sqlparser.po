@@ -1,0 +1,7692 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SQL parser 0\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
+"POT-Creation-Date: 2016-12-21 15:07+0100\n"
+"PO-Revision-Date: 2015-10-15 11:31+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Bosnian <https://hosted.weblate.org/projects/phpmyadmin/"
+"master/bs/>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+#: src/Component.php:45 src/Component.php:65
+msgid "Not implemented yet."
+msgstr ""
+
+#: src/Components/AlterOperation.php:228 src/Statement.php:337
+msgid ""
+"A new statement was found, but no delimiter between it and the previous one."
+msgstr ""
+
+#: src/Components/AlterOperation.php:240
+msgid "Unrecognized alter operation."
+msgstr ""
+
+#: src/Components/Array2d.php:92
+#, php-format
+msgid "%1$d values were expected, but found %2$d."
+msgstr ""
+
+#: src/Components/Array2d.php:115
+msgid "An opening bracket followed by a set of values was expected."
+msgstr ""
+
+#: src/Components/ArrayObj.php:118 src/Components/CreateDefinition.php:206
+msgid "An opening bracket was expected."
+msgstr ""
+
+#: src/Components/CaseExpression.php:137 src/Components/CaseExpression.php:167
+#: src/Components/CaseExpression.php:179 src/Components/CaseExpression.php:193
+#: src/Statements/DeleteStatement.php:225
+#: src/Statements/DeleteStatement.php:241
+#: src/Statements/DeleteStatement.php:281
+#: src/Statements/DeleteStatement.php:292
+#: src/Statements/DeleteStatement.php:322
+#: src/Statements/DeleteStatement.php:333
+#: src/Statements/InsertStatement.php:199
+#: src/Statements/InsertStatement.php:227
+#: src/Statements/ReplaceStatement.php:165
+#: src/Statements/ReplaceStatement.php:193
+msgid "Unexpected keyword."
+msgstr ""
+
+#: src/Components/CaseExpression.php:202
+msgid "Unexpected end of CASE expression"
+msgstr ""
+
+#: src/Components/CreateDefinition.php:227
+msgid ""
+"A symbol name was expected! A reserved keyword can not be used as a column "
+"name without backquotes."
+msgstr ""
+
+#: src/Components/CreateDefinition.php:240
+#, fuzzy
+msgid "A symbol name was expected!"
+msgstr "Šablon imena datoteke"
+
+#: src/Components/CreateDefinition.php:272
+#, fuzzy
+#| msgid "No databases selected."
+msgid "A comma or a closing bracket was expected."
+msgstr "Nije izabrana ni jedna baza."
+
+#: src/Components/CreateDefinition.php:288
+msgid "A closing bracket was expected."
+msgstr ""
+
+#: src/Components/DataType.php:127
+msgid "Unrecognized data type."
+msgstr ""
+
+#: src/Components/Expression.php:248 src/Components/Expression.php:398
+#, fuzzy
+#| msgid "No databases selected."
+msgid "An alias was expected."
+msgstr "Nije izabrana ni jedna baza."
+
+#: src/Components/Expression.php:336 src/Components/Expression.php:355
+#: src/Components/Expression.php:387
+msgid "An alias was previously found."
+msgstr ""
+
+#: src/Components/Expression.php:368
+msgid "Unexpected dot."
+msgstr ""
+
+#: src/Components/ExpressionArray.php:106
+#, fuzzy
+#| msgid "No databases selected."
+msgid "An expression was expected."
+msgstr "Nije izabrana ni jedna baza."
+
+#: src/Components/Limit.php:90 src/Components/Limit.php:112
+msgid "An offset was expected."
+msgstr ""
+
+#: src/Components/OptionsArray.php:147
+#, php-format
+msgid "This option conflicts with \"%1$s\"."
+msgstr ""
+
+#: src/Components/RenameOperation.php:101
+msgid "The old name of the table was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:111
+msgid "Keyword \"TO\" was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:127
+msgid "The new name of the table was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:145
+#, fuzzy
+#| msgid "The row has been deleted."
+msgid "A rename operation was expected."
+msgstr "Red je obrisan"
+
+#: src/Lexer.php:242
+msgid "Unexpected character."
+msgstr ""
+
+#: src/Lexer.php:279
+msgid "Expected whitespace(s) before delimiter."
+msgstr ""
+
+#: src/Lexer.php:297 src/Lexer.php:313
+msgid "Expected delimiter."
+msgstr ""
+
+#: src/Lexer.php:814
+#, fuzzy, php-format
+msgid "Ending quote %1$s was expected."
+msgstr "Tabela %s je odbačena"
+
+#: src/Lexer.php:854
+#, fuzzy
+msgid "Variable name was expected."
+msgstr "Šablon imena datoteke"
+
+#: src/Parser.php:432
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "Unexpected beginning of statement."
+msgstr "Na početku tabele"
+
+#: src/Parser.php:451
+msgid "Unrecognized statement type."
+msgstr ""
+
+#: src/Parser.php:536
+msgid "No transaction was previously started."
+msgstr ""
+
+#: src/Statement.php:245 src/Statements/DeleteStatement.php:250
+#: src/Statements/DeleteStatement.php:295
+#: src/Statements/InsertStatement.php:236
+#: src/Statements/InsertStatement.php:256
+#: src/Statements/ReplaceStatement.php:201
+msgid "Unexpected token."
+msgstr ""
+
+#: src/Statement.php:309
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: src/Statement.php:369
+msgid "Unrecognized keyword."
+msgstr ""
+
+#: src/Statement.php:495
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "Unexpected ordering of clauses."
+msgstr "Na početku tabele"
+
+#: src/Statements/CreateStatement.php:381
+msgid "The name of the entity was expected."
+msgstr ""
+
+#: src/Statements/CreateStatement.php:436
+#, fuzzy
+msgid "A table name was expected."
+msgstr "Šablon imena datoteke"
+
+#: src/Statements/CreateStatement.php:444
+#, fuzzy
+#| msgid "The row has been deleted."
+msgid "At least one column definition was expected."
+msgstr "Red je obrisan"
+
+#: src/Statements/CreateStatement.php:555
+msgid "A \"RETURNS\" keyword was expected."
+msgstr ""
+
+#: src/Statements/DeleteStatement.php:303
+msgid "This type of clause is not valid in Multi-table queries."
+msgstr ""
+
+#: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
+#, fuzzy
+#| msgid "Error"
+msgid "error #1"
+msgstr "Greška"
+
+#: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
+#, fuzzy
+#| msgid "Query type"
+msgid "strict error"
+msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Showing rows"
+#~ msgid "Showing rows %1$s - %2$s."
+#~ msgstr "Prikaz zapisa"
+
+#~ msgid "Database comment"
+#~ msgstr "Komentar baze"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Table comments:"
+#~ msgstr "Komentari tabele"
+
+#~ msgid "Column"
+#~ msgstr "Kolona"
+
+#~ msgid "Type"
+#~ msgstr "Tip"
+
+#~ msgid "Null"
+#~ msgstr "Null"
+
+#~ msgid "Default"
+#~ msgstr "Podrazumjevano"
+
+#~ msgid "Links to"
+#~ msgstr "Veze ka"
+
+#~ msgid "Comments"
+#~ msgstr "Komentari"
+
+#~ msgid "Primary"
+#~ msgstr "Primarni"
+
+#~ msgid "No"
+#~ msgstr "Ne"
+
+#~ msgid "Yes"
+#~ msgstr "Da"
+
+#~ msgid "View dump (schema) of database"
+#~ msgstr "Prikaži sadržaj (shemu) baze"
+
+#~ msgid "No tables found in database."
+#~ msgstr "Tabele nisu pronađene u bazi."
+
+#~ msgid "Tables"
+#~ msgstr "Tabele"
+
+#~ msgid "Structure"
+#~ msgstr "Struktura"
+
+#~ msgid "Data"
+#~ msgstr "Podaci"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select all"
+#~ msgstr "Izaberi sve"
+
+#~ msgid "The database name is empty!"
+#~ msgstr "Naziv baze je prazan!"
+
+#, fuzzy
+#~| msgid "Database %1$s has been renamed to %2$s."
+#~ msgid "Database %1$s has been renamed to %2$s."
+#~ msgstr "Baza %1$s je preimenovana u %2$s"
+
+#, fuzzy
+#~| msgid "Database %1$s has been copied to %2$s."
+#~ msgid "Database %1$s has been copied to %2$s."
+#~ msgstr "Baza %1$s je kopirana u %2$s"
+
+#, fuzzy
+#~| msgid ""
+#~| "The phpMyAdmin configuration storage has been deactivated. To find out "
+#~| "why click %shere%s."
+#~ msgid ""
+#~ "The phpMyAdmin configuration storage has been deactivated. %sFind out why"
+#~ "%s."
+#~ msgstr "phpMyAdmin konfiguracijski spremnik je isključen. %sSaznaj više%s."
+
+#, fuzzy
+#~| msgid "You have to choose at least one column to display"
+#~ msgid "You have to choose at least one column to display!"
+#~ msgstr "Morate izabrati bar jednu kolonu za prikaz"
+
+#~ msgid "Switch to %svisual builder%s"
+#~ msgstr "Pređi na %svizualni graditelj%s"
+
+#~ msgid "Access denied!"
+#~ msgstr "Ulaz nije dozvoljen!"
+
+#, fuzzy
+#~| msgid "Chart generated successfully."
+#~ msgid "Tracking data deleted successfully."
+#~ msgstr "Privilegije su uspešno ponovo učitane."
+
+#, fuzzy
+#~| msgid "No databases selected."
+#~ msgid "No tables selected."
+#~ msgstr "Nije izabrana ni jedna baza."
+
+#, fuzzy
+#~ msgid "Database Log"
+#~ msgstr "Baza podataka"
+
+#, fuzzy
+#~ msgid "Bad type!"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Bad parameters!"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Invalid export type"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add a point"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Linestring %d:"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add a linestring"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add an inner ring"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgid "Polygon %d:"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Add a polygon"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Add geometry"
+#~ msgstr "Dodaj novog korisnika"
+
+#~ msgid "Go"
+#~ msgstr "Kreni"
+
+#, fuzzy
+#~| msgid "Access denied!"
+#~ msgid "Succeeded"
+#~ msgstr "Ulaz nije dozvoljen!"
+
+#, fuzzy
+#~| msgid "Complete inserts"
+#~ msgid "Incomplete params"
+#~ msgstr "Kompletan INSERT (sa imenima polja)"
+
+#~ msgid "The bookmark has been deleted."
+#~ msgstr "Obilježivač je upravo obrisan."
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "File could not be read!"
+#~ msgstr "Datoteku nije moguće pročitati"
+
+#, fuzzy
+#~ msgid "Bookmark %s has been created."
+#~ msgstr "Tabela %s je odbačena"
+
+#~ msgid "Back"
+#~ msgstr "Nazad"
+
+#, fuzzy
+#~ msgid "phpMyAdmin Demo Server"
+#~ msgstr "phpMyAdmin dokumentacija"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "General settings"
+#~ msgstr "Opšte osobine relacija"
+
+#~ msgid "Change password"
+#~ msgstr "Promeni lozinku"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "Appearance settings"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "More settings"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database server"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~ msgid "Server:"
+#~ msgstr "Server"
+
+#, fuzzy
+#~ msgid "Server type:"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~| msgid "Server version"
+#~ msgid "Server version:"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Protocol version:"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "User:"
+#~ msgstr "Korisnik"
+
+#, fuzzy
+#~ msgid "Server charset:"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~| msgid "Database comment"
+#~ msgid "Database client version:"
+#~ msgstr "Komentar baze:"
+
+#, fuzzy
+#~ msgid "PHP extension:"
+#~ msgstr "verzija PHP-a"
+
+#, fuzzy
+#~| msgid "PHP Version"
+#~ msgid "PHP version:"
+#~ msgstr "verzija PHP-a"
+
+#~ msgid "Show PHP information"
+#~ msgstr "Prikaži informacije o PHP-u"
+
+#, fuzzy
+#~ msgid "Version information:"
+#~ msgstr "Podatci o prijavi"
+
+#~ msgid "Documentation"
+#~ msgstr "Dokumentacija"
+
+#~ msgid "Official Homepage"
+#~ msgstr "phpMyAdmin veb sajt"
+
+#, fuzzy
+#~| msgid "Attributes"
+#~ msgid "Contribute"
+#~ msgstr "Atributi"
+
+#, fuzzy
+#~| msgid "No change"
+#~ msgid "List of changes"
+#~ msgstr "Nema izmjena"
+
+#~ msgid ""
+#~ "The configuration file now needs a secret passphrase (blowfish_secret)."
+#~ msgstr "Konfiguraciona datoteka zahtjeva tajnu lozinku (blowfish_secret)."
+
+#, fuzzy
+#~| msgid ""
+#~| " additional features for working with linked tables have been ctivated. "
+#~| "To find out why click %shere%s."
+#~ msgid ""
+#~ "The phpMyAdmin configuration storage is not completely configured, some "
+#~ "extended features have been deactivated. %sFind out why%s. "
+#~ msgstr ""
+#~ "Dodatne mogućnosti za rad sa povezanim tabelama su isključene. Da biste "
+#~ "saznali zašto, kliknite %sovde%s."
+
+#~ msgid "\"DROP DATABASE\" statements are disabled."
+#~ msgstr "\"DROP DATABASE\" komanda je onemogućena."
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute \"%s\"?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Dumping data for table"
+#~ msgid "Delete tracking data for this table?"
+#~ msgstr "Prikaz podataka tabele"
+
+#, fuzzy
+#~| msgid "Dumping data for table"
+#~ msgid "Delete tracking data for these tables?"
+#~ msgstr "Prikaz podataka tabele"
+
+#, fuzzy
+#~| msgid "Allows inserting and replacing data."
+#~ msgid "Delete tracking data for this version?"
+#~ msgstr "Dozvoljava umetanje i zamjenu podataka."
+
+#, fuzzy
+#~| msgid "Allows inserting and replacing data."
+#~ msgid "Delete tracking data for these versions?"
+#~ msgstr "Dozvoljava umetanje i zamjenu podataka."
+
+#, fuzzy
+#~| msgid "Allows inserting and replacing data."
+#~ msgid "Delete entry from tracking report?"
+#~ msgstr "Dozvoljava umetanje i zamjenu podataka."
+
+#, fuzzy
+#~| msgid "Allows inserting and replacing data."
+#~ msgid "Deleting tracking data"
+#~ msgstr "Dozvoljava umetanje i zamjenu podataka."
+
+#, fuzzy
+#~| msgid "Dropping Procedure"
+#~ msgid "Dropping Foreign key."
+#~ msgstr "Procesi"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete user group \"%s\"?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete the search \"%s\"?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to revoke the selected user(s) ?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete this central column?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete the selected items?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to TRUNCATE the selected partition(s)?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to remove partitioning?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to RESET SLAVE?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save & close"
+#~ msgstr "Sačuvaj kao datoteku"
+
+#~ msgid "Reset"
+#~ msgstr "Resetuj"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Reset all"
+#~ msgstr "Izaberi sve"
+
+#~ msgid "Missing value in the form!"
+#~ msgstr "Nedostaje vrijednost u obrascu!"
+
+#, fuzzy
+#~| msgid "at least one of the words"
+#~ msgid "Select at least one of the options!"
+#~ msgstr "bar jednu od riječi"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add index"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Index"
+#~ msgid "Edit index"
+#~ msgstr "Ključ"
+
+#, fuzzy
+#~ msgid "Add %s column(s) to index"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Create routine"
+#~ msgid "Create single-column index"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "Create routine"
+#~ msgid "Create composite index"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "Fields enclosed by"
+#~ msgid "Composite with:"
+#~ msgstr "Polja ograničena sa"
+
+#, fuzzy
+#~ msgid "Please select column(s) for the index."
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "You have to choose at least one column to display"
+#~ msgid "You have to add at least one column."
+#~ msgstr "Morate izabrati bar jednu kolonu za prikaz"
+
+#, fuzzy
+#~| msgid "in query"
+#~ msgid "Simulate query"
+#~ msgstr "u upitu"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Matched rows:"
+#~ msgstr "Sub"
+
+#, fuzzy
+#~| msgid "SQL query"
+#~ msgid "SQL query:"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Value"
+#~ msgid "Y values"
+#~ msgstr "Vrijednost"
+
+#~ msgid "The host name is empty!"
+#~ msgstr "Ime hosta je prazno!"
+
+#~ msgid "The user name is empty!"
+#~ msgstr "Ime korisnika nije unijeto!"
+
+#~ msgid "The password is empty!"
+#~ msgstr "Lozinka je prazna!"
+
+#~ msgid "The passwords aren't the same!"
+#~ msgstr "Lozinke nisu identične!"
+
+#, fuzzy
+#~| msgid "Remove selected users"
+#~ msgid "Removing Selected Users"
+#~ msgstr "Ukloni izabrane korisnike"
+
+#, fuzzy
+#~ msgid "Template was created."
+#~ msgstr "Tabela %s je odbačena"
+
+#, fuzzy
+#~| msgid "The profile has been updated."
+#~ msgid "Template was updated."
+#~ msgstr "Profil je promjenjen."
+
+#, fuzzy
+#~| msgid "The row has been deleted."
+#~ msgid "Template was deleted."
+#~ msgstr "Red je obrisan"
+
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "."
+#~ msgstr "."
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Connections / Processes"
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~ msgid "Query cache efficiency"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Query cache usage"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Query cache used"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "CPU Usage"
+#~ msgid "System CPU usage"
+#~ msgstr "Zauzeće"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total memory"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total swap"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~| msgid "memcached usage"
+#~ msgid "Cached swap"
+#~ msgstr "Zauzeće"
+
+#, fuzzy
+#~| msgid "Received"
+#~ msgid "Bytes received"
+#~ msgstr "Primljeno"
+
+#~ msgid "Connections"
+#~ msgstr "Konekcije"
+
+#~ msgid "Processes"
+#~ msgstr "Procesi"
+
+#~ msgid "B"
+#~ msgstr "bajta"
+
+#~ msgid "KiB"
+#~ msgstr "KB"
+
+#~ msgid "MiB"
+#~ msgstr "MB"
+
+#~ msgid "GiB"
+#~ msgstr "GB"
+
+#~ msgid "TiB"
+#~ msgstr "TB"
+
+#~ msgid "PiB"
+#~ msgstr "PB"
+
+#~ msgid "EiB"
+#~ msgstr "EB"
+
+#, fuzzy
+#~| msgid "%s table(s)"
+#~ msgid "%d table(s)"
+#~ msgstr "%s tabela"
+
+#, fuzzy
+#~ msgid "Questions"
+#~ msgstr "Operacije"
+
+#~ msgid "Traffic"
+#~ msgstr "Saobraćaj"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "Settings"
+#~ msgstr "Opšte osobine relacija"
+
+#~ msgid "None"
+#~ msgstr "nema"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Set log_output to %s"
+#~ msgstr "Sačuvaj kao datoteku"
+
+#, fuzzy
+#~| msgid "Enabled"
+#~ msgid "Enable %s"
+#~ msgstr "Omogućeno"
+
+#, fuzzy
+#~| msgid "Disable"
+#~ msgid "Disable %s"
+#~ msgstr "Onemogućeno"
+
+#, fuzzy
+#~| msgid "Query took %01.4f sec"
+#~ msgid "Set long_query_time to %d seconds."
+#~ msgstr "Upit je trajao %01.4f sekundi"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "Change settings"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "Current settings"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "Import files"
+#~ msgid "Chart title"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~ msgid "Analysing logs"
+#~ msgstr "Lokalni"
+
+#, fuzzy
+#~ msgid "Jump to Log table"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "No data found"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~| msgid "Explain SQL"
+#~ msgid "Explain output"
+#~ msgstr "Objasni SQL"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Time"
+#~ msgstr "Vrijeme"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total time:"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~| msgid "SQL result"
+#~ msgid "Profiling results"
+#~ msgstr "SQL rezultat"
+
+#, fuzzy
+#~| msgid "Table"
+#~ msgctxt "Display format"
+#~ msgid "Table"
+#~ msgstr "Tabela"
+
+#, fuzzy
+#~| msgid "Charset"
+#~ msgid "Chart"
+#~ msgstr "Karakter set"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Log table filter options"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Sum of grouped rows:"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total:"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~ msgid "Loading logs"
+#~ msgstr "Lokalni"
+
+#, fuzzy
+#~ msgid "Reload page"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~ msgid "Import"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgid "Analyse query"
+#~ msgstr "Ažuriraj upit"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Recommendation"
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Justification"
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "No parameters found!"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "Page-related settings"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~ msgid "Loading…"
+#~ msgstr "Lokalni"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "Processing request"
+#~ msgstr "Procesi"
+
+#, fuzzy
+#~ msgid "Request failed!!"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "Error in processing request"
+#~ msgstr "Procesi"
+
+#~ msgid "No databases selected."
+#~ msgstr "Nije izabrana ni jedna baza."
+
+#, fuzzy
+#~| msgid "Inside table(s):"
+#~ msgid "Dropping column"
+#~ msgstr "Unutar tabela:"
+
+#, fuzzy
+#~ msgid "Adding primary key"
+#~ msgstr "Dodaj novo polje"
+
+#~ msgid "OK"
+#~ msgstr "U redu"
+
+#, fuzzy
+#~ msgid "Renaming databases"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~ msgid "Copying database"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~| msgid "Charset"
+#~ msgid "Changing charset"
+#~ msgstr "Karakter set"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Searching"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~ msgid "Hide search results"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Show search results"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Browse"
+#~ msgid "Browsing"
+#~ msgstr "Pregled"
+
+#, fuzzy
+#~| msgid "Deleting %s"
+#~ msgid "Deleting"
+#~ msgstr "Brišem %s"
+
+#~ msgid "Export"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Values for column %s"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~ msgid "Add %d value(s)"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgid "Hide query box"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Show query box"
+#~ msgstr "SQL upit"
+
+#~ msgid "Edit"
+#~ msgstr "Promeni"
+
+#~ msgid "Delete"
+#~ msgstr "Obriši"
+
+#~ msgid "Browse foreign values"
+#~ msgstr "Pregledaj strane vrijednosti"
+
+#, fuzzy
+#~| msgid "Variable"
+#~ msgid "Variable %d:"
+#~ msgstr "Promjenljiva"
+
+#, fuzzy
+#~| msgid "No databases selected."
+#~ msgid "Column selector"
+#~ msgstr "Nije izabrana ni jedna baza."
+
+#, fuzzy
+#~| msgid "Search in database"
+#~ msgid "Search this list"
+#~ msgstr "Pretraživanje baze"
+
+#, fuzzy
+#~| msgid "Attributes"
+#~ msgid "Continue"
+#~ msgstr "Atributi"
+
+#, fuzzy
+#~| msgid "A primary key has been added on %s."
+#~ msgid "Primary key added."
+#~ msgstr "Osnovni ključ je upravo dodan %s."
+
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Taking you to next step…"
+#~ msgstr "Promijeni"
+
+#, fuzzy
+#~| msgid "At End of Table"
+#~ msgid "End of step"
+#~ msgstr "Na kraju tabele"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgid "Done"
+#~ msgstr "nema"
+
+#, fuzzy
+#~| msgid "No databases selected."
+#~ msgid "No partial dependencies selected!"
+#~ msgstr "Nije izabrana ni jedna baza."
+
+#, fuzzy
+#~| msgid "Add privileges on the following table"
+#~ msgid "Create the following table"
+#~ msgstr "Dodaj privilegije na slijedećoj tabeli"
+
+#, fuzzy
+#~| msgid "No databases selected."
+#~ msgid "No dependencies selected!"
+#~ msgstr "Nije izabrana ni jedna baza."
+
+#~ msgid "Save"
+#~ msgstr "Sačuvaj"
+
+#, fuzzy
+#~ msgid "Hide search criteria"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Show search criteria"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Range search"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Column maximum:"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Column minimum:"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~ msgid "Hide find and replace criteria"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Show find and replace criteria"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Select two columns"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Data point content"
+#~ msgstr "Sadržaj"
+
+#~ msgid "Ignore"
+#~ msgstr "Ignoriši"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Linestring"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Inner ring"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Outer ring"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~| msgid "Choose field to display"
+#~ msgid "Choose column to display"
+#~ msgstr "Izaberi polja za prikaz"
+
+#, fuzzy
+#~| msgid "Page number:"
+#~ msgid "Page name"
+#~ msgstr "Broj strane:"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Save page"
+#~ msgstr "Izaberi sve"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Save page as"
+#~ msgstr "Izaberi sve"
+
+#, fuzzy
+#~| msgctxt "PDF"
+#~| msgid "page"
+#~ msgid "Open page"
+#~ msgstr "Zauzeće"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Delete page"
+#~ msgstr "Izaberi sve"
+
+#, fuzzy
+#~| msgid "Please choose a page to edit"
+#~ msgid "Please select a page to continue"
+#~ msgstr "Izaberite stranu koju menjate"
+
+#, fuzzy
+#~| msgid "Relational schema"
+#~ msgid "Export relational schema"
+#~ msgstr "Relaciona shema"
+
+#~ msgid "Modifications have been saved"
+#~ msgstr "Izmjene su sačuvane"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Add an option for column \"%s\"."
+#~ msgstr "Broj redova po strani"
+
+#~ msgid "Submit"
+#~ msgstr "Pošalji"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Double-click to copy column name."
+#~ msgstr "Imena kolona"
+
+#~ msgid "Show all"
+#~ msgstr "Prikaži sve"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Original length"
+#~ msgstr "Linije se završavaju sa"
+
+#~ msgid "Aborted"
+#~ msgstr "Prekinuto"
+
+#, fuzzy
+#~ msgid "Import status"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Select database first"
+#~ msgstr "Izaberi tabele"
+
+#~ msgid "Print"
+#~ msgstr "Štampaj"
+
+#, fuzzy
+#~ msgid "Go to link:"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Copy column name."
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "Generate password"
+#~ msgstr "Promeni lozinku"
+
+#, fuzzy
+#~ msgid "Generate"
+#~ msgstr "Generirao"
+
+#, fuzzy
+#~| msgid "Mon"
+#~ msgid "More"
+#~ msgstr "Pon"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show panel"
+#~ msgstr "Prikaži sve"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Hide panel"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Show hidden navigation tree items."
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~ msgid "Link with main panel"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Unlink from main panel"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "The selected user was not found in the privilege table."
+#~ msgid ""
+#~ "The requested page was not found in the history, it may have expired."
+#~ msgstr "Izabrani korisnik nije pronađen u tabeli privilegija."
+
+#, fuzzy
+#~ msgid "up to date"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Create view"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Send error report"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~ msgid "Submit error report"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "Change report settings"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~ msgid "Show report details"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~| msgid "Ignore"
+#~ msgid "Ignore All"
+#~ msgstr "Ignoriši"
+
+#, fuzzy
+#~| msgid "Show this query here again"
+#~ msgid "Execute this query again?"
+#~ msgstr "Prikaži ponovo ovaj upit"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to delete this bookmark?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~ msgid "%s queries executed %s times in %s seconds."
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show arguments"
+#~ msgstr "Komentari tabele"
+
+#, fuzzy
+#~ msgid "Hide arguments"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Copy tables to"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add table prefix"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Replace table data with file"
+#~ msgid "Replace table with prefix"
+#~ msgstr "Zamijeni podatke u tabeli sa podatcima iz datoteke"
+
+#, fuzzy
+#~| msgid "Replace table data with file"
+#~ msgid "Copy table with prefix"
+#~ msgstr "Zamijeni podatke u tabeli sa podatcima iz datoteke"
+
+#, fuzzy
+#~| msgid "Previous"
+#~ msgctxt "Previous month"
+#~ msgid "Prev"
+#~ msgstr "Prethodna"
+
+#, fuzzy
+#~| msgid "Next"
+#~ msgctxt "Next month"
+#~ msgid "Next"
+#~ msgstr "Slijedeći"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Today"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~| msgid "Binary"
+#~ msgid "January"
+#~ msgstr "Binarni"
+
+#, fuzzy
+#~| msgid "Mar"
+#~ msgid "March"
+#~ msgstr "mar"
+
+#, fuzzy
+#~| msgid "Apr"
+#~ msgid "April"
+#~ msgstr "apr"
+
+#~ msgid "May"
+#~ msgstr "maj"
+
+#, fuzzy
+#~| msgid "Jun"
+#~ msgid "June"
+#~ msgstr "jun"
+
+#, fuzzy
+#~| msgid "Jul"
+#~ msgid "July"
+#~ msgstr "jul"
+
+#, fuzzy
+#~| msgid "Aug"
+#~ msgid "August"
+#~ msgstr "aug"
+
+#, fuzzy
+#~| msgid "Oct"
+#~ msgid "October"
+#~ msgstr "okt"
+
+#~ msgid "Jan"
+#~ msgstr "jan"
+
+#~ msgid "Feb"
+#~ msgstr "feb"
+
+#~ msgid "Mar"
+#~ msgstr "mar"
+
+#~ msgid "Apr"
+#~ msgstr "apr"
+
+#, fuzzy
+#~| msgid "May"
+#~ msgctxt "Short month name"
+#~ msgid "May"
+#~ msgstr "maj"
+
+#~ msgid "Jun"
+#~ msgstr "jun"
+
+#~ msgid "Jul"
+#~ msgstr "jul"
+
+#~ msgid "Aug"
+#~ msgstr "aug"
+
+#~ msgid "Sep"
+#~ msgstr "sep"
+
+#~ msgid "Oct"
+#~ msgstr "okt"
+
+#~ msgid "Nov"
+#~ msgstr "nov"
+
+#~ msgid "Dec"
+#~ msgstr "dec"
+
+#, fuzzy
+#~| msgid "Sun"
+#~ msgid "Sunday"
+#~ msgstr "Ned"
+
+#, fuzzy
+#~| msgid "Mon"
+#~ msgid "Monday"
+#~ msgstr "Pon"
+
+#, fuzzy
+#~| msgid "Tue"
+#~ msgid "Tuesday"
+#~ msgstr "Uto"
+
+#, fuzzy
+#~| msgid "Fri"
+#~ msgid "Friday"
+#~ msgstr "Pet"
+
+#, fuzzy
+#~| msgctxt "Short week day name"
+#~| msgid "Sun"
+#~ msgid "Sun"
+#~ msgstr "Ned"
+
+#~ msgid "Mon"
+#~ msgstr "Pon"
+
+#~ msgid "Tue"
+#~ msgstr "Uto"
+
+#~ msgid "Wed"
+#~ msgstr "Sri"
+
+#~ msgid "Thu"
+#~ msgstr "Čet"
+
+#~ msgid "Fri"
+#~ msgstr "Pet"
+
+#~ msgid "Sat"
+#~ msgstr "Sub"
+
+#, fuzzy
+#~| msgid "Sun"
+#~ msgid "Su"
+#~ msgstr "Ned"
+
+#, fuzzy
+#~| msgid "Mon"
+#~ msgid "Mo"
+#~ msgstr "Pon"
+
+#, fuzzy
+#~| msgid "Tue"
+#~ msgid "Tu"
+#~ msgstr "Uto"
+
+#, fuzzy
+#~| msgid "Wed"
+#~ msgid "We"
+#~ msgstr "Sri"
+
+#, fuzzy
+#~| msgid "Thu"
+#~ msgid "Th"
+#~ msgstr "Čet"
+
+#, fuzzy
+#~| msgid "Fri"
+#~ msgid "Fr"
+#~ msgstr "Pet"
+
+#, fuzzy
+#~| msgid "Sat"
+#~ msgid "Sa"
+#~ msgstr "Sub"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "Year suffix"
+#~ msgid "none"
+#~ msgstr "nema"
+
+#, fuzzy
+#~| msgid "in use"
+#~ msgid "Minute"
+#~ msgstr "se koristi"
+
+#, fuzzy
+#~| msgid "per second"
+#~ msgid "Second"
+#~ msgstr "u sekundi"
+
+#, fuzzy
+#~| msgid "Use text field"
+#~ msgid "Please fix this field"
+#~ msgstr "Koristi tekst polje"
+
+#, fuzzy
+#~| msgid "Please select a database"
+#~ msgid "Please enter a valid date"
+#~ msgstr "Izaberite bazu"
+
+#, fuzzy
+#~| msgid "Please choose a page to edit"
+#~ msgid "Please enter a valid date or time"
+#~ msgstr "Izaberite stranu koju menjate"
+
+#~ msgid "Error"
+#~ msgstr "Greška"
+
+#, fuzzy
+#~| msgid "in query"
+#~ msgid "Requery"
+#~ msgstr "u upitu"
+
+#~ msgid "Database"
+#~ msgstr "Baza podataka"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "No bookmarks"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Explain SQL"
+#~ msgid "Explain"
+#~ msgstr "Objasni SQL"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Bookmark"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~ msgid "Query failed"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "SQL Query Console"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "SQL history"
+#~ msgid "History"
+#~ msgstr "SQL istorijat"
+
+#, fuzzy
+#~ msgid "Options"
+#~ msgstr "Operacije"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Bookmarks"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Execute bookmarked query"
+#~ msgid "Press Ctrl+Enter to execute query"
+#~ msgstr "Izvrši upamćen upit"
+
+#, fuzzy
+#~| msgid "Execute bookmarked query"
+#~ msgid "Press Enter to execute query"
+#~ msgstr "Izvrši upamćen upit"
+
+#, fuzzy
+#~| msgid "Ascending"
+#~ msgid "ascending"
+#~ msgstr "Rastući"
+
+#, fuzzy
+#~| msgid "Descending"
+#~ msgid "descending"
+#~ msgstr "Opadajući"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Count"
+#~ msgstr "Kolona"
+
+#, fuzzy
+#~| msgid "Execute bookmarked query"
+#~ msgid "Execution order"
+#~ msgstr "Izvrši upamćen upit"
+
+#, fuzzy
+#~ msgid "Group queries"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Ungroup queries"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Show color"
+#~ msgid "Show trace"
+#~ msgstr "Prikaži boju"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Hide trace"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Count:"
+#~ msgstr "Kolona"
+
+#, fuzzy
+#~| msgid "And"
+#~ msgid "Add"
+#~ msgstr "i"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Add bookmark"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Label"
+#~ msgid "Label"
+#~ msgstr "Naziv"
+
+#, fuzzy
+#~ msgid "Target database"
+#~ msgstr "Pretraživanje baze"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Share this bookmark"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~ msgid "Set default"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~ msgid "Show query history at start"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Switch to copied table"
+#~ msgid "Switch to dark theme"
+#~ msgstr "Pređi na kopiranu tabelu"
+
+#~ msgid "Ascending"
+#~ msgstr "Rastući"
+
+#~ msgid "Descending"
+#~ msgstr "Opadajući"
+
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Column:"
+#~ msgstr "Kolona"
+
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Sort:"
+#~ msgstr "Sortiranje"
+
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Sort order:"
+#~ msgstr "Sortiranje"
+
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show:"
+#~ msgstr "Prikaži"
+
+#, fuzzy
+#~| msgid "Criteria"
+#~ msgid "Criteria:"
+#~ msgstr "Kriterijum"
+
+#, fuzzy
+#~| msgid "Add/Delete Criteria Row"
+#~ msgid "Add/Delete criteria rows"
+#~ msgstr "Dodaj/obriši polje za kriterij"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Add/Delete columns"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#~ msgid "Update Query"
+#~ msgstr "Ažuriraj upit"
+
+#~ msgid "Use Tables"
+#~ msgstr "Koristi tabele"
+
+#, fuzzy
+#~| msgid "Or"
+#~ msgid "Or:"
+#~ msgstr "ili"
+
+#~ msgid "Ins"
+#~ msgstr "Ins"
+
+#~ msgid "Del"
+#~ msgstr "Del"
+
+#, fuzzy
+#~| msgid "Modify"
+#~ msgid "Modify:"
+#~ msgstr "Promijeni"
+
+#~ msgid "SQL query on database <b>%s</b>:"
+#~ msgstr "SQL upit na bazi <b>%s</b>:"
+
+#~ msgid "Submit Query"
+#~ msgstr "Izvrši SQL upit"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Saved bookmarked search:"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "New bookmark"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Create bookmark"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Update bookmark"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Delete bookmark"
+#~ msgstr "Pretraživanje"
+
+#~ msgid "at least one of the words"
+#~ msgstr "bar jednu od riječi"
+
+#~ msgid "all words"
+#~ msgstr "sve riječi"
+
+#~ msgid "the exact phrase"
+#~ msgstr "tačan izraz"
+
+#~ msgid "as regular expression"
+#~ msgstr "kao regularni izraz"
+
+#~ msgid "Search results for \"<i>%s</i>\" %s:"
+#~ msgstr "Rezultati pretrage za \"<i>%s</i>\" %s:"
+
+#, fuzzy
+#~| msgid "<b>Total:</b> <i>%s</i> match(es)"
+#~ msgid "<b>Total:</b> <i>%s</i> match"
+#~ msgid_plural "<b>Total:</b> <i>%s</i> matches"
+#~ msgstr[0] "<b>Ukupno:</b> <i>%s</i> pogodaka"
+#~ msgstr[1] "<b>Ukupno:</b> <i>%s</i> pogodaka"
+
+#, fuzzy
+#~| msgid "%s match(es) inside table <i>%s</i>"
+#~ msgid "%1$s match in <strong>%2$s</strong>"
+#~ msgid_plural "%1$s matches in <strong>%2$s</strong>"
+#~ msgstr[0] "%s pogodaka unutar tabele <i>%s</i>"
+#~ msgstr[1] "%s pogodaka unutar tabele <i>%s</i>"
+
+#~ msgid "Browse"
+#~ msgstr "Pregled"
+
+#, fuzzy
+#~| msgid "Dumping data for table"
+#~ msgid "Delete the matches for the %s table?"
+#~ msgstr "Prikaz podataka tabele"
+
+#~ msgid "Search in database"
+#~ msgstr "Pretraživanje baze"
+
+#, fuzzy
+#~| msgid "Word(s) or value(s) to search for (wildcard: \"%\"):"
+#~ msgid "Words or values to search for (wildcard: \"%\"):"
+#~ msgstr "Riječi ili vrednosti koje se traže (džoker: \"%\"):"
+
+#~ msgid "Find:"
+#~ msgstr "Traži:"
+
+#~ msgid "Words are separated by a space character (\" \")."
+#~ msgstr "Riječi se odvajaju razmakom (\" \")."
+
+#, fuzzy
+#~| msgid "Inside table(s):"
+#~ msgid "Inside tables:"
+#~ msgstr "Unutar tabela:"
+
+#, fuzzy
+#~| msgid "Unselect All"
+#~ msgid "Unselect all"
+#~ msgstr "ništa"
+
+#, fuzzy
+#~| msgid "Inside table(s):"
+#~ msgid "Inside column:"
+#~ msgstr "Unutar tabela:"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Restore column order"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~ msgid "Filter rows"
+#~ msgstr "Polja"
+
+#, fuzzy
+#~| msgid "Search in database"
+#~ msgid "Search this table"
+#~ msgstr "Pretraživanje baze"
+
+#, fuzzy
+#~| msgid "Begin"
+#~ msgctxt "First page"
+#~ msgid "Begin"
+#~ msgstr "Početak"
+
+#, fuzzy
+#~| msgid "Previous"
+#~ msgctxt "Previous page"
+#~ msgid "Previous"
+#~ msgstr "Prethodna"
+
+#, fuzzy
+#~| msgid "Next"
+#~ msgctxt "Next page"
+#~ msgid "Next"
+#~ msgstr "Slijedeći"
+
+#, fuzzy
+#~| msgid "End"
+#~ msgctxt "Last page"
+#~ msgid "End"
+#~ msgstr "Kraj"
+
+#~ msgid "All"
+#~ msgstr "Sve"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Number of rows:"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~| msgid "Partial Texts"
+#~ msgid "Partial texts"
+#~ msgstr "Dio teksta"
+
+#, fuzzy
+#~| msgid "Full Texts"
+#~ msgid "Full texts"
+#~ msgstr "Pun tekst"
+
+#, fuzzy
+#~ msgid "Relational key"
+#~ msgstr "Relaciona shema"
+
+#, fuzzy
+#~| msgid "Displaying Column Comments"
+#~ msgid "Display column for relations"
+#~ msgstr "Prikazujem komentare kolone"
+
+#, fuzzy
+#~| msgid "Browser transformation"
+#~ msgid "Hide browser transformation"
+#~ msgstr "Tranformacije čitača"
+
+#, fuzzy
+#~| msgid "The row has been deleted."
+#~ msgid "The row has been deleted."
+#~ msgstr "Red je obrisan"
+
+#~ msgid "Kill"
+#~ msgstr "Obustavi"
+
+#, fuzzy
+#~| msgid "Your SQL query has been executed successfully."
+#~ msgid "Your SQL query has been executed successfully."
+#~ msgstr "Vaš SQL upit je uspešno izvršen"
+
+#, fuzzy
+#~| msgid "Showing rows"
+#~ msgid "Showing rows %1s - %2s"
+#~ msgstr "Prikaz zapisa"
+
+#, fuzzy
+#~| msgid "total"
+#~ msgid "%d total"
+#~ msgstr "ukupno"
+
+#, fuzzy
+#~| msgid "Query took %01.4f sec"
+#~ msgid "Query took %01.4f seconds."
+#~ msgstr "Upit je trajao %01.4f sekundi"
+
+#~ msgid "With selected:"
+#~ msgstr "Označeno:"
+
+#, fuzzy
+#~| msgid "Check All"
+#~ msgid "Check all"
+#~ msgstr "Označi sve"
+
+#, fuzzy
+#~| msgid "Display PDF schema"
+#~ msgid "Display chart"
+#~ msgstr "Prikaži PDF shemu"
+
+#, fuzzy
+#~| msgid "Link not found"
+#~ msgid "Link not found!"
+#~ msgstr "Veza nije pronađena"
+
+#, fuzzy
+#~ msgid "Report"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~ msgid "Automatically send report next time"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Git information missing!"
+#~ msgstr "Podatci o prijavi"
+
+#~ msgid "Print view"
+#~ msgstr "Za štampu"
+
+#, fuzzy
+#~| msgid "Cookies must be enabled past this point."
+#~ msgid "Javascript must be enabled past this point!"
+#~ msgstr "Kolačići (Cookies) moraju u ovom slučaju biti aktivirani."
+
+#~ msgid "No index defined!"
+#~ msgstr "Ključ nije definisan!"
+
+#~ msgid "Indexes"
+#~ msgstr "Ključevi"
+
+#~ msgid "Action"
+#~ msgstr "Akcija"
+
+#~ msgid "Keyname"
+#~ msgstr "Ime ključa"
+
+#~ msgid "Unique"
+#~ msgstr "Jedinstveni"
+
+#~ msgid "Cardinality"
+#~ msgstr "Kardinalnost"
+
+#~ msgid "Collation"
+#~ msgstr "Sortiranje"
+
+#, fuzzy
+#~ msgid "Comment"
+#~ msgstr "Komentari"
+
+#~ msgid "The primary key has been dropped."
+#~ msgstr "Primarni ključ je obrisan."
+
+#~ msgid "Index %s has been dropped."
+#~ msgstr "Ključ %s je obrisan."
+
+#~ msgid "Drop"
+#~ msgstr "Odbaci"
+
+#~ msgid "Page number:"
+#~ msgstr "Broj strane:"
+
+#~ msgid "Server"
+#~ msgstr "Server"
+
+#~ msgid "Table"
+#~ msgstr "Tabela"
+
+#~ msgid "SQL"
+#~ msgstr "SQL"
+
+#~ msgid "Search"
+#~ msgstr "Pretraživanje"
+
+#~ msgid "Insert"
+#~ msgstr "Novi zapis"
+
+#~ msgid "Privileges"
+#~ msgstr "Privilegije"
+
+#~ msgid "Operations"
+#~ msgstr "Operacije"
+
+#~ msgid "Query"
+#~ msgstr "Upit po primeru"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Central columns"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#~ msgid "Databases"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "User accounts"
+#~ msgstr "Korisnik"
+
+#, fuzzy
+#~ msgid "Binary log"
+#~ msgstr "Binarni"
+
+#, fuzzy
+#~ msgid "Replication"
+#~ msgstr "Relacije"
+
+#~ msgid "Variables"
+#~ msgstr "Promjenljive"
+
+#~ msgid "Charsets"
+#~ msgstr "Kodne strane"
+
+#, fuzzy
+#~| msgid "Allows reading data."
+#~ msgid "Error while creating PDF:"
+#~ msgstr "Dozvoljava čitanje podataka."
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Could not save recent table!"
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Could not save favorite table!"
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~ msgid "Remove from Favorites"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~ msgid "There are no recent tables."
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "There are no favorite tables."
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Recent tables"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~| msgid "Reset"
+#~ msgid "Recent"
+#~ msgstr "Resetuj"
+
+#, fuzzy
+#~| msgid "Variables"
+#~ msgid "Favorite tables"
+#~ msgstr "Promjenljive"
+
+#, fuzzy
+#~| msgid "Variables"
+#~ msgid "Favorites"
+#~ msgstr "Promjenljive"
+
+#, fuzzy
+#~| msgid "The user %s already exists!"
+#~ msgid "An entry with this name already exists."
+#~ msgstr "Korisnik %s već postoji!"
+
+#, fuzzy
+#~| msgid "Allows reading data."
+#~ msgid "Error while loading the search."
+#~ msgstr "Dozvoljava čitanje podataka."
+
+#~ msgid "SQL query"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Query cache"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Delayed inserts"
+#~ msgstr "Prošireni INSERT"
+
+#, fuzzy
+#~ msgid "Files"
+#~ msgstr "Polja"
+
+#, fuzzy
+#~ msgid "Show open tables"
+#~ msgstr "Prikaži tabele"
+
+#~ msgid "InnoDB Status"
+#~ msgstr "InnoDB status"
+
+#, fuzzy
+#~ msgid "Query statistics"
+#~ msgstr "Statistike reda"
+
+#, fuzzy
+#~| msgid "per second"
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "u sekundi"
+#~ msgstr[1] "u sekundi"
+
+#, fuzzy
+#~| msgid "in use"
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "se koristi"
+#~ msgstr[1] "se koristi"
+
+#, fuzzy
+#~| msgid "Show tables"
+#~ msgid "Unknown table status:"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~ msgid "Source database `%s` was not found!"
+#~ msgstr "Pretraživanje baze"
+
+#, fuzzy
+#~ msgid "Target database `%s` was not found!"
+#~ msgstr "Pretraživanje baze"
+
+#, fuzzy
+#~ msgid "Invalid database:"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~| msgid "Inside table(s):"
+#~ msgid "Invalid table name:"
+#~ msgstr "Unutar tabela:"
+
+#, fuzzy
+#~ msgid "Failed to rename table %1$s to %2$s!"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "Table %s has been renamed to %s."
+#~ msgid "Table %1$s has been renamed to %2$s."
+#~ msgstr "Tabeli %s promjenjeno ime u %s"
+
+#~ msgid "The name of the primary key must be \"PRIMARY\"!"
+#~ msgstr "Ime primarnog ključa mora da bude PRIMARY!"
+
+#~ msgid "Can't rename index to PRIMARY!"
+#~ msgstr "Ne mogu da promenim ključ u PRIMARY (primarni) !"
+
+#~ msgid "No index parts defined!"
+#~ msgstr "Dijelovi ključa nisu definisani!"
+
+#, fuzzy
+#~ msgid "A date, supported range is %1$s to %2$s"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "A time, range is %1$s to %2$s"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "A polygon"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Create an index"
+#~ msgctxt "date and time types"
+#~ msgid "Date and time"
+#~ msgstr "Napravi novi ključ"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgctxt "string types"
+#~ msgid "String"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgctxt "spatial types"
+#~ msgid "Spatial"
+#~ msgstr "Ukupno"
+
+#~ msgid "MySQL said: "
+#~ msgstr "MySQL kaže: "
+
+#~ msgid "Explain SQL"
+#~ msgstr "Objasni SQL"
+
+#~ msgid "Skip Explain SQL"
+#~ msgstr "Preskoči objašnjavanje SQL-a"
+
+#, fuzzy
+#~| msgid "Without PHP Code"
+#~ msgid "Without PHP code"
+#~ msgstr "bez PHP koda"
+
+#, fuzzy
+#~| msgid "Submit Query"
+#~ msgid "Submit query"
+#~ msgstr "Izvrši SQL upit"
+
+#, fuzzy
+#~| msgid "Create PHP Code"
+#~ msgid "Create PHP code"
+#~ msgstr "Napravi PHP kod"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgctxt "Inline edit query"
+#~ msgid "Edit inline"
+#~ msgstr "Dodaj novo polje"
+
+#~ msgctxt "Short week day name"
+#~ msgid "Sun"
+#~ msgstr "Ned"
+
+#~ msgid "%B %d, %Y at %I:%M %p"
+#~ msgstr "%d. %B %Y. u %H:%M"
+
+#~ msgid "%s days, %s hours, %s minutes and %s seconds"
+#~ msgstr "%s dana, %s sati, %s minuta i %s sekundi"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Missing parameter:"
+#~ msgstr "Dodaj novo polje"
+
+#~ msgid "Jump to database \"%s\"."
+#~ msgstr "Pređi na bazu \"%s\"."
+
+#, fuzzy
+#~| msgid "web server upload directory"
+#~ msgid "Select from the web server upload directory <b>%s</b>:"
+#~ msgstr "direkcija za slanje web servera "
+
+#~ msgid "The directory you set for upload work cannot be reached."
+#~ msgstr "Direkcija koju ste izabrali za slanje nije dostupna."
+
+#~ msgid "Empty"
+#~ msgstr "Isprazni"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "Users"
+#~ msgstr "Korisnik"
+
+#~ msgid "per second"
+#~ msgstr "u sekundi"
+
+#~ msgid "per minute"
+#~ msgstr "u minuti"
+
+#~ msgid "per hour"
+#~ msgstr "na sat"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search:"
+#~ msgstr "Pretraživanje"
+
+#~ msgid "Description"
+#~ msgstr "Opis"
+
+#~ msgid "Use this value"
+#~ msgstr "Koristi ovu vrijednost"
+
+#, fuzzy
+#~ msgid "Could not add columns!"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Could not remove columns!"
+#~ msgstr "Dokumentacija"
+
+#~ msgid "Name"
+#~ msgstr "Ime"
+
+#~ msgid "Length/Values"
+#~ msgstr "Dužina/Vrijednost*"
+
+#, fuzzy
+#~| msgid "Attributes"
+#~ msgid "Attribute"
+#~ msgstr "Atributi"
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Select a table"
+#~ msgstr "Izaberi tabele"
+
+#, fuzzy
+#~ msgid "Add column"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Select a column."
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~ msgid "Add new column"
+#~ msgstr "Dodaj novo polje"
+
+#~ msgid "Attributes"
+#~ msgstr "Atributi"
+
+#, fuzzy
+#~| msgid "Server"
+#~ msgid "Server %d"
+#~ msgstr "Server"
+
+#, fuzzy
+#~| msgid "Ins"
+#~ msgid "Icons"
+#~ msgstr "Ins"
+
+#, fuzzy
+#~| msgid "Next"
+#~ msgid "Text"
+#~ msgstr "Slijedeći"
+
+#~ msgid "Disabled"
+#~ msgstr "Onemogućeno"
+
+#, fuzzy
+#~| msgid "Displaying Column Comments"
+#~ msgid "display column"
+#~ msgstr "Prikazujem komentare kolone"
+
+#, fuzzy
+#~| msgid "Welcome to %s"
+#~ msgid "Welcome"
+#~ msgstr "Dobrodošli na %s"
+
+#, fuzzy
+#~| msgid "Unclosed quote"
+#~ msgid "Closed"
+#~ msgstr "Navodnik nije zatvoren"
+
+#, fuzzy
+#~ msgid "Server default"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~| msgid "Enabled"
+#~ msgid "Enable"
+#~ msgstr "Omogućeno"
+
+#, fuzzy
+#~| msgid "Disabled"
+#~ msgid "Disable"
+#~ msgstr "Onemogućeno"
+
+#, fuzzy
+#~ msgid "structure"
+#~ msgstr "Struktura"
+
+#, fuzzy
+#~| msgid "Structure and data"
+#~ msgid "structure and data"
+#~ msgstr "Struktura i podatci"
+
+#, fuzzy
+#~| msgid "Complete inserts"
+#~ msgid "complete inserts"
+#~ msgstr "Kompletan INSERT (sa imenima polja)"
+
+#, fuzzy
+#~| msgid "Extended inserts"
+#~ msgid "extended inserts"
+#~ msgstr "Prošireni INSERT"
+
+#, fuzzy
+#~| msgid "Variable"
+#~ msgid "unavailable"
+#~ msgstr "Promjenljiva"
+
+#, fuzzy
+#~ msgid "Allow login to any MySQL server"
+#~ msgstr "Ne mogu da se prijavim na MySQL server"
+
+#, fuzzy
+#~| msgid "Cannot log in to the MySQL server"
+#~ msgid "Restrict login to MySQL server"
+#~ msgstr "Ne mogu da se prijavim na MySQL server"
+
+#, fuzzy
+#~| msgid "Enabled"
+#~ msgid "Enable linter"
+#~ msgstr "Omogućeno"
+
+#, fuzzy
+#~ msgid "Minimum size for input field"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Maximum size for input field"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Enclose table and field names with backquotes"
+#~ msgid "Autocomplete of the table and column names in the SQL queries."
+#~ msgstr "Koristi ' za ograničavanje imena polja"
+
+#, fuzzy
+#~| msgid "Enclose table and field names with backquotes"
+#~ msgid "Enable autocomplete for table and column names"
+#~ msgstr "Koristi ' za ograničavanje imena polja"
+
+#, fuzzy
+#~| msgid "Propose table structure"
+#~ msgid "Whether the table structure actions should be hidden."
+#~ msgstr "Predloži strukturu tabele"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show column comments"
+#~ msgstr "Komentari tabele"
+
+#, fuzzy
+#~| msgid "Propose table structure"
+#~ msgid "Hide table structure actions"
+#~ msgstr "Predloži strukturu tabele"
+
+#, fuzzy
+#~| msgid "Table maintenance"
+#~ msgid "Disable multi table maintenance"
+#~ msgstr "Radnje na tabeli"
+
+#, fuzzy
+#~| msgid "Statements"
+#~ msgid "Use %s statement"
+#~ msgstr "Ime"
+
+#~ msgid "Save as file"
+#~ msgstr "Sačuvaj kao datoteku"
+
+#, fuzzy
+#~ msgid "Character set of the file"
+#~ msgstr "Karakter set datoteke:"
+
+#~ msgid "Format"
+#~ msgstr "Format"
+
+#~ msgid "Compression"
+#~ msgstr "Kompresija"
+
+#, fuzzy
+#~| msgid "Put fields names in the first row"
+#~ msgid "Put columns names in the first row"
+#~ msgstr "Stavi imena polja u prvi red"
+
+#, fuzzy
+#~| msgid "Fields enclosed by"
+#~ msgid "Columns enclosed with"
+#~ msgstr "Polja ograničena sa"
+
+#, fuzzy
+#~| msgid "Fields escaped by"
+#~ msgid "Columns escaped with"
+#~ msgstr "Escape karakter &nbsp; &nbsp; &nbsp;"
+
+#, fuzzy
+#~| msgid "Replace NULL by"
+#~ msgid "Replace NULL with"
+#~ msgstr "Zamijeni NULL sa"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Columns terminated with"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Lines terminated with"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~ msgid "Database name template"
+#~ msgstr "Šablon imena datoteke"
+
+#, fuzzy
+#~ msgid "Server name template"
+#~ msgstr "Šablon imena datoteke"
+
+#, fuzzy
+#~ msgid "Table name template"
+#~ msgstr "Šablon imena datoteke"
+
+#, fuzzy
+#~| msgid "%s table(s)"
+#~ msgid "Dump table"
+#~ msgstr "%s tabela"
+
+#, fuzzy
+#~ msgid "Table caption"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~ msgid "Continued table caption"
+#~ msgstr "Opcije tabele"
+
+#~ msgid "MIME type"
+#~ msgstr "MIME-tipovi"
+
+#~ msgid "Relations"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Export method"
+#~ msgstr "Izvoz"
+
+#~ msgid "Overwrite existing file(s)"
+#~ msgstr "Prepiši postojeće fajlove"
+
+#, fuzzy
+#~| msgid "horizontal (rotated headers)"
+#~ msgid "Export as separate files"
+#~ msgstr "horizontalnom (rotirana zaglavlja)"
+
+#, fuzzy
+#~ msgid "Remember file name template"
+#~ msgstr "Šablon imena datoteke"
+
+#~ msgid "Add AUTO_INCREMENT value"
+#~ msgstr "Dodaj AUTO_INCREMENT vrijednost"
+
+#, fuzzy
+#~| msgid "Enclose table and field names with backquotes"
+#~ msgid "Enclose table and column names with backquotes"
+#~ msgstr "Koristi ' za ograničavanje imena polja"
+
+#, fuzzy
+#~ msgid "Use delayed inserts"
+#~ msgstr "Prošireni INSERT"
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Export views as tables"
+#~ msgstr "Napravi novu tabelu u bazi %s"
+
+#, fuzzy
+#~| msgid "Extended inserts"
+#~ msgid "Use ignore inserts"
+#~ msgstr "Prošireni INSERT"
+
+#, fuzzy
+#~ msgid "Export type"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~ msgid "Customize default options."
+#~ msgstr "Opcije za izvoz baze"
+
+#~ msgid "CSV"
+#~ msgstr "CSV format"
+
+#, fuzzy
+#~ msgid "Customize edit mode."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Customize default export options."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "General"
+#~ msgstr "Generirao"
+
+#, fuzzy
+#~ msgid "Import defaults"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~ msgid "Customize default common import options."
+#~ msgstr "Opcije za izvoz baze"
+
+#~ msgid "LaTeX"
+#~ msgstr "LaTeX"
+
+#, fuzzy
+#~ msgid "Databases display options."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Customize appearance of the navigation panel."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Navigation tree"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Customize the navigation tree."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Servers"
+#~ msgstr "Server"
+
+#, fuzzy
+#~ msgid "Servers display options."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Tables display options."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Main panel"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Page number:"
+#~ msgid "Page titles"
+#~ msgstr "Broj strane:"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Authentication"
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Authentication settings."
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~ msgid "Customize export options"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Customize navigation panel"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Customize main panel"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "SQL queries"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "SQL Query box"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "SQL queries settings."
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Startup"
+#~ msgstr "Status"
+
+#, fuzzy
+#~ msgid "Customize startup page."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database structure"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Table structure"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~ msgid "Tabs"
+#~ msgstr "Tabela"
+
+#, fuzzy
+#~| msgid "Relational schema"
+#~ msgid "Display relational schema"
+#~ msgstr "Relaciona shema"
+
+#~ msgid "Paper size"
+#~ msgstr "Dimenzije papira"
+
+#, fuzzy
+#~| msgid "Use text field"
+#~ msgid "Text fields"
+#~ msgstr "Koristi tekst polje"
+
+#, fuzzy
+#~ msgid "Customize text input fields."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Customize default options"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Put fields names in the first row"
+#~ msgid "Column names in first row"
+#~ msgstr "Stavi imena polja u prvi red"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "Do not use AUTO_INCREMENT for zero values"
+#~ msgstr "Dodaj AUTO_INCREMENT vrijednost"
+
+#, fuzzy
+#~ msgid "Maximum items on first level"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Memory limit"
+#~ msgstr "Ograničenja resursa"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Show databases navigation as tree"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~ msgid "Show logo in navigation panel."
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Enable navigation tree expansion"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~| msgid "Show tables"
+#~ msgid "Show tables in tree"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Whether to show tables under database in the navigation tree"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Show views in tree"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Whether to show views under database in the navigation tree"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~| msgid "Show processes"
+#~ msgid "Show procedures in tree"
+#~ msgstr "Prikaži listu procesa"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Show events in tree"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Whether to show events under database in the navigation tree"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~| msgid "Analyze table"
+#~ msgid "Recently used tables"
+#~ msgstr "Analiziraj tabelu"
+
+#, fuzzy
+#~| msgid "Disable Statistics"
+#~ msgid "Disable shortcut keys"
+#~ msgstr "Isključi statistike"
+
+#, fuzzy
+#~| msgid "Alter table order by"
+#~ msgid "Natural order"
+#~ msgstr "Promijeni redoslijed u tabeli"
+
+#, fuzzy
+#~ msgid "Table navigation bar"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~| msgid "Rename table to"
+#~ msgid "Remember table's sorting"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "A primary key has been added on %s."
+#~ msgid "Primary key default sort order"
+#~ msgstr "Osnovni ključ je upravo dodan %s."
+
+#, fuzzy
+#~| msgid "Relational schema"
+#~ msgid "Relational display"
+#~ msgstr "Relaciona shema"
+
+#, fuzzy
+#~ msgid "For display Options"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Session value"
+#~ msgid "Session timezone"
+#~ msgstr "Vrijednost sesije"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Authentication method to use."
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~| msgid "Cannot log in to the MySQL server"
+#~ msgid "Compress connection to MySQL server."
+#~ msgstr "Ne mogu da se prijavim na MySQL server"
+
+#, fuzzy
+#~ msgid "Connection type"
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~| msgid "Any host"
+#~ msgid "Control host"
+#~ msgstr "Bilo koji host"
+
+#, fuzzy
+#~| msgid "Any host"
+#~ msgid "Control port"
+#~ msgstr "Bilo koji host"
+
+#, fuzzy
+#~ msgid "Hide databases"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Server hostname"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Export templates table"
+#~ msgstr "Napravi novu tabelu u bazi %s"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Central columns table"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~| msgid "Do not change the password"
+#~ msgid "Try to connect without password."
+#~ msgstr "Nemoj da mijenjaš lozinku"
+
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database name"
+#~ msgstr "Baza podataka"
+
+#, fuzzy
+#~ msgid "Server port"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~| msgid "Analyze table"
+#~ msgid "Recently used table"
+#~ msgstr "Analiziraj tabelu"
+
+#, fuzzy
+#~| msgid "Variables"
+#~ msgid "Favorites table"
+#~ msgstr "Promjenljive"
+
+#, fuzzy
+#~ msgid "Relation table"
+#~ msgstr "Popravi tabelu"
+
+#, fuzzy
+#~ msgid "Server socket"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~ msgid "Enable SSL for connection to MySQL server."
+#~ msgstr ""
+#~ "Ograničava broj novih konekcija koje korisnik može ta otvori na sat."
+
+#, fuzzy
+#~| msgid "Displaying Column Comments"
+#~ msgid "Display columns table"
+#~ msgstr "Prikazujem komentare kolone"
+
+#, fuzzy
+#~| msgid "Statements"
+#~ msgid "Statements to track"
+#~ msgstr "Ime"
+
+#, fuzzy
+#~ msgid "Automatically create versions"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Users table"
+#~ msgstr "Koristi tabele"
+
+#, fuzzy
+#~| msgid "Use Host Table"
+#~ msgid "User groups table"
+#~ msgstr "Koristi tabelu hosta"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show table comments"
+#~ msgstr "Komentari tabele"
+
+#, fuzzy
+#~| msgid "Show PHP information"
+#~ msgid "Show creation timestamp"
+#~ msgstr "Prikaži informacije o PHP-u"
+
+#, fuzzy
+#~| msgid "Show PHP information"
+#~ msgid "Show last update timestamp"
+#~ msgstr "Prikaži informacije o PHP-u"
+
+#, fuzzy
+#~| msgid "Show PHP information"
+#~ msgid "Show last check timestamp"
+#~ msgstr "Prikaži informacije o PHP-u"
+
+#, fuzzy
+#~ msgid "Show field types"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Show hint"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~ msgid "Show SQL queries"
+#~ msgstr "Prikaži kompletne upite"
+
+#, fuzzy
+#~ msgid "Retain query box"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Show statistics"
+#~ msgstr "Statistike reda"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Textarea columns"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~| msgid "Default"
+#~ msgid "Default title"
+#~ msgstr "Podrazumjevano"
+
+#, fuzzy
+#~ msgid "Proxy username"
+#~ msgstr "Korisničko ime:"
+
+#, fuzzy
+#~| msgid "Password"
+#~ msgid "Proxy password"
+#~ msgstr "Lozinka"
+
+#, fuzzy
+#~ msgid "Send error reports"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~ msgid "Enter executes queries in console"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Modifications have been saved"
+#~ msgid "Enable Zero Configuration mode"
+#~ msgstr "Izmjene su sačuvane"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "OpenDocument Spreadsheet"
+#~ msgstr "Dokumentacija"
+
+#~ msgid "CSV for MS Excel"
+#~ msgstr "CSV za MS Excel"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "OpenDocument Text"
+#~ msgstr "Dokumentacija"
+
+#~ msgid "Table %s has been emptied."
+#~ msgstr "Tabela %s je ispražnjena."
+
+#, fuzzy
+#~ msgid "View %s has been dropped."
+#~ msgstr "Polje %s je obrisano"
+
+#, fuzzy
+#~| msgid "Table %s has been dropped."
+#~ msgid "Table %s has been dropped."
+#~ msgstr "Tabela %s je odbačena"
+
+#~ msgid "unknown"
+#~ msgstr "nepoznat"
+
+#, fuzzy
+#~ msgid "Event type"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Server ID"
+#~ msgstr "Server"
+
+#, fuzzy
+#~ msgid "Information"
+#~ msgstr "Podatci o prijavi"
+
+#~ msgid "Truncate Shown Queries"
+#~ msgstr "Prikaži skraćene upite"
+
+#~ msgid "Show Full Queries"
+#~ msgstr "Prikaži kompletne upite"
+
+#~ msgid "No databases"
+#~ msgstr "Baza ne postoji"
+
+#~ msgid "Database %1$s has been created."
+#~ msgstr "Baza %1$s je kreirana."
+
+#, fuzzy
+#~| msgid "%s databases have been dropped successfully."
+#~ msgid "%1$d database has been dropped successfully."
+#~ msgid_plural "%1$d databases have been dropped successfully."
+#~ msgstr[0] "%s baza je uspješno odbačena."
+#~ msgstr[1] "%s baza je uspješno odbačena."
+
+#~ msgid "Rows"
+#~ msgstr "Redova"
+
+#~ msgid "Total"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~ msgid "Replicated"
+#~ msgstr "Relacije"
+
+#~ msgid ""
+#~ "Note: Enabling the database statistics here might cause heavy traffic "
+#~ "between the web server and the MySQL server."
+#~ msgstr ""
+#~ "Napomena: uključivanje statistika može prouzrokovati veliki protok "
+#~ "podataka između web i MySQL servera."
+
+#, fuzzy
+#~| msgid "Enable Statistics"
+#~ msgid "Enable statistics"
+#~ msgstr "Uključi statistike"
+
+#, fuzzy
+#~| msgid "Server variables and settings"
+#~ msgid "Not enough privilege to view server variables and settings. %s"
+#~ msgstr "Serverske promenljive i podešavanja"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "No data to display"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Table %1$s has been altered successfully."
+#~ msgstr "Izabrani korisnici su uspješno obrisani."
+
+#, fuzzy
+#~| msgid "Thread %s was successfully killed."
+#~ msgid "Display column was successfully updated."
+#~ msgstr "Proces %s je uspješno prekinut."
+
+#, fuzzy
+#~ msgid "Internal relations were successfully updated."
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Table search"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Zoom search"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~ msgid "Find and replace"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "No databases selected."
+#~ msgid "No column selected."
+#~ msgstr "Nije izabrana ni jedna baza."
+
+#, fuzzy
+#~| msgid "The selected users have been deleted successfully."
+#~ msgid "The columns have been moved successfully."
+#~ msgstr "Izabrani korisnici su uspješno obrisani."
+
+#, fuzzy
+#~| msgid "Query type"
+#~ msgid "Query error"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid ""
+#~ "Table %1$s has been altered successfully. Privileges have been adjusted."
+#~ msgstr "Izabrani korisnici su uspješno obrisani."
+
+#~ msgid "Change"
+#~ msgstr "Promijeni"
+
+#~ msgid "Index"
+#~ msgstr "Ključ"
+
+#~ msgid "Fulltext"
+#~ msgstr "Tekst ključ"
+
+#, fuzzy
+#~ msgid "Distinct values"
+#~ msgstr "Pregledaj strane vrijednosti"
+
+#~ msgid "No change"
+#~ msgstr "Nema izmjena"
+
+#~ msgid "No Password"
+#~ msgstr "Nema lozinke"
+
+#~ msgid "Password:"
+#~ msgstr "Lozinka:"
+
+#, fuzzy
+#~| msgid "Re-type"
+#~ msgid "Re-type:"
+#~ msgstr "Ponovite unos"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Password Hashing:"
+#~ msgstr "Lozinka:"
+
+#, fuzzy
+#~| msgid "Allows locking tables for the current thread."
+#~ msgid "Exporting databases from the current server"
+#~ msgstr "Dozvoljava zaključavanje tabela tekućim procesima."
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Exporting tables from \"%s\" database"
+#~ msgstr "Napravi novu tabelu u bazi %s"
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Exporting rows from \"%s\" table"
+#~ msgstr "Napravi novu tabelu u bazi %s"
+
+#, fuzzy
+#~ msgid "Export templates:"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~| msgid "File name template"
+#~ msgid "New template:"
+#~ msgstr "Šablon imena datoteke"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "Template name"
+#~ msgstr "Ime korisnika"
+
+#~ msgid "Create"
+#~ msgstr "Napravi"
+
+#, fuzzy
+#~| msgid "File name template"
+#~ msgid "Existing templates:"
+#~ msgstr "Šablon imena datoteke"
+
+#, fuzzy
+#~| msgid "%s table(s)"
+#~ msgid "Template:"
+#~ msgstr "%s tabela"
+
+#, fuzzy
+#~| msgctxt "Create UPDATE query"
+#~| msgid "Update"
+#~ msgid "Update"
+#~ msgstr "Ažuriraj upit"
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Select a template"
+#~ msgstr "Izaberi tabele"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Export method:"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Databases:"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "Tables:"
+#~ msgstr "Tabele"
+
+#, fuzzy
+#~| msgid "Format"
+#~ msgid "Format:"
+#~ msgstr "Format"
+
+#, fuzzy
+#~| msgid "Transformation options"
+#~ msgid "Format-specific options:"
+#~ msgstr "Opcije transformacije"
+
+#, fuzzy
+#~| msgid "Rows"
+#~ msgid "Rows:"
+#~ msgstr "Redova"
+
+#, fuzzy
+#~| msgid "Save on server in %s directory"
+#~ msgid "Save on server in the directory <b>%s</b>"
+#~ msgstr "Sačuvaj na server u direktorijum %s"
+
+#, fuzzy
+#~| msgid "File name template"
+#~ msgid "File name template:"
+#~ msgstr "Šablon imena datoteke"
+
+#~ msgid "Character set of the file:"
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~| msgid "Compression"
+#~ msgid "Compression:"
+#~ msgstr "Kompresija"
+
+#, fuzzy
+#~| msgid "\"zipped\""
+#~ msgid "zipped"
+#~ msgstr "\"zipovano\""
+
+#, fuzzy
+#~| msgid "\"gzipped\""
+#~ msgid "gzipped"
+#~ msgstr "\"gzip-ovano\""
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "View output as text"
+#~ msgstr "Sačuvaj kao datoteku"
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Export databases as separate files"
+#~ msgstr "Napravi novu tabelu u bazi %s"
+
+#, fuzzy
+#~| msgid "horizontal (rotated headers)"
+#~ msgid "Export tables as separate files"
+#~ msgstr "horizontalnom (rotirana zaglavlja)"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save output to a file"
+#~ msgstr "Sačuvaj kao datoteku"
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Select database"
+#~ msgstr "Izaberi tabele"
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Select table"
+#~ msgstr "Izaberi tabele"
+
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "New database name"
+#~ msgstr "Baza podataka"
+
+#, fuzzy
+#~| msgid "New table"
+#~ msgid "New table name"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Old column name"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "New column name"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~ msgid "committed on %1$s by %2$s"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "authored on %1$s by %2$s"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "Cannot log in to the MySQL server"
+#~ msgid "Importing into the current server"
+#~ msgstr "Ne mogu da se prijavim na MySQL server"
+
+#, fuzzy
+#~ msgid "Importing into the database \"%s\""
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Importing into the table \"%s\""
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~| msgid "Partial Texts"
+#~ msgid "File to import:"
+#~ msgstr "Dio teksta"
+
+#, fuzzy
+#~| msgid "Partial Texts"
+#~ msgid "Partial import:"
+#~ msgstr "Dio teksta"
+
+#, fuzzy
+#~ msgid "Other options:"
+#~ msgstr "Operacije"
+
+#, fuzzy
+#~ msgid "Version information"
+#~ msgstr "Podatci o prijavi"
+
+#, fuzzy
+#~ msgid "Data files"
+#~ msgstr "Samo podaci"
+
+#, fuzzy
+#~ msgid "Pages to be flushed"
+#~ msgstr "Tabela %s je osvežena"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Related Links"
+#~ msgstr "Relacije"
+
+#~ msgid "Insufficient space to save the file %s."
+#~ msgstr "Nedovoljno prostora za snimanje datoteke %s."
+
+#~ msgid ""
+#~ "File %s already exists on server, change filename or check overwrite "
+#~ "option."
+#~ msgstr ""
+#~ "Datoteka %s već postoji na serveru, promijenite ime datoteke ili "
+#~ "uključite opciju prepisivanja."
+
+#~ msgid "The web server does not have permission to save the file %s."
+#~ msgstr "Veb serveru nije dozvoljeno da sačuva datoteku %s."
+
+#~ msgid "Dump has been saved to file %s."
+#~ msgstr "Sadržaj baze je sačuvan u fajl %s."
+
+#~ msgid "MySQL returned an empty result set (i.e. zero rows)."
+#~ msgstr "MySQL je vratio prazan rezultat (nula redova)."
+
+#, fuzzy
+#~ msgid "Go to database: %s"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Go to table: %s"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~| msgid "Structure only"
+#~ msgid "Structure of %s"
+#~ msgstr "Samo struktura"
+
+#, fuzzy
+#~| msgid "Create an index on&nbsp;%s&nbsp;columns"
+#~ msgid "Create an index on &nbsp;%s&nbsp;columns"
+#~ msgstr "Napravi ključ na&nbsp;%s&nbsp;kolona"
+
+#~ msgid "Function"
+#~ msgstr "Funkcija"
+
+#~ msgid "Binary"
+#~ msgstr "Binarni"
+
+#, fuzzy
+#~| msgid "Because of its length,<br /> this field might not be editable "
+#~ msgid "Because of its length,<br /> this column might not be editable."
+#~ msgstr "Zbog njehove veličine, polje<br />možda nećete moći da izmenite"
+
+#~ msgid "Binary - do not edit"
+#~ msgstr "Binarni - ne mijenjaj"
+
+#~ msgid "Or"
+#~ msgstr "ili"
+
+#, fuzzy
+#~| msgid "web server upload directory"
+#~ msgid "web server upload directory:"
+#~ msgstr "direkcija za slanje web servera"
+
+#, fuzzy
+#~| msgid "Insert"
+#~ msgid "Edit/Insert"
+#~ msgstr "Novi zapis"
+
+#~ msgid "Insert as new row"
+#~ msgstr "Unesi kao novi red"
+
+#~ msgid "Go back to previous page"
+#~ msgstr "Nazad na prethodnu stranu"
+
+#~ msgid "Insert another new row"
+#~ msgstr "Dodaj još jedan novi red"
+
+#, fuzzy
+#~ msgid "Go back to this page"
+#~ msgstr "Nazad na prethodnu stranu"
+
+#~ msgid "Value"
+#~ msgstr "Vrijednost"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None encoding conversion"
+#~ msgid "None"
+#~ msgstr "nema"
+
+#~ msgid "Structure only"
+#~ msgstr "Samo struktura"
+
+#~ msgid "Structure and data"
+#~ msgstr "Struktura i podatci"
+
+#~ msgid "Data only"
+#~ msgstr "Samo podaci"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "Add AUTO INCREMENT value"
+#~ msgstr "Dodaj AUTO_INCREMENT vrijednost"
+
+#, fuzzy
+#~| msgid "Edit Privileges"
+#~ msgid "Adjust privileges"
+#~ msgstr "Promijeni privilegije"
+
+#, fuzzy
+#~| msgid "Fri"
+#~ msgid "From"
+#~ msgstr "Pet"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add prefix"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute the following query?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#~ msgid "Charset"
+#~ msgstr "Karakter set"
+
+#~ msgid "Bulgarian"
+#~ msgstr "Bugarski"
+
+#~ msgid "Simplified Chinese"
+#~ msgstr "Pojednostavljeni kineski"
+
+#~ msgid "Traditional Chinese"
+#~ msgstr "Tradicionalni kineski"
+
+#~ msgid "case-insensitive"
+#~ msgstr "Ne razlikuje mala i velika slova"
+
+#~ msgid "case-sensitive"
+#~ msgstr "Razlikuje mala i velika slova"
+
+#~ msgid "Croatian"
+#~ msgstr "Hrvatski"
+
+#~ msgid "Czech"
+#~ msgstr "Češki"
+
+#~ msgid "Danish"
+#~ msgstr "Danski"
+
+#~ msgid "English"
+#~ msgstr "Engleski"
+
+#~ msgid "Estonian"
+#~ msgstr "Estonski"
+
+#~ msgid "German"
+#~ msgstr "Njemački"
+
+#~ msgid "dictionary"
+#~ msgstr "riječnik"
+
+#~ msgid "phone book"
+#~ msgstr "telefonski imenik"
+
+#~ msgid "Hungarian"
+#~ msgstr "Mađarski"
+
+#~ msgid "Japanese"
+#~ msgstr "Japanski"
+
+#~ msgid "Lithuanian"
+#~ msgstr "Litvanski"
+
+#~ msgid "Korean"
+#~ msgstr "Korejski"
+
+#~ msgid "West European"
+#~ msgstr "Zapadnoevropski"
+
+#, fuzzy
+#~ msgid "Romanian"
+#~ msgstr "Jermenski"
+
+#, fuzzy
+#~ msgid "Spanish"
+#~ msgstr "Danski"
+
+#, fuzzy
+#~ msgid "Traditional Spanish"
+#~ msgstr "Tradicionalni kineski"
+
+#~ msgid "Swedish"
+#~ msgstr "Švedski"
+
+#~ msgid "Thai"
+#~ msgstr "Tajlandski"
+
+#~ msgid "Turkish"
+#~ msgstr "Turski"
+
+#~ msgid "Ukrainian"
+#~ msgstr "Ukrajinski"
+
+#~ msgid "Unicode"
+#~ msgstr "Unikod"
+
+#~ msgid "multilingual"
+#~ msgstr "višejezički"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "Vietnamese"
+#~ msgstr "Ime korisnika"
+
+#~ msgid "Central European"
+#~ msgstr "Centralnoevropski"
+
+#~ msgid "Russian"
+#~ msgstr "Ruski"
+
+#~ msgid "Baltic"
+#~ msgstr "Baltički"
+
+#~ msgid "Armenian"
+#~ msgstr "Jermenski"
+
+#~ msgid "Cyrillic"
+#~ msgstr "Ćirilični"
+
+#~ msgid "Arabic"
+#~ msgstr "Arapski"
+
+#~ msgid "Hebrew"
+#~ msgstr "Jevrejski"
+
+#, fuzzy
+#~ msgid "Georgian"
+#~ msgstr "Njemački"
+
+#~ msgid "Greek"
+#~ msgstr "Grčki"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Groups:"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~ msgid "Events:"
+#~ msgstr "Poslato"
+
+#, fuzzy
+#~ msgid "Functions:"
+#~ msgstr "Funkcija"
+
+#, fuzzy
+#~ msgid "Procedures:"
+#~ msgstr "Procesi"
+
+#~ msgid "Show"
+#~ msgstr "Prikaži"
+
+#~ msgid "Home"
+#~ msgstr "Početna strana"
+
+#~ msgid "Log out"
+#~ msgstr "Odjavljivanje"
+
+#~ msgid "phpMyAdmin documentation"
+#~ msgstr "phpMyAdmin dokumentacija"
+
+#, fuzzy
+#~ msgid "Navigation panel settings"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Reload navigation panel"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Clear fast filter"
+#~ msgstr "Sačuvaj kao datoteku"
+
+#, fuzzy
+#~ msgid "Could not load class \"%1$s\""
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Columns"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "Database export options"
+#~ msgid "Database operations"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Show hidden items"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~ msgid "Functions"
+#~ msgstr "Funkcija"
+
+#, fuzzy
+#~ msgid "Procedure"
+#~ msgstr "Procesi"
+
+#, fuzzy
+#~ msgid "Procedures"
+#~ msgstr "Procesi"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Select one…"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "No such column"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~ msgid "Primary key already exists."
+#~ msgstr "Korisnik %s već postoji!"
+
+#, fuzzy
+#~ msgid "+ Add a new primary key column"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Remove redundant columns"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "Remove selected users"
+#~ msgid "Remove selected"
+#~ msgstr "Ukloni izabrane korisnike"
+
+#, fuzzy
+#~ msgid "No redundant column"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "Error in processing!"
+#~ msgstr "Procesi"
+
+#, fuzzy
+#~| msgid "Sep"
+#~ msgid "Step 3."
+#~ msgstr "sep"
+
+#, fuzzy
+#~| msgid "Propose table structure"
+#~ msgid "Improve table structure (Normalization):"
+#~ msgstr "Predloži strukturu tabele"
+
+#, fuzzy
+#~ msgid "Rename database to"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "You don't have sufficient privileges to be here right now!"
+#~ msgid ""
+#~ "You don't have sufficient privileges to perform this operation; Please "
+#~ "refer to the documentation for more details"
+#~ msgstr "Nije Vam dozvoljeno da budete ovdje!"
+
+#~ msgid "Database %s has been dropped."
+#~ msgstr "Baza %s je odbačena."
+
+#, fuzzy
+#~ msgid "Remove database"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~ msgid "Drop the database (DROP)"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Copy database to"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Switch to copied database"
+#~ msgstr "Pređi na kopiranu tabelu"
+
+#~ msgid "Alter table order by"
+#~ msgstr "Promijeni redoslijed u tabeli"
+
+#~ msgid "(singly)"
+#~ msgstr "(po jednom polju)"
+
+#~ msgid "Move table to (database<b>.</b>table)"
+#~ msgstr "Pomjeri tabelu u (baza<b>.</b>tabela)"
+
+#~ msgid "Rename table to"
+#~ msgstr "Promjeni ime tabele u"
+
+#~ msgid "Table comments"
+#~ msgstr "Komentari tabele"
+
+#~ msgid "Table options"
+#~ msgstr "Opcije tabele"
+
+#~ msgid "Copy table to (database<b>.</b>table)"
+#~ msgstr "Kopiraj tabelu u (baza<b>.</b>tabela)"
+
+#~ msgid "Switch to copied table"
+#~ msgstr "Pređi na kopiranu tabelu"
+
+#~ msgid "Table maintenance"
+#~ msgstr "Radnje na tabeli"
+
+#~ msgid "Analyze table"
+#~ msgstr "Analiziraj tabelu"
+
+#~ msgid "Check table"
+#~ msgstr "Provjeri tabelu"
+
+#, fuzzy
+#~| msgid "Check table"
+#~ msgid "Checksum table"
+#~ msgstr "Provjeri tabelu"
+
+#~ msgid "Table %s has been flushed."
+#~ msgstr "Tabela %s je osvežena."
+
+#, fuzzy
+#~| msgid "Flush the table (\"FLUSH\")"
+#~ msgid "Flush the table (FLUSH)"
+#~ msgstr "Osvježi tabelu (\"FLUSH\")"
+
+#~ msgid "Optimize table"
+#~ msgstr "Optimiziraj tabelu"
+
+#~ msgid "Repair table"
+#~ msgstr "Popravi tabelu"
+
+#, fuzzy
+#~| msgid "Dumping data for table"
+#~ msgid "Delete data or table"
+#~ msgstr "Prikaz podataka tabele"
+
+#, fuzzy
+#~ msgid "Delete the table (DROP)"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Check"
+#~ msgstr "Češki"
+
+#, fuzzy
+#~ msgid "Repair"
+#~ msgstr "Popravi tabelu"
+
+#, fuzzy
+#~ msgid "Coalesce"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~ msgid "Partition maintenance"
+#~ msgstr "Radnje na tabeli"
+
+#~ msgid "Check referential integrity:"
+#~ msgstr "Proveri referencijalni integritet:"
+
+#~ msgid "Can't move table to same one!"
+#~ msgstr "Ne mogu da premjestim tabelu u samu sebe!"
+
+#~ msgid "Can't copy table to same one!"
+#~ msgstr "Ne mogu da kopiram tabelu u samu sebe!"
+
+#, fuzzy
+#~| msgid "Table %s has been moved to %s."
+#~ msgid "Table %s has been moved to %s. Privileges have been adjusted."
+#~ msgstr "Tabela %s je pomjerena u %s."
+
+#, fuzzy
+#~| msgid "Table %s has been copied to %s."
+#~ msgid "Table %s has been copied to %s. Privileges have been adjusted."
+#~ msgstr "Tabela %s je kopirana u %s."
+
+#~ msgid "Table %s has been moved to %s."
+#~ msgstr "Tabela %s je pomjerena u %s."
+
+#~ msgid "Table %s has been copied to %s."
+#~ msgstr "Tabela %s je kopirana u %s."
+
+#~ msgid "The table name is empty!"
+#~ msgstr "Ima tabele je prazno!"
+
+#, fuzzy
+#~| msgid "This format has no options"
+#~ msgid "This format has no options"
+#~ msgstr "Ne postoje opcije za ovaj format"
+
+#~ msgid "Cannot log in to the MySQL server"
+#~ msgstr "Ne mogu da se prijavim na MySQL server"
+
+#~ msgid "Show color"
+#~ msgstr "Prikaži boju"
+
+#~ msgid "Welcome to %s"
+#~ msgstr "Dobrodošli na %s"
+
+#~ msgid ""
+#~ "phpMyAdmin tried to connect to the MySQL server, and the server rejected "
+#~ "the connection. You should check the host, username and password in your "
+#~ "configuration and make sure that they correspond to the information given "
+#~ "by the administrator of the MySQL server."
+#~ msgstr ""
+#~ "phpMyAdmin je pokušao da se poveže na MySQL server, ali je server odbio "
+#~ "povezivanje. Provjerite naziv hosta, korisničko ime i lozinku u config."
+#~ "inc.php i uvjerite se da odgovaraju podacima koje ste dobili od "
+#~ "administratora MySQL servera."
+
+#~ msgid "Log in"
+#~ msgstr "Prijavljivanje"
+
+#~ msgid "Username:"
+#~ msgstr "Korisničko ime:"
+
+#, fuzzy
+#~| msgid "Server Choice"
+#~ msgid "Server Choice:"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~| msgid "Cannot log in to the MySQL server"
+#~ msgid "You are not allowed to log in to this MySQL server!"
+#~ msgstr "Ne mogu da se prijavim na MySQL server"
+
+#~ msgid "Wrong username/password. Access denied."
+#~ msgstr "Pogrešno korisničko ime/lozinka. Ulaz nije dozvoljen."
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Columns separated with:"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~| msgid "Fields enclosed by"
+#~ msgid "Columns enclosed with:"
+#~ msgstr "Polja ograničena sa"
+
+#, fuzzy
+#~| msgid "Fields escaped by"
+#~ msgid "Columns escaped with:"
+#~ msgstr "Escape karakter &nbsp; &nbsp; &nbsp;"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Lines terminated with:"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~| msgid "Replace NULL by"
+#~ msgid "Replace NULL with:"
+#~ msgstr "Zamijeni NULL sa"
+
+#, fuzzy
+#~ msgid "Data dump options"
+#~ msgstr "Opcije za izvoz baze"
+
+#~ msgid "Dumping data for table"
+#~ msgstr "Prikaz podataka tabele"
+
+#, fuzzy
+#~ msgid "Event"
+#~ msgstr "Poslato"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Definition"
+#~ msgstr "Opis"
+
+#~ msgid "Table structure for table"
+#~ msgstr "Struktura tabele"
+
+#, fuzzy
+#~ msgid "Structure for view"
+#~ msgstr "Samo struktura"
+
+#, fuzzy
+#~| msgid "Table structure for table"
+#~ msgid "Structure of table @TABLE@"
+#~ msgstr "Struktura tabele"
+
+#, fuzzy
+#~| msgid "Transformation options"
+#~ msgid "Object creation options"
+#~ msgstr "Opcije transformacije"
+
+#, fuzzy
+#~ msgid "Table caption:"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~ msgid "Table caption (continued):"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~| msgid "Label"
+#~ msgid "Label key:"
+#~ msgstr "Naziv"
+
+#, fuzzy
+#~| msgid "Displaying Column Comments"
+#~ msgid "Display comments"
+#~ msgstr "Prikazujem komentare kolone"
+
+#, fuzzy
+#~| msgid "Available MIME types"
+#~ msgid "Display MIME types"
+#~ msgstr "Dostupni MIME-tipovi"
+
+#, fuzzy
+#~| msgid "Put fields names in the first row"
+#~ msgid "Put columns names in the first row:"
+#~ msgstr "Stavi imena polja u prvi red"
+
+#, fuzzy
+#~| msgid "Host"
+#~ msgid "Host:"
+#~ msgstr "Host"
+
+#, fuzzy
+#~| msgid "Generation Time"
+#~ msgid "Generation Time:"
+#~ msgstr "Vrijeme kreiranja"
+
+#, fuzzy
+#~| msgid "PHP Version"
+#~ msgid "PHP Version:"
+#~ msgstr "verzija PHP-a"
+
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database:"
+#~ msgstr "Baza podataka"
+
+#, fuzzy
+#~| msgid "Data"
+#~ msgid "Data:"
+#~ msgstr "Podaci"
+
+#, fuzzy
+#~| msgid "Structure"
+#~ msgid "Structure:"
+#~ msgstr "Struktura"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Export table names"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~| msgid "horizontal (rotated headers)"
+#~ msgid "Export table headers"
+#~ msgstr "horizontalnom (rotirana zaglavlja)"
+
+#, fuzzy
+#~| msgid "Import files"
+#~ msgid "Report title:"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~| msgid "Dumping data for table"
+#~ msgid "Dumping data"
+#~ msgstr "Prikaz podataka tabele"
+
+#, fuzzy
+#~ msgid "View structure"
+#~ msgstr "Struktura"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Export metadata"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~| msgid "Statements"
+#~ msgid "Add statements:"
+#~ msgstr "Ime"
+
+#, fuzzy
+#~| msgid "Statements"
+#~ msgid "Add %s statement"
+#~ msgstr "Ime"
+
+#, fuzzy
+#~| msgid "Session value"
+#~ msgid "%s value"
+#~ msgstr "Vrijednost sesije"
+
+#, fuzzy
+#~| msgid "Transformation options"
+#~ msgid "Data creation options"
+#~ msgstr "Opcije transformacije"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Metadata"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~| msgid "Dumping data for table"
+#~ msgid "Metadata for table %s"
+#~ msgstr "Prikaz podataka tabele"
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Metadata for database %s"
+#~ msgstr "Napravi novu tabelu u bazi %s"
+
+#, fuzzy
+#~| msgid "Creation"
+#~ msgid "Creation:"
+#~ msgstr "Napravljeno"
+
+#, fuzzy
+#~| msgid "Last update"
+#~ msgid "Last update:"
+#~ msgstr "Posljednja izmjena"
+
+#, fuzzy
+#~| msgid "Last check"
+#~ msgid "Last check:"
+#~ msgstr "Posljednja provjera"
+
+#~ msgid "in use"
+#~ msgstr "se koristi"
+
+#, fuzzy
+#~| msgid "Inside table(s):"
+#~ msgid "Indexes for dumped tables"
+#~ msgstr "Unutar tabela:"
+
+#, fuzzy
+#~| msgid "Inside table(s):"
+#~ msgid "Indexes for table"
+#~ msgstr "Unutar tabela:"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "AUTO_INCREMENT for dumped tables"
+#~ msgstr "Dodaj AUTO_INCREMENT vrijednost"
+
+#, fuzzy
+#~| msgid "Add AUTO_INCREMENT value"
+#~ msgid "AUTO_INCREMENT for table"
+#~ msgstr "Dodaj AUTO_INCREMENT vrijednost"
+
+#, fuzzy
+#~ msgid "Structure for view %s exported as a table"
+#~ msgstr "Samo struktura"
+
+#, fuzzy
+#~| msgid "Allows reading data."
+#~ msgid "Error reading data:"
+#~ msgstr "Dozvoljava čitanje podataka."
+
+#, fuzzy
+#~| msgid "Table"
+#~ msgid "Table:"
+#~ msgstr "Tabela"
+
+#, fuzzy
+#~| msgid "MIME type"
+#~ msgid "MIME"
+#~ msgstr "MIME-tipovi"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Column names: "
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Could not parse OpenDocument Spreadsheet!"
+#~ msgstr "Dokumentacija"
+
+#~ msgid "XML"
+#~ msgstr "XML"
+
+#, fuzzy
+#~| msgid "Creation"
+#~ msgid "Orientation"
+#~ msgstr "Napravljeno"
+
+#~ msgid "Landscape"
+#~ msgstr "Položeno"
+
+#~ msgid "Portrait"
+#~ msgstr "Uspravno"
+
+#~ msgid "Show grid"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~| msgid "Data Dictionary"
+#~ msgid "Data dictionary"
+#~ msgstr "Rečnik podataka"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Order of the tables"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~| msgid "Ascending"
+#~ msgid "Name (Ascending)"
+#~ msgstr "Rastući"
+
+#, fuzzy
+#~| msgid "Descending"
+#~ msgid "Name (Descending)"
+#~ msgstr "Opadajući"
+
+#, fuzzy
+#~| msgid "The \"%s\" table doesn't exist!"
+#~ msgid "The %s table doesn't exist!"
+#~ msgstr "Tabela \"%s\" ne postoji!"
+
+#, fuzzy
+#~| msgid "Schema of the \"%s\" database - Page %s"
+#~ msgid "Schema of the %s database - Page %s"
+#~ msgstr "Shema baze \"%s\" - Strana %s"
+
+#, fuzzy
+#~ msgid "PDF export page"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~| msgid "Schema of the \"%s\" database - Page %s"
+#~ msgid "Schema of the %s database"
+#~ msgstr "Shema baze \"%s\" - Strana %s"
+
+#~ msgid "Relational schema"
+#~ msgstr "Relaciona shema"
+
+#~ msgid "Table of contents"
+#~ msgstr "Sadržaj"
+
+#~ msgid "Extra"
+#~ msgstr "Dodatno"
+
+#, fuzzy
+#~| msgid ""
+#~| "UX ONLY: Launches an external application and feeds it the field data  "
+#~| "standard input. Returns the standard output of the application. The ault "
+#~| "is Tidy, to pretty-print HTML code. For security reasons, you e to "
+#~| "manually edit the file libraries/transformations/t_plain__external.inc."
+#~| "php and list the tools you want to make ilable. The first option is then "
+#~| "the number of the program you want to  and the second option is the "
+#~| "parameters for the program. The third ion, if set to 1, will convert the "
+#~| "output using htmlspecialchars() fault 1). The fourth option, if set to "
+#~| "1, will prevent wrapping and ure that the output appears all on one line "
+#~| "(Default 1)."
+#~ msgid ""
+#~ "LINUX ONLY: Launches an external application and feeds it the column data "
+#~ "via standard input. Returns the standard output of the application. The "
+#~ "default is Tidy, to pretty-print HTML code. For security reasons, you "
+#~ "have to manually edit the file libraries/plugins/transformations/output/"
+#~ "Text_Plain_External.php and list the tools you want to make available. "
+#~ "The first option is then the number of the program you want to use and "
+#~ "the second option is the parameters for the program. The third option, if "
+#~ "set to 1, will convert the output using htmlspecialchars() (Default 1). "
+#~ "The fourth option, if set to 1, will prevent wrapping and ensure that the "
+#~ "output appears all on one line (Default 1)."
+#~ msgstr ""
+#~ "SAMO LINUX: Pokreće eksternu aplikaciju i popunjava podatke u poljima "
+#~ "preko standardnog ulaza. Vraća standardni izlaz aplikacije. Podrazumevano "
+#~ "je Tidy, za lepši prikaz HTML koda. Zbog sigurnosnih razloga, morate "
+#~ "ručno izmeniti datoteku libraries/transformations/text_plain__external."
+#~ "inc.php i dodati alate koje želite da koristite. Prva opcija je broj "
+#~ "programa koje želite da koristite, a druga su parametri programa. Ako se "
+#~ "treći parametar postavi na 1 izlaz će biti konvertovan koristeći "
+#~ "htmlspecialchars() (podrazumevano je 1). Ako je četvrti parametar "
+#~ "postavljen na 1, NOWRAP će biti dodato ćeliji sa sadržajem tako da će "
+#~ "izlaz biti prikazan bez izmena. (podrazumevano 1)"
+
+#, fuzzy
+#~| msgid ""
+#~| "plays the contents of the field as-is, without running it through "
+#~| "lspecialchars(). That is, the field is assumed to contain valid HTML."
+#~ msgid ""
+#~ "Displays the contents of the column as-is, without running it through "
+#~ "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
+#~ msgstr "Čuva originalno formatiranje polja. Escaping se ne vrši."
+
+#~ msgid "Displays a link to download this image."
+#~ msgstr "Prikazuje link ka ovoj slici (npr. direktno preuzimanje iz BLOB-a)."
+
+#~ msgid ""
+#~ "Displays a clickable thumbnail. The options are the maximum width and "
+#~ "height in pixels. The original aspect ratio is preserved."
+#~ msgstr ""
+#~ "Prikazuje umanjenu sliku na koju je moguće kliknuti; opcije: širina, "
+#~ "visina u pikselima (čuva originalni odnos)."
+
+#~ msgid ""
+#~ "Displays a part of a string. The first option is the number of characters "
+#~ "to skip from the beginning of the string (Default 0). The second option "
+#~ "is the number of characters to return (Default: until end of string). The "
+#~ "third option is the string to append and/or prepend when truncation "
+#~ "occurs (Default: \"…\")."
+#~ msgstr ""
+#~ "Pokazuje samo deo stringa. Prva opcija je ofset koji definiše gde počinje "
+#~ "izlaz vašeg teksta (podrazumevano 0). Druga opcija je ofset koji pokazuje "
+#~ "koliko će teksta biti prikazano. Ako je nema, sav preostali tekst će biti "
+#~ "prikazan. Treća opcija određuje koji će znaci biti dodati izlazu kada se "
+#~ "prikaže podstring (podrazumevano: …) ."
+
+#, fuzzy
+#~| msgid ""
+#~| "plays an image and a link; the field contains the filename. The first "
+#~| "ion is a URL prefix like \"http://www.example.com/\". The second and rd "
+#~| "options are the width and the height in pixels."
+#~ msgid ""
+#~ "Displays an image and a link; the column contains the filename. The first "
+#~ "option is a URL prefix like \"http://www.example.com/\". The second and "
+#~ "third options are the width and the height in pixels."
+#~ msgstr ""
+#~ "Prikazuje sliku i link, polje sadrži naziv datoteke; prva opcija je "
+#~ "prefiks kao \"http://domain.com/\", druga opcija je širina u pikselima, "
+#~ "treća je visina."
+
+#, fuzzy
+#~| msgid ""
+#~| "plays a link; the field contains the filename. The first option is a  "
+#~| "prefix like \"http://www.example.com/\". The second option is a title  "
+#~| "the link."
+#~ msgid ""
+#~ "Displays a link; the column contains the filename. The first option is a "
+#~ "URL prefix like \"http://www.example.com/\". The second option is a title "
+#~ "for the link."
+#~ msgstr ""
+#~ "Prikazuje link, polje sadrži naziv datoteke; prva opcija je prefiks kao "
+#~ "\"http://domain.com/\", druga opcija je naslov za link."
+
+#, fuzzy
+#~| msgid "Modifications have been saved"
+#~ msgid "FOREIGN KEY relation has been added."
+#~ msgstr "Izmjene su sačuvane"
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "Error: FOREIGN KEY relation could not be added!"
+#~ msgstr "Datoteku nije moguće pročitati"
+
+#, fuzzy
+#~ msgid "Internal relation has been added."
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "Error: Internal relation could not be added!"
+#~ msgstr "Datoteku nije moguće pročitati"
+
+#, fuzzy
+#~| msgid "Modifications have been saved"
+#~ msgid "FOREIGN KEY relation has been removed."
+#~ msgstr "Izmjene su sačuvane"
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "Error: FOREIGN KEY relation could not be removed!"
+#~ msgstr "Datoteku nije moguće pročitati"
+
+#, fuzzy
+#~| msgid "File could not be read"
+#~ msgid "Error: Internal relation could not be removed!"
+#~ msgstr "Datoteku nije moguće pročitati"
+
+#, fuzzy
+#~ msgid "Internal relation has been removed."
+#~ msgstr "Opšte osobine relacija"
+
+#~ msgid "not OK"
+#~ msgstr "nije u redu"
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly working"
+#~ msgid "OK"
+#~ msgstr "U redu"
+
+#~ msgid "Enabled"
+#~ msgstr "Omogućeno"
+
+#, fuzzy
+#~| msgid "Modifications have been saved"
+#~ msgid "Configuration of pmadb…"
+#~ msgstr "Izmjene su sačuvane"
+
+#~ msgid "General relation features"
+#~ msgstr "Opšte osobine relacija"
+
+#~ msgid "Display Features"
+#~ msgstr "Prikaži osobine"
+
+#, fuzzy
+#~| msgid "Creation of PDFs"
+#~ msgid "Designer and creation of PDFs"
+#~ msgstr "Pravljenje PDF-ova"
+
+#~ msgid "Displaying Column Comments"
+#~ msgstr "Prikazujem komentare kolone"
+
+#~ msgid "Browser transformation"
+#~ msgstr "Tranformacije čitača"
+
+#, fuzzy
+#~| msgid ""
+#~| "Please see the documentation on how to update your column_comments table."
+#~ msgid ""
+#~ "Please see the documentation on how to update your column_info table. "
+#~ msgstr ""
+#~ "Molimo pogledajte u dokumentaciji kako se ažurira tabela Column_comments."
+
+#~ msgid "Bookmarked SQL query"
+#~ msgstr "Obilježen SQL-upit"
+
+#~ msgid "SQL history"
+#~ msgstr "SQL istorijat"
+
+#, fuzzy
+#~ msgid "Persistent favorite tables"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Modifications have been saved"
+#~ msgid "Configurable menus"
+#~ msgstr "Izmjene su sačuvane"
+
+#, fuzzy
+#~| msgid "Rename table to"
+#~ msgid "Remembering Designer Settings"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~ msgid "Saving export templates"
+#~ msgstr "Nema tabela"
+
+#~ msgid "no description"
+#~ msgstr "nema opisa"
+
+#, fuzzy
+#~ msgid "Please select databases:"
+#~ msgstr "Izaberite bazu"
+
+#, fuzzy
+#~| msgid "% aborted connections"
+#~ msgid "Master connection:"
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~ msgid "Full start"
+#~ msgstr "Tekst ključ"
+
+#, fuzzy
+#~| msgid "Structure only"
+#~ msgid "Start SQL Thread only"
+#~ msgstr "Samo struktura"
+
+#, fuzzy
+#~| msgid "Structure only"
+#~ msgid "Start IO Thread only"
+#~ msgstr "Samo struktura"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "User name:"
+#~ msgstr "Ime korisnika"
+
+#~ msgid "User name"
+#~ msgstr "Ime korisnika"
+
+#~ msgid "Password"
+#~ msgstr "Lozinka"
+
+#, fuzzy
+#~ msgid "Port:"
+#~ msgstr "Sortiranje"
+
+#~ msgid "Variable"
+#~ msgstr "Promjenljiva"
+
+#~ msgid "Host"
+#~ msgstr "Host"
+
+#~ msgid "Any host"
+#~ msgstr "Bilo koji host"
+
+#~ msgid "Local"
+#~ msgstr "Lokalni"
+
+#~ msgid "This Host"
+#~ msgstr "Ovaj server"
+
+#~ msgid "Any user"
+#~ msgstr "Bilo koji korisnik"
+
+#, fuzzy
+#~| msgid "Use text field"
+#~ msgid "Use text field:"
+#~ msgstr "Koristi tekst polje"
+
+#~ msgid "Use Host Table"
+#~ msgstr "Koristi tabelu hosta"
+
+#~ msgid "Re-type"
+#~ msgstr "Ponovite unos"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "Generate password:"
+#~ msgstr "Promeni lozinku"
+
+#, fuzzy
+#~| msgid "Chart generated successfully."
+#~ msgid "Replication started successfully."
+#~ msgstr "Privilegije su uspešno ponovo učitane."
+
+#, fuzzy
+#~| msgid "Chart generated successfully."
+#~ msgid "Replication stopped successfully."
+#~ msgstr "Privilegije su uspešno ponovo učitane."
+
+#, fuzzy
+#~| msgid "Chart generated successfully."
+#~ msgid "Replication resetting successfully."
+#~ msgstr "Privilegije su uspešno ponovo učitane."
+
+#, fuzzy
+#~| msgid "Error"
+#~ msgid "Error."
+#~ msgstr "Greška"
+
+#, fuzzy
+#~| msgid "The privileges were reloaded successfully."
+#~ msgid "Master server changed successfully to %s."
+#~ msgstr "Privilegije su uspešno ponovo učitane."
+
+#, fuzzy
+#~| msgid "Table %s has been dropped."
+#~ msgid "Event %1$s has been modified."
+#~ msgstr "Tabela %s je odbačena"
+
+#, fuzzy
+#~ msgid "Event %1$s has been created."
+#~ msgstr "Tabela %s je odbačena"
+
+#, fuzzy
+#~ msgid "Edit event"
+#~ msgstr "Poslato"
+
+#, fuzzy
+#~ msgid "Event name"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Change to %s"
+#~ msgstr "Promijeni"
+
+#, fuzzy
+#~| msgid "Execute bookmarked query"
+#~ msgid "Execute every"
+#~ msgstr "Izvrši upamćen upit"
+
+#, fuzzy
+#~ msgctxt "Start of recurring event"
+#~ msgid "Start"
+#~ msgstr "Status"
+
+#, fuzzy
+#~| msgid "End"
+#~ msgctxt "End of recurring event"
+#~ msgid "End"
+#~ msgstr "Kraj"
+
+#, fuzzy
+#~| msgid "Complete inserts"
+#~ msgid "On completion preserve"
+#~ msgstr "Kompletan INSERT (sa imenima polja)"
+
+#, fuzzy
+#~| msgid "Processes"
+#~ msgid "Error in processing request:"
+#~ msgstr "Procesi"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Returns"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~ msgid "Routine %1$s has been created."
+#~ msgstr "Tabela %s je odbačena"
+
+#, fuzzy
+#~| msgid "Table %s has been dropped."
+#~ msgid "Routine %1$s has been modified. Privileges have been adjusted."
+#~ msgstr "Tabela %s je odbačena"
+
+#, fuzzy
+#~| msgid "Table %s has been dropped."
+#~ msgid "Routine %1$s has been modified."
+#~ msgstr "Tabela %s je odbačena"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Routine name"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "Creation"
+#~ msgid "Direction"
+#~ msgstr "Napravljeno"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add parameter"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Remove last parameter"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "Length/Values"
+#~ msgid "Return length/values"
+#~ msgstr "Dužina/Vrijednost*"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Return options"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~| msgid "Query type"
+#~ msgid "Security type"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Table %s has been dropped."
+#~ msgid "Trigger %1$s has been modified."
+#~ msgstr "Tabela %s je odbačena"
+
+#, fuzzy
+#~ msgid "Trigger %1$s has been created."
+#~ msgstr "Tabela %s je odbačena"
+
+#, fuzzy
+#~ msgid "Edit trigger"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~| msgid "server name"
+#~ msgid "Trigger name"
+#~ msgstr "Ime korisnika"
+
+#, fuzzy
+#~| msgid "Time"
+#~ msgctxt "Trigger action time"
+#~ msgid "Time"
+#~ msgstr "Vrijeme"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add routine"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "routine"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "You don't have sufficient privileges to be here right now!"
+#~ msgid "You do not have the necessary privileges to create a routine"
+#~ msgstr "Nije Vam dozvoljeno da budete ovdje!"
+
+#, fuzzy
+#~| msgid "No tables found in database."
+#~ msgid "No routine with name %1$s found in database %2$s"
+#~ msgstr "Tabele nisu pronađene u bazi."
+
+#, fuzzy
+#~ msgid "Add trigger"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgid "trigger"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~| msgid "You don't have sufficient privileges to be here right now!"
+#~ msgid "You do not have the necessary privileges to create a trigger"
+#~ msgstr "Nije Vam dozvoljeno da budete ovdje!"
+
+#, fuzzy
+#~| msgid "No tables found in database."
+#~ msgid "No trigger with name %1$s found in database %2$s"
+#~ msgstr "Tabele nisu pronađene u bazi."
+
+#, fuzzy
+#~ msgid "Add event"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgid "event"
+#~ msgstr "Poslato"
+
+#, fuzzy
+#~| msgid "You don't have sufficient privileges to be here right now!"
+#~ msgid "You do not have the necessary privileges to create an event"
+#~ msgstr "Nije Vam dozvoljeno da budete ovdje!"
+
+#, fuzzy
+#~| msgid "No tables found in database."
+#~ msgid "No event with name %1$s found in database %2$s"
+#~ msgstr "Tabele nisu pronađene u bazi."
+
+#, fuzzy
+#~| msgid "Server"
+#~ msgid "Current server:"
+#~ msgstr "Server"
+
+#~ msgid "Server variables and settings"
+#~ msgstr "Serverske promenljive i podešavanja"
+
+#~ msgid "Character Sets and Collations"
+#~ msgstr "Karakter setovi i sortiranje"
+
+#~ msgid "Databases statistics"
+#~ msgstr "Statistika baze"
+
+#~ msgid "No privileges."
+#~ msgstr "Nema privilegija."
+
+#~ msgid "Includes all privileges except GRANT."
+#~ msgstr "Uključuje sve privilegije osim GRANT."
+
+#~ msgid "Allows reading data."
+#~ msgstr "Dozvoljava čitanje podataka."
+
+#~ msgid "Allows inserting and replacing data."
+#~ msgstr "Dozvoljava umetanje i zamjenu podataka."
+
+#~ msgid "Allows changing data."
+#~ msgstr "Dozvoljava izmenu podataka."
+
+#~ msgid "Allows deleting data."
+#~ msgstr "Dozvoljava brisanje podataka."
+
+#~ msgid "Allows creating new databases and tables."
+#~ msgstr "Dozvoljava kreiranje novih baza i tabela."
+
+#~ msgid "Allows dropping databases and tables."
+#~ msgstr "Dozvoljava odbacivanje baza i tabela."
+
+#~ msgid "Allows reloading server settings and flushing the server's caches."
+#~ msgstr ""
+#~ "Dozvoljava ponovno učitavanje podešavanja servera i pražnjenje keša "
+#~ "servera."
+
+#~ msgid "Allows shutting down the server."
+#~ msgstr "Dozvoljava gašenje servera."
+
+#~ msgid "Allows importing data from and exporting data into files."
+#~ msgstr "Dozvoljava uvoz podataka i njihov izvoz u datoteke."
+
+#~ msgid "Has no effect in this MySQL version."
+#~ msgstr "Nema efekta u ovoj verziji MySQL-a."
+
+#~ msgid "Allows creating and dropping indexes."
+#~ msgstr "Dozvoljava kreiranje i brisanje ključeva."
+
+#~ msgid "Allows altering the structure of existing tables."
+#~ msgstr "Dozvoljava izmjenu struktura postojećih tabela."
+
+#~ msgid "Gives access to the complete list of databases."
+#~ msgstr "Daje pristup kompletnoj listi baza."
+
+#~ msgid ""
+#~ "Allows connecting, even if maximum number of connections is reached; "
+#~ "required for most administrative operations like setting global variables "
+#~ "or killing threads of other users."
+#~ msgstr ""
+#~ "Dozvoljava povezivanje iako je dostignut maksimalan broj dozvoljenih "
+#~ "veza; Neophodno za većinu administrativnih opcija kao što su podešavanje "
+#~ "globalnih promenljivih ili prekidanje procesa ostalih korisnika."
+
+#~ msgid "Allows creating temporary tables."
+#~ msgstr "Dozvoljava kreiranje privremenih tabela.."
+
+#~ msgid "Allows locking tables for the current thread."
+#~ msgstr "Dozvoljava zaključavanje tabela tekućim procesima."
+
+#~ msgid "Needed for the replication slaves."
+#~ msgstr "Potrebno zbog pomoćnih servera za replikaciju."
+
+#~ msgid "Allows the user to ask where the slaves / masters are."
+#~ msgstr "Daje pravo korisniku da pita gde su glavni/pomoćni serveri."
+
+#, fuzzy
+#~ msgid "Allows creating new views."
+#~ msgstr "Dozvoljava kreiranje novih tabela."
+
+#, fuzzy
+#~| msgid "Allows locking tables for the current thread."
+#~ msgid "Allows to set up events for the event scheduler."
+#~ msgstr "Dozvoljava zaključavanje tabela tekućim procesima."
+
+#, fuzzy
+#~ msgid "Allows creating and dropping triggers."
+#~ msgstr "Dozvoljava kreiranje i brisanje ključeva."
+
+#, fuzzy
+#~ msgid "Allows creating stored routines."
+#~ msgstr "Dozvoljava kreiranje novih tabela."
+
+#, fuzzy
+#~ msgid "Allows altering and dropping stored routines."
+#~ msgstr "Dozvoljava kreiranje i brisanje ključeva."
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None privileges"
+#~ msgid "None"
+#~ msgstr "nema"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Does not require SSL-encrypted connections."
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Requires SSL-encrypted connections."
+#~ msgstr "Konekcije"
+
+#~ msgid "Resource limits"
+#~ msgstr "Ograničenja resursa"
+
+#~ msgid "Note: Setting these options to 0 (zero) removes the limit."
+#~ msgstr "Napomena: Postavljanje ovih opcija na 0 (nulu) uklanja limite."
+
+#~ msgid ""
+#~ "Limits the number of queries the user may send to the server per hour."
+#~ msgstr "Ograničava broj upita koje korisnik može da uputi serveru za sat."
+
+#~ msgid ""
+#~ "Limits the number of commands that change any table or database the user "
+#~ "may execute per hour."
+#~ msgstr ""
+#~ "Ograničava broj komandi koje menjaju tabele ili baze koje korisnik može "
+#~ "da izvrši na sat."
+
+#~ msgid "Limits the number of new connections the user may open per hour."
+#~ msgstr ""
+#~ "Ograničava broj novih konekcija koje korisnik može ta otvori na sat."
+
+#, fuzzy
+#~ msgid "Limits the number of simultaneous connections the user may have."
+#~ msgstr ""
+#~ "Ograničava broj novih konekcija koje korisnik može ta otvori na sat."
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Routine"
+#~ msgstr "Dodaj novo polje"
+
+#~ msgid ""
+#~ "Allows adding users and privileges without reloading the privilege tables."
+#~ msgstr ""
+#~ "Dozvoljava dodavanje korisnika i privilegija bez ponovnog učitavanja "
+#~ "tabela privilegija."
+
+#, fuzzy
+#~ msgid "Allows altering and dropping this routine."
+#~ msgstr "Dozvoljava kreiranje i brisanje ključeva."
+
+#, fuzzy
+#~ msgid "Allows executing this routine."
+#~ msgstr "Dozvoljava kreiranje novih tabela."
+
+#~ msgid "Table-specific privileges"
+#~ msgstr "Privilegije vezane za tabele"
+
+#, fuzzy
+#~| msgid "Note: MySQL privilege names are expressed in English"
+#~ msgid "Note: MySQL privilege names are expressed in English."
+#~ msgstr "Napomena: MySQL imena privilegija moraju da budu na engleskom"
+
+#~ msgid "Administration"
+#~ msgstr "Administracija"
+
+#~ msgid "Global privileges"
+#~ msgstr "Globalne privilegije"
+
+#, fuzzy
+#~| msgid "global"
+#~ msgid "Global"
+#~ msgstr "globalno"
+
+#~ msgid "Database-specific privileges"
+#~ msgstr "Privilegije vezane za bazu"
+
+#~ msgid "Allows creating new tables."
+#~ msgstr "Dozvoljava kreiranje novih tabela."
+
+#~ msgid "Allows dropping tables."
+#~ msgstr "Dozvoljava odbacivanje tabela."
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Native MySQL authentication"
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "SHA256 password authentication"
+#~ msgstr "Promeni lozinku"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Native MySQL Authentication"
+#~ msgstr "Dokumentacija"
+
+#~ msgid "Login Information"
+#~ msgstr "Podatci o prijavi"
+
+#~ msgid "Use text field"
+#~ msgstr "Koristi tekst polje"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "Host name:"
+#~ msgstr "Ime korisnika"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Host name"
+#~ msgstr "Imena kolona"
+
+#~ msgid "Do not change the password"
+#~ msgstr "Nemoj da mijenjaš lozinku"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Authentication Plugin"
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Password Hashing Method"
+#~ msgstr "Lozinka:"
+
+#~ msgid "The password for %s was changed successfully."
+#~ msgstr "Lozinka za %s je uspješno promjenjena."
+
+#~ msgid "You have revoked the privileges for %s."
+#~ msgstr "Zabranili ste privilegije za %s."
+
+#, fuzzy
+#~| msgid "Any user"
+#~ msgid "Add user account"
+#~ msgstr "Bilo koji korisnik"
+
+#, fuzzy
+#~| msgid "Database export options"
+#~ msgid "Database for user account"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Grant all privileges on database \"%s\"."
+#~ msgstr "Provjeri privilegije za bazu \"%s\"."
+
+#~ msgid "Users having access to \"%s\""
+#~ msgstr "Korisnici koji imaju pristup \"%s\""
+
+#, fuzzy
+#~ msgid "User has been added."
+#~ msgstr "Polje %s je obrisano"
+
+#~ msgid "Grant"
+#~ msgstr "Omogući"
+
+#, fuzzy
+#~| msgid "No user(s) found."
+#~ msgid "No user found."
+#~ msgstr "Korisnik nije nađen."
+
+#~ msgid "Any"
+#~ msgstr "Bilo koji"
+
+#~ msgid "global"
+#~ msgstr "globalno"
+
+#~ msgid "database-specific"
+#~ msgstr "Specifično za bazu"
+
+#~ msgid "wildcard"
+#~ msgstr "Džoker"
+
+#, fuzzy
+#~| msgid "database-specific"
+#~ msgid "table-specific"
+#~ msgstr "Specifično za bazu"
+
+#, fuzzy
+#~| msgid "Edit Privileges"
+#~ msgid "Edit privileges"
+#~ msgstr "Promijeni privilegije"
+
+#~ msgid "Revoke"
+#~ msgstr "Zabrani"
+
+#~ msgid "… keep the old one."
+#~ msgstr "… sačuvaj stare."
+
+#~ msgid "… delete the old one from the user tables."
+#~ msgstr "… obriši stare iz tabela korisnika."
+
+#~ msgid ""
+#~ "… revoke all active privileges from the old one and delete it afterwards."
+#~ msgstr "… obustavi sve privilegije starog korisnika i zatim ga obriši."
+
+#~ msgid ""
+#~ "… delete the old one from the user tables and reload the privileges "
+#~ "afterwards."
+#~ msgstr ""
+#~ "… obriši starog iz tabele korisnika i zatim ponovo učitaj privilegije."
+
+#, fuzzy
+#~| msgid "Change Login Information / Copy User"
+#~ msgid "Change login information / Copy user account"
+#~ msgstr "Promeni informacije o prijavi / Kopiraj korisnika"
+
+#, fuzzy
+#~| msgid "Create a new user with the same privileges and …"
+#~ msgid "Create a new user account with the same privileges and …"
+#~ msgstr "Napravi novog korisnika sa istim privilegijama i …"
+
+#, fuzzy
+#~| msgid "Column-specific privileges"
+#~ msgid "Routine-specific privileges"
+#~ msgstr "Privilegije vezane za kolone"
+
+#, fuzzy
+#~| msgid "Remove selected users"
+#~ msgid "Remove selected user accounts"
+#~ msgstr "Ukloni izabrane korisnike"
+
+#~ msgid ""
+#~ "Revoke all active privileges from the users and delete them afterwards."
+#~ msgstr "Obustavi sve aktivne privilegije korisnika i zatim ih obriši."
+
+#~ msgid "Drop the databases that have the same names as the users."
+#~ msgstr "Odbaci baze koje se zovu isto kao korisnici."
+
+#~ msgid "Reloading the privileges"
+#~ msgstr "Ponovo učitavam privilegije"
+
+#~ msgid "The selected users have been deleted successfully."
+#~ msgstr "Izabrani korisnici su uspješno obrisani."
+
+#~ msgid "You have updated the privileges for %s."
+#~ msgstr "Ažurirali ste privilegije za %s."
+
+#~ msgid "Deleting %s"
+#~ msgstr "Brišem %s"
+
+#~ msgid "The privileges were reloaded successfully."
+#~ msgstr "Privilegije su uspešno ponovo učitane."
+
+#~ msgid "The user %s already exists!"
+#~ msgstr "Korisnik %s već postoji!"
+
+#, fuzzy
+#~| msgid "Privileges"
+#~ msgid "Privileges for %s"
+#~ msgstr "Privilegije"
+
+#~ msgid "User"
+#~ msgstr "Korisnik"
+
+#, fuzzy
+#~| msgid "Edit Privileges"
+#~ msgid "Edit privileges:"
+#~ msgstr "Promijeni privilegije"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "User account"
+#~ msgstr "Korisnik"
+
+#, fuzzy
+#~| msgid "User overview"
+#~ msgid "User accounts overview"
+#~ msgstr "Pregled korisnika"
+
+#~ msgid ""
+#~ "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
+#~ "privilege tables. The content of these tables may differ from the "
+#~ "privileges the server uses, if they have been changed manually. In this "
+#~ "case, you should %sreload the privileges%s before you continue."
+#~ msgstr ""
+#~ "Napomena: phpMyAdmin uzima privilegije korisnika direktno iz MySQL tabela "
+#~ "privilegija. Sadržaj ove tabele može se razlikovati od privilegija koje "
+#~ "server koristi ako su izvršene ručne izmjene. U tom slučaju %sponovo "
+#~ "učitajte privilegije%s pre nego što nastavite."
+
+#, fuzzy
+#~| msgid ""
+#~| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
+#~| "privilege tables. The content of these tables may differ from the "
+#~| "privileges the server uses, if they have been changed manually. In this "
+#~| "case, you should %sreload the privileges%s before you continue."
+#~ msgid ""
+#~ "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
+#~ "privilege tables. The content of these tables may differ from the "
+#~ "privileges the server uses, if they have been changed manually. In this "
+#~ "case, the privileges have to be reloaded but currently, you don't have "
+#~ "the RELOAD privilege."
+#~ msgstr ""
+#~ "Napomena: phpMyAdmin uzima privilegije korisnika direktno iz MySQL tabela "
+#~ "privilegija. Sadržaj ove tabele može se razlikovati od privilegija koje "
+#~ "server koristi ako su izvršene ručne izmjene. U tom slučaju %sponovo "
+#~ "učitajte privilegije%s pre nego što nastavite."
+
+#~ msgid "The selected user was not found in the privilege table."
+#~ msgstr "Izabrani korisnik nije pronađen u tabeli privilegija."
+
+#~ msgid "You have added a new user."
+#~ msgstr "Dodali ste novog korisnika."
+
+#, fuzzy
+#~| msgid "This MySQL server has been running for %s. It started up on %s."
+#~ msgid "This MySQL server has been running for %1$s. It started up on %2$s."
+#~ msgstr "Ovaj MySQL server radi već %s. Pokrenut je %s."
+
+#~ msgid "Received"
+#~ msgstr "Primljeno"
+
+#~ msgid "Sent"
+#~ msgstr "Poslato"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Max. concurrent connections"
+#~ msgstr "Konekcije"
+
+#~ msgid "Failed attempts"
+#~ msgstr "Neuspelih pokušaja"
+
+#, fuzzy
+#~ msgid "Instructions"
+#~ msgstr "Funkcija"
+
+#, fuzzy
+#~ msgid "Log statistics"
+#~ msgstr "Statistike reda"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Selected time range:"
+#~ msgstr "Izaberi sve"
+
+#, fuzzy
+#~| msgid "Query type"
+#~ msgid "Query analyzer"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add chart"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Import files"
+#~ msgid "Chart Title"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~ msgid "Preset chart"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Select series:"
+#~ msgstr "Izaberi tabele"
+
+#, fuzzy
+#~ msgid "Add this series"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgid "Series in chart:"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Start Monitor"
+#~ msgstr "Sub"
+
+#, fuzzy
+#~ msgid "Refresh rate"
+#~ msgstr "Generirao"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Chart columns"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~| msgid ""
+#~| "Note: Enabling the database statistics here might cause heavy traffic "
+#~| "between the web server and the MySQL server."
+#~ msgid ""
+#~ "Note: Enabling the auto refresh here might cause heavy traffic between "
+#~ "the web server and the MySQL server."
+#~ msgstr ""
+#~ "Napomena: uključivanje statistika može prouzrokovati veliki protok "
+#~ "podataka između web i MySQL servera."
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Command"
+#~ msgstr "Naredba"
+
+#, fuzzy
+#~ msgid "Show only active"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~| msgid "per hour"
+#~ msgid "per hour:"
+#~ msgstr "na sat"
+
+#, fuzzy
+#~| msgid "per minute"
+#~ msgid "per minute:"
+#~ msgstr "u minuti"
+
+#, fuzzy
+#~| msgid "per second"
+#~ msgid "per second:"
+#~ msgstr "u sekundi"
+
+#~ msgid "Statements"
+#~ msgstr "Ime"
+
+#, fuzzy
+#~| msgid "Do not change the password"
+#~ msgid "Containing the word:"
+#~ msgstr "Nemoj da mijenjaš lozinku"
+
+#, fuzzy
+#~ msgid "Show only alert values"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~ msgid "Show unformatted values"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Related links:"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~ msgid "The number of failed attempts to connect to the MySQL server."
+#~ msgstr ""
+#~ "Ograničava broj novih konekcija koje korisnik može ta otvori na sat."
+
+#, fuzzy
+#~ msgid "Percentage of used key cache (calculated value)"
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~ msgid "Thread cache hit rate (calculated value)"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "User groups"
+#~ msgstr "Korisnik"
+
+#, fuzzy
+#~| msgid "Server version"
+#~ msgid "Server level tabs"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database level tabs"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Table level tabs"
+#~ msgstr "Komentari tabele"
+
+#, fuzzy
+#~ msgid "View users"
+#~ msgstr "Bilo koji korisnik"
+
+#, fuzzy
+#~| msgid "Any user"
+#~ msgid "Add user group"
+#~ msgstr "Bilo koji korisnik"
+
+#, fuzzy
+#~| msgid "No privileges."
+#~ msgid "User group menu assignments"
+#~ msgstr "Nema privilegija."
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Group name:"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "Server version"
+#~ msgid "Server-level tabs"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database-level tabs"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Table-level tabs"
+#~ msgstr "Komentari tabele"
+
+#, fuzzy
+#~ msgid "Detailed profile"
+#~ msgstr "Samo podaci"
+
+#, fuzzy
+#~ msgid "State"
+#~ msgstr "Status"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total Time"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~| msgid "Time"
+#~ msgid "% Time"
+#~ msgstr "Vrijeme"
+
+#, fuzzy
+#~| msgid "Time"
+#~ msgid "ø Time"
+#~ msgstr "Vrijeme"
+
+#~ msgid "Bookmark this SQL query"
+#~ msgstr "Obilježi SQL-upit"
+
+#, fuzzy
+#~| msgid "Label"
+#~ msgid "Label:"
+#~ msgstr "Naziv"
+
+#, fuzzy
+#~ msgid "Run SQL query/queries on server %s"
+#~ msgstr "Izvrši SQL upit(e) na bazi %s"
+
+#~ msgid "Run SQL query/queries on database %s"
+#~ msgstr "Izvrši SQL upit(e) na bazi %s"
+
+#, fuzzy
+#~| msgid "Run SQL query/queries on database %s"
+#~ msgid "Run SQL query/queries on table %s"
+#~ msgstr "Izvrši SQL upit(e) na bazi %s"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Bind parameters"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Bookmark this SQL query"
+#~ msgid "Bookmark this SQL query:"
+#~ msgstr "Obilježi SQL-upit"
+
+#~ msgid "Show this query here again"
+#~ msgstr "Prikaži ponovo ovaj upit"
+
+#~ msgid "View only"
+#~ msgstr "Vidi samo"
+
+#, fuzzy
+#~ msgid "Create version %1$s of %2$s"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Create version %1$s"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Create version"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Version"
+#~ msgstr "verzija PHP-a"
+
+#~ msgid "Created"
+#~ msgstr "Kreirano"
+
+#, fuzzy
+#~ msgid "Delete version"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Structure snapshot"
+#~ msgstr "Samo struktura"
+
+#, fuzzy
+#~| msgid "Allows inserting and replacing data."
+#~ msgid "Delete tracking data row from report"
+#~ msgstr "Dozvoljava umetanje i zamjenu podataka."
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "No data"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Date"
+#~ msgstr "Podaci"
+
+#, fuzzy
+#~ msgid "Username"
+#~ msgstr "Korisničko ime:"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "None for default"
+#~ msgid "None"
+#~ msgstr "nema"
+
+#, fuzzy
+#~ msgid "Version %1$s of %2$s was deleted."
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Track table"
+#~ msgstr "Provjeri tabelu"
+
+#, fuzzy
+#~| msgid "Allows inserting and replacing data."
+#~ msgid "Delete tracking"
+#~ msgstr "Dozvoljava umetanje i zamjenu podataka."
+
+#~ msgid "Versions"
+#~ msgstr "Verzije"
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "Manage your settings"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "Modifications have been saved"
+#~ msgid "Configuration has been saved."
+#~ msgstr "Izmjene su sačuvane"
+
+#, fuzzy
+#~| msgid "Import files"
+#~ msgid "Import from file"
+#~ msgstr "Uvoz fajlova"
+
+#~ msgid "View dump (schema) of databases"
+#~ msgstr "Prikaži sadržaj (shemu) baze"
+
+#~ msgid "No Privileges"
+#~ msgstr "Nema privilegija"
+
+#~ msgid "Thread %s was successfully killed."
+#~ msgstr "Proces %s je uspješno prekinut."
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to kill thread %s. It probably has already been "
+#~ "closed."
+#~ msgstr ""
+#~ "phpMyAdmin nije mogao da prekine proces %s. Vjerovatno je već zatvoren."
+
+#, fuzzy
+#~| msgid "Modifications have been saved"
+#~ msgid "Configuration saved."
+#~ msgstr "Izmjene su sačuvane"
+
+#, fuzzy
+#~ msgid "Load"
+#~ msgstr "Lokalni"
+
+#, fuzzy
+#~ msgid "phpMyAdmin homepage"
+#~ msgstr "phpMyAdmin dokumentacija"
+
+#, fuzzy
+#~ msgid "Add a new server"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgid "Show form"
+#~ msgstr "Prikaži boju"
+
+#, fuzzy
+#~| msgid "No databases"
+#~ msgid "Wrong data"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Table %s already exists!"
+#~ msgstr "Korisnik %s već postoji!"
+
+#~ msgid "View dump (schema) of table"
+#~ msgstr "Prikaži sadržaj (shemu) tabele"
+
+#, fuzzy
+#~| msgid "No databases selected."
+#~ msgid "No row selected."
+#~ msgstr "Nije izabrana ni jedna baza."
+
+#, fuzzy
+#~| msgid "The selected users have been deleted successfully."
+#~ msgid "Tracking versions deleted successfully."
+#~ msgstr "Izabrani korisnici su uspješno obrisani."
+
+#, fuzzy
+#~| msgid "No databases selected."
+#~ msgid "No versions selected."
+#~ msgstr "Nije izabrana ni jedna baza."
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "for default"
+#~ msgid "None"
+#~ msgstr "nema"
+
+#, fuzzy
+#~| msgid "Collation"
+#~ msgid "Collation:"
+#~ msgstr "Sortiranje"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Connection:"
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~ msgid "Pick from Central Columns"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "Compression"
+#~ msgid "Expression"
+#~ msgstr "Kompresija"
+
+#, fuzzy
+#~| msgid "After %s"
+#~ msgid "after %s"
+#~ msgstr "Poslije %s"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition by:"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Expression or column list"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partitions:"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartition by:"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartitions:"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "Value"
+#~ msgid "Values"
+#~ msgstr "Vrijednost"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartition"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "Data Dictionary"
+#~ msgid "Data directory"
+#~ msgstr "Rečnik podataka"
+
+#, fuzzy
+#~| msgid "Index type:"
+#~ msgid "Index directory"
+#~ msgstr "Tip ključa :"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Max rows"
+#~ msgstr "Sub"
+
+#, fuzzy
+#~| msgid "rows"
+#~ msgid "Min rows"
+#~ msgstr "Pregled"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Table space"
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "Node group"
+#~ msgstr "Korisnik"
+
+#, fuzzy
+#~| msgid ""
+#~| "field type is \"enum\" or \"set\", please enter the values using this "
+#~| "mat: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") a "
+#~| "single quote (\"'\") amongst those values, precede it with a kslash (for "
+#~| "example '\\\\xyz' or 'a\\'b')."
+#~ msgid ""
+#~ "If column type is \"enum\" or \"set\", please enter the values using this "
+#~ "format: 'a','b','c'…<br />If you ever need to put a backslash (\"\\\") or "
+#~ "a single quote (\"'\") amongst those values, precede it with a backslash "
+#~ "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgstr ""
+#~ "Ako je polje \"enum\" ili \"set\", unesite vrijednosti u formatu: "
+#~ "'a','b','c'…<br />Ako vam treba obrnuta kosa crta (\"\\\") ili apostrof "
+#~ "(\"'\") koristite ih u \"izbjegnutom\" (escaped) obliku (na primer '\\"
+#~ "\\xyz' ili 'a\\'b')."
+
+#~ msgid ""
+#~ "For default values, please enter just a single value, without backslash "
+#~ "escaping or quotes, using this format: a"
+#~ msgstr ""
+#~ "Za podrazumjevanu vrijednost, unesite samo jednu vrijednost, bez kosih "
+#~ "crta ili navodnika u ovom obliku: a"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Move column"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~| msgid "Available transformations"
+#~ msgid "List of available transformations and their options"
+#~ msgstr "Dostupne transformacije"
+
+#, fuzzy
+#~| msgid "Browser transformation"
+#~ msgid "Browser display transformation"
+#~ msgstr "Tranformacije čitača"
+
+#, fuzzy
+#~| msgid "Browser transformation"
+#~ msgid "Browser display transformation options"
+#~ msgstr "Tranformacije čitača"
+
+#~ msgid ""
+#~ "Please enter the values for transformation options using this format: "
+#~ "'a', 100, b,'c'…<br />If you ever need to put a backslash (\"\\\") or a "
+#~ "single quote (\"'\") amongst those values, precede it with a backslash "
+#~ "(for example '\\\\xyz' or 'a\\'b')."
+#~ msgstr ""
+#~ "Molimo unesite vrijednosti za opcije transformacije koristeći ovaj oblik: "
+#~ "'a', 100, b,'c'…<br />Ako treba da unesete obrnutu kosu crtu (\"\\\") ili "
+#~ "apostrof (\"'\") u te vrijednosti, stavite obrnutu kosu crtu ispred njih "
+#~ "(na primjer '\\\\xyz' ili 'a\\'b')."
+
+#, fuzzy
+#~| msgid "Browser transformation"
+#~ msgid "Input transformation"
+#~ msgstr "Tranformacije čitača"
+
+#, fuzzy
+#~| msgid "Transformation options"
+#~ msgid "Input transformation options"
+#~ msgstr "Opcije transformacije"
+
+#, fuzzy
+#~ msgid "Create table"
+#~ msgstr "Napravi novu stranu"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Number of columns"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~| msgid "Create"
+#~ msgid "Aggregate"
+#~ msgstr "Napravi"
+
+#, fuzzy
+#~ msgid "Operator"
+#~ msgstr "Operacije"
+
+#, fuzzy
+#~ msgid "Show/hide columns"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "See table structure"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~| msgid "Page number:"
+#~ msgid "Page to open"
+#~ msgstr "Broj strane:"
+
+#, fuzzy
+#~ msgid "Page to delete"
+#~ msgstr "Relacioni pogled"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Except"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~| msgid "in query"
+#~ msgid "subquery"
+#~ msgstr "u upitu"
+
+#, fuzzy
+#~ msgid "Relation operator"
+#~ msgstr "Relacioni pogled"
+
+#, fuzzy
+#~ msgid "Rename to"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "New name"
+#~ msgstr "Ime korisnika"
+
+#, fuzzy
+#~| msgid "Import files"
+#~ msgid "Save to selected page"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~| msgid "Create a new index"
+#~ msgid "Create a page and save to it"
+#~ msgstr "Napravi novi ključ"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "New page name"
+#~ msgstr "Ime korisnika"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select page"
+#~ msgstr "Izaberi sve"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Active options"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~| msgid "Show tables"
+#~ msgid "Show/Hide tables list"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "New page"
+#~ msgstr "Ime korisnika"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Delete pages"
+#~ msgstr "Izaberi sve"
+
+#, fuzzy
+#~| msgid "Traditional Chinese"
+#~ msgid "Toggle relation lines"
+#~ msgstr "Tradicionalni kineski"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Export schema"
+#~ msgstr "Izvoz"
+
+#, fuzzy
+#~| msgid "Submit Query"
+#~ msgid "Build Query"
+#~ msgstr "Izvrši SQL upit"
+
+#, fuzzy
+#~| msgid "Partial Texts"
+#~ msgid "Pin text"
+#~ msgstr "Dio teksta"
+
+#, fuzzy
+#~ msgid "Hide/Show all"
+#~ msgstr "Prikaži sve"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Number of tables:"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~| msgid "%s table(s)"
+#~ msgid "%s table"
+#~ msgid_plural "%s tables"
+#~ msgstr[0] "%s tabela"
+#~ msgstr[1] "%s tabela"
+#~ msgstr[2] ""
+
+#~ msgid "Sum"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~| msgid "No tables"
+#~ msgid "Copy table"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~| msgid "Show color"
+#~ msgid "Show create"
+#~ msgstr "Prikaži boju"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Prefix"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Replace table data with file"
+#~ msgid "Replace table prefix"
+#~ msgstr "Zamijeni podatke u tabeli sa podatcima iz datoteke"
+
+#, fuzzy
+#~ msgid "Add columns to central list"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Make consistent with central list"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Add to Favorites"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgid "Showing create queries"
+#~ msgstr "Prikaži kompletne upite"
+
+#~ msgid "Sort"
+#~ msgstr "Sortiranje"
+
+#~ msgid "Size"
+#~ msgstr "Veličina"
+
+#~ msgid "Overhead"
+#~ msgstr "Prekoračenje"
+
+#~ msgid "Creation"
+#~ msgstr "Napravljeno"
+
+#~ msgid "Last update"
+#~ msgstr "Posljednja izmjena"
+
+#~ msgid "Last check"
+#~ msgstr "Posljednja provjera"
+
+#, fuzzy
+#~| msgid "Add privileges on the following database"
+#~ msgid "Add privileges on the following database(s):"
+#~ msgstr "Dodaj privilegije na slijedećoj bazi"
+
+#, fuzzy
+#~| msgid "Add privileges on the following table"
+#~ msgid "Add privileges on the following routine:"
+#~ msgstr "Dodaj privilegije na slijedećoj tabeli"
+
+#, fuzzy
+#~| msgid "Add privileges on the following table"
+#~ msgid "Add privileges on the following table:"
+#~ msgstr "Dodaj privilegije na slijedećoj tabeli"
+
+#~ msgid "Column-specific privileges"
+#~ msgstr "Privilegije vezane za kolone"
+
+#, fuzzy
+#~| msgid "Create new database"
+#~ msgid "Create database"
+#~ msgstr "Napravi novu bazu podataka"
+
+#, fuzzy
+#~ msgid "Jump to database"
+#~ msgstr "Baza ne postoji"
+
+#~ msgid "Check privileges for database \"%s\"."
+#~ msgstr "Provjeri privilegije za bazu \"%s\"."
+
+#, fuzzy
+#~| msgid "Check Privileges"
+#~ msgid "Check privileges"
+#~ msgstr "Provjeri privilegije"
+
+#, fuzzy
+#~| msgid "Disabled"
+#~ msgid "disabled"
+#~ msgstr "Onemogućeno"
+
+#~ msgid "Session value"
+#~ msgstr "Vrijednost sesije"
+
+#~ msgid "Global value"
+#~ msgstr "Globalna vrednost"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Start row:"
+#~ msgstr "Sub"
+
+#, fuzzy
+#~| msgid "Mar"
+#~ msgctxt "Chart type"
+#~ msgid "Bar"
+#~ msgstr "mar"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgctxt "Chart type"
+#~ msgid "Column"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "PiB"
+#~ msgctxt "Chart type"
+#~ msgid "Pie"
+#~ msgstr "PB"
+
+#, fuzzy
+#~| msgid "Time"
+#~ msgctxt "Chart type"
+#~ msgid "Timeline"
+#~ msgstr "Vrijeme"
+
+#, fuzzy
+#~| msgid "Import files"
+#~ msgid "Chart title:"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~ msgid "Series:"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Value"
+#~ msgid "X Values"
+#~ msgstr "Vrijednost"
+
+#, fuzzy
+#~| msgid "Value"
+#~ msgid "Y Values"
+#~ msgstr "Vrijednost"
+
+#, fuzzy
+#~| msgid "Inside table(s):"
+#~ msgid "Series column:"
+#~ msgstr "Unutar tabela:"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Value Column:"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save chart as image"
+#~ msgstr "Sačuvaj kao datoteku"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Label column"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Spatial column"
+#~ msgstr "Ukupno"
+
+#~ msgid "Index name:"
+#~ msgstr "Ime ključa :"
+
+#~ msgid ""
+#~ "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
+#~ msgstr "\"PRIMARY\" <b>mora</b> biti ime <b>samo</b> primarnog ključa!"
+
+#, fuzzy
+#~| msgid "Index name:"
+#~ msgid "Index choice:"
+#~ msgstr "Ime ključa :"
+
+#~ msgid "Index type:"
+#~ msgstr "Tip ključa :"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "Parser:"
+#~ msgstr "Korisnik"
+
+#, fuzzy
+#~ msgid "Comment:"
+#~ msgstr "Komentari"
+
+#~ msgid "Actions"
+#~ msgstr "Akcija"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Constraint properties"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "+ Add constraint"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgid "Internal relations"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~ msgid "Internal relation"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "Choose field to display"
+#~ msgid "Choose column to display:"
+#~ msgstr "Izaberi polja za prikaz"
+
+#, fuzzy
+#~| msgid "Field %s has been dropped."
+#~ msgid "Foreign key constraint %s has been dropped"
+#~ msgstr "Polje %s je obrisano"
+
+#, fuzzy
+#~| msgid "Column names"
+#~ msgid "Constraint name"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~ msgid "+ Add column"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Select fields (at least one):"
+#~ msgid "Select columns (at least one):"
+#~ msgstr "Izaberi polja (najmanje jedno)"
+
+#~ msgid "Add search conditions (body of the \"where\" clause):"
+#~ msgstr "Dodaj uslove pretraživanja (dio \"WHERE\" upita):"
+
+#~ msgid "Number of rows per page"
+#~ msgstr "Broj redova po strani"
+
+#~ msgid "Display order:"
+#~ msgstr "Redosled prikaza:"
+
+#, fuzzy
+#~| msgid "Lines terminated by"
+#~ msgid "Original string"
+#~ msgstr "Linije se završavaju sa"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Replaced string"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~ msgid "Replace"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~ msgid "Additional search criteria"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Replace NULL by"
+#~ msgid "Replace with:"
+#~ msgstr "Zamijeni NULL sa"
+
+#, fuzzy
+#~| msgid "as regular expression"
+#~ msgid "Use regular expression"
+#~ msgstr "kao regularni izraz"
+
+#, fuzzy
+#~| msgid "Do a \"query by example\" (wildcard: \"%\")"
+#~ msgid ""
+#~ "Do a \"query by example\" (wildcard: \"%\") for two different columns"
+#~ msgstr "Napravi \"upit po primjeru\" (džoker: \"%\")"
+
+#~ msgid "Do a \"query by example\" (wildcard: \"%\")"
+#~ msgstr "Napravi \"upit po primjeru\" (džoker: \"%\")"
+
+#, fuzzy
+#~| msgid "Reset"
+#~ msgid "Reset zoom"
+#~ msgstr "Resetuj"
+
+#, fuzzy
+#~| msgid "Relation view"
+#~ msgid "Relation view"
+#~ msgstr "Relacioni pogled"
+
+#~ msgid "A primary key has been added on %s."
+#~ msgstr "Osnovni ključ je upravo dodan %s."
+
+#~ msgid "An index has been added on %s."
+#~ msgstr "Ključ je upravo dodan %s."
+
+#, fuzzy
+#~ msgid "Remove from central columns"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~ msgid "Add to central columns"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Add %s column(s)"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "At Beginning of Table"
+#~ msgid "at beginning of table"
+#~ msgstr "Na početku tabele"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partitions"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "No index defined!"
+#~ msgid "No partitioning defined!"
+#~ msgstr "Ključ nije definisan!"
+
+#, fuzzy
+#~| msgid "Row length"
+#~ msgid "Data length"
+#~ msgstr "Dužina reda"
+
+#, fuzzy
+#~| msgid "Row length"
+#~ msgid "Index length"
+#~ msgstr "Dužina reda"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition table"
+#~ msgstr "Relacije"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Edit partitioning"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Print view"
+#~ msgid "Edit view"
+#~ msgstr "Za štampu"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Table comments: "
+#~ msgstr "Komentari tabele"
+
+#~ msgid "Space usage"
+#~ msgstr "Zauzeće"
+
+#~ msgid "Effective"
+#~ msgstr "Efektivne"
+
+#, fuzzy
+#~ msgid "Move columns"
+#~ msgstr "Dodaj novo polje"
+
+#~ msgid "Propose table structure"
+#~ msgstr "Predloži strukturu tabele"
+
+#, fuzzy
+#~| msgid "Propose table structure"
+#~ msgid "Improve table structure"
+#~ msgstr "Predloži strukturu tabele"
+
+#, fuzzy
+#~ msgid "Track view"
+#~ msgstr "Provjeri tabelu"
+
+#, fuzzy
+#~| msgid "Row Statistics"
+#~ msgid "Row statistics"
+#~ msgstr "Statistike reda"
+
+#~ msgid "dynamic"
+#~ msgstr "dinamički"
+
+#~ msgid "Row length"
+#~ msgstr "Dužina reda"
+
+#~ msgid "Row size"
+#~ msgstr "Veličina reda"
+
+#, fuzzy
+#~| msgid "Table %s has been dropped."
+#~ msgid "Column %s has been dropped."
+#~ msgstr "Tabela %s je odbačena"
+
+#~ msgid "Available MIME types"
+#~ msgstr "Dostupni MIME-tipovi"
+
+#, fuzzy
+#~| msgid "Available transformations"
+#~ msgid "Available browser display transformations"
+#~ msgstr "Dostupne transformacije"
+
+#, fuzzy
+#~| msgid "Available transformations"
+#~ msgid "Available input transformations"
+#~ msgstr "Dostupne transformacije"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgctxt "for MIME transformation"
+#~ msgid "Description"
+#~ msgstr "Opis"
+
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Taking you to the target site."
+#~ msgstr "Promijeni"
+
+#~ msgid "You don't have sufficient privileges to be here right now!"
+#~ msgstr "Nije Vam dozvoljeno da budete ovdje!"
+
+#~ msgid "The profile has been updated."
+#~ msgstr "Profil je promjenjen."
+
+#~ msgid "Column names"
+#~ msgstr "Imena kolona"
+
+#, fuzzy
+#~ msgid "Rename view to"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~ msgid "Delete the view (DROP)"
+#~ msgstr "Baza ne postoji"
+
+#, fuzzy
+#~ msgid "Questions below 1,000"
+#~ msgstr "Operacije"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Current amount of Questions: %s"
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~ msgid "Percentage of slow queries"
+#~ msgstr "Prikaži kompletne upite"
+
+#, fuzzy
+#~ msgid "Slow query rate"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Long query time"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Slow query logging"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "The slow query log is disabled."
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Select Tables"
+#~ msgid "Release Series"
+#~ msgstr "Izaberi tabele"
+
+#, fuzzy
+#~ msgid "Current version: %s"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Minor Version"
+#~ msgstr "verzija PHP-a"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Distribution"
+#~ msgstr "Opis"
+
+#, fuzzy
+#~| msgid "MySQL charset"
+#~ msgid "MySQL Architecture"
+#~ msgstr "MySQL set karaktera"
+
+#, fuzzy
+#~ msgid "Query cache disabled"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "The query cache is not enabled."
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Query caching method"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Suboptimal caching method."
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Query cache efficiency (%%)"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Query Cache usage"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Query cache fragmentation"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "The query cache is considerably fragmented."
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Query cache low memory prunes"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Query cache max size"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Current query cache size: %s"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~ msgid "Query cache min result size"
+#~ msgstr "SQL rezultat"
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Percentage of sorts that cause temporary tables"
+#~ msgstr "Dozvoljava kreiranje privremenih tabela.."
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Too many sorts are causing temporary tables."
+#~ msgstr "Dozvoljava kreiranje privremenih tabela.."
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Rate of sorts that cause temporary tables"
+#~ msgstr "Dozvoljava kreiranje privremenih tabela.."
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Sort rows"
+#~ msgstr "Sub"
+
+#, fuzzy
+#~ msgid "Rate of reading first index entry"
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~ msgid "The rate of reading the first index entry is high."
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~ msgid "Rate of reading fixed position"
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~ msgid "The rate of reading data from a fixed position is high."
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~ msgid "Rate of reading next table row"
+#~ msgstr "Napravi novu stranu"
+
+#, fuzzy
+#~ msgid "The rate of reading the next table row is high."
+#~ msgstr "Napravi novu stranu"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Percentage of temp tables on disk"
+#~ msgstr "Sadržaj"
+
+#, fuzzy
+#~| msgid "%s table(s)"
+#~ msgid "Temp disk rate"
+#~ msgstr "%s tabela"
+
+#, fuzzy
+#~ msgid "MyISAM key buffer size"
+#~ msgstr "Prikaži kompletne upite"
+
+#, fuzzy
+#~ msgid "Max %% MyISAM key buffer ever used"
+#~ msgstr "Prikaži kompletne upite"
+
+#, fuzzy
+#~ msgid "Percentage of MyISAM key buffer used"
+#~ msgstr "Prikaži kompletne upite"
+
+#, fuzzy
+#~ msgid "Percentage of index reads from memory"
+#~ msgstr "Prikaži kompletne upite"
+
+#, fuzzy
+#~ msgid "Rate of table open"
+#~ msgstr "Napravi novu stranu"
+
+#, fuzzy
+#~ msgid "The rate of opening tables is high."
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~ msgid "Percentage of used open files limit"
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~ msgid "Rate of open files"
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~ msgid "The rate of opening files is high."
+#~ msgstr "Karakter set datoteke:"
+
+#, fuzzy
+#~| msgid "Create table on database %s"
+#~ msgid "Immediate table locks %%"
+#~ msgstr "Napravi novu tabelu u bazi %s"
+
+#, fuzzy
+#~ msgid "Thread cache"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "The thread cache is set to 0"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Thread cache hit rate %%"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~ msgid "Thread cache is not efficient."
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Percentage of used connections"
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Percentage of aborted connections"
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Too many connections are aborted."
+#~ msgstr "Dozvoljava kreiranje privremenih tabela.."
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Rate of aborted connections"
+#~ msgstr "Konekcije"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Percentage of aborted clients"
+#~ msgstr "Sadržaj"
+
+#, fuzzy
+#~| msgid "Allows creating temporary tables."
+#~ msgid "Too many clients are aborted."
+#~ msgstr "Dozvoljava kreiranje privremenih tabela.."
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Rate of aborted clients"
+#~ msgstr "Sadržaj"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Total %d bookmark"
+#~ msgid_plural "Total %d bookmarks"
+#~ msgstr[0] "Pretraživanje"
+#~ msgstr[1] "Pretraživanje"
+#~ msgstr[2] "Pretraživanje"
+
+#, fuzzy
+#~| msgid "The bookmark has been deleted."
+#~ msgid "%1$s, %2$s and %3$s bookmarks included"
+#~ msgstr "Obilježivač je upravo obrisan."
+
+#, fuzzy
+#~| msgid ""
+#~| "The <code>$cfg['PmaAbsoluteUri']</code> directive MUST be set in your "
+#~| "configuration file!"
+#~ msgid ""
+#~ "The [code]$cfg['PmaAbsoluteUri'][/code] directive MUST be set in your "
+#~ "configuration file!"
+#~ msgstr ""
+#~ "<code>$cfg['PmaAbsoluteUri']</code> direktiva MORA biti podješena u "
+#~ "konfiguracionoj datoteci!"
+
+#, fuzzy
+#~| msgid "Replace table data with file"
+#~ msgid "Replace table prefix:"
+#~ msgstr "Zamijeni podatke u tabeli sa podatcima iz datoteke"
+
+#, fuzzy
+#~| msgid "Replace table data with file"
+#~ msgid "Copy table with prefix:"
+#~ msgstr "Zamijeni podatke u tabeli sa podatcima iz datoteke"
+
+#, fuzzy
+#~| msgid ""
+#~| "Your configuration file contains settings (root with no password) that "
+#~| "correspond to the default MySQL privileged account. Your MySQL server is "
+#~| "running with this default, is open to intrusion, and you really should "
+#~| "fix this security hole by setting a password for user 'root'."
+#~ msgid ""
+#~ "You are connected as 'root' with no password, which corresponds to the "
+#~ "default MySQL privileged account. Your MySQL server is running with this "
+#~ "default, is open to intrusion, and you really should fix this security "
+#~ "hole by setting a password for user 'root'."
+#~ msgstr ""
+#~ "Vaš konfiguracioni fajl sadrži podešavanja (root bez lozinke) koja "
+#~ "odgovaraju standardnom MySQL privilegovanom nalogu. Vaš MySQL server radi "
+#~ "sa ovim podešavanjima, otvoren je za hakovanje, i zaista treba da "
+#~ "ispravite ovaj sigurnosni rizik."
+
+#, fuzzy
+#~| msgid "Create new database"
+#~ msgid "Create database:"
+#~ msgstr "Napravi novu bazu podataka"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "tables"
+#~ msgstr "Tabele"
+
+#, fuzzy
+#~ msgid "views"
+#~ msgstr "Polja"
+
+#, fuzzy
+#~ msgid "procedures"
+#~ msgstr "Procesi"
+
+#, fuzzy
+#~ msgid "events"
+#~ msgstr "Poslato"
+
+#, fuzzy
+#~ msgid "functions"
+#~ msgstr "Funkcija"
+
+#, fuzzy
+#~| msgid "Alter table order by"
+#~ msgid "Filter databases by name or regex"
+#~ msgstr "Promijeni redoslijed u tabeli"
+
+#, fuzzy
+#~| msgid "Alter table order by"
+#~ msgid "Filter by name or regex"
+#~ msgstr "Promijeni redoslijed u tabeli"
+
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Taking you to %s."
+#~ msgstr "Promijeni"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "MySQL Native Authentication"
+#~ msgstr "Dokumentacija"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "MySQL native password"
+#~ msgstr "Promeni lozinku"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add Index"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "Change Password"
+#~ msgstr "Promeni lozinku"
+
+#, fuzzy
+#~ msgid "Send Error Report"
+#~ msgstr "Izbor servera"
+
+#~ msgid "Select All"
+#~ msgstr "Izaberi sve"
+
+#~ msgid "Database export options"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Database(s):"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "Table(s):"
+#~ msgstr "Tabele"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "Generate Password:"
+#~ msgstr "Promeni lozinku"
+
+#~ msgid "Edit Privileges"
+#~ msgstr "Promijeni privilegije"
+
+#, fuzzy
+#~| msgid "Relational schema"
+#~ msgid "Relational display column"
+#~ msgstr "Relaciona shema"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Add SPATIAL index"
+#~ msgstr "Dodaj novo polje"
+
+#~ msgid "Begin"
+#~ msgstr "Početak"
+
+#~ msgid ""
+#~ "There seems to be an error in your SQL query. The MySQL server error "
+#~ "output below, if there is any, may also help you in diagnosing the "
+#~ "problem."
+#~ msgstr ""
+#~ "Izgleda da postoji greška u vašem SQL upitu. Ovde je poruka o greški "
+#~ "MySQL servera, koja vam može pomoći u otkrivanju problema."
+
+#~ msgid ""
+#~ "There is a chance that you may have found a bug in the SQL parser. Please "
+#~ "examine your query closely, and check that the quotes are correct and not "
+#~ "mis-matched. Other possible failure causes may be that you are uploading "
+#~ "a file with binary outside of a quoted text area. You can also try your "
+#~ "query on the MySQL command line interface. The MySQL server error output "
+#~ "below, if there is any, may also help you in diagnosing the problem. If "
+#~ "you still have problems or if the parser fails where the command line "
+#~ "interface succeeds, please reduce your SQL query input to the single "
+#~ "query that causes problems, and submit a bug report with the data chunk "
+#~ "in the CUT section below:"
+#~ msgstr ""
+#~ "Postoji mogućnost da ste pronašli gresku u SQL parseru. Molimo ispitajte "
+#~ "svoj upit pažljivo, i provjerite da su navodnici ispravni i da ne "
+#~ "nedostaju. Ostali mogući razlozi greške mogu biti da ste poslali binarni "
+#~ "fajl van oblasti za običan tekst. Možete probati svoj upit u MySQL "
+#~ "interfejsu komandne linije. Donja poruka o grešci MySQL servera, ako je "
+#~ "ima, može vam pomoći u otkrivanju problema. Ako i dalje imate probleme "
+#~ "ili ako parser ne uspjeva tamo gde uspeva interfejs komandne linije, "
+#~ "svedite svoj SQL upit na jedan jedini upit koji stvara probleme i "
+#~ "pošaljite nam izvještaj o grešci sa delom koda u donjoj REZ sekciji:"
+
+#~ msgid "BEGIN CUT"
+#~ msgstr "POČETAK REZ"
+
+#~ msgid "END CUT"
+#~ msgstr "KRAJ REZ"
+
+#~ msgid "BEGIN RAW"
+#~ msgstr "POČETAK SIROVO"
+
+#~ msgid "END RAW"
+#~ msgstr "KRAJ SIROVO"
+
+#~ msgid "Unclosed quote"
+#~ msgstr "Navodnik nije zatvoren"
+
+#~ msgid "Invalid Identifer"
+#~ msgstr "Neispravan identifikator"
+
+#~ msgid "Unknown Punctuation String"
+#~ msgstr "Nepoznat string interpunkcije"
+
+#, fuzzy
+#~| msgid "Any user"
+#~ msgid "Add user"
+#~ msgstr "Bilo koji korisnik"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Export Method:"
+#~ msgstr "Izvoz"
+
+#~ msgid "Uncheck All"
+#~ msgstr "nijedno"
+
+#~ msgid "SQL result"
+#~ msgstr "SQL rezultat"
+
+#, fuzzy
+#~| msgid "Generated by"
+#~ msgid "Generated by:"
+#~ msgstr "Generirao"
+
+#, fuzzy
+#~| msgid "Row Statistics"
+#~ msgid "Row Statistics:"
+#~ msgstr "Statistike reda"
+
+#, fuzzy
+#~| msgid "Space usage"
+#~ msgid "Space usage:"
+#~ msgstr "Zauzeće"
+
+#, fuzzy
+#~| msgid "Show tables"
+#~ msgid "Showing tables:"
+#~ msgstr "Prikaži tabele"
+
+#, fuzzy
+#~| msgid "Enabled"
+#~ msgid "(Enabled)"
+#~ msgstr "Omogućeno"
+
+#, fuzzy
+#~| msgid "Disabled"
+#~ msgid "(Disabled)"
+#~ msgstr "Onemogućeno"
+
+#, fuzzy
+#~ msgid "Realign Privileges"
+#~ msgstr "Globalne privilegije"
+
+#~ msgid "Replace table data with file"
+#~ msgstr "Zamijeni podatke u tabeli sa podatcima iz datoteke"
+
+#~ msgid "Query window"
+#~ msgstr "Prozor za upite"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Save positions as"
+#~ msgstr "Opcije tabele"
+
+#, fuzzy
+#~| msgid "Database export options"
+#~ msgid "Disable database expansion"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "Databases"
+#~ msgid "Table Structure"
+#~ msgstr "Baze"
+
+#, fuzzy
+#~| msgid "Showing rows"
+#~ msgid "Show data row(s)."
+#~ msgstr "Prikaz zapisa"
+
+#, fuzzy
+#~| msgid "After %s"
+#~ msgid "after"
+#~ msgstr "Poslije %s"
+
+#, fuzzy
+#~| msgid "Mon"
+#~ msgid "Mode:"
+#~ msgstr "Pon"
+
+#~ msgid "horizontal"
+#~ msgstr "horizontalnom"
+
+#~ msgid "horizontal (rotated headers)"
+#~ msgstr "horizontalnom (rotirana zaglavlja)"
+
+#~ msgid "vertical"
+#~ msgstr "vertikalnom"
+
+#, fuzzy
+#~ msgid "Default display direction"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~ msgid "Show display direction"
+#~ msgstr "Opcije za izvoz baze"
+
+#~ msgid "Please configure the coordinates for table %s"
+#~ msgstr "Podesite koordinate za tabelu %s"
+
+#~ msgid "At End of Table"
+#~ msgstr "Na kraju tabele"
+
+#~ msgid "After %s"
+#~ msgstr "Poslije %s"
+
+#, fuzzy
+#~| msgid "Display Features"
+#~ msgid "Display errors"
+#~ msgstr "Prikaži osobine"
+
+#, fuzzy
+#~ msgid "Dia export page"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~ msgid "EPS export page"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~ msgid "SVG export page"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~ msgid "Relation deleted"
+#~ msgstr "Relacioni pogled"
+
+#, fuzzy
+#~| msgid "Query window"
+#~ msgid "Query window height (in pixels)."
+#~ msgstr "Prozor za upite"
+
+#, fuzzy
+#~| msgid "Query window"
+#~ msgid "Query window height"
+#~ msgstr "Prozor za upite"
+
+#, fuzzy
+#~| msgid "Query window"
+#~ msgid "Query window width (in pixels)."
+#~ msgstr "Prozor za upite"
+
+#, fuzzy
+#~| msgid "Query window"
+#~ msgid "Query window width"
+#~ msgstr "Prozor za upite"
+
+#~ msgid "Show dimension of tables"
+#~ msgstr "Prikaži dimenzije tabele"
+
+#~ msgid "Do not overwrite this query from outside the window"
+#~ msgstr "Ne prepisuj ovaj upit izvan prozora"
+
+#~ msgid "Import files"
+#~ msgstr "Uvoz fajlova"
+
+#, fuzzy
+#~| msgid "SQL history"
+#~ msgid "SQL history:"
+#~ msgstr "SQL istorijat"
+
+#, fuzzy
+#~| msgid "The \"%s\" table doesn't exist!"
+#~ msgid "File doesn't exist"
+#~ msgstr "Tabela \"%s\" ne postoji!"
+
+#, fuzzy
+#~| msgid "Disabled"
+#~ msgid "Plugin is disabled"
+#~ msgstr "Onemogućeno"
+
+#, fuzzy
+#~ msgid "Unlink with main panel"
+#~ msgstr "Opcije za izvoz baze"
+
+#, fuzzy
+#~| msgid "No index defined!"
+#~ msgid "No index defined! Create one below"
+#~ msgstr "Ključ nije definisan!"
+
+#, fuzzy
+#~ msgid "eps export page"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~ msgid "pdf export page"
+#~ msgstr "Nema tabela"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid " bookmarks, "
+#~ msgstr "Pretraživanje"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "Select one ..."
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~ msgid "Have unique columns"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "The user %s already exists!"
+#~ msgid "Unique column(s) already exist"
+#~ msgstr "Korisnik %s već postoji!"
+
+#, fuzzy
+#~| msgid "Relational schema"
+#~ msgid "Edit or export relational schema"
+#~ msgstr "Relaciona shema"
+
+#~ msgid "Create a page"
+#~ msgstr "Napravi novu stranu"
+
+#, fuzzy
+#~| msgid "Automatic layout"
+#~ msgid "Automatic layout based on"
+#~ msgstr "Automatski raspored"
+
+#~ msgid "Please choose a page to edit"
+#~ msgstr "Izaberite stranu koju menjate"
+
+#~ msgid "Select Tables"
+#~ msgstr "Izaberi tabele"
+
+#~ msgid ""
+#~ "The current page has references to tables that no longer exist. Would you "
+#~ "like to delete those references?"
+#~ msgstr ""
+#~ "Trenutna strana ima reference na tabele koje više ne postoje. Želite li "
+#~ "da obrišete te reference?"
+
+#~ msgid "Toggle scratchboard"
+#~ msgstr "Uključuje/isključuje scratchboard"
+
+#~ msgid "<b>%s</b> table not found or not set in %s"
+#~ msgstr "<b>%s</b> tabela nije pronađena ili nije postavljena u %s"
+
+#, fuzzy
+#~| msgid "Relational schema"
+#~ msgid "Import/Export coordinates for relational schema"
+#~ msgstr "Relaciona shema"
+
+#, fuzzy
+#~| msgid "Usage"
+#~ msgid "Page:"
+#~ msgstr "Zauzeće"
+
+#, fuzzy
+#~| msgid "Import files"
+#~ msgid "Import from selected page."
+#~ msgstr "Uvoz fajlova"
+
+#~ msgid ""
+#~ "The target browser window could not be updated. Maybe you have closed the "
+#~ "parent window, or your browser's security settings are configured to "
+#~ "block cross-window updates."
+#~ msgstr ""
+#~ "Odredišnji prozor pretraživača nije mogao da bude ažuriran. Možda ste "
+#~ "zatvorili matični prozor, ili vaš preraživač onemogućava ažuriranje među "
+#~ "prozorima zbog sigurnosnih podešavanja."
+
+#~ msgid "Skip Validate SQL"
+#~ msgstr "Preskoči provjeru SQL-a"
+
+#~ msgid "Validate SQL"
+#~ msgstr "Provjeri SQL"
+
+#, fuzzy
+#~| msgid "Link not found"
+#~ msgid "SOAP extension not found"
+#~ msgstr "Veza nije pronađena"
+
+#, fuzzy
+#~| msgid "SQL history"
+#~ msgid "SQL Validator"
+#~ msgstr "SQL istorijat"
+
+#, fuzzy
+#~| msgid "Validate SQL"
+#~ msgid "Validated SQL"
+#~ msgstr "Provjeri SQL"
+
+#~ msgid ""
+#~ "The SQL validator could not be initialized. Please check if you have "
+#~ "installed the necessary PHP extensions as described in the %sdocumentation"
+#~ "%s."
+#~ msgstr ""
+#~ "SQL validator nije mogao da bude pokrenut. Proverite da li su instalirane "
+#~ "neophodne PHP ekstenzije opisane u  %sdokumentaciji%s."
+
+#~ msgid "Query took %01.4f sec"
+#~ msgstr "Upit je trajao %01.4f sekundi"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Edit chart"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~ msgid "Series"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~ msgid "Reload Database"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "You have to choose at least one column to display"
+#~ msgid "Table must have at least one column"
+#~ msgstr "Morate izabrati bar jednu kolonu za prikaz"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Insert Table"
+#~ msgstr "Koristi tabele"
+
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Hide indexes"
+#~ msgstr "Dodaj novo polje"
+
+#, fuzzy
+#~| msgid "Show grid"
+#~ msgid "Show indexes"
+#~ msgstr "Prikaži mrežu"
+
+#, fuzzy
+#~| msgid "SQL result"
+#~ msgid "Query results"
+#~ msgstr "SQL rezultat"
+
+#, fuzzy
+#~| msgid "\"bzipped\""
+#~ msgid "bzipped"
+#~ msgstr "\"bzip-ovano\""
+
+#~ msgid ""
+#~ "For a list of available transformation options and their MIME type "
+#~ "transformations, click on %stransformation descriptions%s"
+#~ msgstr ""
+#~ "Za listu dostupnih opcija transformacije i njihove transformacije MIME-"
+#~ "tipova, kliknite na %sopise transformacija%s"
+
+#~ msgid "This is not a number!"
+#~ msgstr "Ovo nije broj!"
+
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "Traži:"
+
+#~ msgid "Display all tables with the same width"
+#~ msgstr "Prikaži sve tabele u jednakoj širini"
+
+#, fuzzy
+#~| msgid "Execute bookmarked query"
+#~ msgid "Headers every %s rows"
+#~ msgstr "Izvrši upamćen upit"
+
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Enable reCaptcha"
+#~ msgstr "Pretraživanje"
+
+#~ msgid "Cookies must be enabled past this point."
+#~ msgstr "Kolačići (Cookies) moraju u ovom slučaju biti aktivirani."
+
+#, fuzzy
+#~ msgid "Rearrange/edit charts"
+#~ msgstr "Promjeni ime tabele u "
+
+#, fuzzy
+#~| msgid "General relation features"
+#~ msgid "General relation features:"
+#~ msgstr "Opšte osobine relacija"
+
+#, fuzzy
+#~| msgid "Server Choice"
+#~ msgid "Live traffic chart"
+#~ msgstr "Izbor servera"
+
+#, fuzzy
+#~ msgid "Live query chart"
+#~ msgstr "SQL upit"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Number of rows"
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~| msgid "Fields enclosed by"
+#~ msgid "Columns enclosed by"
+#~ msgstr "Polja ograničena sa"
+
+#, fuzzy
+#~| msgid "Fields escaped by"
+#~ msgid "Columns escaped by"
+#~ msgstr "Escape karakter &nbsp; &nbsp; &nbsp;"
+
+#~ msgid "Replace NULL by"
+#~ msgstr "Zamijeni NULL sa"
+
+#~ msgid "Lines terminated by"
+#~ msgstr "Linije se završavaju sa"
+
+#~ msgid "ltr"
+#~ msgstr "ltr"
+
+#, fuzzy
+#~| msgid "Server version"
+#~ msgid "Software version"
+#~ msgstr "Verzija servera"
+
+#, fuzzy
+#~| msgid "Save as file"
+#~ msgid "Save to file"
+#~ msgstr "Sačuvaj kao datoteku"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total count"
+#~ msgstr "Ukupno"
+
+#, fuzzy
+#~ msgid "Enable Ajax"
+#~ msgstr "Omogućeno"
+
+#, fuzzy
+#~| msgid "Server Choice"
+#~ msgid "Server traffic (in KiB)"
+#~ msgstr "Izbor servera"
+
+#~ msgid "Runtime Information"
+#~ msgstr "Informacije o toku rada"
+
+#, fuzzy
+#~| msgid "Number of rows per page"
+#~ msgid "Number of data points: "
+#~ msgstr "Broj redova po strani"
+
+#, fuzzy
+#~ msgid "Refresh rate: "
+#~ msgstr "Generirao"
+
+#, fuzzy
+#~| msgid "Query type"
+#~ msgid "Run analyzer"
+#~ msgstr "Vrsta upita"
+
+#, fuzzy
+#~| msgid "Show PHP information"
+#~ msgid "Show more actions"
+#~ msgstr "Prikaži informacije o PHP-u"
+
+#~ msgid "Add to index &nbsp;%s&nbsp;column(s)"
+#~ msgstr "Dodaj u ključ &nbsp;%s&nbsp;kolona(e)"
+
+#, fuzzy
+#~ msgid "Source database"
+#~ msgstr "Pretraživanje baze"
+
+#~ msgid "phpMyAdmin is more friendly with a <b>frames-capable</b> browser."
+#~ msgstr "phpMyAdmin preferira čitače koji podržavaju okvire."
+
+#, fuzzy
+#~ msgctxt "short form"
+#~ msgid "Create table"
+#~ msgstr "Napravi novu stranu"
+
+#~ msgctxt "MySQL 5.5 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "MySQL 5.1 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "MySQL 5.0 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "PHP documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#, fuzzy
+#~| msgid "Do you really want to "
+#~ msgid "Do you really want to execute following query?"
+#~ msgstr "Da li stvarno hoćete da "
+
+#, fuzzy
+#~| msgid "Privileges"
+#~ msgid "Privileges for all users"
+#~ msgstr "Privilegije"
+
+#~ msgid ""
+#~ "No description is available for this transformation.<br />Please ask the "
+#~ "author what %s does."
+#~ msgstr ""
+#~ "Nema opisa za ovu transformaciju.<br />Molimo pitajte autora šta %s radi."
+
+#~ msgid ""
+#~ "MIME types printed in italics do not have a separate transformation "
+#~ "function"
+#~ msgstr ""
+#~ "MIME-tipovi prikazani u kursivu nemaju odvojene funkcije transformacije."
+
+#~ msgid "Usage"
+#~ msgstr "Zauzeće"
+
+#, fuzzy
+#~| msgid "Add/Delete Field Columns"
+#~ msgid "The remaining columns"
+#~ msgstr "Dodaj/obriši kolonu"
+
+#, fuzzy
+#~| msgid "Data only"
+#~ msgid "Dates only."
+#~ msgstr "Samo podaci"
+
+#, fuzzy
+#~ msgid "Add a value"
+#~ msgstr "Dodaj novog korisnika"
+
+#, fuzzy
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "U redu"
+
+#, fuzzy
+#~ msgid "All hosts"
+#~ msgstr "Bilo koji host"
+
+#, fuzzy
+#~ msgctxt "Create none database for user"
+#~ msgid "None"
+#~ msgstr "nema"
+
+#~ msgid "Modify an index"
+#~ msgstr "Izmijeni ključ"
+
+#~ msgid "Create Table"
+#~ msgstr "Napravi novu stranu"
+
+#~ msgid "Data Label"
+#~ msgstr "Naziv"
+
+#~ msgid "Location of the text file"
+#~ msgstr "Lokacija tekstualne datoteke"
+
+#~ msgid "MySQL charset"
+#~ msgstr "MySQL set karaktera"
+
+#~ msgid "% open files"
+#~ msgstr "Prikaži tabele"
+
+#~ msgid "% connections used"
+#~ msgstr "Konekcije"
+
+#~ msgid "Swap Usage"
+#~ msgstr "Zauzeće"
+
+#~ msgid "Previous"
+#~ msgstr "Prethodna"
+
+#~ msgid "Create event"
+#~ msgstr "Verzija servera"
+
+#~ msgid "Create trigger"
+#~ msgstr "Verzija servera"
+
+#~ msgid "Refresh rate:"
+#~ msgstr "Generirao"
+
+#~ msgid "Server traffic"
+#~ msgstr "Izbor servera"
+
+#~ msgid "Value too long in the form!"
+#~ msgstr "Nedostaje vrijednost u obrascu!"
+
+#~ msgid "row(s) starting from row #"
+#~ msgstr "redova počev od reda"
+
+#~ msgid "in %s mode and repeat headers after %s cells"
+#~ msgstr "u %s modu i ponovi zaglavlje posle svakog %s reda"
+
+#~ msgid ""
+#~ "phpMyAdmin was unable to read your configuration file!<br />This might "
+#~ "happen if PHP finds a parse error in it or PHP cannot find the file.<br /"
+#~ ">Please call the configuration file directly using the link below and "
+#~ "read the PHP error message(s) that you receive. In most cases a quote or "
+#~ "a semicolon is missing somewhere.<br />If you receive a blank page, "
+#~ "everything is fine."
+#~ msgstr ""
+#~ "phpMyAdmin nije mogao da pročita vaš konfiguracioni fajl!<br />Ovo se "
+#~ "može destiti ako PHP nađe grešku u procesiranju ili ne može da pronađe "
+#~ "fajl.<br />Pozovite konfiguracioni fajl direktno koristeći donji link u "
+#~ "pročitajte poruke o grešci koje dobijate. U većini slučajeve negde "
+#~ "nedostaje navodnik ili tačka-zarez.<br />Ako dobijete praznu stranu, sve "
+#~ "je u redu."
+
+#~ msgid "seconds"
+#~ msgstr "u sekundi"
+
+#~ msgctxt "$strShowStatusReset"
+#~ msgid "Reset"
+#~ msgstr "Resetuj"
+
+#~ msgctxt "for Show status"
+#~ msgid "Reset"
+#~ msgstr "Resetuj"
+
+#~ msgid ""
+#~ "<b>Server traffic</b>: These tables show the network traffic statistics "
+#~ "of this MySQL server since its startup."
+#~ msgstr ""
+#~ "<b>Saobraćaj servera</b>: Tabele pokazuju statistike mrežnog saobraćaja "
+#~ "na ovom MySQL serveru od njegovog pokretanja."
+
+#~ msgid ""
+#~ "<b>Query statistics</b>: Since its startup, %s queries have been sent to "
+#~ "the server."
+#~ msgstr ""
+#~ "<b>Statistike upita</b>: %s upita je postavljeno serveru od njegovog "
+#~ "pokretanja."
+
+#~ msgid "Add a New User"
+#~ msgstr "Dodaj novog korisnika"
+
+#~ msgid "Create User"
+#~ msgstr "Verzija servera"
+
+#~ msgid "Delete the matches for the "
+#~ msgstr "Prikaz podataka tabele"
+
+#~ msgid "yes"
+#~ msgstr "Da"
+
+#~ msgid "Display table filter"
+#~ msgstr "Prikazujem komentare kolone"
+
+#~ msgid ""
+#~ "The additional features for working with linked tables have been "
+#~ "deactivated. To find out why click %shere%s."
+#~ msgstr ""
+#~ "Dodatne mogućnosti za rad sa povezanim tabelama su isključene. Da biste "
+#~ "saznali zašto, kliknite %sovde%s."
+
+#~ msgid "SVG"
+#~ msgstr "CSV format"
+
+#~ msgid ""
+#~ "Enter each value in a separate field, enclosed in single quotes. If you "
+#~ "ever need to put a backslash (\"\\\") or a single quote (\"'\") amongst "
+#~ "those values, precede it with a backslash (for example '\\\\xyz' or 'a"
+#~ "\\'b')."
+#~ msgstr ""
+#~ "Molimo unesite vrijednosti za opcije transformacije koristeći ovaj oblik: "
+#~ "'a', 100, b,'c'…<br />Ako treba da unesete obrnutu kosu crtu (\"\\\") ili "
+#~ "apostrof (\"'\") u te vrijednosti, stavite obrnutu kosu crtu ispred njih "
+#~ "(na primjer '\\\\xyz' ili 'a\\'b')."
+
+#~ msgid ""
+#~ "Enter each value in a separate field. If you ever need to put a backslash "
+#~ "(\"\\\") or a single quote (\"'\") amongst those values, precede it with "
+#~ "a backslash (for example '\\\\xyz' or 'a\\'b')."
+#~ msgstr ""
+#~ "Molimo unesite vrijednosti za opcije transformacije koristeći ovaj oblik: "
+#~ "'a', 100, b,'c'…<br />Ako treba da unesete obrnutu kosu crtu (\"\\\") ili "
+#~ "apostrof (\"'\") u te vrijednosti, stavite obrnutu kosu crtu ispred njih "
+#~ "(na primjer '\\\\xyz' ili 'a\\'b')."
+
+#~ msgid "Edit PDF Pages"
+#~ msgstr "Izmena PDF strana"
+
+#~ msgid "Data Dictionary Format"
+#~ msgstr "Format riječnika podataka"
+
+#~ msgid "PMA database"
+#~ msgstr "Baza ne postoji"
+
+#~ msgid "<code>AUTO_INCREMENT</code>"
+#~ msgstr "Dodaj AUTO_INCREMENT vrijednost"
+
+#~ msgid "Dump %s row(s) starting at row # %s"
+#~ msgstr "Prikaži %s redova počevši od reda %s."
+
+#~ msgid "remember template"
+#~ msgstr "zapamti šablon"
+
+#~ msgid "\"zipped\""
+#~ msgstr "\"zipovano\""
+
+#~ msgid "\"gzipped\""
+#~ msgstr "\"gzip-ovano\""
+
+#~ msgid "\"bzipped\""
+#~ msgstr "\"bzip-ovano\""
+
+#~ msgid "Add into comments"
+#~ msgstr "Dodaj u komentare"
+
+#~ msgctxt "BLOB repository"
+#~ msgid "Enabled"
+#~ msgstr "Omogućeno"
+
+#~ msgctxt "BLOB repository"
+#~ msgid "Repair"
+#~ msgstr "Popravi tabelu"
+
+#~ msgctxt "BLOB repository"
+#~ msgid "Disabled"
+#~ msgstr "Onemogućeno"
+
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1$s@Documentation][em]%1$s[/em][/a] "
+#~ "extension. Please check your PHP configuration."
+#~ msgstr ""
+#~ "ne mogu da učitam ekstenziju %s,<br />molim provjerite PHP konfiguraciju"
+
+#~ msgid ""
+#~ "Couldn't load the iconv or recode extension needed for charset "
+#~ "conversion. Either configure PHP to enable these extensions or disable "
+#~ "charset conversion in phpMyAdmin."
+#~ msgstr ""
+#~ "Ne mogu da učitam iconv ili recode ekstenzije potrebne za konverziju "
+#~ "skupova znakova, podesite PHP da dozvoli korišćenje ovih ekstenzija ili "
+#~ "onemogućite konverziju skupova znakova u phpMyAdmin-u."
+
+#~ msgid ""
+#~ "Couldn't use the iconv, libiconv, or recode_string functions, although "
+#~ "the necessary extensions appear to be loaded. Check your PHP "
+#~ "configuration."
+#~ msgstr ""
+#~ "Ne mogu da koristim iconv ili libiconv ili recode_string funkcije iako "
+#~ "ekstenzija prijavljuje da je učitana. Proverite vašu PHP konfiguraciju."
+
+#~ msgid "Field"
+#~ msgstr "Polje"
+
+#~ msgid "Records"
+#~ msgstr "Zapisi"
+
+#~ msgid "Fields terminated by"
+#~ msgstr "Polja razdvojena sa"
+
+#~ msgid "Fields"
+#~ msgstr "Polja"
+
+#~ msgid "See image/jpeg: inline"
+#~ msgstr "Prikaži JPEG slike na strani"
+
+#~ msgid "and"
+#~ msgstr "i"
+
+#~ msgctxt "$strBLOBRepositoryDisabled"
+#~ msgid "Disabled"
+#~ msgstr "Onemogućeno"
+
+#~ msgctxt "$strBLOBRepositoryEnabled"
+#~ msgid "Enabled"
+#~ msgstr "Omogućeno"
+
+#~ msgctxt "$strBLOBRepositoryRepair"
+#~ msgid "Repair"
+#~ msgstr "Popravi tabelu"
+
+#~ msgid "Create an index on&nbsp;%s&nbsp;columns"
+#~ msgstr "Napravi ključ na&nbsp;%s&nbsp;kolona"
+
+#~ msgctxt "$strCreateTableShort"
+#~ msgid "Create table"
+#~ msgstr "Napravi novu stranu"
+
+#~ msgctxt "$strCreateUserDatabaseNone"
+#~ msgid "None"
+#~ msgstr "nema"
+
+#~ msgid "Flush the table (\"FLUSH\")"
+#~ msgstr "Osvježi tabelu (\"FLUSH\")"
+
+#~ msgctxt "$strMIME_description"
+#~ msgid "Description"
+#~ msgstr "Opis"
+
+#~ msgctxt "$strNoneDefault"
+#~ msgid "None"
+#~ msgstr "nema"
+
+#~ msgid "Schema of the \"%s\" database - Page %s"
+#~ msgstr "Shema baze \"%s\" - Strana %s"
+
+#~ msgid "The \"%s\" table doesn't exist!"
+#~ msgstr "Tabela \"%s\" ne postoji!"
+
+#~ msgid "running on %s"
+#~ msgstr "na serveru %s"
+
+#~ msgid "The scale factor is too small to fit the schema on one page"
+#~ msgstr "Faktor umanjenja je premali da bi shema stala na jednu stranu"
+
+#~ msgctxt "None action"
+#~ msgid "None"
+#~ msgstr "nema"
+
+#~ msgid "Grant all privileges on wildcard name (username_%)"
+#~ msgstr "Provjeri privilegije za bazu \"%s\"."
+
+#~ msgid "The %s table doesn"
+#~ msgstr "Tabela \"%s\" ne postoji!"
+
+#~ msgid ""
+#~ "Cannot load [a@http://php.net/%1@Documentation][em]%1[/em][/a] extension. "
+#~ "Please check your PHP configuration."
+#~ msgstr ""
+#~ "ne mogu da učitam ekstenziju %s,<br />molim provjerite PHP konfiguraciju"
+
+#~ msgid "(or the local MySQL server"
+#~ msgstr "Ne mogu da se prijavim na MySQL server"
+
+#~ msgid ""
+#~ "There is a chance that you may have found a bug in the SQL parser. Please "
+#~ "examine your query closely, and check that the quotes are correct and not "
+#~ "mis-matched. Other possible failure causes may be that you are uploading "
+#~ "a file with binary outside of a quoted text area. You can also try your "
+#~ "query on the MySQL command line interface. The MySQL server error output "
+#~ "be . "
+#~ msgstr ""
+#~ "Postoji mogućnost da ste pronašli gresku u SQL parseru. Molimo ispitajte "
+#~ "svoj upit pažljivo, i provjerite da su navodnici ispravni i da ne "
+#~ "nedostaju. Ostali mogući razlozi greške mogu biti da ste poslali binarni "
+#~ "fajl van oblasti za običan tekst. Možete probati svoj upit u MySQL "
+#~ "interfejsu komandne linije. Donja poruka o grešci MySQL servera, ako je "
+#~ "ima, može vam pomoći u otkrivanju problema. Ako i dalje imate probleme "
+#~ "ili ako parser ne uspjeva tamo gde uspeva interfejs komandne linije, "
+#~ "svedite svoj SQL upit na jedan jedini upit koji stvara probleme i "
+#~ "pošaljite nam izvještaj o grešci sa delom koda u donjoj REZ sekciji:"
+
+#~ msgctxt "$strStrucCSV"
+#~ msgid "CSV"
+#~ msgstr "CSV format"
+
+#~ msgid "Delete the users and reload the privileges afterwards."
+#~ msgstr "Obriši korisnike i ponovo učitaj privilegije."
+
+#~ msgid ""
+#~ "This is the cleanest way, but reloading the privileges may take a while."
+#~ msgstr ""
+#~ "Ovo je najčistiji način, ali ponovno učitavanje privilegina može da "
+#~ "potraje."
+
+#~ msgid "has been altered."
+#~ msgstr "je promijenjen(a)."
+
+#~ msgid ""
+#~ "The \"deleted\" users will still be able to access the server as usual "
+#~ "until the privileges are reloaded."
+#~ msgstr ""
+#~ "\"Obrisani\" korisnici će i dalje imati pristup serveru dok privilegije "
+#~ "ne budu ponovo učitane."
+
+#~ msgid "Just delete the users from the privilege tables."
+#~ msgstr "Samo obriši korisnike iz tabele privilegija."
+
+#~ msgid ""
+#~ "Allows running stored procedures; has no effect in this MySQL version."
+#~ msgstr ""
+#~ "Dozvoljava pokretanje sačuvanih procedura. Nema efekta u ovoj verziji "
+#~ "MySQL-a."
+
+#~ msgid "Process list"
+#~ msgstr "Lista procesa"
+
+#~ msgid ""
+#~ "The users will still have the USAGE privilege until the privileges are "
+#~ "reloaded."
+#~ msgstr ""
+#~ "Korisnici će i dalje imati USAGE privilegije dok se privilegije ponovo ne "
+#~ "učitaju."
+
+#~ msgctxt "Create SELECT … query"
+#~ msgid "Select"
+#~ msgstr "Izaberi sve"
+
+#~ msgctxt "Create INSERT query"
+#~ msgid "Insert"
+#~ msgstr "Novi zapis"
+
+#~ msgctxt "Create DELETE query"
+#~ msgid "Delete"
+#~ msgstr "Obriši"
+
+#~ msgid "utf-8"
+#~ msgstr "utf-8"
+
+#~ msgid "Jan0"
+#~ msgstr "jan0"
+
+#~ msgid "Jan1"
+#~ msgstr "jan1"
+
+#~ msgid "Jan2"
+#~ msgstr "jan2"

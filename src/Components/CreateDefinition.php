@@ -203,7 +203,7 @@ class CreateDefinition extends Component
                     $state = 1;
                 } else {
                     $parser->error(
-                        __('An opening bracket was expected.'),
+                        'An opening bracket was expected.',
                         $token
                     );
                     break;
@@ -224,10 +224,9 @@ class CreateDefinition extends Component
                         // Reserved keywords can't be used
                         // as field names without backquotes
                         $parser->error(
-                            __('A symbol name was expected! '
-                                . 'A reserved keyword can not be used '
-                                . 'as a column name without backquotes.'
-                            ),
+                            'A symbol name was expected! '
+                            . 'A reserved keyword can not be used '
+                            . 'as a column name without backquotes.' ,
                             $token
                         );
                         return $ret;
@@ -238,7 +237,7 @@ class CreateDefinition extends Component
                     }
                 } else {
                     $parser->error(
-                        __('A symbol name was expected!'),
+                        'A symbol name was expected!',
                         $token
                     );
                     return $ret;
@@ -270,7 +269,7 @@ class CreateDefinition extends Component
                     break;
                 } else {
                     $parser->error(
-                        __('A comma or a closing bracket was expected.'),
+                        'A comma or a closing bracket was expected.',
                         $token
                     );
                     $state = 0;
@@ -286,7 +285,7 @@ class CreateDefinition extends Component
 
         if (($state !== 0) && ($state !== 6)) {
             $parser->error(
-                __('A closing bracket was expected.'),
+                'A closing bracket was expected.',
                 $list->tokens[$list->idx - 1]
             );
         }

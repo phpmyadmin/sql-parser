@@ -242,7 +242,7 @@ abstract class Statement
                 if (($token->type !== TOKEN::TYPE_COMMENT)
                     && ($token->type !== Token::TYPE_WHITESPACE)
                 ) {
-                    $parser->error(__('Unexpected token.'), $token);
+                    $parser->error('Unexpected token.', $token);
                 }
                 continue;
             }
@@ -306,7 +306,7 @@ abstract class Statement
             ) {
                 if (!empty($parsedClauses[$token->value])) {
                     $parser->error(
-                        __('This type of clause was previously parsed.'),
+                        'This type of clause was previously parsed.',
                         $token
                     );
                     break;
@@ -334,7 +334,7 @@ abstract class Statement
                     // this statement it means it is a new statement, but no
                     // delimiter was found between them.
                     $parser->error(
-                        __('A new statement was found, but no delimiter between it and the previous one.'),
+                        'A new statement was found, but no delimiter between it and the previous one.',
                         $token
                     );
                     break;
@@ -366,7 +366,7 @@ abstract class Statement
                 } else {
                     // There is no parser for this keyword and isn't the beginning
                     // of a statement (so no options) either.
-                    $parser->error(__('Unrecognized keyword.'), $token);
+                    $parser->error('Unrecognized keyword.', $token);
                     continue;
                 }
             }
@@ -492,7 +492,7 @@ abstract class Statement
                 if ($joinStart == 0 || ($joinStart == 2 && $error = 1)) {
                     $token = $list->tokens[$clauseStartIdx];
                     $parser->error(
-                        __('Unexpected ordering of clauses.'),
+                        'Unexpected ordering of clauses.',
                         $token
                     );
                     return false;

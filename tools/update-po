@@ -1,0 +1,52 @@
+#!/bin/sh
+# vim: expandtab sw=4 ts=4 sts=4:
+export LC_ALL=C
+
+# Exit on failure
+set -e
+
+# Update pot (template), ensure that advisor is at the end
+LOCS=`ls locale/*/LC_MESSAGES/sqlparser.po | sed 's@.*locale/\(.*\)/LC_MESSAGES/sqlparser\.po@\1@'`
+
+xgettext \
+    -d sqlparser \
+    --msgid-bugs-address=translators@phpmyadmin.net \
+    -o locale/sqlparser.pot \
+    --language=PHP \
+    --add-comments=l10n \
+    --add-location \
+    --debug \
+    --from-code=utf-8 \
+    --keyword=gettext --keyword=error \
+    --copyright-holder="phpMyAdmin devel team" \
+    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './locale/*' \( -not -path './release/*' -not -path './vendor/*' \) | sort`
+
+ver=0
+
+sed -i '
+    s/SOME DESCRIPTIVE TITLE/phpMyAdmin SQL parser translation/;
+    s/PACKAGE/SQL parser/;
+    s/(C) YEAR/(C) 2015 - '`date +%Y`'/;
+    s/VERSION/'$ver'/;
+    ' locale/sqlparser.pot
+
+# Update po files (translations)
+for loc in $LOCS ; do
+    sed -i '
+        s/SOME DESCRIPTIVE TITLE/phpMyAdmin SQL parser translation/;
+        s/PACKAGE/SQL parser/;
+        s/(C) YEAR/(C) 2015 - '`date +%Y`'/;
+        s/VERSION/'$ver'/;
+        s/Project-Id-Version: \(phpMyAdmin\|SQL parser\) .*/Project-Id-Version: SQL parser '$ver'\\n"/;
+        ' locale/$loc/LC_MESSAGES/sqlparser.po
+    msgmerge --previous -U locale/$loc/LC_MESSAGES/sqlparser.po locale/sqlparser.pot
+done
+
+# Generate mo files as well
+./tools/generate-mo
+
+# Commit changes
+git add locale
+git commit -s -m 'Update translations
+
+[CI skip]'

@@ -1,0 +1,34 @@
+#!/bin/sh
+if [ x$1 = x--quiet ] ; then
+    stats=""
+    shift
+else
+    stats="--statistics"
+fi
+
+compile() {
+    if [ ! -z "$stats" ] ; then
+        echo -n "$1: "
+    fi
+    msgfmt $stats --check -o ${1%.po}.mo $1
+    return $?
+}
+
+if [ ! -z "$1" ] ; then
+    compile po/$1.po
+    exit $?
+fi
+
+result=0
+for x in locale/*/LC_MESSAGES/sqlparser.po  ; do
+    compile $x
+    ret=$?
+    if [ $ret != 0 ] ; then
+        tput setf 4 >&2
+        echo Error when compiling $x  >&2
+        tput sgr0 >&2
+        result=$ret
+    fi
+done
+
+exit $result

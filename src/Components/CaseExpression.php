@@ -134,7 +134,7 @@ class CaseExpression extends Component
                     ++$list->idx;
                     break;
                 } elseif ($token->type === Token::TYPE_KEYWORD) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 } else {
                     $ret->value = Expression::parse($parser, $list);
@@ -164,7 +164,7 @@ class CaseExpression extends Component
                         ++$list->idx;
                         break;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
-                        $parser->error(__('Unexpected keyword.'), $token);
+                        $parser->error('Unexpected keyword.', $token);
                         break;
                     }
                 } else {
@@ -176,7 +176,7 @@ class CaseExpression extends Component
                         $state = 0;
                         $ret->results[] = $new_result;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
-                        $parser->error(__('Unexpected keyword.'), $token);
+                        $parser->error('Unexpected keyword.', $token);
                         break;
                     }
                 }
@@ -190,7 +190,7 @@ class CaseExpression extends Component
                         $ret->results[] = $new_result;
                         $state = 1;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
-                        $parser->error(__('Unexpected keyword.'), $token);
+                        $parser->error('Unexpected keyword.', $token);
                         break;
                     }
                 }
@@ -199,7 +199,7 @@ class CaseExpression extends Component
 
         if ($state !== 3) {
             $parser->error(
-                __('Unexpected end of CASE expression'),
+                'Unexpected end of CASE expression',
                 $list->tokens[$list->idx - 1]
             );
         }

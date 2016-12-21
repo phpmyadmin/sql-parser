@@ -1,0 +1,5086 @@
+# phpMyAdmin translation.
+# Copyright (C) 2003 - 2010 phpMyAdmin devel team
+# This file is distributed under the same license as the phpMyAdmin package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: SQL parser 0\n"
+"Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
+"POT-Creation-Date: 2016-12-21 15:07+0100\n"
+"PO-Revision-Date: 2015-10-15 11:05+0200\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
+"te/>\n"
+"Language: te\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+#: src/Component.php:45 src/Component.php:65
+msgid "Not implemented yet."
+msgstr ""
+
+#: src/Components/AlterOperation.php:228 src/Statement.php:337
+msgid ""
+"A new statement was found, but no delimiter between it and the previous one."
+msgstr ""
+
+#: src/Components/AlterOperation.php:240
+msgid "Unrecognized alter operation."
+msgstr ""
+
+#: src/Components/Array2d.php:92
+#, php-format
+msgid "%1$d values were expected, but found %2$d."
+msgstr ""
+
+#: src/Components/Array2d.php:115
+msgid "An opening bracket followed by a set of values was expected."
+msgstr ""
+
+#: src/Components/ArrayObj.php:118 src/Components/CreateDefinition.php:206
+msgid "An opening bracket was expected."
+msgstr ""
+
+#: src/Components/CaseExpression.php:137 src/Components/CaseExpression.php:167
+#: src/Components/CaseExpression.php:179 src/Components/CaseExpression.php:193
+#: src/Statements/DeleteStatement.php:225
+#: src/Statements/DeleteStatement.php:241
+#: src/Statements/DeleteStatement.php:281
+#: src/Statements/DeleteStatement.php:292
+#: src/Statements/DeleteStatement.php:322
+#: src/Statements/DeleteStatement.php:333
+#: src/Statements/InsertStatement.php:199
+#: src/Statements/InsertStatement.php:227
+#: src/Statements/ReplaceStatement.php:165
+#: src/Statements/ReplaceStatement.php:193
+msgid "Unexpected keyword."
+msgstr ""
+
+#: src/Components/CaseExpression.php:202
+msgid "Unexpected end of CASE expression"
+msgstr ""
+
+#: src/Components/CreateDefinition.php:227
+msgid ""
+"A symbol name was expected! A reserved keyword can not be used as a column "
+"name without backquotes."
+msgstr ""
+
+#: src/Components/CreateDefinition.php:240
+#, fuzzy
+#| msgid "Table name"
+msgid "A symbol name was expected!"
+msgstr "పట్టిక పేరు"
+
+#: src/Components/CreateDefinition.php:272
+#, fuzzy
+#| msgid "Table name"
+msgid "A comma or a closing bracket was expected."
+msgstr "పట్టిక పేరు"
+
+#: src/Components/CreateDefinition.php:288
+msgid "A closing bracket was expected."
+msgstr ""
+
+#: src/Components/DataType.php:127
+msgid "Unrecognized data type."
+msgstr ""
+
+#: src/Components/Expression.php:248 src/Components/Expression.php:398
+#, fuzzy
+#| msgid "Table name"
+msgid "An alias was expected."
+msgstr "పట్టిక పేరు"
+
+#: src/Components/Expression.php:336 src/Components/Expression.php:355
+#: src/Components/Expression.php:387
+msgid "An alias was previously found."
+msgstr ""
+
+#: src/Components/Expression.php:368
+msgid "Unexpected dot."
+msgstr ""
+
+#: src/Components/ExpressionArray.php:106
+#, fuzzy
+#| msgid "Table name"
+msgid "An expression was expected."
+msgstr "పట్టిక పేరు"
+
+#: src/Components/Limit.php:90 src/Components/Limit.php:112
+msgid "An offset was expected."
+msgstr ""
+
+#: src/Components/OptionsArray.php:147
+#, php-format
+msgid "This option conflicts with \"%1$s\"."
+msgstr ""
+
+#: src/Components/RenameOperation.php:101
+msgid "The old name of the table was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:111
+msgid "Keyword \"TO\" was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:127
+msgid "The new name of the table was expected."
+msgstr ""
+
+#: src/Components/RenameOperation.php:145
+#, fuzzy
+#| msgid "Database %s has been dropped."
+msgid "A rename operation was expected."
+msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#: src/Lexer.php:242
+msgid "Unexpected character."
+msgstr ""
+
+#: src/Lexer.php:279
+msgid "Expected whitespace(s) before delimiter."
+msgstr ""
+
+#: src/Lexer.php:297 src/Lexer.php:313
+msgid "Expected delimiter."
+msgstr ""
+
+# మొదటి అనువాదము
+#: src/Lexer.php:814
+#, fuzzy, php-format
+#| msgid "Page has been created."
+msgid "Ending quote %1$s was expected."
+msgstr "పుటను సృష్టించడమైనది"
+
+#: src/Lexer.php:854
+msgid "Variable name was expected."
+msgstr ""
+
+# మొదటి అనువాదము
+#: src/Parser.php:432
+#, fuzzy
+#| msgctxt "short form"
+#| msgid "Create table"
+msgid "Unexpected beginning of statement."
+msgstr "పట్టికను సృష్టించు"
+
+#: src/Parser.php:451
+msgid "Unrecognized statement type."
+msgstr ""
+
+#: src/Parser.php:536
+msgid "No transaction was previously started."
+msgstr ""
+
+#: src/Statement.php:245 src/Statements/DeleteStatement.php:250
+#: src/Statements/DeleteStatement.php:295
+#: src/Statements/InsertStatement.php:236
+#: src/Statements/InsertStatement.php:256
+#: src/Statements/ReplaceStatement.php:201
+msgid "Unexpected token."
+msgstr ""
+
+#: src/Statement.php:309
+msgid "This type of clause was previously parsed."
+msgstr ""
+
+#: src/Statement.php:369
+msgid "Unrecognized keyword."
+msgstr ""
+
+# మొదటి అనువాదము
+#: src/Statement.php:495
+#, fuzzy
+#| msgctxt "short form"
+#| msgid "Create table"
+msgid "Unexpected ordering of clauses."
+msgstr "పట్టికను సృష్టించు"
+
+#: src/Statements/CreateStatement.php:381
+msgid "The name of the entity was expected."
+msgstr ""
+
+#: src/Statements/CreateStatement.php:436
+#, fuzzy
+#| msgid "Table name"
+msgid "A table name was expected."
+msgstr "పట్టిక పేరు"
+
+#: src/Statements/CreateStatement.php:444
+#, fuzzy
+#| msgid "Database %s has been dropped."
+msgid "At least one column definition was expected."
+msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#: src/Statements/CreateStatement.php:555
+msgid "A \"RETURNS\" keyword was expected."
+msgstr ""
+
+#: src/Statements/DeleteStatement.php:303
+msgid "This type of clause is not valid in Multi-table queries."
+msgstr ""
+
+#: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
+#, fuzzy
+#| msgid "Error"
+msgid "error #1"
+msgstr "పొరపాటు"
+
+#: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
+msgid "strict error"
+msgstr ""
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Showing rows %1$s - %2$s."
+#~ msgstr "మరిన్ని అమరికలు"
+
+#~ msgid "Database comment"
+#~ msgstr "డేటాబేస్ వ్యాఖ్య"
+
+#~ msgid "Table comments:"
+#~ msgstr "పట్టిక వ్యాఖ్యలు:"
+
+# మొదటి అనువాదము
+#~ msgid "Column"
+#~ msgstr "వరుస"
+
+#~ msgid "Type"
+#~ msgstr "రకం"
+
+#~ msgid "Null"
+#~ msgstr "శూన్యం"
+
+#~ msgid "Default"
+#~ msgstr "అప్రమేయం"
+
+#~ msgid "Comments"
+#~ msgstr "వ్యాఖ్యలు"
+
+#~ msgid "No"
+#~ msgstr "కాదు"
+
+#~ msgid "Yes"
+#~ msgstr "అవును"
+
+#~ msgid "No tables found in database."
+#~ msgstr "డేటాబేస్ లో ఏ పట్టికలు లేవు."
+
+#~ msgid "Tables"
+#~ msgstr "పట్టికలు"
+
+#~ msgid "Structure"
+#~ msgstr "నిర్మాణాకృతి"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select all"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+# మొదటి అనువాదము
+#~ msgid "The database name is empty!"
+#~ msgstr "డేటాబేస్ పేరు ఖాళీగా ఉన్నది!"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database %1$s has been renamed to %2$s."
+#~ msgid "Database %1$s has been renamed to %2$s."
+#~ msgstr "%1$s డేటాబేసును %2$s గా పేరుమార్చడమైంది"
+
+#, fuzzy
+#~| msgid "Database %s has been copied to %s."
+#~ msgid "Database %1$s has been copied to %2$s."
+#~ msgstr "%s డేటాబేస్ %s డేటాబేస్ కు కాపీ అయింది"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "You have added a new user."
+#~ msgid "You have to choose at least one column to display!"
+#~ msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
+
+#, fuzzy
+#~| msgid "visual builder"
+#~ msgid "Switch to %svisual builder%s"
+#~ msgstr "దృశ్య కల్పకం"
+
+#~ msgid "Access denied!"
+#~ msgstr "యాక్సెస్  నిరోధించడమైనది!"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Tracking data deleted successfully."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "No tables selected."
+#~ msgstr "పట్టిక పేరు"
+
+#~ msgid "Bad type!"
+#~ msgstr "తప్పు రకం!"
+
+# మొదటి అనువాదము
+#~ msgid "Bad parameters!"
+#~ msgstr "చెల్లని పరామితులు!"
+
+#~ msgid "Invalid export type"
+#~ msgstr "చెల్లని ఎగుమతి రకం"
+
+# మొదటి అనువాదము
+#~ msgid "Add a point"
+#~ msgstr "బిందువును చేర్చు"
+
+#, fuzzy
+#~| msgid "Add a New User"
+#~ msgid "Linestring %d:"
+#~ msgstr "కొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Add a New User"
+#~ msgid "Add a linestring"
+#~ msgstr "కొత్త వాడుకరిని చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Polygon %d:"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add a polygon"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add geometry"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#~ msgid "Go"
+#~ msgstr "వెళ్ళు"
+
+#, fuzzy
+#~| msgid "Access denied!"
+#~ msgid "Succeeded"
+#~ msgstr "యాక్సెస్  నిరోధించడమైనది!"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Page has been created."
+#~ msgid "Bookmark %s has been created."
+#~ msgstr "పుటను సృష్టించడమైనది"
+
+#~ msgid "Back"
+#~ msgstr "వెనుకకి"
+
+#, fuzzy
+#~| msgid "General Settings"
+#~ msgid "General settings"
+#~ msgstr "సాధారణ అమరికలు"
+
+#~ msgid "Change password"
+#~ msgstr "సంకేతపదాన్ని మార్చు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Server connection collation"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Appearance Settings"
+#~ msgid "Appearance settings"
+#~ msgstr "రూపురేఖల అమరికలు"
+
+#~ msgid "More settings"
+#~ msgstr "మరిన్ని అమరికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database server"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Security"
+#~ msgid "Server type:"
+#~ msgstr "భద్రత"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Server version:"
+#~ msgstr "చివరి కూర్పు"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Protocol version:"
+#~ msgstr "చివరి కూర్పు"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "User:"
+#~ msgstr "వాడుకరి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Server charset:"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#, fuzzy
+#~| msgid "Database comment"
+#~ msgid "Database client version:"
+#~ msgstr "డేటాబేస్ వ్యాఖ్య:"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "PHP version:"
+#~ msgstr "చివరి కూర్పు"
+
+#, fuzzy
+#~| msgid "Version information"
+#~ msgid "Version information:"
+#~ msgstr "సంచిక సమాచారం"
+
+#~ msgid "Documentation"
+#~ msgstr "పత్రావళి"
+
+#~ msgid "Wiki"
+#~ msgstr "వికీ"
+
+#~ msgid "Get support"
+#~ msgstr "సహాయాన్ని పొందండి"
+
+#~ msgid "List of changes"
+#~ msgstr "మార్పుల జాబితా"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Delete entry from tracking report?"
+#~ msgstr "తొలగించు"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Reset all"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+#, fuzzy
+#~| msgid "at least one of the words"
+#~ msgid "Select at least one of the options!"
+#~ msgstr "కనీసం ఒక్క పదం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add index"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Edit index"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add %s column(s) to index"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Create routine"
+#~ msgid "Create single-column index"
+#~ msgstr "సృష్టించు"
+
+#, fuzzy
+#~| msgid "Create routine"
+#~ msgid "Create composite index"
+#~ msgstr "సృష్టించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Please select column(s) for the index."
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "You have added a new user."
+#~ msgid "You have to add at least one column."
+#~ msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgid "Simulate query"
+#~ msgstr "క్వెరీ ని మార్చు"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Matched rows:"
+#~ msgstr "మొదలుపెట్టు"
+
+#, fuzzy
+#~| msgid "Value"
+#~ msgid "Y values"
+#~ msgstr "విలువ"
+
+# మొదటి అనువాదము
+#~ msgid "The user name is empty!"
+#~ msgstr "వాడుకరి పేరులో ఏమీ లేదు!"
+
+#~ msgid "The password is empty!"
+#~ msgstr "సంకేతపదం ఖాళీగా ఉంది!"
+
+#~ msgid "The passwords aren't the same!"
+#~ msgstr "సంకేతపదాలు సరిపోలలేదు!"
+
+#~ msgid "Close"
+#~ msgstr "మూసివేయి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "The number of pages created."
+#~ msgid "Template was created."
+#~ msgstr "సృష్టించబడిన పుటల సంఖ్య."
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Template was deleted."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#~ msgid ","
+#~ msgstr ","
+
+#~ msgid "."
+#~ msgstr "."
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Connections / Processes"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Local monitor configuration incompatible!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "CPU Usage"
+#~ msgid "System CPU usage"
+#~ msgstr "వాడుక"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total memory"
+#~ msgstr "మొత్తం"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total swap"
+#~ msgstr "మొత్తం"
+
+#~ msgid "Connections"
+#~ msgstr "అనుసంధానాలు"
+
+#~ msgid "B"
+#~ msgstr "బై"
+
+#~ msgid "KiB"
+#~ msgstr "కిబై"
+
+#~ msgid "MiB"
+#~ msgstr "మెబై"
+
+#~ msgid "GiB"
+#~ msgstr "గిబై"
+
+#~ msgid "TiB"
+#~ msgstr "టెబై"
+
+#~ msgid "PiB"
+#~ msgstr "పిబై"
+
+#~ msgid "EiB"
+#~ msgstr "ఎబై"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "%d table(s)"
+#~ msgstr "%s పట్టిక"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Questions"
+#~ msgstr "సంబంధాలు"
+
+#~ msgid "Settings"
+#~ msgstr "అమరికలు"
+
+#~ msgid "None"
+#~ msgstr "ఏమీలేదు"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "Enable %s"
+#~ msgstr "పట్టికలు"
+
+#, fuzzy
+#~| msgid "Disable Statistics"
+#~ msgid "Disable %s"
+#~ msgstr "గణాంకాలని అచేతనంచేయి"
+
+#, fuzzy
+#~| msgid "Basic settings"
+#~ msgid "Change settings"
+#~ msgstr "ప్రాధమిక అమరికలు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Current settings"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#, fuzzy
+#~| msgid "Default title"
+#~ msgid "Chart title"
+#~ msgstr "అప్రమేయ శీర్షిక"
+
+#, fuzzy
+#~| msgid "Difference"
+#~ msgid "Differential"
+#~ msgstr "తేడా"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Analyze"
+#~ msgid "Analysing logs"
+#~ msgstr "విశదీకరించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Write requests"
+#~ msgid "Cancel request"
+#~ msgstr "విన్నపములను వ్రాయుము"
+
+#, fuzzy
+#~| msgid "data"
+#~ msgid "No data found"
+#~ msgstr "భోగట్టా"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Analyze"
+#~ msgid "Analyzing…"
+#~ msgstr "విశదీకరించు"
+
+#~ msgid "Status"
+#~ msgstr "స్థితి"
+
+#~ msgid "Time"
+#~ msgstr "సమయం"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total time:"
+#~ msgstr "మొత్తం"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Profiling results"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Table"
+#~ msgctxt "Display format"
+#~ msgid "Table"
+#~ msgstr "పట్టిక"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Charset"
+#~ msgid "Chart"
+#~ msgstr "అక్షరమాల"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Log table filter options"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total:"
+#~ msgstr "మొత్తం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Reload page"
+#~ msgstr "డేటాబేస్"
+
+#~ msgid "Import"
+#~ msgstr "దిగుమతి"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Import monitor configuration"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgid "Analyse query"
+#~ msgstr "క్వెరీ ని మార్చు"
+
+#, fuzzy
+#~| msgid "Documentation"
+#~ msgid "Recommendation"
+#~ msgstr "పత్రావళి"
+
+#, fuzzy
+#~| msgid "Details…"
+#~ msgid "Rule details"
+#~ msgstr "వివరాలు…"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "Justification"
+#~ msgstr "అధీకరణ"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Bad parameters!"
+#~ msgid "No parameters found!"
+#~ msgstr "చెల్లని పరామితులు!"
+
+#~ msgid "Cancel"
+#~ msgstr "రద్దుచేయి"
+
+#, fuzzy
+#~| msgid "Basic settings"
+#~ msgid "Page-related settings"
+#~ msgstr "ప్రాధమిక అమరికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Analyze"
+#~ msgid "Loading…"
+#~ msgstr "విశదీకరించు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Processing request"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Request failed!!"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Dropping column"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Adding primary key"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#~ msgid "OK"
+#~ msgstr "సరే"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Renaming databases"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Copying database"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Charset"
+#~ msgid "Changing charset"
+#~ msgstr "అక్షరమాల"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Searching"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Deleting"
+#~ msgstr "తొలగించు"
+
+#~ msgid "Export"
+#~ msgstr "ఎగుమతి"
+
+#~ msgid "Values for column %s"
+#~ msgstr "%s నిలువు వరుసకు విలువలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add %d value(s)"
+#~ msgstr "క్రొత్త వినియోగదారుని చేర్చు"
+
+#~ msgid "Edit"
+#~ msgstr "మార్చు"
+
+#~ msgid "Delete"
+#~ msgstr "తొలగించు"
+
+#, fuzzy
+#~| msgid "Disable Statistics"
+#~ msgid "Variable %d:"
+#~ msgstr "గణాంకాలని అచేతనంచేయి"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Column selector"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Use this value"
+#~ msgid "Search this list"
+#~ msgstr "ఈ విలువని ఉపయోగించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Continue"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Taking you to next step…"
+#~ msgstr "మార్చుము"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "End of line"
+#~ msgid "End of step"
+#~ msgstr "వాక్యాంతము"
+
+#~ msgid "Save"
+#~ msgstr "భద్రపరచు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Range search"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Column maximum:"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Column minimum:"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Maximum tables"
+#~ msgid "Minimum value:"
+#~ msgstr "గరిష్ఠ పట్టికలు"
+
+#, fuzzy
+#~| msgid "Maximum tables"
+#~ msgid "Maximum value:"
+#~ msgstr "గరిష్ఠ పట్టికలు"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Select two columns"
+#~ msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Data point content"
+#~ msgstr "విషయ సూచిక"
+
+#~ msgid "Page name"
+#~ msgstr "పుట పేరు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Create a page"
+#~ msgid "Save page"
+#~ msgstr "పుటని సృష్టించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Create a page"
+#~ msgid "Save page as"
+#~ msgstr "పుటని సృష్టించు"
+
+#, fuzzy
+#~| msgctxt "PDF"
+#~| msgid "page"
+#~ msgid "Open page"
+#~ msgstr "పుటలు"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Delete page"
+#~ msgstr "తొలగించు"
+
+#, fuzzy
+#~| msgid "Title"
+#~ msgid "Untitled"
+#~ msgstr "శీర్షిక"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export relational schema"
+#~ msgstr "ఎగుమతి పద్ధతి"
+
+#, fuzzy
+#~| msgid "Values for column %s"
+#~ msgid "Add an option for column \"%s\"."
+#~ msgstr "%s నిలువు వరుసకు విలువలు"
+
+#~ msgid "Submit"
+#~ msgstr "దాఖలుచేయి"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Double-click to copy column name."
+#~ msgstr "వ్యాఖ్యలు"
+
+#~ msgid "Show all"
+#~ msgstr "అన్నీ చూపించు"
+
+#, fuzzy
+#~| msgid "Original position"
+#~ msgid "Original length"
+#~ msgstr "అసలు స్థానం"
+
+#, fuzzy
+#~| msgid "Cancel"
+#~ msgid "cancel"
+#~ msgstr "రద్దుచేయి"
+
+#, fuzzy
+#~| msgid "Import"
+#~ msgid "Import status"
+#~ msgstr "దిగుమతి"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select database first"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+#~ msgid "Print"
+#~ msgstr "ముద్రించు"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Copy column name."
+#~ msgstr "వ్యాఖ్యలు"
+
+#~ msgid "More"
+#~ msgstr "మరిన్ని"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show panel"
+#~ msgstr "అన్నీ చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Hide/Show all"
+#~ msgid "Hide panel"
+#~ msgstr "అన్నింటిని చూపుము/దాచుము"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show hidden navigation tree items."
+#~ msgstr "చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Hide/Show all"
+#~ msgid "Link with main panel"
+#~ msgstr "అన్నింటిని చూపుము/దాచుము"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Hide/Show all"
+#~ msgid "Unlink from main panel"
+#~ msgstr "అన్నింటిని చూపుము/దాచుము"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Create"
+#~ msgid "Create view"
+#~ msgstr "సృష్టించు"
+
+#, fuzzy
+#~| msgid "Basic settings"
+#~ msgid "Change report settings"
+#~ msgstr "ప్రాధమిక అమరికలు"
+
+#, fuzzy
+#~| msgid "Show more actions"
+#~ msgid "Show report details"
+#~ msgstr "మరిన్ని చర్యలను చూపించు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show arguments"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Copy database to"
+#~ msgid "Copy tables to"
+#~ msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
+
+#, fuzzy
+#~| msgid "Display table filter"
+#~ msgid "Add table prefix"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Display table filter"
+#~ msgid "Replace table with prefix"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Prev"
+#~ msgctxt "Previous month"
+#~ msgid "Prev"
+#~ msgstr "గత"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Next"
+#~ msgctxt "Next month"
+#~ msgid "Next"
+#~ msgstr "తదుపరి"
+
+#~ msgid "Today"
+#~ msgstr "ఈరోజు"
+
+#~ msgid "January"
+#~ msgstr "జనవరి"
+
+#~ msgid "February"
+#~ msgstr "ఫిబ్రవరి"
+
+#~ msgid "March"
+#~ msgstr "మార్చి"
+
+#~ msgid "April"
+#~ msgstr "ఏప్రిల్"
+
+#~ msgid "May"
+#~ msgstr "మే"
+
+#~ msgid "June"
+#~ msgstr "జూన్"
+
+#~ msgid "July"
+#~ msgstr "జూలై"
+
+#~ msgid "August"
+#~ msgstr "ఆగస్ట్"
+
+#~ msgid "September"
+#~ msgstr "సెప్టెంబర్"
+
+#~ msgid "October"
+#~ msgstr "అక్టోబర్"
+
+#~ msgid "November"
+#~ msgstr "నవంబర్"
+
+#~ msgid "December"
+#~ msgstr "డిసెంబర్"
+
+#~ msgid "Jan"
+#~ msgstr "జన"
+
+#~ msgid "Feb"
+#~ msgstr "ఫిబ్ర"
+
+#~ msgid "Mar"
+#~ msgstr "మార్చి"
+
+#~ msgid "Apr"
+#~ msgstr "ఏప్రి"
+
+#~ msgctxt "Short month name"
+#~ msgid "May"
+#~ msgstr "మే"
+
+#~ msgid "Jun"
+#~ msgstr "జూన్"
+
+#~ msgid "Jul"
+#~ msgstr "జూలై"
+
+#~ msgid "Aug"
+#~ msgstr "ఆగ"
+
+#~ msgid "Sep"
+#~ msgstr "సెప్టె"
+
+#~ msgid "Oct"
+#~ msgstr "అక్టో"
+
+#~ msgid "Nov"
+#~ msgstr "నవం"
+
+#~ msgid "Dec"
+#~ msgstr "డిసెం"
+
+#~ msgid "Sunday"
+#~ msgstr "ఆదివారం"
+
+#~ msgid "Monday"
+#~ msgstr "సోమవారం"
+
+#~ msgid "Tuesday"
+#~ msgstr "మంగళవారం"
+
+#~ msgid "Wednesday"
+#~ msgstr "బుధవారం"
+
+#~ msgid "Thursday"
+#~ msgstr "గురువారం"
+
+#~ msgid "Friday"
+#~ msgstr "శుక్రవారం"
+
+#~ msgid "Saturday"
+#~ msgstr "శనివారం"
+
+#, fuzzy
+#~| msgctxt "Short week day name"
+#~| msgid "Sun"
+#~ msgid "Sun"
+#~ msgstr "ఆది"
+
+#~ msgid "Mon"
+#~ msgstr "సోమ"
+
+#~ msgid "Tue"
+#~ msgstr "మంగళ"
+
+#~ msgid "Wed"
+#~ msgstr "బుధ"
+
+#~ msgid "Thu"
+#~ msgstr "గురు"
+
+#~ msgid "Fri"
+#~ msgstr "శుక్ర"
+
+#~ msgid "Sat"
+#~ msgstr "శని"
+
+#~ msgid "Su"
+#~ msgstr "ఆ"
+
+#~ msgid "Mo"
+#~ msgstr "సో"
+
+#~ msgid "Tu"
+#~ msgstr "మం"
+
+#~ msgid "We"
+#~ msgstr "బు"
+
+#~ msgid "Th"
+#~ msgstr "గు"
+
+#~ msgid "Fr"
+#~ msgstr "శు"
+
+#~ msgid "Sa"
+#~ msgstr "శ"
+
+#~ msgid "Wk"
+#~ msgstr "వారం"
+
+#, fuzzy
+#~| msgid "None"
+#~ msgctxt "Year suffix"
+#~ msgid "none"
+#~ msgstr "ఏమీలేదు"
+
+#~ msgid "Hour"
+#~ msgstr "గంట"
+
+# మొదటి అనువాదము
+#~ msgid "Minute"
+#~ msgstr "నిమిషం"
+
+#~ msgid "Second"
+#~ msgstr "క్షణం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Please fix this field"
+#~ msgstr "క్రొత్త ఫీల్డ్ చేర్చు"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Please enter a valid date"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+#~ msgid "Error"
+#~ msgstr "పొరపాటు"
+
+# మొదటి అనువాదము
+#~ msgid "Database"
+#~ msgstr "డేటాబేస్"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "No bookmarks"
+#~ msgstr "శోధించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Bookmark"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query failed"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "SQL history"
+#~ msgid "History"
+#~ msgstr "SQL చరిత్ర"
+
+#~ msgid "Options"
+#~ msgstr "ఎంపికలు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Bookmarks"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgid "Press Ctrl+Enter to execute query"
+#~ msgstr "క్వెరీ ని మార్చు"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgid "Press Enter to execute query"
+#~ msgstr "క్వెరీ ని మార్చు"
+
+#, fuzzy
+#~| msgid "Ascending"
+#~ msgid "ascending"
+#~ msgstr "ఆరోహణ"
+
+#, fuzzy
+#~| msgid "Descending"
+#~ msgid "descending"
+#~ msgstr "అవరోహణ"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Count"
+#~ msgstr "వరుస"
+
+#, fuzzy
+#~| msgid "Show color"
+#~ msgid "Show trace"
+#~ msgstr "రంగుని చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Hide/Show all"
+#~ msgid "Hide trace"
+#~ msgstr "అన్నింటిని చూపుము/దాచుము"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Count:"
+#~ msgstr "వరుస"
+
+#, fuzzy
+#~| msgid "And"
+#~ msgid "Add"
+#~ msgstr "మరియు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Add bookmark"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Data Label"
+#~ msgid "Label"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Target database"
+#~ msgstr "పట్టికను సృష్టించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Share this bookmark"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Leave blank for defaults"
+#~ msgid "Set default"
+#~ msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
+
+#, fuzzy
+#~| msgid "Switch to"
+#~ msgid "Switch to dark theme"
+#~ msgstr "దీనికి మారు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Failed to set configured collation connection!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#~ msgid "Details…"
+#~ msgstr "వివరాలు…"
+
+#~ msgid "Ascending"
+#~ msgstr "ఆరోహణ"
+
+#~ msgid "Descending"
+#~ msgstr "అవరోహణ"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Column"
+#~ msgid "Column:"
+#~ msgstr "వరుస"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Sort:"
+#~ msgstr "క్రమంలో పేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Sort"
+#~ msgid "Sort order:"
+#~ msgstr "క్రమంలో పేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show:"
+#~ msgstr "చూపించు"
+
+#, fuzzy
+#~| msgid "Criteria"
+#~ msgid "Criteria:"
+#~ msgstr "లక్షణాలు"
+
+#~ msgid "Add/Delete criteria rows"
+#~ msgstr "లక్షణాల వరుసలను చేర్చు/తొలగించు"
+
+#~ msgid "Add/Delete columns"
+#~ msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+
+#~ msgid "Update Query"
+#~ msgstr "క్వెరీ ని మార్చు"
+
+#~ msgid "Use Tables"
+#~ msgstr "పట్టికల్ని వాడు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Or"
+#~ msgid "Or:"
+#~ msgstr "లేదా"
+
+#~ msgid "Ins"
+#~ msgstr "చొప్పించు"
+
+#~ msgid "Del"
+#~ msgstr "తొలగించు"
+
+#, fuzzy
+#~| msgid "Modify"
+#~ msgid "Modify:"
+#~ msgstr "మార్చు"
+
+#~ msgid "Submit Query"
+#~ msgstr "క్వెరీ ని సమర్పించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Saved bookmarked search:"
+#~ msgstr "శోధించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "New bookmark"
+#~ msgstr "శోధించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Create bookmark"
+#~ msgstr "శోధించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Update bookmark"
+#~ msgstr "శోధించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Delete bookmark"
+#~ msgstr "శోధించు"
+
+#~ msgid "at least one of the words"
+#~ msgstr "కనీసం ఒక్క పదం"
+
+#~ msgid "all words"
+#~ msgstr "అన్ని పదాలూ"
+
+#~ msgid "<b>Total:</b> <i>%s</i> match"
+#~ msgid_plural "<b>Total:</b> <i>%s</i> matches"
+#~ msgstr[0] "<b>మొత్తం:</b> <i>%s</i> పోలిక"
+#~ msgstr[1] "<b>మొత్తం:</b> <i>%s</i> పోలికలు"
+
+# మొదటి అనువాదము
+#~ msgid "Find:"
+#~ msgstr "వెతుకు:"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Inside tables:"
+#~ msgstr "పట్టికల్ని వాడు"
+
+#, fuzzy
+#~| msgid "Unselect All"
+#~ msgid "Unselect all"
+#~ msgstr "అన్నీ ఎంచుకోవద్దు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Restore column order"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Files"
+#~ msgid "Filter rows"
+#~ msgstr "దస్త్రాలు"
+
+#, fuzzy
+#~| msgid "Use this value"
+#~ msgid "Search this table"
+#~ msgstr "ఈ విలువని ఉపయోగించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Begin"
+#~ msgctxt "First page"
+#~ msgid "Begin"
+#~ msgstr "మొదలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Previous"
+#~ msgctxt "Previous page"
+#~ msgid "Previous"
+#~ msgstr "క్రితము"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Next"
+#~ msgctxt "Next page"
+#~ msgid "Next"
+#~ msgstr "తదుపరి"
+
+#, fuzzy
+#~| msgid "End"
+#~ msgctxt "Last page"
+#~ msgid "End"
+#~ msgstr "ముగింపు"
+
+# మొదటి అనువాదము
+#~ msgid "All"
+#~ msgstr "అన్నీ"
+
+#~ msgid "Partial texts"
+#~ msgstr "పాక్షిక పాఠ్యాలు"
+
+#~ msgid "Full texts"
+#~ msgstr "పూర్తి పాఠ్యాలు"
+
+#, fuzzy
+#~| msgid "Display comments"
+#~ msgid "Display column for relations"
+#~ msgstr "వ్యాఖ్యలను చూపించు"
+
+#, fuzzy
+#~| msgid "Version information"
+#~ msgid "Hide browser transformation"
+#~ msgstr "సంచిక సమాచారం"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "The row has been deleted."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#, fuzzy
+#~| msgid "Your SQL query has been executed successfully."
+#~ msgid "Your SQL query has been executed successfully."
+#~ msgstr "మీ SQL క్వెరీ విజయవంతంగా నిర్వహించబడింది"
+
+#, fuzzy
+#~| msgid "total"
+#~ msgid "%d total"
+#~ msgstr "మొత్తం"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Check all"
+#~ msgstr "పట్టికల్ని వాడు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Display chart"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Import"
+#~ msgid "Report"
+#~ msgstr "దిగుమతి"
+
+#, fuzzy
+#~| msgid "Version information"
+#~ msgid "Git information missing!"
+#~ msgstr "సంచిక సమాచారం"
+
+#~ msgid "Action"
+#~ msgstr "చర్య"
+
+#~ msgid "Keyname"
+#~ msgstr "కీలకపదం"
+
+#~ msgid "Comment"
+#~ msgstr "వ్యాఖ్య"
+
+#~ msgid "Page number:"
+#~ msgstr "పుట సంఖ్య:"
+
+# మొదటి అనువాదము
+#~ msgid "View"
+#~ msgstr "చూపుము"
+
+#~ msgid "Table"
+#~ msgstr "పట్టిక"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#~ msgid "Search"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Central columns"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "User accounts"
+#~ msgstr "వాడుకరి"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Could not save recent table!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Could not save favorite table!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Remove from Favorites"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "There are no recent tables."
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "There are no favorite tables."
+#~ msgstr "విషయ సూచిక"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Recent tables"
+#~ msgstr "పట్టికను సృష్టించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Recent"
+#~ msgstr "పట్టికను సృష్టించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Favorite tables"
+#~ msgstr "పట్టికను సృష్టించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Favorites"
+#~ msgstr "పట్టికను సృష్టించు"
+
+#, fuzzy
+#~| msgid "The user %s already exists!"
+#~ msgid "An entry with this name already exists."
+#~ msgstr "%s అనే వాడుకరి ఇప్పటికే ఉన్నారు!"
+
+#~ msgid "Files"
+#~ msgstr "దస్త్రాలు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query statistics"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Second"
+#~ msgid "%d second"
+#~ msgid_plural "%d seconds"
+#~ msgstr[0] "క్షణం"
+#~ msgstr[1] "క్షణం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Minute"
+#~ msgid "%d minute"
+#~ msgid_plural "%d minutes"
+#~ msgstr[0] "నిమిషం"
+#~ msgstr[1] "నిమిషం"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Unknown table status:"
+#~ msgstr "అన్నీ చూపించు"
+
+#, fuzzy
+#~| msgid "Rename database to"
+#~ msgid "Invalid database:"
+#~ msgstr "డేటాబేసుకు ఈ పేరు పెట్టండి"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Invalid table name:"
+#~ msgstr "పట్టికల్ని వాడు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Failed to rename table %1$s to %2$s!"
+#~ msgstr "మరిన్ని అమరికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Page has been created."
+#~ msgid "Table %1$s has been renamed to %2$s."
+#~ msgstr "పుటను సృష్టించడమైనది"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Could not save table UI preferences!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+# మొదటి అనువాదము
+#~ msgid "take it"
+#~ msgstr "తీసుకొనుము"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "A date, supported range is %1$s to %2$s"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "A time, range is %1$s to %2$s"
+#~ msgstr "మరిన్ని అమరికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "A polygon"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Create an index"
+#~ msgctxt "date and time types"
+#~ msgid "Date and time"
+#~ msgstr "పుటని సృష్టించు"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgctxt "spatial types"
+#~ msgid "Spatial"
+#~ msgstr "మొత్తం"
+
+#~ msgid "Max: %s%s"
+#~ msgstr "గరిష్ఠం: %s%s"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Create a page"
+#~ msgid "Without PHP code"
+#~ msgstr "పుటని సృష్టించు"
+
+#, fuzzy
+#~| msgid "Submit Query"
+#~ msgid "Submit query"
+#~ msgstr "క్వెరీ ని సమర్పించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Create a page"
+#~ msgid "Create PHP code"
+#~ msgstr "పుటని సృష్టించు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgctxt "Inline edit query"
+#~ msgid "Edit inline"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#~ msgctxt "Short week day name"
+#~ msgid "Sun"
+#~ msgstr "ఆది"
+
+#~ msgid "%s days, %s hours, %s minutes and %s seconds"
+#~ msgstr "%s రోజులు, %s గంటలు, %s నిమిషాలు మరియు %s క్షణాలు"
+
+# మొదటి అనువాదము
+#~ msgid "Empty"
+#~ msgstr "ఖాళీ"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "Users"
+#~ msgstr "వాడుకరి"
+
+#~ msgid "per second"
+#~ msgstr "క్షణానికి"
+
+#~ msgid "per minute"
+#~ msgstr "నిమిషానికి"
+
+#~ msgid "per hour"
+#~ msgstr "గంటకి"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Search:"
+#~ msgstr "శోధించు"
+
+#~ msgid "Description"
+#~ msgstr "వివరణ"
+
+#~ msgid "Use this value"
+#~ msgstr "ఈ విలువని ఉపయోగించు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Could not add columns!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Could not remove columns!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#~ msgid "Name"
+#~ msgstr "పేరు"
+
+#~ msgid "Length/Values"
+#~ msgstr "పొడవు/విలువలు"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select a table"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add column"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Select a column."
+#~ msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add new column"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Failed to read configuration file!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Security"
+#~ msgid "Server %d"
+#~ msgstr "భద్రత"
+
+#, fuzzy
+#~| msgid "Ins"
+#~ msgid "Icons"
+#~ msgstr "చొప్పించు"
+
+#, fuzzy
+#~| msgid "Next"
+#~ msgid "Text"
+#~ msgstr "తదుపరి"
+
+#, fuzzy
+#~| msgid "Height"
+#~ msgid "Right"
+#~ msgstr "ఎత్తు"
+
+#, fuzzy
+#~| msgid "Display comments"
+#~ msgid "display column"
+#~ msgstr "వ్యాఖ్యలను చూపించు"
+
+#, fuzzy
+#~| msgid "Welcome to %s"
+#~ msgid "Welcome"
+#~ msgstr "%sకి స్వాగతం"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgid "Closed"
+#~ msgstr "మూసివేయి"
+
+#, fuzzy
+#~| msgid "Leave blank for defaults"
+#~ msgid "Server default"
+#~ msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "Enable"
+#~ msgstr "పట్టికలు"
+
+#, fuzzy
+#~| msgid "Disable Statistics"
+#~ msgid "Disable"
+#~ msgstr "గణాంకాలని అచేతనంచేయి"
+
+#~ msgid "structure"
+#~ msgstr "నిర్మాణాకృతి"
+
+#~ msgid "data"
+#~ msgstr "భోగట్టా"
+
+#~ msgid "structure and data"
+#~ msgstr "నిర్మాణాకృతి మరియు భోగట్టా"
+
+#, fuzzy
+#~| msgid "Incorrect value"
+#~ msgid "Incorrect value!"
+#~ msgstr "తప్పుడు విలువ"
+
+#, fuzzy
+#~| msgid "Value must be equal or lower than %s"
+#~ msgid "Value must be equal or lower than %s!"
+#~ msgstr "విలువ తప్పనిసరిగా %s కి సమానంగా లేదా తక్కువగా ఉండాలి"
+
+#~ msgid "unavailable"
+#~ msgstr "అందుబాటులో లేదు"
+
+#~ msgid "maximum %s"
+#~ msgstr "గరిష్ఠం %s"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Empty username while using [kbd]config[/kbd] authentication method!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid ""
+#~ "Empty signon session name while using [kbd]signon[/kbd] authentication "
+#~ "method!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid ""
+#~ "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Incorrect value"
+#~ msgid "Incorrect value:"
+#~ msgstr "తప్పుడు విలువ"
+
+#~ msgid "Incorrect IP address: %s"
+#~ msgstr "తప్పుడు ఐపీ చిరునామా: %s"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "Enable linter"
+#~ msgstr "పట్టికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Whether the table structure actions should be hidden."
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show column comments"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Hide table structure actions"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Use %s statement"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#~ msgid "Relations"
+#~ msgstr "సంబంధాలు"
+
+#~ msgid "Export method"
+#~ msgstr "ఎగుమతి పద్ధతి"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export as separate files"
+#~ msgstr "ఎగుమతి పద్ధతి"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Export views as tables"
+#~ msgstr "పట్టిక పేరు"
+
+#~ msgid "Add %s"
+#~ msgstr "%s జతచేయి"
+
+#~ msgid "Export type"
+#~ msgstr "ఎగుమతి రకం"
+
+#~ msgid "Features"
+#~ msgstr "విశేషాలు"
+
+#~ msgid "General"
+#~ msgstr "సాధారణ"
+
+#~ msgid "Import / export"
+#~ msgstr "దిగుమతి / ఎగుమతి"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Databases display options."
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Navigation tree"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Customize the navigation tree."
+#~ msgstr "చూపించు"
+
+#, fuzzy
+#~| msgid "Show more actions"
+#~ msgid "Servers display options."
+#~ msgstr "మరిన్ని చర్యలను చూపించు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Tables display options."
+#~ msgstr "పట్టిక ఎంపికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Hide/Show all"
+#~ msgid "Main panel"
+#~ msgstr "అన్నింటిని చూపుము/దాచుము"
+
+#~ msgid "Microsoft Office"
+#~ msgstr "మైక్రోసాఫ్ట్ ఆఫీస్"
+
+#~ msgid "Other core settings"
+#~ msgstr "ఇతర ప్రముఖ అమరికలు"
+
+#~ msgid "Page titles"
+#~ msgstr "పుట శీర్షికలు"
+
+#~ msgid "Security"
+#~ msgstr "భద్రత"
+
+#~ msgid "Basic settings"
+#~ msgstr "ప్రాధమిక అమరికలు"
+
+#~ msgid "Authentication"
+#~ msgstr "అధీకరణ"
+
+#, fuzzy
+#~| msgid "Authentication settings"
+#~ msgid "Authentication settings."
+#~ msgstr "అధీకరణ అమరికలు"
+
+#~ msgid "Server configuration"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Enter server connection parameters."
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Configuration storage"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "SQL queries settings."
+#~ msgstr "మరిన్ని అమరికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database structure"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Table structure"
+#~ msgstr "డేటాబేస్"
+
+#~ msgid "Paper size"
+#~ msgstr "కాగితపు పరిమాణం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Text fields"
+#~ msgstr "క్రొత్త ఫీల్డ్ చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Customize text input fields."
+#~ msgstr "క్రొత్త ఫీల్డ్ చేర్చు"
+
+#~ msgid "Warnings"
+#~ msgstr "హెచ్చరికలు"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Column names in first row"
+#~ msgstr "వ్యాఖ్యలు"
+
+#~ msgid "Maximum tables"
+#~ msgstr "గరిష్ఠ పట్టికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show databases navigation as tree"
+#~ msgstr "చూపించు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Show logo in navigation panel."
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#~ msgid "Display logo"
+#~ msgstr "చిహ్నాన్ని చూపించు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Enable navigation tree expansion"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show tables in tree"
+#~ msgstr "అన్నీ చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Whether to show tables under database in the navigation tree"
+#~ msgstr "చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show views in tree"
+#~ msgstr "చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Whether to show views under database in the navigation tree"
+#~ msgstr "చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show events in tree"
+#~ msgstr "చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Whether to show events under database in the navigation tree"
+#~ msgstr "చూపించు"
+
+#~ msgid "Natural order"
+#~ msgstr "సహజ క్రమం"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Table navigation bar"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Relational display"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Show more actions"
+#~ msgid "For display Options"
+#~ msgstr "మరిన్ని చర్యలను చూపించు"
+
+#, fuzzy
+#~| msgid "Leave blank if not used"
+#~ msgid "Leave blank if not used."
+#~ msgstr "ఉపయోగించకపోతే ఖాళీగా వదిలేయండి"
+
+#, fuzzy
+#~| msgid "Leave blank for defaults"
+#~ msgid "Leave blank for defaults."
+#~ msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
+
+#, fuzzy
+#~| msgid "Authentication settings"
+#~ msgid "Authentication method to use."
+#~ msgstr "అధీకరణ అమరికలు"
+
+#~ msgid "Connection type"
+#~ msgstr "అనుసంధాన రకం"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Export templates table"
+#~ msgstr "పట్టిక పేరు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Central columns table"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database name"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Favorites table"
+#~ msgstr "పట్టికను సృష్టించు"
+
+#, fuzzy
+#~| msgid "User preferences"
+#~ msgid "UI preferences table"
+#~ msgstr "వాడుకరి అభిరుచులు"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Users table"
+#~ msgstr "పట్టికల్ని వాడు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Show table comments"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Show more actions"
+#~ msgid "Show creation timestamp"
+#~ msgstr "మరిన్ని చర్యలను చూపించు"
+
+#, fuzzy
+#~| msgid "Show more actions"
+#~ msgid "Show last update timestamp"
+#~ msgstr "మరిన్ని చర్యలను చూపించు"
+
+#, fuzzy
+#~| msgid "Show more actions"
+#~ msgid "Show last check timestamp"
+#~ msgstr "మరిన్ని చర్యలను చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show hint"
+#~ msgstr "చూపించు"
+
+#~ msgid "Show statistics"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Textarea columns"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#~ msgid "Default title"
+#~ msgstr "అప్రమేయ శీర్షిక"
+
+#, fuzzy
+#~| msgid "Username"
+#~ msgid "Proxy username"
+#~ msgstr "వాడుకరిపేరు"
+
+#, fuzzy
+#~| msgid "Password"
+#~ msgid "Proxy password"
+#~ msgstr "సంకేతపదం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Enable Zero Configuration mode"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Config authentication"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Open Document"
+#~ msgid "OpenDocument Spreadsheet"
+#~ msgstr "ఓపెన్ డాక్యుమెంట్"
+
+#~ msgid "Microsoft Word 2000"
+#~ msgstr "మైక్రోసాఫ్ట్ వర్డ్ 2000"
+
+#, fuzzy
+#~| msgid "Open Document"
+#~ msgid "OpenDocument Text"
+#~ msgstr "ఓపెన్ డాక్యుమెంట్"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "View %s has been dropped."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది."
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Table %s has been dropped."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది."
+
+#~ msgid "unknown"
+#~ msgstr "తెలియని"
+
+#~ msgid "Original position"
+#~ msgstr "అసలు స్థానం"
+
+#~ msgid "Information"
+#~ msgstr "సమాచారం"
+
+#~ msgid "Database %1$s has been created."
+#~ msgstr "%1$s డేటాబేసు సృష్టించబడింది."
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "%1$d database has been dropped successfully."
+#~ msgid_plural "%1$d databases have been dropped successfully."
+#~ msgstr[0] "%s డేటాబేస్ తుడిచివేయడమైనది"
+#~ msgstr[1] "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#~ msgid "Rows"
+#~ msgstr "వరుసలు"
+
+#~ msgid "Total"
+#~ msgstr "మొత్తం"
+
+#, fuzzy
+#~| msgid "Enable Statistics"
+#~ msgid "Enable statistics"
+#~ msgstr "గణాంకాలని చేతనంచేయి"
+
+#, fuzzy
+#~| msgid "data"
+#~ msgid "No data to display"
+#~ msgstr "భోగట్టా"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relations were successfully updated."
+#~ msgstr "అంతర్గత సంబంధాలు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Table search"
+#~ msgstr "శోధించు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Zoom search"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "The columns have been moved successfully."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid ""
+#~ "Table %1$s has been altered successfully. Privileges have been adjusted."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+# మొదటి అనువాదము
+#~ msgid "Change"
+#~ msgstr "మార్చుము"
+
+#~ msgid "Fulltext"
+#~ msgstr "పూర్తిపాఠ్యం"
+
+#, fuzzy
+#~| msgid "Use this value"
+#~ msgid "Distinct values"
+#~ msgstr "ఈ విలువని ఉపయోగించు"
+
+#~ msgid "No Password"
+#~ msgstr "సంకేతపదం లేదు"
+
+#~ msgid "Password:"
+#~ msgstr "సంకేతపదం:"
+
+#, fuzzy
+#~| msgid "Re-type"
+#~ msgid "Re-type:"
+#~ msgstr "మళ్ళీ టైపుచెయ్యండి"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Password Hashing:"
+#~ msgstr "సంకేతపదం:"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "Export templates:"
+#~ msgstr "ఎగుమతి రకం"
+
+#, fuzzy
+#~| msgid "New name"
+#~ msgid "New template:"
+#~ msgstr "కొత్త పేరు"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Template name"
+#~ msgstr "పట్టిక పేరు"
+
+# మొదటి అనువాదము
+#~ msgid "Create"
+#~ msgstr "సృష్టించు"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "Template:"
+#~ msgstr "%s పట్టిక"
+
+#, fuzzy
+#~| msgid "Update Query"
+#~ msgid "Update"
+#~ msgstr "క్వెరీ ని మార్చు"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select a template"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export method:"
+#~ msgstr "ఎగుమతి పద్ధతి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Databases:"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "Tables:"
+#~ msgstr "పట్టికలు"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Export databases as separate files"
+#~ msgstr "పట్టిక పేరు"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export tables as separate files"
+#~ msgstr "ఎగుమతి పద్ధతి"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select database"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+#, fuzzy
+#~| msgid "Select All"
+#~ msgid "Select table"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "New database name"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "New page name: "
+#~ msgid "New table name"
+#~ msgstr "కొత్త పుట పేరు: "
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Old column name"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "New column name"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "committed on %1$s by %2$s"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "authored on %1$s by %2$s"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#, fuzzy
+#~| msgid "Partial Import:"
+#~ msgid "File to import:"
+#~ msgstr "పాక్షిక దిగుమతి:"
+
+#, fuzzy
+#~| msgid "Partial Import:"
+#~ msgid "Partial import:"
+#~ msgstr "పాక్షిక దిగుమతి:"
+
+#, fuzzy
+#~| msgid "Options"
+#~ msgid "Other options:"
+#~ msgstr "ఎంపికలు"
+
+#~ msgid "Language"
+#~ msgstr "భాష"
+
+#~ msgid "Version information"
+#~ msgstr "సంచిక సమాచారం"
+
+# మొదటి అనువాదము
+#~ msgid "pages"
+#~ msgstr "పుటలు"
+
+# మొదటి అనువాదము
+#~ msgid "Write requests"
+#~ msgstr "విన్నపములను వ్రాయుము"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Related Links"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Copy database to"
+#~ msgid "Go to database: %s"
+#~ msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
+
+#, fuzzy
+#~| msgid "Structure only"
+#~ msgid "Structure of %s"
+#~ msgstr "నిర్మాణం మాత్రమే"
+
+# మొదటి అనువాదము
+#~ msgid "Hide"
+#~ msgstr "దాచు"
+
+# మొదటి అనువాదము
+#~ msgid "Or"
+#~ msgstr "లేదా"
+
+# మొదటి అనువాదము
+#~ msgid "and then"
+#~ msgstr "మరియు తరువాత"
+
+# మొదటి అనువాదము
+#~ msgid "Go back to previous page"
+#~ msgstr "మునుపటి పుటకు వెళ్ళు"
+
+# మొదటి అనువాదము
+#~ msgid "Go back to this page"
+#~ msgstr "ఈ పుటకు తిరిగి వెళ్ళుము"
+
+#~ msgid "Value"
+#~ msgstr "విలువ"
+
+#~ msgctxt "None encoding conversion"
+#~ msgid "None"
+#~ msgstr "ఏమీలేదు"
+
+#~ msgid "Structure only"
+#~ msgstr "నిర్మాణం మాత్రమే"
+
+#~ msgid "Structure and data"
+#~ msgstr "నిర్మాణం, మరియు డేటా"
+
+#~ msgid "Data only"
+#~ msgstr "డేటా మాత్రమే"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Adjust privileges"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Fr"
+#~ msgid "From"
+#~ msgstr "శు"
+
+# మొదటి అనువాదము
+#~ msgid "Charset"
+#~ msgstr "అక్షరమాల"
+
+#~ msgid "Bulgarian"
+#~ msgstr "బల్గేరియన్"
+
+# మొదటి అనువాదము
+#~ msgid "Simplified Chinese"
+#~ msgstr "సరళ చైనీసు"
+
+# మొదటి అనువాదము
+#~ msgid "Traditional Chinese"
+#~ msgstr "సాంప్రదాయ చైనీస్"
+
+#~ msgid "Croatian"
+#~ msgstr "క్రొయోషియన్"
+
+# మొదటి అనువాదము
+#~ msgid "Czech"
+#~ msgstr "ఛెక్"
+
+#~ msgid "Danish"
+#~ msgstr "డానిష్"
+
+#~ msgid "English"
+#~ msgstr "ఆంగ్లం"
+
+#~ msgid "German"
+#~ msgstr "జర్మన్"
+
+#~ msgid "dictionary"
+#~ msgstr "నిఘంటువు"
+
+#~ msgid "Hungarian"
+#~ msgstr "హంగేరియన్"
+
+# మొదటి అనువాదము
+#~ msgid "Japanese"
+#~ msgstr "జపనీ"
+
+#~ msgid "Latvian"
+#~ msgstr "లాత్వియన్"
+
+#~ msgid "Lithuanian"
+#~ msgstr "లిథుయేనియన్"
+
+#~ msgid "Korean"
+#~ msgstr "కొరియన్"
+
+#~ msgid "Persian"
+#~ msgstr "పెర్షియన్"
+
+#~ msgid "Polish"
+#~ msgstr "పోలిష్"
+
+#~ msgid "West European"
+#~ msgstr "పశ్చిమ ఐరోపియన్"
+
+#~ msgid "Romanian"
+#~ msgstr "రొమేనియన్"
+
+# మొదటి అనువాదము
+#~ msgid "Slovak"
+#~ msgstr "స్లోవాక్"
+
+# మొదటి అనువాదము
+#~ msgid "Slovenian"
+#~ msgstr "స్లోవాక్ దేశరి"
+
+#~ msgid "Spanish"
+#~ msgstr "స్పానిష్"
+
+# మొదటి అనువాదము
+#~ msgid "Traditional Spanish"
+#~ msgstr "సాంప్రదాయ స్పానిష్"
+
+# మొదటి అనువాదము
+#~ msgid "Swedish"
+#~ msgstr "స్వీడీష్"
+
+# మొదటి అనువాదము
+#~ msgid "Thai"
+#~ msgstr "థాయ్"
+
+#~ msgid "Turkish"
+#~ msgstr "టర్కిష్"
+
+#~ msgid "Ukrainian"
+#~ msgstr "ఉక్రేనియన్"
+
+#~ msgid "Unicode"
+#~ msgstr "యూనికోడ్"
+
+# మొదటి అనువాదము
+#~ msgid "multilingual"
+#~ msgstr "బహు భాషా"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Vietnamese"
+#~ msgstr "పట్టిక పేరు"
+
+#~ msgid "Russian"
+#~ msgstr "రష్యన్"
+
+#~ msgid "Armenian"
+#~ msgstr "ఆర్మేనియన్"
+
+#~ msgid "Cyrillic"
+#~ msgstr "సిరిలిక్"
+
+#~ msgid "Arabic"
+#~ msgstr "అరబిక్"
+
+#~ msgid "Hebrew"
+#~ msgstr "హిబ్రూ"
+
+#~ msgid "Georgian"
+#~ msgstr "జార్జియన్"
+
+#~ msgid "Greek"
+#~ msgstr "గ్రీకు"
+
+# మొదటి అనువాదము
+#~ msgid "Czech-Slovak"
+#~ msgstr "ఛెక్-స్లోవాక్"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Groups:"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Functions:"
+#~ msgstr "అనుసంధానాలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "View"
+#~ msgid "Views:"
+#~ msgstr "చూపుము"
+
+# మొదటి అనువాదము
+#~ msgid "Show"
+#~ msgstr "చూపించు"
+
+#~ msgid "Home"
+#~ msgstr "ముంగిలి"
+
+#~ msgid "Log out"
+#~ msgstr "నిష్క్రమించు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Navigation panel settings"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Reload navigation panel"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Could not load class \"%1$s\""
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Columns"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Database operations"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Show"
+#~ msgid "Show hidden items"
+#~ msgstr "చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "View"
+#~ msgid "Views"
+#~ msgstr "చూపుము"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Select one…"
+#~ msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "No such column"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Table %s already exists!"
+#~ msgid "Primary key already exists."
+#~ msgstr "%s అనే పట్టిక ఇప్పటికే ఉంది!"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "+ Add a new primary key column"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Remove redundant columns"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Remove selected"
+#~ msgstr "పట్టిక పేరు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "No redundant column"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Sep"
+#~ msgid "Step 3."
+#~ msgstr "సెప్టె"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Improve table structure (Normalization):"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Rename database to"
+#~ msgid "Rename database to"
+#~ msgstr "డేటాబేసుకు ఈ పేరు పెట్టండి"
+
+#~ msgid "Database %s has been dropped."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది."
+
+# మొదటి అనువాదము
+#~ msgid "Remove database"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#~ msgid "Drop the database (DROP)"
+#~ msgstr "డేటాబేస్ ను తుడిచివేయి"
+
+#, fuzzy
+#~| msgid "Copy database to"
+#~ msgid "Copy database to"
+#~ msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
+
+#~ msgid "CREATE DATABASE before copying"
+#~ msgstr "కాపీ చేయబోయే ముందు డేటాబేస్ సృష్టించు"
+
+#~ msgid "Table comments"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#~ msgid "Table options"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Checksum table"
+#~ msgstr "పట్టికల్ని వాడు"
+
+# మొదటి అనువాదము
+#~ msgid "Analyze"
+#~ msgstr "విశదీకరించు"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgid "Coalesce"
+#~ msgstr "మూసివేయి"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Table %s has been moved to %s. Privileges have been adjusted."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Table %s has been copied to %s. Privileges have been adjusted."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#~ msgid "Show color"
+#~ msgstr "రంగుని చూపించు"
+
+#~ msgid "Welcome to %s"
+#~ msgstr "%sకి స్వాగతం"
+
+#~ msgid "Log in"
+#~ msgstr "ప్రవేశించు"
+
+# మొదటి అనువాదము
+#~ msgid "Username:"
+#~ msgstr "వాడుకరి పేరు:"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Server Choice:"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Can not find signon authentication script:"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Definition"
+#~ msgstr "వివరణ"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Table caption:"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Table caption (continued):"
+#~ msgstr "విషయ సూచిక"
+
+#~ msgid "Display comments"
+#~ msgstr "వ్యాఖ్యలను చూపించు"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Put columns names in the first row:"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "PHP Version:"
+#~ msgstr "చివరి కూర్పు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database:"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Data:"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Structure"
+#~ msgid "Structure:"
+#~ msgstr "నిర్మాణాకృతి"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Export table names"
+#~ msgstr "పట్టిక పేరు"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export table headers"
+#~ msgstr "ఎగుమతి పద్ధతి"
+
+#, fuzzy
+#~| msgid "data"
+#~ msgid "Dumping data"
+#~ msgstr "భోగట్టా"
+
+#, fuzzy
+#~| msgid "structure"
+#~ msgid "View structure"
+#~ msgstr "నిర్మాణాకృతి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "and then"
+#~ msgid "Stand in"
+#~ msgstr "మరియు తరువాత"
+
+#, fuzzy
+#~| msgid "Export method"
+#~ msgid "Export metadata"
+#~ msgstr "ఎగుమతి పద్ధతి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add statements:"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Use this value"
+#~ msgid "%s value"
+#~ msgstr "ఈ విలువని ఉపయోగించు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Data creation options"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "data"
+#~ msgid "Metadata"
+#~ msgstr "భోగట్టా"
+
+#, fuzzy
+#~| msgid "Copy database to"
+#~ msgid "Metadata for database %s"
+#~ msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
+
+#, fuzzy
+#~| msgid "Creation"
+#~ msgid "Creation:"
+#~ msgstr "సృష్టి"
+
+#, fuzzy
+#~| msgid "Last update"
+#~ msgid "Last update:"
+#~ msgstr "చివరి మార్పు"
+
+#, fuzzy
+#~| msgid "Last check"
+#~ msgid "Last check:"
+#~ msgstr "చివరి చూపు"
+
+# మొదటి అనువాదము
+#~ msgid "in use"
+#~ msgstr "వాడుకలో ఉన్నది"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Indexes for dumped tables"
+#~ msgstr "పట్టికల్ని వాడు"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Indexes for table"
+#~ msgstr "పట్టికల్ని వాడు"
+
+#, fuzzy
+#~| msgid "Table"
+#~ msgid "Table:"
+#~ msgstr "పట్టిక"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Column names: "
+#~ msgstr "వ్యాఖ్యలు"
+
+#~ msgid "MediaWiki Table"
+#~ msgstr "మీడియావికీ పట్టిక"
+
+#, fuzzy
+#~| msgid "Open Document"
+#~ msgid "Could not parse OpenDocument Spreadsheet!"
+#~ msgstr "ఓపెన్ డాక్యుమెంట్"
+
+#~ msgid "Orientation"
+#~ msgstr "దిశ"
+
+#, fuzzy
+#~| msgid "Print"
+#~ msgid "Portrait"
+#~ msgstr "ముద్రించు"
+
+#, fuzzy
+#~| msgid "dictionary"
+#~ msgid "Data dictionary"
+#~ msgstr "నిఘంటువు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Order of the tables"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Ascending"
+#~ msgid "Name (Ascending)"
+#~ msgstr "ఆరోహణ"
+
+#, fuzzy
+#~| msgid "Descending"
+#~ msgid "Name (Descending)"
+#~ msgstr "అవరోహణ"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "PDF export page"
+#~ msgstr "చెల్లని ఎగుమతి రకం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Schema of the %s database"
+#~ msgstr "పట్టికను సృష్టించు"
+
+#~ msgid "Table of contents"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "FOREIGN KEY relation has been added."
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Error: FOREIGN KEY relation could not be added!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relation has been added."
+#~ msgstr "అంతర్గత సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Error: Internal relation could not be added!"
+#~ msgstr "అంతర్గత సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "FOREIGN KEY relation has been removed."
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Error: FOREIGN KEY relation could not be removed!"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Error: Internal relation could not be removed!"
+#~ msgstr "అంతర్గత సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "Internal relation has been removed."
+#~ msgstr "అంతర్గత సంబంధాలు"
+
+#, fuzzy
+#~| msgid "OK"
+#~ msgctxt "Correctly working"
+#~ msgid "OK"
+#~ msgstr "సరే"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Configuration of pmadb…"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#~ msgid "SQL history"
+#~ msgstr "SQL చరిత్ర"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Persistent favorite tables"
+#~ msgstr "విషయ సూచిక"
+
+#~ msgid "User preferences"
+#~ msgstr "వాడుకరి అభిరుచులు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Configurable menus"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "Saving export templates"
+#~ msgstr "చెల్లని ఎగుమతి రకం"
+
+#~ msgid "no description"
+#~ msgstr "వివరణ లేదు"
+
+#, fuzzy
+#~| msgid "% aborted connections"
+#~ msgid "Master connection:"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "User name:"
+#~ msgstr "వాడుకరి పేరు"
+
+#~ msgid "User name"
+#~ msgstr "వాడుకరి పేరు"
+
+#~ msgid "Password"
+#~ msgstr "సంకేతపదం"
+
+#~ msgid "Local"
+#~ msgstr "స్థానిక"
+
+# మొదటి అనువాదము
+#~ msgid "Any user"
+#~ msgstr "ఏ వాడుకరి ఐనను"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add new field"
+#~ msgid "Use text field:"
+#~ msgstr "క్రొత్త ఫీల్డ్ చేర్చు"
+
+#~ msgid "Re-type"
+#~ msgstr "మళ్ళీ టైపుచెయ్యండి"
+
+#, fuzzy
+#~| msgid "Change Password"
+#~ msgid "Generate password:"
+#~ msgstr "సంకేతపదాన్ని మార్చు"
+
+#, fuzzy
+#~| msgid "Error"
+#~ msgid "Error."
+#~ msgstr "పొరపాటు"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Event %1$s has been modified."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Page has been created."
+#~ msgid "Event %1$s has been created."
+#~ msgstr "పుటను సృష్టించడమైనది"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Edit event"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Details…"
+#~ msgid "Details"
+#~ msgstr "వివరాలు…"
+
+#, fuzzy
+#~| msgid "New name"
+#~ msgid "Event name"
+#~ msgstr "కొత్త పేరు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Change to %s"
+#~ msgstr "మార్చుము"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgctxt "Start of recurring event"
+#~ msgid "Start"
+#~ msgstr "మొదలుపెట్టు"
+
+#, fuzzy
+#~| msgid "End"
+#~ msgctxt "End of recurring event"
+#~ msgid "End"
+#~ msgstr "ముగింపు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Returns"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Page has been created."
+#~ msgid "Routine %1$s has been created."
+#~ msgstr "పుటను సృష్టించడమైనది"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Routine %1$s has been modified. Privileges have been adjusted."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Routine %1$s has been modified."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Routine name"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Direct links"
+#~ msgid "Direction"
+#~ msgstr "నేరు లంకెలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Remove last parameter"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#, fuzzy
+#~| msgid "Length/Values"
+#~ msgid "Return length/values"
+#~ msgstr "పొడవు/విలువలు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Return options"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Security"
+#~ msgid "Security type"
+#~ msgstr "భద్రత"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Trigger %1$s has been modified."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Page has been created."
+#~ msgid "Trigger %1$s has been created."
+#~ msgstr "పుటను సృష్టించడమైనది"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Edit trigger"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "Trigger name"
+#~ msgstr "వాడుకరి పేరు"
+
+#, fuzzy
+#~| msgid "Time"
+#~ msgctxt "Trigger action time"
+#~ msgid "Time"
+#~ msgstr "సమయం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add routine"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "routine"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "No tables found in database."
+#~ msgid "No routine with name %1$s found in database %2$s"
+#~ msgstr "డేటాబేస్ లో ఏ పట్టికలు లేవు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add trigger"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "trigger"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "No tables found in database."
+#~ msgid "No trigger with name %1$s found in database %2$s"
+#~ msgstr "డేటాబేస్ లో ఏ పట్టికలు లేవు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add event"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "No tables found in database."
+#~ msgid "No event with name %1$s found in database %2$s"
+#~ msgstr "డేటాబేస్ లో ఏ పట్టికలు లేవు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Current server:"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#~ msgctxt "None privileges"
+#~ msgid "None"
+#~ msgstr "ఏమీలేవు"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Does not require SSL-encrypted connections."
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Requires SSL-encrypted connections."
+#~ msgstr "అనుసంధానాలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Routine"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#~ msgid "Administration"
+#~ msgstr "పరిపాలన"
+
+#, fuzzy
+#~| msgid "Global value"
+#~ msgid "Global"
+#~ msgstr "సార్వత్రిక విలువ"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Native MySQL authentication"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Change password"
+#~ msgid "SHA256 password authentication"
+#~ msgstr "సంకేతపదాన్ని మార్చు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Native MySQL Authentication"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#~ msgid "Login Information"
+#~ msgstr "ప్రవేశపు సమాచారం"
+
+#, fuzzy
+#~| msgid "User name"
+#~ msgid "Host name:"
+#~ msgstr "వాడుకరి పేరు"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Host name"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "Authentication Plugin"
+#~ msgstr "అధీకరణ"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Password Hashing Method"
+#~ msgstr "సంకేతపదం:"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Any user"
+#~ msgid "Add user account"
+#~ msgstr "ఏ వాడుకరి ఐనను"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Database for user account"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "User has been added."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#~ msgid "No user found."
+#~ msgstr "వాడుకరి కనబడలేదు."
+
+# మొదటి అనువాదము
+#~ msgid "Any"
+#~ msgstr "ఏదైనను"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Edit privileges"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+# మొదటి అనువాదము
+#~ msgid "… keep the old one."
+#~ msgstr "… పాతదే ఉంచుము."
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Routine-specific privileges"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Remove selected user accounts"
+#~ msgstr "పట్టిక పేరు"
+
+#~ msgid "The user %s already exists!"
+#~ msgstr "%s అనే వాడుకరి ఇప్పటికే ఉన్నారు!"
+
+#~ msgid "User"
+#~ msgstr "వాడుకరి"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Edit privileges:"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "User account"
+#~ msgstr "వాడుకరి"
+
+#, fuzzy
+#~| msgid "Overview"
+#~ msgid "User accounts overview"
+#~ msgstr "అవలోకనం"
+
+# మొదటి అనువాదము
+#~ msgid "You have added a new user."
+#~ msgstr "మీరు క్రొత్త వాడుకరిని చేర్చారు."
+
+# మొదటి అనువాదము
+#~ msgid "Sent"
+#~ msgstr "పంపించు"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Max. concurrent connections"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Administration"
+#~ msgid "Instructions"
+#~ msgstr "పరిపాలన"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Log statistics"
+#~ msgstr "గణాంకాలను చూపించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add chart"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Default title"
+#~ msgid "Chart Title"
+#~ msgstr "అప్రమేయ శీర్షిక"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Preset chart"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add this series"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Series in chart:"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Start Monitor"
+#~ msgstr "మొదలుపెట్టు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Chart columns"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Leave blank for defaults"
+#~ msgid "Reset to default"
+#~ msgstr "అప్రమేయాలకై ఖాళీగా వదిలివేయండి"
+
+# మొదటి అనువాదము
+#~ msgid "Command"
+#~ msgstr "ఆజ్ఞ"
+
+#, fuzzy
+#~| msgid "per hour"
+#~ msgid "per hour:"
+#~ msgstr "గంటకి"
+
+#, fuzzy
+#~| msgid "per minute"
+#~ msgid "per minute:"
+#~ msgstr "నిమిషానికి"
+
+#, fuzzy
+#~| msgid "per second"
+#~ msgid "per second:"
+#~ msgstr "క్షణానికి"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Related links:"
+#~ msgstr "సంబంధాలు"
+
+# మొదటి అనువాదము
+#~ msgid "The number of pages created."
+#~ msgstr "సృష్టించబడిన పుటల సంఖ్య."
+
+# మొదటి అనువాదము
+#~ msgid "The number of pages read."
+#~ msgstr "చదివిన పుటల సంఖ్య."
+
+# మొదటి అనువాదము
+#~ msgid "The number of pages written."
+#~ msgstr "వ్రాసిన పుటల సంఖ్య."
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "User groups"
+#~ msgstr "వాడుకరి"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Server level tabs"
+#~ msgstr "చివరి కూర్పు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database level tabs"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Table level tabs"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "View"
+#~ msgid "View users"
+#~ msgstr "చూపుము"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Any user"
+#~ msgid "Add user group"
+#~ msgstr "ఏ వాడుకరి ఐనను"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Group name:"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Server-level tabs"
+#~ msgstr "చివరి కూర్పు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Database-level tabs"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Table-level tabs"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "State"
+#~ msgstr "మొదలుపెట్టు"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total Time"
+#~ msgstr "మొత్తం"
+
+#, fuzzy
+#~| msgid "Time"
+#~ msgid "% Time"
+#~ msgstr "సమయం"
+
+#, fuzzy
+#~| msgid "Close"
+#~ msgid "Calls"
+#~ msgstr "మూసివేయి"
+
+#, fuzzy
+#~| msgid "Time"
+#~ msgid "ø Time"
+#~ msgstr "సమయం"
+
+#, fuzzy
+#~| msgid "Data Label"
+#~ msgid "Label:"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Bad parameters!"
+#~ msgid "Bind parameters"
+#~ msgstr "చెల్లని పరామితులు!"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Create version %1$s of %2$s"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Create version %1$s"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Delete version"
+#~ msgstr "చివరి కూర్పు"
+
+#, fuzzy
+#~| msgid "data"
+#~ msgid "No data"
+#~ msgstr "భోగట్టా"
+
+#~ msgid "Date"
+#~ msgstr "తేదీ"
+
+#~ msgid "Username"
+#~ msgstr "వాడుకరిపేరు"
+
+#~ msgctxt "None for default"
+#~ msgid "None"
+#~ msgstr "ఏమీలేదు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Version %1$s of %2$s was deleted."
+#~ msgstr "మరిన్ని అమరికలు"
+
+#~ msgid "Last version"
+#~ msgstr "చివరి కూర్పు"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Delete tracking"
+#~ msgstr "తొలగించు"
+
+#, fuzzy
+#~| msgid "Basic settings"
+#~ msgid "Manage your settings"
+#~ msgstr "ప్రాధమిక అమరికలు"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Configuration has been saved."
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Could not save configuration"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Could not import configuration"
+#~ msgstr "సేవకి స్వరూపణం"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Merge with current configuration"
+#~ msgstr "సేవకి స్వరూపణం"
+
+# మొదటి అనువాదము
+#~ msgid "Download"
+#~ msgstr "దించుకొనుము"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "Configuration saved."
+#~ msgstr "సేవకి స్వరూపణం"
+
+#~ msgid "Overview"
+#~ msgstr "అవలోకనం"
+
+#~ msgid "Default language"
+#~ msgstr "అప్రమేయ భాష"
+
+#~ msgid "let the user choose"
+#~ msgstr "వాడుకరిని ఎంచుకోనివ్వు"
+
+#~ msgid "- none -"
+#~ msgstr "- ఏమీలేదు -"
+
+# మొదటి అనువాదము
+#~ msgid "End of line"
+#~ msgstr "వాక్యాంతము"
+
+#~ msgid "Warning"
+#~ msgstr "హెచ్చరిక"
+
+#, fuzzy
+#~| msgid "data"
+#~ msgid "Wrong data"
+#~ msgstr "భోగట్టా"
+
+#~ msgid "Table %s already exists!"
+#~ msgstr "%s అనే పట్టిక ఇప్పటికే ఉంది!"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "No row selected."
+#~ msgstr "పట్టిక పేరు"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Tracking versions deleted successfully."
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "No versions selected."
+#~ msgstr "పట్టిక పేరు"
+
+#~ msgctxt "for default"
+#~ msgid "None"
+#~ msgstr "ఏమీలేదు"
+
+#~ msgid "Table name"
+#~ msgstr "పట్టిక పేరు"
+
+#, fuzzy
+#~| msgid "Creation"
+#~ msgid "Collation:"
+#~ msgstr "సృష్టి"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Connection:"
+#~ msgstr "అనుసంధానాలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Pick from Central Columns"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "After %s"
+#~ msgid "after %s"
+#~ msgstr "%s మార్లు తరువాత"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition by:"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Values for column %s"
+#~ msgid "Expression or column list"
+#~ msgstr "%s నిలువు వరుసకు విలువలు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partitions:"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartition by:"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartitions:"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Value"
+#~ msgid "Values"
+#~ msgstr "విలువ"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Subpartition"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "dictionary"
+#~ msgid "Data directory"
+#~ msgstr "నిఘంటువు"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Max rows"
+#~ msgstr "మొదలుపెట్టు"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Min rows"
+#~ msgstr "మొదలుపెట్టు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Table space"
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "Node group"
+#~ msgstr "వాడుకరి"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Move column"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Version information"
+#~ msgid "Browser display transformation"
+#~ msgstr "సంచిక సమాచారం"
+
+#, fuzzy
+#~| msgid "Version information"
+#~ msgid "Browser display transformation options"
+#~ msgstr "సంచిక సమాచారం"
+
+#, fuzzy
+#~| msgid "Information"
+#~ msgid "Input transformation"
+#~ msgstr "సమాచారం"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Input transformation options"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Create"
+#~ msgid "Aggregate"
+#~ msgstr "సృష్టించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Show/hide columns"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "See table structure"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Page titles"
+#~ msgid "Page to open"
+#~ msgstr "పుట శీర్షికలు"
+
+#, fuzzy
+#~| msgid "Page titles"
+#~ msgid "Page to delete"
+#~ msgstr "పుట శీర్షికలు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Relation operator"
+#~ msgstr "సంబంధాలు"
+
+#~ msgid "New name"
+#~ msgstr "కొత్త పేరు"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Save to selected page"
+#~ msgstr "పట్టిక పేరు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Create a page"
+#~ msgid "Create a page and save to it"
+#~ msgstr "పుటని సృష్టించు"
+
+#, fuzzy
+#~| msgid "New page name: "
+#~ msgid "New page name"
+#~ msgstr "కొత్త పుట పేరు: "
+
+#~ msgid "Active options"
+#~ msgstr "క్రియాశీల ఎంపికలు"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Show/Hide tables list"
+#~ msgstr "అన్నీ చూపించు"
+
+#, fuzzy
+#~| msgid "New name"
+#~ msgid "New page"
+#~ msgstr "కొత్త పేరు"
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Delete pages"
+#~ msgstr "తొలగించు"
+
+#~ msgid "Help"
+#~ msgstr "సహాయం"
+
+#~ msgid "Direct links"
+#~ msgstr "నేరు లంకెలు"
+
+# మొదటి అనువాదము
+#~ msgid "Small/Big All"
+#~ msgstr "చిన్నవి / పెద్దవి అన్నియు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Page creation failed"
+#~ msgid "Toggle relation lines"
+#~ msgstr "పుటని సృష్టించుటలో తప్పిదము జరిగినది"
+
+#, fuzzy
+#~| msgid "Export"
+#~ msgid "Export schema"
+#~ msgstr "ఎగుమతి"
+
+#, fuzzy
+#~| msgid "Partial texts"
+#~ msgid "Pin text"
+#~ msgstr "పాక్షిక పాఠ్యాలు"
+
+# మొదటి అనువాదము
+#~ msgid "Hide/Show all"
+#~ msgstr "అన్నింటిని చూపుము/దాచుము"
+
+#~ msgid "%s table"
+#~ msgid_plural "%s tables"
+#~ msgstr[0] "%s పట్టిక"
+#~ msgstr[1] "%s పట్టికలు"
+
+# మొదటి అనువాదము
+#~ msgid "Sum"
+#~ msgstr "మొత్తము"
+
+#, fuzzy
+#~| msgid "Copy database to"
+#~ msgid "Copy table"
+#~ msgstr "డేటాబేస్ ను ఇక్కడికి కాపీ చేయి"
+
+#, fuzzy
+#~| msgid "Show color"
+#~ msgid "Show create"
+#~ msgstr "రంగుని చూపించు"
+
+#, fuzzy
+#~| msgid "Display table filter"
+#~ msgid "Replace table prefix"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add columns to central list"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Make consistent with central list"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Add to Favorites"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+# మొదటి అనువాదము
+#~ msgid "Sort"
+#~ msgstr "క్రమంలో పేర్చు"
+
+#~ msgid "Size"
+#~ msgstr "పరిమాణం"
+
+#~ msgid "Creation"
+#~ msgstr "సృష్టి"
+
+#~ msgid "Last update"
+#~ msgstr "చివరి మార్పు"
+
+#~ msgid "Last check"
+#~ msgstr "చివరి చూపు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Create database"
+#~ msgstr "పట్టికను సృష్టించు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Check privileges"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Disable Statistics"
+#~ msgid "disabled"
+#~ msgstr "గణాంకాలని అచేతనంచేయి"
+
+#~ msgid "Global value"
+#~ msgstr "సార్వత్రిక విలువ"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Start row:"
+#~ msgstr "మొదలుపెట్టు"
+
+#, fuzzy
+#~| msgid "Mar"
+#~ msgctxt "Chart type"
+#~ msgid "Bar"
+#~ msgstr "మార్చి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Command"
+#~ msgctxt "Chart type"
+#~ msgid "Column"
+#~ msgstr "ఆజ్ఞ"
+
+#, fuzzy
+#~| msgid "PiB"
+#~ msgctxt "Chart type"
+#~ msgid "Pie"
+#~ msgstr "పిబై"
+
+#, fuzzy
+#~| msgid "Time"
+#~ msgctxt "Chart type"
+#~ msgid "Timeline"
+#~ msgstr "సమయం"
+
+#, fuzzy
+#~| msgid "Default title"
+#~ msgid "Chart title:"
+#~ msgstr "అప్రమేయ శీర్షిక"
+
+#, fuzzy
+#~| msgid "Value"
+#~ msgid "X Values"
+#~ msgstr "విలువ"
+
+#, fuzzy
+#~| msgid "Value"
+#~ msgid "Y Values"
+#~ msgstr "విలువ"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Series column:"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Values for column %s"
+#~ msgid "Value Column:"
+#~ msgstr "%s నిలువు వరుసకు విలువలు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "Label column"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "- none -"
+#~ msgid "-- None --"
+#~ msgstr "- ఏమీలేదు -"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Spatial column"
+#~ msgstr "మొత్తం"
+
+#, fuzzy
+#~| msgid "User"
+#~ msgid "Parser:"
+#~ msgstr "వాడుకరి"
+
+#, fuzzy
+#~| msgid "Comment"
+#~ msgid "Comment:"
+#~ msgstr "వ్యాఖ్య"
+
+#, fuzzy
+#~| msgid "Action"
+#~ msgid "Actions"
+#~ msgstr "చర్య"
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Constraint properties"
+#~ msgstr "వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Add a New User"
+#~ msgid "+ Add constraint"
+#~ msgstr "కొత్త వాడుకరిని చేర్చు"
+
+#~ msgid "Internal relations"
+#~ msgstr "అంతర్గత సంబంధాలు"
+
+#~ msgid "Internal relation"
+#~ msgstr "అంతర్గత సంబంధం"
+
+#, fuzzy
+#~| msgid "data"
+#~ msgid "Choose column to display:"
+#~ msgstr "భోగట్టా"
+
+#, fuzzy
+#~| msgid "Database %s has been dropped."
+#~ msgid "Foreign key constraint %s has been dropped"
+#~ msgstr "%s డేటాబేస్ తుడిచివేయడమైనది."
+
+#, fuzzy
+#~| msgid "Comments"
+#~ msgid "Constraint name"
+#~ msgstr "వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "+ Add column"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "Original position"
+#~ msgid "Original string"
+#~ msgstr "అసలు స్థానం"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Replaced string"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Replace with:"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Relation view"
+#~ msgstr "సంబంధాలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Remove from central columns"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add to central columns"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Add %s column(s)"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "at beginning of table"
+#~ msgstr "పట్టికను సృష్టించు"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partitions"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Original position"
+#~ msgid "Data length"
+#~ msgstr "అసలు స్థానం"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Partition table"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Edit partitioning"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Edit view"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Table comments:"
+#~ msgid "Table comments: "
+#~ msgstr "పట్టిక వ్యాఖ్యలు:"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Move columns"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Improve table structure"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Create"
+#~ msgid "Track view"
+#~ msgstr "సృష్టించు"
+
+#, fuzzy
+#~| msgid "Row Statistics"
+#~ msgid "Row statistics"
+#~ msgstr "వరుసల గణాంకాలు"
+
+#~ msgid "Get more themes!"
+#~ msgstr "మరిన్ని అలంకారాలను పొందండి!"
+
+#, fuzzy
+#~| msgid "Version information"
+#~ msgid "Available browser display transformations"
+#~ msgstr "సంచిక సమాచారం"
+
+#, fuzzy
+#~| msgid "Version information"
+#~ msgid "Available input transformations"
+#~ msgstr "సంచిక సమాచారం"
+
+#~ msgctxt "for MIME transformation"
+#~ msgid "Description"
+#~ msgstr "వివరణ"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Taking you to the target site."
+#~ msgstr "మార్చుము"
+
+# మొదటి అనువాదము
+#~ msgid "VIEW name"
+#~ msgstr "నామధేయమును చూపుము"
+
+#, fuzzy
+#~| msgid "Drop the database (DROP)"
+#~ msgid "Delete the view (DROP)"
+#~ msgstr "డేటాబేస్ ను తుడిచివేయి"
+
+#, fuzzy
+#~| msgid "Relations"
+#~ msgid "Questions below 1,000"
+#~ msgstr "సంబంధాలు"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Current amount of Questions: %s"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Percentage of slow queries"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Current version: %s"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#, fuzzy
+#~| msgid "Last version"
+#~ msgid "Minor Version"
+#~ msgstr "చివరి కూర్పు"
+
+#, fuzzy
+#~| msgid "Description"
+#~ msgid "Distribution"
+#~ msgstr "వివరణ"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query cache disabled"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query caching method"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query Cache usage"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query cache fragmentation"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query cache low memory prunes"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query cache max size"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "More settings"
+#~ msgid "Current query cache size: %s"
+#~ msgstr "మరిన్ని అమరికలు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query cache min result size"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Percentage of sorts that cause temporary tables"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Sort rows"
+#~ msgstr "మొదలుపెట్టు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Rate of reading first index entry"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "The rate of reading the first index entry is high."
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Rate of reading fixed position"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "The rate of reading data from a fixed position is high."
+#~ msgstr "విషయ సూచిక"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Rate of reading next table row"
+#~ msgstr "పట్టికను సృష్టించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "The rate of reading the next table row is high."
+#~ msgstr "పట్టికను సృష్టించు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Percentage of temp tables on disk"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "%s table"
+#~| msgid_plural "%s tables"
+#~ msgid "Temp disk rate"
+#~ msgstr "%s పట్టిక"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Percentage of MyISAM key buffer used"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Percentage of index reads from memory"
+#~ msgstr "అనుసంధానాలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Rate of table open"
+#~ msgstr "పట్టికను సృష్టించు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "The rate of opening tables is high."
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Percentage of used open files limit"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Rate of open files"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "The rate of opening files is high."
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Percentage of used connections"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Percentage of aborted connections"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "Rate of aborted connections"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Percentage of aborted clients"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Table of contents"
+#~ msgid "Rate of aborted clients"
+#~ msgstr "విషయ సూచిక"
+
+#, fuzzy
+#~| msgid "Server configuration"
+#~ msgid "You do not have InnoDB enabled."
+#~ msgstr "సేవకి స్వరూపణం"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Total %d bookmark"
+#~ msgid_plural "Total %d bookmarks"
+#~ msgstr[0] "శోధించు"
+#~ msgstr[1] "శోధించు"
+
+#, fuzzy
+#~| msgid "Display table filter"
+#~ msgid "Replace table prefix:"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Display table filter"
+#~ msgid "Copy table with prefix:"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "Create database:"
+#~ msgstr "పట్టికను సృష్టించు"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "tables"
+#~ msgstr "పట్టికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "View"
+#~ msgid "views"
+#~ msgstr "చూపుము"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgctxt "short form"
+#~| msgid "Create table"
+#~ msgid "events"
+#~ msgstr "పట్టికను సృష్టించు"
+
+#, fuzzy
+#~| msgid "Connections"
+#~ msgid "functions"
+#~ msgstr "అనుసంధానాలు"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Filter databases by name or regex"
+#~ msgstr "పట్టిక పేరు"
+
+#, fuzzy
+#~| msgid "Table name"
+#~ msgid "Filter by name or regex"
+#~ msgstr "పట్టిక పేరు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Change"
+#~ msgid "Taking you to %s."
+#~ msgstr "మార్చుము"
+
+#, fuzzy
+#~| msgid "Authentication"
+#~ msgid "MySQL Native Authentication"
+#~ msgstr "అధీకరణ"
+
+#, fuzzy
+#~| msgid "Change Password"
+#~ msgid "MySQL native password"
+#~ msgstr "సంకేతపదాన్ని మార్చు"
+
+#~ msgid "Change Password"
+#~ msgstr "సంకేతపదాన్ని మార్చు"
+
+#~ msgid "Select All"
+#~ msgstr "అన్నీ ఎంచుకో"
+
+# మొదటి అనువాదము
+#~ msgid "Database(s):"
+#~ msgstr "డేటాబేసు(లు):"
+
+#~ msgid "Table(s):"
+#~ msgstr "పట్టిక(లు):"
+
+# మొదటి అనువాదము
+#~ msgid "Begin"
+#~ msgstr "మొదలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Any user"
+#~ msgid "Add user"
+#~ msgstr "ఏ వాడుకరి ఐనను"
+
+#~ msgid "Export Method:"
+#~ msgstr "ఎగుమతి పద్ధతి:"
+
+#, fuzzy
+#~| msgid "General"
+#~ msgid "Generated by:"
+#~ msgstr "సాధారణ"
+
+#, fuzzy
+#~| msgid "Row Statistics"
+#~ msgid "Row Statistics:"
+#~ msgstr "వరుసల గణాంకాలు"
+
+#, fuzzy
+#~| msgid "Swap Usage"
+#~ msgid "Space usage:"
+#~ msgstr "వాడుక"
+
+#, fuzzy
+#~| msgid "Show all"
+#~ msgid "Showing tables:"
+#~ msgstr "అన్నీ చూపించు"
+
+#, fuzzy
+#~| msgid "Tables"
+#~ msgid "(Enabled)"
+#~ msgstr "పట్టికలు"
+
+#, fuzzy
+#~| msgid "Disable Statistics"
+#~ msgid "(Disabled)"
+#~ msgstr "గణాంకాలని అచేతనంచేయి"
+
+#, fuzzy
+#~| msgid "Add a new User"
+#~ msgid "Realign Privileges"
+#~ msgstr "క్రొత్త వాడుకరిని చేర్చు"
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Save positions as"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+#~ msgid "Unknown language: %1$s."
+#~ msgstr "తెలియని భాష: %1$s."
+
+#, fuzzy
+#~| msgid "Table options"
+#~ msgid "Disable database expansion"
+#~ msgstr "పట్టిక ఎంపికలు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Table Structure"
+#~ msgstr "డేటాబేస్"
+
+#, fuzzy
+#~| msgid "Start"
+#~ msgid "Show data row(s)."
+#~ msgstr "మొదలుపెట్టు"
+
+# మొదటి అనువాదము
+#~ msgid "Show/Hide left menu"
+#~ msgstr "ఎడమవైపున మెనుని చూపించు/దాచు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "After %s"
+#~ msgid "after"
+#~ msgstr "%s మార్లు తరువాత"
+
+#, fuzzy
+#~| msgid "More"
+#~ msgid "Mode:"
+#~ msgstr "మరిన్ని"
+
+#, fuzzy
+#~| msgid "Show more actions"
+#~ msgid "Show display direction"
+#~ msgstr "మరిన్ని చర్యలను చూపించు"
+
+# మొదటి అనువాదము
+#~ msgid "After %s"
+#~ msgstr "%s మార్లు తరువాత"
+
+#, fuzzy
+#~| msgid "Display logo"
+#~ msgid "Display errors"
+#~ msgstr "చిహ్నాన్ని చూపించు"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "Dia export page"
+#~ msgstr "చెల్లని ఎగుమతి రకం"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "EPS export page"
+#~ msgstr "చెల్లని ఎగుమతి రకం"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "SVG export page"
+#~ msgstr "చెల్లని ఎగుమతి రకం"
+
+#, fuzzy
+#~| msgid "SQL history"
+#~ msgid "SQL history:"
+#~ msgstr "SQL చరిత్ర"
+
+#, fuzzy
+#~| msgid "Disable Statistics"
+#~ msgid "Plugin is disabled"
+#~ msgstr "గణాంకాలని అచేతనంచేయి"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Hide/Show all"
+#~ msgid "Unlink with main panel"
+#~ msgstr "అన్నింటిని చూపుము/దాచుము"
+
+#, fuzzy
+#~| msgid "Export type"
+#~ msgid "eps export page"
+#~ msgstr "ఎగుమతి రకం"
+
+#, fuzzy
+#~| msgid "Invalid export type"
+#~ msgid "pdf export page"
+#~ msgstr "చెల్లని ఎగుమతి రకం"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total "
+#~ msgstr "మొత్తం"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid " bookmarks, "
+#~ msgstr "శోధించు"
+
+#, fuzzy
+#~| msgid "Add/Delete columns"
+#~ msgid "Select one ..."
+#~ msgstr "నిలువ వరుసల్ని చేర్చు/తొలగించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Have unique columns"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+#, fuzzy
+#~| msgid "The user %s already exists!"
+#~ msgid "Unique column(s) already exist"
+#~ msgstr "%s అనే వాడుకరి ఇప్పటికే ఉన్నారు!"
+
+# మొదటి అనువాదము
+#~ msgid "Page has been created."
+#~ msgstr "పుటను సృష్టించడమైనది"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Page creation failed"
+#~ msgid "Page creation has failed!"
+#~ msgstr "పుటని సృష్టించుటలో తప్పిదము జరిగినది"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Page"
+#~ msgid "Page:"
+#~ msgstr "పుట"
+
+#, fuzzy
+#~| msgid "SQL history"
+#~ msgid "SQL Validator"
+#~ msgstr "SQL చరిత్ర"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Add into comments"
+#~ msgid "Edit chart"
+#~ msgstr "స్పందనలకు చేర్చు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Swedish"
+#~ msgid "Series"
+#~ msgstr "స్వీడీష్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Database"
+#~ msgid "Reload Database"
+#~ msgstr "డేటాబేస్"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "You have added a new user."
+#~ msgid "Table must have at least one column"
+#~ msgstr "మీరు క్రొత్త వినియోగదారుని చేర్చారు"
+
+#, fuzzy
+#~| msgid "Use Tables"
+#~ msgid "Insert Table"
+#~ msgstr "పట్టికల్ని వాడు"
+
+#, fuzzy
+#~| msgid "Show statistics"
+#~ msgid "Query results"
+#~ msgstr "గణాంకాలను చూపించు"
+
+#~ msgid "This is not a number!"
+#~ msgstr "ఇది సంఖ్య కాదు!"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Find:"
+#~ msgid "Find"
+#~ msgstr "వెతుకు"
+
+# Research అంటే పరిశోధన, అందువల్లన ఇది శోధనైంది
+#, fuzzy
+#~| msgid "Search"
+#~ msgid "Enable reCaptcha"
+#~ msgstr "శోధించు"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Remove database"
+#~ msgid "Rearrange/edit charts"
+#~ msgstr "డేటాబేస్ తొలగించండి"
+
+#, fuzzy
+#~| msgid "Internal relations"
+#~ msgid "General relation features:"
+#~ msgstr "అంతర్గత సంబంధాలు"
+
+#~ msgid "Width"
+#~ msgstr "వెడల్పు"
+
+#~ msgid "Height"
+#~ msgstr "ఎత్తు"
+
+#, fuzzy
+#~| msgid "Total"
+#~ msgid "Total count"
+#~ msgstr "మొత్తం"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~| msgid "Analyze"
+#~ msgid "Run analyzer"
+#~ msgstr "విశదీకరించు"
+
+#~ msgid "Difference"
+#~ msgstr "తేడా"
+
+# మొదటి అనువాదము
+#~ msgctxt "MySQL 5.5 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "MySQL 5.1 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgctxt "MySQL 5.0 documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+# మొదటి అనువాదము
+#~ msgctxt "PHP documentation language"
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgid "PDF"
+#~ msgstr "PDF"
+
+#~ msgid "Usage"
+#~ msgstr "వాడుక"
+
+#~ msgid "Show help button"
+#~ msgstr "సహాయపు బొత్తాన్ని చూపించు"
+
+#, fuzzy
+#~| msgid "Table comments"
+#~ msgid "The remaining columns"
+#~ msgstr "పట్టిక వ్యాఖ్యలు"
+
+#, fuzzy
+#~| msgid "Data only"
+#~ msgid "Dates only."
+#~ msgstr "డేటా మాత్రమే"
+
+# మొదటి అనువాదము
+#~ msgid "Suggest new database name"
+#~ msgstr "క్రొత్త డేటాబేస్ పేరును సూచించుము"
+
+# మొదటి అనువాదము
+#~ msgid "Add a value"
+#~ msgstr "విలువను చేర్చు"
+
+#, fuzzy
+#~ msgctxt "Correctly setup"
+#~ msgid "OK"
+#~ msgstr "సరే"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~ msgid "All users"
+#~ msgstr "ఏ వాడుకరి ఐనను"
+
+# మొదటి అనువాదము
+#, fuzzy
+#~ msgid "PBMS connection failed:"
+#~ msgstr "పుటని సృష్టించుటలో తప్పిదము జరిగినది"
+
+# మొదటి అనువాదము
+#~ msgid "View image"
+#~ msgstr "చిత్రమును చూపుము"
+
+# మొదటి అనువాదము
+#~ msgid "View video"
+#~ msgstr "వీడియోను చూపుము"
+
+#, fuzzy
+#~ msgctxt "Create none database for user"
+#~ msgid "None"
+#~ msgstr "కాదు"
+
+#~ msgid "Create Table"
+#~ msgstr "పుటని సృష్టించు"
+
+#~ msgid "Location of the text file"
+#~ msgstr "పాఠ్యపు దస్త్రం యొక్క ప్రాంతం"
+
+#~ msgid "% connections used"
+#~ msgstr "అనుసంధానాలు"
+
+#~ msgid "Previous"
+#~ msgstr "క్రితము"
+
+#~ msgid "Create event"
+#~ msgstr "సృష్టించు"
+
+#~ msgid "Create trigger"
+#~ msgstr "సృష్టించు"
+
+#~ msgid "settings"
+#~ msgstr "అమరికలు"
+
+#~ msgid "Theme / Style"
+#~ msgstr "అలంకారం / శైలి"
+
+#~ msgid "seconds"
+#~ msgstr "క్షణం"
+
+#~ msgid "Create User"
+#~ msgstr "వాడుకరిని సృష్టించు"
+
+#~ msgid "Show left delete link"
+#~ msgstr "ఎడమవైపున మెనుని చూపించు/దాచు"
+
+#~ msgid "yes"
+#~ msgstr "అవును"
+
+#~ msgid "no"
+#~ msgstr "కాదు"
+
+#~ msgid "closed"
+#~ msgstr "మూసివేయి"
+
+#~ msgid "Stop"
+#~ msgstr "ఆపుము"

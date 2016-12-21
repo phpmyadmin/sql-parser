@@ -378,7 +378,7 @@ class CreateStatement extends Statement
 
         if ((!isset($this->name)) || ($this->name === '')) {
             $parser->error(
-                __('The name of the entity was expected.'),
+                'The name of the entity was expected.',
                 $list->tokens[$list->idx]
             );
         } else {
@@ -433,7 +433,7 @@ class CreateStatement extends Statement
             // The 'LIKE' keyword was found, but no table_name was found next to it
             if ($this->like == null) {
                 $parser->error(
-                    __('A table name was expected.'),
+                    'A table name was expected.',
                     $list->tokens[$list->idx]
                 );
             }
@@ -441,7 +441,7 @@ class CreateStatement extends Statement
             $this->fields = CreateDefinition::parse($parser, $list);
             if (empty($this->fields)) {
                 $parser->error(
-                    __('At least one column definition was expected.'),
+                    'At least one column definition was expected.',
                     $list->tokens[$list->idx]
                 );
             }
@@ -552,7 +552,7 @@ class CreateStatement extends Statement
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
                 if ($token->value !== 'RETURNS') {
                     $parser->error(
-                        __('A "RETURNS" keyword was expected.'),
+                        'A "RETURNS" keyword was expected.',
                         $token
                     );
                 } else {

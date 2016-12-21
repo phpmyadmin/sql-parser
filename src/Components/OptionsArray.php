@@ -12,6 +12,7 @@ use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
+use SQLParser\Translator;
 
 /**
  * Parses a list of options.
@@ -143,7 +144,7 @@ class OptionsArray extends Component
                     if (isset($ret->options[$lastOptionId])) {
                         $parser->error(
                             sprintf(
-                                __('This option conflicts with "%1$s".'),
+                                Translator::gettext('This option conflicts with "%1$s".'),
                                 is_array($ret->options[$lastOptionId])
                                 ? $ret->options[$lastOptionId]['name']
                                 : $ret->options[$lastOptionId]
@@ -257,7 +258,7 @@ class OptionsArray extends Component
         ) {
             $parser->error(
                 sprintf(
-                    __('Value/Expression for the option %1$s was expected'),
+                    'Value/Expression for the option %1$s was expected.',
                     $ret->options[$lastOptionId]['name']
                 ),
                 $list->tokens[$list->idx - 1]
