@@ -50,7 +50,7 @@ class Translator
 
         if (is_null(self::$translator)) {
             // Get translator
-            self::$translator = self::$loader->get_translator();
+            self::$translator = self::$loader->getTranslator();
         }
     }
 
