@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 15:23+0100\n"
-"PO-Revision-Date: 2016-02-22 14:45+0000\n"
-"Last-Translator: Παναγιώτης Παπάζογλου <papaz_p@yahoo.com>\n"
-"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"el/>\n"
+"PO-Revision-Date: 2016-12-21 15:55+0000\n"
+"Last-Translator: anonymous <>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/sql-"
+"parser/el/>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 #: src/Component.php:45 src/Component.php:65
 msgid "Not implemented yet."
@@ -55,10 +55,8 @@ msgstr "Αναμενόταν μια ανοιχτή αγκύλη."
 #: src/Statements/InsertStatement.php:227
 #: src/Statements/ReplaceStatement.php:165
 #: src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Μη αναμενόμενο τεκμήριο."
+msgstr "Μη αναμενόμενη λέξη-κλειδί."
 
 #: src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
@@ -73,10 +71,8 @@ msgstr ""
 "χρησιμοποιηθεί ως όνομα στήλης χωρίς εισαγωγικά."
 
 #: src/Components/CreateDefinition.php:240
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Αναμενόταν όνομα μεταβλητής."
+msgstr "Αναμενόταν όνομα συμβόλου!"
 
 #: src/Components/CreateDefinition.php:272
 msgid "A comma or a closing bracket was expected."
@@ -182,20 +178,16 @@ msgid "Unrecognized keyword."
 msgstr "Μη αναγνωρισμένη λέξη κλειδί."
 
 #: src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Μη αναμενόμενη έναρξη δήλωσης."
+msgstr "Μη αναμενόμενη ταξινόμηση δηλώσεων."
 
 #: src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
 msgstr "Αναμενόταν το όνομα της οντότητας."
 
 #: src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Αναμενόταν όνομα μεταβλητής."
+msgstr "Αναμενόταν όνομα πίνακα."
 
 #: src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -206,10 +198,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Αναμενόταν μια λέξη-κλειδί «RETURNS»."
 
 #: src/Statements/DeleteStatement.php:303
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Αυτός ο τύπος ρύτρας έχει αναλυθεί προηγουμένως."
+msgstr "Αυτός ο τύπος ρύτρας δεν είναι έγκυρος σε ερωτήματα πολλαπλών πινάκων."
 
 #: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
 msgid "error #1"
