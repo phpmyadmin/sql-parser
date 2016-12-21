@@ -257,7 +257,7 @@ class OptionsArray extends Component
         ) {
             $parser->error(
                 sprintf(
-                    __('Value/Expression for the option %1$s was expected'),
+                    __('Value/Expression for the option %1$s was expected.'),
                     $ret->options[$lastOptionId]['name']
                 ),
                 $list->tokens[$list->idx - 1]
