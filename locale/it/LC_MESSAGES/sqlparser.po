@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 15:23+0100\n"
-"PO-Revision-Date: 2016-02-22 22:10+0000\n"
-"Last-Translator: Stefano Martinelli <stefano.ste.martinelli@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/it/>\n"
+"PO-Revision-Date: 2016-12-21 15:57+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
+"parser/it/>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 #: src/Component.php:45 src/Component.php:65
 msgid "Not implemented yet."
@@ -55,10 +55,8 @@ msgstr "Era attesa una parentesi aperta."
 #: src/Statements/InsertStatement.php:227
 #: src/Statements/ReplaceStatement.php:165
 #: src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Token inatteso."
+msgstr "Keyworld inaspettata."
 
 #: src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
@@ -73,10 +71,8 @@ msgstr ""
 "come nome di un campo senza inserirlo tra backquotes ( ` )."
 
 #: src/Components/CreateDefinition.php:240
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Era atteso un nome di variabile."
+msgstr "Era atteso un nome di simbolo!"
 
 #: src/Components/CreateDefinition.php:272
 msgid "A comma or a closing bracket was expected."
@@ -182,20 +178,16 @@ msgid "Unrecognized keyword."
 msgstr "Parola chiave non riconosciuta."
 
 #: src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Inizio di statement inatteso."
+msgstr "Ordinamento di clausole inatteso."
 
 #: src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
 msgstr "Era atteso il nome dell'entity."
 
 #: src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Era atteso un nome di variabile."
+msgstr "Era atteso un nome di tabella."
 
 #: src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -206,10 +198,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Era attesa una parola chiave \"RETURNS\"."
 
 #: src/Statements/DeleteStatement.php:303
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Questo tipo di clausola è stata esaminata in precedenza."
+msgstr "Questo tipo di clausola non è valida nelle query Multi-tabella."
 
 #: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
 msgid "error #1"
