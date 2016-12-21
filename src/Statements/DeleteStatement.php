@@ -222,7 +222,7 @@ class DeleteStatement extends Statement
                 if ($token->type === Token::TYPE_KEYWORD
                     && $token->value !== 'FROM'
                 ) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 } elseif ($token->type === Token::TYPE_KEYWORD
                     && $token->value === 'FROM'
@@ -238,7 +238,7 @@ class DeleteStatement extends Statement
                 if ($token->type === Token::TYPE_KEYWORD
                     && $token->value !== 'FROM'
                 ) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 } elseif ($token->type === Token::TYPE_KEYWORD
                     && $token->value === 'FROM'
@@ -247,7 +247,7 @@ class DeleteStatement extends Statement
                     $this->from = ExpressionArray::parse($parser, $list);
                     $state = 2;
                 } else {
-                    $parser->error(__('Unexpected token.'), $token);
+                    $parser->error('Unexpected token.', $token);
                     break;
                 }
             } elseif ($state === 2) {
@@ -278,7 +278,7 @@ class DeleteStatement extends Statement
                     $this->limit = Limit::parse($parser, $list);
                     $state = 6;
                 } elseif ($token->type === Token::TYPE_KEYWORD) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 }
             } elseif ($state === 3) {
@@ -289,10 +289,10 @@ class DeleteStatement extends Statement
                     $this->where = Condition::parse($parser, $list);
                     $state = 4;
                 } elseif ($token->type === Token::TYPE_KEYWORD) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 } else {
-                    $parser->error(__('Unexpected token.'), $token);
+                    $parser->error('Unexpected token.', $token);
                     break;
                 }
             } elseif ($state === 4) {
@@ -300,7 +300,7 @@ class DeleteStatement extends Statement
                     && $token->type === Token::TYPE_KEYWORD
                 ) {
                     $parser->error(
-                        __('This type of clause is not valid in Multi-table queries.'),
+                        'This type of clause is not valid in Multi-table queries.',
                         $token
                     );
                     break;
@@ -319,7 +319,7 @@ class DeleteStatement extends Statement
                     $this->limit = Limit::parse($parser, $list);
                     $state = 6;
                 } elseif ($token->type === Token::TYPE_KEYWORD) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 }
             } elseif ($state === 5) {
@@ -330,7 +330,7 @@ class DeleteStatement extends Statement
                     $this->limit = Limit::parse($parser, $list);
                     $state = 6;
                 } elseif ($token->type === Token::TYPE_KEYWORD) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 }
             }

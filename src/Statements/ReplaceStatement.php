@@ -162,7 +162,7 @@ class ReplaceStatement extends Statement
                 if ($token->type === Token::TYPE_KEYWORD
                     && $token->value !== 'INTO'
                 ) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 } else {
                     ++$list->idx;
@@ -190,7 +190,7 @@ class ReplaceStatement extends Statement
                         $this->select = new SelectStatement($parser, $list);
                     } else {
                         $parser->error(
-                            __('Unexpected keyword.'),
+                            'Unexpected keyword.',
                             $token
                         );
                         break;
@@ -198,7 +198,7 @@ class ReplaceStatement extends Statement
                     $state = 2;
                 } else {
                     $parser->error(
-                        __('Unexpected token.'),
+                        'Unexpected token.',
                         $token
                     );
                     break;

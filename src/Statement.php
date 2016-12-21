@@ -492,7 +492,7 @@ abstract class Statement
                 if ($joinStart == 0 || ($joinStart == 2 && $error = 1)) {
                     $token = $list->tokens[$clauseStartIdx];
                     $parser->error(
-                        __('Unexpected ordering of clauses.'),
+                        'Unexpected ordering of clauses.',
                         $token
                     );
                     return false;

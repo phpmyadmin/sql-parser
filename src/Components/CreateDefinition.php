@@ -224,10 +224,9 @@ class CreateDefinition extends Component
                         // Reserved keywords can't be used
                         // as field names without backquotes
                         $parser->error(
-                            __('A symbol name was expected! '
-                                . 'A reserved keyword can not be used '
-                                . 'as a column name without backquotes.'
-                            ),
+                            'A symbol name was expected! '
+                            . 'A reserved keyword can not be used '
+                            . 'as a column name without backquotes.' ,
                             $token
                         );
                         return $ret;
@@ -238,7 +237,7 @@ class CreateDefinition extends Component
                     }
                 } else {
                     $parser->error(
-                        __('A symbol name was expected!'),
+                        'A symbol name was expected!',
                         $token
                     );
                     return $ret;
