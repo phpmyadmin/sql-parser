@@ -4,27 +4,26 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 15:23+0100\n"
-"PO-Revision-Date: 2015-10-15 11:09+0200\n"
+"PO-Revision-Date: 2016-12-21 15:58+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
+"parser/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.10\n"
 
 #: src/Component.php:45 src/Component.php:65
 msgid "Not implemented yet."
 msgstr "Még nincs megvalósítva."
 
 #: src/Components/AlterOperation.php:228 src/Statement.php:337
-#, fuzzy
-#| msgid "A new statement was found, but no delimiter between them."
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr "Egy új utasítás található, de nincs elválasztó köztük."
+msgstr ""
+"Egy új utasítás található, de nincs elválasztó közte és az előző között."
 
 #: src/Components/AlterOperation.php:240
 msgid "Unrecognized alter operation."
@@ -71,16 +70,12 @@ msgid ""
 msgstr ""
 
 #: src/Components/CreateDefinition.php:240
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Táblanév sablon"
+msgstr "Egy szimbólumnév várt!"
 
 #: src/Components/CreateDefinition.php:272
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Nincsenek táblák kiválasztva."
+msgstr "Egy vessző vagy egy záró zárójel várt."
 
 #: src/Components/CreateDefinition.php:288
 msgid "A closing bracket was expected."
@@ -91,10 +86,8 @@ msgid "Unrecognized data type."
 msgstr "Felismerhetetlen adattípus."
 
 #: src/Components/Expression.php:248 src/Components/Expression.php:398
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Nincsenek táblák kiválasztva."
+msgstr "Egy álnév várt."
 
 #: src/Components/Expression.php:336 src/Components/Expression.php:355
 #: src/Components/Expression.php:387
@@ -106,10 +99,8 @@ msgid "Unexpected dot."
 msgstr "Váratlan pont."
 
 #: src/Components/ExpressionArray.php:106
-#, fuzzy
-#| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Nincsenek verziók kijelölve."
+msgstr "Egy kifejezés várt."
 
 #: src/Components/Limit.php:90 src/Components/Limit.php:112
 msgid "An offset was expected."
@@ -121,26 +112,20 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Ez a lehetőség ütközik ezzel: „%1$s”."
 
 #: src/Components/RenameOperation.php:101
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "A megnyitott táblák száma."
+msgstr "A tábla régi neve várt."
 
 #: src/Components/RenameOperation.php:111
 msgid "Keyword \"TO\" was expected."
 msgstr "\"TO\" kulcsszavat vártunk."
 
 #: src/Components/RenameOperation.php:127
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "A megnyitott táblák száma."
+msgstr "A tábla új neve várt."
 
 #: src/Components/RenameOperation.php:145
-#, fuzzy
-#| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "A sablon törölve lett."
+msgstr "Egy átnevezési művelet várt."
 
 #: src/Lexer.php:242
 msgid "Unexpected character."
@@ -155,22 +140,17 @@ msgid "Expected delimiter."
 msgstr "Határolót vártunk."
 
 #: src/Lexer.php:814
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "A(z) %1$s esemény létrejött."
+msgstr "A(z) %1$s záró idézés várt."
 
 #: src/Lexer.php:854
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Táblanév sablon"
+msgstr "Változónév várt."
 
 #: src/Parser.php:432
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "a tábla elejénél"
+msgstr "Váratlan utasítás kezdet."
 
 #: src/Parser.php:451
 msgid "Unrecognized statement type."
@@ -189,10 +169,8 @@ msgid "Unexpected token."
 msgstr "Váratlan jelsor."
 
 #: src/Statement.php:309
-#, fuzzy
-#| msgid "No transaction was previously started."
 msgid "This type of clause was previously parsed."
-msgstr "Nem volt korábban elindított tranzakció."
+msgstr "A kikötés ezen típusa korábban fel lett dolgozva."
 
 #: src/Statement.php:369
 msgid "Unrecognized keyword."
@@ -205,10 +183,8 @@ msgid "Unexpected ordering of clauses."
 msgstr "a tábla elejénél"
 
 #: src/Statements/CreateStatement.php:381
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "A megnyitott táblák száma."
+msgstr "Az entitás neve várt."
 
 #: src/Statements/CreateStatement.php:436
 #, fuzzy
@@ -217,10 +193,8 @@ msgid "A table name was expected."
 msgstr "Táblanév sablon"
 
 #: src/Statements/CreateStatement.php:444
-#, fuzzy
-#| msgid "Template was deleted."
 msgid "At least one column definition was expected."
-msgstr "A sablon törölve lett."
+msgstr "Legalább egy oszlopmeghatározás várt."
 
 #: src/Statements/CreateStatement.php:555
 msgid "A \"RETURNS\" keyword was expected."
@@ -233,16 +207,12 @@ msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Nem volt korábban elindított tranzakció."
 
 #: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "errors."
 msgid "error #1"
-msgstr "hiba."
+msgstr "hiba #1"
 
 #: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "Hibák összegyűjtése"
+msgstr "szigorú hiba"
 
 #~ msgid ""
 #~ "The %s file is not available on this system, please visit www.phpmyadmin."
