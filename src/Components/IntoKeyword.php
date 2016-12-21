@@ -190,10 +190,6 @@ class IntoKeyword extends Component
                 $state = 4;
             } elseif ($state == 4) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->value !== 'LINES') {
-                    $parser->error(
-                        __('Unexpected keyword.'),
-                        $token
-                    );
                     break;
                 }
 
