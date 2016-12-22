@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Fix return value of Formatter.toString() when type is text
+* Fix parsing of FIELDS and LINES options in SELECT..INTO
 
 ## [3.4.14] - 2016-11-30
 
