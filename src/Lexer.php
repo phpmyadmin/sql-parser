@@ -244,7 +244,13 @@ class Lexer
          * @var Token $lastToken
          */
         $lastToken = null;
-
+		$isColonFound = false;
+		
+		
+        // To check the presence of a colon
+     	$count = 0;
+		$indexOfColon;
+		
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
             /**
              * The new token.
@@ -253,20 +259,47 @@ class Lexer
              */
             $token = null;
 
+			
+			// To check :loop is found
+			if($isColonFound === true && preg_match('/^\s/', $this->str[$this->last])) {
+				$count++;
+			}
+			
             foreach (static::$PARSER_METHODS as $method) {
-                if (($token = $this->$method())) {
+			    if (($token = $this->$method())) {
                     break;
                 }
             }
-
+			
+			if($isColonFound === true && $count === 5) {
+				$count = 0;
+				$isColonFound = false;
+				$string = strtolower($this->str);
+				$loopKeyWord = preg_match('/:\s+loop\s+/', $string, $matches) ? $matches[1] : '';
+				if($loopKeyWord === '') {	
+					$this->error(
+						__('Unexpected character.'),
+						$this->str[$indexOfColon],
+						$indexOfColon
+					);
+				}
+			}
+			
             if ($token === null) {
                 // @assert($this->last === $lastIdx);
                 $token = new Token($this->str[$this->last]);
-                $this->error(
-                    __('Unexpected character.'),
-                    $this->str[$this->last],
-                    $this->last
-                );
+				if($this->str[$this->last] === ':') {
+					$isColonFound = true;
+					$indexOfColon = $this->last;
+				}
+				// For other unexpected characters except ':'
+				else {
+					$this->error(
+						__('Unexpected character.'),
+						$this->str[$this->last],
+						$this->last
+					);
+				}
             } elseif (($lastToken !== null)
                 && ($token->type === Token::TYPE_SYMBOL)
                 && ($token->flags & Token::FLAG_SYMBOL_VARIABLE)
