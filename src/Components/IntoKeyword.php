@@ -186,14 +186,14 @@ class IntoKeyword extends Component
 
                 $state = 3;
             } elseif ($state == 3) {
-                $ret->_parseFileOptions($parser, $list, $token->value);
+                $ret->parseFileOptions($parser, $list, $token->value);
                 $state = 4;
             } elseif ($state == 4) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->value !== 'LINES') {
                     break;
                 }
 
-                $ret->_parseFileOptions($parser, $list, $token->value);
+                $ret->parseFileOptions($parser, $list, $token->value);
                 $state = 5;
             }
         }
@@ -202,7 +202,7 @@ class IntoKeyword extends Component
         return $ret;
     }
 
-    private function _parseFileOptions(Parser $parser, TokensList $list, $keyword='FIELDS') {
+    public function parseFileOptions(Parser $parser, TokensList $list, $keyword='FIELDS') {
         ++$list->idx;
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
