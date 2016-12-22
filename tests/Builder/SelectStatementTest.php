@@ -76,4 +76,21 @@ class SelectStatementTest extends TestCase
             $stmt->build()
         );
     }
+
+
+    public function testBuilderIntoOptions()
+    {
+        /* Assertion 1 */
+        $query = 'SELECT  a, b, a+b INTO OUTFILE "/tmp/result.txt"'
+            . ' COLUMNS TERMINATED BY \',\' OPTIONALLY ENCLOSED BY \'"\''
+            . ' LINES TERMINATED BY \'\n\''
+            . ' FROM test_table ';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            $query,
+            $stmt->build()
+        );
+    }
 }
