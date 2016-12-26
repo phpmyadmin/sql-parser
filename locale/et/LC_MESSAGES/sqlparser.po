@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2016-12-21 15:07+0100\n"
-"PO-Revision-Date: 2016-12-21 15:58+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2016-12-26 09:31+0000\n"
+"Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/et/>\n"
 "Language: et\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 #: src/Component.php:45 src/Component.php:65
 msgid "Not implemented yet."
@@ -55,20 +55,20 @@ msgstr "Oodati avanevat sulgu."
 #: src/Statements/InsertStatement.php:227
 #: src/Statements/ReplaceStatement.php:165
 #: src/Statements/ReplaceStatement.php:193
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Ootamatud märk."
+msgstr "Ootamatu võtmesõna."
 
 #: src/Components/CaseExpression.php:202
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Ootamatu CASE lause lõpp"
 
 #: src/Components/CreateDefinition.php:227
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Oodati sümboli nime! Reserveeritud võtmesõna saab kasutada veeru nimena "
+"ainult siis, kui ta on ühekordsete tagurpidi jutumärkide vahel."
 
 #: src/Components/CreateDefinition.php:240
 msgid "A symbol name was expected!"
@@ -178,20 +178,16 @@ msgid "Unrecognized keyword."
 msgstr "Tundmatu võtmesõna."
 
 #: src/Statement.php:495
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Ootamatu lause algus."
+msgstr "Ootamatu lausete järjestus."
 
 #: src/Statements/CreateStatement.php:381
 msgid "The name of the entity was expected."
 msgstr "Oodati olemi nime."
 
 #: src/Statements/CreateStatement.php:436
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Oodati muutuja nime."
+msgstr "Oodati tabeli nime."
 
 #: src/Statements/CreateStatement.php:444
 msgid "At least one column definition was expected."
@@ -202,10 +198,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Oodati võtmesõna \"RETURNS\"."
 
 #: src/Statements/DeleteStatement.php:303
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Sellist tüüpi klausel parsiti eelnevalt."
+msgstr "Sellist tüüpi klausel ei ole mitme tabeli päringus kehtiv."
 
 #: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
 msgid "error #1"
