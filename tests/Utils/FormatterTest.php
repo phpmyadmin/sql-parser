@@ -9,6 +9,220 @@ use SqlParser\Tests\TestCase;
 class FormatTest extends TestCase
 {
     /**
+     * @dataProvider mergeFormats
+     */
+    public function testMergeFormats($default, $overriding, $expected)
+    {
+        $formatter = $this->getMockBuilder('SqlParser\Utils\Formatter')
+            ->disableOriginalConstructor()
+            ->setMethods(array('getDefaultOptions', 'getDefaultFormats'))
+            ->getMock();
+
+        $formatter->expects($this->once())
+            ->method('getDefaultOptions')
+            ->willReturn(array(
+                'type' => 'text',
+                'line_ending' => null,
+                'clause_newline' => null,
+                'parts_newline' => null,
+            ));
+
+        $formatter->expects($this->once())
+            ->method('getDefaultFormats')
+            ->willReturn($default);
+
+        $expectedOptions = array(
+            'type' => 'test-type',
+            'line_ending' => '<br>',
+            'clause_newline' => null,
+            'parts_newline' => 0,
+            'formats' => $expected
+        );
+
+        $overridingOptions = array(
+            'type' => 'test-type',
+            'line_ending' => '<br>',
+            'formats' => $overriding
+        );
+
+        $reflectionMethod = new \ReflectionMethod($formatter, 'getMergedOptions');
+        $reflectionMethod->setAccessible(true);
+        $this->assertEquals($expectedOptions, $reflectionMethod->invoke($formatter, $overridingOptions));
+    }
+
+    public function mergeFormats()
+    {
+        // array(default, overriding, expected)[]
+        return array(
+            'empty formats' => array(
+                array( // default
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                    ),
+                ),
+                array( // overriding
+                    array(
+                    ),
+                ),
+                array( // expected
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                    ),
+                ),
+            ),
+            'no flags' => array(
+                array( // default
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                    array(
+                        'type' => 0,
+                        'flags' => 1,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                ),
+                array( // overriding
+                    array(
+                        'type' => 0,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                    )
+                ),
+                array( // expected
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                        'function' => '',
+                    ),
+                    array(
+                        'type' => 0,
+                        'flags' => 1,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                ),
+            ),
+            'with flags' => array(
+                array( // default
+                    array(
+                        'type' => -1,
+                        'flags' => 0,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                    array(
+                        'type' => 0,
+                        'flags' => 1,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                ),
+                array( // overriding
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                    ),
+                ),
+                array( // expected
+                    array(
+                        'type' => -1,
+                        'flags' => 0,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                        'function' => '',
+                    ),
+                    array(
+                        'type' => 0,
+                        'flags' => 1,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                ),
+            ),
+            'with extra formats' => array(
+                array( // default
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                ),
+                array( // overriding
+                    array(
+                        'type' => 0,
+                        'flags' => 1,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                    ),
+                    array(
+                        'type' => 1,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                    ),
+                    array(
+                        'type' => 1,
+                        'flags' => 1,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                    ),
+                ),
+                array( // expected
+                    array(
+                        'type' => 0,
+                        'flags' => 0,
+                        'html' => 'html',
+                        'cli' => 'cli',
+                    ),
+                    array(
+                        'type' => 0,
+                        'flags' => 1,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                        'function' => '',
+                    ),
+                    array(
+                        'type' => 1,
+                        'flags' => 0,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                        'function' => '',
+                    ),
+                    array(
+                        'type' => 1,
+                        'flags' => 1,
+                        'html' => 'new html',
+                        'cli' => 'new cli',
+                        'function' => '',
+                    ),
+                ),
+            ),
+        );
+    }
+
+    /**
      * @dataProvider formatQueries
      */
     public function testFormat($query, $expected, $options)

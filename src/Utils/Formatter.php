@@ -55,128 +55,201 @@ class Formatter
      */
     public function __construct(array $options = array())
     {
-        // The specified formatting options are merged with the default values.
-        $this->options = array_merge(
-            array(
+        $this->options = $this->getMergedOptions($options);
+    }
 
-                /**
-                 * The format of the result.
-                 *
-                 * @var string The type ('text', 'cli' or 'html')
-                 */
-                'type' => php_sapi_name() == 'cli' ? 'cli' : 'text',
-
-                /**
-                 * The line ending used.
-                 * By default, for text this is "\n" and for HTML this is "<br/>".
-                 *
-                 * @var string
-                 */
-                'line_ending' => NULL,
-
-                /**
-                 * The string used for indentation.
-                 *
-                 * @var string
-                 */
-                'indentation' => '  ',
-
-                /**
-                 * Whether comments should be removed or not.
-                 *
-                 * @var bool
-                 */
-                'remove_comments' => false,
-
-                /**
-                 * Whether each clause should be on a new line.
-                 *
-                 * @var bool
-                 */
-                'clause_newline' => true,
-
-                /**
-                 * Whether each part should be on a new line.
-                 * Parts are delimited by brackets and commas.
-                 *
-                 * @var bool
-                 */
-                'parts_newline' => true,
-
-                /**
-                 * Whether each part of each clause should be indented.
-                 *
-                 * @var bool
-                 */
-                'indent_parts' => true,
-
-                /**
-                 * The styles used for HTML formatting.
-                 * array($type, $flags, $span, $callback)
-                 *
-                 * @var array[]
-                 */
-                'formats' => array(
-                    array(
-                        'type'      => Token::TYPE_KEYWORD,
-                        'flags'     => Token::FLAG_KEYWORD_RESERVED,
-                        'html'      => 'class="sql-reserved"',
-                        'cli'       => "\x1b[35m",
-                        'function'  => 'strtoupper',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_KEYWORD,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-keyword"',
-                        'cli'       => "\x1b[95m",
-                        'function'  => 'strtoupper',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_COMMENT,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-comment"',
-                        'cli'       => "\x1b[37m",
-                        'function'  => '',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_BOOL,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-atom"',
-                        'cli'       => "\x1b[36m",
-                        'function'  => 'strtoupper',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_NUMBER,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-number"',
-                        'cli'       => "\x1b[92m",
-                        'function'  => 'strtolower',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_STRING,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-string"',
-                        'cli'       => "\x1b[91m",
-                        'function'  => '',
-                    ),
-                    array(
-                        'type'      => Token::TYPE_SYMBOL,
-                        'flags'     => 0,
-                        'html'      => 'class="sql-variable"',
-                        'cli'       => "\x1b[36m",
-                        'function'  => '',
-                    ),
-                )
-            ),
+    /**
+     * The specified formatting options are merged with the default values.
+     *
+     * @param array $options
+     * @return array
+     */
+    private function getMergedOptions(array $options)
+    {
+        $options = array_merge(
+            $this->getDefaultOptions(),
             $options
         );
 
-        if (is_null($this->options['line_ending'])) {
-            $this->options['line_ending'] = $this->options['type'] == 'html' ? '<br/>' : "\n";
+        $options['formats'] = self::mergeFormats($this->getDefaultFormats(), @$options['formats'] ?: array());
+
+        if (is_null($options['line_ending'])) {
+            $options['line_ending'] = $options['type'] === 'html' ? '<br/>' : "\n";
         }
 
         // `parts_newline` requires `clause_newline`
-        $this->options['parts_newline'] &= $this->options['clause_newline'];
+        $options['parts_newline'] &= $options['clause_newline'];
+
+        return $options;
+    }
+
+    /**
+     * The default formatting options.
+     *
+     * @return array
+     */
+    protected function getDefaultOptions()
+    {
+        return array(
+            /**
+             * The format of the result.
+             *
+             * @var string The type ('text', 'cli' or 'html')
+             */
+            'type' => php_sapi_name() === 'cli' ? 'cli' : 'text',
+
+            /**
+             * The line ending used.
+             * By default, for text this is "\n" and for HTML this is "<br/>".
+             *
+             * @var string
+             */
+            'line_ending' => NULL,
+
+            /**
+             * The string used for indentation.
+             *
+             * @var string
+             */
+            'indentation' => '  ',
+
+            /**
+             * Whether comments should be removed or not.
+             *
+             * @var bool
+             */
+            'remove_comments' => false,
+
+            /**
+             * Whether each clause should be on a new line.
+             *
+             * @var bool
+             */
+            'clause_newline' => true,
+
+            /**
+             * Whether each part should be on a new line.
+             * Parts are delimited by brackets and commas.
+             *
+             * @var bool
+             */
+            'parts_newline' => true,
+
+            /**
+             * Whether each part of each clause should be indented.
+             *
+             * @var bool
+             */
+            'indent_parts' => true,
+        );
+    }
+
+    /**
+     * The styles used for HTML formatting.
+     * array($type, $flags, $span, $callback)
+     *
+     * @return array
+     */
+    protected function getDefaultFormats()
+    {
+        return array(
+            array(
+                'type' => Token::TYPE_KEYWORD,
+                'flags' => Token::FLAG_KEYWORD_RESERVED,
+                'html' => 'class="sql-reserved"',
+                'cli' => "\x1b[35m",
+                'function' => 'strtoupper',
+            ),
+            array(
+                'type' => Token::TYPE_KEYWORD,
+                'flags' => 0,
+                'html' => 'class="sql-keyword"',
+                'cli' => "\x1b[95m",
+                'function' => 'strtoupper',
+            ),
+            array(
+                'type' => Token::TYPE_COMMENT,
+                'flags' => 0,
+                'html' => 'class="sql-comment"',
+                'cli' => "\x1b[37m",
+                'function' => '',
+            ),
+            array(
+                'type' => Token::TYPE_BOOL,
+                'flags' => 0,
+                'html' => 'class="sql-atom"',
+                'cli' => "\x1b[36m",
+                'function' => 'strtoupper',
+            ),
+            array(
+                'type' => Token::TYPE_NUMBER,
+                'flags' => 0,
+                'html' => 'class="sql-number"',
+                'cli' => "\x1b[92m",
+                'function' => 'strtolower',
+            ),
+            array(
+                'type' => Token::TYPE_STRING,
+                'flags' => 0,
+                'html' => 'class="sql-string"',
+                'cli' => "\x1b[91m",
+                'function' => '',
+            ),
+            array(
+                'type' => Token::TYPE_SYMBOL,
+                'flags' => 0,
+                'html' => 'class="sql-variable"',
+                'cli' => "\x1b[36m",
+                'function' => '',
+            ),
+        );
+    }
+
+    private static function mergeFormats(array $formats, array $newFormats)
+    {
+        $added = array();
+
+        foreach ($formats as $i => $original) {
+            foreach ($newFormats as $j => $new) {
+                if (isset($new['type'])
+                    && $new['type'] === $original['type']
+                    && (
+                        (
+                            isset($new['flags'])
+                            && $original['flags'] === $new['flags']
+                        )
+                        || (
+                            !isset($new['flags'])
+                            && $original['flags'] == 0
+                        )
+                    )
+                ) {
+                    $formats[$i] = array(
+                        'type' => $original['type'],
+                        'flags' => isset($new['flags']) ? $new['flags'] : 0,
+                        'html' => isset($new['html']) ? $new['html'] : '',
+                        'cli' => isset($new['cli']) ? $new['cli'] : '',
+                        'function' => isset($new['function']) ? $new['function'] : '',
+                    );
+
+                    $added[] = $j;
+                }
+            }
+        }
+
+        foreach ($newFormats as $j => $new) {
+            if (!in_array($j, $added) && isset($new['type'])) {
+                $formats[] = array(
+                    'type' => $new['type'],
+                    'flags' => isset($new['flags']) ? $new['flags'] : 0,
+                    'html' => isset($new['html']) ? $new['html'] : '',
+                    'cli' => isset($new['cli']) ? $new['cli'] : '',
+                    'function' => isset($new['function']) ? $new['function'] : '',
+                );
+            }
+        }
+
+        return $formats;
     }
 
     /**
