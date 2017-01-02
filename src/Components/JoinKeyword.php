@@ -41,7 +41,6 @@ class JoinKeyword extends Component
         'RIGHT OUTER JOIN'              => 'RIGHT',
         'NATURAL JOIN'                  => 'NATURAL',
         'NATURAL LEFT JOIN'             => 'NATURAL LEFT',
-        'NATURAL LEFT JOIN'             => 'NATURAL LEFT',
         'NATURAL RIGHT JOIN'            => 'NATURAL RIGHT',
         'NATURAL LEFT OUTER JOIN'       => 'NATURAL LEFT OUTER',
         'NATURAL RIGHT OUTER JOIN'      => 'NATURAL RIGHT OUTER',
