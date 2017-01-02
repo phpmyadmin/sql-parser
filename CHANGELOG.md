@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [3.4.15] - 2017-01-02
 
 * Fix return value of Formatter.toString() when type is text
