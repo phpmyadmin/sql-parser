@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2016-12-21 15:23+0100\n"
+"POT-Creation-Date: 2017-01-03 12:34+0100\n"
 "PO-Revision-Date: 2016-12-27 15:16+0000\n"
 "Last-Translator: Fujiwara Software <fujisoft@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -22,7 +22,9 @@ msgstr "実装されていません。"
 #: src/Components/AlterOperation.php:228 src/Statement.php:337
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr "新しいステートメントが見つかりましたが、それとその前の間に区切り文字がありません。"
+msgstr ""
+"新しいステートメントが見つかりましたが、それとその前の間に区切り文字がありま"
+"せん。"
 
 #: src/Components/AlterOperation.php:240
 msgid "Unrecognized alter operation."
@@ -129,6 +131,12 @@ msgstr "開いているテーブルの数。"
 #| msgid "The row has been deleted."
 msgid "A rename operation was expected."
 msgstr "行を削除しました"
+
+#: src/Components/SetOperation.php:109
+#, fuzzy
+#| msgid "as regular expression"
+msgid "Missing expression."
+msgstr "正規表現"
 
 #: src/Lexer.php:242
 #, fuzzy
@@ -2408,9 +2416,6 @@ msgstr "エラーを収集する"
 
 #~ msgid "the exact phrase"
 #~ msgstr "完全一致"
-
-#~ msgid "as regular expression"
-#~ msgstr "正規表現"
 
 #~ msgid "Search results for \"<i>%s</i>\" %s:"
 #~ msgstr "\"<i>%s</i>\" の検索結果 %s:"
