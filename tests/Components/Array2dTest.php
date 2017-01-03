@@ -46,16 +46,26 @@ class Array2dTest extends TestCase
     {
         $parser = new Parser();
         Array2d::parse($parser, $this->getTokensList(')'));
-        Array2d::parse($parser, $this->getTokensList('TABLE'));
-        // TODO: Assert errors.
+        $this->assertEquals(
+            1,
+            count($parser->errors)
+        );
+        $this->assertEquals(
+            'An opening bracket followed by a set of values was expected.',
+            $parser->errors[0]->getMessage()
+        );
     }
 
     public function testParseErr4()
     {
         $parser = new Parser();
-        Array2d::parse($parser, $this->getTokensList('(1, 2),'));
+        Array2d::parse($parser, $this->getTokensList('TABLE'));
         $this->assertEquals(
-            "An opening bracket followed by a set of values was expected.",
+            1,
+            count($parser->errors)
+        );
+        $this->assertEquals(
+            'An opening bracket followed by a set of values was expected.',
             $parser->errors[0]->getMessage()
         );
     }
@@ -63,7 +73,25 @@ class Array2dTest extends TestCase
     public function testParseErr5()
     {
         $parser = new Parser();
+        Array2d::parse($parser, $this->getTokensList('(1, 2),'));
+        $this->assertEquals(
+            1,
+            count($parser->errors)
+        );
+        $this->assertEquals(
+            "An opening bracket followed by a set of values was expected.",
+            $parser->errors[0]->getMessage()
+        );
+    }
+
+    public function testParseErr6()
+    {
+        $parser = new Parser();
         Array2d::parse($parser, $this->getTokensList('(1, 2),(3)'));
+        $this->assertEquals(
+            1,
+            count($parser->errors)
+        );
         $this->assertEquals(
             "2 values were expected, but found 1.",
             $parser->errors[0]->getMessage()
