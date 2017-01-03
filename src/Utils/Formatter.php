@@ -71,7 +71,11 @@ class Formatter
             $options
         );
 
-        $options['formats'] = self::mergeFormats($this->getDefaultFormats(), @$options['formats'] ?: array());
+        if (isset($options['formats'])) {
+            $options['formats'] = self::mergeFormats($this->getDefaultFormats(), $options['formats']);
+        } else {
+            $options['formats'] = $this->getDefaultFormats();
+        }
 
         if (is_null($options['line_ending'])) {
             $options['line_ending'] = $options['type'] === 'html' ? '<br/>' : "\n";
