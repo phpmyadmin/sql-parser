@@ -41,6 +41,7 @@ class DeleteStatementTest extends TestCase
             array('parser/parseDeleteErr9'),
             array('parser/parseDeleteErr10'),
             array('parser/parseDeleteErr11'),
+            array('parser/parseDeleteErr12'),
         );
     }
 }
