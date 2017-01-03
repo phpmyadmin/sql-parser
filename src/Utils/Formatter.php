@@ -71,7 +71,11 @@ class Formatter
             $options
         );
 
-        $options['formats'] = self::mergeFormats($this->getDefaultFormats(), @$options['formats'] ?: array());
+        if (isset($options['formats'])) {
+            $options['formats'] = self::mergeFormats($this->getDefaultFormats(), $options['formats']);
+        } else {
+            $options['formats'] = $this->getDefaultFormats();
+        }
 
         if (is_null($options['line_ending'])) {
             $options['line_ending'] = $options['type'] === 'html' ? '<br/>' : "\n";
@@ -208,44 +212,39 @@ class Formatter
     private static function mergeFormats(array $formats, array $newFormats)
     {
         $added = array();
+        $integers = array('flags', 'type');
+        $strings = array('html', 'cli', 'function');
 
+        /* Sanitize the array so that we do not have to care later */
+        foreach ($newFormats as $j => $new) {
+            foreach ($integers as $name) {
+                if (! isset($new[$name])) {
+                    $newFormats[$j][$name] = 0;
+                }
+            }
+            foreach ($strings as $name) {
+                if (! isset($new[$name])) {
+                    $newFormats[$j][$name] = '';
+                }
+            }
+        }
+
+        /* Process changes to existing formats */
         foreach ($formats as $i => $original) {
             foreach ($newFormats as $j => $new) {
-                if (isset($new['type'])
-                    && $new['type'] === $original['type']
-                    && (
-                        (
-                            isset($new['flags'])
-                            && $original['flags'] === $new['flags']
-                        )
-                        || (
-                            !isset($new['flags'])
-                            && $original['flags'] == 0
-                        )
-                    )
+                if ($new['type'] === $original['type']
+                    && $original['flags'] === $new['flags']
                 ) {
-                    $formats[$i] = array(
-                        'type' => $original['type'],
-                        'flags' => isset($new['flags']) ? $new['flags'] : 0,
-                        'html' => isset($new['html']) ? $new['html'] : '',
-                        'cli' => isset($new['cli']) ? $new['cli'] : '',
-                        'function' => isset($new['function']) ? $new['function'] : '',
-                    );
-
+                    $formats[$i] = $new;
                     $added[] = $j;
                 }
             }
         }
 
+        /* Add not already handled formats */
         foreach ($newFormats as $j => $new) {
-            if (!in_array($j, $added) && isset($new['type'])) {
-                $formats[] = array(
-                    'type' => $new['type'],
-                    'flags' => isset($new['flags']) ? $new['flags'] : 0,
-                    'html' => isset($new['html']) ? $new['html'] : '',
-                    'cli' => isset($new['cli']) ? $new['cli'] : '',
-                    'function' => isset($new['function']) ? $new['function'] : '',
-                );
+            if (! in_array($j, $added)) {
+                $formats[] = $new;
             }
         }
 

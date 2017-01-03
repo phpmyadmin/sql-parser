@@ -76,10 +76,7 @@ class UtfString implements \ArrayAccess
         $this->str = $str;
         $this->byteIdx = 0;
         $this->charIdx = 0;
-        // TODO: `strlen($str)` might return a wrong length when function
-        // overloading is enabled.
-        // https://php.net/manual/ro/mbstring.overload.php
-        $this->byteLen = strlen($str);
+        $this->byteLen = mb_strlen($str, '8bit');
         $this->charLen = mb_strlen($str, 'UTF-8');
     }
 
