@@ -479,11 +479,11 @@ abstract class Statement
 
             // Handle ordering of Multiple Joins in a query
             if ($clauseStartIdx != -1) {
-                if ($joinStart == 0 && stripos($clauseType, 'JOIN')) {
+                if ($joinStart == 0 && stripos($clauseType, 'JOIN') !== false) {
                     $joinStart = 1;
-                } elseif ($joinStart == 1 && ! stripos($clauseType, 'JOIN')) {
+                } elseif ($joinStart == 1 && stripos($clauseType, 'JOIN') === false) {
                     $joinStart = 2;
-                } elseif ($joinStart == 2 && stripos($clauseType, 'JOIN')) {
+                } elseif ($joinStart == 2 && stripos($clauseType, 'JOIN') !== false) {
                     $error = 1;
                 }
             }
