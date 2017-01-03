@@ -3,12 +3,10 @@
 namespace SqlParser\Tests\Builder;
 
 use SqlParser\Parser;
-
 use SqlParser\Tests\TestCase;
 
 class ExplainStatementTest extends TestCase
 {
-
     public function testBuilderView()
     {
         $query = 'EXPLAIN SELECT * FROM test;';

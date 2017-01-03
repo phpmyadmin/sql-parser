@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\Limit;
-
 use SqlParser\Tests\TestCase;
 
 class LimitTest extends TestCase
 {
-
     public function testBuildWithoutOffset()
     {
         $component = new Limit(1);

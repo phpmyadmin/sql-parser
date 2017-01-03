@@ -6,12 +6,10 @@ use SqlParser\Exceptions\ParserException;
 use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\TokensList;
-
 use SqlParser\Tests\TestCase;
 
 class ParserTest extends TestCase
 {
-
     /**
      * @dataProvider testParseProvider
      */
@@ -68,7 +66,7 @@ class ParserTest extends TestCase
     }
 
     /**
-     * @expectedException SqlParser\Exceptions\ParserException
+     * @expectedException \SqlParser\Exceptions\ParserException
      * @expectedExceptionMessage strict error
      * @expectedExceptionCode 3
      */

@@ -7,12 +7,10 @@ use SqlParser\Components\Expression;
 use SqlParser\Components\Condition;
 use SqlParser\Components\Limit;
 use SqlParser\Statements\SelectStatement;
-
 use SqlParser\Tests\TestCase;
 
 class StatementTest extends TestCase
 {
-
     public function testBuilder()
     {
         $stmt = new SelectStatement();

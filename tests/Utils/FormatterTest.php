@@ -3,7 +3,6 @@
 namespace SqlParser\Tests\Utils;
 
 use SqlParser\Utils\Formatter;
-
 use SqlParser\Tests\TestCase;
 
 class FormatTest extends TestCase
@@ -36,13 +35,13 @@ class FormatTest extends TestCase
             'line_ending' => '<br>',
             'clause_newline' => null,
             'parts_newline' => 0,
-            'formats' => $expected
+            'formats' => $expected,
         );
 
         $overridingOptions = array(
             'type' => 'test-type',
             'line_ending' => '<br>',
-            'formats' => $overriding
+            'formats' => $overriding,
         );
 
         $reflectionMethod = new \ReflectionMethod($formatter, 'getMergedOptions');
@@ -98,7 +97,7 @@ class FormatTest extends TestCase
                         'type' => 0,
                         'html' => 'new html',
                         'cli' => 'new cli',
-                    )
+                    ),
                 ),
                 array( // expected
                     array(
@@ -246,20 +245,20 @@ class FormatTest extends TestCase
                 'SELECT 1',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '  <span class="sql-number">1</span>',
-                array('type' => 'html')
+                array('type' => 'html'),
             ),
             array(
                 'SELECT 1 # Comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '  <span class="sql-number">1</span> <span class="sql-comment"># Comment' . "\n" .
                 '</span>',
-                array('type' => 'html')
+                array('type' => 'html'),
             ),
             array(
                 'SELECT HEX("1")',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '  <span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
-                array('type' => 'html')
+                array('type' => 'html'),
             ),
             array(
                 'SELECT * FROM foo WHERE bar=1',
@@ -269,7 +268,7 @@ class FormatTest extends TestCase
                 '  foo' . '<br/>' .
                 '<span class="sql-reserved">WHERE</span>' . '<br/>' .
                 '  bar = <span class="sql-number">1</span>',
-                array('type' => 'html')
+                array('type' => 'html'),
             ),
             array(
                 'CREATE PROCEDURE SPTEST() BEGIN FROM a SELECT *; END',
@@ -281,7 +280,7 @@ class FormatTest extends TestCase
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '  *;' . '<br/>' .
                 '<span class="sql-keyword">END</span>',
-                array('type' => 'html')
+                array('type' => 'html'),
             ),
             array(
                 'INSERT INTO foo VALUES (0, 0, 0), (1, 1, 1)',
@@ -291,17 +290,17 @@ class FormatTest extends TestCase
                 '<span class="sql-reserved">VALUES</span>' .
                 '(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),' .
                 '(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
-                array('type' => 'html')
+                array('type' => 'html'),
             ),
             array(
                 'SELECT 1',
                 "\x1b[35mSELECT\n  \x1b[92m1\x1b[0m",
-                array('type' => 'cli')
+                array('type' => 'cli'),
             ),
             array(
                 'SELECT "Text" AS BAR',
                 "\x1b[35mSELECT\n  \x1b[91m\"Text\" \x1b[35mAS \x1b[39mBAR\x1b[0m",
-                array('type' => 'cli')
+                array('type' => 'cli'),
             ),
             array(
                 'SELECT coditm AS Item, descripcion AS Descripcion, contenedores AS Contenedores, IF(suspendido = 1, Si, NO) AS Suspendido FROM `DW_articulos` WHERE superado = 0',

@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Utils;
 
 use SqlParser\Parser;
 use SqlParser\Utils\Query;
-
 use SqlParser\Tests\TestCase;
 
 class QueryTest extends TestCase
 {
-
     /**
      * @dataProvider testGetFlagsProvider
      */
@@ -29,29 +27,29 @@ class QueryTest extends TestCase
                 'ALTER TABLE DROP col',
                 array(
                     'reload' => true,
-                    'querytype' => 'ALTER'
-                )
+                    'querytype' => 'ALTER',
+                ),
             ),
             array(
                 'CALL test()',
                 array(
                     'is_procedure' => true,
-                    'querytype' => 'CALL'
-                )
+                    'querytype' => 'CALL',
+                ),
             ),
             array(
                 'CREATE TABLE tbl (id INT)',
                 array(
                     'reload' => true,
-                    'querytype' => 'CREATE'
-                )
+                    'querytype' => 'CREATE',
+                ),
             ),
             array(
                 'CHECK TABLE tbl',
                 array(
                     'is_maint' => true,
-                    'querytype' => 'CHECK'
-                )
+                    'querytype' => 'CHECK',
+                ),
             ),
             array(
                 'DELETE FROM tbl',
@@ -65,22 +63,22 @@ class QueryTest extends TestCase
                 'DROP VIEW v',
                 array(
                     'reload' => true,
-                    'querytype' => 'DROP'
-                )
+                    'querytype' => 'DROP',
+                ),
             ),
             array(
                 'DROP DATABASE db',
                 array(
                     'drop_database' => true,
                     'reload' => true,
-                    'querytype' => 'DROP'
-                )
+                    'querytype' => 'DROP',
+                ),
             ),
             array(
                 'EXPLAIN tbl',
                 array(
                     'is_explain' => true,
-                    'querytype' => 'EXPLAIN'
+                    'querytype' => 'EXPLAIN',
                 ),
             ),
             array(
@@ -88,8 +86,8 @@ class QueryTest extends TestCase
                 array(
                     'is_affected' => true,
                     'is_insert' => true,
-                    'querytype' => 'INSERT'
-                )
+                    'querytype' => 'INSERT',
+                ),
             ),
             array(
                 'REPLACE INTO tbl VALUES (2)',
@@ -97,23 +95,23 @@ class QueryTest extends TestCase
                     'is_affected' => true,
                     'is_replace' => true,
                     'is_insert' => true,
-                    'querytype' => 'REPLACE'
-                )
+                    'querytype' => 'REPLACE',
+                ),
             ),
             array(
                 'SELECT 1',
                 array(
                     'is_select' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT * FROM tbl',
                 array(
                     'is_select' => true,
                     'select_from' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT DISTINCT * FROM tbl LIMIT 0, 10 ORDER BY id',
@@ -123,8 +121,8 @@ class QueryTest extends TestCase
                     'select_from' => true,
                     'limit' => true,
                     'order' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT * FROM actor GROUP BY actor_id',
@@ -133,8 +131,8 @@ class QueryTest extends TestCase
                     'is_select' => true,
                     'select_from' => true,
                     'group' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT col1, col2 FROM table1 PROCEDURE ANALYSE(10, 2000);',
@@ -142,8 +140,8 @@ class QueryTest extends TestCase
                     'is_analyse' => true,
                     'is_select' => true,
                     'select_from' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT * FROM tbl INTO OUTFILE "/tmp/export.txt"',
@@ -151,8 +149,8 @@ class QueryTest extends TestCase
                     'is_export' => true,
                     'is_select' => true,
                     'select_from' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT COUNT(id), SUM(id) FROM tbl',
@@ -161,16 +159,16 @@ class QueryTest extends TestCase
                     'is_func' => true,
                     'is_select' => true,
                     'select_from' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT (SELECT "foo")',
                 array(
                     'is_select' => true,
                     'is_subquery' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT * FROM customer HAVING store_id = 2;',
@@ -179,8 +177,8 @@ class QueryTest extends TestCase
                     'select_from' => true,
                     'is_group' => true,
                     'having' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT * FROM table1 INNER JOIN table2 ON table1.id=table2.id;',
@@ -188,50 +186,50 @@ class QueryTest extends TestCase
                     'is_select' => true,
                     'select_from' => true,
                     'join' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SHOW CREATE TABLE tbl',
                 array(
                     'is_show' => true,
-                    'querytype' => 'SHOW'
-                )
+                    'querytype' => 'SHOW',
+                ),
             ),
             array(
                 'UPDATE tbl SET id = 1',
                 array(
                     'is_affected' => true,
-                    'querytype' => 'UPDATE'
-                )
+                    'querytype' => 'UPDATE',
+                ),
             ),
             array(
                 'ANALYZE TABLE tbl',
                 array(
                     'is_maint' => true,
-                    'querytype' => 'ANALYZE'
-                )
+                    'querytype' => 'ANALYZE',
+                ),
             ),
             array(
                 'CHECKSUM TABLE tbl',
                 array(
                     'is_maint' => true,
-                    'querytype' => 'CHECKSUM'
-                )
+                    'querytype' => 'CHECKSUM',
+                ),
             ),
             array(
                 'OPTIMIZE TABLE tbl',
                 array(
                     'is_maint' => true,
-                    'querytype' => 'OPTIMIZE'
-                )
+                    'querytype' => 'OPTIMIZE',
+                ),
             ),
             array(
                 'REPAIR TABLE tbl',
                 array(
                     'is_maint' => true,
-                    'querytype' => 'REPAIR'
-                )
+                    'querytype' => 'REPAIR',
+                ),
             ),
             array(
                 '(SELECT a FROM t1 WHERE a=10 AND B=1 ORDER BY a LIMIT 10) ' .
@@ -243,8 +241,8 @@ class QueryTest extends TestCase
                     'limit' => true,
                     'order' => true,
                     'union' => true,
-                    'querytype' => 'SELECT'
-                )
+                    'querytype' => 'SELECT',
+                ),
             ),
             array(
                 'SELECT * FROM orders AS ord WHERE 1',
@@ -252,7 +250,7 @@ class QueryTest extends TestCase
                     'querytype' => 'SELECT',
                     'is_select' => true,
                     'select_from' => true,
-                )
+                ),
             ),
         );
     }
@@ -305,7 +303,7 @@ class QueryTest extends TestCase
                     'select_tables' => array(
                         array('actor', null),
                         array('film', 'sakila2'),
-                    )
+                    ),
                 )
             ),
             Query::getAll($query)
@@ -323,7 +321,7 @@ class QueryTest extends TestCase
                     'select_tables' => array(
                         array('actor', 'sakila'),
                         array('film', null),
-                    )
+                    ),
                 )
             ),
             Query::getAll($query)
@@ -340,7 +338,7 @@ class QueryTest extends TestCase
                     'select_expr' => array(),
                     'select_tables' => array(
                         array('actor', 'sakila'),
-                    )
+                    ),
                 )
             ),
             Query::getAll($query)
@@ -510,7 +508,7 @@ class QueryTest extends TestCase
 
         $query = 'USE sakila; ' .
             '/*test comment*/' .
-            'SELECT * FROM actor; '.
+            'SELECT * FROM actor; ' .
             'DELIMITER $$ ' .
             'UPDATE actor SET last_name = "abc"$$' .
             '/*!SELECT * FROM actor WHERE last_name = "abc"*/$$';

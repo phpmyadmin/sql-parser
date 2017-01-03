@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\Condition;
-
 use SqlParser\Tests\TestCase;
 
 class ConditionTest extends TestCase
 {
-
     public function testParse()
     {
         $component = Condition::parse(new Parser(), $this->getTokensList('/* id = */ id = 10'));

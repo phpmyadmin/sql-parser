@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Utils;
 
 use SqlParser\Parser;
 use SqlParser\Utils\Table;
-
 use SqlParser\Tests\TestCase;
 
 class TableTest extends TestCase
 {
-
     /**
      * @dataProvider getForeignKeysProvider
      */
@@ -176,9 +174,9 @@ class TableTest extends TestCase
                         'timestamp_not_null' => true,
                         'default_value' => 'CURRENT_TIMESTAMP',
                         'default_current_timestamp' => true,
-                        'on_update_current_timestamp' => true
-                    )
-                )
+                        'on_update_current_timestamp' => true,
+                    ),
+                ),
             ),
             array(
                 'CREATE TABLE table1 (

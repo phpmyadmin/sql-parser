@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\Array2d;
-
 use SqlParser\Tests\TestCase;
 
 class Array2dTest extends TestCase
 {
-
     public function testParse()
     {
         $parser = new Parser();
@@ -79,7 +77,7 @@ class Array2dTest extends TestCase
             count($parser->errors)
         );
         $this->assertEquals(
-            "An opening bracket followed by a set of values was expected.",
+            'An opening bracket followed by a set of values was expected.',
             $parser->errors[0]->getMessage()
         );
     }
@@ -93,7 +91,7 @@ class Array2dTest extends TestCase
             count($parser->errors)
         );
         $this->assertEquals(
-            "2 values were expected, but found 1.",
+            '2 values were expected, but found 1.',
             $parser->errors[0]->getMessage()
         );
     }

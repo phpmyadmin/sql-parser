@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Lexer;
 
 use SqlParser\Context;
 use SqlParser\Token;
-
 use SqlParser\Tests\TestCase;
 
 class IsMethodsTest extends TestCase
 {
-
     public function testIsKeyword()
     {
         $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('SELECT'));
@@ -47,12 +45,12 @@ class IsMethodsTest extends TestCase
 
     public function testIsWhitespace()
     {
-        $this->assertTrue(Context::isWhitespace(" "));
+        $this->assertTrue(Context::isWhitespace(' '));
         $this->assertTrue(Context::isWhitespace("\r"));
         $this->assertTrue(Context::isWhitespace("\n"));
         $this->assertTrue(Context::isWhitespace("\t"));
 
-        $this->assertFalse(Context::isWhitespace("a"));
+        $this->assertFalse(Context::isWhitespace('a'));
         $this->assertFalse(Context::isWhitespace("\b"));
         $this->assertFalse(Context::isWhitespace("\u1000"));
     }
