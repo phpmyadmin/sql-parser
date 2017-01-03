@@ -59,6 +59,9 @@ class FormatTest extends TestCase
                     array(
                         'type' => 0,
                         'flags' => 0,
+                        'html' => '',
+                        'cli' => '',
+                        'function' => '',
                     ),
                 ),
                 array( // overriding
@@ -69,6 +72,9 @@ class FormatTest extends TestCase
                     array(
                         'type' => 0,
                         'flags' => 0,
+                        'html' => '',
+                        'cli' => '',
+                        'function' => '',
                     ),
                 ),
             ),
