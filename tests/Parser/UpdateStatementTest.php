@@ -20,6 +20,7 @@ class UpdateStatementTest extends TestCase
         return array(
             array('parser/parseUpdate'),
             array('parser/parseUpdate2'),
+            array('parser/parseUpdate3'),
         );
     }
 }

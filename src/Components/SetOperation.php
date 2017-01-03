@@ -106,6 +106,7 @@ class SetOperation extends Component
                     )
                 );
                 if ($tmp == null) {
+                    $parser->error('Missing expression.', $token);
                     break;
                 }
                 $expr->column = trim($expr->column);
