@@ -2,7 +2,7 @@
 
 namespace SqlParser\Tools;
 
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 /**
  * Used for context generation.
@@ -57,10 +57,9 @@ class ContextGenerator
         ' *' . "\n" .
         ' * This file was auto-generated.' . "\n" .
         ' *' . "\n" .
-        ' * @package    SqlParser' . "\n" .
-        ' * @subpackage Contexts' . "\n" .
-        ' * @link       %3$s' . "\n" .
+        ' * @see %3$s' . "\n" .
         ' */' . "\n" .
+        '' . "\n" .
         'namespace SqlParser\\Contexts;' . "\n" .
         '' . "\n" .
         'use SqlParser\\Context;' . "\n" .
@@ -69,13 +68,11 @@ class ContextGenerator
         ' * Context for %1$s.' . "\n" .
         ' *' . "\n" .
         ' * @category   Contexts' . "\n" .
-        ' * @package    SqlParser' . "\n" .
-        ' * @subpackage Contexts' . "\n" .
+        ' *' . "\n" .
         ' * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+' . "\n" .
         ' */' . "\n" .
         'class %2$s extends Context' . "\n" .
         '{' . "\n" .
-        '' . "\n" .
         '    /**' . "\n" .
         '     * List of keywords.' . "\n" .
         '     *' . "\n" .
@@ -86,7 +83,6 @@ class ContextGenerator
         '     * @var array' . "\n" .
         '     */' . "\n" .
         '    public static $KEYWORDS = array(' . "\n" .
-        '' . "\n" .
         '%4$s' .
         '    );' . "\n" .
         '}' . "\n";
@@ -184,7 +180,9 @@ class ContextGenerator
      */
     public static function printWords($words, $spaces = 8, $line = 80)
     {
+        $typesCount = count($words);
         $ret = '';
+        $j = 0;
 
         foreach ($words as $type => $wordsByType) {
             foreach ($wordsByType as $len => $wordsByLen) {
@@ -207,7 +205,9 @@ class ContextGenerator
                 }
             }
 
-            $ret .= "\n";
+            if (++$j < $typesCount) {
+                $ret .= "\n";
+            }
         }
 
         // Trim trailing spaces and return.
