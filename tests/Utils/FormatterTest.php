@@ -53,10 +53,10 @@ class FormatTest extends TestCase
 
     public function mergeFormats()
     {
-        // array(default, overriding, expected)[]
+        // array($default[], $overriding[], $expected[])
         return array(
             'empty formats' => array(
-                array( // default
+                'default' => array(
                     array(
                         'type' => 0,
                         'flags' => 0,
@@ -65,11 +65,11 @@ class FormatTest extends TestCase
                         'function' => '',
                     ),
                 ),
-                array( // overriding
+                'overriding' => array(
                     array(
                     ),
                 ),
-                array( // expected
+                'expected' => array(
                     array(
                         'type' => 0,
                         'flags' => 0,
@@ -80,7 +80,7 @@ class FormatTest extends TestCase
                 ),
             ),
             'no flags' => array(
-                array( // default
+                'default' => array(
                     array(
                         'type' => 0,
                         'flags' => 0,
@@ -94,14 +94,14 @@ class FormatTest extends TestCase
                         'cli' => 'cli',
                     ),
                 ),
-                array( // overriding
+                'overriding' => array(
                     array(
                         'type' => 0,
                         'html' => 'new html',
                         'cli' => 'new cli',
                     ),
                 ),
-                array( // expected
+                'expected' => array(
                     array(
                         'type' => 0,
                         'flags' => 0,
@@ -118,7 +118,7 @@ class FormatTest extends TestCase
                 ),
             ),
             'with flags' => array(
-                array( // default
+                'default' => array(
                     array(
                         'type' => -1,
                         'flags' => 0,
@@ -138,7 +138,7 @@ class FormatTest extends TestCase
                         'cli' => 'cli',
                     ),
                 ),
-                array( // overriding
+                'overriding' => array(
                     array(
                         'type' => 0,
                         'flags' => 0,
@@ -146,7 +146,7 @@ class FormatTest extends TestCase
                         'cli' => 'new cli',
                     ),
                 ),
-                array( // expected
+                'expected' => array(
                     array(
                         'type' => -1,
                         'flags' => 0,
@@ -169,7 +169,7 @@ class FormatTest extends TestCase
                 ),
             ),
             'with extra formats' => array(
-                array( // default
+                'default' => array(
                     array(
                         'type' => 0,
                         'flags' => 0,
@@ -177,7 +177,7 @@ class FormatTest extends TestCase
                         'cli' => 'cli',
                     ),
                 ),
-                array( // overriding
+                'overriding' => array(
                     array(
                         'type' => 0,
                         'flags' => 1,
@@ -196,7 +196,7 @@ class FormatTest extends TestCase
                         'cli' => 'new cli',
                     ),
                 ),
-                array( // expected
+                'expected' => array(
                     array(
                         'type' => 0,
                         'flags' => 0,
@@ -225,6 +225,45 @@ class FormatTest extends TestCase
                         'function' => '',
                     ),
                 ),
+            ),
+        );
+    }
+
+    /**
+     * @dataProvider formatQueries_new
+     */
+    public function testFormat_new($query, $text, $cli, $html)
+    {
+        // Test TEXT format
+        $this->assertEquals($text, Formatter::format($query, array('type' => 'text')));
+
+        // Test CLI format
+        $this->assertEquals($cli, Formatter::format($query, array('type' => 'cli')));
+
+        // Test HTML format
+        $this->assertEquals($html, Formatter::format($query, array('type' => 'html')));
+    }
+
+    public function formatQueries_new()
+    {
+        return array(
+            'empty' => array(
+                'query' => '',
+                'text' => '',
+                'cli' => "\x1b[0m",
+                'html' => '',
+            ),
+            'simply' => array(
+                'query' => 'select *',
+                'text' =>
+                    "SELECT\n" .
+                    "    *",
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[39m*" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;*',
             ),
         );
     }
