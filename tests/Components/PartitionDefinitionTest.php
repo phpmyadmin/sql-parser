@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\PartitionDefinition;
-
 use SqlParser\Tests\TestCase;
 
 class PartitionDefinitionTest extends TestCase
 {
-
     public function testParse()
     {
         $component = PartitionDefinition::parse(

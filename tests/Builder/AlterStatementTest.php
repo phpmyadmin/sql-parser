@@ -3,12 +3,10 @@
 namespace SqlParser\Tests\Builder;
 
 use SqlParser\Parser;
-
 use SqlParser\Tests\TestCase;
 
 class AlterStatementTest extends TestCase
 {
-
     public function testBuilder()
     {
         $query = 'ALTER TABLE `actor` ' .

@@ -3,12 +3,10 @@
 namespace SqlParser\Tests\Parser;
 
 use SqlParser\Tests\TestCase;
-
 use SqlParser\Parser;
 
 class SelectStatementTest extends TestCase
 {
-
     public function testSelectOptions()
     {
         $data = $this->getData('parser/parseSelect');

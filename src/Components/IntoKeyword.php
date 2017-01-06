@@ -2,10 +2,8 @@
 
 /**
  * `INTO` keyword parser.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -17,24 +15,21 @@ use SqlParser\TokensList;
  * `INTO` keyword parser.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class IntoKeyword extends Component
 {
-
     /**
      * FIELDS/COLUMNS Options for `SELECT...INTO` statements.
      *
      * @var array
      */
     public static $FIELDS_OPTIONS = array(
-
-        'TERMINATED BY'                 => array(1, 'expr'),
-        'OPTIONALLY'                    => 2,
-        'ENCLOSED BY'                   => array(3, 'expr'),
-        'ESCAPED BY'                    => array(4, 'expr'),
+        'TERMINATED BY' => array(1, 'expr'),
+        'OPTIONALLY' => 2,
+        'ENCLOSED BY' => array(3, 'expr'),
+        'ESCAPED BY' => array(4, 'expr'),
     );
 
     /**
@@ -43,9 +38,8 @@ class IntoKeyword extends Component
      * @var array
      */
     public static $LINES_OPTIONS = array(
-
-        'STARTING BY'                 => array(1, 'expr'),
-        'TERMINATED BY'               => array(2, 'expr'),
+        'STARTING BY' => array(1, 'expr'),
+        'TERMINATED BY' => array(2, 'expr'),
     );
 
     /**
@@ -70,45 +64,47 @@ class IntoKeyword extends Component
     public $columns;
 
     /**
-     * The values to be selected into (SELECT .. INTO @var1)
+     * The values to be selected into (SELECT .. INTO @var1).
      *
      * @var ExpressionArray
      */
     public $values;
 
     /**
-     * Options for FIELDS/COLUMNS keyword
+     * Options for FIELDS/COLUMNS keyword.
      *
      * @var OptionsArray
+     *
      * @see static::$FIELDS_OPTIONS
      */
     public $fields_options;
 
     /**
-     * Whether to use `FIELDS` or `COLUMNS` while building
+     * Whether to use `FIELDS` or `COLUMNS` while building.
      *
-     * @var boolean
+     * @var bool
      */
     public $fields_keyword;
 
     /**
-     * Options for OPTIONS keyword
+     * Options for OPTIONS keyword.
      *
      * @var OptionsArray
+     *
      * @see static::$LINES_OPTIONS
      */
     public $lines_options;
 
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return IntoKeyword
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = new IntoKeyword();
+        $ret = new self();
 
         /**
          * The state of the parser.
@@ -122,7 +118,7 @@ class IntoKeyword extends Component
          *
          *      2 ---------------------[ filename ]--------------------> 1
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -130,7 +126,7 @@ class IntoKeyword extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -199,10 +195,12 @@ class IntoKeyword extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
-    public function parseFileOptions(Parser $parser, TokensList $list, $keyword='FIELDS') {
+    public function parseFileOptions(Parser $parser, TokensList $list, $keyword = 'FIELDS')
+    {
         ++$list->idx;
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
@@ -229,8 +227,8 @@ class IntoKeyword extends Component
     }
 
     /**
-     * @param IntoKeyword $component The component to be built.
-     * @param array       $options   Parameters for building.
+     * @param IntoKeyword $component the component to be built
+     * @param array       $options   parameters for building
      *
      * @return string
      */
@@ -239,6 +237,7 @@ class IntoKeyword extends Component
         if ($component->dest instanceof Expression) {
             $columns = !empty($component->columns) ?
                 '(`' . implode('`, `', $component->columns) . '`)' : '';
+
             return $component->dest . $columns;
         } elseif (isset($component->values)) {
             return ExpressionArray::build($component->values);

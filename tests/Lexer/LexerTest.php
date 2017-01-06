@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Lexer;
 
 use SqlParser\Exceptions\LexerException;
 use SqlParser\Lexer;
-
 use SqlParser\Tests\TestCase;
 
 class LexerTest extends TestCase
 {
-
     /**
      * @runInSeparateProcess
      * @preserveGlobalState disabled
@@ -36,7 +34,7 @@ class LexerTest extends TestCase
     }
 
     /**
-     * @expectedException SqlParser\Exceptions\LexerException
+     * @expectedException \SqlParser\Exceptions\LexerException
      * @expectedExceptionMessage strict error
      * @expectedExceptionCode 4
      */

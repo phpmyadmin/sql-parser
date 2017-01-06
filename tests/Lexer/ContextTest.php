@@ -3,12 +3,10 @@
 namespace SqlParser\Tests\Lexer;
 
 use SqlParser\Context;
-
 use SqlParser\Tests\TestCase;
 
 class ContextTest extends TestCase
 {
-
     public function testLoad()
     {
         // Default context is 5.7.0.
@@ -34,7 +32,7 @@ class ContextTest extends TestCase
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException \Exception
      * @expectedExceptionMessage Specified context ("\SqlParser\Contexts\ContextFoo") does not exist.
      */
     public function testLoadError()

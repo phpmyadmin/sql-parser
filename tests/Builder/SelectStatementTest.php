@@ -3,12 +3,10 @@
 namespace SqlParser\Tests\Builder;
 
 use SqlParser\Parser;
-
 use SqlParser\Tests\TestCase;
 
 class SelectStatementTest extends TestCase
 {
-
     public function testBuilder()
     {
         $query = 'SELECT * FROM t1 LEFT JOIN (t2, t3, t4) '
@@ -76,7 +74,6 @@ class SelectStatementTest extends TestCase
             $stmt->build()
         );
     }
-
 
     public function testBuilderIntoOptions()
     {

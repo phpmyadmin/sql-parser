@@ -11,28 +11,25 @@ use SqlParser\Parser;
  * Used for test generation.
  *
  * @category   Tests
- * @package    SqlParser
- * @subpackage Tools
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class TestGenerator
 {
-
     /**
      * Generates a test's data.
      *
-     * @param string $query The query to be analyzed.
-     * @param string $type  Test's type (may be `lexer` or `parser`).
+     * @param string $query the query to be analyzed
+     * @param string $type  test's type (may be `lexer` or `parser`)
      *
      * @return array
      */
     public static function generate($query, $type = 'parser')
     {
-
         /**
          * Lexer used for tokenizing the query.
          *
-         * @var Lexer $lexer
+         * @var Lexer
          */
         $lexer = new Lexer($query);
 
@@ -40,21 +37,21 @@ class TestGenerator
          * Parsed used for analyzing the query.
          * A new instance of parser is generated only if the test requires.
          *
-         * @var Parser $parser
+         * @var Parser
          */
         $parser = ($type === 'parser') ? new Parser($lexer->list) : null;
 
         /**
          * Lexer's errors.
          *
-         * @var array $lexerErrors
+         * @var array
          */
         $lexerErrors = array();
 
         /**
          * Parser's errors.
          *
-         * @var array $parserErrors
+         * @var array
          */
         $parserErrors = array();
 
@@ -85,7 +82,7 @@ class TestGenerator
             'parser' => $parser,
             'errors' => array(
                 'lexer' => $lexerErrors,
-                'parser' => $parserErrors
+                'parser' => $parserErrors,
             ),
         );
     }
@@ -95,12 +92,10 @@ class TestGenerator
      *
      * Reads the input file, generates the data and writes it back.
      *
-     * @param string $type   The type of this test.
-     * @param string $input  The input file.
-     * @param string $output The output file.
-     * @param string $debug  The debug file.
-     *
-     * @return void
+     * @param string $type   the type of this test
+     * @param string $input  the input file
+     * @param string $output the output file
+     * @param string $debug  the debug file
      */
     public static function build($type, $input, $output, $debug = null)
     {
@@ -112,7 +107,7 @@ class TestGenerator
         /**
          * The query that is used to generate the test.
          *
-         * @var string $query
+         * @var string
          */
         $query = file_get_contents($input);
 
@@ -135,10 +130,8 @@ class TestGenerator
     /**
      * Generates recursively all tests preserving the directory structure.
      *
-     * @param string $input  The input directory.
-     * @param string $output The output directory.
-     *
-     * @return void
+     * @param string $input  the input directory
+     * @param string $output the output directory
      */
     public static function buildAll($input, $output, $debug = null)
     {

@@ -6,7 +6,6 @@ use SqlParser\Tests\TestCase;
 
 class RenameStatementTest extends TestCase
 {
-
     /**
      * @dataProvider testRenameProvider
      */

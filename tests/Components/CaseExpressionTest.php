@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\CaseExpression;
-
 use SqlParser\Tests\TestCase;
 
 class CaseExpressionTest extends TestCase
 {
-
     public function testParseBuild()
     {
         $caseExprQuery = 'case 1 when 1 then "Some" else "Other" end';

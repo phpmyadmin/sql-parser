@@ -3,19 +3,17 @@
 namespace SqlParser\Tests\Utils;
 
 use SqlParser\Utils\BufferedQuery;
-
 use SqlParser\Tests\TestCase;
 
 class BufferedQueryTest extends TestCase
 {
-
     /**
      * @dataProvider testExtractProvider
      */
     public function testExtract(
         $query,
         $chunkSize,
-        array $options = array(),
+        array $options,
         array $expected
     ) {
         $chunks = str_split($query, $chunkSize);
@@ -24,14 +22,14 @@ class BufferedQueryTest extends TestCase
         /**
          * The array of extracted statements.
          *
-         * @var array $statements
+         * @var array
          */
         $statements = array();
 
         /**
          * The `BufferedQuery` instance used for extraction.
          *
-         * @var BufferedQuery $bq
+         * @var BufferedQuery
          */
         $bq = new BufferedQuery('', $options);
 
@@ -99,7 +97,6 @@ class BufferedQueryTest extends TestCase
             '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */';
 
         return array(
-
             array(
                 "SELECT '\'';\nSELECT '\'';",
                 8,
@@ -110,7 +107,7 @@ class BufferedQueryTest extends TestCase
                 array(
                     "SELECT '\'';",
                     "SELECT '\'';",
-                )
+                ),
             ),
 
             array(
@@ -128,11 +125,11 @@ class BufferedQueryTest extends TestCase
                 array(
                     "CREATE TABLE `test` (\n" .
                     "  `txt` varchar(10)\n" .
-                    ");",
+                    ');',
                     "INSERT INTO `test` (`txt`) VALUES('abc');",
                     "INSERT INTO `test` (`txt`) VALUES('\\\\');",
                     "INSERT INTO `test` (`txt`) VALUES('xyz');",
-                )
+                ),
             ),
 
             array(
@@ -145,8 +142,8 @@ class BufferedQueryTest extends TestCase
                 ),
                 array(
                     'SELECT """""""";',
-                    'SELECT """\\\\"""'
-                )
+                    'SELECT """\\\\"""',
+                ),
             ),
 
             array(
@@ -161,8 +158,8 @@ class BufferedQueryTest extends TestCase
                 array(
                     'DELIMITER A_VERY_LONG_DEL',
                     'SELECT 1 A_VERY_LONG_DEL',
-                    'DELIMITER ;'
-                )
+                    'DELIMITER ;',
+                ),
             ),
 
             array(
@@ -207,8 +204,8 @@ class BufferedQueryTest extends TestCase
 
                     '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */',
 
-                    '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */'
-                )
+                    '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */',
+                ),
             ),
 
             array(
@@ -258,7 +255,7 @@ class BufferedQueryTest extends TestCase
                     '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */',
 
                     '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */',
-                )
+                ),
             ),
 
             array(
@@ -303,9 +300,9 @@ class BufferedQueryTest extends TestCase
 
                     '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;',
 
-                    '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */'
-                )
-            )
+                    '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */',
+                ),
+            ),
         );
     }
 }

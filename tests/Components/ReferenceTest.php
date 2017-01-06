@@ -5,12 +5,10 @@ namespace SqlParser\Tests\Components;
 use SqlParser\Parser;
 use SqlParser\Components\Expression;
 use SqlParser\Components\Reference;
-
 use SqlParser\Tests\TestCase;
 
 class ReferenceTest extends TestCase
 {
-
     public function testParse()
     {
         $component = Reference::parse(new Parser(), $this->getTokensList('tbl (id)'));

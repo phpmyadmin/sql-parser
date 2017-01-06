@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Lexer;
 
 use SqlParser\Token;
 use SqlParser\TokensList;
-
 use SqlParser\Tests\TestCase;
 
 class TokensListTest extends TestCase
 {
-
     /**
      * ArrayObj of tokens that are used for testing.
      *

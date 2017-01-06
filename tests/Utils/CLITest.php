@@ -10,6 +10,7 @@ class CLITest extends TestCase
     {
         $cli = $this->getMockBuilder('SqlParser\Utils\CLI')->setMethods(array('getopt'))->getMock();
         $cli->method('getopt')->willReturn($getopt);
+
         return $cli;
     }
 
