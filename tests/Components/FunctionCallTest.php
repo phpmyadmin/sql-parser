@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Components\ArrayObj;
 use SqlParser\Components\FunctionCall;
-
 use SqlParser\Tests\TestCase;
 
 class FunctionCallTest extends TestCase
 {
-
     public function testBuildArray()
     {
         $component = new FunctionCall('func', array('a', 'b'));

@@ -2,15 +2,12 @@
 
 namespace SqlParser\Tests\Utils;
 
-use SqlParser\Parser;
 use SqlParser\Token;
 use SqlParser\Utils\Tokens;
-
 use SqlParser\Tests\TestCase;
 
 class TokensTest extends TestCase
 {
-
     /**
      * @dataProvider replaceTokensProvider
      */
@@ -33,7 +30,7 @@ class TokensTest extends TestCase
                     new Token('.'),
                 ),
                 'SELECT * FROM /*x*/c.b',
-            )
+            ),
         );
     }
 
@@ -53,53 +50,53 @@ class TokensTest extends TestCase
             array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('token' => '"abc"'),
-                true
+                true,
             ),
             array(
                 new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('value' => 'abc'),
-                true
+                true,
             ),
             array(
                 new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('value_str' => 'ABC'),
-                true
+                true,
             ),
             array(
                 new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('type' => Token::TYPE_STRING),
-                true
+                true,
             ),
             array(
                 new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('flags' => Token::FLAG_STRING_DOUBLE_QUOTES),
-                true
+                true,
             ),
 
             array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('token' => '"abcd"'),
-                false
+                false,
             ),
             array(
                 new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('value' => 'abcd'),
-                false
+                false,
             ),
             array(
                 new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('value_str' => 'ABCd'),
-                false
+                false,
             ),
             array(
                 new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('type' => Token::TYPE_NUMBER),
-                false
+                false,
             ),
             array(
                 new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('flags' => Token::FLAG_STRING_SINGLE_QUOTES),
-                false
+                false,
             ),
         );
     }

@@ -6,7 +6,6 @@ use SqlParser\Tests\TestCase;
 
 class BugsTest extends TestCase
 {
-
     /**
      * @dataProvider testBugProvider
      */

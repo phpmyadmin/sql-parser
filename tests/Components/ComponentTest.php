@@ -5,12 +5,10 @@ namespace SqlParser\Tests\Parser;
 use SqlParser\Component;
 use SqlParser\Parser;
 use SqlParser\TokensList;
-
 use SqlParser\Tests\TestCase;
 
 class ComponentTest extends TestCase
 {
-
     /**
      * @expectedException \Exception
      * @expectedExceptionMessage Not implemented yet.

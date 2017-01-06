@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\CreateDefinition;
-
 use SqlParser\Tests\TestCase;
 
 class CreateDefinitionTest extends TestCase
 {
-
     public function testParse()
     {
         $component = CreateDefinition::parse(

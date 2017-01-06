@@ -6,7 +6,6 @@ use SqlParser\Tests\TestCase;
 
 class DeleteStatementTest extends TestCase
 {
-
     /**
      * @dataProvider testDeleteProvider
      */

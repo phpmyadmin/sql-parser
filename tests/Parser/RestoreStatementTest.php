@@ -6,7 +6,6 @@ use SqlParser\Tests\TestCase;
 
 class RestoreStatementTest extends TestCase
 {
-
     /**
      * @dataProvider testRestoreProvider
      */

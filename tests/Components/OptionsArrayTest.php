@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\OptionsArray;
-
 use SqlParser\Tests\TestCase;
 
 class OptionsArrayTest extends TestCase
 {
-
     public function testParse()
     {
         $component = OptionsArray::parse(
