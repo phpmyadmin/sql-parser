@@ -2,9 +2,8 @@
 
 /**
  * Defines the localization helper infrastructure of the library.
- *
- * @package SqlParser
  */
+
 namespace SqlParser;
 
 use MoTranslator;
@@ -26,9 +25,7 @@ class Translator
     private static $translator;
 
     /**
-     * Loads transator
-     *
-     * @return void
+     * Loads transator.
      */
     public static function load()
     {
@@ -55,7 +52,7 @@ class Translator
     }
 
     /**
-     * Translates a string
+     * Translates a string.
      *
      * @param string $msgid String to be translated
      *
@@ -64,6 +61,7 @@ class Translator
     public static function gettext($msgid)
     {
         self::load();
+
         return self::$translator->gettext($msgid);
     }
 }

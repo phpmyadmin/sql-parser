@@ -2,14 +2,12 @@
 
 /**
  * Defines the core helper infrastructure of the library.
- *
- * @package SqlParser
  */
+
 namespace SqlParser;
 
 class Core
 {
-
     /**
      * Whether errors should throw exceptions or just be stored.
      *
@@ -35,11 +33,9 @@ class Core
     /**
      * Creates a new error log.
      *
-     * @param Exception $error The error exception.
+     * @param Exception $error the error exception
      *
-     * @throws Exception Throws the exception, if strict mode is enabled.
-     *
-     * @return void
+     * @throws Exception throws the exception, if strict mode is enabled
      */
     public function error($error)
     {
