@@ -8,6 +8,7 @@
 * Fix parsing of FIELDS and LINES options in SELECT..INTO
 * PHP 7.2 compatibility.
 * Better parameter passing to query formatter.
+* Coding style fixes.
 
 ## [3.4.14] - 2016-11-30
 
