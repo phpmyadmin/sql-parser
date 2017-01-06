@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-01-03 12:34+0100\n"
+"POT-Creation-Date: 2017-01-06 09:31+0100\n"
 "PO-Revision-Date: 2016-12-21 15:58+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -15,208 +15,208 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.10\n"
 
-#: src/Component.php:45 src/Component.php:65
+#: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
 msgstr "Még nincs megvalósítva."
 
-#: src/Components/AlterOperation.php:228 src/Statement.php:337
+#: src/Components/AlterOperation.php:224 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Egy új utasítás található, de nincs elválasztó közte és az előző között."
 
-#: src/Components/AlterOperation.php:240
+#: src/Components/AlterOperation.php:236
 msgid "Unrecognized alter operation."
 msgstr "Felismerhetetlen módosítás művelet."
 
-#: src/Components/Array2d.php:92
+#: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
 msgstr "%1$d értékek voltak elvárva, de %2$d található."
 
-#: src/Components/Array2d.php:115
+#: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
 msgstr "Nyitó kapcsos zárójelet és az azt követő értékeket vártuk."
 
-#: src/Components/ArrayObj.php:118 src/Components/CreateDefinition.php:206
+#: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
 msgid "An opening bracket was expected."
 msgstr "Nyitó kapcsos zárójelet vártunk."
 
-#: src/Components/CaseExpression.php:137 src/Components/CaseExpression.php:167
-#: src/Components/CaseExpression.php:179 src/Components/CaseExpression.php:193
-#: src/Statements/DeleteStatement.php:225
-#: src/Statements/DeleteStatement.php:241
-#: src/Statements/DeleteStatement.php:281
-#: src/Statements/DeleteStatement.php:292
-#: src/Statements/DeleteStatement.php:322
-#: src/Statements/DeleteStatement.php:333
-#: src/Statements/InsertStatement.php:199
-#: src/Statements/InsertStatement.php:227
-#: src/Statements/ReplaceStatement.php:165
-#: src/Statements/ReplaceStatement.php:193
+#: src/Components/CaseExpression.php:129 src/Components/CaseExpression.php:159
+#: src/Components/CaseExpression.php:171 src/Components/CaseExpression.php:185
+#: src/Statements/DeleteStatement.php:216
+#: src/Statements/DeleteStatement.php:232
+#: src/Statements/DeleteStatement.php:272
+#: src/Statements/DeleteStatement.php:283
+#: src/Statements/DeleteStatement.php:313
+#: src/Statements/DeleteStatement.php:324
+#: src/Statements/InsertStatement.php:189
+#: src/Statements/InsertStatement.php:217
+#: src/Statements/ReplaceStatement.php:157
+#: src/Statements/ReplaceStatement.php:185
 #, fuzzy
 #| msgid "Unexpected token."
 msgid "Unexpected keyword."
 msgstr "Váratlan jelsor."
 
-#: src/Components/CaseExpression.php:202
+#: src/Components/CaseExpression.php:194
 msgid "Unexpected end of CASE expression"
 msgstr ""
 
-#: src/Components/CreateDefinition.php:227
+#: src/Components/CreateDefinition.php:222
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 
-#: src/Components/CreateDefinition.php:240
+#: src/Components/CreateDefinition.php:236
 msgid "A symbol name was expected!"
 msgstr "Egy szimbólumnév várt!"
 
-#: src/Components/CreateDefinition.php:272
+#: src/Components/CreateDefinition.php:269
 msgid "A comma or a closing bracket was expected."
 msgstr "Egy vessző vagy egy záró zárójel várt."
 
-#: src/Components/CreateDefinition.php:288
+#: src/Components/CreateDefinition.php:285
 msgid "A closing bracket was expected."
 msgstr "Záró kapcsos zárójelet vártunk."
 
-#: src/Components/DataType.php:127
+#: src/Components/DataType.php:123
 msgid "Unrecognized data type."
 msgstr "Felismerhetetlen adattípus."
 
-#: src/Components/Expression.php:248 src/Components/Expression.php:398
+#: src/Components/Expression.php:243 src/Components/Expression.php:393
 msgid "An alias was expected."
 msgstr "Egy álnév várt."
 
-#: src/Components/Expression.php:336 src/Components/Expression.php:355
-#: src/Components/Expression.php:387
+#: src/Components/Expression.php:331 src/Components/Expression.php:350
+#: src/Components/Expression.php:382
 msgid "An alias was previously found."
 msgstr "Egy álnév korábban már megtalálva."
 
-#: src/Components/Expression.php:368
+#: src/Components/Expression.php:363
 msgid "Unexpected dot."
 msgstr "Váratlan pont."
 
-#: src/Components/ExpressionArray.php:106
+#: src/Components/ExpressionArray.php:102
 msgid "An expression was expected."
 msgstr "Egy kifejezés várt."
 
-#: src/Components/Limit.php:90 src/Components/Limit.php:112
+#: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
 msgstr "Offsetet vártunk."
 
-#: src/Components/OptionsArray.php:147
+#: src/Components/OptionsArray.php:143
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Ez a lehetőség ütközik ezzel: „%1$s”."
 
-#: src/Components/RenameOperation.php:101
+#: src/Components/RenameOperation.php:97
 msgid "The old name of the table was expected."
 msgstr "A tábla régi neve várt."
 
-#: src/Components/RenameOperation.php:111
+#: src/Components/RenameOperation.php:107
 msgid "Keyword \"TO\" was expected."
 msgstr "\"TO\" kulcsszavat vártunk."
 
-#: src/Components/RenameOperation.php:127
+#: src/Components/RenameOperation.php:123
 msgid "The new name of the table was expected."
 msgstr "A tábla új neve várt."
 
-#: src/Components/RenameOperation.php:145
+#: src/Components/RenameOperation.php:141
 msgid "A rename operation was expected."
 msgstr "Egy átnevezési művelet várt."
 
-#: src/Components/SetOperation.php:109
+#: src/Components/SetOperation.php:105
 #, fuzzy
 #| msgid "as regular expression"
 msgid "Missing expression."
 msgstr "reguláris kifejezésként"
 
-#: src/Lexer.php:242
+#: src/Lexer.php:239
 msgid "Unexpected character."
 msgstr "Váratlan karakter."
 
-#: src/Lexer.php:279
+#: src/Lexer.php:276
 msgid "Expected whitespace(s) before delimiter."
 msgstr "A határoló előtt szóközö(ke)t vártunk."
 
-#: src/Lexer.php:297 src/Lexer.php:313
+#: src/Lexer.php:294 src/Lexer.php:310
 msgid "Expected delimiter."
 msgstr "Határolót vártunk."
 
-#: src/Lexer.php:814
+#: src/Lexer.php:819
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "A(z) %1$s záró idézés várt."
 
-#: src/Lexer.php:854
+#: src/Lexer.php:860
 msgid "Variable name was expected."
 msgstr "Változónév várt."
 
-#: src/Parser.php:432
+#: src/Parser.php:423
 msgid "Unexpected beginning of statement."
 msgstr "Váratlan utasítás kezdet."
 
-#: src/Parser.php:451
+#: src/Parser.php:442
 msgid "Unrecognized statement type."
 msgstr "Felismerhetetlen utasítástípus."
 
-#: src/Parser.php:536
+#: src/Parser.php:527
 msgid "No transaction was previously started."
 msgstr "Nem volt korábban elindított tranzakció."
 
-#: src/Statement.php:245 src/Statements/DeleteStatement.php:250
-#: src/Statements/DeleteStatement.php:295
-#: src/Statements/InsertStatement.php:236
-#: src/Statements/InsertStatement.php:256
-#: src/Statements/ReplaceStatement.php:201
+#: src/Statement.php:242 src/Statements/DeleteStatement.php:241
+#: src/Statements/DeleteStatement.php:286
+#: src/Statements/InsertStatement.php:226
+#: src/Statements/InsertStatement.php:246
+#: src/Statements/ReplaceStatement.php:193
 msgid "Unexpected token."
 msgstr "Váratlan jelsor."
 
-#: src/Statement.php:309
+#: src/Statement.php:306
 msgid "This type of clause was previously parsed."
 msgstr "A kikötés ezen típusa korábban fel lett dolgozva."
 
-#: src/Statement.php:369
+#: src/Statement.php:366
 msgid "Unrecognized keyword."
 msgstr "Felismerhetetlen kulcsszó."
 
-#: src/Statement.php:495
+#: src/Statement.php:486
 #, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected ordering of clauses."
 msgstr "a tábla elejénél"
 
-#: src/Statements/CreateStatement.php:381
+#: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
 msgstr "Az entitás neve várt."
 
-#: src/Statements/CreateStatement.php:436
+#: src/Statements/CreateStatement.php:430
 #, fuzzy
 #| msgid "Table name template"
 msgid "A table name was expected."
 msgstr "Táblanév sablon"
 
-#: src/Statements/CreateStatement.php:444
+#: src/Statements/CreateStatement.php:438
 msgid "At least one column definition was expected."
 msgstr "Legalább egy oszlopmeghatározás várt."
 
-#: src/Statements/CreateStatement.php:555
+#: src/Statements/CreateStatement.php:549
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "\"RETURNS\" kulcsszavat vártunk."
 
-#: src/Statements/DeleteStatement.php:303
+#: src/Statements/DeleteStatement.php:294
 #, fuzzy
 #| msgid "No transaction was previously started."
 msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Nem volt korábban elindított tranzakció."
 
-#: tests/Lexer/LexerTest.php:21 tests/Parser/ParserTest.php:58
+#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
 msgid "error #1"
 msgstr "hiba #1"
 
-#: tests/Lexer/LexerTest.php:48 tests/Parser/ParserTest.php:80
+#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:78
 msgid "strict error"
 msgstr "szigorú hiba"
 
