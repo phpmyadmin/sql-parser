@@ -1,6 +1,9 @@
 # Change Log
 
-## [Unreleased]
+## [3.4.16] - 2017-01-06
+
+* Coding style fixes.
+* Properly handle operators AND, NOT, OR, XOR, DIV, MOD
 
 ## [3.4.15] - 2017-01-02
 
@@ -8,8 +11,6 @@
 * Fix parsing of FIELDS and LINES options in SELECT..INTO
 * PHP 7.2 compatibility.
 * Better parameter passing to query formatter.
-* Coding style fixes.
-* Properly handle operators AND, NOT, OR, XOR, DIV, MOD
 
 ## [3.4.14] - 2016-11-30
 
