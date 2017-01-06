@@ -379,12 +379,16 @@ class Formatter
                 }
 
                 // The options of a clause should stay on the same line and everything that follows.
-                if (($this->options['parts_newline'])
-                    && (!$formattedOptions)
-                    && (empty(self::$INLINE_CLAUSES[$lastClause]))
-                    && (($curr->type !== Token::TYPE_KEYWORD)
-                    || (($curr->type === Token::TYPE_KEYWORD)
-                    && ($curr->flags & Token::FLAG_KEYWORD_FUNCTION)))
+                if ($this->options['parts_newline']
+                    && !$formattedOptions
+                    && empty(self::$INLINE_CLAUSES[$lastClause])
+                    && (
+                        $curr->type !== Token::TYPE_KEYWORD
+                        || (
+                            $curr->type === Token::TYPE_KEYWORD
+                            && $curr->flags & Token::FLAG_KEYWORD_FUNCTION
+                        )
+                    )
                 ) {
                     $formattedOptions = true;
                     $lineEnded = true;
@@ -393,7 +397,7 @@ class Formatter
 
                 // Checking if this clause ended.
                 if ($tmp = static::isClause($curr)) {
-                    if (($tmp == 2) || ($this->options['clause_newline'])) {
+                    if ($tmp == 2 || $this->options['clause_newline']) {
                         $lineEnded = true;
                         if ($this->options['parts_newline']) {
                             --$indent;
@@ -416,10 +420,10 @@ class Formatter
                     // Fragments delimited by a comma are broken into multiple
                     // pieces only if the clause is not inlined or this fragment
                     // is between brackets that are on new line.
-                    if (((empty(self::$INLINE_CLAUSES[$lastClause]))
+                    if ((empty(self::$INLINE_CLAUSES[$lastClause])
                         && !$shortGroup
-                        && ($this->options['parts_newline']))
-                        || (end($blocksLineEndings) === true)
+                        && $this->options['parts_newline'])
+                        || end($blocksLineEndings) === true
                     ) {
                         $lineEnded = true;
                     }
@@ -428,7 +432,7 @@ class Formatter
                 // Handling brackets.
                 // Brackets are indented only if the length of the fragment between
                 // them is longer than 30 characters.
-                if (($prev->type === Token::TYPE_OPERATOR) && ($prev->value === '(')) {
+                if ($prev->type === Token::TYPE_OPERATOR && $prev->value === '(') {
                     array_push($blocksIndentation, $indent);
                     $shortGroup = true;
                     if (static::getGroupLength($list) > 30) {
@@ -437,7 +441,7 @@ class Formatter
                         $shortGroup = false;
                     }
                     array_push($blocksLineEndings, $lineEnded);
-                } elseif (($curr->type === Token::TYPE_OPERATOR) && ($curr->value === ')')) {
+                } elseif ($curr->type === Token::TYPE_OPERATOR && $curr->value === ')') {
                     $indent = array_pop($blocksIndentation);
                     $lineEnded |= array_pop($blocksLineEndings);
                     $shortGroup = false;
@@ -467,14 +471,13 @@ class Formatter
                 } else {
                     // If the line ended there is no point in adding whitespaces.
                     // Also, some tokens do not have spaces before or after them.
-                    if (!((($prev->type === Token::TYPE_OPERATOR) && (($prev->value === '.') || ($prev->value === '(')))
+                    if (!(($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
                         // No space after . (
-                        || (($curr->type === Token::TYPE_OPERATOR) && (($curr->value === '.') || ($curr->value === ',')
-                        || ($curr->value === '(') || ($curr->value === ')')))
+                        || ($curr->type === Token::TYPE_OPERATOR && ($curr->value === '.' || $curr->value === ',' || $curr->value === '(' || $curr->value === ')'))
                         // No space before . , ( )
-                        || (($curr->type === Token::TYPE_DELIMITER)) && (mb_strlen($curr->value, 'UTF-8') < 2))
+                        || $curr->type === Token::TYPE_DELIMITER && mb_strlen($curr->value, 'UTF-8') < 2)
                         // A space after delimiters that are longer than 2 characters.
-                        || ($prev->value === 'DELIMITER')
+                        || $prev->value === 'DELIMITER'
                     ) {
                         $ret .= ' ';
                     }
@@ -524,8 +527,8 @@ class Formatter
         $text = $token->token;
 
         foreach ($this->options['formats'] as $format) {
-            if (($token->type === $format['type'])
-                && (($token->flags & $format['flags']) === $format['flags'])
+            if ($token->type === $format['type']
+                && ($token->flags & $format['flags']) === $format['flags']
             ) {
                 // Running transformation function.
                 if (!empty($format['function'])) {
@@ -626,11 +629,14 @@ class Formatter
      */
     public static function isClause($token)
     {
-        if ((($token->type === Token::TYPE_NONE) && (strtoupper($token->token) === 'DELIMITER'))
-            || (($token->type === Token::TYPE_KEYWORD) && (isset(Parser::$STATEMENT_PARSERS[$token->value])))
+        if (
+            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$STATEMENT_PARSERS[$token->value]))
+            || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
-        } elseif (($token->type === Token::TYPE_KEYWORD) && (isset(Parser::$KEYWORD_PARSERS[$token->value]))) {
+        } elseif (
+            $token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->value])
+        ) {
             return 1;
         }
 
