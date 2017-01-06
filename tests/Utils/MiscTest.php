@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Utils;
 
 use SqlParser\Parser;
 use SqlParser\Utils\Misc;
-
 use SqlParser\Tests\TestCase;
 
 class MiscTest extends TestCase
 {
-
     /**
      * @dataProvider getAliasesProvider
      */
@@ -40,12 +38,12 @@ class MiscTest extends TestCase
                                 'alias' => 'i',
                                 'columns' => array(
                                     'name' => 'n',
-                                    'abcdef' => 'gh'
-                                )
-                            )
-                        )
-                    )
-                )
+                                    'abcdef' => 'gh',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
             ),
             array(
                 'select film_id id,title from film',
@@ -57,12 +55,12 @@ class MiscTest extends TestCase
                             'film' => array(
                                 'alias' => null,
                                 'columns' => array(
-                                    'film_id' => 'id'
-                                )
-                            )
-                        )
-                    )
-                )
+                                    'film_id' => 'id',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
             ),
             array(
                 'select `sakila`.`A`.`actor_id` as aid,`F`.`film_id` `fid`,'
@@ -77,34 +75,34 @@ class MiscTest extends TestCase
                                 'alias' => 'F',
                                 'columns' => array(
                                     'film_id' => 'fid',
-                                    'last_update' => 'updated'
-                                )
+                                    'last_update' => 'updated',
+                                ),
                             ),
                             'actor' => array(
-                                'alias'=> 'A',
+                                'alias' => 'A',
                                 'columns' => array(
                                     'actor_id' => 'aid',
-                                    'last_update' => 'updated'
-                                )
-                            )
-                        )
-                    )
-                )
+                                    'last_update' => 'updated',
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
             ),
             array(
                 'SELECT film_id FROM (SELECT * FROM film) as f;',
                 'sakila',
-                array()
+                array(),
             ),
             array(
                 '',
                 null,
-                array()
+                array(),
             ),
             array(
                 'SELECT 1',
                 null,
-                array()
+                array(),
             ),
             array(
                 'SELECT * FROM orders AS ord WHERE 1',
@@ -116,10 +114,10 @@ class MiscTest extends TestCase
                             'orders' => array(
                                 'alias' => 'ord',
                                 'columns' => array(),
-                            )
+                            ),
                         ),
                     ),
-                )
+                ),
             ),
         );
     }

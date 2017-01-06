@@ -3,12 +3,10 @@
 namespace SqlParser\Tests\Lexer;
 
 use SqlParser\Token;
-
 use SqlParser\Tests\TestCase;
 
 class TokenTest extends TestCase
 {
-
     public function testExtractKeyword()
     {
         $tok = new Token('SelecT', Token::TYPE_KEYWORD, Token::FLAG_KEYWORD_RESERVED);

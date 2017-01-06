@@ -3,15 +3,13 @@
 namespace SqlParser\Tests\Builder;
 
 use SqlParser\Parser;
-
 use SqlParser\Tests\TestCase;
 
 class DeleteStatementTest extends TestCase
 {
-
     public function testBuilderSingleTable()
     {
-    	/* Assertion 1 */
+        /* Assertion 1 */
         $query = 'DELETE IGNORE FROM t1';
 
         $parser = new Parser($query);
@@ -53,7 +51,7 @@ class DeleteStatementTest extends TestCase
 
         /* Assertion 6 */
         $query = 'DELETE LOW_PRIORITY FROM `test`.users '
-        	. 'WHERE `id`<3 AND (username="Dan" OR username="Paul") ORDER BY id ASC';
+            . 'WHERE `id`<3 AND (username="Dan" OR username="Paul") ORDER BY id ASC';
 
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
@@ -63,7 +61,7 @@ class DeleteStatementTest extends TestCase
 
     public function testBuilderMultiTable()
     {
-    	/* Assertion 1 */
+        /* Assertion 1 */
         $query = 'DELETE QUICK table1, table2.* FROM table1 AS `t1`, table2 AS `t2`';
 
         $parser = new Parser($query);

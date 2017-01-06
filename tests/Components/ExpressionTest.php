@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\Expression;
-
 use SqlParser\Tests\TestCase;
 
 class ExpressionTest extends TestCase
 {
-
     public function testParse()
     {
         $component = Expression::parse(new Parser(), $this->getTokensList('IF(film_id > 0, film_id, film_id)'));
@@ -64,7 +62,7 @@ class ExpressionTest extends TestCase
     {
         $component = array(
             new Expression('1 + 2', 'three'),
-            new Expression('1 + 3', 'four')
+            new Expression('1 + 3', 'four'),
         );
         $this->assertEquals(
             Expression::build($component),

@@ -9,12 +9,10 @@ use SqlParser\Components\CreateDefinition;
 use SqlParser\Components\Key;
 use SqlParser\Components\OptionsArray;
 use SqlParser\Statements\CreateStatement;
-
 use SqlParser\Tests\TestCase;
 
 class CreateStatementTest extends TestCase
 {
-
     public function testBuilder()
     {
         $parser = new Parser(
@@ -45,16 +43,16 @@ class CreateStatementTest extends TestCase
     public function testBuilderDefaultInt()
     {
         $parser = new Parser(
-            "CREATE TABLE IF NOT EXISTS t1 (" .
+            'CREATE TABLE IF NOT EXISTS t1 (' .
             " c1 int(11) NOT NULL DEFAULT '0' COMMENT 'xxx'" .
-            ") ENGINE=MyISAM"
+            ') ENGINE=MyISAM'
         );
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
             "CREATE TABLE IF NOT EXISTS t1 (\n" .
             "  `c1` int(11) NOT NULL DEFAULT '0' COMMENT 'xxx'\n" .
-            ") ENGINE=MyISAM",
+            ') ENGINE=MyISAM',
             $stmt->build()
         );
     }
@@ -62,18 +60,18 @@ class CreateStatementTest extends TestCase
     public function testBuilderDefaultComment()
     {
         $parser = new Parser(
-            "CREATE TABLE `wp_audio` (" .
+            'CREATE TABLE `wp_audio` (' .
             " `somedata` int(11) DEFAULT NULL COMMENT 'ma data', " .
-            " `someinfo` int(11) DEFAULT NULL COMMENT 'ma info' ".
-            " )"
+            " `someinfo` int(11) DEFAULT NULL COMMENT 'ma info' " .
+            ' )'
         );
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
             "CREATE TABLE `wp_audio` (\n" .
             "  `somedata` int(11) DEFAULT NULL COMMENT 'ma data',\n" .
-            "  `someinfo` int(11) DEFAULT NULL COMMENT 'ma info'\n".
-            ") ",
+            "  `someinfo` int(11) DEFAULT NULL COMMENT 'ma info'\n" .
+            ') ',
             $stmt->build()
         );
     }
@@ -95,14 +93,14 @@ class CreateStatementTest extends TestCase
                 '',
                 null,
                 new Key('', array(array('name' => 'id')), 'PRIMARY KEY')
-            )
+            ),
         );
 
         $this->assertEquals(
             "CREATE TABLE `test` (\n" .
             "  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,\n" .
             "  PRIMARY KEY (`id`)\n" .
-            ") ",
+            ') ',
             $stmt->build()
         );
 
@@ -118,15 +116,14 @@ class CreateStatementTest extends TestCase
             "  PRIMARY KEY (`id`),\n" .
             "  UNIQUE KEY `jos_section_value_value_aro` (`section_value`(100),`value`(15)) USING BTREE,\n" .
             "  KEY `jos_gacl_hidden_aro` (`hidden`)\n" .
-            ") ENGINE=InnoDB DEFAULT CHARSET=latin1";
+            ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
         $parser = new Parser($query);
         $this->assertEquals($query, $parser->statements[0]->build());
 
         /* Assertion 3 */
-        $query = "CREATE TABLE `table_copy` LIKE `old_table`";
+        $query = 'CREATE TABLE `table_copy` LIKE `old_table`';
         $parser = new Parser($query);
         $this->assertEquals($query, $parser->statements[0]->build());
-
 
         /* Assertion 4 */
         $query =
@@ -134,10 +131,9 @@ class CreateStatementTest extends TestCase
             "  `id` int(11) NOT NULL,\n" .
             "  `rTime` timestamp(3) NOT NULL DEFAULT '0000-00-00 00:00:00.000' ON UPDATE CURRENT_TIMESTAMP(3),\n" .
             "  PRIMARY KEY (`id`)\n" .
-            ") ENGINE=InnoDB DEFAULT CHARSET=latin1";
+            ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
         $parser = new Parser($query);
         $this->assertEquals($query, $parser->statements[0]->build());
-
     }
 
     public function testBuilderPartitions()
@@ -171,7 +167,7 @@ class CreateStatementTest extends TestCase
         /* Assertion 2 */
         $query = 'CREATE TABLE `pma_test` (' . "\n"
             . '  `test_id` int(32) NOT NULL,' . "\n"
-            . '  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP'. "\n"
+            . '  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP' . "\n"
             . ') ENGINE=InnoDB DEFAULT CHARSET=utf8' . "\n"
             . 'PARTITION BY RANGE (test_id)' . "\n"
             . '(' . "\n"

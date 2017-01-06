@@ -4,12 +4,10 @@ namespace SqlParser\Tests\Components;
 
 use SqlParser\Parser;
 use SqlParser\Components\ArrayObj;
-
 use SqlParser\Tests\TestCase;
 
 class ArrayObjTest extends TestCase
 {
-
     public function testBuildRaw()
     {
         $component = new ArrayObj(array('a', 'b'), array());

@@ -2,10 +2,8 @@
 
 /**
  * `VALUES` keyword parser.
- *
- * @package    SqlParser
- * @subpackage Components
  */
+
 namespace SqlParser\Components;
 
 use SqlParser\Component;
@@ -18,17 +16,15 @@ use SQLParser\Translator;
  * `VALUES` keyword parser.
  *
  * @category   Keywords
- * @package    SqlParser
- * @subpackage Components
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Array2d extends Component
 {
-
     /**
-     * @param Parser     $parser  The parser that serves as context.
-     * @param TokensList $list    The list of tokens that are being parsed.
-     * @param array      $options Parameters for parsing.
+     * @param Parser     $parser  the parser that serves as context
+     * @param TokensList $list    the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return ArrayObj[]
      */
@@ -39,7 +35,7 @@ class Array2d extends Component
         /**
          * The number of values in each set.
          *
-         * @var int $count
+         * @var int
          */
         $count = -1;
 
@@ -53,7 +49,7 @@ class Array2d extends Component
          *      1 ------------------------[ , ]------------------------> 0
          *      1 -----------------------[ else ]----------------------> (END)
          *
-         * @var int $state
+         * @var int
          */
         $state = 0;
 
@@ -61,7 +57,7 @@ class Array2d extends Component
             /**
              * Token parsed at this moment.
              *
-             * @var Token $token
+             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -118,12 +114,13 @@ class Array2d extends Component
         }
 
         --$list->idx;
+
         return $ret;
     }
 
     /**
-     * @param ArrayObj[] $component The component to be built.
-     * @param array      $options   Parameters for building.
+     * @param ArrayObj[] $component the component to be built
+     * @param array      $options   parameters for building
      *
      * @return string
      */

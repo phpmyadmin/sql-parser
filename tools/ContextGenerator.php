@@ -2,29 +2,27 @@
 
 namespace SqlParser\Tools;
 
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 /**
  * Used for context generation.
  *
  * @category   Contexts
- * @package    SqlParser
- * @subpackage Tools
+ *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ContextGenerator
 {
-
     /**
      * Labels and flags that may be used when defining keywords.
      *
      * @var array
      */
     public static $LABELS_FLAGS = array(
-        '(R)'   =>  2, // reserved
-        '(D)'   =>  8, // data type
-        '(K)'   => 16, // keyword
-        '(F)'   => 32, // function name
+        '(R)' => 2, // reserved
+        '(D)' => 8, // data type
+        '(K)' => 16, // keyword
+        '(F)' => 32, // function name
     );
 
     /**
@@ -52,46 +50,42 @@ class ContextGenerator
      * @var string
      */
     const TEMPLATE =
-        '<?php'                                                                             . "\n" .
-        ''                                                                                  . "\n" .
-        '/**'                                                                               . "\n" .
-        ' * Context for %1$s.'                                                              . "\n" .
-        ' *'                                                                                . "\n" .
-        ' * This file was auto-generated.'                                                  . "\n" .
-        ' *'                                                                                . "\n" .
-        ' * @package    SqlParser'                                                          . "\n" .
-        ' * @subpackage Contexts'                                                           . "\n" .
-        ' * @link       %3$s'                                                               . "\n" .
-        ' */'                                                                               . "\n" .
-        'namespace SqlParser\\Contexts;'                                                    . "\n" .
-        ''                                                                                  . "\n" .
-        'use SqlParser\\Context;'                                                           . "\n" .
-        ''                                                                                  . "\n" .
-        '/**'                                                                               . "\n" .
-        ' * Context for %1$s.'                                                              . "\n" .
-        ' *'                                                                                . "\n" .
-        ' * @category   Contexts'                                                           . "\n" .
-        ' * @package    SqlParser'                                                          . "\n" .
-        ' * @subpackage Contexts'                                                           . "\n" .
-        ' * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+'                  . "\n" .
-        ' */'                                                                               . "\n" .
-        'class %2$s extends Context'                                                        . "\n" .
-        '{'                                                                                 . "\n" .
-        ''                                                                                  . "\n" .
-        '    /**'                                                                           . "\n" .
-        '     * List of keywords.'                                                          . "\n" .
-        '     *'                                                                            . "\n" .
-        '     * The value associated to each keyword represents its flags.'                 . "\n" .
-        '     *'                                                                            . "\n" .
-        '     * @see Token::FLAG_KEYWORD_*'                                                 . "\n" .
-        '     *'                                                                            . "\n" .
-        '     * @var array'                                                                 . "\n" .
-        '     */'                                                                           . "\n" .
-        '    public static $KEYWORDS = array('                                              . "\n" .
-        ''                                                                                  . "\n" .
-        '%4$s'                                                                              .
-        '    );'                                                                            . "\n" .
-        '}'                                                                                 . "\n";
+        '<?php' . "\n" .
+        '' . "\n" .
+        '/**' . "\n" .
+        ' * Context for %1$s.' . "\n" .
+        ' *' . "\n" .
+        ' * This file was auto-generated.' . "\n" .
+        ' *' . "\n" .
+        ' * @see %3$s' . "\n" .
+        ' */' . "\n" .
+        '' . "\n" .
+        'namespace SqlParser\\Contexts;' . "\n" .
+        '' . "\n" .
+        'use SqlParser\\Context;' . "\n" .
+        '' . "\n" .
+        '/**' . "\n" .
+        ' * Context for %1$s.' . "\n" .
+        ' *' . "\n" .
+        ' * @category   Contexts' . "\n" .
+        ' *' . "\n" .
+        ' * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+' . "\n" .
+        ' */' . "\n" .
+        'class %2$s extends Context' . "\n" .
+        '{' . "\n" .
+        '    /**' . "\n" .
+        '     * List of keywords.' . "\n" .
+        '     *' . "\n" .
+        '     * The value associated to each keyword represents its flags.' . "\n" .
+        '     *' . "\n" .
+        '     * @see Token::FLAG_KEYWORD_*' . "\n" .
+        '     *' . "\n" .
+        '     * @var array' . "\n" .
+        '     */' . "\n" .
+        '    public static $KEYWORDS = array(' . "\n" .
+        '%4$s' .
+        '    );' . "\n" .
+        '}' . "\n";
 
     /**
      * Sorts an array of words.
@@ -109,6 +103,7 @@ class ContextGenerator
                 sort($words, SORT_STRING);
             }
         }
+
         return $arr;
     }
 
@@ -177,15 +172,17 @@ class ContextGenerator
     /**
      * Prints an array of a words in PHP format.
      *
-     * @param array $words  The list of words to be formatted.
-     * @param int   $spaces The number of spaces that starts every line.
-     * @param int   $line   The length of a line.
+     * @param array $words  the list of words to be formatted
+     * @param int   $spaces the number of spaces that starts every line
+     * @param int   $line   the length of a line
      *
      * @return string
      */
     public static function printWords($words, $spaces = 8, $line = 80)
     {
+        $typesCount = count($words);
         $ret = '';
+        $j = 0;
 
         foreach ($words as $type => $wordsByType) {
             foreach ($wordsByType as $len => $wordsByLen) {
@@ -208,7 +205,9 @@ class ContextGenerator
                 }
             }
 
-            $ret .= "\n";
+            if (++$j < $typesCount) {
+                $ret .= "\n";
+            }
         }
 
         // Trim trailing spaces and return.
@@ -218,7 +217,7 @@ class ContextGenerator
     /**
      * Generates a context's class.
      *
-     * @param array $options The options that are used in generating this context.
+     * @param array $options the options that are used in generating this context
      *
      * @return string
      */
@@ -242,14 +241,11 @@ class ContextGenerator
      *
      * Reads the input file, generates the data and writes it back.
      *
-     * @param string $input  The input file.
-     * @param string $output The output directory.
-     *
-     * @return void
+     * @param string $input  the input file
+     * @param string $output the output directory
      */
     public static function build($input, $output)
     {
-
         /**
          * The directory that contains the input file.
          *
@@ -295,14 +291,14 @@ class ContextGenerator
             $output . '/' . $class . '.php',
             static::generate(
                 array(
-                    'name'      => $formattedName,
-                    'class'     => $class,
-                    'link'      => static::$LINKS[$name],
-                    'keywords'  => static::readWords(
+                    'name' => $formattedName,
+                    'class' => $class,
+                    'link' => static::$LINKS[$name],
+                    'keywords' => static::readWords(
                         array(
                             $directory . '_common.txt',
                             $directory . '_functions' . $file,
-                            $directory . $file
+                            $directory . $file,
                         )
                     ),
                 )
@@ -313,10 +309,8 @@ class ContextGenerator
     /**
      * Generates recursively all tests preserving the directory structure.
      *
-     * @param string $input  The input directory.
-     * @param string $output The output directory.
-     *
-     * @return void
+     * @param string $input  the input directory
+     * @param string $output the output directory
      */
     public static function buildAll($input, $output)
     {

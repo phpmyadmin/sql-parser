@@ -3,12 +3,10 @@
 namespace SqlParser\Tests\Misc;
 
 use SqlParser\UtfString;
-
 use SqlParser\Tests\TestCase;
 
 class UtfStringTest extends TestCase
 {
-
     /**
      * Sample phrase in French.
      *

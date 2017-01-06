@@ -3,12 +3,10 @@
 namespace SqlParser\Tests\Builder;
 
 use SqlParser\Parser;
-
 use SqlParser\Tests\TestCase;
 
 class ReplaceStatementTest extends TestCase
 {
-
     public function testBuilder()
     {
         $parser = new Parser(
