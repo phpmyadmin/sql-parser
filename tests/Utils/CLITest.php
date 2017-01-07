@@ -29,17 +29,17 @@ class CLITest extends TestCase
         return array(
             array(
                 array('q' => 'SELECT 1'),
-                "\x1b[35mSELECT\n  \x1b[92m1\x1b[0m\n",
+                "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m\n",
                 0,
             ),
             array(
                 array('query' => 'SELECT 1'),
-                "\x1b[35mSELECT\n  \x1b[92m1\x1b[0m\n",
+                "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m\n",
                 0,
             ),
             array(
                 array('q' => 'SELECT /* comment */ 1 /* other */', 'f' => 'text'),
-                "SELECT\n   /* comment */ 1 /* other */\n",
+                "SELECT\n     /* comment */ 1 /* other */\n",
                 0,
             ),
             array(
@@ -50,7 +50,7 @@ class CLITest extends TestCase
             array(
                 array('q' => 'SELECT 1', 'f' => 'html'),
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                '  <span class="sql-number">1</span>' . "\n",
+                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>' . "\n",
                 0,
             ),
             array(

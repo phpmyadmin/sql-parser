@@ -78,6 +78,10 @@ class Formatter
             $options['line_ending'] = $options['type'] === 'html' ? '<br/>' : "\n";
         }
 
+        if (is_null($options['indentation'])) {
+            $options['indentation'] = $options['type'] === 'html' ? '&nbsp;&nbsp;&nbsp;&nbsp;' : '    ';
+        }
+
         // `parts_newline` requires `clause_newline`
         $options['parts_newline'] &= $options['clause_newline'];
 
@@ -112,7 +116,7 @@ class Formatter
              *
              * @var string
              */
-            'indentation' => '  ',
+            'indentation' => null,
 
             /*
              * Whether comments should be removed or not.
