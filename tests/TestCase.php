@@ -8,8 +8,7 @@ namespace SqlParser\Tests;
 
 use SqlParser\Lexer;
 use SqlParser\Parser;
-
-require_once 'vendor/autoload.php';
+use SqlParser\TokensList;
 
 /**
  * Implements useful methods for testing.
