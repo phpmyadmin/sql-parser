@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+* Coding style fixes.
 * Fixed indentation in HTML formatting.
 
 ## [3.4.16] - 2017-01-06
