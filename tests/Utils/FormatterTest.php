@@ -252,8 +252,7 @@ class FormatTest extends TestCase
             array(
                 'SELECT 1 # Comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment"># Comment' . "\n" .
-                '</span>',
+                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment"># Comment</span>',
                 array('type' => 'html'),
             ),
             array(
@@ -320,8 +319,7 @@ class FormatTest extends TestCase
             array(
                 'SELECT 1 -- comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- comment' . "\n" .
-                '</span>',
+                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- comment</span>',
                 array('type' => 'html'),
             ),
             array(
