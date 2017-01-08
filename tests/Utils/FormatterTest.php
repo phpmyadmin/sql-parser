@@ -265,6 +265,19 @@ class FormatTest extends TestCase
                     '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;*',
             ),
+            'select with comment' => array(
+                'query' => 'select 1 # Comment',
+                'text' =>
+                    "SELECT\n" .
+                    "    1 # Comment" . "\n",
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[92m1 \x1b[37m# Comment\\x0A" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment"># Comment' . "\n" .
+                    '</span>',
+            ),
         );
     }
 
