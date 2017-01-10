@@ -250,10 +250,34 @@ class FormatTest extends TestCase
                 array('type' => 'html'),
             ),
             array(
+                'SELECT /* Comment */ 1' . "\n" .
+                'FROM tbl # Comment' . "\n" .
+                'WHERE 1 -- Comment',
+                'SELECT' . "\n" .
+                '    /* Comment */ 1' . "\n" .
+                'FROM' . "\n" .
+                '    tbl # Comment' . "\n" .
+                'WHERE' . "\n" .
+                '    1 -- Comment',
+                array('type' => 'text'),
+            ),
+            array(
                 'SELECT 1 # Comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment"># Comment</span>',
                 array('type' => 'html'),
+            ),
+            array(
+                'SELECT 1 -- comment',
+                '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- comment</span>',
+                array('type' => 'html'),
+            ),
+            array(
+                'SELECT 1 -- comment',
+                '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
+                array('type' => 'html', 'remove_comments' => true),
             ),
             array(
                 'SELECT HEX("1")',
@@ -315,18 +339,6 @@ class FormatTest extends TestCase
                 '<span class="sql-reserved">WHERE</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;superado = <span class="sql-number">0</span>',
                 array('type' => 'html'),
-            ),
-            array(
-                'SELECT 1 -- comment',
-                '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- comment</span>',
-                array('type' => 'html'),
-            ),
-            array(
-                'SELECT 1 -- comment',
-                '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
-                array('type' => 'html', 'remove_comments' => true),
             ),
             array(
                 'CREATE TABLE IF NOT EXISTS `pma__bookmark` (' . "\n" .
