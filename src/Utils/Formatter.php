@@ -410,24 +410,26 @@ class Formatter
                 }
 
                 // Indenting BEGIN ... END blocks.
-                if (($prev->type === Token::TYPE_KEYWORD) && ($prev->value === 'BEGIN')) {
+                if ($prev->type === Token::TYPE_KEYWORD && $prev->value === 'BEGIN') {
                     $lineEnded = true;
                     array_push($blocksIndentation, $indent);
                     ++$indent;
-                } elseif (($curr->type === Token::TYPE_KEYWORD) && ($curr->value === 'END')) {
+                } elseif ($curr->type === Token::TYPE_KEYWORD && $curr->value === 'END') {
                     $lineEnded = true;
                     $indent = array_pop($blocksIndentation);
                 }
 
                 // Formatting fragments delimited by comma.
-                if (($prev->type === Token::TYPE_OPERATOR) && ($prev->value === ',')) {
+                if ($prev->type === Token::TYPE_OPERATOR && $prev->value === ',') {
                     // Fragments delimited by a comma are broken into multiple
                     // pieces only if the clause is not inlined or this fragment
                     // is between brackets that are on new line.
-                    if ((empty(self::$INLINE_CLAUSES[$lastClause])
-                        && !$shortGroup
-                        && $this->options['parts_newline'])
-                        || end($blocksLineEndings) === true
+                    if (end($blocksLineEndings) === true
+                        || (
+                            empty(self::$INLINE_CLAUSES[$lastClause])
+                            && !$shortGroup
+                            && $this->options['parts_newline']
+                        )
                     ) {
                         $lineEnded = true;
                     }
