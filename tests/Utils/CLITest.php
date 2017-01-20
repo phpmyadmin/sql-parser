@@ -39,7 +39,7 @@ class CLITest extends TestCase
             ),
             array(
                 array('q' => 'SELECT /* comment */ 1 /* other */', 'f' => 'text'),
-                "SELECT\n     /* comment */ 1 /* other */\n",
+                "SELECT\n    /* comment */ 1 /* other */\n",
                 0,
             ),
             array(

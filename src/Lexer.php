@@ -572,7 +572,6 @@ class Lexer
             ) {
                 $token .= $this->str[$this->last];
             }
-            $token .= "\n"; // Adding the line ending.
             return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_BASH);
         }
 
@@ -641,7 +640,6 @@ class Lexer
                     ) {
                         $token .= $this->str[$this->last];
                     }
-                    $token .= "\n"; // Adding the line ending.
                 }
 
                 return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_SQL);
