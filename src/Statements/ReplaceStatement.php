@@ -117,8 +117,6 @@ class ReplaceStatement extends Statement
         );
         ++$list->idx;
 
-        $token = $list->tokens[$list->idx];
-
         /**
          * The state of the parser.
          *
