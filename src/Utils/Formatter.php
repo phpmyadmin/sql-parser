@@ -78,6 +78,10 @@ class Formatter
             $options['line_ending'] = $options['type'] === 'html' ? '<br/>' : "\n";
         }
 
+        if (is_null($options['indentation'])) {
+            $options['indentation'] = $options['type'] === 'html' ? '&nbsp;&nbsp;&nbsp;&nbsp;' : '    ';
+        }
+
         // `parts_newline` requires `clause_newline`
         $options['parts_newline'] &= $options['clause_newline'];
 
@@ -112,7 +116,7 @@ class Formatter
              *
              * @var string
              */
-            'indentation' => '  ',
+            'indentation' => null,
 
             /*
              * Whether comments should be removed or not.
@@ -379,12 +383,16 @@ class Formatter
                 }
 
                 // The options of a clause should stay on the same line and everything that follows.
-                if (($this->options['parts_newline'])
-                    && (!$formattedOptions)
-                    && (empty(self::$INLINE_CLAUSES[$lastClause]))
-                    && (($curr->type !== Token::TYPE_KEYWORD)
-                    || (($curr->type === Token::TYPE_KEYWORD)
-                    && ($curr->flags & Token::FLAG_KEYWORD_FUNCTION)))
+                if ($this->options['parts_newline']
+                    && !$formattedOptions
+                    && empty(self::$INLINE_CLAUSES[$lastClause])
+                    && (
+                        $curr->type !== Token::TYPE_KEYWORD
+                        || (
+                            $curr->type === Token::TYPE_KEYWORD
+                            && $curr->flags & Token::FLAG_KEYWORD_FUNCTION
+                        )
+                    )
                 ) {
                     $formattedOptions = true;
                     $lineEnded = true;
@@ -393,7 +401,7 @@ class Formatter
 
                 // Checking if this clause ended.
                 if ($tmp = static::isClause($curr)) {
-                    if (($tmp == 2) || ($this->options['clause_newline'])) {
+                    if ($tmp == 2 || $this->options['clause_newline']) {
                         $lineEnded = true;
                         if ($this->options['parts_newline']) {
                             --$indent;
@@ -402,24 +410,26 @@ class Formatter
                 }
 
                 // Indenting BEGIN ... END blocks.
-                if (($prev->type === Token::TYPE_KEYWORD) && ($prev->value === 'BEGIN')) {
+                if ($prev->type === Token::TYPE_KEYWORD && $prev->value === 'BEGIN') {
                     $lineEnded = true;
                     array_push($blocksIndentation, $indent);
                     ++$indent;
-                } elseif (($curr->type === Token::TYPE_KEYWORD) && ($curr->value === 'END')) {
+                } elseif ($curr->type === Token::TYPE_KEYWORD && $curr->value === 'END') {
                     $lineEnded = true;
                     $indent = array_pop($blocksIndentation);
                 }
 
                 // Formatting fragments delimited by comma.
-                if (($prev->type === Token::TYPE_OPERATOR) && ($prev->value === ',')) {
+                if ($prev->type === Token::TYPE_OPERATOR && $prev->value === ',') {
                     // Fragments delimited by a comma are broken into multiple
                     // pieces only if the clause is not inlined or this fragment
                     // is between brackets that are on new line.
-                    if (((empty(self::$INLINE_CLAUSES[$lastClause]))
-                        && !$shortGroup
-                        && ($this->options['parts_newline']))
-                        || (end($blocksLineEndings) === true)
+                    if (end($blocksLineEndings) === true
+                        || (
+                            empty(self::$INLINE_CLAUSES[$lastClause])
+                            && !$shortGroup
+                            && $this->options['parts_newline']
+                        )
                     ) {
                         $lineEnded = true;
                     }
@@ -428,7 +438,7 @@ class Formatter
                 // Handling brackets.
                 // Brackets are indented only if the length of the fragment between
                 // them is longer than 30 characters.
-                if (($prev->type === Token::TYPE_OPERATOR) && ($prev->value === '(')) {
+                if ($prev->type === Token::TYPE_OPERATOR && $prev->value === '(') {
                     array_push($blocksIndentation, $indent);
                     $shortGroup = true;
                     if (static::getGroupLength($list) > 30) {
@@ -437,7 +447,7 @@ class Formatter
                         $shortGroup = false;
                     }
                     array_push($blocksLineEndings, $lineEnded);
-                } elseif (($curr->type === Token::TYPE_OPERATOR) && ($curr->value === ')')) {
+                } elseif ($curr->type === Token::TYPE_OPERATOR && $curr->value === ')') {
                     $indent = array_pop($blocksIndentation);
                     $lineEnded |= array_pop($blocksLineEndings);
                     $shortGroup = false;
@@ -467,14 +477,13 @@ class Formatter
                 } else {
                     // If the line ended there is no point in adding whitespaces.
                     // Also, some tokens do not have spaces before or after them.
-                    if (!((($prev->type === Token::TYPE_OPERATOR) && (($prev->value === '.') || ($prev->value === '(')))
+                    if (!(($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
                         // No space after . (
-                        || (($curr->type === Token::TYPE_OPERATOR) && (($curr->value === '.') || ($curr->value === ',')
-                        || ($curr->value === '(') || ($curr->value === ')')))
+                        || ($curr->type === Token::TYPE_OPERATOR && ($curr->value === '.' || $curr->value === ',' || $curr->value === '(' || $curr->value === ')'))
                         // No space before . , ( )
-                        || (($curr->type === Token::TYPE_DELIMITER)) && (mb_strlen($curr->value, 'UTF-8') < 2))
+                        || $curr->type === Token::TYPE_DELIMITER && mb_strlen($curr->value, 'UTF-8') < 2)
                         // A space after delimiters that are longer than 2 characters.
-                        || ($prev->value === 'DELIMITER')
+                        || $prev->value === 'DELIMITER'
                     ) {
                         $ret .= ' ';
                     }
@@ -524,8 +533,8 @@ class Formatter
         $text = $token->token;
 
         foreach ($this->options['formats'] as $format) {
-            if (($token->type === $format['type'])
-                && (($token->flags & $format['flags']) === $format['flags'])
+            if ($token->type === $format['type']
+                && ($token->flags & $format['flags']) === $format['flags']
             ) {
                 // Running transformation function.
                 if (!empty($format['function'])) {
@@ -626,11 +635,14 @@ class Formatter
      */
     public static function isClause($token)
     {
-        if ((($token->type === Token::TYPE_NONE) && (strtoupper($token->token) === 'DELIMITER'))
-            || (($token->type === Token::TYPE_KEYWORD) && (isset(Parser::$STATEMENT_PARSERS[$token->value])))
+        if (
+            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$STATEMENT_PARSERS[$token->value]))
+            || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
-        } elseif (($token->type === Token::TYPE_KEYWORD) && (isset(Parser::$KEYWORD_PARSERS[$token->value]))) {
+        } elseif (
+            $token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->value])
+        ) {
             return 1;
         }
 

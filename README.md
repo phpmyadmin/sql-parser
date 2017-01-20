@@ -77,6 +77,13 @@ $parser->statements[0]->from[0] = $table2;
 $statement = $parser->statements[0];
 $query2 = $statement->build();
 var_dump($query2); // outputs string(19) "SELECT  * FROM `b` "
+
+// Change SQL mode
+SqlParser\Context::setMode('ANSI_QUOTES');
+
+// build the query again using different quotes
+$query2 = $statement->build();
+var_dump($query2); // outputs string(19) "SELECT  * FROM "b" "
 ```
 
 ## More information

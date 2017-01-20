@@ -30,6 +30,7 @@ class Expression extends Component
      */
     private static $ALLOWED_KEYWORDS = array(
         'AS' => 1, 'DUAL' => 1, 'NULL' => 1, 'REGEXP' => 1, 'CASE' => 1,
+        'DIV' => 1, 'AND' => 1, 'OR' => 1, 'XOR' => 1, 'NOT' => 1, 'MOD' => 1,
     );
 
     /**

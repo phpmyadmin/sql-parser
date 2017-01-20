@@ -193,7 +193,7 @@ class ContextGenerator
                     if ($i == 0) {
                         $ret .= str_repeat(' ', $spaces);
                     }
-                    $ret .= "'" . $word . "' => " . $type . ', ';
+                    $ret .= sprintf('\'%s\' => %s, ', $word, $type);
                     if (++$i == $count) {
                         $ret .= "\n";
                         $i = 0;
