@@ -889,7 +889,7 @@ class Lexer
         }
 
         if ($flags & Token::FLAG_SYMBOL_VARIABLE) {
-            if ($this->str[++$this->last] === '@') {
+            if ($this->last + 1 < $this->len && $this->str[++$this->last] === '@') {
                 // This is a system variable (e.g. `@@hostname`).
                 $token .= $this->str[$this->last++];
                 $flags |= Token::FLAG_SYMBOL_SYSTEM;
