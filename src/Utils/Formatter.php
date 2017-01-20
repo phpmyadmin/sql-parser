@@ -334,7 +334,7 @@ class Formatter
             /**
              * Token parsed at this moment.
              *
-             * @var Token $curr
+             * @var Token
              */
             $curr = $list->tokens[$list->idx];
 
@@ -352,7 +352,7 @@ class Formatter
             /**
              * Previous Token.
              *
-             * @var Token $prev
+             * @var Token
              */
             if ($prev !== null) {
                 // Checking if a new clause started.

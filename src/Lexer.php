@@ -572,6 +572,7 @@ class Lexer
             ) {
                 $token .= $this->str[$this->last];
             }
+
             return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_BASH);
         }
 
