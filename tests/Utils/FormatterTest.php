@@ -361,14 +361,20 @@ class FormatTest extends TestCase
             'insert' => array(
                 'query' => 'insert into foo values (0, 0, 0), (1, 1, 1)',
                 'text' =>
-                    'SELECT' . "\n" .
-                    '    HEX("1")',
+                    'INSERT' . "\n" .
+                    'INTO' . "\n" .
+                    '    foo' . "\n" .
+                    'VALUES(0, 0, 0),(1, 1, 1)',
                 'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
-                    "    \x1b[95mHEX\x1b[39m(\x1b[91m\"1\"\x1b[39m)" . "\x1b[0m",
+                    "\x1b[35mINSERT" . "\n" .
+                    "\x1b[35mINTO" . "\n" .
+                    "    \x1b[39mfoo" . "\n" .
+                    "\x1b[35mVALUES\e[39m(\e[92m0\e[39m, \e[92m0\e[39m, \e[92m0\e[39m)\e[39m,\e[39m(\e[92m1\e[39m, \e[92m1\e[39m, \e[92m1\e[39m)" . "\x1b[0m",
                 'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
+                    '<span class="sql-reserved">INSERT</span>' . '<br/>' .
+                    '<span class="sql-reserved">INTO</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;foo' . '<br/>' .
+                    '<span class="sql-reserved">VALUES</span>(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
             ),
         );
     }
