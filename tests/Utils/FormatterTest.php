@@ -232,16 +232,16 @@ class FormatTest extends TestCase
     /**
      * @dataProvider formatQueries_new
      */
-    public function testFormat_new($query, $text, $cli, $html)
+    public function testFormat_new($query, $text, $cli, $html, array $options = array())
     {
         // Test TEXT format
-        $this->assertEquals($text, Formatter::format($query, array('type' => 'text')));
+        $this->assertEquals($text, Formatter::format($query, array('type' => 'text') + $options));
 
         // Test CLI format
-        $this->assertEquals($cli, Formatter::format($query, array('type' => 'cli')));
+        $this->assertEquals($cli, Formatter::format($query, array('type' => 'cli') + $options));
 
         // Test HTML format
-        $this->assertEquals($html, Formatter::format($query, array('type' => 'html')));
+        $this->assertEquals($html, Formatter::format($query, array('type' => 'html') + $options));
     }
 
     public function formatQueries_new()
@@ -256,8 +256,8 @@ class FormatTest extends TestCase
             'simply' => array(
                 'query' => 'select *',
                 'text' =>
-                    "SELECT\n" .
-                    "    *",
+                    'SELECT' . "\n" .
+                    '    *',
                 'cli' =>
                     "\x1b[35mSELECT" . "\n" .
                     "    \x1b[39m*" . "\x1b[0m",
@@ -265,7 +265,7 @@ class FormatTest extends TestCase
                     '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;*',
             ),
-            'select with comments' => array(
+            'comments' => array(
                 'query' =>
                     'select /* Comment */ *' . "\n" .
                     'from tbl # Comment' . "\n" .
@@ -292,6 +292,36 @@ class FormatTest extends TestCase
                     '<span class="sql-reserved">WHERE</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- Comment</span>',
             ),
+            'strip comments' => array(
+                'query' =>
+                    'select /* Comment */ *' . "\n" .
+                    'from tbl # Comment' . "\n" .
+                    'where 1 -- Comment',
+                'text' =>
+                    'SELECT' . "\n" .
+                    '    *' . "\n" .
+                    'FROM' . "\n" .
+                    '    tbl' . "\n" .
+                    'WHERE' . "\n" .
+                    '    1',
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[39m*" . "\n" .
+                    "\x1b[35mFROM" . "\n" .
+                    "    \x1b[39mtbl" . "\n" .
+                    "\x1b[35mWHERE" . "\n" .
+                    "    \x1b[92m1" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;*' . '<br/>' .
+                    '<span class="sql-reserved">FROM</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
+                    '<span class="sql-reserved">WHERE</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
+                'options' => array(
+                    'remove_comments' => true,
+                ),
+            ),
         );
     }
 
@@ -315,7 +345,7 @@ class FormatTest extends TestCase
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
                 array('type' => 'html'),
             ),
-            array(  # Covered by 'select with comments'
+            array(  # Covered by 'comments'
                 'SELECT /* Comment */ 1' . "\n" .
                 'FROM tbl # Comment' . "\n" .
                 'WHERE 1 -- Comment',
@@ -327,19 +357,19 @@ class FormatTest extends TestCase
                 '    1 -- Comment',
                 array('type' => 'text'),
             ),
-            array(  # Covered by 'select with comments'
+            array(  # Covered by 'comments'
                 'SELECT 1 # Comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment"># Comment</span>',
                 array('type' => 'html'),
             ),
-            array(  # Covered by 'select with comments'
+            array(  # Covered by 'comments'
                 'SELECT 1 -- comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- comment</span>',
                 array('type' => 'html'),
             ),
-            array(
+            array(  # Covered by 'strip comments'
                 'SELECT 1 -- comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
