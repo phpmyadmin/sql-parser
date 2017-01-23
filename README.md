@@ -42,7 +42,7 @@ Command line utility to lint SQL query:
 ### Formatting SQL query
 
 ```php
-echo SqlParser\Utils\Formatter::format($query, array('type' => 'html'));
+echo PhpMyAdmin\SqlParser\Utils\Formatter::format($query, array('type' => 'html'));
 ```
 
 ### Discoverying query type
@@ -79,7 +79,7 @@ $query2 = $statement->build();
 var_dump($query2); // outputs string(19) "SELECT  * FROM `b` "
 
 // Change SQL mode
-SqlParser\Context::setMode('ANSI_QUOTES');
+PhpMyAdmin\SqlParser\Context::setMode('ANSI_QUOTES');
 
 // build the query again using different quotes
 $query2 = $statement->build();
