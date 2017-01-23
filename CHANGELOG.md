@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [4.0.1] - 2017-01-23
 
 * Fixed CLI wrappers for new API.
 * Fixed README for new API.
