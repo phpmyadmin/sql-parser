@@ -334,6 +334,18 @@ class FormatTest extends TestCase
                     '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
             ),
+            'distinct count' => array(
+                'query' => 'select distinct count(*)',
+                'text' =>
+                    'SELECT DISTINCT' . "\n" .
+                    '    COUNT(*)',
+                'cli' =>
+                    "\x1b[35mSELECT \x1b[35mDISTINCT" . "\n" .
+                    "    \x1b[95mCOUNT\x1b[39m(\x1b[39m*\x1b[39m)" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span> <span class="sql-reserved">DISTINCT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">COUNT</span>(*)',
+            ),
             'create procedure' => array(
                 'query' => 'create procedure test_procedure() begin from tbl select *; end',
                 'text' =>
