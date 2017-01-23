@@ -25,5 +25,5 @@ if (!$found) {
     );
 }
 
-$cli = new SqlParser\Utils\CLI();
+$cli = new PhpMyAdmin\SqlParser\Utils\CLI();
 exit($cli->runHighlight());
