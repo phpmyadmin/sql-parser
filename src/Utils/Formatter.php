@@ -326,14 +326,6 @@ class Formatter
          */
         $prev = null;
 
-        /**
-         * Comments are being formatted separately to maintain the whitespaces
-         * before and after them.
-         *
-         * @var string
-         */
-        $comment = '';
-
         // In order to be able to format the queries correctly, the next token
         // must be taken into consideration. The loop below uses two pointers,
         // `$prev` and `$curr` which store two consecutive tokens.
@@ -349,32 +341,19 @@ class Formatter
             if ($curr->type === Token::TYPE_WHITESPACE) {
                 // Whitespaces are skipped because the formatter adds its own.
                 continue;
-            } elseif ($curr->type === Token::TYPE_COMMENT) {
-                // Whether the comments should be parsed.
-                if (!empty($this->options['remove_comments'])) {
-                    continue;
-                }
+            }
 
-                if ($list->tokens[$list->idx - 1]->type === Token::TYPE_WHITESPACE) {
-                    // The whitespaces before and after are preserved for
-                    // formatting reasons.
-                    $comment .= $list->tokens[$list->idx - 1]->token;
-                }
-                $comment .= $this->toString($curr);
-                if (($list->tokens[$list->idx + 1]->type === Token::TYPE_WHITESPACE)
-                    && ($list->tokens[$list->idx + 2]->type !== Token::TYPE_COMMENT)
-                ) {
-                    // Adding the next whitespace only there is no comment that
-                    // follows it immediately which may cause adding a
-                    // whitespace twice.
-                    $comment .= $list->tokens[$list->idx + 1]->token;
-                }
-
-                // Everything was handled here, no need to continue.
+            if ($curr->type === Token::TYPE_COMMENT && $this->options['remove_comments']) {
+                // Skip Comments if option `remove_comments` is enabled
                 continue;
             }
 
             // Checking if pointers were initialized.
+            /**
+             * Previous Token.
+             *
+             * @var Token
+             */
             if ($prev !== null) {
                 // Checking if a new clause started.
                 if (static::isClause($prev) !== false) {
@@ -453,12 +432,6 @@ class Formatter
                     $shortGroup = false;
                 }
 
-                // Delimiter must be placed on the same line with the last
-                // clause.
-                if ($curr->type === Token::TYPE_DELIMITER) {
-                    $lineEnded = false;
-                }
-
                 // Adding the token.
                 $ret .= $this->toString($prev);
 
@@ -469,30 +442,27 @@ class Formatter
                         $indent = 0;
                     }
 
-                    if ($curr->type !== Token::TYPE_COMMENT) {
-                        $ret .= $this->options['line_ending']
-                            . str_repeat($this->options['indentation'], $indent);
-                    }
+                    $ret .= $this->options['line_ending']
+                        . str_repeat($this->options['indentation'], $indent);
+
                     $lineEnded = false;
                 } else {
                     // If the line ended there is no point in adding whitespaces.
                     // Also, some tokens do not have spaces before or after them.
-                    if (!(($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
-                        // No space after . (
-                        || ($curr->type === Token::TYPE_OPERATOR && ($curr->value === '.' || $curr->value === ',' || $curr->value === '(' || $curr->value === ')'))
-                        // No space before . , ( )
-                        || $curr->type === Token::TYPE_DELIMITER && mb_strlen($curr->value, 'UTF-8') < 2)
+                    if (
                         // A space after delimiters that are longer than 2 characters.
-                        || $prev->value === 'DELIMITER'
+                        $prev->value === 'DELIMITER'
+                        || !(
+                            ($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
+                            // No space after . (
+                            || ($curr->type === Token::TYPE_OPERATOR && ($curr->value === '.' || $curr->value === ',' || $curr->value === '(' || $curr->value === ')'))
+                            // No space before . , ( )
+                            || $curr->type === Token::TYPE_DELIMITER && mb_strlen($curr->value, 'UTF-8') < 2
+                        )
                     ) {
                         $ret .= ' ';
                     }
                 }
-            }
-
-            if (!empty($comment)) {
-                $ret .= $comment;
-                $comment = '';
             }
 
             // Iteration finished, consider current token as previous.

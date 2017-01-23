@@ -2,9 +2,12 @@
 
 ## [Unreleased]
 
+## [3.4.17] - 2017-01-20
+
 * Coding style fixes.
 * Fixed indentation in HTML formatting.
 * Fixed parsing of unterminated variables.
+* Improved comments lexing.
 
 ## [3.4.16] - 2017-01-06
 
