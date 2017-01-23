@@ -322,6 +322,18 @@ class FormatTest extends TestCase
                     'remove_comments' => true,
                 ),
             ),
+            'keywords' => array(
+                'query' => 'select HEX("1")',
+                'text' =>
+                    "SELECT\n" .
+                    "    HEX(\"1\")",
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[95mHEX\x1b[39m(\x1b[91m\"1\"\x1b[39m)" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
+            ),
         );
     }
 
@@ -375,7 +387,7 @@ class FormatTest extends TestCase
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
                 array('type' => 'html', 'remove_comments' => true),
             ),
-            array(
+            array(  # Covered by 'keywords'
                 'SELECT HEX("1")',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
