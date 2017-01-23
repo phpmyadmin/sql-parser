@@ -267,38 +267,30 @@ class FormatTest extends TestCase
             ),
             'select with comments' => array(
                 'query' =>
-                    'select * /* Comment */' . "\n" .
+                    'select /* Comment */ *' . "\n" .
                     'from tbl # Comment' . "\n" .
                     'where 1 -- Comment',
                 'text' =>
-                    "SELECT" . "\n" .
-                    "    *" . "\n" .
-                    " /* Comment */" . "\n" .
-                    "FROM" . "\n" .
-                    "    tbl" . "\n".
-                    " # Comment" . "\n" .
-                    "WHERE" . "\n" .
-                    "    1 -- Comment" . "\n",
+                    'SELECT' . "\n" .
+                    '    /* Comment */ *' . "\n" .
+                    'FROM' . "\n" .
+                    '    tbl # Comment' . "\n" .
+                    'WHERE' . "\n" .
+                    '    1 -- Comment',
                 'cli' =>
                     "\x1b[35mSELECT" . "\n" .
-                    "    \x1b[39m*" . "\n" .
-                    " \x1b[37m/* Comment */" . "\n" .
+                    "    \x1b[37m/* Comment */ \x1b[39m*" . "\n" .
                     "\x1b[35mFROM" . "\n" .
-                    "    \x1b[39mtbl" . "\n" .
-                    " \x1b[37m# Comment\\x0A" .
+                    "    \x1b[39mtbl \x1b[37m# Comment" . "\n" .
                     "\x1b[35mWHERE" . "\n" .
-                    "    \x1b[92m1 \x1b[37m-- Comment\\x0A" . "\x1b[0m",
+                    "    \x1b[92m1 \x1b[37m-- Comment" . "\x1b[0m",
                 'html' =>
                     '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;*' . '<br/>' .
-                    ' <span class="sql-comment">/* Comment */</span>' . "\n" .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">/* Comment */</span> *' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
-                    ' <span class="sql-comment"># Comment' . "\n" .
-                    '</span>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;tbl <span class="sql-comment"># Comment</span>' . '<br/>' .
                     '<span class="sql-reserved">WHERE</span>' . '<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- Comment' . "\n" .
-                    '</span>',
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- Comment</span>',
             ),
         );
     }
@@ -317,13 +309,13 @@ class FormatTest extends TestCase
     public function formatQueries()
     {
         return array(
-            array(  # DONE
+            array(  # Covered by 'simply'
                 'SELECT 1',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
                 array('type' => 'html'),
             ),
-            array(
+            array(  # Covered by 'select with comments'
                 'SELECT /* Comment */ 1' . "\n" .
                 'FROM tbl # Comment' . "\n" .
                 'WHERE 1 -- Comment',
@@ -335,13 +327,13 @@ class FormatTest extends TestCase
                 '    1 -- Comment',
                 array('type' => 'text'),
             ),
-            array(  # DONE
+            array(  # Covered by 'select with comments'
                 'SELECT 1 # Comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment"># Comment</span>',
                 array('type' => 'html'),
             ),
-            array(  # DONE
+            array(  # Covered by 'select with comments'
                 'SELECT 1 -- comment',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- comment</span>',
