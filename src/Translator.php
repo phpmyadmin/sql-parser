@@ -4,23 +4,21 @@
  * Defines the localization helper infrastructure of the library.
  */
 
-namespace SqlParser;
-
-use PhpMyAdmin\MoTranslator;
+namespace PhpMyAdmin\SqlParser;
 
 class Translator
 {
     /**
      * The MoTranslator loader object.
      *
-     * @var MoTranslator\Loader
+     * @var \PhpMyAdmin\MoTranslator\Loader
      */
     private static $loader;
 
     /**
      * The MoTranslator translator object.
      *
-     * @var MoTranslator\Translator
+     * @var \PhpMyAdmin\MoTranslator\Translator
      */
     private static $translator;
 
@@ -31,7 +29,7 @@ class Translator
     {
         if (is_null(self::$loader)) {
             // Create loader object
-            self::$loader = new MoTranslator\Loader();
+            self::$loader = new \PhpMyAdmin\MoTranslator\Loader();
 
             // Set locale
             self::$loader->setlocale(

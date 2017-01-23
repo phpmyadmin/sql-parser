@@ -4,7 +4,7 @@
  * Defines the core helper infrastructure of the library.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 class Core
 {
