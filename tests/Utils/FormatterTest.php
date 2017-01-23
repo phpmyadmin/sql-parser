@@ -323,10 +323,46 @@ class FormatTest extends TestCase
                 ),
             ),
             'keywords' => array(
-                'query' => 'select HEX("1")',
+                'query' => 'select hex("1")',
                 'text' =>
-                    "SELECT\n" .
-                    "    HEX(\"1\")",
+                    'SELECT' . "\n" .
+                    '    HEX("1")',
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[95mHEX\x1b[39m(\x1b[91m\"1\"\x1b[39m)" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
+            ),
+            'create procedure' => array(
+                'query' => 'create procedure test_procedure() begin from tbl select *; end',
+                'text' =>
+                    'CREATE' . "\n" .
+                    'PROCEDURE test_procedure() BEGIN' . "\n" .
+                    'FROM' . "\n" .
+                    '    tbl' . "\n" .
+                    'SELECT' . "\n" .
+                    '    *; END',
+                'cli' =>
+                    "\x1b[35mCREATE" . "\n" .
+                    "\x1b[35mPROCEDURE \x1b[39mtest_procedure\x1b[39m(\x1b[39m) \x1b[95mBEGIN" . "\n" .
+                    "\x1b[35mFROM" . "\n" .
+                    "    \x1b[39mtbl" . "\n" .
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[39m*\x1b[39m; \x1b[95mEND" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">CREATE</span>' . '<br/>' .
+                    '<span class="sql-reserved">PROCEDURE</span> test_procedure() <span class="sql-keyword">BEGIN</span>' . '<br/>' .
+                    '<span class="sql-reserved">FROM</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;*; <span class="sql-keyword">END</span>',
+            ),
+            'insert' => array(
+                'query' => 'insert into foo values (0, 0, 0), (1, 1, 1)',
+                'text' =>
+                    'SELECT' . "\n" .
+                    '    HEX("1")',
                 'cli' =>
                     "\x1b[35mSELECT" . "\n" .
                     "    \x1b[95mHEX\x1b[39m(\x1b[91m\"1\"\x1b[39m)" . "\x1b[0m",
@@ -403,7 +439,7 @@ class FormatTest extends TestCase
                 '&nbsp;&nbsp;&nbsp;&nbsp;bar = <span class="sql-number">1</span>',
                 array('type' => 'html'),
             ),
-            array(
+            array(  # Covered by 'create procedure'
                 'CREATE PROCEDURE SPTEST() BEGIN FROM a SELECT *; END',
                 '<span class="sql-reserved">CREATE</span>' . '<br/>' .
                 '<span class="sql-reserved">PROCEDURE</span> SPTEST()' . '<br/>' .
@@ -415,7 +451,7 @@ class FormatTest extends TestCase
                 '<span class="sql-keyword">END</span>',
                 array('type' => 'html'),
             ),
-            array(
+            array(  # Covered by 'insert'
                 'INSERT INTO foo VALUES (0, 0, 0), (1, 1, 1)',
                 '<span class="sql-reserved">INSERT</span>' . '<br/>' .
                 '<span class="sql-reserved">INTO</span>' . '<br/>' .
@@ -425,7 +461,7 @@ class FormatTest extends TestCase
                 '(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
                 array('type' => 'html'),
             ),
-            array(
+            array(  # Covered by 'simply'
                 'SELECT 1',
                 "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m",
                 array('type' => 'cli'),
