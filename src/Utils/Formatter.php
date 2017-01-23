@@ -349,10 +349,8 @@ class Formatter
             }
 
             // Checking if pointers were initialized.
-            /**
+            /*
              * Previous Token.
-             *
-             * @var Token
              */
             if ($prev !== null) {
                 // Checking if a new clause started.
