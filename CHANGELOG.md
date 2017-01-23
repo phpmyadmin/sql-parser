@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [4.0.0] - 2017-01-23
 
 * Added PhpMyAdmin namespace prefix to follow PSR-4.
 
