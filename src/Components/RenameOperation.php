@@ -94,7 +94,7 @@ class RenameOperation extends Component
                 );
                 if (empty($expr->old)) {
                     $parser->error(
-                        __('The old name of the table was expected.'),
+                        'The old name of the table was expected.',
                         $token
                     );
                 }
@@ -104,7 +104,7 @@ class RenameOperation extends Component
                     $state = 2;
                 } else {
                     $parser->error(
-                        __('Keyword "TO" was expected.'),
+                        'Keyword "TO" was expected.',
                         $token
                     );
                     break;
@@ -120,7 +120,7 @@ class RenameOperation extends Component
                 );
                 if (empty($expr->new)) {
                     $parser->error(
-                        __('The new name of the table was expected.'),
+                        'The new name of the table was expected.',
                         $token
                     );
                 }
@@ -138,7 +138,7 @@ class RenameOperation extends Component
 
         if ($state !== 3) {
             $parser->error(
-                __('A rename operation was expected.'),
+                'A rename operation was expected.',
                 $list->tokens[$list->idx - 1]
             );
         }

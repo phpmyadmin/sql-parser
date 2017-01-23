@@ -11,8 +11,6 @@
 
 namespace PhpMyAdmin\SqlParser;
 
-require_once 'common.php';
-
 /**
  * A component (of a statement) is a part of a statement that is common to
  * multiple query types.
@@ -42,7 +40,7 @@ abstract class Component
     ) {
         // This method should be abstract, but it can't be both static and
         // abstract.
-        throw new \Exception(\__('Not implemented yet.'));
+        throw new \Exception(Translator::gettext('Not implemented yet.'));
     }
 
     /**
@@ -62,7 +60,7 @@ abstract class Component
     {
         // This method should be abstract, but it can't be both static and
         // abstract.
-        throw new \Exception(\__('Not implemented yet.'));
+        throw new \Exception(Translator::gettext('Not implemented yet.'));
     }
 
     /**

@@ -186,7 +186,7 @@ class InsertStatement extends Statement
                 if ($token->type === Token::TYPE_KEYWORD
                     && $token->value !== 'INTO'
                 ) {
-                    $parser->error(__('Unexpected keyword.'), $token);
+                    $parser->error('Unexpected keyword.', $token);
                     break;
                 } else {
                     ++$list->idx;
@@ -214,7 +214,7 @@ class InsertStatement extends Statement
                         $this->select = new SelectStatement($parser, $list);
                     } else {
                         $parser->error(
-                            __('Unexpected keyword.'),
+                            'Unexpected keyword.',
                             $token
                         );
                         break;
@@ -223,7 +223,7 @@ class InsertStatement extends Statement
                     $miniState = 1;
                 } else {
                     $parser->error(
-                        __('Unexpected token.'),
+                        'Unexpected token.',
                         $token
                     );
                     break;
@@ -243,7 +243,7 @@ class InsertStatement extends Statement
 
                 if ($lastCount === $miniState) {
                     $parser->error(
-                        __('Unexpected token.'),
+                        'Unexpected token.',
                         $token
                     );
                     break;

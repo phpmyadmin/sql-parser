@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Translator;
 
 /**
  * `VALUES` keyword parser.
@@ -84,7 +85,7 @@ class Array2d extends Component
                     } elseif ($arrCount != $count) {
                         $parser->error(
                             sprintf(
-                                __('%1$d values were expected, but found %2$d.'),
+                                Translator::gettext('%1$d values were expected, but found %2$d.'),
                                 $count,
                                 $arrCount
                             ),
@@ -107,7 +108,7 @@ class Array2d extends Component
 
         if ($state === 0) {
             $parser->error(
-                __('An opening bracket followed by a set of values was expected.'),
+                'An opening bracket followed by a set of values was expected.',
                 $list->tokens[$list->idx]
             );
         }

@@ -10,6 +10,8 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 
+$GLOBALS['lang'] = 'en';
+
 /**
  * Implements useful methods for testing.
  *

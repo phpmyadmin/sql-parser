@@ -221,7 +221,7 @@ class AlterOperation extends Component
 
                     if (!($token->value == 'SET' && $list->tokens[$list->idx - 1]->value == 'CHARACTER')) {
                         $parser->error(
-                            __('A new statement was found, but no delimiter between it and the previous one.'),
+                            'A new statement was found, but no delimiter between it and the previous one.',
                             $token
                         );
                         break;
@@ -233,7 +233,7 @@ class AlterOperation extends Component
 
         if ($ret->options->isEmpty()) {
             $parser->error(
-                __('Unrecognized alter operation.'),
+                'Unrecognized alter operation.',
                 $list->tokens[$list->idx]
             );
         }

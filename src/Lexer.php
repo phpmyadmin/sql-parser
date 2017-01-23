@@ -10,8 +10,6 @@
 
 namespace PhpMyAdmin\SqlParser;
 
-require_once 'common.php';
-
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 
 if (!defined('USE_UTF_STRINGS')) {
@@ -41,7 +39,7 @@ if (!defined('USE_UTF_STRINGS')) {
  *
  * @see      Context
  */
-class Lexer
+class Lexer extends Core
 {
     /**
      * A list of methods that are used in lexing the SQL query.
@@ -76,15 +74,6 @@ class Lexer
         'parseComment', 'parseOperator', 'parseBool', 'parseString',
         'parseSymbol', 'parseKeyword', 'parseLabel', 'parseUnknown',
     );
-
-    /**
-     * Whether errors should throw exceptions or just be stored.
-     *
-     * @var bool
-     *
-     * @see static::$errors
-     */
-    public $strict = false;
 
     /**
      * The string to be parsed.
@@ -142,19 +131,6 @@ class Lexer
      * @var int
      */
     public $delimiterLen;
-
-    /**
-     * List of errors that occurred during lexing.
-     *
-     * Usually, the lexing does not stop once an error occurred because that
-     * error might be false positive or a partial result (even a bad one)
-     * might be needed.
-     *
-     * @var LexerException[]
-     *
-     * @see Lexer::error()
-     */
-    public $errors = array();
 
     /**
      * Gets the tokens list parsed by a new instance of a lexer.
@@ -258,7 +234,7 @@ class Lexer
                 // @assert($this->last === $lastIdx);
                 $token = new Token($this->str[$this->last]);
                 $this->error(
-                    __('Unexpected character.'),
+                    'Unexpected character.',
                     $this->str[$this->last],
                     $this->last
                 );
@@ -299,7 +275,7 @@ class Lexer
             if ($token->type === Token::TYPE_NONE && $token->value === 'DELIMITER') {
                 if ($this->last + 1 >= $this->len) {
                     $this->error(
-                        __('Expected whitespace(s) before delimiter.'),
+                        'Expected whitespace(s) before delimiter.',
                         '',
                         $this->last + 1
                     );
@@ -317,7 +293,7 @@ class Lexer
                 // Preparing the token that holds the new delimiter.
                 if ($this->last + 1 >= $this->len) {
                     $this->error(
-                        __('Expected delimiter.'),
+                        'Expected delimiter.',
                         '',
                         $this->last + 1
                     );
@@ -333,7 +309,7 @@ class Lexer
 
                 if (empty($this->delimiter)) {
                     $this->error(
-                        __('Expected delimiter.'),
+                        'Expected delimiter.',
                         '',
                         $this->last
                     );
@@ -369,13 +345,13 @@ class Lexer
      *
      * @throws LexerException throws the exception, if strict mode is enabled
      */
-    public function error($msg = '', $str = '', $pos = 0, $code = 0)
+    public function error($msg, $str = '', $pos = 0, $code = 0)
     {
-        $error = new LexerException($msg, $str, $pos, $code);
-        if ($this->strict) {
-            throw $error;
-        }
-        $this->errors[] = $error;
+        $error = new LexerException(
+            Translator::gettext($msg),
+            $str, $pos, $code
+        );
+        parent::error($error);
     }
 
     /**
@@ -862,7 +838,7 @@ class Lexer
         if ($this->last >= $this->len || $this->str[$this->last] !== $quote) {
             $this->error(
                 sprintf(
-                    __('Ending quote %1$s was expected.'),
+                    Translator::gettext('Ending quote %1$s was expected.'),
                     $quote
                 ),
                 '',
@@ -903,7 +879,7 @@ class Lexer
             if (($str = $this->parseString('`')) === null) {
                 if (($str = static::parseUnknown()) === null) {
                     $this->error(
-                        __('Variable name was expected.'),
+                        'Variable name was expected.',
                         $this->str[$this->last],
                         $this->last
                     );
