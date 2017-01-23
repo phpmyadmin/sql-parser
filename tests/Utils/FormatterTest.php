@@ -381,12 +381,24 @@ class FormatTest extends TestCase
                     "\x1b[35mINSERT" . "\n" .
                     "\x1b[35mINTO" . "\n" .
                     "    \x1b[39mfoo" . "\n" .
-                    "\x1b[35mVALUES\e[39m(\e[92m0\e[39m, \e[92m0\e[39m, \e[92m0\e[39m)\e[39m,\e[39m(\e[92m1\e[39m, \e[92m1\e[39m, \e[92m1\e[39m)" . "\x1b[0m",
+                    "\x1b[35mVALUES\x1b[39m(\x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m)\x1b[39m,\x1b[39m(\x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m)" . "\x1b[0m",
                 'html' =>
                     '<span class="sql-reserved">INSERT</span>' . '<br/>' .
                     '<span class="sql-reserved">INTO</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;foo' . '<br/>' .
                     '<span class="sql-reserved">VALUES</span>(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
+            ),
+            'string as alias' => array(
+                'query' => 'select "Text" as bar',
+                'text' =>
+                    'SELECT' . "\n" .
+                    '    "Text" AS bar',
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[91m\"Text\" \x1b[35mAS \x1b[39mbar" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Text"</span> <span class="sql-reserved">AS</span> bar',
             ),
         );
     }
@@ -484,7 +496,7 @@ class FormatTest extends TestCase
                 "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m",
                 array('type' => 'cli'),
             ),
-            array(
+            array(  # Covered by 'string as alias'
                 'SELECT "Text" AS BAR',
                 "\x1b[35mSELECT\n    \x1b[91m\"Text\" \x1b[35mAS \x1b[39mBAR\x1b[0m",
                 array('type' => 'cli'),
@@ -528,7 +540,7 @@ class FormatTest extends TestCase
                 '&nbsp;&nbsp;&nbsp;&nbsp;&lt; s &gt; nxss <span class="sql-comment">/*s&lt;s&gt;xss*/</span>',
                 array('type' => 'html'),
             ),
-            array(
+            array(  # Covered by 'escape cli'
                 "select 'text\x1b[33mcolor-inj' from tbl",
                 "\x1b[35mSELECT\n    \x1b[91m'text\\x1B[33mcolor-inj'\n\x1b[35mFROM\n    \x1b[39mtbl\x1b[0m",
                 array('type' => 'cli'),
