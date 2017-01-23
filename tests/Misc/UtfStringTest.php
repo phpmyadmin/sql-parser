@@ -1,9 +1,9 @@
 <?php
 
-namespace SqlParser\Tests\Misc;
+namespace PhpMyAdmin\SqlParser\Tests\Misc;
 
-use SqlParser\UtfString;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\UtfString;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class UtfStringTest extends TestCase
 {

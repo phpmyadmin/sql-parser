@@ -1,9 +1,9 @@
 <?php
 
-namespace SqlParser\Tests\Builder;
+namespace PhpMyAdmin\SqlParser\Tests\Builder;
 
-use SqlParser\Parser;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ExplainStatementTest extends TestCase
 {

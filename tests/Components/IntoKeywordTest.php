@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Components;
+namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use SqlParser\Parser;
-use SqlParser\Components\IntoKeyword;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Components\IntoKeyword;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class IntoKeywordTest extends TestCase
 {

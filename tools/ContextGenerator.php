@@ -1,6 +1,6 @@
 <?php
 
-namespace SqlParser\Tools;
+namespace PhpMyAdmin\SqlParser\Tools;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -60,9 +60,9 @@ class ContextGenerator
         ' * @see %3$s' . "\n" .
         ' */' . "\n" .
         '' . "\n" .
-        'namespace SqlParser\\Contexts;' . "\n" .
+        'namespace PhpMyAdmin\\SqlParser\\Contexts;' . "\n" .
         '' . "\n" .
-        'use SqlParser\\Context;' . "\n" .
+        'use PhpMyAdmin\\SqlParser\\Context;' . "\n" .
         '' . "\n" .
         '/**' . "\n" .
         ' * Context for %1$s.' . "\n" .

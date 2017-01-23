@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Components;
+namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use SqlParser\Parser;
-use SqlParser\Components\ArrayObj;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Components\ArrayObj;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ArrayObjTest extends TestCase
 {
@@ -26,7 +26,7 @@ class ArrayObjTest extends TestCase
             new Parser(),
             $this->getTokensList('(1 + 2, 3 + 4)'),
             array(
-                'type' => 'SqlParser\\Components\\Expression',
+                'type' => 'PhpMyAdmin\\SqlParser\\Components\\Expression',
                 'typeOptions' => array(
                     'breakOnParentheses' => true,
                 ),

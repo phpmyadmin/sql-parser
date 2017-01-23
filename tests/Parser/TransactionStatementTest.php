@@ -1,8 +1,8 @@
 <?php
 
-namespace SqlParser\Tests\Parser;
+namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class TransactionStatementTest extends TestCase
 {

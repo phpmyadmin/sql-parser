@@ -1,11 +1,11 @@
 <?php
 
-namespace SqlParser\Tools;
+namespace PhpMyAdmin\SqlParser\Tools;
 
 require_once '../vendor/autoload.php';
 
-use SqlParser\Lexer;
-use SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
 
 /**
  * Used for test generation.

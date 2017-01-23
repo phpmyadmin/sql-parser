@@ -1,11 +1,11 @@
 <?php
 
-namespace SqlParser\Tests\Utils;
+namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\Utils\Error;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Utils\Error;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ErrorTest extends TestCase
 {

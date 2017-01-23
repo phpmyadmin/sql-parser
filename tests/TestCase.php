@@ -4,11 +4,11 @@
  * Bootstrap for tests.
  */
 
-namespace SqlParser\Tests;
+namespace PhpMyAdmin\SqlParser\Tests;
 
-use SqlParser\Lexer;
-use SqlParser\Parser;
-use SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Implements useful methods for testing.

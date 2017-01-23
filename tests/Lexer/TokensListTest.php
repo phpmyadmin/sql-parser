@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Lexer;
+namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
-use SqlParser\Token;
-use SqlParser\TokensList;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class TokensListTest extends TestCase
 {

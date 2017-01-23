@@ -1,9 +1,9 @@
 <?php
 
-namespace SqlParser\Tests\Lexer;
+namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
-use SqlParser\Token;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class TokenTest extends TestCase
 {

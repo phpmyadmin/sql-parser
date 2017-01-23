@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Added PhpMyAdmin namespace prefix to follow PSR-4.
+
 ## [3.4.17] - 2017-01-20
 
 * Coding style fixes.
