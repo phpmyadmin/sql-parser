@@ -6,7 +6,7 @@
 
 namespace SqlParser;
 
-use MoTranslator;
+use PhpMyAdmin\MoTranslator;
 
 class Translator
 {
