@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [4.1.0] - 2017-01-23
 
 * Use phpmyadmin/motranslator to localize messages.
