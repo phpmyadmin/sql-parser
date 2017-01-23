@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Components;
+namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use SqlParser\Components\Expression;
-use SqlParser\Components\OrderKeyword;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class OrderKeywordTest extends TestCase
 {

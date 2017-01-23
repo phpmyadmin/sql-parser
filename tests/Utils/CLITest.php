@@ -1,14 +1,14 @@
 <?php
 
-namespace SqlParser\Tests\Utils;
+namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class CLITest extends TestCase
 {
     private function getCLI($getopt)
     {
-        $cli = $this->getMockBuilder('SqlParser\Utils\CLI')->setMethods(array('getopt'))->getMock();
+        $cli = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\CLI')->setMethods(array('getopt'))->getMock();
         $cli->method('getopt')->willReturn($getopt);
 
         return $cli;

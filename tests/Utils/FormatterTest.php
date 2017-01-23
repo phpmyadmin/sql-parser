@@ -1,9 +1,9 @@
 <?php
 
-namespace SqlParser\Tests\Utils;
+namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
-use SqlParser\Utils\Formatter;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Utils\Formatter;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class FormatTest extends TestCase
 {
@@ -12,7 +12,7 @@ class FormatTest extends TestCase
      */
     public function testMergeFormats($default, $overriding, $expected)
     {
-        $formatter = $this->getMockBuilder('SqlParser\Utils\Formatter')
+        $formatter = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\Formatter')
             ->disableOriginalConstructor()
             ->setMethods(array('getDefaultOptions', 'getDefaultFormats'))
             ->getMock();

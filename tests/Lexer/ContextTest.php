@@ -1,39 +1,39 @@
 <?php
 
-namespace SqlParser\Tests\Lexer;
+namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
-use SqlParser\Context;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ContextTest extends TestCase
 {
     public function testLoad()
     {
         // Default context is 5.7.0.
-        $this->assertEquals('\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
+        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
         $this->assertTrue(isset(Context::$KEYWORDS['STORED']));
         $this->assertFalse(isset(Context::$KEYWORDS['AUTHORS']));
 
         Context::load('MySql50600');
-        $this->assertEquals('\\SqlParser\\Contexts\\ContextMySql50600', Context::$loadedContext);
+        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50600', Context::$loadedContext);
         $this->assertFalse(isset(Context::$KEYWORDS['STORED']));
         $this->assertTrue(isset(Context::$KEYWORDS['AUTHORS']));
 
         Context::loadClosest('MySql50712');
-        $this->assertEquals('\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
+        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
 
         $this->assertEquals(null, Context::loadClosest('Sql'));
 
         // Restoring context.
         Context::load('');
-        $this->assertEquals('\\SqlParser\\Contexts\\ContextMySql50700', Context::$defaultContext);
+        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$defaultContext);
         $this->assertTrue(isset(Context::$KEYWORDS['STORED']));
         $this->assertFalse(isset(Context::$KEYWORDS['AUTHORS']));
     }
 
     /**
      * @expectedException \Exception
-     * @expectedExceptionMessage Specified context ("\SqlParser\Contexts\ContextFoo") does not exist.
+     * @expectedExceptionMessage Specified context ("\PhpMyAdmin\SqlParser\Contexts\ContextFoo") does not exist.
      */
     public function testLoadError()
     {

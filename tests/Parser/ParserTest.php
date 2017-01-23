@@ -1,12 +1,12 @@
 <?php
 
-namespace SqlParser\Tests\Parser;
+namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
-use SqlParser\Exceptions\ParserException;
-use SqlParser\Parser;
-use SqlParser\Token;
-use SqlParser\TokensList;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ParserTest extends TestCase
 {
@@ -66,7 +66,7 @@ class ParserTest extends TestCase
     }
 
     /**
-     * @expectedException \SqlParser\Exceptions\ParserException
+     * @expectedException \PhpMyAdmin\SqlParser\Exceptions\ParserException
      * @expectedExceptionMessage strict error
      * @expectedExceptionCode 3
      */

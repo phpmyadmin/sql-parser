@@ -9,7 +9,7 @@
  * count on the *Component classes to do their job.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
 /**
  * A component (of a statement) is a part of a statement that is common to

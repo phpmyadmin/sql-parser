@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Components;
+namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use SqlParser\Parser;
-use SqlParser\Components\OptionsArray;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class OptionsArrayTest extends TestCase
 {

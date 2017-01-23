@@ -1,11 +1,11 @@
 <?php
 
-namespace SqlParser\Tests\Parser;
+namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
-use SqlParser\Component;
-use SqlParser\Parser;
-use SqlParser\TokensList;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ComponentTest extends TestCase
 {

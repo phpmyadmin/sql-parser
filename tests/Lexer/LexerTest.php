@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Lexer;
+namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
-use SqlParser\Exceptions\LexerException;
-use SqlParser\Lexer;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Exceptions\LexerException;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class LexerTest extends TestCase
 {
@@ -34,7 +34,7 @@ class LexerTest extends TestCase
     }
 
     /**
-     * @expectedException \SqlParser\Exceptions\LexerException
+     * @expectedException \PhpMyAdmin\SqlParser\Exceptions\LexerException
      * @expectedExceptionMessage strict error
      * @expectedExceptionCode 4
      */

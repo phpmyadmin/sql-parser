@@ -1,13 +1,13 @@
 <?php
 
-namespace SqlParser\Tests\Builder;
+namespace PhpMyAdmin\SqlParser\Tests\Builder;
 
-use SqlParser\Components\OptionsArray;
-use SqlParser\Components\Expression;
-use SqlParser\Components\Condition;
-use SqlParser\Components\Limit;
-use SqlParser\Statements\SelectStatement;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\Condition;
+use PhpMyAdmin\SqlParser\Components\Limit;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class StatementTest extends TestCase
 {

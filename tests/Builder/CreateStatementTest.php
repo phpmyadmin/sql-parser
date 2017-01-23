@@ -1,15 +1,15 @@
 <?php
 
-namespace SqlParser\Tests\Builder;
+namespace PhpMyAdmin\SqlParser\Tests\Builder;
 
-use SqlParser\Parser;
-use SqlParser\Components\DataType;
-use SqlParser\Components\Expression;
-use SqlParser\Components\CreateDefinition;
-use SqlParser\Components\Key;
-use SqlParser\Components\OptionsArray;
-use SqlParser\Statements\CreateStatement;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Components\DataType;
+use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Components\Key;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class CreateStatementTest extends TestCase
 {

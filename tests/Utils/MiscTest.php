@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Utils;
+namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
-use SqlParser\Parser;
-use SqlParser\Utils\Misc;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Utils\Misc;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class MiscTest extends TestCase
 {

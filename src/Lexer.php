@@ -8,9 +8,9 @@
  * Depends on context to extract lexemes.
  */
 
-namespace SqlParser;
+namespace PhpMyAdmin\SqlParser;
 
-use SqlParser\Exceptions\LexerException;
+use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 
 if (!defined('USE_UTF_STRINGS')) {
     // NOTE: In previous versions of PHP (5.5 and older) the default

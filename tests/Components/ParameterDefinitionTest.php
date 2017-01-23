@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Components;
+namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use SqlParser\Parser;
-use SqlParser\Components\ParameterDefinition;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ParameterDefinitionTest extends TestCase
 {

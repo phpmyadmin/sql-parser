@@ -1,10 +1,10 @@
 <?php
 
-namespace SqlParser\Tests\Components;
+namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use SqlParser\Parser;
-use SqlParser\Components\ExpressionArray;
-use SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Components\ExpressionArray;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ExpressionArrayTest extends TestCase
 {

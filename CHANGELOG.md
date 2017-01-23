@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [4.0.1] - 2017-01-23
+
+* Fixed CLI wrappers for new API.
+* Fixed README for new API.
+
+## [4.0.0] - 2017-01-23
+
+* Added PhpMyAdmin namespace prefix to follow PSR-4.
+
 ## [3.4.17] - 2017-01-20
 
 * Coding style fixes.
