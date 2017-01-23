@@ -48,8 +48,8 @@ echo SqlParser\Utils\Formatter::format($query, array('type' => 'html'));
 ### Discoverying query type
 
 ```php
-use SqlParser\Parser;
-use SqlParser\Utils\Query;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Utils\Query;
 
 $query = 'OPTIMIZE TABLE tbl';
 $parser = new Parser($query);
@@ -64,16 +64,16 @@ echo $flags['querytype'];
 require __DIR__."/vendor/autoload.php";
 
 $query1 = "select * from a";
-$parser = new SqlParser\Parser($query1);
+$parser = new PhpMyAdmin\SqlParser\Parser($query1);
 
 // inspect query
-var_dump($parser->statements[0]); // outputs object(SqlParser\Statements\SelectStatement)
+var_dump($parser->statements[0]); // outputs object(PhpMyAdmin\SqlParser\Statements\SelectStatement)
 
 // modify query by replacing table a with table b
-$table2 = new \SqlParser\Components\Expression("", "b", "", "");
+$table2 = new \PhpMyAdmin\SqlParser\Components\Expression("", "b", "", "");
 $parser->statements[0]->from[0] = $table2;
 
-// build query again from an array of object(SqlParser\Statements\SelectStatement) to a string
+// build query again from an array of object(PhpMyAdmin\SqlParser\Statements\SelectStatement) to a string
 $statement = $parser->statements[0];
 $query2 = $statement->build();
 var_dump($query2); // outputs string(19) "SELECT  * FROM `b` "

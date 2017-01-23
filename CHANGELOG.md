@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Fixed CLI wrappers for new API.
+* Fixed README for new API.
 
 ## [4.0.0] - 2017-01-23
 
