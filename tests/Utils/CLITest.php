@@ -29,12 +29,12 @@ class CLITest extends TestCase
         return array(
             array(
                 array('q' => 'SELECT 1'),
-                "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m\n",
+                "\e[35mSELECT\n    \e[92m1\e[0m\n",
                 0,
             ),
             array(
                 array('query' => 'SELECT 1'),
-                "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m\n",
+                "\e[35mSELECT\n    \e[92m1\e[0m\n",
                 0,
             ),
             array(

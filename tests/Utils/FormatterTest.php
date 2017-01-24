@@ -319,12 +319,12 @@ class FormatTest extends TestCase
             ),
             array(
                 'SELECT 1',
-                "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m",
+                "\e[35mSELECT\n    \e[92m1\e[0m",
                 array('type' => 'cli'),
             ),
             array(
                 'SELECT "Text" AS BAR',
-                "\x1b[35mSELECT\n    \x1b[91m\"Text\" \x1b[35mAS \x1b[39mBAR\x1b[0m",
+                "\e[35mSELECT\n    \e[91m\"Text\" \e[35mAS \e[39mBAR\e[0m",
                 array('type' => 'cli'),
             ),
             array(
@@ -367,8 +367,8 @@ class FormatTest extends TestCase
                 array('type' => 'html'),
             ),
             array(
-                "select 'text\x1b[33mcolor-inj' from tbl",
-                "\x1b[35mSELECT\n    \x1b[91m'text\\x1B[33mcolor-inj'\n\x1b[35mFROM\n    \x1b[39mtbl\x1b[0m",
+                "select 'text\e[33mcolor-inj' from tbl",
+                "\e[35mSELECT\n    \e[91m'text\\x1B[33mcolor-inj'\n\e[35mFROM\n    \e[39mtbl\e[0m",
                 array('type' => 'cli'),
             ),
         );
