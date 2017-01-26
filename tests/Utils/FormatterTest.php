@@ -432,6 +432,40 @@ class FormatTest extends TestCase
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`&lt;s&gt;xss`</span>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt; s &gt; nxss <span class="sql-comment">/*s&lt;s&gt;xss*/</span>',
             ),
+            'create table' => array(
+                'query' =>
+                    'create table if not exists `pma__bookmark` (' . "\n" .
+                    '`id` int(11) not null auto_increment,' . "\n" .
+                    '`dbase` varchar(255) not null default "",' . "\n" .
+                    '`user` varchar(255) not null default "",' . "\n" .
+                    '`label` varchar(255) collate utf8_general_ci not null default "",' . "\n" .
+                    '`query` text not null,' . "\n" .
+                    'primary key (`id`)',
+                'text' =>
+                    'CREATE TABLE IF NOT EXISTS `pma__bookmark`(' . "\n" .
+                    '    `id` INT(11) NOT NULL AUTO_INCREMENT,' . "\n" .
+                    '    `dbase` VARCHAR(255) NOT NULL DEFAULT "",' . "\n" .
+                    '    `user` VARCHAR(255) NOT NULL DEFAULT "",' . "\n" .
+                    '    `label` VARCHAR(255) COLLATE utf8_general_ci NOT NULL DEFAULT "",' . "\n" .
+                    '    `query` TEXT NOT NULL,' . "\n" .
+                    '    PRIMARY KEY(`id`)',
+                'cli' =>
+                    "\e[35mCREATE \e[35mTABLE \e[35mIF NOT EXISTS \e[36m`pma__bookmark`\e[39m(" . "\n" .
+                    "    \e[36m`id` \e[35mINT\e[39m(\e[92m11\e[39m) \e[35mNOT NULL \e[95mAUTO_INCREMENT\e[39m," . "\n" .
+                    "    \e[36m`dbase` \e[35mVARCHAR\e[39m(\e[92m255\e[39m) \e[35mNOT NULL \e[35mDEFAULT \e[91m\"\"\e[39m," . "\n" .
+                    "    \e[36m`user` \e[35mVARCHAR\e[39m(\e[92m255\e[39m) \e[35mNOT NULL \e[35mDEFAULT \e[91m\"\"\e[39m," . "\n" .
+                    "    \e[36m`label` \e[35mVARCHAR\e[39m(\e[92m255\e[39m) \e[35mCOLLATE \e[39mutf8_general_ci \e[35mNOT NULL \e[35mDEFAULT \e[91m\"\"\e[39m," . "\n" .
+                    "    \e[36m`query` \e[95mTEXT \e[35mNOT NULL\e[39m," . "\n" .
+                    "    \e[35mPRIMARY KEY\e[39m(\e[36m`id`\e[39m)" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">TABLE</span> <span class="sql-reserved">IF NOT EXISTS</span> <span class="sql-variable">`pma__bookmark`</span>(' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`id`</span> <span class="sql-reserved">INT</span>(<span class="sql-number">11</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-keyword">AUTO_INCREMENT</span>,' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`dbase`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`user`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`label`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">COLLATE</span> utf8_general_ci <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`query`</span> <span class="sql-keyword">TEXT</span> <span class="sql-reserved">NOT NULL</span>,' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">PRIMARY KEY</span>(<span class="sql-variable">`id`</span>)',
+            ),
         );
     }
 
@@ -546,7 +580,7 @@ class FormatTest extends TestCase
                 '&nbsp;&nbsp;&nbsp;&nbsp;superado = <span class="sql-number">0</span>',
                 array('type' => 'html'),
             ),
-            array(
+            array(  # Covered by 'create table'
                 'CREATE TABLE IF NOT EXISTS `pma__bookmark` (' . "\n" .
                 '  `id` int(11) NOT NULL auto_increment,' . "\n" .
                 '  `dbase` varchar(255) NOT NULL default "",' . "\n" .
