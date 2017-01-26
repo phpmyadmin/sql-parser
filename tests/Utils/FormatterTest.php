@@ -474,13 +474,13 @@ class FormatTest extends TestCase
                     '    `query` TEXT NOT NULL,' . "\n" .
                     '    PRIMARY KEY(`id`)',
                 'cli' =>
-                    "\e[35mCREATE \e[35mTABLE \e[35mIF NOT EXISTS \e[36m`pma__bookmark`\e[39m(" . "\n" .
-                    "    \e[36m`id` \e[35mINT\e[39m(\e[92m11\e[39m) \e[35mNOT NULL \e[95mAUTO_INCREMENT\e[39m," . "\n" .
-                    "    \e[36m`dbase` \e[35mVARCHAR\e[39m(\e[92m255\e[39m) \e[35mNOT NULL \e[35mDEFAULT \e[91m\"\"\e[39m," . "\n" .
-                    "    \e[36m`user` \e[35mVARCHAR\e[39m(\e[92m255\e[39m) \e[35mNOT NULL \e[35mDEFAULT \e[91m\"\"\e[39m," . "\n" .
-                    "    \e[36m`label` \e[35mVARCHAR\e[39m(\e[92m255\e[39m) \e[35mCOLLATE \e[39mutf8_general_ci \e[35mNOT NULL \e[35mDEFAULT \e[91m\"\"\e[39m," . "\n" .
-                    "    \e[36m`query` \e[95mTEXT \e[35mNOT NULL\e[39m," . "\n" .
-                    "    \e[35mPRIMARY KEY\e[39m(\e[36m`id`\e[39m)" . "\x1b[0m",
+                    "\x1b[35mCREATE \x1b[35mTABLE \x1b[35mIF NOT EXISTS \x1b[36m`pma__bookmark`\x1b[39m(" . "\n" .
+                    "    \x1b[36m`id` \x1b[35mINT\x1b[39m(\x1b[92m11\x1b[39m) \x1b[35mNOT NULL \x1b[95mAUTO_INCREMENT\x1b[39m," . "\n" .
+                    "    \x1b[36m`dbase` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
+                    "    \x1b[36m`user` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
+                    "    \x1b[36m`label` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mCOLLATE \x1b[39mutf8_general_ci \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
+                    "    \x1b[36m`query` \x1b[95mTEXT \x1b[35mNOT NULL\x1b[39m," . "\n" .
+                    "    \x1b[35mPRIMARY KEY\x1b[39m(\x1b[36m`id`\x1b[39m)" . "\x1b[0m",
                 'html' =>
                     '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">TABLE</span> <span class="sql-reserved">IF NOT EXISTS</span> <span class="sql-variable">`pma__bookmark`</span>(' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`id`</span> <span class="sql-reserved">INT</span>(<span class="sql-number">11</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-keyword">AUTO_INCREMENT</span>,' . '<br/>' .
