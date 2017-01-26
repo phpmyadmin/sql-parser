@@ -253,17 +253,41 @@ class FormatTest extends TestCase
                 'cli' => "\x1b[0m",
                 'html' => '',
             ),
-            'simply' => array(
-                'query' => 'select *',
+            'minimal' => array(
+                'query' => 'select 1',
                 'text' =>
                     'SELECT' . "\n" .
-                    '    *',
+                    '    1',
                 'cli' =>
                     "\x1b[35mSELECT" . "\n" .
-                    "    \x1b[39m*" . "\x1b[0m",
+                    "    \x1b[92m1" . "\x1b[0m",
                 'html' =>
                     '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;*',
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
+            ),
+            'simply' => array(
+                'query' => 'select * from tbl where 1',
+                'text' =>
+                    'SELECT' . "\n" .
+                    '    *' . "\n" .
+                    'FROM' . "\n" .
+                    '    tbl' . "\n" .
+                    'WHERE' . "\n" .
+                    '    1',
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[39m*" . "\n" .
+                    "\x1b[35mFROM" . "\n" .
+                    "    \x1b[39mtbl" . "\n" .
+                    "\x1b[35mWHERE" . "\n" .
+                    "    \x1b[92m1" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;*' . '<br/>' .
+                    '<span class="sql-reserved">FROM</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
+                    '<span class="sql-reserved">WHERE</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
             ),
             'comments' => array(
                 'query' =>
@@ -483,7 +507,7 @@ class FormatTest extends TestCase
     public function formatQueries()
     {
         return array(
-            array(  # Covered by 'simply'
+            array(  # Covered by 'minimal'
                 'SELECT 1',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
@@ -557,7 +581,7 @@ class FormatTest extends TestCase
                 '(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
                 array('type' => 'html'),
             ),
-            array(  # Covered by 'simply'
+            array(  # Covered by 'minimal'
                 'SELECT 1',
                 "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m",
                 array('type' => 'cli'),
