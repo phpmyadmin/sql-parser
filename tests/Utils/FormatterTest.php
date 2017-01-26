@@ -235,13 +235,13 @@ class FormatTest extends TestCase
     public function testFormat_new($query, $text, $cli, $html, array $options = array())
     {
         // Test TEXT format
-        $this->assertEquals($text, Formatter::format($query, array('type' => 'text') + $options));
+        $this->assertEquals($text, Formatter::format($query, array('type' => 'text') + $options), 'Text formatting failed.');
 
         // Test CLI format
-        $this->assertEquals($cli, Formatter::format($query, array('type' => 'cli') + $options));
+        $this->assertEquals($cli, Formatter::format($query, array('type' => 'cli') + $options), 'CLI formatting failed.');
 
         // Test HTML format
-        $this->assertEquals($html, Formatter::format($query, array('type' => 'html') + $options));
+        $this->assertEquals($html, Formatter::format($query, array('type' => 'html') + $options), 'HTML formatting failed.');
     }
 
     public function formatQueries_new()
@@ -400,6 +400,38 @@ class FormatTest extends TestCase
                     '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Text"</span> <span class="sql-reserved">AS</span> bar',
             ),
+            'escape cli' => array(
+                'query' => "select 'text\x1b[33mcolor-inj'",
+                'text' =>
+                    'SELECT' . "\n" .
+                    "    'text\x1B[33mcolor-inj'",
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[91m'text\\x1B[33mcolor-inj'" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'text'."\x1b[33m".'color-inj\'</span>',
+            ),
+            'escape html' => array(
+                'query' => "select '<s>xss' from `<s>xss` , <s>nxss /*s<s>xss*/",
+                'text' =>
+                    'SELECT' . "\n" .
+                    '    \'<s>xss\'' . "\n" .
+                    'FROM' . "\n" .
+                    '    `<s>xss`,' . "\n" .
+                    '    < s > nxss /*s<s>xss*/',
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[91m'<s>xss'" . "\n" .
+                    "\x1b[35mFROM" . "\n" .
+                    "    \x1b[36m`<s>xss`\x1b[39m," . "\n" .
+                    "    \x1b[39m< \x1b[39ms \x1b[39m> \x1b[39mnxss \x1b[37m/*s<s>xss*/" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'&lt;s&gt;xss\'</span>' . '<br/>' .
+                    '<span class="sql-reserved">FROM</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`&lt;s&gt;xss`</span>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt; s &gt; nxss <span class="sql-comment">/*s&lt;s&gt;xss*/</span>',
+            ),
         );
     }
 
@@ -531,7 +563,7 @@ class FormatTest extends TestCase
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">PRIMARY KEY</span>(<span class="sql-variable">`id`</span>)',
                 array('type' => 'html'),
             ),
-            array(
+            array(  # Covered by 'escape html'
                 "select '<s>xss' from `<s>xss` , <s>nxss /*s<s>xss*/",
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'&lt;s&gt;xss\'</span>' . '<br/>' .
