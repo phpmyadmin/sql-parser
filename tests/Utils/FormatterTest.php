@@ -289,6 +289,51 @@ class FormatTest extends TestCase
                     '<span class="sql-reserved">WHERE</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
             ),
+            'typical' => array(
+                'query' => 'SELECT id, if(id=1,"Si","No") from `tbl` where id = 0 or id = 1 group by id order by id desc limit 1 offset 0',
+                'text' =>
+                    'SELECT' . "\n" .
+                    '    id,' . "\n" .
+                    '    IF(id = 1, "Si", "No")' . "\n" .
+                    'FROM' . "\n" .
+                    '    `tbl`' . "\n" .
+                    'WHERE' . "\n" .
+                    '    id = 0 OR id = 1' . "\n" .
+                    'GROUP BY' . "\n" .
+                    '    id' . "\n" .
+                    'ORDER BY' . "\n" .
+                    '    id' . "\n" .
+                    'DESC' . "\n" .
+                    'LIMIT 1 OFFSET 0',
+                'cli' =>
+                    "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[39mid\x1b[39m," . "\n" .
+                    "    \x1b[35mIF\x1b[39m(\x1b[39mid \x1b[39m= \x1b[92m1\x1b[39m, \x1b[91m\"Si\"\x1b[39m, \x1b[91m\"No\"\x1b[39m)" . "\n" .
+                    "\x1b[35mFROM" . "\n" .
+                    "    \x1b[36m`tbl`" . "\n" .
+                    "\x1b[35mWHERE" . "\n" .
+                    "    \x1b[39mid \x1b[39m= \x1b[92m0 \x1b[35mOR \x1b[39mid \x1b[39m= \x1b[92m1" . "\n" .
+                    "\x1b[35mGROUP BY" . "\n" .
+                    "    \x1b[39mid" . "\n" .
+                    "\x1b[35mORDER BY" . "\n" .
+                    "    \x1b[39mid" . "\n" .
+                    "\x1b[35mDESC" . "\n" .
+                    "\x1b[35mLIMIT \x1b[92m1 \x1b[95mOFFSET \x1b[92m0" . "\x1b[0m",
+                'html' =>
+                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;id,' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">IF</span>(id = <span class="sql-number">1</span>, <span class="sql-string">"Si"</span>, <span class="sql-string">"No"</span>)' . '<br/>' .
+                    '<span class="sql-reserved">FROM</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`tbl`</span>' . '<br/>' .
+                    '<span class="sql-reserved">WHERE</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;id = <span class="sql-number">0</span> <span class="sql-reserved">OR</span> id = <span class="sql-number">1</span>' . '<br/>' .
+                    '<span class="sql-reserved">GROUP BY</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;id' . '<br/>' .
+                    '<span class="sql-reserved">ORDER BY</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;id' . '<br/>' .
+                    '<span class="sql-reserved">DESC</span>' . '<br/>' .
+                    '<span class="sql-reserved">LIMIT</span> <span class="sql-number">1</span> <span class="sql-keyword">OFFSET</span> <span class="sql-number">0</span>',
+            ),
             'comments' => array(
                 'query' =>
                     'select /* Comment */ *' . "\n" .
@@ -591,7 +636,7 @@ class FormatTest extends TestCase
                 "\x1b[35mSELECT\n    \x1b[91m\"Text\" \x1b[35mAS \x1b[39mBAR\x1b[0m",
                 array('type' => 'cli'),
             ),
-            array(
+            array(  # Covered by 'typical' and 'string as alias'
                 'SELECT coditm AS Item, descripcion AS Descripcion, contenedores AS Contenedores, IF(suspendido = 1, Si, NO) AS Suspendido FROM `DW_articulos` WHERE superado = 0',
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;coditm <span class="sql-reserved">AS</span> Item,' . '<br/>' .
