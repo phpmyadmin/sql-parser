@@ -322,7 +322,7 @@ class Formatter
         /**
          * Previously parsed token.
          *
-         * @var Token
+         * @var Token|null
          */
         $prev = null;
 
@@ -349,12 +349,9 @@ class Formatter
             }
 
             // Checking if pointers were initialized.
-            /**
-             * Previous Token.
-             *
-             * @var Token $prev
-             */
             if ($prev !== null) {
+                /** @var Token $prev */
+
                 // Checking if a new clause started.
                 if (static::isClause($prev) !== false) {
                     $lastClause = $prev->value;
