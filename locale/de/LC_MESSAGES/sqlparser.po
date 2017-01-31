@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2017-01-20 22:51+0000\n"
-"Last-Translator: Daniel Heße <hesse.daniel93@gmail.com>\n"
+"PO-Revision-Date: 2017-01-31 12:35+0000\n"
+"Last-Translator: Thomas Artmann <thwohmas@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/de/>\n"
 "Language: de\n"
@@ -68,6 +68,8 @@ msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Ein Symbolname wurde erwartet! Ein reserviertes Schlüsselwort kann nicht "
+"ohne Backquotes als Tabellenname verwendet werden."
 
 #: src/Components/CreateDefinition.php:236
 msgid "A symbol name was expected!"
@@ -128,10 +130,8 @@ msgid "A rename operation was expected."
 msgstr "Eine Umbenennungsoperation wurde erwartet."
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "als regulären Ausdruck"
+msgstr "Fehlender Ausdruck."
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
@@ -183,20 +183,16 @@ msgid "Unrecognized keyword."
 msgstr "Unerkanntes Schlüsselwort."
 
 #: src/Statement.php:486
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Unerwarteter Statement-Anfang."
+msgstr "Unerwartete Datensatzanforderung."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
 msgstr "Der Name der Entität wurde erwartet."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Variablenname wurde erwartet."
+msgstr "Tabellenname wurde erwartet."
 
 #: src/Statements/CreateStatement.php:438
 msgid "At least one column definition was expected."
@@ -207,10 +203,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Ein „RETURNS“-Schlüsselwort wurde erwartet."
 
 #: src/Statements/DeleteStatement.php:294
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Diese Art von Klausel wurde zuvor analysiert."
+msgstr "Diese Art von Klausel ist in Mehr-Tabellen-Anfragen nicht zulässig."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
 msgid "error #1"
