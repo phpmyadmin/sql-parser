@@ -58,6 +58,10 @@ class Translator
      */
     public static function gettext($msgid)
     {
+        if (!class_exists('\PhpMyAdmin\MoTranslator\Loader', true)) {
+            return $msgid;
+        }
+
         self::load();
 
         return self::$translator->gettext($msgid);
