@@ -17,12 +17,18 @@
     },
     "require": {
         "php": ">=5.3.0",
-        "phpmyadmin/motranslator": "~3.0",
         "ext-mbstring": "*"
     },
     "require-dev": {
+        "phpmyadmin/motranslator": "~3.0",
         "phpunit/php-code-coverage": "~2.0 || ~3.0",
         "phpunit/phpunit": "~4.8 || ~5.1"
+    },
+    "conflict": {
+        "phpmyadmin/motranslator": "<3.0"
+    },
+    "suggest": {
+        "phpmyadmin/motranslator": "Translate messages to your favorite locale"
     },
     "bin": [
         "bin/highlight-query",
