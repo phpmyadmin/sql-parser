@@ -10,6 +10,11 @@ php:
   - "hhvm"
   - "nightly"
 
+env:
+  matrix:
+    - MOTRANSLATOR=yes
+    - MOTRANSLATOR=no
+
 matrix:
   fast_finish: true
   allow_failures:
@@ -19,6 +24,7 @@ sudo: false
 
 install:
   - composer install
+  - if [ "$MOTRANSLATOR" = "yes" ] ; then composer require phpmyadmin/motranslator:^3.0 ; fi
 
 after_script:
   - |
