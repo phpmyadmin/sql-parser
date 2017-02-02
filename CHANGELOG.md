@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Localization using phpmyadmin/motranslator is now optional.
+
 ## [4.1.0] - 2017-01-23
 
 * Use phpmyadmin/motranslator to localize messages.
