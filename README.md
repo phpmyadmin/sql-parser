@@ -86,6 +86,30 @@ $query2 = $statement->build();
 var_dump($query2); // outputs string(19) "SELECT  * FROM "b" "
 ```
 
+## Localization
+
+You can localize error messages installing `phpmyadmin/motranslator` version `3.0` or newer:
+```sh
+composer require phpmyadmin/motranslator:^3.0
+```
+
+The locale is automatically detected from your enrivonment, you can also set a different locale
+
+**From cli**:
+```sh
+LC_ALL=pl ./vendor/bin/lint-query --query "SELECT 1"
+```
+
+**From php**:
+```php
+require __DIR__."/vendor/autoload.php";
+
+$GLOBALS['lang'] = 'pl';
+
+$query1 = "select * from a";
+$parser = new PhpMyAdmin\SqlParser\Parser($query1);
+```
+
 ## More information
 
 This library was originally created during the Google Summer of Code 2015 and has been used by phpMyAdmin since version 4.5.
