@@ -350,8 +350,6 @@ class Formatter
 
             // Checking if pointers were initialized.
             if ($prev !== null) {
-                /** @var Token $prev */
-
                 // Checking if a new clause started.
                 if (static::isClause($prev) !== false) {
                     $lastClause = $prev->value;
