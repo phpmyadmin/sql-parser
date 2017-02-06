@@ -27,7 +27,7 @@ class SetStatement extends Statement
      * @var array
      */
     public static $CLAUSES = array(
-        'SET' => array('SET',         3),
+        'SET' => array('SET', 3),
     );
 
     /**
