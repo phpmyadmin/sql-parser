@@ -419,25 +419,31 @@ class FormatTest extends TestCase
                 'query' => 'create procedure test_procedure() begin from tbl select *; end',
                 'text' =>
                     'CREATE' . "\n" .
-                    'PROCEDURE test_procedure() BEGIN' . "\n" .
+                    'PROCEDURE test_procedure()' . "\n" .
+                    'BEGIN' . "\n" .
                     'FROM' . "\n" .
                     '    tbl' . "\n" .
                     'SELECT' . "\n" .
-                    '    *; END',
+                    '    *;' . "\n" .
+                    'END',
                 'cli' =>
                     "\x1b[35mCREATE" . "\n" .
-                    "\x1b[35mPROCEDURE \x1b[39mtest_procedure\x1b[39m(\x1b[39m) \x1b[95mBEGIN" . "\n" .
+                    "\x1b[35mPROCEDURE \x1b[39mtest_procedure\x1b[39m(\x1b[39m)\n" .
+                    "\x1b[95mBEGIN" . "\n" .
                     "\x1b[35mFROM" . "\n" .
                     "    \x1b[39mtbl" . "\n" .
                     "\x1b[35mSELECT" . "\n" .
-                    "    \x1b[39m*\x1b[39m; \x1b[95mEND" . "\x1b[0m",
+                    "    \x1b[39m*\x1b[39m;\n" .
+                    "\x1b[95mEND" . "\x1b[0m",
                 'html' =>
                     '<span class="sql-reserved">CREATE</span>' . '<br/>' .
-                    '<span class="sql-reserved">PROCEDURE</span> test_procedure() <span class="sql-keyword">BEGIN</span>' . '<br/>' .
+                    '<span class="sql-reserved">PROCEDURE</span> test_procedure()' . '<br/>' .
+                    '<span class="sql-keyword">BEGIN</span>' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
                     '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;*; <span class="sql-keyword">END</span>',
+                    '&nbsp;&nbsp;&nbsp;&nbsp;*;' . '<br/>' .
+                    '<span class="sql-keyword">END</span>',
             ),
             'insert' => array(
                 'query' => 'insert into foo values (0, 0, 0), (1, 1, 1)',
