@@ -282,8 +282,8 @@ class ContextGenerator
          * @var string
          */
         $formattedName = str_replace(
-            array('Context', 'MySql',  '00', '0'),
-            array('',        'MySQL ', '',   '.'),
+            array('Context', 'MySql', '00', '0'),
+            array('', 'MySQL ', '', '.'),
             $class
         );
 
