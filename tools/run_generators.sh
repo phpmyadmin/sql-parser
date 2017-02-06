@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export LC_ALL=C
+
 #
 # Runs the test and context generators.
 #
