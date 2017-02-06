@@ -119,7 +119,7 @@ class Lexer extends Core
      *
      * @var string
      */
-    public $delimiter;
+    public $delimiter = $DEFAULT_DELIMITER;
 
     /**
      * The length of the delimiter.
