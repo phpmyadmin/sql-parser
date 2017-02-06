@@ -3,6 +3,8 @@
 ## [Unreleased]
 
 * Localization using phpmyadmin/motranslator is now optional.
+* Improved testsuite.
+* Better handling of non upper cased not reserved keywords.
 
 ## [4.1.0] - 2017-01-23
 
