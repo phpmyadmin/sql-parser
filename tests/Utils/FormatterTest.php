@@ -255,34 +255,28 @@ class FormatTest extends TestCase
             ),
             'minimal' => array(
                 'query' => 'select 1',
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     '    1',
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[92m1" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
             ),
             'simply' => array(
                 'query' => 'select * from tbl where 1',
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     '    *' . "\n" .
                     'FROM' . "\n" .
                     '    tbl' . "\n" .
                     'WHERE' . "\n" .
                     '    1',
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[39m*" . "\n" .
                     "\x1b[35mFROM" . "\n" .
                     "    \x1b[39mtbl" . "\n" .
                     "\x1b[35mWHERE" . "\n" .
                     "    \x1b[92m1" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;*' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
@@ -291,8 +285,7 @@ class FormatTest extends TestCase
             ),
             'typical' => array(
                 'query' => 'SELECT id, if(id=1,"Si","No") from `tbl` where id = 0 or id = 1 group by id order by id desc limit 1 offset 0',
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     '    id,' . "\n" .
                     '    IF(id = 1, "Si", "No")' . "\n" .
                     'FROM' . "\n" .
@@ -305,8 +298,7 @@ class FormatTest extends TestCase
                     '    id' . "\n" .
                     'DESC' . "\n" .
                     'LIMIT 1 OFFSET 0',
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[39mid\x1b[39m," . "\n" .
                     "    \x1b[35mIF\x1b[39m(\x1b[39mid \x1b[39m= \x1b[92m1\x1b[39m, \x1b[91m\"Si\"\x1b[39m, \x1b[91m\"No\"\x1b[39m)" . "\n" .
                     "\x1b[35mFROM" . "\n" .
@@ -319,8 +311,7 @@ class FormatTest extends TestCase
                     "    \x1b[39mid" . "\n" .
                     "\x1b[35mDESC" . "\n" .
                     "\x1b[35mLIMIT \x1b[92m1 \x1b[95mOFFSET \x1b[92m0" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;id,' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">IF</span>(id = <span class="sql-number">1</span>, <span class="sql-string">"Si"</span>, <span class="sql-string">"No"</span>)' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
@@ -335,26 +326,22 @@ class FormatTest extends TestCase
                     '<span class="sql-reserved">LIMIT</span> <span class="sql-number">1</span> <span class="sql-keyword">OFFSET</span> <span class="sql-number">0</span>',
             ),
             'comments' => array(
-                'query' =>
-                    'select /* Comment */ *' . "\n" .
+                'query' => 'select /* Comment */ *' . "\n" .
                     'from tbl # Comment' . "\n" .
                     'where 1 -- Comment',
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     '    /* Comment */ *' . "\n" .
                     'FROM' . "\n" .
                     '    tbl # Comment' . "\n" .
                     'WHERE' . "\n" .
                     '    1 -- Comment',
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[37m/* Comment */ \x1b[39m*" . "\n" .
                     "\x1b[35mFROM" . "\n" .
                     "    \x1b[39mtbl \x1b[37m# Comment" . "\n" .
                     "\x1b[35mWHERE" . "\n" .
                     "    \x1b[92m1 \x1b[37m-- Comment" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-comment">/* Comment */</span> *' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl <span class="sql-comment"># Comment</span>' . '<br/>' .
@@ -362,26 +349,22 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- Comment</span>',
             ),
             'strip comments' => array(
-                'query' =>
-                    'select /* Comment */ *' . "\n" .
+                'query' => 'select /* Comment */ *' . "\n" .
                     'from tbl # Comment' . "\n" .
                     'where 1 -- Comment',
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     '    *' . "\n" .
                     'FROM' . "\n" .
                     '    tbl' . "\n" .
                     'WHERE' . "\n" .
                     '    1',
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[39m*" . "\n" .
                     "\x1b[35mFROM" . "\n" .
                     "    \x1b[39mtbl" . "\n" .
                     "\x1b[35mWHERE" . "\n" .
                     "    \x1b[92m1" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;*' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
@@ -393,32 +376,25 @@ class FormatTest extends TestCase
             ),
             'keywords' => array(
                 'query' => 'select hex("1")',
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     '    HEX("1")',
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[95mHEX\x1b[39m(\x1b[91m\"1\"\x1b[39m)" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
             ),
             'distinct count' => array(
                 'query' => 'select distinct count(*)',
-                'text' =>
-                    'SELECT DISTINCT' . "\n" .
+                'text' => 'SELECT DISTINCT' . "\n" .
                     '    COUNT(*)',
-                'cli' =>
-                    "\x1b[35mSELECT \x1b[35mDISTINCT" . "\n" .
+                'cli' => "\x1b[35mSELECT \x1b[35mDISTINCT" . "\n" .
                     "    \x1b[95mCOUNT\x1b[39m(\x1b[39m*\x1b[39m)" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span> <span class="sql-reserved">DISTINCT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span> <span class="sql-reserved">DISTINCT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">COUNT</span>(*)',
             ),
             'create procedure' => array(
                 'query' => 'create procedure test_procedure() begin from tbl select *; end',
-                'text' =>
-                    'CREATE' . "\n" .
+                'text' => 'CREATE' . "\n" .
                     'PROCEDURE test_procedure()' . "\n" .
                     'BEGIN' . "\n" .
                     'FROM' . "\n" .
@@ -426,8 +402,7 @@ class FormatTest extends TestCase
                     'SELECT' . "\n" .
                     '    *;' . "\n" .
                     'END',
-                'cli' =>
-                    "\x1b[35mCREATE" . "\n" .
+                'cli' => "\x1b[35mCREATE" . "\n" .
                     "\x1b[35mPROCEDURE \x1b[39mtest_procedure\x1b[39m(\x1b[39m)\n" .
                     "\x1b[95mBEGIN" . "\n" .
                     "\x1b[35mFROM" . "\n" .
@@ -435,8 +410,7 @@ class FormatTest extends TestCase
                     "\x1b[35mSELECT" . "\n" .
                     "    \x1b[39m*\x1b[39m;\n" .
                     "\x1b[95mEND" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">CREATE</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">CREATE</span>' . '<br/>' .
                     '<span class="sql-reserved">PROCEDURE</span> test_procedure()' . '<br/>' .
                     '<span class="sql-keyword">BEGIN</span>' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
@@ -447,93 +421,77 @@ class FormatTest extends TestCase
             ),
             'insert' => array(
                 'query' => 'insert into foo values (0, 0, 0), (1, 1, 1)',
-                'text' =>
-                    'INSERT' . "\n" .
+                'text' => 'INSERT' . "\n" .
                     'INTO' . "\n" .
                     '    foo' . "\n" .
                     'VALUES(0, 0, 0),(1, 1, 1)',
-                'cli' =>
-                    "\x1b[35mINSERT" . "\n" .
+                'cli' => "\x1b[35mINSERT" . "\n" .
                     "\x1b[35mINTO" . "\n" .
                     "    \x1b[39mfoo" . "\n" .
                     "\x1b[35mVALUES\x1b[39m(\x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m)\x1b[39m,\x1b[39m(\x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m)" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">INSERT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">INSERT</span>' . '<br/>' .
                     '<span class="sql-reserved">INTO</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;foo' . '<br/>' .
                     '<span class="sql-reserved">VALUES</span>(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
             ),
             'string as alias' => array(
                 'query' => 'select "Text" as bar',
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     '    "Text" AS bar',
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[91m\"Text\" \x1b[35mAS \x1b[39mbar" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Text"</span> <span class="sql-reserved">AS</span> bar',
             ),
             'escape cli' => array(
                 'query' => "select 'text\x1b[33mcolor-inj'",
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     "    'text\x1B[33mcolor-inj'",
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[91m'text\\x1B[33mcolor-inj'" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'text'."\x1b[33m".'color-inj\'</span>',
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'text' . "\x1b[33m" . 'color-inj\'</span>',
             ),
             'escape html' => array(
                 'query' => "select '<s>xss' from `<s>xss` , <s>nxss /*s<s>xss*/",
-                'text' =>
-                    'SELECT' . "\n" .
+                'text' => 'SELECT' . "\n" .
                     '    \'<s>xss\'' . "\n" .
                     'FROM' . "\n" .
                     '    `<s>xss`,' . "\n" .
                     '    < s > nxss /*s<s>xss*/',
-                'cli' =>
-                    "\x1b[35mSELECT" . "\n" .
+                'cli' => "\x1b[35mSELECT" . "\n" .
                     "    \x1b[91m'<s>xss'" . "\n" .
                     "\x1b[35mFROM" . "\n" .
                     "    \x1b[36m`<s>xss`\x1b[39m," . "\n" .
                     "    \x1b[39m< \x1b[39ms \x1b[39m> \x1b[39mnxss \x1b[37m/*s<s>xss*/" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'&lt;s&gt;xss\'</span>' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`&lt;s&gt;xss`</span>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt; s &gt; nxss <span class="sql-comment">/*s&lt;s&gt;xss*/</span>',
             ),
             'create table' => array(
-                'query' =>
-                    'create table if not exists `pma__bookmark` (' . "\n" .
+                'query' => 'create table if not exists `pma__bookmark` (' . "\n" .
                     '`id` int(11) not null auto_increment,' . "\n" .
                     '`dbase` varchar(255) not null default "",' . "\n" .
                     '`user` varchar(255) not null default "",' . "\n" .
                     '`label` varchar(255) collate utf8_general_ci not null default "",' . "\n" .
                     '`query` text not null,' . "\n" .
                     'primary key (`id`)',
-                'text' =>
-                    'CREATE TABLE IF NOT EXISTS `pma__bookmark`(' . "\n" .
+                'text' => 'CREATE TABLE IF NOT EXISTS `pma__bookmark`(' . "\n" .
                     '    `id` INT(11) NOT NULL AUTO_INCREMENT,' . "\n" .
                     '    `dbase` VARCHAR(255) NOT NULL DEFAULT "",' . "\n" .
                     '    `user` VARCHAR(255) NOT NULL DEFAULT "",' . "\n" .
                     '    `label` VARCHAR(255) COLLATE utf8_general_ci NOT NULL DEFAULT "",' . "\n" .
                     '    `query` TEXT NOT NULL,' . "\n" .
                     '    PRIMARY KEY(`id`)',
-                'cli' =>
-                    "\x1b[35mCREATE \x1b[35mTABLE \x1b[35mIF NOT EXISTS \x1b[36m`pma__bookmark`\x1b[39m(" . "\n" .
+                'cli' => "\x1b[35mCREATE \x1b[35mTABLE \x1b[35mIF NOT EXISTS \x1b[36m`pma__bookmark`\x1b[39m(" . "\n" .
                     "    \x1b[36m`id` \x1b[35mINT\x1b[39m(\x1b[92m11\x1b[39m) \x1b[35mNOT NULL \x1b[95mAUTO_INCREMENT\x1b[39m," . "\n" .
                     "    \x1b[36m`dbase` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
                     "    \x1b[36m`user` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
                     "    \x1b[36m`label` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mCOLLATE \x1b[39mutf8_general_ci \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
                     "    \x1b[36m`query` \x1b[95mTEXT \x1b[35mNOT NULL\x1b[39m," . "\n" .
                     "    \x1b[35mPRIMARY KEY\x1b[39m(\x1b[36m`id`\x1b[39m)" . "\x1b[0m",
-                'html' =>
-                    '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">TABLE</span> <span class="sql-reserved">IF NOT EXISTS</span> <span class="sql-variable">`pma__bookmark`</span>(' . '<br/>' .
+                'html' => '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">TABLE</span> <span class="sql-reserved">IF NOT EXISTS</span> <span class="sql-variable">`pma__bookmark`</span>(' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`id`</span> <span class="sql-reserved">INT</span>(<span class="sql-number">11</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-keyword">AUTO_INCREMENT</span>,' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`dbase`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`user`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . '<br/>' .
