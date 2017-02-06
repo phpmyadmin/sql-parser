@@ -398,12 +398,12 @@ class CreateStatement extends Statement
             );
         } elseif ($this->options->has('TABLE')
             && ($token->type == Token::TYPE_KEYWORD)
-            && ($token->value == 'SELECT')
+            && ($token->keyword == 'SELECT')
         ) {
             /* CREATE TABLE ... SELECT */
             $this->select = new SelectStatement($parser, $list);
         } elseif ($this->options->has('TABLE')
-            && ($token->type == Token::TYPE_KEYWORD) && ($token->value == 'AS')
+            && ($token->type == Token::TYPE_KEYWORD) && ($token->keyword == 'AS')
             && ($list->tokens[$nextidx]->type == Token::TYPE_KEYWORD)
             && ($list->tokens[$nextidx]->value == 'SELECT')
         ) {
@@ -412,7 +412,7 @@ class CreateStatement extends Statement
             $this->select = new SelectStatement($parser, $list);
         } elseif ($this->options->has('TABLE')
             && $token->type == Token::TYPE_KEYWORD
-            && $token->value == 'LIKE'
+            && $token->keyword == 'LIKE'
         ) {
             /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
             $list->idx = $nextidx;
@@ -485,17 +485,17 @@ class CreateStatement extends Statement
                     continue;
                 }
 
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'PARTITION BY')) {
+                if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITION BY')) {
                     $field = 'partitionBy';
                     $brackets = false;
-                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'SUBPARTITION BY')) {
+                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITION BY')) {
                     $field = 'subpartitionBy';
                     $brackets = false;
-                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'PARTITIONS')) {
+                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITIONS')) {
                     $token = $list->getNextOfType(Token::TYPE_NUMBER);
                     --$list->idx; // `getNextOfType` also advances one position.
                     $this->partitionsNum = $token->value;
-                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'SUBPARTITIONS')) {
+                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITIONS')) {
                     $token = $list->getNextOfType(Token::TYPE_NUMBER);
                     --$list->idx; // `getNextOfType` also advances one position.
                     $this->subpartitionsNum = $token->value;
@@ -544,7 +544,7 @@ class CreateStatement extends Statement
             $this->parameters = ParameterDefinition::parse($parser, $list);
             if ($this->options->has('FUNCTION')) {
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
-                if ($token->value !== 'RETURNS') {
+                if ($token->keyword !== 'RETURNS') {
                     $parser->error(
                         'A "RETURNS" keyword was expected.',
                         $token

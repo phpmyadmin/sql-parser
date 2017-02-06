@@ -387,11 +387,11 @@ class Formatter
                 }
 
                 // Indenting BEGIN ... END blocks.
-                if ($prev->type === Token::TYPE_KEYWORD && $prev->value === 'BEGIN') {
+                if ($prev->type === Token::TYPE_KEYWORD && $prev->keyword === 'BEGIN') {
                     $lineEnded = true;
                     array_push($blocksIndentation, $indent);
                     ++$indent;
-                } elseif ($curr->type === Token::TYPE_KEYWORD && $curr->value === 'END') {
+                } elseif ($curr->type === Token::TYPE_KEYWORD && $curr->keyword === 'END') {
                     $lineEnded = true;
                     $indent = array_pop($blocksIndentation);
                 }
@@ -449,7 +449,7 @@ class Formatter
                     // Also, some tokens do not have spaces before or after them.
                     if (
                         // A space after delimiters that are longer than 2 characters.
-                        $prev->value === 'DELIMITER'
+                        $prev->keyword === 'DELIMITER'
                         || !(
                             ($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
                             // No space after . (
@@ -604,12 +604,12 @@ class Formatter
     public static function isClause($token)
     {
         if (
-            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$STATEMENT_PARSERS[$token->value]))
+            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$STATEMENT_PARSERS[$token->keyword]))
             || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
         } elseif (
-            $token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->value])
+            $token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->keyword])
         ) {
             return 1;
         }

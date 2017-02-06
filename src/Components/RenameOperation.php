@@ -100,7 +100,7 @@ class RenameOperation extends Component
                 }
                 $state = 1;
             } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'TO')) {
+                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'TO') {
                     $state = 2;
                 } else {
                     $parser->error(

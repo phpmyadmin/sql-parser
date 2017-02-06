@@ -204,7 +204,7 @@ class CreateDefinition extends Component
                     break;
                 }
             } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'CONSTRAINT')) {
+                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'CONSTRAINT') {
                     $expr->isConstraint = true;
                 } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
                     $expr->key = Key::parse($parser, $list);
@@ -246,7 +246,7 @@ class CreateDefinition extends Component
                 $expr->options = OptionsArray::parse($parser, $list, static::$FIELD_OPTIONS);
                 $state = 4;
             } elseif ($state === 4) {
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->value === 'REFERENCES')) {
+                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'REFERENCES') {
                     ++$list->idx; // Skipping keyword 'REFERENCES'.
                     $expr->references = Reference::parse($parser, $list);
                 } else {

@@ -137,7 +137,7 @@ class PartitionDefinition extends Component
             }
 
             if ($state === 0) {
-                $ret->isSubpartition = ($token->type === Token::TYPE_KEYWORD) && ($token->value === 'SUBPARTITION');
+                $ret->isSubpartition = ($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITION');
                 $state = 1;
             } elseif ($state === 1) {
                 $ret->name = $token->value;

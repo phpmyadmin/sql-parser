@@ -427,14 +427,14 @@ class Parser extends Core
                 continue;
             }
 
-            if (($token->value === 'UNION') || ($token->value === 'UNION ALL') || ($token->value === 'UNION DISTINCT')) {
-                $unionType = $token->value;
+            if (($token->keyword === 'UNION') || ($token->keyword === 'UNION ALL') || ($token->keyword === 'UNION DISTINCT')) {
+                $unionType = $token->keyword;
                 continue;
             }
 
             // Checking if it is a known statement that can be parsed.
-            if (empty(static::$STATEMENT_PARSERS[$token->value])) {
-                if (!isset(static::$STATEMENT_PARSERS[$token->value])) {
+            if (empty(static::$STATEMENT_PARSERS[$token->keyword])) {
+                if (!isset(static::$STATEMENT_PARSERS[$token->keyword])) {
                     // A statement is considered recognized if the parser
                     // is aware that it is a statement, but it does not have
                     // a parser for it yet.
@@ -454,7 +454,7 @@ class Parser extends Core
              *
              * @var string
              */
-            $class = static::$STATEMENT_PARSERS[$token->value];
+            $class = static::$STATEMENT_PARSERS[$token->keyword];
 
             /**
              * Processed statement.

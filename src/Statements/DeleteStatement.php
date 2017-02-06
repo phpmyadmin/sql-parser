@@ -211,12 +211,12 @@ class DeleteStatement extends Statement
 
             if ($state === 0) {
                 if ($token->type === Token::TYPE_KEYWORD
-                    && $token->value !== 'FROM'
+                    && $token->keyword !== 'FROM'
                 ) {
                     $parser->error('Unexpected keyword.', $token);
                     break;
                 } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'FROM'
+                    && $token->keyword === 'FROM'
                 ) {
                     ++$list->idx; // Skip 'FROM'
                     $this->from = ExpressionArray::parse($parser, $list);
@@ -227,12 +227,12 @@ class DeleteStatement extends Statement
                 }
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_KEYWORD
-                    && $token->value !== 'FROM'
+                    && $token->keyword !== 'FROM'
                 ) {
                     $parser->error('Unexpected keyword.', $token);
                     break;
                 } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'FROM'
+                    && $token->keyword === 'FROM'
                 ) {
                     ++$list->idx; // Skip 'FROM'
                     $this->from = ExpressionArray::parse($parser, $list);
@@ -243,7 +243,7 @@ class DeleteStatement extends Statement
                 }
             } elseif ($state === 2) {
                 if ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'USING'
+                    && $token->keyword === 'USING'
                 ) {
                     ++$list->idx; // Skip 'USING'
                     $this->using = ExpressionArray::parse($parser, $list);
@@ -251,19 +251,19 @@ class DeleteStatement extends Statement
 
                     $multiTable = true;
                 } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'WHERE'
+                    && $token->keyword === 'WHERE'
                 ) {
                     ++$list->idx; // Skip 'WHERE'
                     $this->where = Condition::parse($parser, $list);
                     $state = 4;
                 } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'ORDER BY'
+                    && $token->keyword === 'ORDER BY'
                 ) {
                     ++$list->idx; // Skip 'ORDER BY'
                     $this->order = OrderKeyword::parse($parser, $list);
                     $state = 5;
                 } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'LIMIT'
+                    && $token->keyword === 'LIMIT'
                 ) {
                     ++$list->idx; // Skip 'LIMIT'
                     $this->limit = Limit::parse($parser, $list);
@@ -274,7 +274,7 @@ class DeleteStatement extends Statement
                 }
             } elseif ($state === 3) {
                 if ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'WHERE'
+                    && $token->keyword === 'WHERE'
                 ) {
                     ++$list->idx; // Skip 'WHERE'
                     $this->where = Condition::parse($parser, $list);
@@ -298,13 +298,13 @@ class DeleteStatement extends Statement
                 }
 
                 if ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'ORDER BY'
+                    && $token->keyword === 'ORDER BY'
                 ) {
                     ++$list->idx; // Skip 'ORDER  BY'
                     $this->order = OrderKeyword::parse($parser, $list);
                     $state = 5;
                 } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'LIMIT'
+                    && $token->keyword === 'LIMIT'
                 ) {
                     ++$list->idx; // Skip 'LIMIT'
                     $this->limit = Limit::parse($parser, $list);
@@ -315,7 +315,7 @@ class DeleteStatement extends Statement
                 }
             } elseif ($state === 5) {
                 if ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'LIMIT'
+                    && $token->keyword === 'LIMIT'
                 ) {
                     ++$list->idx; // Skip 'LIMIT'
                     $this->limit = Limit::parse($parser, $list);

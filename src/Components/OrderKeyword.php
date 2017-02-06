@@ -96,9 +96,9 @@ class OrderKeyword extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_KEYWORD)
-                    && (($token->value === 'ASC') || ($token->value === 'DESC'))
+                    && (($token->keyword === 'ASC') || ($token->keyword === 'DESC'))
                 ) {
-                    $expr->type = $token->value;
+                    $expr->type = $token->keyword;
                 } elseif (($token->type === Token::TYPE_OPERATOR)
                     && ($token->value === ',')
                 ) {

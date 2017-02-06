@@ -141,7 +141,7 @@ class IntoKeyword extends Component
             }
 
             if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
-                if (($state === 0) && ($token->value === 'OUTFILE')) {
+                if (($state === 0) && ($token->keyword === 'OUTFILE')) {
                     $ret->type = 'OUTFILE';
                     $state = 2;
                     continue;
@@ -185,7 +185,7 @@ class IntoKeyword extends Component
                 $ret->parseFileOptions($parser, $list, $token->value);
                 $state = 4;
             } elseif ($state == 4) {
-                if ($token->type === Token::TYPE_KEYWORD && $token->value !== 'LINES') {
+                if ($token->type === Token::TYPE_KEYWORD && $token->keyword !== 'LINES') {
                     break;
                 }
 

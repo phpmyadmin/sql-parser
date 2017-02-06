@@ -150,7 +150,7 @@ class ReplaceStatement extends Statement
 
             if ($state === 0) {
                 if ($token->type === Token::TYPE_KEYWORD
-                    && $token->value !== 'INTO'
+                    && $token->keyword !== 'INTO'
                 ) {
                     $parser->error('Unexpected keyword.', $token);
                     break;
@@ -166,17 +166,17 @@ class ReplaceStatement extends Statement
                 $state = 1;
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_KEYWORD) {
-                    if ($token->value === 'VALUE'
-                        || $token->value === 'VALUES'
+                    if ($token->keyword === 'VALUE'
+                        || $token->keyword === 'VALUES'
                     ) {
                         ++$list->idx; // skip VALUES
 
                         $this->values = Array2d::parse($parser, $list);
-                    } elseif ($token->value === 'SET') {
+                    } elseif ($token->keyword === 'SET') {
                         ++$list->idx; // skip SET
 
                         $this->set = SetOperation::parse($parser, $list);
-                    } elseif ($token->value === 'SELECT') {
+                    } elseif ($token->keyword === 'SELECT') {
                         $this->select = new SelectStatement($parser, $list);
                     } else {
                         $parser->error(

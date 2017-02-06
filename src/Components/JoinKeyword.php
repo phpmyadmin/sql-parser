@@ -133,9 +133,9 @@ class JoinKeyword extends Component
 
             if ($state === 0) {
                 if (($token->type === Token::TYPE_KEYWORD)
-                    && (!empty(static::$JOINS[$token->value]))
+                    && (!empty(static::$JOINS[$token->keyword]))
                 ) {
-                    $expr->type = static::$JOINS[$token->value];
+                    $expr->type = static::$JOINS[$token->keyword];
                     $state = 1;
                 } else {
                     break;
@@ -145,17 +145,17 @@ class JoinKeyword extends Component
                 $state = 2;
             } elseif ($state === 2) {
                 if ($token->type === Token::TYPE_KEYWORD) {
-                    if ($token->value === 'ON') {
+                    if ($token->keyword === 'ON') {
                         $state = 3;
-                    } elseif ($token->value === 'USING') {
+                    } elseif ($token->keyword === 'USING') {
                         $state = 4;
                     } else {
                         if (($token->type === Token::TYPE_KEYWORD)
-                            && (!empty(static::$JOINS[$token->value]))
+                            && (!empty(static::$JOINS[$token->keyword]))
                         ) {
                             $ret[] = $expr;
                             $expr = new self();
-                            $expr->type = static::$JOINS[$token->value];
+                            $expr->type = static::$JOINS[$token->keyword];
                             $state = 1;
                         } else {
                             /* Next clause is starting */

@@ -216,11 +216,11 @@ class Expression extends Component
 
             if ($token->type === Token::TYPE_KEYWORD) {
                 if (($brackets > 0) && (empty($ret->subquery))
-                    && (!empty(Parser::$STATEMENT_PARSERS[$token->value]))
+                    && (!empty(Parser::$STATEMENT_PARSERS[$token->keyword]))
                 ) {
                     // A `(` was previously found and this keyword is the
                     // beginning of a statement, so this is a subquery.
-                    $ret->subquery = $token->value;
+                    $ret->subquery = $token->keyword;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_FUNCTION)
                     && (empty($options['parseField'])
                     && !$alias)
@@ -229,13 +229,13 @@ class Expression extends Component
                 } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED)
                     && ($brackets === 0)
                 ) {
-                    if (empty(self::$ALLOWED_KEYWORDS[$token->value])) {
+                    if (empty(self::$ALLOWED_KEYWORDS[$token->keyword])) {
                         // A reserved keyword that is not allowed in the
                         // expression was found so the expression must have
                         // ended and a new clause is starting.
                         break;
                     }
-                    if ($token->value === 'AS') {
+                    if ($token->keyword === 'AS') {
                         if (!empty($options['breakOnAlias'])) {
                             break;
                         }
@@ -248,7 +248,7 @@ class Expression extends Component
                         }
                         $alias = true;
                         continue;
-                    } elseif ($token->value === 'CASE') {
+                    } elseif ($token->keyword === 'CASE') {
                         // For a use of CASE like
                         // 'SELECT a = CASE .... END, b=1, `id`, ... FROM ...'
                         $tempCaseExpr = CaseExpression::parse($parser, $list);

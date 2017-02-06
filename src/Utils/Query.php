@@ -553,7 +553,7 @@ class Query
          *
          * @var string
          */
-        $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD)->value;
+        $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD)->keyword;
 
         /**
          * The index of this clause.
@@ -605,10 +605,10 @@ class Query
             if ($brackets == 0) {
                 // Checking if the section was changed.
                 if (($token->type === Token::TYPE_KEYWORD)
-                    && (isset($clauses[$token->value]))
-                    && ($clauses[$token->value] >= $currIdx)
+                    && (isset($clauses[$token->keyword]))
+                    && ($clauses[$token->keyword] >= $currIdx)
                 ) {
-                    $currIdx = $clauses[$token->value];
+                    $currIdx = $clauses[$token->keyword];
                     if (($skipFirst) && ($currIdx == $clauseIdx)) {
                         // This token is skipped (not added to the old
                         // clause) because it will be replaced.
@@ -821,11 +821,11 @@ class Query
 
             if ($brackets == 0) {
                 if (($token->type === Token::TYPE_KEYWORD)
-                    && (isset($clauses[$token->value]))
-                    && ($clause === $token->value)
+                    && (isset($clauses[$token->keyword]))
+                    && ($clause === $token->keyword)
                 ) {
                     return $i;
-                } elseif ($token->value === 'UNION') {
+                } elseif ($token->keyword === 'UNION') {
                     return -1;
                 }
             }

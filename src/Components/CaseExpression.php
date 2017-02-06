@@ -105,7 +105,7 @@ class CaseExpression extends Component
 
             if ($state === 0) {
                 if ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'WHEN'
+                    && $token->keyword === 'WHEN'
                 ) {
                     ++$list->idx; // Skip 'WHEN'
                     $new_condition = Condition::parse($parser, $list);
@@ -113,14 +113,13 @@ class CaseExpression extends Component
                     $state = 1;
                     $ret->conditions[] = $new_condition;
                 } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'ELSE'
+                    && $token->keyword === 'ELSE'
                 ) {
                     ++$list->idx; // Skip 'ELSE'
                     $ret->else_result = Expression::parse($parser, $list);
                     $state = 0; // last clause of CASE expression
                 } elseif ($token->type === Token::TYPE_KEYWORD
-                    && ($token->value === 'END'
-                    || $token->value === 'end')
+                    && $token->keyword === 'END'
                 ) {
                     $state = 3; // end of CASE expression
                     ++$list->idx;
@@ -136,21 +135,20 @@ class CaseExpression extends Component
             } elseif ($state === 1) {
                 if ($type === 0) {
                     if ($token->type === Token::TYPE_KEYWORD
-                        && $token->value === 'WHEN'
+                        && $token->keyword === 'WHEN'
                     ) {
                         ++$list->idx; // Skip 'WHEN'
                         $new_value = Expression::parse($parser, $list);
                         $state = 2;
                         $ret->compare_values[] = $new_value;
                     } elseif ($token->type === Token::TYPE_KEYWORD
-                        && $token->value === 'ELSE'
+                        && $token->keyword === 'ELSE'
                     ) {
                         ++$list->idx; // Skip 'ELSE'
                         $ret->else_result = Expression::parse($parser, $list);
                         $state = 0; // last clause of CASE expression
                     } elseif ($token->type === Token::TYPE_KEYWORD
-                        && ($token->value === 'END'
-                        || $token->value === 'end')
+                        && $token->keyword === 'END'
                     ) {
                         $state = 3; // end of CASE expression
                         ++$list->idx;
@@ -161,7 +159,7 @@ class CaseExpression extends Component
                     }
                 } else {
                     if ($token->type === Token::TYPE_KEYWORD
-                        && $token->value === 'THEN'
+                        && $token->keyword === 'THEN'
                     ) {
                         ++$list->idx; // Skip 'THEN'
                         $new_result = Expression::parse($parser, $list);
@@ -175,7 +173,7 @@ class CaseExpression extends Component
             } elseif ($state === 2) {
                 if ($type === 0) {
                     if ($token->type === Token::TYPE_KEYWORD
-                        && $token->value === 'THEN'
+                        && $token->keyword === 'THEN'
                     ) {
                         ++$list->idx; // Skip 'THEN'
                         $new_result = Expression::parse($parser, $list);
