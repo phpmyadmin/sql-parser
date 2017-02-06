@@ -183,6 +183,13 @@ class Token
     public $value;
 
     /**
+     * The keyword value this token contains, always uppercase.
+     *
+     * @var mixed
+     */
+    public $keyword;
+
+    /**
      * The type of this token.
      *
      * @var int
@@ -215,6 +222,7 @@ class Token
         $this->token = $token;
         $this->type = $type;
         $this->flags = $flags;
+        $this->keyword = null;
         $this->value = $this->extract();
     }
 
@@ -229,13 +237,14 @@ class Token
     {
         switch ($this->type) {
             case self::TYPE_KEYWORD:
+                $this->keyword = strtoupper($this->token);
                 if (!($this->flags & self::FLAG_KEYWORD_RESERVED)) {
                     // Unreserved keywords should stay the way they are because they
                     // might represent field names.
                     return $this->token;
                 }
 
-                return strtoupper($this->token);
+                return $this->keyword;
             case self::TYPE_WHITESPACE:
                 return ' ';
             case self::TYPE_BOOL:
