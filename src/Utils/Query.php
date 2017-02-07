@@ -49,6 +49,162 @@ class Query
         'SUM', 'AVG', 'STD', 'STDDEV', 'MIN', 'MAX', 'BIT_OR', 'BIT_AND',
     );
 
+    public static $ALLFLAGS = array(
+        /*
+         * select ... DISTINCT ...
+         */
+        'distinct' => false,
+
+        /*
+         * drop ... DATABASE ...
+         */
+        'drop_database' => false,
+
+        /*
+         * ... GROUP BY ...
+         */
+        'group' => false,
+
+        /*
+         * ... HAVING ...
+         */
+        'having' => false,
+
+        /*
+         * INSERT ...
+         * or
+         * REPLACE ...
+         * or
+         * DELETE ...
+         */
+        'is_affected' => false,
+
+        /*
+         * select ... PROCEDURE ANALYSE( ... ) ...
+         */
+        'is_analyse' => false,
+
+        /*
+         * select COUNT( ... ) ...
+         */
+        'is_count' => false,
+
+        /*
+         * DELETE ...
+         */
+        'is_delete' => false, // @deprecated; use `querytype`
+
+        /*
+         * EXPLAIN ...
+         */
+        'is_explain' => false, // @deprecated; use `querytype`
+
+        /*
+         * select ... INTO OUTFILE ...
+         */
+        'is_export' => false,
+
+        /*
+         * select FUNC( ... ) ...
+         */
+        'is_func' => false,
+
+        /*
+         * select ... GROUP BY ...
+         * or
+         * select ... HAVING ...
+         */
+        'is_group' => false,
+
+        /*
+         * INSERT ...
+         * or
+         * REPLACE ...
+         * or
+         * TODO: LOAD DATA ...
+         */
+        'is_insert' => false,
+
+        /*
+         * ANALYZE ...
+         * or
+         * CHECK ...
+         * or
+         * CHECKSUM ...
+         * or
+         * OPTIMIZE ...
+         * or
+         * REPAIR ...
+         */
+        'is_maint' => false,
+
+        /*
+         * CALL ...
+         */
+        'is_procedure' => false,
+
+        /*
+         * REPLACE ...
+         */
+        'is_replace' => false, // @deprecated; use `querytype`
+
+        /*
+         * SELECT ...
+         */
+        'is_select' => false, // @deprecated; use `querytype`
+
+        /*
+         * SHOW ...
+         */
+        'is_show' => false, // @deprecated; use `querytype`
+
+        /*
+         * Contains a subquery.
+         */
+        'is_subquery' => false,
+
+        /*
+         * ... JOIN ...
+         */
+        'join' => false,
+
+        /*
+         * ... LIMIT ...
+         */
+        'limit' => false,
+
+        /*
+         * TODO
+         */
+        'offset' => false,
+
+        /*
+         * ... ORDER ...
+         */
+        'order' => false,
+
+        /*
+         * The type of the query (which is usually the first keyword of
+         * the statement).
+         */
+        'querytype' => false,
+
+        /*
+         * Whether a page reload is required.
+         */
+        'reload' => false,
+
+        /*
+         * SELECT ... FROM ...
+         */
+        'select_from' => false,
+
+        /*
+         * ... UNION ...
+         */
+        'union' => false,
+    );
+
     /**
      * Gets an array with flags this statement has.
      *
@@ -61,161 +217,7 @@ class Query
     {
         $flags = array();
         if ($all) {
-            $flags = array(
-                /*
-                 * select ... DISTINCT ...
-                 */
-                'distinct' => false,
-
-                /*
-                 * drop ... DATABASE ...
-                 */
-                'drop_database' => false,
-
-                /*
-                 * ... GROUP BY ...
-                 */
-                'group' => false,
-
-                /*
-                 * ... HAVING ...
-                 */
-                'having' => false,
-
-                /*
-                 * INSERT ...
-                 * or
-                 * REPLACE ...
-                 * or
-                 * DELETE ...
-                 */
-                'is_affected' => false,
-
-                /*
-                 * select ... PROCEDURE ANALYSE( ... ) ...
-                 */
-                'is_analyse' => false,
-
-                /*
-                 * select COUNT( ... ) ...
-                 */
-                'is_count' => false,
-
-                /*
-                 * DELETE ...
-                 */
-                'is_delete' => false, // @deprecated; use `querytype`
-
-                /*
-                 * EXPLAIN ...
-                 */
-                'is_explain' => false, // @deprecated; use `querytype`
-
-                /*
-                 * select ... INTO OUTFILE ...
-                 */
-                'is_export' => false,
-
-                /*
-                 * select FUNC( ... ) ...
-                 */
-                'is_func' => false,
-
-                /*
-                 * select ... GROUP BY ...
-                 * or
-                 * select ... HAVING ...
-                 */
-                'is_group' => false,
-
-                /*
-                 * INSERT ...
-                 * or
-                 * REPLACE ...
-                 * or
-                 * TODO: LOAD DATA ...
-                 */
-                'is_insert' => false,
-
-                /*
-                 * ANALYZE ...
-                 * or
-                 * CHECK ...
-                 * or
-                 * CHECKSUM ...
-                 * or
-                 * OPTIMIZE ...
-                 * or
-                 * REPAIR ...
-                 */
-                'is_maint' => false,
-
-                /*
-                 * CALL ...
-                 */
-                'is_procedure' => false,
-
-                /*
-                 * REPLACE ...
-                 */
-                'is_replace' => false, // @deprecated; use `querytype`
-
-                /*
-                 * SELECT ...
-                 */
-                'is_select' => false, // @deprecated; use `querytype`
-
-                /*
-                 * SHOW ...
-                 */
-                'is_show' => false, // @deprecated; use `querytype`
-
-                /*
-                 * Contains a subquery.
-                 */
-                'is_subquery' => false,
-
-                /*
-                 * ... JOIN ...
-                 */
-                'join' => false,
-
-                /*
-                 * ... LIMIT ...
-                 */
-                'limit' => false,
-
-                /*
-                 * TODO
-                 */
-                'offset' => false,
-
-                /*
-                 * ... ORDER ...
-                 */
-                'order' => false,
-
-                /*
-                 * The type of the query (which is usually the first keyword of
-                 * the statement).
-                 */
-                'querytype' => false,
-
-                /*
-                 * Whether a page reload is required.
-                 */
-                'reload' => false,
-
-                /*
-                 * SELECT ... FROM ...
-                 */
-                'select_from' => false,
-
-                /*
-                 * ... UNION ...
-                 */
-                'union' => false,
-            );
+            $flags = self::$ALLFLAGS;
         }
 
         if ($statement instanceof AlterStatement) {
