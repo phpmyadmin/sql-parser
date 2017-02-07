@@ -208,8 +208,8 @@ class Query
     /**
      * Gets an array with flags select statement has.
      *
-     * @param Statement|null $statement the statement to be processed
-     * @param array          $flagsi    flags set so far
+     * @param SelectStatement $statement the statement to be processed
+     * @param array           $flags     flags set so far
      *
      * @return array
      */
