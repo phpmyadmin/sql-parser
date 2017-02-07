@@ -26,13 +26,6 @@ install:
   - composer install
   - if [ "$MOTRANSLATOR" = "yes" ] ; then composer require phpmyadmin/motranslator:^3.0 ; fi
 
-after_script:
-  - |
-    if [ $TRAVIS_PHP_VERSION = '5.6' ]; then
-      [[ -f ocular.phar ]] || wget https://scrutinizer-ci.com/ocular.phar
-      php ocular.phar code-coverage:upload --format=php-clover coverage.xml
-    fi
-
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
