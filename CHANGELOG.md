@@ -1,10 +1,11 @@
 # Change Log
 
-## [Unreleased]
+## [4.1.1] - 2017-02-07
 
 * Localization using phpmyadmin/motranslator is now optional.
 * Improved testsuite.
 * Better handling of non upper cased not reserved keywords.
+* Minor performance and coding style improvements.
 
 ## [4.1.0] - 2017-01-23
 
