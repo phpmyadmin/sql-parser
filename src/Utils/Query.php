@@ -206,6 +206,81 @@ class Query
     );
 
     /**
+     * Gets an array with flags select statement has.
+     *
+     * @param Statement|null $statement the statement to be processed
+     * @param array          $flagsi    flags set so far
+     *
+     * @return array
+     */
+    private static function _getFlagsSelect($statement, $flags)
+    {
+        $flags['querytype'] = 'SELECT';
+        $flags['is_select'] = true;
+
+        if (!empty($statement->from)) {
+            $flags['select_from'] = true;
+        }
+
+        if ($statement->options->has('DISTINCT')) {
+            $flags['distinct'] = true;
+        }
+
+        if ((!empty($statement->group)) || (!empty($statement->having))) {
+            $flags['is_group'] = true;
+        }
+
+        if ((!empty($statement->into))
+            && ($statement->into->type === 'OUTFILE')
+        ) {
+            $flags['is_export'] = true;
+        }
+
+        $expressions = $statement->expr;
+        if (!empty($statement->join)) {
+            foreach ($statement->join as $join) {
+                $expressions[] = $join->expr;
+            }
+        }
+
+        foreach ($expressions as $expr) {
+            if (!empty($expr->function)) {
+                if ($expr->function === 'COUNT') {
+                    $flags['is_count'] = true;
+                } elseif (in_array($expr->function, static::$FUNCTIONS)) {
+                    $flags['is_func'] = true;
+                }
+            }
+            if (!empty($expr->subquery)) {
+                $flags['is_subquery'] = true;
+            }
+        }
+
+        if ((!empty($statement->procedure))
+            && ($statement->procedure->name === 'ANALYSE')
+        ) {
+            $flags['is_analyse'] = true;
+        }
+
+        if (!empty($statement->group)) {
+            $flags['group'] = true;
+        }
+
+        if (!empty($statement->having)) {
+            $flags['having'] = true;
+        }
+
+        if (!empty($statement->union)) {
+            $flags['union'] = true;
+        }
+
+        if (!empty($statement->join)) {
+            $flags['join'] = true;
+        }
+        return $flags;
+    }
+
+    /**
      * Gets an array with flags this statement has.
      *
      * @param Statement|null $statement the statement to be processed
@@ -270,68 +345,7 @@ class Query
             $flags['is_replace'] = true;
             $flags['is_insert'] = true;
         } elseif ($statement instanceof SelectStatement) {
-            $flags['querytype'] = 'SELECT';
-            $flags['is_select'] = true;
-
-            if (!empty($statement->from)) {
-                $flags['select_from'] = true;
-            }
-
-            if ($statement->options->has('DISTINCT')) {
-                $flags['distinct'] = true;
-            }
-
-            if ((!empty($statement->group)) || (!empty($statement->having))) {
-                $flags['is_group'] = true;
-            }
-
-            if ((!empty($statement->into))
-                && ($statement->into->type === 'OUTFILE')
-            ) {
-                $flags['is_export'] = true;
-            }
-
-            $expressions = $statement->expr;
-            if (!empty($statement->join)) {
-                foreach ($statement->join as $join) {
-                    $expressions[] = $join->expr;
-                }
-            }
-
-            foreach ($expressions as $expr) {
-                if (!empty($expr->function)) {
-                    if ($expr->function === 'COUNT') {
-                        $flags['is_count'] = true;
-                    } elseif (in_array($expr->function, static::$FUNCTIONS)) {
-                        $flags['is_func'] = true;
-                    }
-                }
-                if (!empty($expr->subquery)) {
-                    $flags['is_subquery'] = true;
-                }
-            }
-
-            if ((!empty($statement->procedure))
-                && ($statement->procedure->name === 'ANALYSE')
-            ) {
-                $flags['is_analyse'] = true;
-            }
-
-            if (!empty($statement->group)) {
-                $flags['group'] = true;
-            }
-
-            if (!empty($statement->having)) {
-                $flags['having'] = true;
-            }
-
-            if (!empty($statement->union)) {
-                $flags['union'] = true;
-            }
-
-            if (!empty($statement->join)) {
-                $flags['join'] = true;
-            }
+            $flags = self::_getFlagsSelect($statement, $flags);
         } elseif ($statement instanceof ShowStatement) {
             $flags['querytype'] = 'SHOW';
             $flags['is_show'] = true;
