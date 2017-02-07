@@ -277,6 +277,7 @@ class Query
         if (!empty($statement->join)) {
             $flags['join'] = true;
         }
+
         return $flags;
     }
 
