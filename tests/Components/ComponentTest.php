@@ -4,8 +4,8 @@ namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\TokensList;
 
 class ComponentTest extends TestCase
 {

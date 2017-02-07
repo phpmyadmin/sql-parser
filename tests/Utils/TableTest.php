@@ -3,13 +3,14 @@
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Utils\Table;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Utils\Table;
 
 class TableTest extends TestCase
 {
     /**
      * @dataProvider getForeignKeysProvider
+     * @param mixed $query
      */
     public function testGetForeignKeys($query, array $expected)
     {
@@ -110,6 +111,7 @@ class TableTest extends TestCase
 
     /**
      * @dataProvider getFieldsProvider
+     * @param mixed $query
      */
     public function testGetFields($query, array $expected)
     {

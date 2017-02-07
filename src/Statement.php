@@ -488,9 +488,8 @@ abstract class Statement
                     );
 
                     return false;
-                } else {
-                    $minIdx = $clauseStartIdx;
                 }
+                $minIdx = $clauseStartIdx;
             } elseif ($clauseStartIdx != -1) {
                 $minIdx = $clauseStartIdx;
             }

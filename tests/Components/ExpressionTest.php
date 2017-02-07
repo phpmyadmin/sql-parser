@@ -2,8 +2,8 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ExpressionTest extends TestCase
@@ -21,6 +21,8 @@ class ExpressionTest extends TestCase
 
     /**
      * @dataProvider testParseErrProvider
+     * @param mixed $expr
+     * @param mixed $error
      */
     public function testParseErr($expr, $error)
     {

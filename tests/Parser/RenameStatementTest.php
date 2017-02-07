@@ -8,6 +8,7 @@ class RenameStatementTest extends TestCase
 {
     /**
      * @dataProvider testRenameProvider
+     * @param mixed $test
      */
     public function testRename($test)
     {

@@ -6,12 +6,10 @@
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
+use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
-use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\AnalyzeStatement;
 use PhpMyAdmin\SqlParser\Statements\CallStatement;
@@ -30,6 +28,8 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Statements\ShowStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Statement utilities.
@@ -496,17 +496,17 @@ class Query
     /**
      * Gets a specific clause.
      *
-     * @param Statement      $statement the parsed query that has to be modified
-     * @param TokensList     $list      the list of tokens
-     * @param string         $clause    the clause to be returned
-     * @param integer|string $type      The type of the search.
-     *                                  If int,
-     *                                  -1 for everything that was before
-     *                                  0 only for the clause
-     *                                  1 for everything after
-     *                                  If string, the name of the first clause that
-     *                                  should not be included.
-     * @param bool           $skipFirst whether to skip the first keyword in clause
+     * @param Statement  $statement the parsed query that has to be modified
+     * @param TokensList $list      the list of tokens
+     * @param string     $clause    the clause to be returned
+     * @param int|string $type      The type of the search.
+     *                              If int,
+     *                              -1 for everything that was before
+     *                              0 only for the clause
+     *                              1 for everything after
+     *                              If string, the name of the first clause that
+     *                              should not be included.
+     * @param bool       $skipFirst whether to skip the first keyword in clause
      *
      * @return string
      */

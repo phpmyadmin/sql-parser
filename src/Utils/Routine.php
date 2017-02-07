@@ -6,10 +6,10 @@
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
-use PhpMyAdmin\SqlParser\Lexer;
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 /**

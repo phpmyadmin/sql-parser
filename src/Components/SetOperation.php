@@ -128,8 +128,8 @@ class SetOperation extends Component
     {
         if (is_array($component)) {
             return implode(', ', $component);
-        } else {
-            return $component->column . ' = ' . $component->value;
         }
+
+        return $component->column . ' = ' . $component->value;
     }
 }

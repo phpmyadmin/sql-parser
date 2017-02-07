@@ -2,8 +2,8 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Components\Array2d;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class Array2dTest extends TestCase

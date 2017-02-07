@@ -2,14 +2,18 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Tokens;
-use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class TokensTest extends TestCase
 {
     /**
      * @dataProvider replaceTokensProvider
+     * @param mixed $list
+     * @param mixed $find
+     * @param mixed $replace
+     * @param mixed $expected
      */
     public function testReplaceTokens($list, $find, $replace, $expected)
     {
@@ -36,6 +40,9 @@ class TokensTest extends TestCase
 
     /**
      * @dataProvider matchProvider
+     * @param mixed $token
+     * @param mixed $pattern
+     * @param mixed $expected
      */
     public function testMatch($token, $pattern, $expected)
     {

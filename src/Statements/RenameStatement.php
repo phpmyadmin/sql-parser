@@ -6,11 +6,11 @@
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
+use PhpMyAdmin\SqlParser\Components\RenameOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Components\RenameOperation;
 
 /**
  * `RENAME` statement.

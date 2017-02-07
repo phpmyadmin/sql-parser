@@ -2,13 +2,16 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
-use PhpMyAdmin\SqlParser\Utils\Formatter;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Utils\Formatter;
 
 class FormatTest extends TestCase
 {
     /**
      * @dataProvider mergeFormats
+     * @param mixed $default
+     * @param mixed $overriding
+     * @param mixed $expected
      */
     public function testMergeFormats($default, $overriding, $expected)
     {
@@ -231,6 +234,10 @@ class FormatTest extends TestCase
 
     /**
      * @dataProvider formatQueries
+     * @param mixed $query
+     * @param mixed $text
+     * @param mixed $cli
+     * @param mixed $html
      */
     public function testFormat($query, $text, $cli, $html, array $options = array())
     {

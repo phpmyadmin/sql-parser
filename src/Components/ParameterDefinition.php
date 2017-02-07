@@ -6,8 +6,8 @@
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -143,15 +143,14 @@ class ParameterDefinition extends Component
     {
         if (is_array($component)) {
             return '(' . implode(', ', $component) . ')';
-        } else {
-            $tmp = '';
-            if (!empty($component->inOut)) {
-                $tmp .= $component->inOut . ' ';
-            }
+        }
+        $tmp = '';
+        if (!empty($component->inOut)) {
+            $tmp .= $component->inOut . ' ';
+        }
 
-            return trim(
+        return trim(
                 $tmp . Context::escape($component->name) . ' ' . $component->type
             );
-        }
     }
 }

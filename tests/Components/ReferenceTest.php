@@ -2,9 +2,9 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Reference;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ReferenceTest extends TestCase
