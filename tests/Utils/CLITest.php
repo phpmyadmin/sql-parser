@@ -15,6 +15,22 @@ class CLITest extends TestCase
     }
 
     /**
+     * Test that getopt call works
+     *
+     * We do mock it for other tests to return values we want.
+     *
+     * @return void
+     */
+    public function testGetopt()
+    {
+        $cli = new \PhpMyAdmin\SqlParser\Utils\CLI();
+        $this->assertEquals(
+            $cli->getopt('', array()),
+            array()
+        );
+    }
+
+    /**
      * @dataProvider highlightParams
      */
     public function testRunHighlight($getopt, $output, $result)
