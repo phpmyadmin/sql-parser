@@ -211,21 +211,17 @@ class CaseExpression extends Component
         if (isset($component->value)) {
             // Syntax type 0
             $ret .= $component->value . ' ';
-            for (
-                $i = 0;
-                $i < count($component->compare_values) && $i < count($component->results);
-                ++$i
-            ) {
+            $val_cnt = count($component->compare_values);
+            $res_cnt = count($component->results);
+            for ($i = 0; $i < $val_cnt && $i < $res_cnt; ++$i) {
                 $ret .= 'WHEN ' . $component->compare_values[$i] . ' ';
                 $ret .= 'THEN ' . $component->results[$i] . ' ';
             }
         } else {
             // Syntax type 1
-            for (
-                $i = 0;
-                $i < count($component->conditions) && $i < count($component->results);
-                ++$i
-            ) {
+            $val_cnt = count($component->conditions);
+            $res_cnt = count($component->results);
+            for ($i = 0; $i < $val_cnt && $i < $res_cnt; ++$i) {
                 $ret .= 'WHEN ' . Condition::build($component->conditions[$i]) . ' ';
                 $ret .= 'THEN ' . $component->results[$i] . ' ';
             }
