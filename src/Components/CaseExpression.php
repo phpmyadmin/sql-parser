@@ -200,8 +200,8 @@ class CaseExpression extends Component
     }
 
     /**
-     * @param Expression $component the component to be built
-     * @param array      $options   parameters for building
+     * @param CaseExpression $component the component to be built
+     * @param array          $options   parameters for building
      *
      * @return string
      */

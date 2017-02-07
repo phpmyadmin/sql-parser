@@ -19,8 +19,8 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 class UnionKeyword extends Component
 {
     /**
-     * @param SelectStatement[] $component the component to be built
-     * @param array             $options   parameters for building
+     * @param UnionKeyword[] $component the component to be built
+     * @param array          $options   parameters for building
      *
      * @return string
      */
