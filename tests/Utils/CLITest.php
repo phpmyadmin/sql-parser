@@ -15,11 +15,9 @@ class CLITest extends TestCase
     }
 
     /**
-     * Test that getopt call works
+     * Test that getopt call works.
      *
      * We do mock it for other tests to return values we want.
-     *
-     * @return void
      */
     public function testGetopt()
     {

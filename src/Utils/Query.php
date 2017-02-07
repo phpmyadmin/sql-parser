@@ -496,17 +496,17 @@ class Query
     /**
      * Gets a specific clause.
      *
-     * @param Statement      $statement the parsed query that has to be modified
-     * @param TokensList     $list      the list of tokens
-     * @param string         $clause    the clause to be returned
-     * @param integer|string $type      The type of the search.
-     *                                  If int,
-     *                                  -1 for everything that was before
-     *                                  0 only for the clause
-     *                                  1 for everything after
-     *                                  If string, the name of the first clause that
-     *                                  should not be included.
-     * @param bool           $skipFirst whether to skip the first keyword in clause
+     * @param Statement  $statement the parsed query that has to be modified
+     * @param TokensList $list      the list of tokens
+     * @param string     $clause    the clause to be returned
+     * @param int|string $type      The type of the search.
+     *                              If int,
+     *                              -1 for everything that was before
+     *                              0 only for the clause
+     *                              1 for everything after
+     *                              If string, the name of the first clause that
+     *                              should not be included.
+     * @param bool       $skipFirst whether to skip the first keyword in clause
      *
      * @return string
      */
