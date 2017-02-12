@@ -7,7 +7,6 @@
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
-use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 
 /**
  * `UNION` keyword builder.
