@@ -8,6 +8,7 @@ class BugsTest extends TestCase
 {
     /**
      * @dataProvider testBugProvider
+     * @param mixed $test
      */
     public function testBug($test)
     {

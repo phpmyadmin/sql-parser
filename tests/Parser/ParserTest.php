@@ -4,14 +4,15 @@ namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ParserTest extends TestCase
 {
     /**
      * @dataProvider testParseProvider
+     * @param mixed $test
      */
     public function testParse($test)
     {

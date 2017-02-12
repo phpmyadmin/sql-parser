@@ -8,6 +8,7 @@ class CreateStatementTest extends TestCase
 {
     /**
      * @dataProvider testCreateProvider
+     * @param mixed $test
      */
     public function testCreate($test)
     {

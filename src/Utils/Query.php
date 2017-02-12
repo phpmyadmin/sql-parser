@@ -6,12 +6,10 @@
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
+use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
-use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\AnalyzeStatement;
 use PhpMyAdmin\SqlParser\Statements\CallStatement;
@@ -30,6 +28,8 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Statements\ShowStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Statement utilities.

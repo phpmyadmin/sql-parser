@@ -8,8 +8,8 @@
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -226,11 +226,10 @@ class CreateDefinition extends Component
                         );
 
                         return $ret;
-                    } else {
+                    }
                         // Non-reserved keywords are allowed without backquotes
                         $expr->name = $token->value;
-                        $state = 2;
-                    }
+                    $state = 2;
                 } else {
                     $parser->error(
                         'A symbol name was expected!',
@@ -302,35 +301,34 @@ class CreateDefinition extends Component
     {
         if (is_array($component)) {
             return "(\n  " . implode(",\n  ", $component) . "\n)";
-        } else {
-            $tmp = '';
+        }
+        $tmp = '';
 
-            if ($component->isConstraint) {
-                $tmp .= 'CONSTRAINT ';
-            }
+        if ($component->isConstraint) {
+            $tmp .= 'CONSTRAINT ';
+        }
 
-            if ((isset($component->name)) && ($component->name !== '')) {
-                $tmp .= Context::escape($component->name) . ' ';
-            }
+        if ((isset($component->name)) && ($component->name !== '')) {
+            $tmp .= Context::escape($component->name) . ' ';
+        }
 
-            if (!empty($component->type)) {
-                $tmp .= DataType::build(
+        if (!empty($component->type)) {
+            $tmp .= DataType::build(
                     $component->type,
                     array('lowercase' => true)
                 ) . ' ';
-            }
-
-            if (!empty($component->key)) {
-                $tmp .= $component->key . ' ';
-            }
-
-            if (!empty($component->references)) {
-                $tmp .= 'REFERENCES ' . $component->references . ' ';
-            }
-
-            $tmp .= $component->options;
-
-            return trim($tmp);
         }
+
+        if (!empty($component->key)) {
+            $tmp .= $component->key . ' ';
+        }
+
+        if (!empty($component->references)) {
+            $tmp .= 'REFERENCES ' . $component->references . ' ';
+        }
+
+        $tmp .= $component->options;
+
+        return trim($tmp);
     }
 }

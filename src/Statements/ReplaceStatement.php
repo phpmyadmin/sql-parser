@@ -6,14 +6,14 @@
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Components\Array2d;
 use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `REPLACE` statement.
@@ -154,14 +154,13 @@ class ReplaceStatement extends Statement
                 ) {
                     $parser->error('Unexpected keyword.', $token);
                     break;
-                } else {
-                    ++$list->idx;
-                    $this->into = IntoKeyword::parse(
+                }
+                ++$list->idx;
+                $this->into = IntoKeyword::parse(
                         $parser,
                         $list,
                         array('fromReplace' => true)
                     );
-                }
 
                 $state = 1;
             } elseif ($state === 1) {

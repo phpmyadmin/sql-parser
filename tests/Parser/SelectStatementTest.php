@@ -2,8 +2,8 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
-use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class SelectStatementTest extends TestCase
 {
@@ -17,6 +17,7 @@ class SelectStatementTest extends TestCase
 
     /**
      * @dataProvider testSelectProvider
+     * @param mixed $test
      */
     public function testSelect($test)
     {

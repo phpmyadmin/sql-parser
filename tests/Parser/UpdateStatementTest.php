@@ -8,6 +8,7 @@ class UpdateStatementTest extends TestCase
 {
     /**
      * @dataProvider testUpdateProvider
+     * @param mixed $test
      */
     public function testUpdate($test)
     {

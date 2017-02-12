@@ -2,8 +2,8 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Components\Key;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class KeyTest extends TestCase

@@ -2,8 +2,8 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Misc;
 
-use PhpMyAdmin\SqlParser\UtfString;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\UtfString;
 
 class UtfStringTest extends TestCase
 {

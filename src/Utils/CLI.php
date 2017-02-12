@@ -6,8 +6,8 @@
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Lexer;
+use PhpMyAdmin\SqlParser\Parser;
 
 /**
  * CLI interface.

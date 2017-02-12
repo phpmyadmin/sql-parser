@@ -3,13 +3,15 @@
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Utils\Misc;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Utils\Misc;
 
 class MiscTest extends TestCase
 {
     /**
      * @dataProvider getAliasesProvider
+     * @param mixed $query
+     * @param mixed $db
      */
     public function testGetAliases($query, $db, array $expected)
     {

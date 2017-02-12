@@ -6,8 +6,8 @@
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Statement;
 
 /**
  * `OPTIMIZE` statement.

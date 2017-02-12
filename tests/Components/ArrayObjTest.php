@@ -2,8 +2,8 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ArrayObjTest extends TestCase
@@ -38,6 +38,7 @@ class ArrayObjTest extends TestCase
 
     /**
      * @dataProvider testParseProvider
+     * @param mixed $test
      */
     public function testParse($test)
     {

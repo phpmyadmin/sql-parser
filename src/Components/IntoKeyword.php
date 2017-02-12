@@ -241,21 +241,20 @@ class IntoKeyword extends Component
             return $component->dest . $columns;
         } elseif (isset($component->values)) {
             return ExpressionArray::build($component->values);
-        } else {
-            $ret = 'OUTFILE "' . $component->dest . '"';
-
-            $fields_options_str = OptionsArray::build($component->fields_options);
-            if (trim($fields_options_str) !== '') {
-                $ret .= ($component->fields_keyword) ? ' FIELDS' : ' COLUMNS';
-                $ret .= ' ' . $fields_options_str;
-            }
-
-            $lines_options_str = OptionsArray::build($component->lines_options, array('expr' => true));
-            if (trim($lines_options_str) !== '') {
-                $ret .= ' LINES ' . $lines_options_str;
-            }
-
-            return $ret;
         }
+        $ret = 'OUTFILE "' . $component->dest . '"';
+
+        $fields_options_str = OptionsArray::build($component->fields_options);
+        if (trim($fields_options_str) !== '') {
+            $ret .= ($component->fields_keyword) ? ' FIELDS' : ' COLUMNS';
+            $ret .= ' ' . $fields_options_str;
+        }
+
+        $lines_options_str = OptionsArray::build($component->lines_options, array('expr' => true));
+        if (trim($lines_options_str) !== '') {
+            $ret .= ' LINES ' . $lines_options_str;
+        }
+
+        return $ret;
     }
 }
