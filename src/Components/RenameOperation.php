@@ -163,8 +163,8 @@ class RenameOperation extends Component
     {
         if (is_array($component)) {
             return implode(', ', $component);
-        } else {
-            return $component->old . ' TO ' . $component->new;
         }
+
+        return $component->old . ' TO ' . $component->new;
     }
 }

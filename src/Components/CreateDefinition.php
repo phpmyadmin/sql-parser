@@ -201,8 +201,10 @@ class CreateDefinition extends Component
                         'An opening bracket was expected.',
                         $token
                     );
+
                     break;
                 }
+
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'CONSTRAINT') {
                     $expr->isConstraint = true;
@@ -226,11 +228,11 @@ class CreateDefinition extends Component
                         );
 
                         return $ret;
-                    } else {
-                        // Non-reserved keywords are allowed without backquotes
-                        $expr->name = $token->value;
-                        $state = 2;
                     }
+
+                    // Non-reserved keywords are allowed without backquotes
+                    $expr->name = $token->value;
+                    $state = 2;
                 } else {
                     $parser->error(
                         'A symbol name was expected!',
@@ -239,6 +241,7 @@ class CreateDefinition extends Component
 
                     return $ret;
                 }
+
             } elseif ($state === 2) {
                 $expr->type = DataType::parse($parser, $list);
                 $state = 3;
@@ -253,6 +256,7 @@ class CreateDefinition extends Component
                     --$list->idx;
                 }
                 $state = 5;
+
             } elseif ($state === 5) {
                 if ((!empty($expr->type)) || (!empty($expr->key))) {
                     $ret[] = $expr;
@@ -302,35 +306,35 @@ class CreateDefinition extends Component
     {
         if (is_array($component)) {
             return "(\n  " . implode(",\n  ", $component) . "\n)";
-        } else {
-            $tmp = '';
-
-            if ($component->isConstraint) {
-                $tmp .= 'CONSTRAINT ';
-            }
-
-            if ((isset($component->name)) && ($component->name !== '')) {
-                $tmp .= Context::escape($component->name) . ' ';
-            }
-
-            if (!empty($component->type)) {
-                $tmp .= DataType::build(
-                    $component->type,
-                    array('lowercase' => true)
-                ) . ' ';
-            }
-
-            if (!empty($component->key)) {
-                $tmp .= $component->key . ' ';
-            }
-
-            if (!empty($component->references)) {
-                $tmp .= 'REFERENCES ' . $component->references . ' ';
-            }
-
-            $tmp .= $component->options;
-
-            return trim($tmp);
         }
+
+        $tmp = '';
+
+        if ($component->isConstraint) {
+            $tmp .= 'CONSTRAINT ';
+        }
+
+        if ((isset($component->name)) && ($component->name !== '')) {
+            $tmp .= Context::escape($component->name) . ' ';
+        }
+
+        if (!empty($component->type)) {
+            $tmp .= DataType::build(
+                $component->type,
+                array('lowercase' => true)
+            ) . ' ';
+        }
+
+        if (!empty($component->key)) {
+            $tmp .= $component->key . ' ';
+        }
+
+        if (!empty($component->references)) {
+            $tmp .= 'REFERENCES ' . $component->references . ' ';
+        }
+
+        $tmp .= $component->options;
+
+        return trim($tmp);
     }
 }

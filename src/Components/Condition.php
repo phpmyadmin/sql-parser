@@ -220,8 +220,8 @@ class Condition extends Component
     {
         if (is_array($component)) {
             return implode(' ', $component);
-        } else {
-            return $component->expr;
         }
+
+        return $component->expr;
     }
 }

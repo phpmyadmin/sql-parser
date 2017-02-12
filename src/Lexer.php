@@ -391,9 +391,8 @@ class Lexer extends Core
                 if ($lastSpace) {
                     --$j; // The size of the keyword didn't increase.
                     continue;
-                } else {
-                    $lastSpace = true;
                 }
+                $lastSpace = true;
             } else {
                 $lastSpace = false;
             }
@@ -453,9 +452,8 @@ class Lexer extends Core
                 if ($lastSpace) {
                     --$j; // The size of the keyword didn't increase.
                     continue;
-                } else {
-                    $lastSpace = true;
                 }
+                $lastSpace = true;
             } elseif ($this->str[$this->last] === ':') {
                 $token .= $this->str[$this->last];
                 $ret = new Token($token, Token::TYPE_LABEL);

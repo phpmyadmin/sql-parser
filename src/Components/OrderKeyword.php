@@ -133,8 +133,8 @@ class OrderKeyword extends Component
     {
         if (is_array($component)) {
             return implode(', ', $component);
-        } else {
-            return $component->expr . ' ' . $component->type;
         }
+
+        return $component->expr . ' ' . $component->type;
     }
 }

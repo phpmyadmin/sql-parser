@@ -143,15 +143,15 @@ class ParameterDefinition extends Component
     {
         if (is_array($component)) {
             return '(' . implode(', ', $component) . ')';
-        } else {
-            $tmp = '';
-            if (!empty($component->inOut)) {
-                $tmp .= $component->inOut . ' ';
-            }
-
-            return trim(
-                $tmp . Context::escape($component->name) . ' ' . $component->type
-            );
         }
+
+        $tmp = '';
+        if (!empty($component->inOut)) {
+            $tmp .= $component->inOut . ' ';
+        }
+
+        return trim(
+            $tmp . Context::escape($component->name) . ' ' . $component->type
+        );
     }
 }
