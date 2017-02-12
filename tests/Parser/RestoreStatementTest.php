@@ -8,6 +8,7 @@ class RestoreStatementTest extends TestCase
 {
     /**
      * @dataProvider testRestoreProvider
+     * @param mixed $test
      */
     public function testRestore($test)
     {

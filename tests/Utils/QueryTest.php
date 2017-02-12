@@ -10,6 +10,8 @@ class QueryTest extends TestCase
 {
     /**
      * @dataProvider testGetFlagsProvider
+     * @param mixed $query
+     * @param mixed $expected
      */
     public function testGetFlags($query, $expected)
     {
@@ -347,6 +349,8 @@ class QueryTest extends TestCase
 
     /**
      * @dataProvider testGetTablesProvider
+     * @param mixed $query
+     * @param mixed $expected
      */
     public function testGetTables($query, $expected)
     {

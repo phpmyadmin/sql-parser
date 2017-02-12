@@ -10,6 +10,8 @@ class MiscTest extends TestCase
 {
     /**
      * @dataProvider getAliasesProvider
+     * @param mixed $query
+     * @param mixed $db
      */
     public function testGetAliases($query, $db, array $expected)
     {

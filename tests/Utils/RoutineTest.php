@@ -10,6 +10,7 @@ class RoutineTest extends TestCase
 {
     /**
      * @dataProvider getReturnTypeProvider
+     * @param mixed $def
      */
     public function testGetReturnType($def, array $expected)
     {
@@ -49,6 +50,7 @@ class RoutineTest extends TestCase
 
     /**
      * @dataProvider getParameterProvider
+     * @param mixed $def
      */
     public function testGetParameter($def, array $expected)
     {
@@ -88,6 +90,7 @@ class RoutineTest extends TestCase
 
     /**
      * @dataProvider getParametersProvider
+     * @param mixed $query
      */
     public function testGetParameters($query, array $expected)
     {

@@ -8,6 +8,7 @@ class ReplaceStatementTest extends TestCase
 {
     /**
      * @dataProvider testReplaceProvider
+     * @param mixed $test
      */
     public function testReplace($test)
     {

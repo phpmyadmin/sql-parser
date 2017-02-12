@@ -30,6 +30,9 @@ class CLITest extends TestCase
 
     /**
      * @dataProvider highlightParams
+     * @param mixed $getopt
+     * @param mixed $output
+     * @param mixed $result
      */
     public function testRunHighlight($getopt, $output, $result)
     {
@@ -88,6 +91,9 @@ class CLITest extends TestCase
 
     /**
      * @dataProvider lintParams
+     * @param mixed $getopt
+     * @param mixed $output
+     * @param mixed $result
      */
     public function testRunLint($getopt, $output, $result)
     {
