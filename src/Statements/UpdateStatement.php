@@ -6,12 +6,12 @@
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Components\Condition;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
-use PhpMyAdmin\SqlParser\Components\Condition;
+use PhpMyAdmin\SqlParser\Statement;
 
 /**
  * `UPDATE` statement.

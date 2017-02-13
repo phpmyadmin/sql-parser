@@ -13,6 +13,7 @@ return PhpCsFixer\Config::create()
         '@Symfony' => true,
         'array_syntax' => array('syntax' => 'long'),
         'concat_space' => array('spacing' => true),
+        'ordered_imports' => true,
         'no_trailing_whitespace' => true,
         'phpdoc_order' => true,
     ))

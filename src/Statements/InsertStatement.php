@@ -6,14 +6,14 @@
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Statement;
-use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Components\Array2d;
+use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
+use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `INSERT` statement.

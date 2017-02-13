@@ -2,8 +2,8 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
-use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 
 class BufferedQueryTest extends TestCase
 {
