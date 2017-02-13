@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2016-12-27 15:16+0000\n"
+"PO-Revision-Date: 2017-02-13 11:33+0000\n"
 "Last-Translator: Fujiwara Software <fujisoft@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -121,10 +121,8 @@ msgid "Keyword \"TO\" was expected."
 msgstr "キーワード \"TO\" があるべきです。"
 
 #: src/Components/RenameOperation.php:123
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "開いているテーブルの数。"
+msgstr "テーブルの新しい名前が必要です。"
 
 #: src/Components/RenameOperation.php:141
 #, fuzzy
@@ -133,16 +131,12 @@ msgid "A rename operation was expected."
 msgstr "行を削除しました"
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "正規表現"
+msgstr "式がありません。"
 
 #: src/Lexer.php:237
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "予期しない文字 (行: %s)。"
+msgstr "予期しない文字。"
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
@@ -197,7 +191,7 @@ msgstr "予期しない節の順序。"
 #, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "開いているテーブルの数。"
+msgstr "エンティティの名前が必要です。"
 
 #: src/Statements/CreateStatement.php:430
 msgid "A table name was expected."
