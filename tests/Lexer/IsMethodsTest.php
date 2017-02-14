@@ -3,8 +3,8 @@
 namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
 use PhpMyAdmin\SqlParser\Context;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Token;
 
 class IsMethodsTest extends TestCase
 {

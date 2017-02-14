@@ -2,8 +2,8 @@
 
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
-use PhpMyAdmin\SqlParser\Utils\Formatter;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Utils\Formatter;
 
 class FormatTest extends TestCase
 {

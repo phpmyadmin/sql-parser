@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2016-12-21 15:59+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/"
-"phpmyadmin/sql-parser/zh_TW/>\n"
+"PO-Revision-Date: 2017-02-10 16:51+0000\n"
+"Last-Translator: hd hd <hd@cgsword.com>\n"
+"Language-Team: Chinese (Taiwan) "
+"<https://hosted.weblate.org/projects/phpmyadmin/sql-parser/zh_TW/>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.10\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -22,20 +22,21 @@ msgstr "尚未實作。"
 #: src/Components/AlterOperation.php:224 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr "找到新的陳述句，但與前一個陳述句之間未加入間隔符號。"
+msgstr "找到新的陳述句，但與前一陳述句之間沒有分隔符。"
 
 #: src/Components/AlterOperation.php:236
+#, fuzzy
 msgid "Unrecognized alter operation."
-msgstr "無法辨識的修改(Alter)操作。"
+msgstr "無法識別的修改操作。"
 
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr "預期要有 %1$d 個數值，但只找到 %2$d 個。"
+msgstr "預期 %1$d 個數值，但找到 %2$d 個。"
 
 #: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
-msgstr "預期要於數值之後接著開始括號。"
+msgstr "預期開括號後有一組數值。"
 
 #: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
 msgid "An opening bracket was expected."
@@ -53,20 +54,18 @@ msgstr "預期要有開始括號。"
 #: src/Statements/InsertStatement.php:217
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:183
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "預期之外的符號。"
+msgstr "預期之外的關鍵字。"
 
 #: src/Components/CaseExpression.php:194
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "預期之外的CASE陳述式"
 
 #: src/Components/CreateDefinition.php:222
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
-msgstr ""
+msgstr "預期有一個符號！保留字不可以在沒有反引號時用作欄位名稱。"
 
 #: src/Components/CreateDefinition.php:236
 msgid "A symbol name was expected!"
@@ -82,7 +81,7 @@ msgstr "預期要有結束括號。"
 
 #: src/Components/DataType.php:123
 msgid "Unrecognized data type."
-msgstr "預期之外的資料類型。"
+msgstr "無法識別的資料類型。"
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
 msgid "An alias was expected."
@@ -127,10 +126,8 @@ msgid "A rename operation was expected."
 msgstr "預期要有重新命名的操作。"
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "使用正則表示法(Regular Expression)"
+msgstr "缺少表達式。"
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
@@ -182,20 +179,16 @@ msgid "Unrecognized keyword."
 msgstr "無法辨識的關鍵字。"
 
 #: src/Statement.php:486
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "預期之外的陳述句開頭。"
+msgstr "預期之外的排序語句。"
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
 msgstr "預期要有實體名稱。"
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "預期要有變數名稱。"
+msgstr "預期有表格名稱。"
 
 #: src/Statements/CreateStatement.php:438
 msgid "At least one column definition was expected."
@@ -206,10 +199,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "預期要使用 \"RETURNS\" 關鍵字。"
 
 #: src/Statements/DeleteStatement.php:294
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "此類型的子句已於前面解析過。"
+msgstr "此類型的子句不可用於多表查詢。"
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
 msgid "error #1"
