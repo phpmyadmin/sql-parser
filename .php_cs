@@ -15,6 +15,7 @@ return PhpCsFixer\Config::create()
         'concat_space' => array('spacing' => true),
         'ordered_imports' => true,
         'no_trailing_whitespace' => true,
+        'no_useless_return' => true,
         'phpdoc_order' => true,
     ))
     ->setFinder($finder)
