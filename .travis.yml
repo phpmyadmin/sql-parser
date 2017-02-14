@@ -12,13 +12,15 @@ php:
 
 env:
   matrix:
-    - MOTRANSLATOR=yes
     - MOTRANSLATOR=no
 
 matrix:
   fast_finish: true
   allow_failures:
     - php: "nightly"
+  include:
+    - php: "7.0"
+      env: MOTRANSLATOR=yes
 
 sudo: false
 
