@@ -12,6 +12,8 @@ class ParserTest extends TestCase
 {
     /**
      * @dataProvider testParseProvider
+     *
+     * @param mixed $test
      */
     public function testParse($test)
     {

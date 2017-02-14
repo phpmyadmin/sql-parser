@@ -8,6 +8,8 @@ class InsertStatementTest extends TestCase
 {
     /**
      * @dataProvider testInsertProvider
+     *
+     * @param mixed $test
      */
     public function testInsert($test)
     {

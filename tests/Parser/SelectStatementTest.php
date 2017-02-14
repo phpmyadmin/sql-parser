@@ -17,6 +17,8 @@ class SelectStatementTest extends TestCase
 
     /**
      * @dataProvider testSelectProvider
+     *
+     * @param mixed $test
      */
     public function testSelect($test)
     {

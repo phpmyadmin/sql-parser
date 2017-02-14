@@ -9,6 +9,9 @@ class BufferedQueryTest extends TestCase
 {
     /**
      * @dataProvider testExtractProvider
+     *
+     * @param mixed $query
+     * @param mixed $chunkSize
      */
     public function testExtract(
         $query,

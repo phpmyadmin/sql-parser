@@ -8,6 +8,8 @@ class AlterStatementTest extends TestCase
 {
     /**
      * @dataProvider testAlterProvider
+     *
+     * @param mixed $test
      */
     public function testAlter($test)
     {

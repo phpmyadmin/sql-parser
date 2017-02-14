@@ -8,6 +8,8 @@ class CallStatementTest extends TestCase
 {
     /**
      * @dataProvider testCallProvider
+     *
+     * @param mixed $test
      */
     public function testCall($test)
     {

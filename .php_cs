@@ -17,6 +17,7 @@ return PhpCsFixer\Config::create()
         'no_trailing_whitespace' => true,
         'no_useless_return' => true,
         'no_useless_else' => true,
+        'phpdoc_add_missing_param_annotation' => true,
         'phpdoc_order' => true,
     ))
     ->setFinder($finder)

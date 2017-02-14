@@ -10,6 +10,8 @@ class TableTest extends TestCase
 {
     /**
      * @dataProvider getForeignKeysProvider
+     *
+     * @param mixed $query
      */
     public function testGetForeignKeys($query, array $expected)
     {
@@ -110,6 +112,8 @@ class TableTest extends TestCase
 
     /**
      * @dataProvider getFieldsProvider
+     *
+     * @param mixed $query
      */
     public function testGetFields($query, array $expected)
     {

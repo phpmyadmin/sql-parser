@@ -8,6 +8,8 @@ class DeleteStatementTest extends TestCase
 {
     /**
      * @dataProvider testDeleteProvider
+     *
+     * @param mixed $test
      */
     public function testDelete($test)
     {

@@ -8,6 +8,8 @@ class SetStatementTest extends TestCase
 {
     /**
      * @dataProvider testSetProvider
+     *
+     * @param mixed $test
      */
     public function testSet($test)
     {

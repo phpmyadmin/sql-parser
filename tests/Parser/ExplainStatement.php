@@ -8,6 +8,8 @@ class ExplainStatementTest extends TestCase
 {
     /**
      * @dataProvider testExplainProvider
+     *
+     * @param mixed $test
      */
     public function testExplain($test)
     {

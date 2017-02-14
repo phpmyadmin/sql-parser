@@ -48,6 +48,8 @@ class LexerTest extends TestCase
 
     /**
      * @dataProvider testLexProvider
+     *
+     * @param mixed $test
      */
     public function testLex($test)
     {

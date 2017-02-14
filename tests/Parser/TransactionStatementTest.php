@@ -8,6 +8,8 @@ class TransactionStatementTest extends TestCase
 {
     /**
      * @dataProvider testTransactionProvider
+     *
+     * @param mixed $test
      */
     public function testTransaction($test)
     {
