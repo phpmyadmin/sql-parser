@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+* Coding style improvements.
+* Chinese localization.
+
 ## [4.1.1] - 2017-02-07
 
 * Localization using phpmyadmin/motranslator is now optional.
