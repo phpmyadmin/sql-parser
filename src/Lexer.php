@@ -357,7 +357,7 @@ class Lexer extends Core
     /**
      * Parses a keyword.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseKeyword()
     {
@@ -418,7 +418,7 @@ class Lexer extends Core
     /**
      * Parses a label.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseLabel()
     {
@@ -473,7 +473,7 @@ class Lexer extends Core
     /**
      * Parses an operator.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseOperator()
     {
@@ -509,7 +509,7 @@ class Lexer extends Core
     /**
      * Parses a whitespace.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseWhitespace()
     {
@@ -531,7 +531,7 @@ class Lexer extends Core
     /**
      * Parses a comment.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseComment()
     {
@@ -629,7 +629,7 @@ class Lexer extends Core
     /**
      * Parses a boolean.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseBool()
     {
@@ -660,7 +660,7 @@ class Lexer extends Core
     /**
      * Parses a number.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseNumber()
     {
@@ -807,7 +807,7 @@ class Lexer extends Core
      *
      * @param string $quote additional starting symbol
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseString($quote = '')
     {
@@ -852,7 +852,7 @@ class Lexer extends Core
     /**
      * Parses a symbol.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseSymbol()
     {
@@ -895,7 +895,7 @@ class Lexer extends Core
     /**
      * Parses unknown parts of the query.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseUnknown()
     {
@@ -915,7 +915,7 @@ class Lexer extends Core
     /**
      * Parses the delimiter of the query.
      *
-     * @return Token
+     * @return null|Token
      */
     public function parseDelimiter()
     {
