@@ -16,6 +16,7 @@ return PhpCsFixer\Config::create()
         'ordered_imports' => true,
         'no_trailing_whitespace' => true,
         'no_useless_return' => true,
+        'no_useless_else' => true,
         'phpdoc_order' => true,
     ))
     ->setFinder($finder)

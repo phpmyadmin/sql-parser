@@ -87,8 +87,7 @@ class ReplaceStatement extends Statement
      */
     public function build()
     {
-        $ret = 'REPLACE ' . $this->options
-            . ' INTO ' . $this->into;
+        $ret = 'REPLACE ' . $this->options . ' INTO ' . $this->into;
 
         if ($this->values != null && count($this->values) > 0) {
             $ret .= ' VALUES ' . Array2d::build($this->values);
@@ -115,6 +114,7 @@ class ReplaceStatement extends Statement
             $list,
             static::$OPTIONS
         );
+
         ++$list->idx;
 
         /**
@@ -154,14 +154,13 @@ class ReplaceStatement extends Statement
                 ) {
                     $parser->error('Unexpected keyword.', $token);
                     break;
-                } else {
-                    ++$list->idx;
-                    $this->into = IntoKeyword::parse(
-                        $parser,
-                        $list,
-                        array('fromReplace' => true)
-                    );
                 }
+                ++$list->idx;
+                $this->into = IntoKeyword::parse(
+                    $parser,
+                    $list,
+                    array('fromReplace' => true)
+                );
 
                 $state = 1;
             } elseif ($state === 1) {

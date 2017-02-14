@@ -203,19 +203,18 @@ class PartitionDefinition extends Component
     {
         if (is_array($component)) {
             return "(\n" . implode(",\n", $component) . "\n)";
-        } else {
-            if ($component->isSubpartition) {
-                return trim('SUBPARTITION ' . $component->name . ' ' . $component->options);
-            } else {
-                $subpartitions = empty($component->subpartitions)
-                    ? '' : ' ' . self::build($component->subpartitions);
-
-                return trim(
-                    'PARTITION ' . $component->name
-                    . (empty($component->type) ? '' : ' VALUES ' . $component->type . ' ' . $component->expr . ' ')
-                    . $component->options . $subpartitions
-                );
-            }
         }
+
+        if ($component->isSubpartition) {
+            return trim('SUBPARTITION ' . $component->name . ' ' . $component->options);
+        }
+
+        $subpartitions = empty($component->subpartitions) ? '' : ' ' . self::build($component->subpartitions);
+
+        return trim(
+            'PARTITION ' . $component->name
+            . (empty($component->type) ? '' : ' VALUES ' . $component->type . ' ' . $component->expr . ' ')
+            . $component->options . $subpartitions
+        );
     }
 }

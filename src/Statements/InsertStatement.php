@@ -188,14 +188,14 @@ class InsertStatement extends Statement
                 ) {
                     $parser->error('Unexpected keyword.', $token);
                     break;
-                } else {
-                    ++$list->idx;
-                    $this->into = IntoKeyword::parse(
-                        $parser,
-                        $list,
-                        array('fromInsert' => true)
-                    );
                 }
+
+                ++$list->idx;
+                $this->into = IntoKeyword::parse(
+                    $parser,
+                    $list,
+                    array('fromInsert' => true)
+                );
 
                 $state = 1;
             } elseif ($state === 1) {
