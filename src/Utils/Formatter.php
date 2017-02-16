@@ -6,6 +6,7 @@
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
+use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
@@ -381,6 +382,15 @@ class Formatter
                             --$indent;
                         }
                     }
+                }
+
+                // Inline JOINs
+                if (($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::$JOINS[$prev->value]))
+                    || (in_array($curr->value, array('ON', 'USING'), true) && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 2]->value]))
+                    || (isset($list->tokens[$list->idx - 4]) && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 4]->value]))
+                    || (isset($list->tokens[$list->idx - 6]) && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 6]->value]))
+                ) {
+                    $lineEnded = false;
                 }
 
                 // Indenting BEGIN ... END blocks.

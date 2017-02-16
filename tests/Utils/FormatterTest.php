@@ -508,6 +508,13 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`query`</span> <span class="sql-keyword">TEXT</span> <span class="sql-reserved">NOT NULL</span>,' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">PRIMARY KEY</span>(<span class="sql-variable">`id`</span>)',
             ),
+            'join' => array(
+                'query' => 'join tbl2 on c1=c2',
+                'text' => 'JOIN tbl2 ON c1 = c2',
+                'cli' => "\x1b[35mJOIN \x1b[39mtbl2 \x1b[35mON \x1b[39mc1 \x1b[39m= \x1b[39mc2" .
+                    "\x1b[0m",
+                'html' => '<span class="sql-reserved">JOIN</span> tbl2 <span class="sql-reserved">ON</span> c1 = c2',
+            ),
         );
     }
 }
