@@ -451,16 +451,26 @@ abstract class Statement
 
         /**
          * For tracking JOIN clauses in a query
-         *   0 - JOIN not found till now
-         *   1 - JOIN has been found
-         *   2 - A Non-JOIN clause has been found
-         *       after a previously found JOIN clause.
+         *   = 0 - JOIN not found till now
+         *   > 0 - Index of first JOIN clause in the statement
          *
          * @var int
          */
-        $joinStart = 0;
+        $minJoin = 0;
+
+        /**
+         * For tracking JOIN clauses in a query
+         *   = 0 - JOIN not found till now
+         *   > 0 - Index of last JOIN clause
+         *         (which appears together with other JOINs)
+         *         in the statement
+         *
+         * @var int
+         */
+        $maxJoin = 0;
 
         $error = 0;
+        $lastIdx = 0;
         foreach ($clauses as $clauseType => $index) {
             $clauseStartIdx = Utils\Query::getClauseStartOffset(
                 $this,
@@ -470,17 +480,19 @@ abstract class Statement
 
             // Handle ordering of Multiple Joins in a query
             if ($clauseStartIdx != -1) {
-                if ($joinStart == 0 && stripos($clauseType, 'JOIN') !== false) {
-                    $joinStart = 1;
-                } elseif ($joinStart == 1 && stripos($clauseType, 'JOIN') === false) {
-                    $joinStart = 2;
-                } elseif ($joinStart == 2 && stripos($clauseType, 'JOIN') !== false) {
+                if ($minJoin === 0 && stripos($clauseType, 'JOIN')) {
+                    // First JOIN clause is detected
+                    $minJoin = $maxJoin = $clauseStartIdx;
+                } elseif ($minJoin !== 0 && ! stripos($clauseType, 'JOIN')) {
+                    // After a previous JOIN clause, a non-JOIN clause has been detected
+                    $maxJoin = $lastIdx;
+                } elseif ($maxJoin < $clauseStartIdx && stripos($clauseType, 'JOIN')) {
                     $error = 1;
                 }
             }
 
             if ($clauseStartIdx != -1 && $clauseStartIdx < $minIdx) {
-                if ($joinStart == 0 || ($joinStart == 2 && $error = 1)) {
+                if ($minJoin === 0 || $error === 1) {
                     $token = $list->tokens[$clauseStartIdx];
                     $parser->error(
                         'Unexpected ordering of clauses.',
@@ -493,6 +505,8 @@ abstract class Statement
             } elseif ($clauseStartIdx != -1) {
                 $minIdx = $clauseStartIdx;
             }
+
+            $lastIdx = ($clauseStartIdx !== -1) ? $clauseStartIdx : $lastIdx;
         }
 
         return true;
