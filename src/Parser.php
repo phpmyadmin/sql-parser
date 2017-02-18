@@ -69,7 +69,7 @@ class Parser extends Core
         'DO' => '',
         'HANDLER' => '',
         'INSERT' => 'PhpMyAdmin\\SqlParser\\Statements\\InsertStatement',
-        'LOAD' => '',
+        'LOAD DATA' => 'PhpMyAdmin\\SqlParser\\Statements\\LoadStatement',
         'REPLACE' => 'PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement',
         'SELECT' => 'PhpMyAdmin\\SqlParser\\Statements\\SelectStatement',
         'UPDATE' => 'PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement',

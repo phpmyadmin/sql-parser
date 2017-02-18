@@ -85,6 +85,14 @@ class QueryTest extends TestCase
                 ),
             ),
             array(
+                'LOAD DATA INFILE \'/tmp/test.txt\' INTO TABLE test',
+                array(
+                    'is_affected' => true,
+                    'is_insert' => true,
+                    'querytype' => 'LOAD',
+                ),
+            ),
+            array(
                 'INSERT INTO tbl VALUES (1)',
                 array(
                     'is_affected' => true,

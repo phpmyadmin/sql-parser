@@ -20,6 +20,7 @@ use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\ExplainStatement;
 use PhpMyAdmin\SqlParser\Statements\InsertStatement;
+use PhpMyAdmin\SqlParser\Statements\LoadStatement;
 use PhpMyAdmin\SqlParser\Statements\OptimizeStatement;
 use PhpMyAdmin\SqlParser\Statements\RenameStatement;
 use PhpMyAdmin\SqlParser\Statements\RepairStatement;
@@ -338,6 +339,10 @@ class Query
             $flags['is_explain'] = true;
         } elseif ($statement instanceof InsertStatement) {
             $flags['querytype'] = 'INSERT';
+            $flags['is_affected'] = true;
+            $flags['is_insert'] = true;
+        } elseif ($statement instanceof LoadStatement) {
+            $flags['querytype'] = 'LOAD';
             $flags['is_affected'] = true;
             $flags['is_insert'] = true;
         } elseif ($statement instanceof ReplaceStatement) {
