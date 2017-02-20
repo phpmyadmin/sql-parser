@@ -197,7 +197,7 @@ class LoadStatement extends Statement
             $ret .= ' ' . $this->fields_keyword . ' ' . $this->fields_options;
         }
 
-        if ($this->lines_options !== null && count($this->lines_options) > 0) {
+        if ($this->lines_options !== null) {
             $ret .= ' LINES ' . $this->lines_options;
         }
 
