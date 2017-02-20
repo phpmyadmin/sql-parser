@@ -352,6 +352,7 @@ class LoadStatement extends Statement
 
                     return $state;
                 }
+                // no break
             case 4:
                 if ($token->keyword === 'CHARACTER SET') {
                     ++$list->idx;
@@ -360,6 +361,7 @@ class LoadStatement extends Statement
 
                     return $state;
                 }
+                // no break
             case 5:
                 if ($token->keyword === 'FIELDS'
                     || $token->keyword === 'COLUMNS'
@@ -370,6 +372,7 @@ class LoadStatement extends Statement
 
                     return $state;
                 }
+                // no break
             case 6:
                 if ($token->keyword === 'IGNORE') {
                     ++$list->idx;
@@ -387,6 +390,7 @@ class LoadStatement extends Statement
 
                     return $state;
                 }
+                // no break
             case 7:
                 if ($token->keyword === 'SET') {
                     ++$list->idx;
@@ -395,6 +399,7 @@ class LoadStatement extends Statement
 
                     return $state;
                 }
+                // no break
             default:
         }
 
