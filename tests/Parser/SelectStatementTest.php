@@ -63,6 +63,7 @@ class SelectStatementTest extends TestCase
             array('parser/parseSelectJoinMultiple'),
             array('parser/parseSelectJoinMultiple2'),
             array('parser/parseSelectWrongOrder'),
+            array('parser/parseSelectWrongOrder2'),
             array('parser/parseSelectEndOptions1'),
             array('parser/parseSelectEndOptions2'),
             array('parser/parseSelectEndOptionsErr'),
