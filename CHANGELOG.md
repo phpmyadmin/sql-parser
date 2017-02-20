@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [4.1.2] - 2017-02-20
 
 * Coding style improvements.
