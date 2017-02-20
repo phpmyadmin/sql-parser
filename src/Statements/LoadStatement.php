@@ -117,7 +117,7 @@ class LoadStatement extends Statement
     /**
      * Whether to use `FIELDS` or `COLUMNS` while building.
      *
-     * @var bool
+     * @var string
      */
     public $fields_keyword;
 
@@ -133,7 +133,7 @@ class LoadStatement extends Statement
     /**
      * Column names or user variables.
      *
-     * @var ExpressionArray
+     * @var Expression[]
      */
     public $col_name_or_user_var;
 
