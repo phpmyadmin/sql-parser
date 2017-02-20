@@ -5,6 +5,7 @@
 * Coding style improvements.
 * Chinese localization.
 * Improved order validatin for JOIN clauses.
+* Improved pretty printing of JOIN clauses.
 
 ## [4.1.1] - 2017-02-07
 
