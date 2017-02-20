@@ -37,7 +37,6 @@ class LoadStatementTest extends TestCase
             $stmt->build()
         );
 
-
         /* Assertion 3 */
         $query = 'LOAD DATA INFILE \'employee3.txt\' '
             . 'INTO TABLE employee FIELDS TERMINATED BY '
@@ -52,7 +51,6 @@ class LoadStatementTest extends TestCase
             . '\',\' ENCLOSED BY \'"\'',
             $stmt->build()
         );
-
 
         /* Assertion 4 */
         $query = 'LOAD DATA INFILE \'/tmp/test.txt\' IGNORE '
@@ -75,7 +73,6 @@ class LoadStatementTest extends TestCase
             $stmt->build()
         );
 
-
         /* Assertion 5 */
         $query = 'LOAD DATA INFILE \'/tmp/test.txt\' REPLACE '
             . 'INTO TABLE test COLUMNS TERMINATED BY \',\' IGNORE 1 ROWS';
@@ -88,7 +85,6 @@ class LoadStatementTest extends TestCase
             . 'INTO TABLE test COLUMNS TERMINATED BY \',\' IGNORE 1 ROWS',
             $stmt->build()
         );
-
 
         /* Assertion 6 */
         $query = 'LOAD DATA INFILE \'/tmp/test.txt\' IGNORE '
@@ -107,5 +103,4 @@ class LoadStatementTest extends TestCase
             $stmt->build()
         );
     }
-
 }

@@ -452,7 +452,7 @@ abstract class Statement
         /**
          * For tracking JOIN clauses in a query
          *   = 0 - JOIN not found till now
-         *   > 0 - Index of first JOIN clause in the statement
+         *   > 0 - Index of first JOIN clause in the statement.
          *
          * @var int
          */
@@ -463,7 +463,7 @@ abstract class Statement
          *   = 0 - JOIN not found till now
          *   > 0 - Index of last JOIN clause
          *         (which appears together with other JOINs)
-         *         in the statement
+         *         in the statement.
          *
          * @var int
          */
@@ -483,7 +483,7 @@ abstract class Statement
                 if ($minJoin === 0 && stripos($clauseType, 'JOIN')) {
                     // First JOIN clause is detected
                     $minJoin = $maxJoin = $clauseStartIdx;
-                } elseif ($minJoin !== 0 && ! stripos($clauseType, 'JOIN')) {
+                } elseif ($minJoin !== 0 && !stripos($clauseType, 'JOIN')) {
                     // After a previous JOIN clause, a non-JOIN clause has been detected
                     $maxJoin = $lastIdx;
                 } elseif ($maxJoin < $clauseStartIdx && stripos($clauseType, 'JOIN')) {

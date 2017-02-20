@@ -7,14 +7,8 @@
 namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
-use PhpMyAdmin\SqlParser\Components\Condition;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\ExpressionArray;
-use PhpMyAdmin\SqlParser\Components\FunctionCall;
-use PhpMyAdmin\SqlParser\Components\IntoKeyword;
-use PhpMyAdmin\SqlParser\Components\JoinKeyword;
-use PhpMyAdmin\SqlParser\Components\Limit;
-use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
@@ -58,7 +52,7 @@ class LoadStatement extends Statement
     public static $OPTIONS = array(
         'LOW_PRIORITY' => 1,
         'CONCURRENT' => 1,
-        'LOCAL' => 2
+        'LOCAL' => 2,
     );
 
     /**
@@ -84,7 +78,7 @@ class LoadStatement extends Statement
     );
 
     /**
-     * File name being used to load data
+     * File name being used to load data.
      *
      * @var Expression
      */
@@ -137,35 +131,35 @@ class LoadStatement extends Statement
     public $lines_options;
 
     /**
-     * Column names or user variables
+     * Column names or user variables.
      *
      * @var ExpressionArray
      */
     public $col_name_or_user_var;
 
     /**
-     * SET clause's updated values(optional)
+     * SET clause's updated values(optional).
      *
      * @var SetOperation[]
      */
     public $set;
 
     /**
-     * Ignore 'number' LINES/ROWS
+     * Ignore 'number' LINES/ROWS.
      *
      * @var Expression
      */
     public $ignore_number;
 
     /**
-     * REPLACE/IGNORE Keyword
+     * REPLACE/IGNORE Keyword.
      *
      * @var string
      */
     public $replace_ignore;
 
     /**
-     * LINES/ROWS Keyword
+     * LINES/ROWS Keyword.
      *
      * @var string
      */
@@ -232,7 +226,7 @@ class LoadStatement extends Statement
         );
         ++$list->idx;
 
-                /**
+        /**
          * The state of the parser.
          *
          * @var int
@@ -290,7 +284,7 @@ class LoadStatement extends Statement
                 if ($token->type === Token::TYPE_KEYWORD
                     && $token->keyword === 'TABLE'
                 ) {
-                    $list->idx++;
+                    ++$list->idx;
                     $this->table = Expression::parse($parser, $list, array('parseField' => 'table'));
                     $state = 3;
                 } else {
@@ -345,23 +339,25 @@ class LoadStatement extends Statement
         }
     }
 
-
-    public function parseKeywordsAccordingToState($parser, $list, $state) {
+    public function parseKeywordsAccordingToState($parser, $list, $state)
+    {
         $token = $list->tokens[$list->idx];
 
         switch ($state) {
             case 3:
                 if ($token->keyword === 'PARTITION') {
-                    $list->idx++;
+                    ++$list->idx;
                     $this->partition = ArrayObj::parse($parser, $list);
                     $state = 4;
+
                     return $state;
                 }
             case 4:
                 if ($token->keyword === 'CHARACTER SET') {
-                    $list->idx++;
+                    ++$list->idx;
                     $this->charset_name = Expression::parse($parser, $list);
                     $state = 5;
+
                     return $state;
                 }
             case 5:
@@ -371,11 +367,12 @@ class LoadStatement extends Statement
                 ) {
                     $this->parseFileOptions($parser, $list, $token->value);
                     $state = 6;
+
                     return $state;
                 }
             case 6:
                 if ($token->keyword === 'IGNORE') {
-                    $list->idx++;
+                    ++$list->idx;
 
                     $this->ignore_number = Expression::parse($parser, $list);
                     $nextToken = $list->getNextOfType(Token::TYPE_KEYWORD);
@@ -387,18 +384,20 @@ class LoadStatement extends Statement
                         $this->lines_rows = $nextToken->token;
                     }
                     $state = 7;
+
                     return $state;
                 }
             case 7:
                 if ($token->keyword === 'SET') {
-                    $list->idx++;
+                    ++$list->idx;
                     $this->set = SetOperation::parse($parser, $list);
                     $state = 8;
+
                     return $state;
                 }
             default:
         }
+
         return $state;
     }
-
 }

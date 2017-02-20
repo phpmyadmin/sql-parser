@@ -39,7 +39,7 @@ class LoadStatementTest extends TestCase
             array('parser/parseLoadErr3'),
             array('parser/parseLoadErr4'),
             array('parser/parseLoadErr5'),
-            array('parser/parseLoadErr6')
+            array('parser/parseLoadErr6'),
         );
     }
 }
