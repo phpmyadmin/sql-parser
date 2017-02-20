@@ -51,7 +51,7 @@ class CaseExpression extends Component
     /**
      * The result in ELSE section of expr.
      *
-     * @var array
+     * @var Expression
      */
     public $else_result;
 
