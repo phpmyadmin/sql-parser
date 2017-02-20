@@ -6,6 +6,7 @@
 * Chinese localization.
 * Improved order validatin for JOIN clauses.
 * Improved pretty printing of JOIN clauses.
+* Added support for LOAD DATA statements.
 
 ## [4.1.1] - 2017-02-07
 
