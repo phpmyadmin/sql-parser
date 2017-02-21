@@ -4,45 +4,43 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2015-10-15 11:19+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/uk/>\n"
+"PO-Revision-Date: 2017-02-21 13:32+0000\n"
+"Last-Translator: Володимир <bardvv@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
+"parser/uk/>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Ще не реалізовано."
 
 #: src/Components/AlterOperation.php:224 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr ""
+msgstr "Новий оператор знайдено, але між ним і попереднім немає роздільника."
 
 #: src/Components/AlterOperation.php:236
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Іконки операцій над таблицями"
+msgstr "Нерозпізнана операція зміни."
 
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Очікувалося %1$d , а знайдено %2$d ."
 
 #: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Очікувалося відкривна квадратна дужка з списком значень."
 
 #: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Очікувалося відкривна квадратна дужка."
 
 #: src/Components/CaseExpression.php:129 src/Components/CaseExpression.php:159
 #: src/Components/CaseExpression.php:171 src/Components/CaseExpression.php:185
@@ -56,197 +54,160 @@ msgstr ""
 #: src/Statements/InsertStatement.php:217
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:183
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected keyword."
-msgstr "Неочікувані символи в рядку %s."
+msgstr "Неочікуване ключове слово."
 
 #: src/Components/CaseExpression.php:194
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Неочікуваний кінець виразу CASE"
 
 #: src/Components/CreateDefinition.php:222
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Очікувалося ім'я ідентифікатора! Зарезервоване ключове слово не може "
+"використовуватися, як ім'я стовпця, без зворотніх лапок."
 
 #: src/Components/CreateDefinition.php:236
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Шаблон імені таблиці"
+msgstr "Очікувалося ім'я ідентифікатора!"
 
 #: src/Components/CreateDefinition.php:269
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Жодної таблиці не обрано."
+msgstr "Очікувалося, кома або закривна дужка."
 
 #: src/Components/CreateDefinition.php:285
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Очікувалася закривна дужка."
 
 #: src/Components/DataType.php:123
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Нерозпізнаний тип даних."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Жодної таблиці не обрано."
+msgstr "Очікувався псевдонім."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Псевдонім був раніше знайдений."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Неочікувана крапка."
 
 #: src/Components/ExpressionArray.php:102
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "Рядків не вибрано"
+msgstr "Очікувався оператор."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "Очікувалося зміщення."
 
 #: src/Components/OptionsArray.php:143
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Цей параметр конфліктує з \"%1$s\"."
 
 #: src/Components/RenameOperation.php:97
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Кількість відкритих таблиць."
+msgstr "Очікувалося стара назва таблиці."
 
 #: src/Components/RenameOperation.php:107
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Очікувалося ключове слово \"TO\"."
 
 #: src/Components/RenameOperation.php:123
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Кількість відкритих таблиць."
+msgstr "Очікувалося нове ім'я таблиці."
 
 #: src/Components/RenameOperation.php:141
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Рядок видалено."
+msgstr "Очікувалася операція перейменування."
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "як регулярний вираз"
+msgstr "Відсутній оператор."
 
 #: src/Lexer.php:237
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Неочікувані символи в рядку %s."
+msgstr "Неочікуваний символ."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Очікувалося  пробіл(и) перед роздільником."
 
 #: src/Lexer.php:296 src/Lexer.php:312
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Очікувалося роздільник."
 
 #: src/Lexer.php:841
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Подія %1$s була створена."
+msgstr "Очікувалося закриваюча лапка %1$s ."
 
 #: src/Lexer.php:882
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Шаблон імені таблиці"
+msgstr "Очікувалося ім'я змінної."
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "На початку таблиці"
+msgstr "Неочікуваний початок виразу оператора."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Нерозпізнаний тип оператора."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Жодна транзакція не була раніше запущена."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:241
 #: src/Statements/DeleteStatement.php:286
 #: src/Statements/InsertStatement.php:226
 #: src/Statements/InsertStatement.php:246
 #: src/Statements/ReplaceStatement.php:191
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Неочікувані символи в рядку %s."
+msgstr "Неочікуваний маркер."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Цей тип оператора був раніше проаналізований."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Нерозпізнане ключове слово."
 
 #: src/Statement.php:486
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "На початку таблиці"
+msgstr "Неочікуваний порядок операторів."
 
 #: src/Statements/CreateStatement.php:375
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Кількість відкритих таблиць."
+msgstr "Очікувалося ім'я об'єкта."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Шаблон імені таблиці"
+msgstr "Очікувалося ім'я таблиці."
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Рядок видалено."
+msgstr "Очікувалося, принаймні одне визначення стовпчика."
 
 #: src/Statements/CreateStatement.php:549
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Очікувалося ключове слово \"RETURNS\"."
 
 #: src/Statements/DeleteStatement.php:294
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Цей тип оператора не діє для запитів групових таблиць."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
-#, fuzzy
-#| msgid "errors."
 msgid "error #1"
-msgstr "помилки."
+msgstr "помилка #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:78
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "Збирати помилки"
+msgstr "Недопустима помилка"
