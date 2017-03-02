@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2017-01-04 15:32+0000\n"
-"Last-Translator: Flavius Nopcea <domnulnopcea@gmail.com>\n"
+"PO-Revision-Date: 2017-03-02 07:35+0000\n"
+"Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/ro/>\n"
 "Language: ro\n"
@@ -14,31 +14,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 2.12-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
-#, fuzzy
 msgid "Not implemented yet."
 msgstr "Nu este inca implementat."
 
 #: src/Components/AlterOperation.php:224 src/Statement.php:334
+#, fuzzy
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"O nouă operațiune a fost găsită, dar nici un delimitator între aceasta și "
+"cea anterioară."
 
 #: src/Components/AlterOperation.php:236
-#, fuzzy
 msgid "Unrecognized alter operation."
-msgstr "Operații tabelare cu iconițe"
+msgstr "Operațiune de alterare necunoscută."
 
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Au fost gasite %2$d valori desi erau ateptate %1$d."
 
 #: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Erau de așteptat o paranteză deschisă urmată de o serie de valori."
 
 #: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
 msgid "An opening bracket was expected."
@@ -56,32 +57,29 @@ msgstr "O paranteza deschisa este necesara."
 #: src/Statements/InsertStatement.php:217
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:183
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected keyword."
-msgstr "Caractere neaşteptate pe linia %s."
+msgstr "Cuvinte cheie neașteptate."
 
 #: src/Components/CaseExpression.php:194
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Sirsit neasteptat al expresiei \"CASE\""
 
 #: src/Components/CreateDefinition.php:222
+#, fuzzy
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Un nume de simbol era de așteptat! Un cuvânt cheie rezervat nu poate fi "
+"utilizat ca și nume de coloană daca nu este incadrat in ghilimele."
 
 #: src/Components/CreateDefinition.php:236
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Șablon nume tabel"
+msgstr "Un nume de simbol era de așteptat!"
 
 #: src/Components/CreateDefinition.php:269
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Nici o bază de date selectată."
+msgstr "Erau de așteptat, o virgulă sau o paranteză închisă."
 
 #: src/Components/CreateDefinition.php:285
 msgid "A closing bracket was expected."
