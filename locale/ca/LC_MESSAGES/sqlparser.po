@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2016-12-21 15:57+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2017-03-12 22:09+0000\n"
+"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/ca/>\n"
 "Language: ca\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10\n"
+"X-Generator: Weblate 2.12\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -55,20 +55,20 @@ msgstr "S'esperava un claudàtor d'obertura."
 #: src/Statements/InsertStatement.php:217
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:183
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Símbol (token) no esperat."
+msgstr "Paraula clau no esperada."
 
 #: src/Components/CaseExpression.php:194
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Final inesperat d'expressió CASE"
 
 #: src/Components/CreateDefinition.php:222
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"S'esperava un nom de símbol! Una paraula reservada no es pot usar com a nom "
+"de columna sense cometes invertides."
 
 #: src/Components/CreateDefinition.php:236
 msgid "A symbol name was expected!"
@@ -129,10 +129,8 @@ msgid "A rename operation was expected."
 msgstr "S'esperava una operació de canvi de nom."
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "com a expressió regular"
+msgstr "Expressió no trobada."
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
@@ -184,20 +182,16 @@ msgid "Unrecognized keyword."
 msgstr "Paraula clau no reconeguda."
 
 #: src/Statement.php:486
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Inici no esperat de declaració."
+msgstr "Ordre de condicions no esperat."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
 msgstr "S'esperava el nom de l'entitat."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "S'esperava un nom de variable."
+msgstr "S'esperava un nom de taula."
 
 #: src/Statements/CreateStatement.php:438
 msgid "At least one column definition was expected."
@@ -208,10 +202,8 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "S'esperava una paraula clau \"RETURNS\"."
 
 #: src/Statements/DeleteStatement.php:294
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Aquest tipus de clàusula s'ha analitzat anteriorment."
+msgstr "Aquest tipus de clàusula no és vàlid en consultes multi-taula."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
 msgid "error #1"
