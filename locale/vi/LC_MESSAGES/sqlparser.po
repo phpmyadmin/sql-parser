@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2016-01-13 15:59+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/vi/>\n"
+"PO-Revision-Date: 2017-03-25 13:13+0000\n"
+"Last-Translator: Vuong Phan <thevuong@live.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin"
+"/sql-parser/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.12\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -59,14 +59,12 @@ msgstr "Cần dấu ngoặc ôm mở."
 #: src/Statements/InsertStatement.php:217
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:183
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Gặp thẻ bài không cần."
+msgstr "Từ khóa không mong muốn."
 
 #: src/Components/CaseExpression.php:194
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Kết thúc bất ngờ của biểu thức CASE"
 
 #: src/Components/CreateDefinition.php:222
 msgid ""
@@ -135,10 +133,8 @@ msgid "A rename operation was expected."
 msgstr "Cần thao tác đổi tên."
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "dùng biểu thức chính quy"
+msgstr "Thiếu biểu thức chính quy."
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
@@ -190,10 +186,8 @@ msgid "Unrecognized keyword."
 msgstr "Không nhận ra từ khóa."
 
 #: src/Statement.php:486
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Gặp phần đầu mệnh đề không cần."
+msgstr "Đặt mệnh đề không mong muốn."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
@@ -214,18 +208,13 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Cần từ khóa \"RETURNS\"."
 
 #: src/Statements/DeleteStatement.php:294
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Kiểu của mệnh đề này đã được phân tích trước đây."
+msgstr "Mệnh đề loại này không hợp lệ trong các truy vấn Đa bảng."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
-#, fuzzy
-#| msgid "errors."
 msgid "error #1"
-msgstr "lỗi."
+msgstr "lỗi #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:78
-#, fuzzy
 msgid "strict error"
-msgstr "Lỗi nạp"
+msgstr "lỗi nghiêm ngặt"
