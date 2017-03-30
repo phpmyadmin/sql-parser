@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Condition;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\ExpressionArray;
+use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
@@ -86,6 +87,14 @@ class DeleteStatement extends Statement
     public $from;
 
     /**
+     * Joins.
+     *
+     * @var JoinKeyword[]
+     */
+    public $join;
+
+
+    /**
      * Tables used as sources for this statement.
      *
      * @var Expression[]
@@ -139,6 +148,9 @@ class DeleteStatement extends Statement
         }
         if ($this->from != null && count($this->from) > 0) {
             $ret .= ' FROM ' . ExpressionArray::build($this->from);
+        }
+        if ($this->join != null && count($this->join) > 0) {
+            $ret .= ' ' . JoinKeyword::build($this->join);
         }
         if ($this->using != null && count($this->using) > 0) {
             $ret .= ' USING ' . ExpressionArray::build($this->using);
@@ -220,6 +232,7 @@ class DeleteStatement extends Statement
                 ) {
                     ++$list->idx; // Skip 'FROM'
                     $this->from = ExpressionArray::parse($parser, $list);
+
                     $state = 2;
                 } else {
                     $this->columns = ExpressionArray::parse($parser, $list);
@@ -236,6 +249,7 @@ class DeleteStatement extends Statement
                 ) {
                     ++$list->idx; // Skip 'FROM'
                     $this->from = ExpressionArray::parse($parser, $list);
+
                     $state = 2;
                 } else {
                     $parser->error('Unexpected token.', $token);
@@ -243,6 +257,13 @@ class DeleteStatement extends Statement
                 }
             } elseif ($state === 2) {
                 if ($token->type === Token::TYPE_KEYWORD
+                    && stripos($token->keyword, 'JOIN') !== false
+                ) {
+                    ++$list->idx;
+                    $this->join = JoinKeyword::parse($parser, $list);
+
+                    // remain in state = 2
+                } elseif ($token->type === Token::TYPE_KEYWORD
                     && $token->keyword === 'USING'
                 ) {
                     ++$list->idx; // Skip 'USING'
