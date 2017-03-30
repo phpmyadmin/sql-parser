@@ -84,5 +84,14 @@ class DeleteStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals($query, $stmt->build());
+
+        /* Assertion 4 */
+        $query = 'DELETE LOW_PRIORITY t1, t2 FROM t1 INNER JOIN t2 '
+            . 'INNER JOIN t3 WHERE t1.id=t2.id AND t2.id=t3.id';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals($query, $stmt->build());
     }
 }
