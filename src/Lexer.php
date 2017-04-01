@@ -542,7 +542,6 @@ class Lexer extends Core
         if (Context::isComment($token)) {
             while (
                 ++$this->last < $this->len
-                && $this->str[$this->last] !== "\n"
             ) {
                 $token .= $this->str[$this->last];
             }
@@ -611,7 +610,6 @@ class Lexer extends Core
                 if ($this->str[$this->last] !== "\n") {
                     while (
                         ++$this->last < $this->len
-                        && $this->str[$this->last] !== "\n"
                     ) {
                         $token .= $this->str[$this->last];
                     }
