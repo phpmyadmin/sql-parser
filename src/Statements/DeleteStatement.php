@@ -93,7 +93,6 @@ class DeleteStatement extends Statement
      */
     public $join;
 
-
     /**
      * Tables used as sources for this statement.
      *
