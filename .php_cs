@@ -12,7 +12,7 @@ return PhpCsFixer\Config::create()
         '@PSR2' => true,
         '@Symfony' => true,
         'array_syntax' => array('syntax' => 'long'),
-        'concat_space' => array('spacing' => true),
+        'concat_space' => array('spacing' => 'one'),
         'ordered_imports' => true,
         'no_trailing_whitespace' => true,
         'no_useless_return' => true,
