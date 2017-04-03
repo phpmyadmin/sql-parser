@@ -142,4 +142,57 @@ class CLITest extends TestCase
             ),
         );
     }
+
+    /**
+     * @dataProvider tokenizeParams
+     *
+     * @param mixed $getopt
+     * @param mixed $output
+     * @param mixed $result
+     */
+    public function testRunTokenize($getopt, $output, $result)
+    {
+        $cli = $this->getCLI($getopt);
+        $this->expectOutputString($output);
+        $this->assertEquals($result, $cli->runTokenize());
+    }
+
+    public function tokenizeParams()
+    {
+        $result = (
+            "[TOKEN 0]\nType = 1\nFlags = 3\nValue = 'SELECT'\nToken = 'SELECT'\n\n"
+            . "[TOKEN 1]\nType = 3\nFlags = 0\nValue = ' '\nToken = ' '\n\n"
+            . "[TOKEN 2]\nType = 6\nFlags = 0\nValue = 1\nToken = '1'\n\n"
+            . "[TOKEN 3]\nType = 9\nFlags = 0\nValue = NULL\nToken = NULL\n\n"
+        );
+
+        return array(
+            array(
+                array('q' => 'SELECT 1'),
+                $result,
+                0,
+            ),
+            array(
+                array('query' => 'SELECT 1'),
+                $result,
+                0,
+            ),
+            array(
+                array('h' => true),
+                'Usage: tokenize-query --query SQL' . "\n",
+                0,
+            ),
+            array(
+                array(),
+                'ERROR: Missing parameters!' . "\n" .
+                'Usage: tokenize-query --query SQL' . "\n",
+                1,
+            ),
+            array(
+                false,
+                '',
+                1,
+            ),
+        );
+    }
 }

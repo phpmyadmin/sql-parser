@@ -39,6 +39,12 @@ Command line utility to lint SQL query:
 ./vendor/bin/lint-query --query "SELECT 1"
 ```
 
+Command line utility to tokenize SQL query:
+
+```sh
+./vendor/bin/tokenize-query --query "SELECT 1"
+```
+
 ### Formatting SQL query
 
 ```php
