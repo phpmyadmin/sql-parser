@@ -340,6 +340,10 @@ class Formatter
             $curr = $list->tokens[$list->idx];
 
             if ($curr->type === Token::TYPE_WHITESPACE) {
+                // Keep linebreaks after comments
+                if (strpos($curr->token, "\n") !== false && $prev !== null && $prev->type === Token::TYPE_COMMENT) {
+                    $lineEnded = true;
+                }
                 // Whitespaces are skipped because the formatter adds its own.
                 continue;
             }
