@@ -40,3 +40,15 @@ on every commit and pull request, you can also run it locally:
 ```
 ./vendor/bin/phpunit -c phpunit.xml
 ```
+
+The testsuite relies on fixtures of parser states, in case you need to
+regenerate some of these there are helper scripts in tools directory:
+
+```
+# Remove file you want to regenerate
+rm tests/data/parser/parse.out
+
+# Run the generator in the tools directory
+cd tools
+./run_generators.sh
+```
