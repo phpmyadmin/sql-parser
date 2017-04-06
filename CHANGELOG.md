@@ -4,6 +4,7 @@
 
 * Added suppport for DELETE ... JOIN clauses.
 * Changed BufferedQuery to include comments in output.
+* Fixed parsing of inline comments.
 
 ## [4.1.2] - 2017-02-20
 
