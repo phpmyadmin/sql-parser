@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [4.1.3] - 2017-04-06
 
 * Added suppport for DELETE ... JOIN clauses.
