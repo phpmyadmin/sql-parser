@@ -185,6 +185,7 @@ class BufferedQueryTest extends TestCase
 
                     'SET time_zone = "+00:00"',
 
+                    '# Bash-like comment sytanx.' . "\n" .
                     'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
                     'BEGIN' . "\n" .
                     '     SELECT inventory_id' . "\n" .
@@ -196,6 +197,13 @@ class BufferedQueryTest extends TestCase
                     '     SELECT FOUND_ROWS() INTO p_film_count;' . "\n" .
                     'END',
 
+                    '-- --------------------------------------------------------' . "\n" .
+                    '' . "\n" .
+                    '--' . "\n" .
+                    '-- Table structure for `actor`' . "\n" .
+                    '--' . "\n" .
+                    '' . "\n" .
+                    '/* C-like comment syntax. */' . "\n" .
                     'CREATE TABLE IF NOT EXISTS `actor` (' . "\n" .
                     '`actor_id` SMALLINT(5) UNSIGNED NOT NULL,' . "\n" .
                     '`first_name` VARCHAR(45) NOT NULL,' . "\n" .
@@ -231,8 +239,9 @@ class BufferedQueryTest extends TestCase
 
                     'SET time_zone = "+00:00"',
 
-                    'DELIMITER $$',
+                    '/* a comment */  DELIMITER $$',
 
+                    '# Bash-like comment sytanx.' . "\n" .
                     'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
                     'BEGIN' . "\n" .
                     '     SELECT inventory_id' . "\n" .
@@ -246,6 +255,13 @@ class BufferedQueryTest extends TestCase
 
                     'DELIMITER ;',
 
+                    '-- --------------------------------------------------------' . "\n" .
+                    '' . "\n" .
+                    '--' . "\n" .
+                    '-- Table structure for `actor`' . "\n" .
+                    '--' . "\n" .
+                    '' . "\n" .
+                    '/* C-like comment syntax. */' . "\n" .
                     'CREATE TABLE IF NOT EXISTS `actor` (' . "\n" .
                     '`actor_id` SMALLINT(5) UNSIGNED NOT NULL,' . "\n" .
                     '`first_name` VARCHAR(45) NOT NULL,' . "\n" .
@@ -281,6 +297,7 @@ class BufferedQueryTest extends TestCase
 
                     'SET time_zone = "+00:00";',
 
+                    '# Bash-like comment sytanx.' . "\n" .
                     'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
                     'BEGIN' . "\n" .
                     '     SELECT inventory_id' . "\n" .
@@ -292,6 +309,13 @@ class BufferedQueryTest extends TestCase
                     '     SELECT FOUND_ROWS() INTO p_film_count;' . "\n" .
                     'END$$',
 
+                    '-- --------------------------------------------------------' . "\n" .
+                    '' . "\n" .
+                    '--' . "\n" .
+                    '-- Table structure for `actor`' . "\n" .
+                    '--' . "\n" .
+                    '' . "\n" .
+                    '/* C-like comment syntax. */' . "\n" .
                     'CREATE TABLE IF NOT EXISTS `actor` (' . "\n" .
                     '`actor_id` SMALLINT(5) UNSIGNED NOT NULL,' . "\n" .
                     '`first_name` VARCHAR(45) NOT NULL,' . "\n" .
