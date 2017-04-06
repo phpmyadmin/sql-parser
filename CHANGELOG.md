@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Added suppport for DELETE ... JOIN clauses.
+* Changed BufferedQuery to include comments in output.
 
 ## [4.1.2] - 2017-02-20
 
