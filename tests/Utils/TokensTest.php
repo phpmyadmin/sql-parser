@@ -62,22 +62,22 @@ class TokensTest extends TestCase
                 true,
             ),
             array(
-                new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
+                new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('value' => 'abc'),
                 true,
             ),
             array(
-                new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
+                new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('value_str' => 'ABC'),
                 true,
             ),
             array(
-                new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
+                new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('type' => Token::TYPE_STRING),
                 true,
             ),
             array(
-                new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
+                new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('flags' => Token::FLAG_STRING_DOUBLE_QUOTES),
                 true,
             ),
@@ -88,22 +88,22 @@ class TokensTest extends TestCase
                 false,
             ),
             array(
-                new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
+                new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('value' => 'abcd'),
                 false,
             ),
             array(
-                new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
+                new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('value_str' => 'ABCd'),
                 false,
             ),
             array(
-                new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
+                new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('type' => Token::TYPE_NUMBER),
                 false,
             ),
             array(
-                new Token('"abc""', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
+                new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
                 array('flags' => Token::FLAG_STRING_SINGLE_QUOTES),
                 false,
             ),

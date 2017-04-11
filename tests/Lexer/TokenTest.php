@@ -56,6 +56,12 @@ class TokenTest extends TestCase
 
         $tok = new Token("' bar foo '", Token::TYPE_STRING);
         $this->assertEquals($tok->value, ' bar foo ');
+
+        $tok = new Token("'\''", Token::TYPE_STRING);
+        $this->assertEquals($tok->value, '\'');
+
+        $tok = new Token('"\c\d\e\f\g\h\i\j\k\l\m\p\q\s\u\v\w\x\y\z"', Token::TYPE_STRING);
+        $this->assertEquals($tok->value, 'cdefghijklmpqsuvwxyz');
     }
 
     public function testExtractSymbol()
