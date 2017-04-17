@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2017-04-08 03:32+0000\n"
+"PO-Revision-Date: 2017-04-17 14:49+0000\n"
 "Last-Translator: Pongsathorn Sraouthai <pongsathorns@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/th/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.13-dev\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -91,86 +91,77 @@ msgstr "ตัวแทนได้รับการคาดเดา"
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr ""
+msgstr "ชื่อ alias มีอยู่ก่อนแล้ว"
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
-msgstr ""
+msgstr "จุด ไม่ได้รับการคาดเดา"
 
 #: src/Components/ExpressionArray.php:102
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "ยังไม่ได้เลือกแถว"
+msgstr "หนึ่งนิพจน์ได้รับการคาดเดา"
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "หนึ่งออฟเซ็ตได้รับการคาดเดา"
 
 #: src/Components/OptionsArray.php:143
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "ตัวเลือกนี้ขัดแย้งกับ %1$s"
 
 #: src/Components/RenameOperation.php:97
 msgid "The old name of the table was expected."
-msgstr ""
+msgstr "ชื่อเดิมของตารางได้รับการคาดเดา"
 
 #: src/Components/RenameOperation.php:107
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "คำสำคัญ \"TO\" ได้รับการคาดเดา"
 
 #: src/Components/RenameOperation.php:123
 msgid "The new name of the table was expected."
-msgstr ""
+msgstr "ชื่อตารางใหม่ได้รับการคาดเดา"
 
 #: src/Components/RenameOperation.php:141
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "ลบเรียบร้อยแล้ว"
+msgstr "การเปลี่ยนชื่อได้รับการคาดเดา"
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "รูปแบบคำพ้อง (regular expression)"
+msgstr "นิพจน์ขาดหาย"
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
-msgstr ""
+msgstr "ตัวอักษรที่คาดเดาไม่ได้"
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "วรรค(อาจจะมากกว่าหนึ่ง) ได้รับการคาดเดาก่อนตัวคั่น"
 
 #: src/Lexer.php:296 src/Lexer.php:312
 msgid "Expected delimiter."
-msgstr ""
+msgstr "ตัวคั่นได้รับการคาดเดา"
 
 #: src/Lexer.php:841
-#, fuzzy, php-format
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "โยนตาราง %s ทิ้งไปเรียบร้อยแล้ว"
+msgstr "อัญประกาศปิด %1$s ได้รับการคาดเดา"
 
 #: src/Lexer.php:882
-#, fuzzy
 msgid "Variable name was expected."
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ชื่อตัวแปรได้รับการคาดเดา"
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "ที่จุดเริ่มต้นของตาราง"
+msgstr "ไม่อาจคาดเดาจุดเริ่มต้นของประพจน์"
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "ไม่รู้จักชนิดของประพจน์"
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "ไม่มีข้อมูลเข้าออกได้เริ่มต้นมาก่อน"
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:241
 #: src/Statements/DeleteStatement.php:286
