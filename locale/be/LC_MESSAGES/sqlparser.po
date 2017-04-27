@@ -4,43 +4,44 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-01-24 10:49+0100\n"
-"PO-Revision-Date: 2015-05-15 14:28+0200\n"
-"Last-Translator: Viktar Palstsiuk <vipals@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/be/>\n"
+"PO-Revision-Date: 2017-04-27 18:36+0000\n"
+"Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin"
+"/sql-parser/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.3-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Яшчэ не рэалізавана."
 
 #: src/Components/AlterOperation.php:224 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Знойдзена новае сцвярджэнне, але між ім і папярэднім няма раздзяляльніка."
 
 #: src/Components/AlterOperation.php:236
 msgid "Unrecognized alter operation."
-msgstr ""
+msgstr "Нераспазнаная аперацыя змены."
 
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Чакалася %1$d значэнняў, а знойдзена %2$d."
 
 #: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Чакаліся адкрывальная дужка і спіс значэнняў."
 
 #: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Чакалася адкрывальная дужка."
 
 #: src/Components/CaseExpression.php:129 src/Components/CaseExpression.php:159
 #: src/Components/CaseExpression.php:171 src/Components/CaseExpression.php:185
@@ -55,131 +56,114 @@ msgstr ""
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:183
 msgid "Unexpected keyword."
-msgstr ""
+msgstr "Нечаканае ключавое слова."
 
 #: src/Components/CaseExpression.php:194
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Нечаканы канец CASE-выразу"
 
 #: src/Components/CreateDefinition.php:222
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Чакалася назва сімвала! Зарэзерваваныя ключавыя словы нельга выкарыстоўваць "
+"як назву слупка без двукоссяў."
 
 #: src/Components/CreateDefinition.php:236
-#, fuzzy
 msgid "A symbol name was expected!"
-msgstr "Шаблён назвы файла"
+msgstr "Чакалася назва сімвала!"
 
 #: src/Components/CreateDefinition.php:269
-#, fuzzy
-#| msgid "No databases selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Ня выбраная база дадзеных."
+msgstr "Чакалася коска або закрывальная дужка."
 
 #: src/Components/CreateDefinition.php:285
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Чакалася закрывальная дужка."
 
 #: src/Components/DataType.php:123
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Нераспазнаны тып даных."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
-#, fuzzy
-#| msgid "No databases selected."
 msgid "An alias was expected."
-msgstr "Ня выбраная база дадзеных."
+msgstr "Чакаўся псеўданім."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Псеўданім быў знайдзены раней."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Нечаканая кропка."
 
 #: src/Components/ExpressionArray.php:102
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "Ніводны радок ня выбраны"
+msgstr "Чакаўся выраз."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "Чакаўся соступ."
 
 #: src/Components/OptionsArray.php:143
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Гэты параметр канфліктуе з «%1$s»."
 
 #: src/Components/RenameOperation.php:97
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Колькасьць адкрытых табліц."
+msgstr "Чакалася старая назва табліцы."
 
 #: src/Components/RenameOperation.php:107
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Чакалаcя ключавое слова «TO»."
 
 #: src/Components/RenameOperation.php:123
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Колькасьць адкрытых табліц."
+msgstr "Чакалася новая назва табліцы."
 
 #: src/Components/RenameOperation.php:141
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Радок быў выдалены"
+msgstr "Чакалася аперацыя перайменавання."
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "рэгулярны выраз"
+msgstr "Адсутнічае выраз."
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
-msgstr ""
+msgstr "Нечаканы сімвал."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Чакаўся прагал(ы) перад раздзяляльнікам."
 
 #: src/Lexer.php:296 src/Lexer.php:312
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Чакаецца раздзяляльнік."
 
 #: src/Lexer.php:841
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Табліца %1$s створаная."
+msgstr "Чакалася канцавое двукоссе %1$s."
 
 #: src/Lexer.php:882
-#, fuzzy
 msgid "Variable name was expected."
-msgstr "Шаблён назвы файла"
+msgstr "Чакалася назва зменнай."
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "У пачатку табліцы"
+msgstr "Нечаканы пачатак сцвярджэння."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Нераспазнаны тып сцвярджэння."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Няма папярэдне запушчанай транзакцыі."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:241
 #: src/Statements/DeleteStatement.php:286
@@ -187,55 +171,44 @@ msgstr ""
 #: src/Statements/InsertStatement.php:246
 #: src/Statements/ReplaceStatement.php:191
 msgid "Unexpected token."
-msgstr ""
+msgstr "Нечаканы знак."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Гэты тып выразу быў папярэдне разабраны."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Нераспазнанае ключавое слова."
 
 #: src/Statement.php:486
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "У пачатку табліцы"
+msgstr "Нечаканы парадак выразаў."
 
 #: src/Statements/CreateStatement.php:375
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Колькасьць адкрытых табліц."
+msgstr "Чакалася назва сутнасці."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
 msgid "A table name was expected."
-msgstr "Шаблён назвы файла"
+msgstr "Чакалася назва табліцы."
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Радок быў выдалены"
+msgstr "Чакалася азначэнне прынамсі аднаго слупка."
 
 #: src/Statements/CreateStatement.php:549
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Чакалася ключавое слова «RETURNS»."
 
 #: src/Statements/DeleteStatement.php:294
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Гэты тып выразу не правільны для мультытаблічных запытаў."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
-#, fuzzy
-#| msgid "Error"
 msgid "error #1"
-msgstr "Памылка"
+msgstr "памылка #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:78
-#, fuzzy
-#| msgid "Query type"
 msgid "strict error"
-msgstr "Тып запыту"
+msgstr "недапушчальная памылка"
