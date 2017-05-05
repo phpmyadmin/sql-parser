@@ -258,7 +258,7 @@ class LoadStatement extends Statement
                     $parser->error('Unexpected keyword.', $token);
                     break;
                 } elseif ($token->type !== Token::TYPE_KEYWORD) {
-                    $parser->error('Unexpected token1.', $token);
+                    $parser->error('Unexpected token.', $token);
                     break;
                 }
 
@@ -288,7 +288,7 @@ class LoadStatement extends Statement
                     $this->table = Expression::parse($parser, $list, array('parseField' => 'table'));
                     $state = 3;
                 } else {
-                    $parser->error('Unexpected token2.', $token);
+                    $parser->error('Unexpected token.', $token);
                     break;
                 }
             } elseif ($state >= 3 && $state <= 7) {
@@ -307,7 +307,7 @@ class LoadStatement extends Statement
                         = ExpressionArray::parse($parser, $list);
                     $state = 7;
                 } else {
-                    $parser->error('Unexpected token3.', $token);
+                    $parser->error('Unexpected token.', $token);
                     break;
                 }
             }
