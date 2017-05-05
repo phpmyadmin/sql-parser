@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [4.1.4] - 2017-05-05
 
 * Fixed wrong extract of string tokens with escaped characters.
 * Properly handle lowercase begin statement.
