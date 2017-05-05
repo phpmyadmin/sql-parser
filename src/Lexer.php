@@ -548,7 +548,7 @@ class Lexer extends Core
             }
             // Include trailing \n as whitespace token
             if ($this->last < $this->len) {
-                $this->last--;
+                --$this->last;
             }
 
             return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_BASH);
@@ -622,7 +622,7 @@ class Lexer extends Core
                 }
                 // Include trailing \n as whitespace token
                 if ($this->last < $this->len) {
-                    $this->last--;
+                    --$this->last;
                 }
 
                 return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_SQL);

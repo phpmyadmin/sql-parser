@@ -287,6 +287,7 @@ class Token
                 $str = str_replace('\f', 'f', $str);
                 $str = str_replace('\v', 'v', $str);
                 $str = stripcslashes($str);
+
                 return $str;
             case self::TYPE_SYMBOL:
                 $str = $this->token;
