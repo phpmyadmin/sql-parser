@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Fixed wrong extract of string tokens with escaped characters.
+* Properly handle lowercase begin statement.
 
 ## [4.1.3] - 2017-04-06
 

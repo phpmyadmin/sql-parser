@@ -321,7 +321,7 @@ abstract class Statement
             }
 
             // Checking if this is the beginning of the statement.
-            if (!empty(Parser::$STATEMENT_PARSERS[$token->value])) {
+            if (!empty(Parser::$STATEMENT_PARSERS[$token->keyword])) {
                 if ((!empty(static::$CLAUSES)) // Undefined for some statements.
                     && (empty(static::$CLAUSES[$token->value]))
                 ) {

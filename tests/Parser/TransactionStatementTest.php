@@ -21,6 +21,7 @@ class TransactionStatementTest extends TestCase
         return array(
             array('parser/parseTransaction'),
             array('parser/parseTransaction2'),
+            array('parser/parseTransaction3'),
             array('parser/parseTransactionErr1'),
         );
     }
