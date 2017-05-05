@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-01-24 10:49+0100\n"
+"POT-Creation-Date: 2017-05-05 11:34+0200\n"
 "PO-Revision-Date: 2016-12-21 15:56+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -43,42 +43,42 @@ msgstr "Pritet një kllapë e hapur, e ndjekur nga një set vlerash."
 msgid "An opening bracket was expected."
 msgstr "Pritet një kllapë e hapur."
 
-#: src/Components/CaseExpression.php:129 src/Components/CaseExpression.php:159
-#: src/Components/CaseExpression.php:171 src/Components/CaseExpression.php:185
-#: src/Statements/DeleteStatement.php:216
-#: src/Statements/DeleteStatement.php:232
-#: src/Statements/DeleteStatement.php:272
-#: src/Statements/DeleteStatement.php:283
-#: src/Statements/DeleteStatement.php:313
-#: src/Statements/DeleteStatement.php:324
+#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
+#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Statements/DeleteStatement.php:227
+#: src/Statements/DeleteStatement.php:244
+#: src/Statements/DeleteStatement.php:292
+#: src/Statements/DeleteStatement.php:303
+#: src/Statements/DeleteStatement.php:333
+#: src/Statements/DeleteStatement.php:344
 #: src/Statements/InsertStatement.php:189
-#: src/Statements/InsertStatement.php:217
+#: src/Statements/InsertStatement.php:217 src/Statements/LoadStatement.php:258
 #: src/Statements/ReplaceStatement.php:155
-#: src/Statements/ReplaceStatement.php:183
+#: src/Statements/ReplaceStatement.php:182
 #, fuzzy
 #| msgid "Unexpected token."
 msgid "Unexpected keyword."
 msgstr "Shenjë e papritur."
 
-#: src/Components/CaseExpression.php:194
+#: src/Components/CaseExpression.php:192
 msgid "Unexpected end of CASE expression"
 msgstr ""
 
-#: src/Components/CreateDefinition.php:222
+#: src/Components/CreateDefinition.php:223
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 
-#: src/Components/CreateDefinition.php:236
+#: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
 msgstr "Pritet emri i një simboli!"
 
-#: src/Components/CreateDefinition.php:269
+#: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
 msgstr "Pritet një presje ose një kllapë mbyllëse."
 
-#: src/Components/CreateDefinition.php:285
+#: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
 msgstr "Pritet një kllapë e mbylljes."
 
@@ -146,12 +146,12 @@ msgstr "Pritet hapësirë(a) e bardhë para delimitrit."
 msgid "Expected delimiter."
 msgstr "Pritet delimiter."
 
-#: src/Lexer.php:841
+#: src/Lexer.php:847
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Pritet thonjëza e fundit %1$s."
 
-#: src/Lexer.php:882
+#: src/Lexer.php:888
 msgid "Variable name was expected."
 msgstr "Pritet emri i variablit."
 
@@ -167,11 +167,12 @@ msgstr "Tip deklarate i panjohur."
 msgid "No transaction was previously started."
 msgstr "Nuk ka filluar ndonjë transaksion më parë."
 
-#: src/Statement.php:242 src/Statements/DeleteStatement.php:241
-#: src/Statements/DeleteStatement.php:286
+#: src/Statement.php:242 src/Statements/DeleteStatement.php:254
+#: src/Statements/DeleteStatement.php:306
 #: src/Statements/InsertStatement.php:226
-#: src/Statements/InsertStatement.php:246
-#: src/Statements/ReplaceStatement.php:191
+#: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
+#: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
+#: src/Statements/ReplaceStatement.php:190
 msgid "Unexpected token."
 msgstr "Shenjë e papritur."
 
@@ -183,7 +184,7 @@ msgstr "Ky tip i klauzolës është parsuar më parë."
 msgid "Unrecognized keyword."
 msgstr "Fjalë kyçe e panjohur."
 
-#: src/Statement.php:486
+#: src/Statement.php:498
 #, fuzzy
 #| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
@@ -207,19 +208,19 @@ msgstr "Pritet së paku një përcaktim kolone."
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Pritet një fjalë kyçe \"RETURNS\"."
 
-#: src/Statements/DeleteStatement.php:294
+#: src/Statements/DeleteStatement.php:314
 #, fuzzy
 #| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Ky tip i klauzolës është parsuar më parë."
 
-#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
+#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
 #, fuzzy
 #| msgid "Error"
 msgid "error #1"
 msgstr "Gabim"
 
-#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:78
+#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
 #, fuzzy
 #| msgid "Query error"
 msgid "strict error"

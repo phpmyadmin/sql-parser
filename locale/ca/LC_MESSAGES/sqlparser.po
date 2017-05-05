@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-01-24 10:49+0100\n"
+"POT-Creation-Date: 2017-05-05 11:34+0200\n"
 "PO-Revision-Date: 2017-03-12 22:09+0000\n"
 "Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -43,26 +43,26 @@ msgstr "S'esperava un claudàtor d'obertura seguit per un conjunt de valors."
 msgid "An opening bracket was expected."
 msgstr "S'esperava un claudàtor d'obertura."
 
-#: src/Components/CaseExpression.php:129 src/Components/CaseExpression.php:159
-#: src/Components/CaseExpression.php:171 src/Components/CaseExpression.php:185
-#: src/Statements/DeleteStatement.php:216
-#: src/Statements/DeleteStatement.php:232
-#: src/Statements/DeleteStatement.php:272
-#: src/Statements/DeleteStatement.php:283
-#: src/Statements/DeleteStatement.php:313
-#: src/Statements/DeleteStatement.php:324
+#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
+#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Statements/DeleteStatement.php:227
+#: src/Statements/DeleteStatement.php:244
+#: src/Statements/DeleteStatement.php:292
+#: src/Statements/DeleteStatement.php:303
+#: src/Statements/DeleteStatement.php:333
+#: src/Statements/DeleteStatement.php:344
 #: src/Statements/InsertStatement.php:189
-#: src/Statements/InsertStatement.php:217
+#: src/Statements/InsertStatement.php:217 src/Statements/LoadStatement.php:258
 #: src/Statements/ReplaceStatement.php:155
-#: src/Statements/ReplaceStatement.php:183
+#: src/Statements/ReplaceStatement.php:182
 msgid "Unexpected keyword."
 msgstr "Paraula clau no esperada."
 
-#: src/Components/CaseExpression.php:194
+#: src/Components/CaseExpression.php:192
 msgid "Unexpected end of CASE expression"
 msgstr "Final inesperat d'expressió CASE"
 
-#: src/Components/CreateDefinition.php:222
+#: src/Components/CreateDefinition.php:223
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
@@ -70,15 +70,15 @@ msgstr ""
 "S'esperava un nom de símbol! Una paraula reservada no es pot usar com a nom "
 "de columna sense cometes invertides."
 
-#: src/Components/CreateDefinition.php:236
+#: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
 msgstr "S'esperava un nom de simbol!"
 
-#: src/Components/CreateDefinition.php:269
+#: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
 msgstr "S'esperava una coma o un claudàtor de tancament."
 
-#: src/Components/CreateDefinition.php:285
+#: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
 msgstr "S'esperava un claudàtor de tancament."
 
@@ -144,12 +144,12 @@ msgstr "S'esperava(en) espai(s) en blanc abans del delimitador."
 msgid "Expected delimiter."
 msgstr "S'esperava delimitador ."
 
-#: src/Lexer.php:841
+#: src/Lexer.php:847
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "S'esperava una cometa de tancament %1$s."
 
-#: src/Lexer.php:882
+#: src/Lexer.php:888
 msgid "Variable name was expected."
 msgstr "S'esperava un nom de variable."
 
@@ -165,11 +165,12 @@ msgstr "Tipus de declaració no reconegut."
 msgid "No transaction was previously started."
 msgstr "No s'ha iniciat cap transacció anteriorment."
 
-#: src/Statement.php:242 src/Statements/DeleteStatement.php:241
-#: src/Statements/DeleteStatement.php:286
+#: src/Statement.php:242 src/Statements/DeleteStatement.php:254
+#: src/Statements/DeleteStatement.php:306
 #: src/Statements/InsertStatement.php:226
-#: src/Statements/InsertStatement.php:246
-#: src/Statements/ReplaceStatement.php:191
+#: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
+#: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
+#: src/Statements/ReplaceStatement.php:190
 msgid "Unexpected token."
 msgstr "Símbol (token) no esperat."
 
@@ -181,7 +182,7 @@ msgstr "Aquest tipus de clàusula s'ha analitzat anteriorment."
 msgid "Unrecognized keyword."
 msgstr "Paraula clau no reconeguda."
 
-#: src/Statement.php:486
+#: src/Statement.php:498
 msgid "Unexpected ordering of clauses."
 msgstr "Ordre de condicions no esperat."
 
@@ -201,14 +202,14 @@ msgstr "S'esperava al menys la definició d'una columna."
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "S'esperava una paraula clau \"RETURNS\"."
 
-#: src/Statements/DeleteStatement.php:294
+#: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Aquest tipus de clàusula no és vàlid en consultes multi-taula."
 
-#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
+#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
 msgid "error #1"
 msgstr "error #1"
 
-#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:78
+#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
 msgid "strict error"
 msgstr "Error estricte"

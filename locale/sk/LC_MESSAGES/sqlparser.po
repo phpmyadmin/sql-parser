@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-01-24 10:49+0100\n"
+"POT-Creation-Date: 2017-05-05 11:34+0200\n"
 "PO-Revision-Date: 2017-01-30 23:44+0000\n"
 "Last-Translator: Stefan Kecskes <mr.kecskes@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -43,26 +43,26 @@ msgstr "Očakávala sa otvárajúca zátvorka nasledovaná sadou hodnôt."
 msgid "An opening bracket was expected."
 msgstr "Očakávala sa otvárajúca zátvorka."
 
-#: src/Components/CaseExpression.php:129 src/Components/CaseExpression.php:159
-#: src/Components/CaseExpression.php:171 src/Components/CaseExpression.php:185
-#: src/Statements/DeleteStatement.php:216
-#: src/Statements/DeleteStatement.php:232
-#: src/Statements/DeleteStatement.php:272
-#: src/Statements/DeleteStatement.php:283
-#: src/Statements/DeleteStatement.php:313
-#: src/Statements/DeleteStatement.php:324
+#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
+#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Statements/DeleteStatement.php:227
+#: src/Statements/DeleteStatement.php:244
+#: src/Statements/DeleteStatement.php:292
+#: src/Statements/DeleteStatement.php:303
+#: src/Statements/DeleteStatement.php:333
+#: src/Statements/DeleteStatement.php:344
 #: src/Statements/InsertStatement.php:189
-#: src/Statements/InsertStatement.php:217
+#: src/Statements/InsertStatement.php:217 src/Statements/LoadStatement.php:258
 #: src/Statements/ReplaceStatement.php:155
-#: src/Statements/ReplaceStatement.php:183
+#: src/Statements/ReplaceStatement.php:182
 msgid "Unexpected keyword."
 msgstr "Neočakávaný znak."
 
-#: src/Components/CaseExpression.php:194
+#: src/Components/CaseExpression.php:192
 msgid "Unexpected end of CASE expression"
 msgstr "Neočakávaný koniec CASE výrazu"
 
-#: src/Components/CreateDefinition.php:222
+#: src/Components/CreateDefinition.php:223
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
@@ -70,15 +70,15 @@ msgstr ""
 "Očakávalo sa meno symbolu! Rezervované kľúčové slovo nemôže byt použité ako "
 "meno stĺpca bez spätných uvodzoviek."
 
-#: src/Components/CreateDefinition.php:236
+#: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
 msgstr "Očakávalo sa meno symbolu!"
 
-#: src/Components/CreateDefinition.php:269
+#: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
 msgstr "Bola očakávaná čiarka alebo uzatváracia zátvorka."
 
-#: src/Components/CreateDefinition.php:285
+#: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
 msgstr "Očakávalo sa uzatvorenie zátvorky."
 
@@ -144,12 +144,12 @@ msgstr "Očakávala sa medzera pred oddelovačom."
 msgid "Expected delimiter."
 msgstr "Očakával sa oddeľovač."
 
-#: src/Lexer.php:841
+#: src/Lexer.php:847
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Ukončujúca úvodzovka  %1$s sa očakávala."
 
-#: src/Lexer.php:882
+#: src/Lexer.php:888
 msgid "Variable name was expected."
 msgstr "Očakávalo sa meno premennej."
 
@@ -165,11 +165,12 @@ msgstr "Nerozpoznaný typ výrazu."
 msgid "No transaction was previously started."
 msgstr "Transakcia sa predtým nezačala."
 
-#: src/Statement.php:242 src/Statements/DeleteStatement.php:241
-#: src/Statements/DeleteStatement.php:286
+#: src/Statement.php:242 src/Statements/DeleteStatement.php:254
+#: src/Statements/DeleteStatement.php:306
 #: src/Statements/InsertStatement.php:226
-#: src/Statements/InsertStatement.php:246
-#: src/Statements/ReplaceStatement.php:191
+#: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
+#: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
+#: src/Statements/ReplaceStatement.php:190
 msgid "Unexpected token."
 msgstr "Neočakávaný token."
 
@@ -181,7 +182,7 @@ msgstr "Tento typ vety bol predtým rozobraný."
 msgid "Unrecognized keyword."
 msgstr "Nerozpoznané kľúčové slovo."
 
-#: src/Statement.php:486
+#: src/Statement.php:498
 msgid "Unexpected ordering of clauses."
 msgstr "Neočakávané poradie výrazov."
 
@@ -201,14 +202,14 @@ msgstr "Očakávala sa aspoň jedna definícia stĺpca."
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Očakávalo sa kľúčové slovo \"RETURNS\"."
 
-#: src/Statements/DeleteStatement.php:294
+#: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Takýto typ výrazu nie je platný vo viac tabuľkových dotazoch."
 
-#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
+#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
 msgid "error #1"
 msgstr "Chyba #1"
 
-#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:78
+#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
 msgid "strict error"
 msgstr "Striktná chyba"

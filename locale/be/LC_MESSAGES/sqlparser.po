@@ -3,17 +3,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-01-24 10:49+0100\n"
+"POT-Creation-Date: 2017-05-05 11:34+0200\n"
 "PO-Revision-Date: 2017-04-27 18:36+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
-"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin"
-"/sql-parser/be/>\n"
+"Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/be/>\n"
 "Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.14-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
@@ -43,26 +43,26 @@ msgstr "Чакаліся адкрывальная дужка і спіс зна�
 msgid "An opening bracket was expected."
 msgstr "Чакалася адкрывальная дужка."
 
-#: src/Components/CaseExpression.php:129 src/Components/CaseExpression.php:159
-#: src/Components/CaseExpression.php:171 src/Components/CaseExpression.php:185
-#: src/Statements/DeleteStatement.php:216
-#: src/Statements/DeleteStatement.php:232
-#: src/Statements/DeleteStatement.php:272
-#: src/Statements/DeleteStatement.php:283
-#: src/Statements/DeleteStatement.php:313
-#: src/Statements/DeleteStatement.php:324
+#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
+#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Statements/DeleteStatement.php:227
+#: src/Statements/DeleteStatement.php:244
+#: src/Statements/DeleteStatement.php:292
+#: src/Statements/DeleteStatement.php:303
+#: src/Statements/DeleteStatement.php:333
+#: src/Statements/DeleteStatement.php:344
 #: src/Statements/InsertStatement.php:189
-#: src/Statements/InsertStatement.php:217
+#: src/Statements/InsertStatement.php:217 src/Statements/LoadStatement.php:258
 #: src/Statements/ReplaceStatement.php:155
-#: src/Statements/ReplaceStatement.php:183
+#: src/Statements/ReplaceStatement.php:182
 msgid "Unexpected keyword."
 msgstr "Нечаканае ключавое слова."
 
-#: src/Components/CaseExpression.php:194
+#: src/Components/CaseExpression.php:192
 msgid "Unexpected end of CASE expression"
 msgstr "Нечаканы канец CASE-выразу"
 
-#: src/Components/CreateDefinition.php:222
+#: src/Components/CreateDefinition.php:223
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
@@ -70,15 +70,15 @@ msgstr ""
 "Чакалася назва сімвала! Зарэзерваваныя ключавыя словы нельга выкарыстоўваць "
 "як назву слупка без двукоссяў."
 
-#: src/Components/CreateDefinition.php:236
+#: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
 msgstr "Чакалася назва сімвала!"
 
-#: src/Components/CreateDefinition.php:269
+#: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
 msgstr "Чакалася коска або закрывальная дужка."
 
-#: src/Components/CreateDefinition.php:285
+#: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
 msgstr "Чакалася закрывальная дужка."
 
@@ -144,12 +144,12 @@ msgstr "Чакаўся прагал(ы) перад раздзяляльніка�
 msgid "Expected delimiter."
 msgstr "Чакаецца раздзяляльнік."
 
-#: src/Lexer.php:841
+#: src/Lexer.php:847
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Чакалася канцавое двукоссе %1$s."
 
-#: src/Lexer.php:882
+#: src/Lexer.php:888
 msgid "Variable name was expected."
 msgstr "Чакалася назва зменнай."
 
@@ -165,11 +165,12 @@ msgstr "Нераспазнаны тып сцвярджэння."
 msgid "No transaction was previously started."
 msgstr "Няма папярэдне запушчанай транзакцыі."
 
-#: src/Statement.php:242 src/Statements/DeleteStatement.php:241
-#: src/Statements/DeleteStatement.php:286
+#: src/Statement.php:242 src/Statements/DeleteStatement.php:254
+#: src/Statements/DeleteStatement.php:306
 #: src/Statements/InsertStatement.php:226
-#: src/Statements/InsertStatement.php:246
-#: src/Statements/ReplaceStatement.php:191
+#: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
+#: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
+#: src/Statements/ReplaceStatement.php:190
 msgid "Unexpected token."
 msgstr "Нечаканы знак."
 
@@ -181,7 +182,7 @@ msgstr "Гэты тып выразу быў папярэдне разабран�
 msgid "Unrecognized keyword."
 msgstr "Нераспазнанае ключавое слова."
 
-#: src/Statement.php:486
+#: src/Statement.php:498
 msgid "Unexpected ordering of clauses."
 msgstr "Нечаканы парадак выразаў."
 
@@ -201,14 +202,14 @@ msgstr "Чакалася азначэнне прынамсі аднаго слу
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Чакалася ключавое слова «RETURNS»."
 
-#: src/Statements/DeleteStatement.php:294
+#: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Гэты тып выразу не правільны для мультытаблічных запытаў."
 
-#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:56
+#: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
 msgid "error #1"
 msgstr "памылка #1"
 
-#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:78
+#: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
 msgid "strict error"
 msgstr "недапушчальная памылка"
