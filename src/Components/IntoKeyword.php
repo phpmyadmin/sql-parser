@@ -66,7 +66,7 @@ class IntoKeyword extends Component
     /**
      * The values to be selected into (SELECT .. INTO @var1).
      *
-     * @var ExpressionArray
+     * @var Expression[]
      */
     public $values;
 
