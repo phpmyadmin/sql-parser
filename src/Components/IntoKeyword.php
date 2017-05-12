@@ -96,6 +96,32 @@ class IntoKeyword extends Component
     public $lines_options;
 
     /**
+     * Constructor.
+     *
+     * @param string $type           Type of destination (may be OUTFILE).
+     * @param string|Expression $dest           Actual destination.
+     * @param array $columns        Column list of destination.
+     * @param array $values         Selected fields.
+     * @param OptionsArray $fields_options Options for FIELDS/COLUMNS keyword.
+     * @param OptionsArray $fields_keyword Options for OPTINOS keyword.
+     */
+    public function __construct(
+        $type = null,
+        $dest = null,
+        $columns = null,
+        $values = null,
+        $fields_options = null,
+        $fields_keyword = null
+    ) {
+        $this->type = $type;
+        $this->dest = $dest;
+        $this->columns = $columns;
+        $this->values = $values;
+        $this->fields_options = $fields_options;
+        $this->fields_keyword = $fields_keyword;
+    }
+
+    /**
      * @param Parser     $parser  the parser that serves as context
      * @param TokensList $list    the list of tokens that are being parsed
      * @param array      $options parameters for parsing
