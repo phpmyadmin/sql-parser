@@ -43,6 +43,20 @@ class ParameterDefinition extends Component
     public $type;
 
     /**
+     * Constructor.
+     *
+     * @param string $name  Parameter's name.
+     * @param string $inOut Parameter's directional type (IN / OUT or None).
+     * @param DataType $type Parameter's type.
+     */
+    public function __construct($name = null, $inOut = null, $type = null)
+    {
+        $this->name = $name;
+        $this->inOut = $inOut;
+        $this->type = $type;
+    }
+
+    /**
      * @param Parser     $parser  the parser that serves as context
      * @param TokensList $list    the list of tokens that are being parsed
      * @param array      $options parameters for parsing
