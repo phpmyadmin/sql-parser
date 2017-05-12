@@ -117,6 +117,23 @@ class AlterOperation extends Component
     public $unknown = array();
 
     /**
+     * Constructor.
+     *
+     * @param OptionsArray $options options of alter operation
+     * @param Expression   $field   altered field
+     * @param array        $unknown unparsed tokens found at the end of operation
+     */
+    public function __construct(
+        $options = null,
+        $field = null,
+        $unknown = array()
+    ) {
+        $this->options = $options;
+        $this->field = $field;
+        $this->unknown = $unknown;
+    }
+
+    /**
      * @param Parser     $parser  the parser that serves as context
      * @param TokensList $list    the list of tokens that are being parsed
      * @param array      $options parameters for parsing
