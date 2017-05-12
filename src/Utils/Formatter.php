@@ -29,6 +29,28 @@ class Formatter
     public $options;
 
     /**
+     * Clauses that are usually short.
+     *
+     * These clauses share the line with the next clause.
+     *
+     * E.g. if INSERT was not here, the formatter would produce:
+     *
+     *      INSERT
+     *      INTO foo
+     *      VALUES(0, 0, 0),(1, 1, 1);
+     *
+     * Instead of:
+     *
+     *      INSERT INTO foo
+     *      VALUES(0, 0, 0),(1, 1, 1)
+     *
+     * @var array
+     */
+    public static $SHORT_CLAUSES = array(
+        'INSERT' => true,
+    );
+
+    /**
      * Clauses that must be inlined.
      *
      * These clauses usually are short and it's nicer to have them inline.
@@ -37,6 +59,7 @@ class Formatter
      */
     public static $INLINE_CLAUSES = array(
         'CREATE' => true,
+        'INTO' => true,
         'LIMIT' => true,
         'PARTITION BY' => true,
         'PARTITION' => true,
@@ -380,7 +403,7 @@ class Formatter
 
                 // Checking if this clause ended.
                 if ($tmp = static::isClause($curr)) {
-                    if ($tmp == 2 || $this->options['clause_newline']) {
+                    if (($tmp == 2 || $this->options['clause_newline']) && empty(self::$SHORT_CLAUSES[$lastClause])) {
                         $lineEnded = true;
                         if ($this->options['parts_newline'] && $indent > 0) {
                             --$indent;
