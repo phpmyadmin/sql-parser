@@ -430,17 +430,11 @@ class FormatTest extends TestCase
             ),
             'insert' => array(
                 'query' => 'insert into foo values (0, 0, 0), (1, 1, 1)',
-                'text' => 'INSERT' . "\n" .
-                    'INTO' . "\n" .
-                    '    foo' . "\n" .
+                'text' => 'INSERT INTO foo' . "\n" .
                     'VALUES(0, 0, 0),(1, 1, 1)',
-                'cli' => "\x1b[35mINSERT" . "\n" .
-                    "\x1b[35mINTO" . "\n" .
-                    "    \x1b[39mfoo" . "\n" .
+                'cli' => "\x1b[35mINSERT \x1b[35mINTO \x1b[39mfoo" . "\n" .
                     "\x1b[35mVALUES\x1b[39m(\x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m)\x1b[39m,\x1b[39m(\x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m)" . "\x1b[0m",
-                'html' => '<span class="sql-reserved">INSERT</span>' . '<br/>' .
-                    '<span class="sql-reserved">INTO</span>' . '<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;foo' . '<br/>' .
+                'html' => '<span class="sql-reserved">INSERT</span> <span class="sql-reserved">INTO</span> foo' . '<br/>' .
                     '<span class="sql-reserved">VALUES</span>(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
             ),
             'string as alias' => array(
