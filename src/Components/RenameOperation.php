@@ -35,6 +35,18 @@ class RenameOperation extends Component
     public $new;
 
     /**
+     * Constructor.
+     *
+     * @param Expression $old Old expression.
+     * @param Expression $new New expression containing new name.
+     */
+    public function __construct($old = null, $new = null)
+    {
+        $this->old = $old;
+        $this->new = $new;
+    }
+
+    /**
      * @param Parser     $parser  the parser that serves as context
      * @param TokensList $list    the list of tokens that are being parsed
      * @param array      $options parameters for parsing
