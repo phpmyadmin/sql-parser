@@ -74,6 +74,24 @@ class JoinKeyword extends Component
     public $using;
 
     /**
+     * Constructor.
+     *
+     * @param string $type Join type
+     * @param Expression $expr Join expression.
+     * @param Condition[] $on Join conditions.
+     * @param ArrayObj $using Columns joined.
+     *
+     * @see JoinKeyword::$JOINS
+     */
+    public function __construct($type = null, $expr = null, $on = null, $using = null)
+    {
+        $this->type = $type;
+        $this->expr = $expr;
+        $this->on = $on;
+        $this->using = $using;
+    }
+
+    /**
      * @param Parser     $parser  the parser that serves as context
      * @param TokensList $list    the list of tokens that are being parsed
      * @param array      $options parameters for parsing
