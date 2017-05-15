@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fixed invalid lexing of queries with : in strings.
+
 ## [4.1.4] - 2017-05-05
 
 * Fixed wrong extract of string tokens with escaped characters.

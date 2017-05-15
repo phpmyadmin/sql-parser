@@ -83,6 +83,7 @@ class LexerTest extends TestCase
             array('lexer/lexWhitespace'),
             array('lexer/lexLabel1'),
             array('lexer/lexLabel2'),
+            array('lexer/lexNoLabel'),
         );
     }
 }

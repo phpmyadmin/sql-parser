@@ -439,30 +439,20 @@ class Lexer extends Core
          * @var int
          */
         $iEnd = $this->last;
-
-        /**
-         * Whether last parsed character is a whitespace.
-         *
-         * @var bool
-         */
-        $lastSpace = false;
-
         for ($j = 1; $j < Context::LABEL_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
-            // Composed keywords shouldn't have more than one whitespace between
-            // keywords.
-            if (Context::isWhitespace($this->str[$this->last])) {
-                if ($lastSpace) {
-                    --$j; // The size of the keyword didn't increase.
-                    continue;
-                }
-                $lastSpace = true;
-            } elseif ($this->str[$this->last] === ':') {
+            if ($this->str[$this->last] === ':' && $j > 1) {
+                // End of label
                 $token .= $this->str[$this->last];
                 $ret = new Token($token, Token::TYPE_LABEL);
                 $iEnd = $this->last;
                 break;
-            } else {
-                $lastSpace = false;
+            } elseif (Context::isWhitespace($this->str[$this->last]) && $j > 1) {
+                // Whitespace between label and :
+                // The size of the keyword didn't increase.
+                --$j;
+            } elseif (Context::isSeparator($this->str[$this->last])) {
+                // Any other separator
+                break;
             }
             $token .= $this->str[$this->last];
         }
