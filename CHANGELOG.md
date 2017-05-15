@@ -1,8 +1,9 @@
 # Change Log
 
-## [Unreleased]
+## [4.1.5] - 2017-05-15
 
 * Fixed invalid lexing of queries with : in strings.
+* Properly handle maximal length of delimiter.
 
 ## [4.1.4] - 2017-05-05
 
