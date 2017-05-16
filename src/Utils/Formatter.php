@@ -528,6 +528,7 @@ class Formatter
     public function toString($token)
     {
         $text = $token->token;
+        static $prev;
 
         foreach ($this->options['formats'] as $format) {
             if ($token->type === $format['type']
@@ -543,7 +544,12 @@ class Formatter
                 if ($this->options['type'] === 'html') {
                     return '<span ' . $format['html'] . '>' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
                 } elseif ($this->options['type'] === 'cli') {
-                    return $format['cli'] . $this->escapeConsole($text);
+                    if ($prev != $format['cli']) {
+                        $prev = $format['cli'];
+                        return $format['cli'] . $this->escapeConsole($text);
+                    }
+
+                    return $this->escapeConsole($text);
                 }
 
                 break;
@@ -551,7 +557,12 @@ class Formatter
         }
 
         if ($this->options['type'] === 'cli') {
-            return "\x1b[39m" . $this->escapeConsole($text);
+            if ($prev != "\x1b[39m") {
+                $prev = "\x1b[39m";
+                return "\x1b[39m" . $this->escapeConsole($text);
+            }
+
+            return $this->escapeConsole($text);
         } elseif ($this->options['type'] === 'html') {
             return htmlspecialchars($text, ENT_NOQUOTES);
         }

@@ -308,18 +308,18 @@ class FormatTest extends TestCase
                     'DESC' . "\n" .
                     'LIMIT 1 OFFSET 0',
                 'cli' => "\x1b[35mSELECT" . "\n" .
-                    "    \x1b[39mid\x1b[39m," . "\n" .
-                    "    \x1b[35mIF\x1b[39m(\x1b[39mid \x1b[39m= \x1b[92m1\x1b[39m, \x1b[91m\"Si\"\x1b[39m, \x1b[91m\"No\"\x1b[39m)" . "\n" .
+                    "    \x1b[39mid," . "\n" .
+                    "    \x1b[35mIF\x1b[39m(id = \x1b[92m1\x1b[39m, \x1b[91m\"Si\"\x1b[39m, \x1b[91m\"No\"\x1b[39m)" . "\n" .
                     "\x1b[35mFROM" . "\n" .
                     "    \x1b[36m`tbl`" . "\n" .
                     "\x1b[35mWHERE" . "\n" .
-                    "    \x1b[39mid \x1b[39m= \x1b[92m0 \x1b[35mOR \x1b[39mid \x1b[39m= \x1b[92m1" . "\n" .
+                    "    \x1b[39mid = \x1b[92m0 \x1b[35mOR \x1b[39mid = \x1b[92m1" . "\n" .
                     "\x1b[35mGROUP BY" . "\n" .
                     "    \x1b[39mid" . "\n" .
                     "\x1b[35mORDER BY" . "\n" .
                     "    \x1b[39mid" . "\n" .
                     "\x1b[35mDESC" . "\n" .
-                    "\x1b[35mLIMIT \x1b[92m1 \x1b[95mOFFSET \x1b[92m0" . "\x1b[0m",
+                    "LIMIT \x1b[92m1 \x1b[95mOFFSET \x1b[92m0" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;id,' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">IF</span>(id = <span class="sql-number">1</span>, <span class="sql-string">"Si"</span>, <span class="sql-string">"No"</span>)' . '<br/>' .
@@ -396,8 +396,8 @@ class FormatTest extends TestCase
                 'query' => 'select distinct count(*)',
                 'text' => 'SELECT DISTINCT' . "\n" .
                     '    COUNT(*)',
-                'cli' => "\x1b[35mSELECT \x1b[35mDISTINCT" . "\n" .
-                    "    \x1b[95mCOUNT\x1b[39m(\x1b[39m*\x1b[39m)" . "\x1b[0m",
+                'cli' => "\x1b[35mSELECT DISTINCT" . "\n" .
+                    "    \x1b[95mCOUNT\x1b[39m(*)" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span> <span class="sql-reserved">DISTINCT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">COUNT</span>(*)',
             ),
@@ -412,12 +412,12 @@ class FormatTest extends TestCase
                     '        *;' . "\n" .
                     'END',
                 'cli' => "\x1b[35mCREATE" . "\n" .
-                    "\x1b[35mPROCEDURE \x1b[39mtest_procedure\x1b[39m(\x1b[39m)\n" .
+                    "PROCEDURE \x1b[39mtest_procedure()\n" .
                     "\x1b[95mBEGIN" . "\n" .
                     "    \x1b[35mFROM" . "\n" .
                     "        \x1b[39mtbl" . "\n" .
                     "    \x1b[35mSELECT" . "\n" .
-                    "        \x1b[39m*\x1b[39m;\n" .
+                    "        \x1b[39m*;\n" .
                     "\x1b[95mEND" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">CREATE</span>' . '<br/>' .
                     '<span class="sql-reserved">PROCEDURE</span> test_procedure()' . '<br/>' .
@@ -432,8 +432,8 @@ class FormatTest extends TestCase
                 'query' => 'insert into foo values (0, 0, 0), (1, 1, 1)',
                 'text' => 'INSERT INTO foo' . "\n" .
                     'VALUES(0, 0, 0),(1, 1, 1)',
-                'cli' => "\x1b[35mINSERT \x1b[35mINTO \x1b[39mfoo" . "\n" .
-                    "\x1b[35mVALUES\x1b[39m(\x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m)\x1b[39m,\x1b[39m(\x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m)" . "\x1b[0m",
+                'cli' => "\x1b[35mINSERT INTO \x1b[39mfoo" . "\n" .
+                    "\x1b[35mVALUES\x1b[39m(\x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m),(\x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m)" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">INSERT</span> <span class="sql-reserved">INTO</span> foo' . '<br/>' .
                     '<span class="sql-reserved">VALUES</span>(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
             ),
@@ -466,7 +466,7 @@ class FormatTest extends TestCase
                     "    \x1b[91m'<s>xss'" . "\n" .
                     "\x1b[35mFROM" . "\n" .
                     "    \x1b[36m`<s>xss`\x1b[39m," . "\n" .
-                    "    \x1b[39m< \x1b[39ms \x1b[39m> \x1b[39mnxss \x1b[37m/*s<s>xss*/" . "\x1b[0m",
+                    "    < s > nxss \x1b[37m/*s<s>xss*/" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'&lt;s&gt;xss\'</span>' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
@@ -487,11 +487,11 @@ class FormatTest extends TestCase
                     '    `label` VARCHAR(255) COLLATE utf8_general_ci NOT NULL DEFAULT "",' . "\n" .
                     '    `query` TEXT NOT NULL,' . "\n" .
                     '    PRIMARY KEY(`id`)',
-                'cli' => "\x1b[35mCREATE \x1b[35mTABLE \x1b[35mIF NOT EXISTS \x1b[36m`pma__bookmark`\x1b[39m(" . "\n" .
+                'cli' => "\x1b[35mCREATE TABLE IF NOT EXISTS \x1b[36m`pma__bookmark`\x1b[39m(" . "\n" .
                     "    \x1b[36m`id` \x1b[35mINT\x1b[39m(\x1b[92m11\x1b[39m) \x1b[35mNOT NULL \x1b[95mAUTO_INCREMENT\x1b[39m," . "\n" .
-                    "    \x1b[36m`dbase` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
-                    "    \x1b[36m`user` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
-                    "    \x1b[36m`label` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mCOLLATE \x1b[39mutf8_general_ci \x1b[35mNOT NULL \x1b[35mDEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
+                    "    \x1b[36m`dbase` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
+                    "    \x1b[36m`user` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
+                    "    \x1b[36m`label` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mCOLLATE \x1b[39mutf8_general_ci \x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m," . "\n" .
                     "    \x1b[36m`query` \x1b[95mTEXT \x1b[35mNOT NULL\x1b[39m," . "\n" .
                     "    \x1b[35mPRIMARY KEY\x1b[39m(\x1b[36m`id`\x1b[39m)" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">TABLE</span> <span class="sql-reserved">IF NOT EXISTS</span> <span class="sql-variable">`pma__bookmark`</span>(' . '<br/>' .
@@ -505,7 +505,7 @@ class FormatTest extends TestCase
             'join' => array(
                 'query' => 'join tbl2 on c1=c2',
                 'text' => 'JOIN tbl2 ON c1 = c2',
-                'cli' => "\x1b[35mJOIN \x1b[39mtbl2 \x1b[35mON \x1b[39mc1 \x1b[39m= \x1b[39mc2" .
+                'cli' => "\x1b[35mJOIN \x1b[39mtbl2 \x1b[35mON \x1b[39mc1 = c2" .
                     "\x1b[0m",
                 'html' => '<span class="sql-reserved">JOIN</span> tbl2 <span class="sql-reserved">ON</span> c1 = c2',
             ),
