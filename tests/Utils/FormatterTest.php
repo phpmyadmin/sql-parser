@@ -403,24 +403,22 @@ class FormatTest extends TestCase
             ),
             'create procedure' => array(
                 'query' => 'create procedure test_procedure() begin from tbl select *; end',
-                'text' => 'CREATE' . "\n" .
-                    'PROCEDURE test_procedure()' . "\n" .
+                'text' => 'CREATE PROCEDURE test_procedure()' . "\n" .
                     'BEGIN' . "\n" .
                     '    FROM' . "\n" .
                     '        tbl' . "\n" .
                     '    SELECT' . "\n" .
                     '        *;' . "\n" .
                     'END',
-                'cli' => "\x1b[35mCREATE" . "\n" .
-                    "PROCEDURE \x1b[39mtest_procedure()\n" .
+
+                'cli' => "\x1b[35mCREATE \x1b[35mPROCEDURE \x1b[39mtest_procedure\x1b[39m(\x1b[39m)\n" .
                     "\x1b[95mBEGIN" . "\n" .
                     "    \x1b[35mFROM" . "\n" .
                     "        \x1b[39mtbl" . "\n" .
                     "    \x1b[35mSELECT" . "\n" .
                     "        \x1b[39m*;\n" .
                     "\x1b[95mEND" . "\x1b[0m",
-                'html' => '<span class="sql-reserved">CREATE</span>' . '<br/>' .
-                    '<span class="sql-reserved">PROCEDURE</span> test_procedure()' . '<br/>' .
+                'html' => '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">PROCEDURE</span> test_procedure()' . '<br/>' .
                     '<span class="sql-keyword">BEGIN</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">FROM</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
