@@ -47,6 +47,7 @@ class Formatter
      * @var array
      */
     public static $SHORT_CLAUSES = array(
+        'CREATE' => true,
         'INSERT' => true,
     );
 
