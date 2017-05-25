@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-05-15 10:30+0200\n"
-"PO-Revision-Date: 2017-03-02 07:35+0000\n"
-"Last-Translator: Stefan Murariu <stefan.murariu@yahoo.com>\n"
+"PO-Revision-Date: 2017-05-25 11:13+0000\n"
+"Last-Translator: Codrin <codrin@logicindustry.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/ro/>\n"
 "Language: ro\n"
@@ -14,19 +14,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.12-dev\n"
+"X-Generator: Weblate 2.14.1\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
 msgstr "Nu este inca implementat."
 
 #: src/Components/AlterOperation.php:224 src/Statement.php:334
-#, fuzzy
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
-"O nouă operațiune a fost găsită, dar nici un delimitator între aceasta și "
-"cea anterioară."
+"O nouă operațiune a fost găsită, dar nu exista niciun delimitator între "
+"aceasta și cea anterioară."
 
 #: src/Components/AlterOperation.php:236
 msgid "Unrecognized alter operation."
@@ -35,7 +34,7 @@ msgstr "Operațiune de alterare necunoscută."
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr "Au fost gasite %2$d valori desi erau ateptate %1$d."
+msgstr "Au fost gasite %2$d valori desi erau asteptate %1$d."
 
 #: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
@@ -65,13 +64,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "Sirsit neasteptat al expresiei \"CASE\""
 
 #: src/Components/CreateDefinition.php:223
-#, fuzzy
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
 "Un nume de simbol era de așteptat! Un cuvânt cheie rezervat nu poate fi "
-"utilizat ca și nume de coloană daca nu este incadrat in ghilimele."
+"utilizat ca nume de coloană daca nu este incadrat in ghilimele."
 
 #: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
@@ -79,7 +77,7 @@ msgstr "Un nume de simbol era de așteptat!"
 
 #: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
-msgstr "Erau de așteptat, o virgulă sau o paranteză închisă."
+msgstr "Erau de așteptat o virgulă sau o paranteză închisă."
 
 #: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
@@ -90,76 +88,62 @@ msgid "Unrecognized data type."
 msgstr "Tip de date nerecunoscut."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Nici o bază de date selectată."
+msgstr "Un alias era asteptat."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Un alias a fost deja gasit."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Caracterul punct(.) nu era asteptat."
 
 #: src/Components/ExpressionArray.php:102
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "Nici un rând selectat"
+msgstr "Era asteptata o expresie."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "O deplasare(offset) era asteptata."
 
 #: src/Components/OptionsArray.php:143
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Aceasta optiune intra in conflict cu \"%1$s\"."
 
 #: src/Components/RenameOperation.php:97
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Numărul de tabele ce sînt deschise."
+msgstr "Numele vechi al tabelului este cerut."
 
 #: src/Components/RenameOperation.php:107
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Cuvantul cheie \"TO\" este cerut."
 
 #: src/Components/RenameOperation.php:123
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Numărul de tabele ce sînt deschise."
+msgstr "Numele nou al tabelului este cerut."
 
 #: src/Components/RenameOperation.php:141
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Înregistrarea a fost ștearsă."
+msgstr "Este asteptata o operatiune de redenumire (rename)."
 
 #: src/Components/SetOperation.php:105
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "ca o expresie"
+msgstr "Expresie lipsa."
 
 #: src/Lexer.php:237
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Caractere neaşteptate pe linia %s."
+msgstr "Caracter neasteptat."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Se cer spatii (whitespace) inainte de delimitator."
 
 #: src/Lexer.php:296 src/Lexer.php:314
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Se asteapta delimitator."
 
 #: src/Lexer.php:839
 #, fuzzy, php-format
