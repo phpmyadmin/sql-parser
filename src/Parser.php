@@ -168,7 +168,7 @@ class Parser extends Core
             'options' => array('field' => 'table'),
         ),
         'GROUP BY' => array(
-            'class' => 'PhpMyAdmin\\SqlParser\\Components\\OrderKeyword',
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\GroupKeyword',
             'field' => 'group',
         ),
         'HAVING' => array(
