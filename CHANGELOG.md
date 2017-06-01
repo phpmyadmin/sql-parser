@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [4.1.6] - 2017-06-01
 
 * Fixed building query with GROUP BY clause.
