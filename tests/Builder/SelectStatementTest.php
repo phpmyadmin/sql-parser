@@ -90,4 +90,16 @@ class SelectStatementTest extends TestCase
             $stmt->build()
         );
     }
+
+    public function testBuildGroupBy()
+    {
+        $query = 'SELECT  COUNT(CustomerID), Country FROM Customers GROUP BY Country ';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            $query,
+            $stmt->build()
+        );
+    }
 }
