@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fixed building query with GROUP BY clause.
+
 ## [4.1.5] - 2017-05-15
 
 * Fixed invalid lexing of queries with : in strings.
