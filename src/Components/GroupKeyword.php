@@ -21,29 +21,20 @@ use PhpMyAdmin\SqlParser\TokensList;
 class GroupKeyword extends Component
 {
     /**
-     * The expression that is used for ordering.
+     * The expression that is used for grouping.
      *
      * @var Expression
      */
     public $expr;
-    
-    /**
-     * The order type.
-     *
-     * @var string
-     */
-    public $type;
 
     /**
      * Constructor.
      *
      * @param Expression $expr the expression that we are sorting by
-     * @param string     $type the sorting type
      */
-    public function __construct($expr = null, $type = '')
+    public function __construct($expr = null)
     {
         $this->expr = $expr;
-        $this->type = $type;
     }
 
     /**
@@ -135,7 +126,7 @@ class GroupKeyword extends Component
             return implode(', ', $component);
         }
 
-        return trim($component->expr . ' ' . $component->type);
+        return trim($component->expr);
 
     }
 }
