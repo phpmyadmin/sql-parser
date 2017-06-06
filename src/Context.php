@@ -131,77 +131,77 @@ abstract class Context
 
     // Compatibility mode for Microsoft's SQL server.
     // This is the equivalent of ANSI_QUOTES.
-    const COMPAT_MYSQL = 2;
+    const SQL_MODE_COMPAT_MYSQL = 2;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_allow_invalid_dates
-    const ALLOW_INVALID_DATES = 1;
+    const SQL_MODE_ALLOW_INVALID_DATES = 1;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_ansi_quotes
-    const ANSI_QUOTES = 2;
+    const SQL_MODE_ANSI_QUOTES = 2;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_error_for_division_by_zero
-    const ERROR_FOR_DIVISION_BY_ZERO = 4;
+    const SQL_MODE_ERROR_FOR_DIVISION_BY_ZERO = 4;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_high_not_precedence
-    const HIGH_NOT_PRECEDENCE = 8;
+    const SQL_MODE_HIGH_NOT_PRECEDENCE = 8;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_ignore_space
-    const IGNORE_SPACE = 16;
+    const SQL_MODE_IGNORE_SPACE = 16;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_auto_create_user
-    const NO_AUTO_CREATE_USER = 32;
+    const SQL_MODE_NO_AUTO_CREATE_USER = 32;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero
-    const NO_AUTO_VALUE_ON_ZERO = 64;
+    const SQL_MODE_NO_AUTO_VALUE_ON_ZERO = 64;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_backslash_escapes
-    const NO_BACKSLASH_ESCAPES = 128;
+    const SQL_MODE_NO_BACKSLASH_ESCAPES = 128;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_dir_in_create
-    const NO_DIR_IN_CREATE = 256;
+    const SQL_MODE_NO_DIR_IN_CREATE = 256;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_dir_in_create
-    const NO_ENGINE_SUBSTITUTION = 512;
+    const SQL_MODE_NO_ENGINE_SUBSTITUTION = 512;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_field_options
-    const NO_FIELD_OPTIONS = 1024;
+    const SQL_MODE_NO_FIELD_OPTIONS = 1024;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_key_options
-    const NO_KEY_OPTIONS = 2048;
+    const SQL_MODE_NO_KEY_OPTIONS = 2048;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_table_options
-    const NO_TABLE_OPTIONS = 4096;
+    const SQL_MODE_NO_TABLE_OPTIONS = 4096;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction
-    const NO_UNSIGNED_SUBTRACTION = 8192;
+    const SQL_MODE_NO_UNSIGNED_SUBTRACTION = 8192;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_zero_date
-    const NO_ZERO_DATE = 16384;
+    const SQL_MODE_NO_ZERO_DATE = 16384;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_zero_in_date
-    const NO_ZERO_IN_DATE = 32768;
+    const SQL_MODE_NO_ZERO_IN_DATE = 32768;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_only_full_group_by
-    const ONLY_FULL_GROUP_BY = 65536;
+    const SQL_MODE_ONLY_FULL_GROUP_BY = 65536;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_pipes_as_concat
-    const PIPES_AS_CONCAT = 131072;
+    const SQL_MODE_PIPES_AS_CONCAT = 131072;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_real_as_float
-    const REAL_AS_FLOAT = 262144;
+    const SQL_MODE_REAL_AS_FLOAT = 262144;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_all_tables
-    const STRICT_ALL_TABLES = 524288;
+    const SQL_MODE_STRICT_ALL_TABLES = 524288;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_trans_tables
-    const STRICT_TRANS_TABLES = 1048576;
+    const SQL_MODE_STRICT_TRANS_TABLES = 1048576;
 
     // Custom modes.
 
     // The table and column names and any other field that must be escaped will
     // not be.
     // Reserved keywords are being escaped regardless this mode is used or not.
-    const NO_ENCLOSING_QUOTES = 1073741824;
+    const SQL_MODE_NO_ENCLOSING_QUOTES = 1073741824;
 
     /*
      * Combination SQL Modes
@@ -514,7 +514,7 @@ abstract class Context
         }
         $mode = explode(',', $mode);
         foreach ($mode as $m) {
-            static::$MODE |= constant('static::' . $m);
+            static::$MODE |= constant('static::SQL_MODE_' . $m);
         }
     }
 
@@ -536,13 +536,13 @@ abstract class Context
             return $str;
         }
 
-        if ((static::$MODE & self::NO_ENCLOSING_QUOTES)
+        if ((static::$MODE & self::SQL_MODE_NO_ENCLOSING_QUOTES)
             && (!static::isKeyword($str, true))
         ) {
             return $str;
         }
 
-        if (static::$MODE & self::ANSI_QUOTES) {
+        if (static::$MODE & self::SQL_MODE_ANSI_QUOTES) {
             $quote = '"';
         }
 

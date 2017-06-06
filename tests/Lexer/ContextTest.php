@@ -44,7 +44,12 @@ class ContextTest extends TestCase
     {
         Context::setMode('REAL_AS_FLOAT,ANSI_QUOTES,IGNORE_SPACE');
         $this->assertEquals(
-            Context::REAL_AS_FLOAT | Context::ANSI_QUOTES | Context::IGNORE_SPACE,
+            Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ANSI_QUOTES | Context::SQL_MODE_IGNORE_SPACE,
+            Context::$MODE
+        );
+        Context::setMode('TRADITIONAL');
+        $this->assertEquals(
+            Context::SQL_MODE_TRADITIONAL,
             Context::$MODE
         );
         Context::setMode();

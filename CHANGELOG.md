@@ -1,6 +1,8 @@
 # Change Log
 
-## [Unreleased]
+## [4.1.7] - 2017-06-06
+
+* Fixed setting combination SQL Modes.
 
 ## [4.1.6] - 2017-06-01
 
