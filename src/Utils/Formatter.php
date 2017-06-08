@@ -362,10 +362,19 @@ class Formatter
              * @var Token
              */
             $curr = $list->tokens[$list->idx];
+            if ($list->idx + 1 < $list->count) {
+                $next = $list->tokens[$list->idx + 1];
+            } else {
+                $next = null;
+            }
 
             if ($curr->type === Token::TYPE_WHITESPACE) {
-                // Keep linebreaks after comments
-                if (strpos($curr->token, "\n") !== false && $prev !== null && $prev->type === Token::TYPE_COMMENT) {
+                // Keep linebreaks before and after comments
+                if (strpos($curr->token, "\n") !== false && (
+                        ($prev !== null && $prev->type === Token::TYPE_COMMENT) ||
+                        ($next !== null && $next->type === Token::TYPE_COMMENT)
+                    )
+                ) {
                     $lineEnded = true;
                 }
                 // Whitespaces are skipped because the formatter adds its own.
