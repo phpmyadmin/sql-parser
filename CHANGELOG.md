@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fixed parsing SQL comment at the end of query.
+
 ## [4.1.7] - 2017-06-06
 
 * Fixed setting combination SQL Modes.

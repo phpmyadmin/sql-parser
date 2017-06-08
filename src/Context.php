@@ -307,7 +307,7 @@ abstract class Context
      *
      * @return int the appropriate flag for the comment type
      */
-    public static function isComment($str)
+    public static function isComment($str, $end=false)
     {
         $len = strlen($str);
         if ($str[0] === '#') {
@@ -320,6 +320,8 @@ abstract class Context
         } elseif (($len > 2) && ($str[0] === '-')
             && ($str[1] === '-') && (static::isWhitespace($str[2]))
         ) {
+            return Token::FLAG_COMMENT_SQL;
+        } elseif (($len == 2) && $end && ($str[0] === '-') && ($str[1] === '-')) {
             return Token::FLAG_COMMENT_SQL;
         }
 

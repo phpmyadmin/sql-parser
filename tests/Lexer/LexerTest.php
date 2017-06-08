@@ -63,6 +63,7 @@ class LexerTest extends TestCase
             array('lexer/lexUtf8'),
             array('lexer/lexBool'),
             array('lexer/lexComment'),
+            array('lexer/lexCommentEnd'),
             array('lexer/lexDelimiter'),
             array('lexer/lexDelimiter2'),
             array('lexer/lexDelimiterErr1'),
