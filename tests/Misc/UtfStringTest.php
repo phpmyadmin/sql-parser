@@ -82,4 +82,35 @@ class UtfStringTest extends TestCase
         $str = new UtfString(static::TEST_PHRASE);
         $this->assertEquals(static::TEST_PHRASE, (string) $str);
     }
+
+    /**
+     * Test access to string
+     *
+     * @dataProvider utf8_strings
+     */
+    public function testAccess($text, $pos10, $pos20)
+    {
+        $str = new UtfString($text);
+        $this->assertEquals($pos10, $str->offsetGet(10));
+        $this->assertEquals($pos20, $str->offsetGet(20));
+        $this->assertEquals($pos10, $str->offsetGet(10));
+    }
+
+    public function utf8_strings()
+    {
+        return array(
+            'ascii' => array(
+                'abcdefghijklmnopqrstuvwxyz', 'k', 'u'
+            ),
+            'unicode' => array(
+                'áéíóúýěřťǔǐǒǎšďȟǰǩľžčǚň', 'ǐ', 'č'
+            ),
+            'emoji' => array(
+                '😂😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯', '😂', '😋'
+            ),
+            'iso' => array(
+                "P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy", null, null
+            ),
+        );
+    }
 }

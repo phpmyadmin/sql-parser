@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Fixed parsing SQL comment at the end of query.
+* Improved handing of non utf-8 strings.
 
 ## [4.1.7] - 2017-06-06
 
