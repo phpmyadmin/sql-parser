@@ -26,6 +26,7 @@ use PhpMyAdmin\SqlParser\Statements\RenameStatement;
 use PhpMyAdmin\SqlParser\Statements\RepairStatement;
 use PhpMyAdmin\SqlParser\Statements\ReplaceStatement;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Statements\SetStatement;
 use PhpMyAdmin\SqlParser\Statements\ShowStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
@@ -358,6 +359,8 @@ class Query
         } elseif ($statement instanceof UpdateStatement) {
             $flags['querytype'] = 'UPDATE';
             $flags['is_affected'] = true;
+        } elseif ($statement instanceof SetStatement) {
+            $flags['querytype'] = 'SET';
         }
 
         if (($statement instanceof SelectStatement)
