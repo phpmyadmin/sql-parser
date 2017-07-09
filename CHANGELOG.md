@@ -1,9 +1,10 @@
 # Change Log
 
-## [Unreleased]
+## [4.1.8] - 2017-07-09
 
 * Fixed parsing SQL comment at the end of query.
 * Improved handing of non utf-8 strings.
+* Added query flag for SET queries.
 
 ## [4.1.7] - 2017-06-06
 
