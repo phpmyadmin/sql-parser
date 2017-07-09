@@ -263,6 +263,12 @@ class QueryTest extends TestCase
                     'select_from' => true,
                 ),
             ),
+            array(
+                'SET NAMES \'latin\'',
+                array(
+                    'querytype' => 'SET',
+                ),
+            ),
         );
     }
 
