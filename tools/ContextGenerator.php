@@ -97,9 +97,9 @@ class ContextGenerator
     public static function sortWords(array &$arr)
     {
         ksort($arr);
-        foreach ($arr as $type => &$wordsByLen) {
+        foreach ($arr as &$wordsByLen) {
             ksort($wordsByLen);
-            foreach ($wordsByLen as $len => &$words) {
+            foreach ($wordsByLen as &$words) {
                 sort($words, SORT_STRING);
             }
         }
