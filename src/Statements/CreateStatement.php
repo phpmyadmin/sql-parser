@@ -543,11 +543,12 @@ class CreateStatement extends Statement
         ) {
             $this->parameters = ParameterDefinition::parse($parser, $list);
             if ($this->options->has('FUNCTION')) {
+                $prev_token = $token;
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
-                if ($token->keyword !== 'RETURNS') {
+                if (is_null($token) || $token->keyword !== 'RETURNS') {
                     $parser->error(
                         'A "RETURNS" keyword was expected.',
-                        $token
+                        is_null($token) ? $prev_token : $token
                     );
                 } else {
                     ++$list->idx;

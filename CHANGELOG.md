@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Various code cleanups.
+* Improved error handling of several invalid statements.
 
 ## [4.1.8] - 2017-07-09
 
