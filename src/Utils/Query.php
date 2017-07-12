@@ -6,7 +6,6 @@
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
-use PhpMyAdmin\SqlParser\Components\CaseExpression;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
@@ -443,8 +442,6 @@ class Query
                     if (!in_array($arr, $ret['select_tables'])) {
                         $ret['select_tables'][] = $arr;
                     }
-                } elseif ($expr instanceof CaseExpression) {
-                    $ret['select_expr'][] = CaseExpression::build($expr);
                 } else {
                     $ret['select_expr'][] = $expr->expr;
                 }
