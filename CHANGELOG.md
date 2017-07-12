@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [4.1.9] - 2017-07-12
 
 * Various code cleanups.
