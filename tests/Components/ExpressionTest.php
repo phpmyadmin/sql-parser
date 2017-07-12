@@ -17,6 +17,7 @@ class ExpressionTest extends TestCase
     public function testParse2()
     {
         $component = Expression::parse(new Parser(), $this->getTokensList('col`test`'));
+        $this->assertEquals($component->expr, 'col');
     }
 
     /**
