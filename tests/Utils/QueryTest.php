@@ -360,6 +360,23 @@ class QueryTest extends TestCase
             ),
             Query::getAll($query)
         );
+
+        $query = 'SELECT CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END';
+        $parser = new Parser($query);
+        $this->assertEquals(
+            array_merge(
+                Query::getFlags($parser->statements[0], true),
+                array(
+                    'parser' => $parser,
+                    'statement' => $parser->statements[0],
+                    'select_expr' => array(
+                        'CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END'
+                    ),
+                    'select_tables' => array(),
+                )
+            ),
+            Query::getAll($query)
+        );
     }
 
     /**
