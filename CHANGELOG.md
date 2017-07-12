@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Various code cleanups.
+
 ## [4.1.8] - 2017-07-09
 
 * Fixed parsing SQL comment at the end of query.

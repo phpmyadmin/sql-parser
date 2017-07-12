@@ -310,6 +310,9 @@ abstract class Context
     public static function isComment($str, $end=false)
     {
         $len = strlen($str);
+        if ($len == 0) {
+            return null;
+        }
         if ($str[0] === '#') {
             return Token::FLAG_COMMENT_BASH;
         } elseif (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
@@ -376,6 +379,9 @@ abstract class Context
      */
     public static function isSymbol($str)
     {
+        if (strlen($str) == 0) {
+            return null;
+        }
         if ($str[0] === '@') {
             return Token::FLAG_SYMBOL_VARIABLE;
         } elseif ($str[0] === '`') {
@@ -397,6 +403,9 @@ abstract class Context
      */
     public static function isString($str)
     {
+        if (strlen($str) == 0) {
+            return null;
+        }
         if ($str[0] === '\'') {
             return Token::FLAG_STRING_SINGLE_QUOTES;
         } elseif ($str[0] === '"') {
