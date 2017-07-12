@@ -312,7 +312,7 @@ abstract class Statement
             }
 
             // Checking if this is the beginning of a clause.
-            if (!empty(Parser::$KEYWORD_PARSERS[$token->value])) {
+            if (!empty(Parser::$KEYWORD_PARSERS[$token->value]) && $list->idx < $list->count) {
                 $class = Parser::$KEYWORD_PARSERS[$token->value]['class'];
                 $field = Parser::$KEYWORD_PARSERS[$token->value]['field'];
                 if (!empty(Parser::$KEYWORD_PARSERS[$token->value]['options'])) {
@@ -372,6 +372,11 @@ abstract class Statement
 
             // Parsing this keyword.
             if ($class !== null) {
+                // We can't parse keyword at the end of statement
+                if ($list->idx >= $list->count) {
+                    $parser->error('Keyword at end of statement.', $token);
+                    continue;
+                }
                 ++$list->idx; // Skipping keyword or last option.
                 $this->$field = $class::parse($parser, $list, $options);
             }

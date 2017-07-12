@@ -25,6 +25,7 @@ class RenameStatementTest extends TestCase
             array('parser/parseRenameErr2'),
             array('parser/parseRenameErr3'),
             array('parser/parseRenameErr4'),
+            array('parser/parseRenameErr5'),
         );
     }
 }
