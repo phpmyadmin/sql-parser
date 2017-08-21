@@ -457,7 +457,7 @@ abstract class Context
             $context = self::$contextPrefix . $context;
         }
         if (!class_exists($context)) {
-            throw new LoaderException(
+            throw @new LoaderException(
                 'Specified context ("' . $context . '") does not exist.',
                 $context
             );
