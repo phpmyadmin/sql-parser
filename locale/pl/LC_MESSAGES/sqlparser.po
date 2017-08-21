@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-01-28 13:02+0000\n"
 "Last-Translator: Jarosław Pietras <jarko2227@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -20,12 +20,12 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Jeszcze nie zaimplementowane."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr "Znaleziono kolejne polecenie, ale brakuje między nimi rozgranicznika."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 #, fuzzy
 #| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
@@ -44,8 +44,8 @@ msgstr "Oczekiwano nawiasu otwierającego i listy wartości."
 msgid "An opening bracket was expected."
 msgstr "Brak nawiasu otwierającego."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -59,7 +59,7 @@ msgstr "Brak nawiasu otwierającego."
 msgid "Unexpected keyword."
 msgstr "Nieznane słowo kluczowe."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Nieoczekiwany koniec polecenia CASE"
 
@@ -114,23 +114,23 @@ msgstr ""
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Ta opcja zawiera konflikt z \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Oczekiwano starej nazwy tabeli."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Oczekiwano słowa kluczowego \"TO\"."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Oczekiwano nowej nazwy tabeli."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Oczekiwano polecenia zmiany nazwy."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Brakujące wyrażenie."
 
@@ -146,12 +146,12 @@ msgstr "Oczekiwano spacji przez rozgranicznikiem."
 msgid "Expected delimiter."
 msgstr "Oczekiwano rozgranicznika."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Oczekiwano znaku końca %1$s."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Oczekiwano nazwy zmiennej."
 
@@ -186,7 +186,13 @@ msgstr "Ten rodzaj klauzuli był wcześniej analizowany."
 msgid "Unrecognized keyword."
 msgstr "Nierozpoznane słowo kluczowe."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Oczekiwano początku polecenia."
+
+#: src/Statement.php:503
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
@@ -204,7 +210,7 @@ msgstr "Oczekiwano nazwy tabeli."
 msgid "At least one column definition was expected."
 msgstr "Oczekiwano definicji co najmniej jednej kolumny."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Oczekiwano słowa kluczowego \"RETURNS\"."
 

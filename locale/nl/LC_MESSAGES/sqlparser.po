@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-01-03 13:33+0000\n"
 "Last-Translator: dingo thirteen <dingo13@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -19,14 +19,14 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Nog niet geïmplementeerd."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Een nieuwe opdracht werd gevonden, maar zonder scheidingsteken tussen deze "
 "en de vorige opdracht."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Onbekende bewerking."
 
@@ -43,8 +43,8 @@ msgstr "Een openingshaakje gevolgd door een set met waardes werd verwacht."
 msgid "An opening bracket was expected."
 msgstr "Een openingshaakje werd verwacht."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -58,7 +58,7 @@ msgstr "Een openingshaakje werd verwacht."
 msgid "Unexpected keyword."
 msgstr "Onverwacht sleutelwoord."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Onverwacht einde van CASE expressie"
 
@@ -112,23 +112,23 @@ msgstr "Een offset werd verwacht."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Deze optie conflicteert met \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "De oude naam van de tabel werd verwacht."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Sleutelwoord \"TO\" werd verwacht."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "De nieuwe naam van de tabel werd verwacht."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Een hernoem bewerking werd verwacht."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Expressie ontbreekt."
 
@@ -144,12 +144,12 @@ msgstr "Spatie(s) werd(en) verwacht voor het scheidingsteken."
 msgid "Expected delimiter."
 msgstr "Scheidingsteken verwacht."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Eindquote %1$s werd verwacht."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Naam van variabele  werd verwacht."
 
@@ -182,7 +182,13 @@ msgstr "Dit type van voorwaarde is eerder uitgevoerd."
 msgid "Unrecognized keyword."
 msgstr "Sleutelwoord niet herkent."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Onverwacht begin van opdracht."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Onverwachte volgorde van voorwaarden."
 
@@ -198,7 +204,7 @@ msgstr "Een tabel naam  werd verwacht."
 msgid "At least one column definition was expected."
 msgstr "Er werd minimaal één kolomdefinitie verwacht."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Een \"RETURNS\" sleutelwoord werd verwacht."
 

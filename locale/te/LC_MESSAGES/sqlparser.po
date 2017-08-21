@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-04-12 15:19+0000\n"
 "Last-Translator: bhargavi sabbisetty <bhargavi_sabbisetty@yahoo.in>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -22,12 +22,12 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "ఇంకా అమలు కాలేదు."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr "ఒక కొత్త వాక్యం కనిపించింది, కానీ దీనికి మరియు మునుపటి దానికి మధ్య ఎటువంటి డీలిమిటర్ లేదు ."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "గుర్తించబడని మారు ఆపరేషన్."
 
@@ -44,8 +44,8 @@ msgstr ""
 msgid "An opening bracket was expected."
 msgstr ""
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Unexpected keyword."
 msgstr ""
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr ""
 
@@ -119,25 +119,25 @@ msgstr ""
 msgid "This option conflicts with \"%1$s\"."
 msgstr ""
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr ""
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr ""
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr ""
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 #, fuzzy
 #| msgid "Database %s has been dropped."
 msgid "A rename operation was expected."
 msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 #, fuzzy
 #| msgid "Last version"
 msgid "Missing expression."
@@ -156,13 +156,13 @@ msgid "Expected delimiter."
 msgstr ""
 
 # మొదటి అనువాదము
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, fuzzy, php-format
 #| msgid "Page has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "పుటను సృష్టించడమైనది"
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr ""
 
@@ -200,7 +200,15 @@ msgid "Unrecognized keyword."
 msgstr ""
 
 # మొదటి అనువాదము
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgctxt "short form"
+#| msgid "Create table"
+msgid "Keyword at end of statement."
+msgstr "పట్టికను సృష్టించు"
+
+# మొదటి అనువాదము
+#: src/Statement.php:503
 #, fuzzy
 #| msgctxt "short form"
 #| msgid "Create table"
@@ -223,7 +231,7 @@ msgstr "పట్టిక పేరు"
 msgid "At least one column definition was expected."
 msgstr "%s డేటాబేస్ తుడిచివేయడమైనది"
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr ""
 

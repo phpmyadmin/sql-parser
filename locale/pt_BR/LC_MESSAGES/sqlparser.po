@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-01-03 16:54+0000\n"
 "Last-Translator: Daniel Palmeira Huanca <daniel46758@hotmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
@@ -19,14 +19,14 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Ainda não implementado."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Uma nova declaração foi encontrada, porém não há delimitador entre esta e a "
 "anterior."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Operação de alteração desconhecida."
 
@@ -44,8 +44,8 @@ msgstr ""
 msgid "An opening bracket was expected."
 msgstr "Era esperado um colchete de abertura."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -59,7 +59,7 @@ msgstr "Era esperado um colchete de abertura."
 msgid "Unexpected keyword."
 msgstr "Caracter inesperado."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Final inesperado da expressão CASE"
 
@@ -113,23 +113,23 @@ msgstr "Era esperado um espaçamento."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Esta opção está em conflito com \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Era esperado o nome anterior da tabela."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Era esperado o caracter \"TO\"."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Era esperado o novo nome da tabela."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Era esperado uma operação renomear."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Faltando expressão."
 
@@ -145,12 +145,12 @@ msgstr "Era(m) esperado(s) espaço(s) em branco antes do delimitador."
 msgid "Expected delimiter."
 msgstr "Esperado delimitador."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Era esperado fechar aspas %1$s."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Era perado nome de variável."
 
@@ -183,7 +183,13 @@ msgstr "Este tipo de sentença foi previamente analisado."
 msgid "Unrecognized keyword."
 msgstr "Comando desconhecido."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Início de declaração inesperado."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Ordenamento de sentenças inesperado."
 
@@ -199,7 +205,7 @@ msgstr "Era esperado um nome de tabela."
 msgid "At least one column definition was expected."
 msgstr "Era esperado a definição de pelo menos uma coluna."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Era esperado um comando \"RETURNS\"."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-04-17 14:49+0000\n"
 "Last-Translator: Pongsathorn Sraouthai <pongsathorns@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -19,12 +19,12 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "ยังไม่มีการดำเนินการ"
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr "ตรวจพบประพจน์ใหม่ แต่ไม่มีตัวคั่นระหว่างตัวมันและก่อนหน้านั้น"
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "ไม่รู้จักการปฏิบัติการนอกเหนือจากนี้"
 
@@ -41,8 +41,8 @@ msgstr "เปิดวงเล็บเหลี่ยมแล้วตาม
 msgid "An opening bracket was expected."
 msgstr "วงเล็บเหลี่ยมเปิดได้รับการคาดเดา"
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -56,7 +56,7 @@ msgstr "วงเล็บเหลี่ยมเปิดได้รับก
 msgid "Unexpected keyword."
 msgstr "คำสำคัญที่ไม่ได้รับการคาดเดา"
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "จุดสิ้นสุดนิพจน์ CASE ไม่ได้รับการคาดเดา"
 
@@ -110,23 +110,23 @@ msgstr "หนึ่งออฟเซ็ตได้รับการคาด
 msgid "This option conflicts with \"%1$s\"."
 msgstr "ตัวเลือกนี้ขัดแย้งกับ %1$s"
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "ชื่อเดิมของตารางได้รับการคาดเดา"
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "คำสำคัญ \"TO\" ได้รับการคาดเดา"
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "ชื่อตารางใหม่ได้รับการคาดเดา"
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "การเปลี่ยนชื่อได้รับการคาดเดา"
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "นิพจน์ขาดหาย"
 
@@ -142,12 +142,12 @@ msgstr "วรรค(อาจจะมากกว่าหนึ่ง) ได
 msgid "Expected delimiter."
 msgstr "ตัวคั่นได้รับการคาดเดา"
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "อัญประกาศปิด %1$s ได้รับการคาดเดา"
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "ชื่อตัวแปรได้รับการคาดเดา"
 
@@ -180,7 +180,13 @@ msgstr ""
 msgid "Unrecognized keyword."
 msgstr ""
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "ไม่อาจคาดเดาจุดเริ่มต้นของประพจน์"
+
+#: src/Statement.php:503
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
@@ -201,7 +207,7 @@ msgstr "รูปแบบของชื่อไฟล์"
 msgid "At least one column definition was expected."
 msgstr "ลบเรียบร้อยแล้ว"
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr ""
 

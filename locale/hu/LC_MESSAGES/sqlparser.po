@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2016-12-21 15:58+0000\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -19,13 +19,13 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Még nincs megvalósítva."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Egy új utasítás található, de nincs elválasztó közte és az előző között."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Felismerhetetlen módosítás művelet."
 
@@ -42,8 +42,8 @@ msgstr "Nyitó kapcsos zárójelet és az azt követő értékeket vártuk."
 msgid "An opening bracket was expected."
 msgstr "Nyitó kapcsos zárójelet vártunk."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -59,7 +59,7 @@ msgstr "Nyitó kapcsos zárójelet vártunk."
 msgid "Unexpected keyword."
 msgstr "Váratlan jelsor."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr ""
 
@@ -111,23 +111,23 @@ msgstr "Offsetet vártunk."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Ez a lehetőség ütközik ezzel: „%1$s”."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "A tábla régi neve várt."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "\"TO\" kulcsszavat vártunk."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "A tábla új neve várt."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Egy átnevezési művelet várt."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 #, fuzzy
 #| msgid "as regular expression"
 msgid "Missing expression."
@@ -145,12 +145,12 @@ msgstr "A határoló előtt szóközö(ke)t vártunk."
 msgid "Expected delimiter."
 msgstr "Határolót vártunk."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "A(z) %1$s záró idézés várt."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Változónév várt."
 
@@ -183,7 +183,13 @@ msgstr "A kikötés ezen típusa korábban fel lett dolgozva."
 msgid "Unrecognized keyword."
 msgstr "Felismerhetetlen kulcsszó."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Váratlan utasítás kezdet."
+
+#: src/Statement.php:503
 #, fuzzy
 #| msgid "at beginning of table"
 msgid "Unexpected ordering of clauses."
@@ -203,7 +209,7 @@ msgstr "Táblanév sablon"
 msgid "At least one column definition was expected."
 msgstr "Legalább egy oszlopmeghatározás várt."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "\"RETURNS\" kulcsszavat vártunk."
 

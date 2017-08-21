@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2015-10-15 11:31+0200\n"
 "Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Bosnian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -20,12 +20,12 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr ""
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr ""
 
@@ -42,8 +42,8 @@ msgstr ""
 msgid "An opening bracket was expected."
 msgstr ""
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Unexpected keyword."
 msgstr ""
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr ""
 
@@ -116,25 +116,25 @@ msgstr ""
 msgid "This option conflicts with \"%1$s\"."
 msgstr ""
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr ""
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr ""
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr ""
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "A rename operation was expected."
 msgstr "Red je obrisan"
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 #, fuzzy
 #| msgid "as regular expression"
 msgid "Missing expression."
@@ -152,12 +152,12 @@ msgstr ""
 msgid "Expected delimiter."
 msgstr ""
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, fuzzy, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Tabela %s je odbačena"
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 #, fuzzy
 msgid "Variable name was expected."
 msgstr "Šablon imena datoteke"
@@ -193,7 +193,13 @@ msgstr ""
 msgid "Unrecognized keyword."
 msgstr ""
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "Keyword at end of statement."
+msgstr "Na početku tabele"
+
+#: src/Statement.php:503
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
@@ -214,7 +220,7 @@ msgstr "Šablon imena datoteke"
 msgid "At least one column definition was expected."
 msgstr "Red je obrisan"
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-01-03 21:09+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -23,14 +23,14 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Ancora non actuate."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "On trovava un nove declaration, ma il non ha alcun demarcator inter isto e "
 "le previe."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Operation d alteration non recognoscite."
 
@@ -47,8 +47,8 @@ msgstr "On expectava un parenthesis aperite sequite per un insimul de valores."
 msgid "An opening bracket was expected."
 msgstr "On expectava un parenthesis aperite."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -62,7 +62,7 @@ msgstr "On expectava un parenthesis aperite."
 msgid "Unexpected keyword."
 msgstr "Un parola clave non expectate."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Un fin inexpectate del expression CASE"
 
@@ -116,23 +116,23 @@ msgstr "On expectava un displaciamento."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Iste option conflige con \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "On expectava le vetule nomine de le tabella."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "On expectava le parola clave \"TO\"."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "On expectava le nove nomine del tabella."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "On expectava un operation de renominar.."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Expression mancante."
 
@@ -148,12 +148,12 @@ msgstr "On expectava spatio(s) blanc ante le demarcator."
 msgid "Expected delimiter."
 msgstr "On expectava demarcator."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "On expectava le fin de citation %1$s ."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "On expectava un nomine de variabile."
 
@@ -186,7 +186,13 @@ msgstr "Iste typo de proposition esseva analysate previemente."
 msgid "Unrecognized keyword."
 msgstr "Parola clave non recognoscite."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Un initio de instruction non expectate."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Un ordine de clausas  non expectate."
 
@@ -202,7 +208,7 @@ msgstr "On expectava un nomine de tabella."
 msgid "At least one column definition was expected."
 msgstr "On expectava al minus un definition de columna."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "On expectava le parola clave \"RETURN\"."
 

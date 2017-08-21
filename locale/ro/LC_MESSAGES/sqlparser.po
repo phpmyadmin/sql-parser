@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-05-25 11:13+0000\n"
 "Last-Translator: Codrin <codrin@logicindustry.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -20,14 +20,14 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Nu este inca implementat."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "O nouă operațiune a fost găsită, dar nu exista niciun delimitator între "
 "aceasta și cea anterioară."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Operațiune de alterare necunoscută."
 
@@ -44,8 +44,8 @@ msgstr "Erau de așteptat o paranteză deschisă urmată de o serie de valori."
 msgid "An opening bracket was expected."
 msgstr "O paranteza deschisa este necesara."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -59,7 +59,7 @@ msgstr "O paranteza deschisa este necesara."
 msgid "Unexpected keyword."
 msgstr "Cuvinte cheie neașteptate."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Sirsit neasteptat al expresiei \"CASE\""
 
@@ -113,23 +113,23 @@ msgstr "O deplasare(offset) era asteptata."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Aceasta optiune intra in conflict cu \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Numele vechi al tabelului este cerut."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Cuvantul cheie \"TO\" este cerut."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Numele nou al tabelului este cerut."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Este asteptata o operatiune de redenumire (rename)."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Expresie lipsa."
 
@@ -145,13 +145,13 @@ msgstr "Se cer spatii (whitespace) inainte de delimitator."
 msgid "Expected delimiter."
 msgstr "Se asteapta delimitator."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, fuzzy, php-format
 #| msgid "Event %1$s has been created."
 msgid "Ending quote %1$s was expected."
 msgstr "Evenimentul %1$s a fost creat."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 #, fuzzy
 #| msgid "Table name template"
 msgid "Variable name was expected."
@@ -190,7 +190,13 @@ msgstr ""
 msgid "Unrecognized keyword."
 msgstr ""
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "At Beginning of Table"
+msgid "Keyword at end of statement."
+msgstr "La începutul tabelului"
+
+#: src/Statement.php:503
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
@@ -214,7 +220,7 @@ msgstr "Șablon nume tabel"
 msgid "At least one column definition was expected."
 msgstr "Înregistrarea a fost ștearsă."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr ""
 

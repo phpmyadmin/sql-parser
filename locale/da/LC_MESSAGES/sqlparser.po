@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-08-14 01:12+0000\n"
 "Last-Translator: Claus Svalekjaer <just.my.smtp.server@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -19,14 +19,14 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Endnu ikke implementeret."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Et nyt statement blev fundet, men der var ingen adskillelsestegn mellem det "
 "og det foregående."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Ukendt alter opgave."
 
@@ -43,8 +43,8 @@ msgstr "En kantet venstreparentes efterfulgt af et sæt værdier blev forventet.
 msgid "An opening bracket was expected."
 msgstr "En kantet venstreparantes var forventet."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -58,7 +58,7 @@ msgstr "En kantet venstreparantes var forventet."
 msgid "Unexpected keyword."
 msgstr "Uventet nøgleord."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Uventet afslutning af CASE udtryk"
 
@@ -112,23 +112,23 @@ msgstr "En forskydning var ventet."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Denne indstilling er i konflikt med \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Tabellens gamle navn var ventet."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Nøgleordet \"TO\" var forventet."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Tabellens nye navn var ventet."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "En omdøbsopgave var ventet."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Manglende udtryk."
 
@@ -144,12 +144,12 @@ msgstr "Forventede whitespace(s) før adskillelsestegn."
 msgid "Expected delimiter."
 msgstr "Forventede adskillelsestegn."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Slut quote %1$s var ventet."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Variabelnavn var ventet."
 
@@ -182,7 +182,13 @@ msgstr "Denne type af sætningskonstruktion er tidligere blevet parset."
 msgid "Unrecognized keyword."
 msgstr "Ukendt nøgleord."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Uventet start på statement."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Uventet clause rækkefølge."
 
@@ -198,7 +204,7 @@ msgstr "Et tabelnavn var ventet."
 msgid "At least one column definition was expected."
 msgstr "Mindst en kolonne definition var ventet."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Et \"RETURNS\" nøgleord var forventet."
 

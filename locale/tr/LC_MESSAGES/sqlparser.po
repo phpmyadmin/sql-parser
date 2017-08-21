@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-01-03 13:03+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -19,13 +19,13 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Henüz uygulanmadı."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Yeni bir ifade bulundu, ancak bu ve önceki arasında hiç sınırlayıcı yok."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Kategorilenmemiş değiştirme işlemi."
 
@@ -42,8 +42,8 @@ msgstr "Açık bir köşeli parantez ardından bir grup değer beklenmekte."
 msgid "An opening bracket was expected."
 msgstr "Açık bir köşeli parantez beklenmekte."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -57,7 +57,7 @@ msgstr "Açık bir köşeli parantez beklenmekte."
 msgid "Unexpected keyword."
 msgstr "Beklenmedik anahtar kelime."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Beklenmedik Büyük/Küçük harf ifadesi sonu"
 
@@ -111,23 +111,23 @@ msgstr "Bir karşılık beklenmekte."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Bu seçenek \"%1$s\" ile çakışıyor."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Tablonun eski adı beklenmekte."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "\"TO\" anahtar kelimesi beklenmekte."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Tablonun yeni adı beklenmekte."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Yeniden adlandırma işlemi beklenmekte."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Eksik ifade."
 
@@ -143,12 +143,12 @@ msgstr "Sınırlayıcıdan önce beklenen boşluk(lar)."
 msgid "Expected delimiter."
 msgstr "Beklenen sınırlayıcı."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Sonlandırma tırnak işareti %1$s beklenmekte."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Değişken adı beklenmekte."
 
@@ -181,7 +181,13 @@ msgstr "Bu tür yan tümce daha önce ayrıştırıldı."
 msgid "Unrecognized keyword."
 msgstr "Tanınmayan anahtar kelime."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Beklenmedik ifade başlangıcı."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Beklenmedik yan tümce sıralaması."
 
@@ -197,7 +203,7 @@ msgstr "Tablo adı beklenmekte."
 msgid "At least one column definition was expected."
 msgstr "En az bir sütun tanımı beklenmekte."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "\"RETURNS\" anahtar kelimesi beklenmekte."
 

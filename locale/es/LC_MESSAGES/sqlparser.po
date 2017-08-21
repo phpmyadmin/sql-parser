@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-02-04 01:30+0000\n"
 "Last-Translator: Franco <fulanodetal.github1@openaliasbox.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -19,14 +19,14 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Aún no implementado."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Se encontró una nueva declaración, pero no hay delimitador entre éste y el "
 "anterior."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Operación de modificación desconocida."
 
@@ -44,8 +44,8 @@ msgstr ""
 msgid "An opening bracket was expected."
 msgstr "Se esperaba un corchete de apertura."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -59,7 +59,7 @@ msgstr "Se esperaba un corchete de apertura."
 msgid "Unexpected keyword."
 msgstr "Palabra clave inesperada."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Final inesperado de expresión CASE"
 
@@ -113,23 +113,23 @@ msgstr "Se espera un desplazamiento."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Esta opción tiene conflictos con \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Se esperaba el nombre anterior de la tabla."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Se esperaba la palabra clave \"TO\"."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Se esperaba el nuevo nombre de la tabla."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Se esperaba un cambio de nombre."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Expresión desaparecida."
 
@@ -145,12 +145,12 @@ msgstr "Espacio(s) en blanco esperado(s) antes de delimitador."
 msgid "Expected delimiter."
 msgstr "Delimitador esperado."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Se esperaba terminar la cita %1$s."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Se esperaba el nombre de la variable."
 
@@ -183,7 +183,13 @@ msgstr "Este tipo de cláusula se analizó previamente."
 msgid "Unrecognized keyword."
 msgstr "Palabra clave no reconocida."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Comienzo inesperado de declaración."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Orden inesperado de condiciones."
 
@@ -199,7 +205,7 @@ msgstr "Se esperaba un nombre de tabla."
 msgid "At least one column definition was expected."
 msgstr "Se esperaba la definición de al menos una columna."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Se esperaba una palabra \"RETURNS\"."
 

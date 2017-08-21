@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-07-20 23:52+0000\n"
 "Last-Translator: Bo Anderson <bo@toxicflames.co.uk>\n"
-"Language-Team: English (United Kingdom) "
-"<https://hosted.weblate.org/projects/phpmyadmin/sql-parser/en_GB/>\n"
+"Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
+"phpmyadmin/sql-parser/en_GB/>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,13 +21,13 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Not implemented yet."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "A new statement was found, but no delimiter between it and the previous one."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Unrecognised alter operation."
 
@@ -44,8 +44,8 @@ msgstr "An opening bracket followed by a set of values was expected."
 msgid "An opening bracket was expected."
 msgstr "An opening bracket was expected."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -59,7 +59,7 @@ msgstr "An opening bracket was expected."
 msgid "Unexpected keyword."
 msgstr "Unexpected keyword."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Unexpected end of CASE expression"
 
@@ -113,23 +113,23 @@ msgstr "An offset was expected."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "This option conflicts with \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "The old name of the table was expected."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Keyword \"TO\" was expected."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "The new name of the table was expected."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "A rename operation was expected."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Missing expression."
 
@@ -145,12 +145,12 @@ msgstr "Expected whitespace(s) before delimiter."
 msgid "Expected delimiter."
 msgstr "Expected delimiter."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Ending quote %1$s was expected."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Variable name was expected."
 
@@ -183,7 +183,13 @@ msgstr "This type of clause was previously parsed."
 msgid "Unrecognized keyword."
 msgstr "Unrecognised keyword."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Unexpected beginning of statement."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Unexpected ordering of clauses."
 
@@ -199,7 +205,7 @@ msgstr "A table name was expected."
 msgid "At least one column definition was expected."
 msgstr "At least one column definition was expected."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "A \"RETURNS\" keyword was expected."
 

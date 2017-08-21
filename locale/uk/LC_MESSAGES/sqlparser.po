@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-07-27 20:43+0000\n"
 "Last-Translator: Володимир Бриняк <bardvv@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -12,20 +12,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.16-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
 msgstr "Ще не реалізовано."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr "Новий оператор знайдено, але між ним і попереднім немає роздільника."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Нерозпізнана операція зміни."
 
@@ -42,8 +42,8 @@ msgstr "Очікувалося відкриття дужки з набором �
 msgid "An opening bracket was expected."
 msgstr "Очікувалося відкриття дужки."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -57,7 +57,7 @@ msgstr "Очікувалося відкриття дужки."
 msgid "Unexpected keyword."
 msgstr "Неочікуване ключове слово."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Неочікуваний кінець виразу CASE"
 
@@ -111,23 +111,23 @@ msgstr "Очікувалося зміщення."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Цей параметр конфліктує з \"%1$s\"."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Очікувалося стара назва таблиці."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Очікувалося ключове слово \"TO\"."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Очікувалося нове ім'я таблиці."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Очікувалася операція перейменування."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Відсутній оператор."
 
@@ -143,12 +143,12 @@ msgstr "Очікувалося пробіл(и) перед роздільник�
 msgid "Expected delimiter."
 msgstr "Очікувалося роздільник."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Очікувалося закриваюча лапка %1$s ."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Очікувалося ім'я змінної."
 
@@ -181,7 +181,13 @@ msgstr "Цей тип оператора був раніше проаналіз�
 msgid "Unrecognized keyword."
 msgstr "Нерозпізнане ключове слово."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Неочікуваний початок виразу оператора."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Неочікуваний порядок операторів."
 
@@ -197,7 +203,7 @@ msgstr "Очікувалося ім'я таблиці."
 msgid "At least one column definition was expected."
 msgstr "Очікувалося, принаймні одне визначення стовпчика."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Очікувалося ключове слово \"RETURNS\"."
 

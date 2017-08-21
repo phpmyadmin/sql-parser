@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-03-21 02:29+0000\n"
 "Last-Translator: mao <mao@lins.fju.edu.tw>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
@@ -19,12 +19,12 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "尚未實作。"
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr "找到新的陳述句，但與前一陳述句之間沒有分隔符。"
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "無法識別的修改操作。"
 
@@ -41,8 +41,8 @@ msgstr "預期開括號後有一組數值。"
 msgid "An opening bracket was expected."
 msgstr "預期要有開始括號。"
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -56,7 +56,7 @@ msgstr "預期要有開始括號。"
 msgid "Unexpected keyword."
 msgstr "預期之外的關鍵字。"
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "預期之外的CASE陳述式"
 
@@ -108,23 +108,23 @@ msgstr "預期要有偏移量(Offset)。"
 msgid "This option conflicts with \"%1$s\"."
 msgstr "此選項與 \"%1$s\" 發生衝突。"
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "預期要有舊的資料表名稱。"
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "預期要有 \"TO\" 關鍵字。"
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "預期要有新的資料表名稱。"
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "預期要有重新命名的操作。"
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "缺少表達式。"
 
@@ -140,12 +140,12 @@ msgstr "預期要有空白於分隔符號之前。"
 msgid "Expected delimiter."
 msgstr "預期要有分隔符號。"
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "預期要於結束使用括號 %1$s。"
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "預期要有變數名稱。"
 
@@ -178,7 +178,13 @@ msgstr "此類型的子句已於前面解析過。"
 msgid "Unrecognized keyword."
 msgstr "無法辨識的關鍵字。"
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "預期之外的陳述句開頭。"
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "預期之外的排序語句。"
 
@@ -194,7 +200,7 @@ msgstr "預期有表格名稱。"
 msgid "At least one column definition was expected."
 msgstr "預期要至少一個欄位定義。"
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "預期要使用 \"RETURNS\" 關鍵字。"
 

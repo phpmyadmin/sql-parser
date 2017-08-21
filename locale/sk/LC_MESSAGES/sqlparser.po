@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-01-30 23:44+0000\n"
 "Last-Translator: Stefan Kecskes <mr.kecskes@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/sql-"
@@ -19,14 +19,14 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Zatiaľ neimplementované."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Nový príkaz bol nájdený, ale nenašiel sa oddeľovač medzi týmto a predošlým "
 "príkazom."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Nerozpoznaná operácia zmeny."
 
@@ -43,8 +43,8 @@ msgstr "Očakávala sa otvárajúca zátvorka nasledovaná sadou hodnôt."
 msgid "An opening bracket was expected."
 msgstr "Očakávala sa otvárajúca zátvorka."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -58,7 +58,7 @@ msgstr "Očakávala sa otvárajúca zátvorka."
 msgid "Unexpected keyword."
 msgstr "Neočakávaný znak."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Neočakávaný koniec CASE výrazu"
 
@@ -112,23 +112,23 @@ msgstr "Odstup bol očakávaný."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Táto možnosť je v rozpore s %1$s."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Bolo očakávané staré meno tabuľky."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Kľúčové slovo \"TO\" bolo očakávané."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Bolo očakávané nové meno tabuľky."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Očakávala sa operácia premenovania."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Chýbajúci výraz."
 
@@ -144,12 +144,12 @@ msgstr "Očakávala sa medzera pred oddelovačom."
 msgid "Expected delimiter."
 msgstr "Očakával sa oddeľovač."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Ukončujúca úvodzovka  %1$s sa očakávala."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Očakávalo sa meno premennej."
 
@@ -182,7 +182,13 @@ msgstr "Tento typ vety bol predtým rozobraný."
 msgid "Unrecognized keyword."
 msgstr "Nerozpoznané kľúčové slovo."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Neočakávaný začiatok výrazu."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Neočakávané poradie výrazov."
 
@@ -198,7 +204,7 @@ msgstr "Očakávalo sa meno tabuľky."
 msgid "At least one column definition was expected."
 msgstr "Očakávala sa aspoň jedna definícia stĺpca."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Očakávalo sa kľúčové slovo \"RETURNS\"."
 

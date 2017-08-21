@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-04-27 18:43+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian (latin) <https://hosted.weblate.org/projects/"
@@ -20,14 +20,14 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Jašče nie realizavana."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Znojdziena novaje scviardžennie, alie miž im i papiarednim niama "
 "razdzialiaĺnika."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Nieraspaznanaja apieracyja zmieny."
 
@@ -44,8 +44,8 @@ msgstr "Čakalisia adkryvaĺnaja dužka i spis značenniaŭ."
 msgid "An opening bracket was expected."
 msgstr "Čakalasia adkryvaĺnaja dužka."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -59,7 +59,7 @@ msgstr "Čakalasia adkryvaĺnaja dužka."
 msgid "Unexpected keyword."
 msgstr "Niečakanaje kliučavoje slova."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Niečakany kaniec CASE-vyrazu"
 
@@ -113,23 +113,23 @@ msgstr "Čakaŭsia sostup."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Hety paramietr kanfliktuje z «%1$s»."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Čakalasia staraja nazva tablicy."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Čakalacja kliučavoje slova «TO»."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Čakalasia novaja nazva tablicy."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Čakalasia apieracyja pierajmienavannia."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Adsutničaje vyraz."
 
@@ -145,12 +145,12 @@ msgstr "Čakaŭsia prahal(y) pierad razdzialiaĺnikam."
 msgid "Expected delimiter."
 msgstr "Čakajecca razdzialiaĺnik."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Čakalasia kancavoje dvukossie %1$s."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Čakalasia nazva zmiennaj."
 
@@ -183,7 +183,13 @@ msgstr "Hety typ vyrazu byŭ papiarednie razabrany."
 msgid "Unrecognized keyword."
 msgstr "Nieraspaznanaje kliučavoje slova."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Niečakany pačatak scviardžennia."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Niečakany paradak vyrazaŭ."
 
@@ -199,7 +205,7 @@ msgstr "Čakalasia nazva tablicy."
 msgid "At least one column definition was expected."
 msgstr "Čakalasia aznačennie prynamsi adnaho slupka."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Čakalasia kliučavoje slova «RETURNS»."
 

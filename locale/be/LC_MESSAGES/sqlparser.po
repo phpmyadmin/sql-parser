@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2017-05-15 10:30+0200\n"
+"POT-Creation-Date: 2017-08-21 12:54+0200\n"
 "PO-Revision-Date: 2017-04-27 18:36+0000\n"
 "Last-Translator: Viktar Vauchkevich <victorenator@gmail.com>\n"
 "Language-Team: Belarusian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -20,13 +20,13 @@ msgstr ""
 msgid "Not implemented yet."
 msgstr "Яшчэ не рэалізавана."
 
-#: src/Components/AlterOperation.php:224 src/Statement.php:334
+#: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
 "Знойдзена новае сцвярджэнне, але між ім і папярэднім няма раздзяляльніка."
 
-#: src/Components/AlterOperation.php:236
+#: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
 msgstr "Нераспазнаная аперацыя змены."
 
@@ -43,8 +43,8 @@ msgstr "Чакаліся адкрывальная дужка і спіс зна�
 msgid "An opening bracket was expected."
 msgstr "Чакалася адкрывальная дужка."
 
-#: src/Components/CaseExpression.php:128 src/Components/CaseExpression.php:157
-#: src/Components/CaseExpression.php:169 src/Components/CaseExpression.php:183
+#: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
+#: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
 #: src/Statements/DeleteStatement.php:227
 #: src/Statements/DeleteStatement.php:244
 #: src/Statements/DeleteStatement.php:292
@@ -58,7 +58,7 @@ msgstr "Чакалася адкрывальная дужка."
 msgid "Unexpected keyword."
 msgstr "Нечаканае ключавое слова."
 
-#: src/Components/CaseExpression.php:192
+#: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
 msgstr "Нечаканы канец CASE-выразу"
 
@@ -112,23 +112,23 @@ msgstr "Чакаўся соступ."
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Гэты параметр канфліктуе з «%1$s»."
 
-#: src/Components/RenameOperation.php:97
+#: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
 msgstr "Чакалася старая назва табліцы."
 
-#: src/Components/RenameOperation.php:107
+#: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
 msgstr "Чакалаcя ключавое слова «TO»."
 
-#: src/Components/RenameOperation.php:123
+#: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
 msgstr "Чакалася новая назва табліцы."
 
-#: src/Components/RenameOperation.php:141
+#: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
 msgstr "Чакалася аперацыя перайменавання."
 
-#: src/Components/SetOperation.php:105
+#: src/Components/SetOperation.php:117
 msgid "Missing expression."
 msgstr "Адсутнічае выраз."
 
@@ -144,12 +144,12 @@ msgstr "Чакаўся прагал(ы) перад раздзяляльніка�
 msgid "Expected delimiter."
 msgstr "Чакаецца раздзяляльнік."
 
-#: src/Lexer.php:839
+#: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
 msgstr "Чакалася канцавое двукоссе %1$s."
 
-#: src/Lexer.php:880
+#: src/Lexer.php:884
 msgid "Variable name was expected."
 msgstr "Чакалася назва зменнай."
 
@@ -182,7 +182,13 @@ msgstr "Гэты тып выразу быў папярэдне разабран�
 msgid "Unrecognized keyword."
 msgstr "Нераспазнанае ключавое слова."
 
-#: src/Statement.php:498
+#: src/Statement.php:377
+#, fuzzy
+#| msgid "Unexpected beginning of statement."
+msgid "Keyword at end of statement."
+msgstr "Нечаканы пачатак сцвярджэння."
+
+#: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "Нечаканы парадак выразаў."
 
@@ -198,7 +204,7 @@ msgstr "Чакалася назва табліцы."
 msgid "At least one column definition was expected."
 msgstr "Чакалася азначэнне прынамсі аднаго слупка."
 
-#: src/Statements/CreateStatement.php:549
+#: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Чакалася ключавое слова «RETURNS»."
 
