@@ -6,6 +6,7 @@
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 
@@ -92,9 +93,9 @@ class CLI
 
     public function parseLint()
     {
-        $longopts = array('help', 'query:');
+        $longopts = array('help', 'query:', 'context:');
         $params = $this->getopt(
-            'hq:', $longopts
+            'hq:c:', $longopts
         );
         $this->mergeLongOpts($params, $longopts);
 
@@ -111,6 +112,9 @@ class CLI
             $this->usageLint();
 
             return 0;
+        }
+        if (isset($params['c'])) {
+            Context::load($params['c']);
         }
         if (isset($params['q'])) {
             $lexer = new Lexer($params['q'], false);
