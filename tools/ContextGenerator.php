@@ -37,6 +37,9 @@ class ContextGenerator
         'MySql50600' => 'https://dev.mysql.com/doc/refman/5.6/en/keywords.html',
         'MySql50700' => 'https://dev.mysql.com/doc/refman/5.7/en/keywords.html',
         'MySql80000' => 'https://dev.mysql.com/doc/refman/8.0/en/keywords.html',
+        'MariaDb100000' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
+        'MariaDb100100' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
+        'MariaDb100200' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
     );
 
     /**
@@ -283,8 +286,8 @@ class ContextGenerator
          * @var string
          */
         $formattedName = str_replace(
-            array('Context', 'MySql', '00', '0'),
-            array('', 'MySQL ', '', '.'),
+            array('Context', 'MySql', 'MariaDb', '00', '0'),
+            array('', 'MySQL ', 'MariaDB ', '', '.'),
             $class
         );
 
