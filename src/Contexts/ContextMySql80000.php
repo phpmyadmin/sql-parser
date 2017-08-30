@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Context for MySQL 5.7.
+ * Context for MySQL 8.
  *
  * This file was auto-generated.
  *
- * @see https://dev.mysql.com/doc/refman/5.7/en/keywords.html
+ * @see https://dev.mysql.com/doc/refman/8.0/en/keywords.html
  */
 
 namespace PhpMyAdmin\SqlParser\Contexts;
@@ -13,13 +13,13 @@ namespace PhpMyAdmin\SqlParser\Contexts;
 use PhpMyAdmin\SqlParser\Context;
 
 /**
- * Context for MySQL 5.7.
+ * Context for MySQL 8.
  *
  * @category   Contexts
  *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
-class ContextMySql50700 extends Context
+class ContextMySql80000 extends Context
 {
     /**
      * List of keywords.
@@ -243,10 +243,10 @@ class ContextMySql50700 extends Context
         'ADDDATE' => 33, 'ADDTIME' => 33, 'AGAINST' => 33, 'BIT_AND' => 33, 'BIT_XOR' => 33,
         'CEILING' => 33, 'CHARSET' => 33, 'CROSSES' => 33, 'CURDATE' => 33, 'CURTIME' => 33,
         'DAYNAME' => 33, 'DEGREES' => 33, 'ENCRYPT' => 33, 'EXTRACT' => 33, 'GLENGTH' => 33,
-        'ISEMPTY' => 33, 'IS_IPV4' => 33, 'IS_IPV6' => 33, 'QUARTER' => 33, 'RADIANS' => 33,
-        'REVERSE' => 33, 'SOUNDEX' => 33, 'ST_AREA' => 33, 'ST_SRID' => 33, 'SUBDATE' => 33,
-        'SUBTIME' => 33, 'SYSDATE' => 33, 'TOUCHES' => 33, 'TO_DAYS' => 33, 'VAR_POP' => 33,
-        'VERSION' => 33, 'WEEKDAY' => 33,
+        'ISEMPTY' => 33, 'IS_IPV4' => 33, 'IS_IPV6' => 33, 'IS_UUID' => 33, 'QUARTER' => 33,
+        'RADIANS' => 33, 'REVERSE' => 33, 'SOUNDEX' => 33, 'ST_AREA' => 33, 'ST_SRID' => 33,
+        'SUBDATE' => 33, 'SUBTIME' => 33, 'SYSDATE' => 33, 'TOUCHES' => 33, 'TO_DAYS' => 33,
+        'VAR_POP' => 33, 'VERSION' => 33, 'WEEKDAY' => 33,
         'ASBINARY' => 33, 'CENTROID' => 33, 'COALESCE' => 33, 'COMPRESS' => 33,
         'CONTAINS' => 33, 'DATEDIFF' => 33, 'DATE_ADD' => 33, 'DATE_SUB' => 33,
         'DISJOINT' => 33, 'DISTANCE' => 33, 'ENDPOINT' => 33, 'ENVELOPE' => 33,
@@ -271,17 +271,17 @@ class ContextMySql50700 extends Context
         'STDDEV_POP' => 33, 'ST_CROSSES' => 33, 'ST_GEOHASH' => 33, 'ST_ISEMPTY' => 33,
         'ST_ISVALID' => 33, 'ST_TOUCHES' => 33, 'TO_SECONDS' => 33, 'UNCOMPRESS' => 33,
         'UUID_SHORT' => 33, 'WEEKOFYEAR' => 33,
-        'AES_DECRYPT' => 33, 'AES_ENCRYPT' => 33, 'CHAR_LENGTH' => 33, 'DATE_FORMAT' => 33,
-        'DES_DECRYPT' => 33, 'DES_ENCRYPT' => 33, 'FIND_IN_SET' => 33, 'FROM_BASE64' => 33,
-        'GEOMFROMWKB' => 33, 'GTID_SUBSET' => 33, 'JSON_INSERT' => 33, 'JSON_LENGTH' => 33,
-        'JSON_OBJECT' => 33, 'JSON_PRETTY' => 33, 'JSON_REMOVE' => 33, 'JSON_SEARCH' => 33,
-        'LINEFROMWKB' => 33, 'MBRCONTAINS' => 33, 'MBRDISJOINT' => 33, 'MBROVERLAPS' => 33,
-        'MICROSECOND' => 33, 'PERIOD_DIFF' => 33, 'POLYFROMWKB' => 33, 'SEC_TO_TIME' => 33,
-        'STDDEV_SAMP' => 33, 'STR_TO_DATE' => 33, 'ST_ASBINARY' => 33, 'ST_CENTROID' => 33,
-        'ST_CONTAINS' => 33, 'ST_DISJOINT' => 33, 'ST_DISTANCE' => 33, 'ST_ENDPOINT' => 33,
-        'ST_ENVELOPE' => 33, 'ST_ISCLOSED' => 33, 'ST_ISSIMPLE' => 33, 'ST_OVERLAPS' => 33,
-        'ST_SIMPLIFY' => 33, 'ST_VALIDATE' => 33, 'SYSTEM_USER' => 33, 'TIME_FORMAT' => 33,
-        'TIME_TO_SEC' => 33,
+        'AES_DECRYPT' => 33, 'AES_ENCRYPT' => 33, 'BIN_TO_UUID' => 33, 'CHAR_LENGTH' => 33,
+        'DATE_FORMAT' => 33, 'DES_DECRYPT' => 33, 'DES_ENCRYPT' => 33, 'FIND_IN_SET' => 33,
+        'FROM_BASE64' => 33, 'GEOMFROMWKB' => 33, 'GTID_SUBSET' => 33, 'JSON_INSERT' => 33,
+        'JSON_LENGTH' => 33, 'JSON_OBJECT' => 33, 'JSON_PRETTY' => 33, 'JSON_REMOVE' => 33,
+        'JSON_SEARCH' => 33, 'LINEFROMWKB' => 33, 'MBRCONTAINS' => 33, 'MBRDISJOINT' => 33,
+        'MBROVERLAPS' => 33, 'MICROSECOND' => 33, 'PERIOD_DIFF' => 33, 'POLYFROMWKB' => 33,
+        'SEC_TO_TIME' => 33, 'STDDEV_SAMP' => 33, 'STR_TO_DATE' => 33, 'ST_ASBINARY' => 33,
+        'ST_CENTROID' => 33, 'ST_CONTAINS' => 33, 'ST_DISJOINT' => 33, 'ST_DISTANCE' => 33,
+        'ST_ENDPOINT' => 33, 'ST_ENVELOPE' => 33, 'ST_ISCLOSED' => 33, 'ST_ISSIMPLE' => 33,
+        'ST_OVERLAPS' => 33, 'ST_SIMPLIFY' => 33, 'ST_VALIDATE' => 33, 'SYSTEM_USER' => 33,
+        'TIME_FORMAT' => 33, 'TIME_TO_SEC' => 33, 'UUID_TO_BIN' => 33,
         'COERCIBILITY' => 33, 'EXTERIORRING' => 33, 'EXTRACTVALUE' => 33,
         'GEOMETRYTYPE' => 33, 'GEOMFROMTEXT' => 33, 'GROUP_CONCAT' => 33,
         'IS_FREE_LOCK' => 33, 'IS_USED_LOCK' => 33, 'JSON_EXTRACT' => 33,
