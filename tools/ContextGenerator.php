@@ -40,6 +40,7 @@ class ContextGenerator
         'MariaDb100000' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
         'MariaDb100100' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
         'MariaDb100200' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
+        'MariaDb100300' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
     );
 
     /**

@@ -55,6 +55,7 @@ class ContextTest extends TestCase
             array('MariaDb100000'),
             array('MariaDb100100'),
             array('MariaDb100200'),
+            array('MariaDb100300'),
         );
     }
 
