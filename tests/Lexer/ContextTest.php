@@ -32,6 +32,33 @@ class ContextTest extends TestCase
     }
 
     /**
+     * @dataProvider contextNames
+     */
+    public function testLoadAll($context)
+    {
+        Context::load($context);
+        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\Context' . $context, Context::$loadedContext);
+
+        // Restoring context.
+        Context::load('');
+    }
+
+    public function contextNames()
+    {
+        return array(
+            array('MySql50000'),
+            array('MySql50100'),
+            array('MySql50500'),
+            array('MySql50600'),
+            array('MySql50700'),
+            array('MySql80000'),
+            array('MariaDb100000'),
+            array('MariaDb100100'),
+            array('MariaDb100200'),
+        );
+    }
+
+    /**
      * @expectedException \Exception
      * @expectedExceptionMessage Specified context ("\PhpMyAdmin\SqlParser\Contexts\ContextFoo") does not exist.
      */
