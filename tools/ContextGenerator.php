@@ -36,6 +36,7 @@ class ContextGenerator
         'MySql50500' => 'https://dev.mysql.com/doc/refman/5.5/en/keywords.html',
         'MySql50600' => 'https://dev.mysql.com/doc/refman/5.6/en/keywords.html',
         'MySql50700' => 'https://dev.mysql.com/doc/refman/5.7/en/keywords.html',
+        'MySql80000' => 'https://dev.mysql.com/doc/refman/8.0/en/keywords.html',
     );
 
     /**
