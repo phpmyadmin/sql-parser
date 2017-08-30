@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [4.2.0] - 2017-08-30
 
 * Initial support for MariaDB SQL contexts.
 * Add support for MariaDB 10.3 INTERSECT and EXCEPT.
