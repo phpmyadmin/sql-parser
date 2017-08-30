@@ -241,6 +241,46 @@ class ContextGenerator
     }
 
     /**
+     * Formats context name.
+     *
+     * @param string $name Name to format.
+     *
+     * @return string
+     */
+    public static function formatName($name)
+    {
+        /* Split name and version */
+        $parts = array();
+        if (preg_match('/([^[0-9]*)([0-9]*)/', $name, $parts) === false) {
+            return $name;
+        }
+
+        /* Format name */
+        $base = $parts[1];
+        switch ($base) {
+            case 'MySql':
+                $base = 'MySQL';
+                break;
+            case 'MariaDb':
+                $base = 'MariaDB';
+                break;
+        }
+
+        /* Parse version to array */
+        $ver_str = $parts[2];
+        if (strlen($ver_str) % 2 == 1) {
+            $ver_str = '0' . $ver_str;
+        }
+        $version = array_map('intval', str_split($ver_str, 2));
+        /* Remove trailing zero */
+        if ($version[count($version) - 1] === 0) {
+            $version = array_slice($version, 0, count($version) - 1);
+        }
+        /* Create name */
+        return $base . ' ' . implode('.', $version);
+    }
+
+    /**
      * Builds a test.
      *
      * Reads the input file, generates the data and writes it back.
@@ -285,11 +325,7 @@ class ContextGenerator
          *
          * @var string
          */
-        $formattedName = str_replace(
-            array('Context', 'MySql', 'MariaDb', '00', '0'),
-            array('', 'MySQL ', 'MariaDB ', '', '.'),
-            $class
-        );
+        $formattedName = static::formatName($name);
 
         file_put_contents(
             $output . '/' . $class . '.php',

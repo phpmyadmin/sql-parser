@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Context for MySQL 8.
+ * Context for MySQL 8.0.
  *
  * This file was auto-generated.
  *
@@ -13,7 +13,7 @@ namespace PhpMyAdmin\SqlParser\Contexts;
 use PhpMyAdmin\SqlParser\Context;
 
 /**
- * Context for MySQL 8.
+ * Context for MySQL 8.0.
  *
  * @category   Contexts
  *

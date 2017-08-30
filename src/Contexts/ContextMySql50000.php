@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Context for MySQL 5.
+ * Context for MySQL 5.0.
  *
  * This file was auto-generated.
  *
@@ -13,7 +13,7 @@ namespace PhpMyAdmin\SqlParser\Contexts;
 use PhpMyAdmin\SqlParser\Context;
 
 /**
- * Context for MySQL 5.
+ * Context for MySQL 5.0.
  *
  * @category   Contexts
  *

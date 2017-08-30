@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Context for MariaDB 1..
+ * Context for MariaDB 10.0.
  *
  * This file was auto-generated.
  *
@@ -13,7 +13,7 @@ namespace PhpMyAdmin\SqlParser\Contexts;
 use PhpMyAdmin\SqlParser\Context;
 
 /**
- * Context for MariaDB 1..
+ * Context for MariaDB 10.0.
  *
  * @category   Contexts
  *
