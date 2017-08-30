@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [4.2.0] - 2017-08-30
 
 * Initial support for MariaDB SQL contexts.
