@@ -112,6 +112,8 @@ class SelectStatement extends Statement
         'LIMIT' => array('LIMIT', 3),
         'PROCEDURE' => array('PROCEDURE', 3),
         'UNION' => array('UNION', 1),
+        'EXCEPT' => array('EXCEPT', 1),
+        'INTERSECT' => array('INTERSECT', 1),
         '_END_OPTIONS' => array('_END_OPTIONS', 1),
         // These are available only when `UNION` is present.
         // 'ORDER BY'                      => array('ORDER BY', 3),

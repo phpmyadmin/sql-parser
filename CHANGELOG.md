@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Initial support for MariaDB SQL contexts.
+* Add support for MariaDB 10.3 INTERSECT and EXCEPT.
 
 ## [4.1.10] - 2017-08-21
 

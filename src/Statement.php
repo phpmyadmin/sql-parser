@@ -246,7 +246,12 @@ abstract class Statement
 
             // Unions are parsed by the parser because they represent more than
             // one statement.
-            if (($token->value === 'UNION') || ($token->value === 'UNION ALL') || ($token->value === 'UNION DISTINCT')) {
+            if (($token->keyword === 'UNION') ||
+                    ($token->keyword === 'UNION ALL') ||
+                    ($token->keyword === 'UNION DISTINCT') ||
+                    ($token->keyword === 'EXCEPT') ||
+                    ($token->keyword === 'INTERSECT')
+            ) {
                 break;
             }
 
