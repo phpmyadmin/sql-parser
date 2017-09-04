@@ -293,7 +293,7 @@ class Query
      */
     public static function getFlags($statement, $all = false)
     {
-        $flags = array();
+        $flags = array('querytype' => false);
         if ($all) {
             $flags = self::$ALLFLAGS;
         }
