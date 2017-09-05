@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2017-09-05 16:17+0000\n"
-"Last-Translator: Dmitriy <dmitriy@support.mk.ua>\n"
+"PO-Revision-Date: 2017-09-05 16:20+0000\n"
+"Last-Translator: pitchblack <pitchblack@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/ru/>\n"
 "Language: ru\n"
@@ -24,6 +24,8 @@ msgstr "Ещё не реализовано."
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Было найдено новое утверждение, но не было разделителя между ним и "
+"предыдущим."
 
 #: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
@@ -54,10 +56,8 @@ msgstr "Ожидалась открывающая скобка."
 #: src/Statements/InsertStatement.php:217 src/Statements/LoadStatement.php:258
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:182
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Неожиданный токен."
+msgstr "Неожиданное ключевое слово."
 
 #: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
@@ -68,12 +68,12 @@ msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Ожидалось имя символа! Зарезервированное ключевое слово не может "
+"использоваться как имя столбца без обратных запросов."
 
 #: src/Components/CreateDefinition.php:237
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A symbol name was expected!"
-msgstr "Ожидалось имя переменной."
+msgstr "Ожидалось имя символа!"
 
 #: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
@@ -160,7 +160,7 @@ msgstr "Неожиданное начало выражения."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr "Неизвестный оператор"
+msgstr "Неизвестный оператор."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
@@ -177,23 +177,19 @@ msgstr "Неожиданный токен."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Этот тип предложения ранее анализировался."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
 msgstr "Неизвестное ключевое слово."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Keyword at end of statement."
-msgstr "Неожиданное начало выражения."
+msgstr "Ключевое слово в конце инструкции."
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Неожиданное начало выражения."
+msgstr "Неожиданный порядок предложений."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
@@ -220,7 +216,5 @@ msgid "error #1"
 msgstr "ошибка #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "Собирать ошибки"
+msgstr "строгая ошибка"
