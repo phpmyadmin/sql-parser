@@ -1,6 +1,9 @@
 # Change Log
 
-## [Unreleased]
+## [4.2.1] - 2017-09-08
+
+* Fixed minor bug in Query::getFlags.
+* Localizaton updates.
 
 ## [4.2.0] - 2017-08-30
 
