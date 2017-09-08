@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [4.2.1] - 2017-09-08
 
 * Fixed minor bug in Query::getFlags.
