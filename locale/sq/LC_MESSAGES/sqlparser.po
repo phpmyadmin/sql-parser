@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2016-12-21 15:56+0000\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
+"PO-Revision-Date: 2017-09-19 16:52+0000\n"
+"Last-Translator: Adalen Vladi <adalenvladi@gmail.com>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/sq/>\n"
 "Language: sq\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.10\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -55,20 +55,20 @@ msgstr "Pritet një kllapë e hapur."
 #: src/Statements/InsertStatement.php:217 src/Statements/LoadStatement.php:258
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:182
-#, fuzzy
-#| msgid "Unexpected token."
 msgid "Unexpected keyword."
-msgstr "Shenjë e papritur."
+msgstr "Fjalë kyçe e papritur."
 
 #: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Fundi i papritur i shprehjes së CASE"
 
 #: src/Components/CreateDefinition.php:223
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Emri i simbolit pritej! Një fjalë kyçe e rezervuar nuk mund të përdoret si "
+"një emër kolona pa backquotes."
 
 #: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
@@ -129,10 +129,8 @@ msgid "A rename operation was expected."
 msgstr "Pritet një veprim riemërimi."
 
 #: src/Components/SetOperation.php:117
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "si shprehje e rregullt"
+msgstr "Shprehje e humbur."
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
@@ -185,26 +183,20 @@ msgid "Unrecognized keyword."
 msgstr "Fjalë kyçe e panjohur."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Keyword at end of statement."
 msgstr "Fillim i papritur i deklaratës."
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected ordering of clauses."
-msgstr "Fillim i papritur i deklaratës."
+msgstr "Urdhërimi i papritur i klauzolave."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
 msgstr "Pritet emri i entitetit."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Variable name was expected."
 msgid "A table name was expected."
-msgstr "Pritet emri i variablit."
+msgstr "Një emër i tabelës pritej."
 
 #: src/Statements/CreateStatement.php:438
 msgid "At least one column definition was expected."
@@ -215,19 +207,13 @@ msgid "A \"RETURNS\" keyword was expected."
 msgstr "Pritet një fjalë kyçe \"RETURNS\"."
 
 #: src/Statements/DeleteStatement.php:314
-#, fuzzy
-#| msgid "This type of clause was previously parsed."
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Ky tip i klauzolës është parsuar më parë."
+msgstr "Ky lloj i klauzolës nuk është i vlefshëm në pyetjet me shumë tavolina."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "Error"
 msgid "error #1"
-msgstr "Gabim"
+msgstr "gabim # 1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Query error"
 msgid "strict error"
-msgstr "Gabim pyetsori"
+msgstr "gabim i rreptë"
