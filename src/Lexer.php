@@ -871,6 +871,10 @@ class Lexer extends Core
                 $token .= $this->str[$this->last++];
                 $flags |= Token::FLAG_SYMBOL_SYSTEM;
             }
+        } elseif ($flags & Token::FLAG_SYMBOL_PARAMETER) {
+            if ($this->last + 1 < $this->len) {
+                $this->last++;
+            }
         } else {
             $token = '';
         }
