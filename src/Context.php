@@ -388,6 +388,8 @@ abstract class Context
             return Token::FLAG_SYMBOL_VARIABLE;
         } elseif ($str[0] === '`') {
             return Token::FLAG_SYMBOL_BACKTICK;
+        } elseif ($str[0] === ':') {
+            return Token::FLAG_SYMBOL_PARAMETER;
         }
 
         return null;

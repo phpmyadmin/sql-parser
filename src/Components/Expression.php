@@ -267,6 +267,8 @@ class Expression extends Component
                 || ($token->type === Token::TYPE_BOOL)
                 || (($token->type === Token::TYPE_SYMBOL)
                 && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
+                || (($token->type === Token::TYPE_SYMBOL)
+                && ($token->flags & Token::FLAG_SYMBOL_PARAMETER))
                 || (($token->type === Token::TYPE_OPERATOR)
                 && ($token->value !== '.'))
             ) {
