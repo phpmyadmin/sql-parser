@@ -1,6 +1,8 @@
 # Change Log
 
-## [Unreleased]
+## [4.2.2] - 2017-09-28
+
+* Added support for binding parameters.
 
 ## [4.2.1] - 2017-09-08
 
