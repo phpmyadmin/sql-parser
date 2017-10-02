@@ -10,6 +10,7 @@
 namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Exceptions\LoaderException;
+use PhpMyAdmin\SqlParser\Token;
 
 /**
  * Holds the configuration of the context that is currently used.
@@ -78,7 +79,9 @@ abstract class Context
      *
      * The value associated to each keyword represents its flags.
      *
-     * @see Token::FLAG_KEYWORD_*
+     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED
+     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
+     *      Token::FLAG_KEYWORD_FUNCTION
      *
      * Elements are sorted by flags, length and keyword.
      *

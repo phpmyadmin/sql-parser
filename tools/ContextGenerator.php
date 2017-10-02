@@ -68,6 +68,7 @@ class ContextGenerator
         'namespace PhpMyAdmin\\SqlParser\\Contexts;' . "\n" .
         '' . "\n" .
         'use PhpMyAdmin\\SqlParser\\Context;' . "\n" .
+        'use PhpMyAdmin\\SqlParser\\Token;' . "\n" .
         '' . "\n" .
         '/**' . "\n" .
         ' * Context for %1$s.' . "\n" .
@@ -83,7 +84,9 @@ class ContextGenerator
         '     *' . "\n" .
         '     * The value associated to each keyword represents its flags.' . "\n" .
         '     *' . "\n" .
-        '     * @see Token::FLAG_KEYWORD_*' . "\n" .
+        '     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED' . "\n" .
+        '     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY' . "\n" .
+        '     *      Token::FLAG_KEYWORD_FUNCTION' . "\n" .
         '     *' . "\n" .
         '     * @var array' . "\n" .
         '     */' . "\n" .
