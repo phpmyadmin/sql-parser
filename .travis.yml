@@ -16,12 +16,15 @@ php:
 env:
   matrix:
     - MOTRANSLATOR=no
+    - DOCS=no
 
 matrix:
   fast_finish: true
   allow_failures:
     - php: "nightly"
   include:
+    - php: "7.1"
+      env: DOCS=yes
     - php: "7.0"
       env: MOTRANSLATOR=yes
     - dist: precise
@@ -41,4 +44,5 @@ cache:
     - $HOME/.composer/cache
 
 script: 
-  - ./vendor/bin/phpunit --configuration phpunit.xml
+  - if [ "$DOCS" = "no" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml ; fi
+  - if [ "$DOCS" = "yes" ] ; then ./vendor/bin/apigen generate --destination doc src/ ; fi
