@@ -13,10 +13,6 @@ php:
   - "hhvm-3.18"
   - "nightly"
 
-env:
-  matrix:
-    - MOTRANSLATOR=no DOCS=no
-
 matrix:
   fast_finish: true
   allow_failures:
@@ -25,7 +21,7 @@ matrix:
     - php: "7.1"
       env: DOCS=yes
     - php: "7.0"
-      env: MOTRANSLATOR=yes
+      env: REQUIRE="phpmyadmin/motranslator:^3.0 "
     - dist: precise
       php: "5.3"
 
@@ -33,7 +29,7 @@ sudo: false
 
 install:
   - composer install
-  - if [ "$MOTRANSLATOR" = "yes" ] ; then composer require phpmyadmin/motranslator:^3.0 ; fi
+  - if [ -n "$REQUIRE" ] ; then composer require "$REQUIRE" ; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -43,5 +39,5 @@ cache:
     - $HOME/.composer/cache
 
 script: 
-  - if [ "$DOCS" = "no" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml ; fi
+  - if [ "$DOCS" != "yes" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml ; fi
   - if [ "$DOCS" = "yes" ] ; then ./vendor/bin/apigen generate --destination doc src/ ; fi
