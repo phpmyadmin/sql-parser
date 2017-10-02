@@ -21,7 +21,7 @@ matrix:
     - php: "7.1"
       env: DOCS=yes
     - php: "7.0"
-      env: REQUIRE="phpmyadmin/motranslator:^3.0 "
+      env: REQUIRE="phpmyadmin/motranslator:^3.0"
     - dist: precise
       php: "5.3"
 
@@ -30,6 +30,7 @@ sudo: false
 install:
   - composer install
   - if [ -n "$REQUIRE" ] ; then composer require "$REQUIRE" ; fi
+  - if [ "$DOCS" = "yes" ] ; then composer require "apigen/apigen dev-master#e381f7c" "roave/better-reflection dev-master#c87d856" ; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
