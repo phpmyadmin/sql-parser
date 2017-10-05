@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Make mbstring extension optional (though Symfony polyfill).
+
 ## [4.2.2] - 2017-09-28
 
 * Added support for binding parameters.
