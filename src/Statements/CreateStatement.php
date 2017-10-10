@@ -515,14 +515,14 @@ class CreateStatement extends Statement
                     }
 
                     // Building the expression used for partitioning.
-                    $this->$field .= ($token->type === Token::TYPE_WHITESPACE) ? ' ' : $token->token;
+                    $this->field .= ($token->type === Token::TYPE_WHITESPACE) ? ' ' : $token->token;
 
                     // Last bracket was read, the expression ended.
                     // Comparing with `0` and not `false`, because `false` means
                     // that no bracket was found and at least one must is
                     // required.
                     if ($brackets === 0) {
-                        $this->$field = trim($this->$field);
+                        $this->field = trim($this->field);
                         $field = null;
                     }
                 } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
