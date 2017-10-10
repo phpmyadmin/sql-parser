@@ -1,5 +1,7 @@
 # Change Log
 
+## [Unreleased]
+
 ## [4.2.4] - 2017-12-06
 
 * Fix parsing of CREATE TABLE with per field COLLATE.
