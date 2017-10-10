@@ -556,6 +556,7 @@ class Formatter
                 } elseif ($this->options['type'] === 'cli') {
                     if ($prev != $format['cli']) {
                         $prev = $format['cli'];
+
                         return $format['cli'] . $this->escapeConsole($text);
                     }
 
@@ -569,6 +570,7 @@ class Formatter
         if ($this->options['type'] === 'cli') {
             if ($prev != "\x1b[39m") {
                 $prev = "\x1b[39m";
+
                 return "\x1b[39m" . $this->escapeConsole($text);
             }
 

@@ -127,6 +127,5 @@ class GroupKeyword extends Component
         }
 
         return trim($component->expr);
-
     }
 }

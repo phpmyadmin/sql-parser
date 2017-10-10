@@ -37,8 +37,8 @@ class RenameOperation extends Component
     /**
      * Constructor.
      *
-     * @param Expression $old Old expression.
-     * @param Expression $new New expression containing new name.
+     * @param Expression $old old expression
+     * @param Expression $new new expression containing new name
      */
     public function __construct($old = null, $new = null)
     {

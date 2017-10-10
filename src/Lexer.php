@@ -567,7 +567,7 @@ class Lexer extends Core
 
                     while (
                         ++$this->last < $this->len
-                        && '0' <= $this->str[$this->last]
+                        && $this->str[$this->last] >= '0'
                         && $this->str[$this->last] <= '9'
                     ) {
                         $token .= $this->str[$this->last];
@@ -873,7 +873,7 @@ class Lexer extends Core
             }
         } elseif ($flags & Token::FLAG_SYMBOL_PARAMETER) {
             if ($this->last + 1 < $this->len) {
-                $this->last++;
+                ++$this->last;
             }
         } else {
             $token = '';

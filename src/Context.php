@@ -10,7 +10,6 @@
 namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Exceptions\LoaderException;
-use PhpMyAdmin\SqlParser\Token;
 
 /**
  * Holds the configuration of the context that is currently used.
@@ -309,10 +308,11 @@ abstract class Context
      * Checks if the given string is the beginning of a whitespace.
      *
      * @param string $str string to be checked
+     * @param mixed  $end
      *
      * @return int the appropriate flag for the comment type
      */
-    public static function isComment($str, $end=false)
+    public static function isComment($str, $end = false)
     {
         $len = strlen($str);
         if ($len == 0) {

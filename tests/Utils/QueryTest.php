@@ -370,7 +370,7 @@ class QueryTest extends TestCase
                     'parser' => $parser,
                     'statement' => $parser->statements[0],
                     'select_expr' => array(
-                        'CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END'
+                        'CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END',
                     ),
                     'select_tables' => array(),
                 )

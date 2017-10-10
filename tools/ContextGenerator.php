@@ -247,7 +247,7 @@ class ContextGenerator
     /**
      * Formats context name.
      *
-     * @param string $name Name to format.
+     * @param string $name name to format
      *
      * @return string
      */

@@ -76,10 +76,10 @@ class JoinKeyword extends Component
     /**
      * Constructor.
      *
-     * @param string $type Join type
-     * @param Expression $expr Join expression.
-     * @param Condition[] $on Join conditions.
-     * @param ArrayObj $using Columns joined.
+     * @param string      $type  Join type
+     * @param Expression  $expr  join expression
+     * @param Condition[] $on    join conditions
+     * @param ArrayObj    $using columns joined
      *
      * @see JoinKeyword::$JOINS
      */

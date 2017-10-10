@@ -45,9 +45,9 @@ class ParameterDefinition extends Component
     /**
      * Constructor.
      *
-     * @param string $name  Parameter's name.
-     * @param string $inOut Parameter's directional type (IN / OUT or None).
-     * @param DataType $type Parameter's type.
+     * @param string   $name  parameter's name
+     * @param string   $inOut parameter's directional type (IN / OUT or None)
+     * @param DataType $type  parameter's type
      */
     public function __construct($name = null, $inOut = null, $type = null)
     {

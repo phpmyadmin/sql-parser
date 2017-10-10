@@ -84,9 +84,13 @@ class UtfStringTest extends TestCase
     }
 
     /**
-     * Test access to string
+     * Test access to string.
      *
      * @dataProvider utf8_strings
+     *
+     * @param mixed $text
+     * @param mixed $pos10
+     * @param mixed $pos20
      */
     public function testAccess($text, $pos10, $pos20)
     {
@@ -100,16 +104,16 @@ class UtfStringTest extends TestCase
     {
         return array(
             'ascii' => array(
-                'abcdefghijklmnopqrstuvwxyz', 'k', 'u'
+                'abcdefghijklmnopqrstuvwxyz', 'k', 'u',
             ),
             'unicode' => array(
-                'áéíóúýěřťǔǐǒǎšďȟǰǩľžčǚň', 'ǐ', 'č'
+                'áéíóúýěřťǔǐǒǎšďȟǰǩľžčǚň', 'ǐ', 'č',
             ),
             'emoji' => array(
-                '😂😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯', '😂', '😋'
+                '😂😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯', '😂', '😋',
             ),
             'iso' => array(
-                "P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy", null, null
+                "P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy", null, null,
             ),
         );
     }
