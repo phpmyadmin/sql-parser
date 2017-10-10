@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Make mbstring extension optional (though Symfony polyfill).
+* Fixed build CREATE TABLE query with PARTITIONS having ENGINE but not VALUES.
 
 ## [4.2.2] - 2017-09-28
 

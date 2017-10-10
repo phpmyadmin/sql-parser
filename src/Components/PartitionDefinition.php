@@ -214,7 +214,7 @@ class PartitionDefinition extends Component
         return trim(
             'PARTITION ' . $component->name
             . (empty($component->type) ? '' : ' VALUES ' . $component->type . ' ' . $component->expr . ' ')
-            . $component->options . $subpartitions
+            . ((!empty($component->options) && !empty($component->type)) ? '' : ' ') . $component->options . $subpartitions
         );
     }
 }

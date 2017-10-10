@@ -183,9 +183,11 @@ class CreateStatementTest extends TestCase
         $this->assertEquals($query, $parser->statements[0]->build());
     }
 
-    public function testBuilderPartitionsEngine()
+    public function partitionQueries()
     {
-        $query = <<<EOT
+        return array(
+            array(
+                'subparts' => <<<EOT
 CREATE TABLE `ts` (
   `id` int(11) DEFAULT NULL,
   `purchased` date DEFAULT NULL
@@ -206,7 +208,33 @@ SUBPARTITION s4 ENGINE=InnoDB,
 SUBPARTITION s5 ENGINE=InnoDB
 )
 )
-EOT;
+EOT
+            ),
+            array(
+                'parts' => <<<EOT
+CREATE TABLE ptest (
+  `event_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC
+PARTITION BY HASH (TO_DAYS(event_date))
+(
+PARTITION p0 ENGINE=InnoDB,
+PARTITION p1 ENGINE=InnoDB,
+PARTITION p2 ENGINE=InnoDB,
+PARTITION p3 ENGINE=InnoDB,
+PARTITION p4 ENGINE=InnoDB
+)
+EOT
+            ),
+        );
+    }
+
+    /**
+     * @dataProvider partitionQueries
+     *
+     * @param string $query
+     */
+    public function testBuilderPartitionsEngine($query)
+    {
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
 
