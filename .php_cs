@@ -19,6 +19,11 @@ return PhpCsFixer\Config::create()
         'no_useless_else' => true,
         'phpdoc_add_missing_param_annotation' => true,
         'phpdoc_order' => true,
+        'yoda_style' => array(
+            'equal' => false,
+            'identical' => false,
+            'less_and_greater' => false,
+        )
     ))
     ->setFinder($finder)
 ;
