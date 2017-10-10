@@ -183,6 +183,36 @@ class CreateStatementTest extends TestCase
         $this->assertEquals($query, $parser->statements[0]->build());
     }
 
+    public function testBuilderPartitionsEngine()
+    {
+        $query = <<<EOT
+CREATE TABLE `ts` (
+  `id` int(11) DEFAULT NULL,
+  `purchased` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+PARTITION BY RANGE (YEAR(purchased))
+SUBPARTITION BY HASH (TO_DAYS(purchased))
+(
+PARTITION p0 VALUES LESS THAN (1990)  (
+SUBPARTITION s0 ENGINE=InnoDB,
+SUBPARTITION s1 ENGINE=InnoDB
+),
+PARTITION p1 VALUES LESS THAN (2000)  (
+SUBPARTITION s2 ENGINE=InnoDB,
+SUBPARTITION s3 ENGINE=InnoDB
+),
+PARTITION p2 VALUES LESS THAN MAXVALUE  (
+SUBPARTITION s4 ENGINE=InnoDB,
+SUBPARTITION s5 ENGINE=InnoDB
+)
+)
+EOT;
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals($query, $stmt->build());
+    }
+
     public function testBuilderView()
     {
         $parser = new Parser(
