@@ -207,6 +207,9 @@ class Token
     /**
      * The position in the initial string where this token started.
      *
+     * The position is counted in chars, not bytes, so you should
+     * use mb_* functions to properly handle utf-8 multibyte chars.
+     *
      * @var int
      */
     public $position;
