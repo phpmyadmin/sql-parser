@@ -38,6 +38,10 @@ class CreateDefinition extends Component
         'NOT NULL' => 1,
         'NULL' => 1,
         'DEFAULT' => array(2, 'expr', array('breakOnAlias' => true)),
+        /* Following are not according to grammar, but MySQL happily accepts
+         * these at any location */
+        'CHARSET' => array(2, 'var'),
+        'COLLATE' => array(3, 'var'),
         'AUTO_INCREMENT' => 3,
         'PRIMARY' => 4,
         'PRIMARY KEY' => 4,

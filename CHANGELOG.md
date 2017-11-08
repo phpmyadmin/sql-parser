@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fix parsing of CREATE TABLE with per field COLLATE.
+
 ## [4.2.3] - 2017-10-10
 
 * Make mbstring extension optional (though Symfony polyfill).
