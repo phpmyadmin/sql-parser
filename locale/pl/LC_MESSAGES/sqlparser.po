@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2017-09-04 08:59+0000\n"
-"Last-Translator: anonymous <>\n"
+"PO-Revision-Date: 2017-12-01 20:29+0000\n"
+"Last-Translator: Kozioł Marcin <koziol.martin@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/pl/>\n"
 "Language: pl\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.18-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -26,10 +26,8 @@ msgid ""
 msgstr "Znaleziono kolejne polecenie, ale brakuje między nimi rozgranicznika."
 
 #: src/Components/AlterOperation.php:253
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Wygląd interfejsu do operacji na tabeli"
+msgstr "Nierozpoznana zmiana operacji."
 
 #: src/Components/Array2d.php:88
 #, php-format
@@ -68,12 +66,12 @@ msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Oczekiwano nazwy symbolu! Zarezerwowane słowo kluczowe nie może być używane "
+"jako nazwa kolumny bez cudzysłowów."
 
 #: src/Components/CreateDefinition.php:237
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Nazwa szablonu tabeli"
+msgstr "Oczekiwano nazwy symbolu!"
 
 #: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
@@ -93,9 +91,8 @@ msgstr "Oczekiwano aliasu."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
-#, fuzzy
 msgid "An alias was previously found."
-msgstr "Alias został już wykorzystany."
+msgstr "Wcześniej znaleziono alias."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
@@ -107,10 +104,10 @@ msgstr "Oczekiwano wyrażenia."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "Oczekiwano przesunięcia."
 
 #: src/Components/OptionsArray.php:143
-#, fuzzy, php-format
+#, php-format
 msgid "This option conflicts with \"%1$s\"."
 msgstr "Ta opcja zawiera konflikt z \"%1$s\"."
 
@@ -164,9 +161,8 @@ msgid "Unrecognized statement type."
 msgstr "Nierozpoznany typ polecenia."
 
 #: src/Parser.php:527
-#, fuzzy
 msgid "No transaction was previously started."
-msgstr "Transakcja nie została wcześniej uruchomiona."
+msgstr "Żadna transakcja nie została wcześniej uruchomiona."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:254
 #: src/Statements/DeleteStatement.php:306
@@ -178,25 +174,20 @@ msgid "Unexpected token."
 msgstr "Nieoczekiwany znak."
 
 #: src/Statement.php:306
-#, fuzzy
 msgid "This type of clause was previously parsed."
-msgstr "Ten rodzaj klauzuli był wcześniej analizowany."
+msgstr "Tego typu klauzula została wcześniej przeanalizowana."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
 msgstr "Nierozpoznane słowo kluczowe."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Keyword at end of statement."
-msgstr "Oczekiwano początku polecenia."
+msgstr "Słowo kluczowe na końcu wyciągu."
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "Na początku tabeli"
+msgstr "Nieoczekiwana kolejność klauzul."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
@@ -223,7 +214,5 @@ msgid "error #1"
 msgstr "Błąd #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "Zbieraj błędy"
+msgstr "ścisły błąd"
