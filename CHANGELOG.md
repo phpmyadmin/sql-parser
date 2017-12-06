@@ -3,6 +3,7 @@
 ## [Unreleased]
 
 * Fix parsing of CREATE TABLE with per field COLLATE.
+* Improved Context::loadClosest to better deal with corner cases.
 
 ## [4.2.3] - 2017-10-10
 

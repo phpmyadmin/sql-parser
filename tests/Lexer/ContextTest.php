@@ -14,21 +14,41 @@ class ContextTest extends TestCase
         $this->assertTrue(isset(Context::$KEYWORDS['STORED']));
         $this->assertFalse(isset(Context::$KEYWORDS['AUTHORS']));
 
-        Context::load('MySql50600');
-        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50600', Context::$loadedContext);
-        $this->assertFalse(isset(Context::$KEYWORDS['STORED']));
-        $this->assertTrue(isset(Context::$KEYWORDS['AUTHORS']));
-
-        Context::loadClosest('MySql50712');
-        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
-
-        $this->assertEquals(null, Context::loadClosest('Sql'));
-
         // Restoring context.
         Context::load('');
         $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$defaultContext);
         $this->assertTrue(isset(Context::$KEYWORDS['STORED']));
         $this->assertFalse(isset(Context::$KEYWORDS['AUTHORS']));
+    }
+
+    /**
+     * Test for loading closest SQL context
+     *
+     * @dataProvider contextLoading
+     */
+    public function testLoadClosest($context, $expected)
+    {
+        $this->assertEquals($expected, Context::loadClosest($context));
+        if (! is_null($expected)) {
+            $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\Context' . $expected, Context::$loadedContext);
+            $this->assertTrue(class_exists(Context::$loadedContext));
+        }
+
+        // Restoring context.
+        Context::load('');
+    }
+
+    public function contextLoading()
+    {
+        return [
+            'MySQL match' => ['MySql50500', 'MySql50500'],
+            'MySQL strip' => ['MySql50712', 'MySql50700'],
+            'MySQL fallback' => ['MySql99999', 'MySql50700'],
+            'MariaDB match' => ['MariaDb100000', 'MariaDb100000'],
+            'MariaDB strip' => ['MariaDb109900', 'MariaDb100000'],
+            'MariaDB fallback' => ['MariaDb990000', 'MariaDb100300'],
+            'Invalid' => ['Sql', null],
+        ];
     }
 
     /**

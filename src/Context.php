@@ -486,37 +486,31 @@ abstract class Context
      */
     public static function loadClosest($context = '')
     {
-        /**
-         * The number of replaces done by `preg_replace`.
-         * This actually represents whether a new context was generated or not.
-         *
-         * @var int
-         */
-        $count = 0;
-
-        // As long as a new context can be generated, we try to load it.
-        do {
+        $length = strlen($context);
+        for ($i = $length; $i > 0;) {
             try {
-                // Trying to load the new context.
+                /* Trying to load the new context */
                 static::load($context);
+                return $context;
             } catch (LoaderException $e) {
-                // If it didn't work, we are looking for a new one and skipping
-                // over to the next generation that will try the new context.
-                $context = preg_replace(
-                    '/[1-9](0*)$/',
-                    '0$1',
-                    $context,
-                    -1,
-                    $count
-                );
-                continue;
+                /* Replace last two non zero digits by zeroes */
+                do {
+                    $i -= 2;
+                    $part = substr($context, $i, 2);
+                    /* No more numeric parts to strip */
+                    if (! is_numeric($part)) {
+                        break 2;
+                    }
+                } while (intval($part) === 0 && $i > 0);
+                $context = substr($context, 0, $i) . '00' . substr($context, $i + 2);
             }
-
-            // Last generated context was valid (did not throw any exceptions).
-            // So we return it, to let the user know what context was loaded.
-            return $context;
-        } while ($count !== 0);
-
+        }
+        /* Fallback to loading at least matching engine */
+        if (strncmp($context, 'MariaDb', 7) === 0) {
+            return static::loadClosest('MariaDb100300');
+        } elseif (strncmp($context, 'MySql', 5) === 0) {
+            return static::loadClosest('MySql50700');
+        }
         return null;
     }
 
