@@ -16,9 +16,9 @@ class TokensListTest extends TestCase
     public $tokens;
 
     /**
-     * Constructor.
+     * Test setup.
      */
-    public function __construct()
+    public function setUp()
     {
         $this->tokens = array(
             new Token('SELECT', Token::TYPE_KEYWORD),
