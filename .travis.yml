@@ -28,6 +28,7 @@ matrix:
 sudo: false
 
 install:
+  - if [ "$TRAVIS_PHP_VERSION" = "5.3" ] ; then sed -i '/apigen/D' composer.json ; fi
   - if [ -n "$REQUIRE" ] ; then composer require "$REQUIRE" ; fi
   - composer install
 
