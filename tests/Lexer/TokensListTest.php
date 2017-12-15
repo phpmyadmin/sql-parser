@@ -54,7 +54,7 @@ class TokensListTest extends TestCase
         $this->assertEquals($this->tokens[2], $list->getNext());
         $this->assertEquals($this->tokens[4], $list->getNext());
         $this->assertEquals($this->tokens[6], $list->getNext());
-        $this->assertEquals(null, $list->getNext());
+        $this->assertNull($list->getNext());
     }
 
     public function testGetNextOfType()
@@ -62,14 +62,14 @@ class TokensListTest extends TestCase
         $list = new TokensList($this->tokens);
         $this->assertEquals($this->tokens[0], $list->getNextOfType(Token::TYPE_KEYWORD));
         $this->assertEquals($this->tokens[4], $list->getNextOfType(Token::TYPE_KEYWORD));
-        $this->assertEquals(null, $list->getNextOfType(Token::TYPE_KEYWORD));
+        $this->assertNull($list->getNextOfType(Token::TYPE_KEYWORD));
     }
 
     public function testGetNextOfTypeAndValue()
     {
         $list = new TokensList($this->tokens);
         $this->assertEquals($this->tokens[0], $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'SELECT'));
-        $this->assertEquals(null, $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'SELECT'));
+        $this->assertNull($list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'SELECT'));
     }
 
     public function testArrayAccess()
@@ -90,8 +90,8 @@ class TokensListTest extends TestCase
         }
 
         // offsetExists($offset)
-        $this->assertTrue(isset($list[2]));
-        $this->assertFalse(isset($list[8]));
+        $this->assertArrayHasKey(2, $list);
+        $this->assertArrayNotHasKey(8, $list);
 
         // offsetUnset($offset)
         unset($list[2]);

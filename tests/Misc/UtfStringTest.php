@@ -26,14 +26,14 @@ class UtfStringTest extends TestCase
         $str = new UtfString(static::TEST_PHRASE);
 
         // offsetExists
-        $this->assertTrue(isset($str[static::TEST_PHRASE_LEN - 1]));
-        $this->assertFalse(isset($str[-1]));
-        $this->assertFalse(isset($str[static::TEST_PHRASE_LEN]));
+        $this->assertArrayHasKey(static::TEST_PHRASE_LEN - 1, $str);
+        $this->assertArrayNotHasKey(-1, $str);
+        $this->assertArrayNotHasKey(static::TEST_PHRASE_LEN, $str);
 
         // offsetGet
         $this->assertEquals('.', $str[static::TEST_PHRASE_LEN - 1]);
-        $this->assertEquals(null, $str[-1]);
-        $this->assertEquals(null, $str[static::TEST_PHRASE_LEN]);
+        $this->assertNull($str[-1]);
+        $this->assertNull($str[static::TEST_PHRASE_LEN]);
     }
 
     /**

@@ -14,6 +14,6 @@ class KeyTest extends TestCase
             new Parser(),
             $this->getTokensList('')
         );
-        $this->assertEquals(null, $component->name);
+        $this->assertNull($component->name);
     }
 }

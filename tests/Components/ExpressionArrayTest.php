@@ -29,7 +29,7 @@ class ExpressionArrayTest extends TestCase
                 'parenthesesDelimited' => true,
             )
         );
-        $this->assertEquals(1, count($component));
+        $this->assertCount(1, $component);
         $this->assertEquals('(expr)', $component[0]->expr);
     }
 }

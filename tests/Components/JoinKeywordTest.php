@@ -11,18 +11,18 @@ class JoinKeywordTest extends TestCase
     public function testParseIncomplete()
     {
         $component = JoinKeyword::parse(new Parser(), $this->getTokensList('JOIN a'));
-        $this->assertEquals(1, count($component));
+        $this->assertCount(1, $component);
         $this->assertEquals('a', $component[0]->expr->expr);
-        $this->assertEquals(null, $component[0]->on);
-        $this->assertEquals(null, $component[0]->using);
+        $this->assertNull($component[0]->on);
+        $this->assertNull($component[0]->using);
     }
 
     public function testParseIncompleteUsing()
     {
         $component = JoinKeyword::parse(new Parser(), $this->getTokensList('JOIN table2 USING (id)'));
-        $this->assertEquals(1, count($component));
+        $this->assertCount(1, $component);
         $this->assertEquals('table2', $component[0]->expr->expr);
-        $this->assertEquals(null, $component[0]->on);
+        $this->assertNull($component[0]->on);
         $this->assertEquals(array('id'), $component[0]->using->values);
     }
 
