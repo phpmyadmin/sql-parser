@@ -27,7 +27,7 @@ class CreateDefinitionTest extends TestCase
             $parser,
             $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str)')
         );
-        $this->assertEquals(2, count($component));
+        $this->assertCount(2, $component);
 
         $this->assertEquals(
             'A closing bracket was expected.',

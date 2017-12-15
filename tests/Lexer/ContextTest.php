@@ -11,14 +11,14 @@ class ContextTest extends TestCase
     {
         // Default context is 5.7.0.
         $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
-        $this->assertTrue(isset(Context::$KEYWORDS['STORED']));
-        $this->assertFalse(isset(Context::$KEYWORDS['AUTHORS']));
+        $this->assertArrayHasKey('STORED', Context::$KEYWORDS);
+        $this->assertArrayNotHasKey('AUTHORS', Context::$KEYWORDS);
 
         // Restoring context.
         Context::load('');
         $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$defaultContext);
-        $this->assertTrue(isset(Context::$KEYWORDS['STORED']));
-        $this->assertFalse(isset(Context::$KEYWORDS['AUTHORS']));
+        $this->assertArrayHasKey('STORED', Context::$KEYWORDS);
+        $this->assertArrayNotHasKey('AUTHORS', Context::$KEYWORDS);
     }
 
     /**

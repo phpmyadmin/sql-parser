@@ -540,7 +540,7 @@ class QueryTest extends TestCase
         $delimiter = null;
         list($statement, $query, $delimiter) =
             Query::getFirstStatement($query, $delimiter);
-        $this->assertEquals(null, $statement);
+        $this->assertNull($statement);
         $this->assertEquals('USE saki', $query);
 
         $query = 'USE sakila; ' .

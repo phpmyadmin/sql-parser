@@ -24,10 +24,10 @@ class IsMethodsTest extends TestCase
         );
 
         $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('FROM', true));
-        $this->assertEquals(null, Context::isKeyword('MODIFY', true));
+        $this->assertNull(Context::isKeyword('MODIFY', true));
 
-        $this->assertEquals(null, Context::isKeyword('foo'));
-        $this->assertEquals(null, Context::isKeyword('bar baz'));
+        $this->assertNull(Context::isKeyword('foo'));
+        $this->assertNull(Context::isKeyword('bar baz'));
     }
 
     public function testIsOperator()
@@ -40,7 +40,7 @@ class IsMethodsTest extends TestCase
         $this->assertEquals(Token::FLAG_OPERATOR_ASSIGNMENT, Context::isOperator(':='));
         $this->assertEquals(Token::FLAG_OPERATOR_SQL, Context::isOperator(','));
 
-        $this->assertEquals(Context::isOperator('a'), null);
+        $this->assertNull(Context::isOperator('a'));
     }
 
     public function testIsWhitespace()
@@ -68,7 +68,7 @@ class IsMethodsTest extends TestCase
         $this->assertEquals(Token::FLAG_COMMENT_C, Context::isComment('/*comment */'));
         $this->assertEquals(Token::FLAG_COMMENT_SQL, Context::isComment('-- my comment'));
 
-        $this->assertEquals(null, Context::isComment('--not a comment'));
+        $this->assertNull(Context::isComment('--not a comment'));
     }
 
     public function testIsBool()
