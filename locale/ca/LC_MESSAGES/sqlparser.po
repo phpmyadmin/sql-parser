@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2017-12-19 10:02+0000\n"
-"Last-Translator: Xavier Navarro <xvnavarro@gmail.com>\n"
+"PO-Revision-Date: 2018-01-15 17:44+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <robert.buj@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/ca/>\n"
 "Language: ca\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -23,8 +23,8 @@ msgstr "Encara no implementat."
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
-"S'ha trobat una nova declaració, però no hi ha cap delimitador entre aquesta "
-"i la anterior."
+"S'ha trobat una sentència nova, però no hi ha cap delimitador entre aquesta "
+"i l'anterior."
 
 #: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
@@ -67,12 +67,12 @@ msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
-"S'esperava un nom de símbol! Una paraula reservada no es pot usar com a nom "
-"de columna sense cometes invertides."
+"S'esperava un nom de símbol! No es pot utilitzar una paraula clau reservada "
+"com a nom de columna sense les cometes invertides."
 
 #: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
-msgstr "S'esperava un nom de simbol!"
+msgstr "S'esperava un nom de símbol!"
 
 #: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
@@ -122,7 +122,7 @@ msgstr "S'esperava la paraula clau \"TO\"."
 
 #: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
-msgstr "S'esperava el nou nom de la taula."
+msgstr "S'esperava el nom nou de la taula."
 
 #: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
@@ -138,11 +138,11 @@ msgstr "Caràcter no esperat."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr "S'esperava(en) espai(s) en blanc abans del delimitador."
+msgstr "S'esperaven espais en blanc abans del delimitador."
 
 #: src/Lexer.php:296 src/Lexer.php:314
 msgid "Expected delimiter."
-msgstr "S'esperava delimitador ."
+msgstr "S'esperava un delimitador."
 
 #: src/Lexer.php:843
 #, php-format
@@ -155,11 +155,11 @@ msgstr "S'esperava un nom de variable."
 
 #: src/Parser.php:423
 msgid "Unexpected beginning of statement."
-msgstr "Inici no esperat de declaració."
+msgstr "Començament no esperat de sentència."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr "Tipus de declaració no reconegut."
+msgstr "Tipus de sentència no reconegut."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
@@ -172,7 +172,7 @@ msgstr "No s'ha iniciat cap transacció anteriorment."
 #: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
 #: src/Statements/ReplaceStatement.php:190
 msgid "Unexpected token."
-msgstr "Símbol (token) no esperat."
+msgstr "Testimoni no esperat."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
@@ -208,7 +208,7 @@ msgstr "S'esperava una paraula clau \"RETURNS\"."
 
 #: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Aquest tipus de clàusula no és vàlid en consultes multi-taula."
+msgstr "Aquest tipus de clàusula no és vàlid en consultes de diverses taules."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
 msgid "error #1"
