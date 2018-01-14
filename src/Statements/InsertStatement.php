@@ -6,6 +6,7 @@
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
+use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Array2d;
 use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
