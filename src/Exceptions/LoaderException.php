@@ -26,10 +26,8 @@ class LoaderException extends \Exception
      * Constructor.
      *
      * @param string $msg  the message of this exception
-     * @param string $ch   the character that produced this exception
-     * @param int    $pos  the position of the character
+     * @param string $name   the character that produced this exception
      * @param int    $code the code of this error
-     * @param mixed  $name
      */
     public function __construct($msg = '', $name = '', $code = 0)
     {
