@@ -422,7 +422,7 @@ class Parser extends Core
             // Statements can start with keywords only.
             // Comments, whitespaces, etc. are ignored.
             if ($token->type !== Token::TYPE_KEYWORD) {
-                if (($token->type !== TOKEN::TYPE_COMMENT)
+                if (($token->type !== Token::TYPE_COMMENT)
                     && ($token->type !== Token::TYPE_WHITESPACE)
                     && ($token->type !== Token::TYPE_OPERATOR) // `(` and `)`
                     && ($token->type !== Token::TYPE_DELIMITER)
