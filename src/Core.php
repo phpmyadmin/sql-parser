@@ -24,7 +24,7 @@ class Core
      * error might be false positive or a partial result (even a bad one)
      * might be needed.
      *
-     * @var Exception[]
+     * @var \Exception[]
      *
      * @see Core::error()
      */

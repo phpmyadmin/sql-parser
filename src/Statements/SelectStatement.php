@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Components\FunctionCall;
 use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
+use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Statement;
 
