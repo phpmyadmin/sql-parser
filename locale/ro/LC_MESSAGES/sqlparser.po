@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2017-05-25 11:13+0000\n"
-"Last-Translator: Codrin <codrin@logicindustry.com>\n"
+"PO-Revision-Date: 2018-02-04 09:39+0000\n"
+"Last-Translator: Cristian Gherman <c_gherman@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/ro/>\n"
 "Language: ro\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 2.14.1\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -152,24 +152,20 @@ msgid "Ending quote %1$s was expected."
 msgstr "Evenimentul %1$s a fost creat."
 
 #: src/Lexer.php:884
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Șablon nume tabel"
+msgstr "Numele variabilei era aşteptată."
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "La începutul tabelului"
+msgstr "Început neașteptat al declarației."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tipul de declaraţie de nerecunoscut."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Nici o tranzactie a fost început anterior."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:254
 #: src/Statements/DeleteStatement.php:306
@@ -180,62 +176,62 @@ msgstr ""
 #, fuzzy
 #| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Caractere neaşteptate pe linia %s."
+msgstr "Simbol neașteptat."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Acest tip de clauză a fost analizat anterior."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Cuvânt cheie nerecunoscut."
 
 #: src/Statement.php:377
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Keyword at end of statement."
-msgstr "La începutul tabelului"
+msgstr "Cuvânt cheie la sfârșitul declarației."
 
 #: src/Statement.php:503
 #, fuzzy
 #| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "La începutul tabelului"
+msgstr "Ordonarea neașteptată a clauzelor."
 
 #: src/Statements/CreateStatement.php:375
 #, fuzzy
 #| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Numărul de tabele ce sînt deschise."
+msgstr "Numele entității era așteptat."
 
 #: src/Statements/CreateStatement.php:430
 #, fuzzy
 #| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Șablon nume tabel"
+msgstr "Un nume de tabel era așteptat."
 
 #: src/Statements/CreateStatement.php:438
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Înregistrarea a fost ștearsă."
+msgstr "Cel puțin o definiție a coloanei era așteptată."
 
 #: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Un cuvânt cheie \"RETURNS\" era de aşteptat."
 
 #: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Acest tip de clauză nu este validă în interogări multi-tabel."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
 #, fuzzy
 #| msgid "Error"
 msgid "error #1"
-msgstr "Eroare"
+msgstr "eroarea #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
 #, fuzzy
 #| msgid "Gather errors"
 msgid "strict error"
-msgstr "Strânge erorile"
+msgstr "eroare strictă"
