@@ -6,8 +6,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2017-10-19 08:45+0000\n"
-"Last-Translator: David Kindl <mtwango@gmail.com>\n"
+"PO-Revision-Date: 2018-02-04 10:21+0000\n"
+"Last-Translator: Michal Čihař <michal@cihar.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/cs/>\n"
 "Language: cs\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 2.17\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -62,7 +62,7 @@ msgstr "Neočekávané klíčové slovo."
 
 #: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Neočekávaný konec CASE výrazu"
 
 #: src/Components/CreateDefinition.php:223
 msgid ""
@@ -87,9 +87,8 @@ msgid "A closing bracket was expected."
 msgstr ""
 
 #: src/Components/DataType.php:123
-#, fuzzy
 msgid "Unrecognized data type."
-msgstr "Neočekávaný datový typ."
+msgstr "Nerozpoznaný datový typ."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
 #, fuzzy
@@ -162,7 +161,7 @@ msgstr ""
 
 #: src/Lexer.php:296 src/Lexer.php:314
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Byl očekáván oddělovač."
 
 #: src/Lexer.php:843
 #, fuzzy, php-format
@@ -184,7 +183,7 @@ msgstr "na začátku tabulky"
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Nerozpoznaný typ výrazu."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
@@ -196,10 +195,8 @@ msgstr ""
 #: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
 #: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
 #: src/Statements/ReplaceStatement.php:190
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Neočekávané znaky na řádku %s."
+msgstr "Neočekávaný token."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
