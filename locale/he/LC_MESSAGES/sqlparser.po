@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2018-03-17 09:37+0000\n"
+"PO-Revision-Date: 2018-04-13 22:37+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/he/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.0-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -68,113 +68,99 @@ msgid ""
 msgstr ""
 
 #: src/Components/CreateDefinition.php:237
-#, fuzzy
 msgid "A symbol name was expected!"
-msgstr "תבנית שם קובץ"
+msgstr "אמור היה להיות שם סמל!"
 
 #: src/Components/CreateDefinition.php:270
-#, fuzzy
-#| msgid "No databases selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "אף מאגר נתונים לא נבחר."
+msgstr "אמורים היו להיות פסיק או סוגריים סוגרים."
 
 #: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "אמורים היו להיות סוגריים סוגרים."
 
 #: src/Components/DataType.php:123
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "סוג הנתונים אינו מזוהה."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
-#, fuzzy
-#| msgid "No databases selected."
 msgid "An alias was expected."
-msgstr "אף מאגר נתונים לא נבחר."
+msgstr "אמור היה להיות כינוי."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr ""
+msgstr "נמצא כינוי בעבר."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
-msgstr ""
+msgstr "נקודה בלתי צפויה."
 
 #: src/Components/ExpressionArray.php:102
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "לא נבחרו שורות"
+msgstr "אמור היה להיות ביטוי."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "אמור היה להיות היסט."
 
 #: src/Components/OptionsArray.php:143
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "אפשרות זו סותרת את „%1$s”."
 
 #: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
-msgstr ""
+msgstr "אמור היה להיות השם הישן של הטבלה."
 
 #: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "אמורה הייתה להיות מילת המפתח „TO” (אל)."
 
 #: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
-msgstr ""
+msgstr "אמור היה להיות השם החדש של הטבלה."
 
 #: src/Components/RenameOperation.php:153
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "השורה נמחקה"
+msgstr "אמורה הייתה להיות פעולת שינוי שם."
 
 #: src/Components/SetOperation.php:117
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "כביטוי רגולרי"
+msgstr "ביטוי חסר."
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
-msgstr ""
+msgstr "תו בלתי צפוי."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "אמורים היו להיות רווחים לפני המפריד."
 
 #: src/Lexer.php:296 src/Lexer.php:314
 msgid "Expected delimiter."
-msgstr ""
+msgstr "אמור היה להיות מפריד."
 
 #: src/Lexer.php:843
-#, fuzzy, php-format
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "טבלה %s נמחקה"
+msgstr "אמורות היו להיות מירכאות סוגרות %1$s."
 
 #: src/Lexer.php:884
-#, fuzzy
 msgid "Variable name was expected."
-msgstr "תבנית שם קובץ"
+msgstr "אמור היה להיות שם משתנה."
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "בתחילת טבלה"
+msgstr "תחילת הביטוי אינו צפוי."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "סוג המשפט בלתי מזוהה."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "לא החלה העברה בעבר."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:254
 #: src/Statements/DeleteStatement.php:306
@@ -183,56 +169,47 @@ msgstr ""
 #: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
 #: src/Statements/ReplaceStatement.php:190
 msgid "Unexpected token."
-msgstr ""
+msgstr "אסימון בלתי צפוי."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "סוג הסעיף הזה כבר נותח בעבר."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "מילת מפתח בלתי מזוהה."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Keyword at end of statement."
-msgstr "בתחילת טבלה"
+msgstr "מילת מפתח בסוף משפט."
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "בתחילת טבלה"
+msgstr "סידור הסעיפים בלתי צפוי."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
-msgstr ""
+msgstr "אמור היה להיות שם היישות."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
 msgid "A table name was expected."
-msgstr "תבנית שם קובץ"
+msgstr "אמור היה להיות שם טבלה."
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "השורה נמחקה"
+msgstr "אמורה הייתה להיות לפחות הגדרת עמודה אחת."
 
 #: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "אמורה הייתה להיות מילת מפתח „RETURNS” (מחזירה)."
 
 #: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "סוג סעיף זה אינו תקף בשאילתות מרובות טבלאות."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "Error"
 msgid "error #1"
-msgstr "שגיאה"
+msgstr "שגיאה #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
 #, fuzzy
