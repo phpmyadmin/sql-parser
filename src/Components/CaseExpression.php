@@ -7,6 +7,7 @@
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -56,6 +57,14 @@ class CaseExpression extends Component
     public $else_result;
 
     /**
+     * The alias of this expression.
+     * Added by Sinri
+     *
+     * @var string
+     */
+    public $alias;
+
+    /**
      * The sub-expression.
      *
      * @var string
@@ -70,10 +79,11 @@ class CaseExpression extends Component
     }
 
     /**
-     * @param Parser     $parser the parser that serves as context
-     * @param TokensList $list   the list of tokens that are being parsed
+     * @param Parser $parser the parser that serves as context
+     * @param TokensList $list the list of tokens that are being parsed
      *
      * @return CaseExpression
+     * @throws \PhpMyAdmin\SqlParser\Exceptions\ParserException
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
@@ -102,6 +112,13 @@ class CaseExpression extends Component
              * @var Token
              */
             $token = $list->tokens[$list->idx];
+
+            echo __METHOD__ . '@' . __LINE__ . ' state ' . $state . ' see token: ' . $token . PHP_EOL;
+            // state:
+            // case[0] XXX[1]
+            // when[2] XXX then[1]
+            // else[0] XXX
+            // end
 
             // Skipping whitespaces and comments.
             if (($token->type === Token::TYPE_WHITESPACE)
@@ -200,6 +217,48 @@ class CaseExpression extends Component
                 $list->tokens[$list->idx - 1]
             );
         } else {
+            /*
+                        // Seek Alias
+                        // To fix https://github.com/phpmyadmin/sql-parser/issues/192
+                        // (a) CASE...END [, or KEYWORD]
+                        // (b) CASE...END AS XXX [, or KEYWORD]
+                        // (c) CASE...END XXX [, or KEYWORD]
+                        // (d) CASE...END + 1 AS XXX -> not support ... to complex
+                        $aliasMode='a';
+
+                        for($tmpIdx=$list->idx;$tmpIdx<$list->count;$tmpIdx++){
+                            $token = $list->tokens[$tmpIdx];
+
+                            echo __METHOD__.'@'.__LINE__.' debug seek alias token: '.$token.PHP_EOL;
+
+                            if(
+                                $token->type===Token::TYPE_WHITESPACE
+                                || $token->type===Token::TYPE_COMMENT
+                            ){
+                                // whitespace
+                                continue;
+                            }
+                            elseif($aliasMode==='a'){
+                                if($token->keyword==='AS'){
+                                    $aliasMode='b';
+                                    continue;
+                                }elseif($token->type===Token::TYPE_OPERATOR){
+                                    $aliasMode='d';
+                                    $list->idx=$tmpIdx+1;
+                                    break;
+                                }else{
+                                    $aliasMode='c';
+                                    $ret->alias=$token->value;
+                                    $list->idx=$tmpIdx+1;
+                                    break;
+                                }
+                            }elseif($aliasMode==='b'){
+                                $ret->alias=$token->value;
+                                $list->idx=$tmpIdx+1;
+                                break;
+                            }
+                        }
+            */
             $ret->expr = self::build($ret);
         }
 
@@ -239,6 +298,11 @@ class CaseExpression extends Component
             $ret .= 'ELSE ' . $component->else_result . ' ';
         }
         $ret .= 'END';
+
+        // a fix for https://github.com/phpmyadmin/sql-parser/issues/192
+        if ($component->alias) {
+            $ret .= ' AS ' . Context::escape($component->alias);
+        }
 
         return $ret;
     }

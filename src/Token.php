@@ -335,4 +335,13 @@ class Token
             $this->token
         );
     }
+
+    /**
+     *For DEBUG by Sinri
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode($this, JSON_UNESCAPED_UNICODE);
+    }
 }

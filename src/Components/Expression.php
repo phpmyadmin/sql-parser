@@ -140,11 +140,12 @@ class Expression extends Component
      *
      *          If not empty, breaks after last parentheses occurred.
      *
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser $parser the parser that serves as context
+     * @param TokensList $list the list of tokens that are being parsed
+     * @param array $options parameters for parsing
      *
      * @return Expression
+     * @throws \PhpMyAdmin\SqlParser\Exceptions\ParserException
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {

@@ -335,8 +335,9 @@ class Parser extends Core
     /**
      * Constructor.
      *
-     * @param string|UtfString|TokensList $list   the list of tokens to be parsed
-     * @param bool                        $strict whether strict mode should be enabled or not
+     * @param string|UtfString|TokensList $list the list of tokens to be parsed
+     * @param bool $strict whether strict mode should be enabled or not
+     * @throws ParserException
      */
     public function __construct($list = null, $strict = false)
     {
@@ -346,7 +347,7 @@ class Parser extends Core
         } elseif ($list instanceof TokensList) {
             $this->list = $list;
         }
-
+        //print_r($this->list);//debug
         $this->strict = $strict;
 
         if ($list !== null) {
@@ -356,6 +357,7 @@ class Parser extends Core
 
     /**
      * Builds the parse trees.
+     * @throws ParserException
      */
     public function parse()
     {
@@ -402,12 +404,15 @@ class Parser extends Core
              */
             $token = $list->tokens[$list->idx];
 
+            echo __METHOD__ . '@' . __LINE__ . ' token: ' . $token . PHP_EOL;
+
             // `DELIMITER` is not an actual statement and it requires
             // special handling.
             if (($token->type === Token::TYPE_NONE)
                 && (strtoupper($token->token) === 'DELIMITER')
             ) {
                 // Skipping to the end of this statement.
+                echo __METHOD__ . '@' . __LINE__ . ' it is a delimiter, skip and to the end of this statement' . PHP_EOL;
                 $list->getNextOfType(Token::TYPE_DELIMITER);
                 $prevLastIdx = $list->idx;
                 continue;
@@ -416,6 +421,7 @@ class Parser extends Core
             // Counting the brackets around statements.
             if ($token->value === '(') {
                 ++$this->brackets;
+                echo __METHOD__ . '@' . __LINE__ . ' met an ( and now count=' . $this->brackets . PHP_EOL;
                 continue;
             }
 
@@ -427,11 +433,13 @@ class Parser extends Core
                     && ($token->type !== Token::TYPE_OPERATOR) // `(` and `)`
                     && ($token->type !== Token::TYPE_DELIMITER)
                 ) {
+                    echo __METHOD__ . '@' . __LINE__ . ' statement not begins with keyword, error' . PHP_EOL;
                     $this->error(
                         'Unexpected beginning of statement.',
                         $token
                     );
                 }
+                echo __METHOD__ . '@' . __LINE__ . ' ignored as non sql part' . PHP_EOL;
                 continue;
             }
 
@@ -442,6 +450,7 @@ class Parser extends Core
                     ($token->keyword === 'INTERSECT')
             ) {
                 $unionType = $token->keyword;
+                echo __METHOD__ . '@' . __LINE__ . ' here is a union' . PHP_EOL;
                 continue;
             }
 
@@ -451,12 +460,14 @@ class Parser extends Core
                     // A statement is considered recognized if the parser
                     // is aware that it is a statement, but it does not have
                     // a parser for it yet.
+                    echo __METHOD__ . '@' . __LINE__ . ' unrecognized statement type of ' . $token->keyword . PHP_EOL;
                     $this->error(
                         'Unrecognized statement type.',
                         $token
                     );
                 }
                 // Skipping to the end of this statement.
+                echo __METHOD__ . '@' . __LINE__ . ' skip to the end of this statement' . PHP_EOL;
                 $list->getNextOfType(Token::TYPE_DELIMITER);
                 $prevLastIdx = $list->idx;
                 continue;
@@ -468,6 +479,7 @@ class Parser extends Core
              * @var string
              */
             $class = static::$STATEMENT_PARSERS[$token->keyword];
+            echo __METHOD__ . '@' . __LINE__ . ' use parsing class ' . $class . PHP_EOL;
 
             /**
              * Processed statement.

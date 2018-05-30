@@ -69,6 +69,7 @@ abstract class Component
      * @see static::build
      *
      * @return string
+     * @throws \Exception
      */
     public function __toString()
     {

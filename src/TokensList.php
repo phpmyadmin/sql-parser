@@ -18,7 +18,7 @@ class TokensList implements \ArrayAccess
     /**
      * The array of tokens.
      *
-     * @var array
+     * @var array|Token[]
      */
     public $tokens = array();
 
