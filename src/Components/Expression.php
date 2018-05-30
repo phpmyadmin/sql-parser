@@ -200,6 +200,8 @@ class Expression extends Component
              */
             $token = $list->tokens[$list->idx];
 
+            echo __METHOD__ . '@' . __LINE__ . ' expression check token: ' . $token . PHP_EOL;
+
             // End of statement.
             if ($token->type === Token::TYPE_DELIMITER) {
                 break;

@@ -93,9 +93,9 @@ class ExpressionArray extends Component
                     $caseBeginIdx = $list->idx;
                     $caseExpr = CaseExpression::parse($parser, $list, $options);
                     $leftBracketToken = new Token('(', 2, 16);
-                    array_splice($list, $caseBeginIdx, 0, $leftBracketToken);
+                    $list->insertInto($caseBeginIdx, $leftBracketToken);
                     $rightBracketToken = new Token(')', 2, 16);
-                    array_splice($list, $list->idx, 0, $rightBracketToken);
+                    $list->insertInto($list->idx, $rightBracketToken);
                     $list->idx = $caseBeginIdx;
                     $expr = Expression::parse($parser, $list, $options);
                 } else {
