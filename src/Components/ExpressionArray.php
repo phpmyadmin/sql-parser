@@ -91,12 +91,14 @@ class ExpressionArray extends Component
                     //$expr = CaseExpression::parse($parser, $list, $options);
                     //try fix
                     $caseBeginIdx = $list->idx;
-                    $caseExpr = CaseExpression::parse($parser, $list, $options);
+                    CaseExpression::parse($parser, $list, $options);
                     $leftBracketToken = new Token('(', 2, 16);
                     $list->insertInto($caseBeginIdx, $leftBracketToken);
                     $rightBracketToken = new Token(')', 2, 16);
-                    $list->insertInto($list->idx, $rightBracketToken);
+                    $list->insertInto($list->idx + 1 + 1, $rightBracketToken);
                     $list->idx = $caseBeginIdx;
+                    //foreach($list->tokens as $tokenItem){echo $tokenItem->value." :: ".$tokenItem->type.PHP_EOL;}
+                    //echo __METHOD__ . '@' . __LINE__ . ' ready to parse Mixed Expression' . PHP_EOL;
                     $expr = Expression::parse($parser, $list, $options);
                 } else {
                     //echo __METHOD__ . '@' . __LINE__ . ' ready to parse common Expression' . PHP_EOL;

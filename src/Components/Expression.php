@@ -204,6 +204,7 @@ class Expression extends Component
 
             // End of statement.
             if ($token->type === Token::TYPE_DELIMITER) {
+                //echo __METHOD__ . '@' . __LINE__ ." is delimiter, break".PHP_EOL;
                 break;
             }
 
@@ -211,34 +212,43 @@ class Expression extends Component
             if (($token->type === Token::TYPE_WHITESPACE)
                 || ($token->type === Token::TYPE_COMMENT)
             ) {
-                if ($isExpr) {
+                // fix -- comment before as which would lead to built: -- iii as `t` by not add the comment
+                if ($isExpr && $token->type === Token::TYPE_WHITESPACE) {
                     $ret->expr .= $token->token;
                 }
+
+                //echo __METHOD__ . '@' . __LINE__ .' is white continue'.PHP_EOL;
                 continue;
             }
 
             if ($token->type === Token::TYPE_KEYWORD) {
+                //echo __METHOD__ . '@' . __LINE__ ." is keyword".PHP_EOL;
                 if (($brackets > 0) && (empty($ret->subquery))
                     && (!empty(Parser::$STATEMENT_PARSERS[$token->keyword]))
                 ) {
                     // A `(` was previously found and this keyword is the
                     // beginning of a statement, so this is a subquery.
                     $ret->subquery = $token->keyword;
+                    //echo __METHOD__ . '@' . __LINE__ ." in sub query of ".$token->keyword.PHP_EOL;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_FUNCTION)
                     && (empty($options['parseField'])
                     && !$alias)
                 ) {
+                    //echo __METHOD__ . '@' . __LINE__ .PHP_EOL;
                     $isExpr = true;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED)
                     && ($brackets === 0)
                 ) {
+                    //echo __METHOD__ . '@' . __LINE__ ." FLAG and no brackets".PHP_EOL;
                     if (empty(self::$ALLOWED_KEYWORDS[$token->keyword])) {
                         // A reserved keyword that is not allowed in the
                         // expression was found so the expression must have
                         // ended and a new clause is starting.
+                        //echo __METHOD__ . '@' . __LINE__ ." break here for not allowed keyword".PHP_EOL;
                         break;
                     }
                     if ($token->keyword === 'AS') {
+                        //echo __METHOD__ . '@' . __LINE__ .' AS'.PHP_EOL;
                         if (!empty($options['breakOnAlias'])) {
                             break;
                         }
@@ -252,16 +262,19 @@ class Expression extends Component
                         $alias = true;
                         continue;
                     } elseif ($token->keyword === 'CASE') {
+                        //echo __METHOD__ . '@' . __LINE__ .' CASE'.PHP_EOL;
                         // For a use of CASE like
                         // 'SELECT a = CASE .... END, b=1, `id`, ... FROM ...'
                         $tempCaseExpr = CaseExpression::parse($parser, $list);
                         $ret->expr .= CaseExpression::build($tempCaseExpr);
                         $isExpr = true;
+                        //echo __METHOD__ . '@' . __LINE__ . ' note, tempCaseExpr made here' . PHP_EOL;
                         continue;
                     }
                     $isExpr = true;
                 } elseif ($brackets === 0 && strlen($ret->expr) > 0 && !$alias) {
                     /* End of expression */
+                    //echo __METHOD__ . '@' . __LINE__ .' END OF EXPRESSION, break'.PHP_EOL;
                     break;
                 }
             }
