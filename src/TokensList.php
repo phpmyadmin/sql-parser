@@ -208,7 +208,7 @@ class TokensList implements \ArrayAccess
      */
     public function insertInto($index, $token)
     {
-        echo __METHOD__ . '@' . __LINE__ . ' type = ' . get_class($token) . PHP_EOL;
+        //echo __METHOD__ . '@' . __LINE__ . ' type = ' . get_class($token) . PHP_EOL;
         array_splice($this->tokens, $index, 0, array($token));
         $this->count += 1;
     }

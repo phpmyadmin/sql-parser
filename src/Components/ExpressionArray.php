@@ -54,17 +54,17 @@ class ExpressionArray extends Component
              */
             $token = $list->tokens[$list->idx];
 
-            echo __METHOD__ . '@' . __LINE__ . ' handle token: ' . $token . PHP_EOL;
+            //echo __METHOD__ . '@' . __LINE__ . ' handle token: ' . $token . PHP_EOL;
 
             // End of statement.
             if ($token->type === Token::TYPE_DELIMITER) {
-                echo __METHOD__ . '@' . __LINE__ . ' met delimiter, break' . PHP_EOL;
+                //echo __METHOD__ . '@' . __LINE__ . ' met delimiter, break' . PHP_EOL;
                 break;
             }
 
             // Skipping whitespaces and comments.
             if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
-                echo __METHOD__ . '@' . __LINE__ . ' skip non-sql part' . PHP_EOL;
+                //echo __METHOD__ . '@' . __LINE__ . ' skip non-sql part' . PHP_EOL;
                 continue;
             }
 
@@ -76,17 +76,17 @@ class ExpressionArray extends Component
                 && ($token->value !== 'CASE')
             ) {
                 // No keyword is expected.
-                echo __METHOD__ . '@' . __LINE__ . ' no keyword, break' . PHP_EOL;
+                //echo __METHOD__ . '@' . __LINE__ . ' no keyword, break' . PHP_EOL;
                 break;
             }
 
-            echo __METHOD__ . '@' . __LINE__ . ' state=' . $state . PHP_EOL;
+            //echo __METHOD__ . '@' . __LINE__ . ' state=' . $state . PHP_EOL;
 
             if ($state === 0) {
                 if ($token->type === Token::TYPE_KEYWORD
                     && $token->value === 'CASE'
                 ) {
-                    echo __METHOD__ . '@' . __LINE__ . ' ready to parse CASE Expression' . PHP_EOL;
+                    //echo __METHOD__ . '@' . __LINE__ . ' ready to parse CASE Expression' . PHP_EOL;
                     //original
                     //$expr = CaseExpression::parse($parser, $list, $options);
                     //try fix
@@ -99,11 +99,11 @@ class ExpressionArray extends Component
                     $list->idx = $caseBeginIdx;
                     $expr = Expression::parse($parser, $list, $options);
                 } else {
-                    echo __METHOD__ . '@' . __LINE__ . ' ready to parse common Expression' . PHP_EOL;
+                    //echo __METHOD__ . '@' . __LINE__ . ' ready to parse common Expression' . PHP_EOL;
                     $expr = Expression::parse($parser, $list, $options);
                 }
 
-                echo __METHOD__ . '@' . __LINE__ . ' express parse result: ' . $expr . PHP_EOL;
+                //echo __METHOD__ . '@' . __LINE__ . ' express parse result: ' . $expr . PHP_EOL;
 
                 if ($expr === null) {
                     break;

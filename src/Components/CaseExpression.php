@@ -113,7 +113,7 @@ class CaseExpression extends Component
              */
             $token = $list->tokens[$list->idx];
 
-            echo __METHOD__ . '@' . __LINE__ . ' state ' . $state . ' see token: ' . $token . PHP_EOL;
+            //echo __METHOD__ . '@' . __LINE__ . ' state ' . $state . ' see token: ' . $token . PHP_EOL;
             // state:
             // case[0] XXX[1]
             // when[2] XXX then[1]
