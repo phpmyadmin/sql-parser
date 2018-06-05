@@ -19,7 +19,7 @@ matrix:
   allow_failures:
     - php: "nightly"
   include:
-    - php: "7.1"
+    - php: "7.2"
       env: DOCS=yes
     - php: "7.1"
       env: REQUIRE="phpmyadmin/motranslator:^3.0"
@@ -29,7 +29,7 @@ matrix:
 sudo: false
 
 install:
-  - if [ "$TRAVIS_PHP_VERSION" = "5.3" ] ; then sed -i '/apigen/D' composer.json ; fi
+  - if [ $(php -r "echo PHP_MAJOR_VERSION;") -lt 7 ] ; then sed -i '/sami/D' composer.json ; fi
   - if [ -n "$REQUIRE" ] ; then composer require "$REQUIRE" ; fi
   - composer install
 
@@ -42,4 +42,4 @@ cache:
 
 script: 
   - if [ "$DOCS" != "yes" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml ; fi
-  - if [ "$DOCS" = "yes" ] ; then ./vendor/bin/apigen generate --destination doc --source src/ ; fi
+  - if [ "$DOCS" = "yes" ] ; then ./vendor/bin/sami.php --no-interaction update ./tools/sami-config.php ; fi
