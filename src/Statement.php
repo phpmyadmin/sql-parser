@@ -188,8 +188,9 @@ abstract class Statement
     /**
      * Parses the statements defined by the tokens list.
      *
-     * @param Parser     $parser the instance that requests parsing
-     * @param TokensList $list   the list of tokens to be parsed
+     * @param Parser $parser the instance that requests parsing
+     * @param TokensList $list the list of tokens to be parsed
+     * @throws Exceptions\ParserException
      */
     public function parse(Parser $parser, TokensList $list)
     {
@@ -220,9 +221,11 @@ abstract class Statement
              * @var Token
              */
             $token = $list->tokens[$list->idx];
+            //echo __METHOD__ . '@' . __LINE__ . ' processing token: ' . $token . PHP_EOL;
 
             // End of statement.
             if ($token->type === Token::TYPE_DELIMITER) {
+                //echo __METHOD__ . '@' . __LINE__ . ' met delimiter, break' . PHP_EOL;
                 break;
             }
 
@@ -230,6 +233,7 @@ abstract class Statement
             // outside the statement.
             if (($token->value === ')') && ($parser->brackets > 0)) {
                 --$parser->brackets;
+                //echo __METHOD__ . '@' . __LINE__ . ' met ) and now count=' . $parser->brackets . PHP_EOL;
                 continue;
             }
 
@@ -239,8 +243,10 @@ abstract class Statement
                 if (($token->type !== Token::TYPE_COMMENT)
                     && ($token->type !== Token::TYPE_WHITESPACE)
                 ) {
+                    //echo __METHOD__ . '@' . __LINE__ . ' unexpected token: ' . $token . PHP_EOL;
                     $parser->error('Unexpected token.', $token);
                 }
+                //echo __METHOD__ . '@' . __LINE__ . ' non keyword here' . PHP_EOL;
                 continue;
             }
 
@@ -252,10 +258,13 @@ abstract class Statement
                     ($token->keyword === 'EXCEPT') ||
                     ($token->keyword === 'INTERSECT')
             ) {
+                //echo __METHOD__ . '@' . __LINE__ . " met union-family inside statement so break" . PHP_EOL;
                 break;
             }
 
             $lastIdx = $list->idx;
+
+            //echo __METHOD__ . '@' . __LINE__ . ' updated lastIdx to ' . $lastIdx . PHP_EOL;
 
             // ON DUPLICATE KEY UPDATE ...
             // has to be parsed in parent statement (INSERT or REPLACE)
@@ -316,6 +325,9 @@ abstract class Statement
                 $parsedClauses[$token->value] = true;
             }
 
+            //echo __METHOD__ . '@' . __LINE__ . " after checking the duplicated clauses" . PHP_EOL;
+            //echo __METHOD__ . '@' . __LINE__ . " token value is " . $token->value . PHP_EOL;
+
             // Checking if this is the beginning of a clause.
             if (!empty(Parser::$KEYWORD_PARSERS[$token->value]) && $list->idx < $list->count) {
                 $class = Parser::$KEYWORD_PARSERS[$token->value]['class'];
@@ -323,10 +335,12 @@ abstract class Statement
                 if (!empty(Parser::$KEYWORD_PARSERS[$token->value]['options'])) {
                     $options = Parser::$KEYWORD_PARSERS[$token->value]['options'];
                 }
+                //echo __METHOD__ . '@' . __LINE__ . ' a beginning of a clause: class=' . $class . ' field=' . $field . ' options=' . json_encode($options) . PHP_EOL;
             }
 
             // Checking if this is the beginning of the statement.
             if (!empty(Parser::$STATEMENT_PARSERS[$token->keyword])) {
+                //echo __METHOD__ . '@' . __LINE__ . ' as a statement parser, the keyword ' . $token->keyword . PHP_EOL;
                 if ((!empty(static::$CLAUSES)) // Undefined for some statements.
                     && (empty(static::$CLAUSES[$token->value]))
                 ) {
@@ -335,6 +349,7 @@ abstract class Statement
                     // If such keyword was found and it cannot be a clause of
                     // this statement it means it is a new statement, but no
                     // delimiter was found between them.
+                    //echo __METHOD__ . '@' . __LINE__ . ' new statement came without delimiter, error, break' . PHP_EOL;
                     $parser->error(
                         'A new statement was found, but no delimiter between it and the previous one.',
                         $token
@@ -353,6 +368,7 @@ abstract class Statement
                     );
                     $parsedOptions = true;
                 }
+                //echo __METHOD__ . '@' . __LINE__ . ' ' . PHP_EOL;
             } elseif ($class === null) {
                 // Handle special end options in Select statement
                 // See Statements\SelectStatement::$END_OPTIONS
@@ -373,7 +389,11 @@ abstract class Statement
                 }
             }
 
+            //echo __METHOD__ . '@' . __LINE__ . ' before before' . PHP_EOL;
+
             $this->before($parser, $list, $token);
+
+            //echo __METHOD__ . '@' . __LINE__ . ' after before' . PHP_EOL;
 
             // Parsing this keyword.
             if ($class !== null) {
@@ -383,12 +403,19 @@ abstract class Statement
                     continue;
                 }
                 ++$list->idx; // Skipping keyword or last option.
+                //echo __METHOD__ . '@' . __LINE__ . ' just before ' . $class . '::parse and the idx=' . $list->idx . PHP_EOL;
                 $this->$field = $class::parse($parser, $list, $options);
+                //echo __METHOD__ . '@' . __LINE__ . ' after ' . $class . '::parse this::field=' . json_encode($this->$field) . PHP_EOL;
             }
 
+            //echo __METHOD__ . '@' . __LINE__ . ' before after' . PHP_EOL;
+
             $this->after($parser, $list, $token);
+
+            //echo __METHOD__ . '@' . __LINE__ . ' after after' . PHP_EOL;
         }
 
+        //echo __METHOD__ . '@' . __LINE__ . ' oshimai' . PHP_EOL;
         // This may be corrected by the parser.
         $this->last = --$list->idx; // Go back to last used token.
     }

@@ -18,7 +18,7 @@ class TokensList implements \ArrayAccess
     /**
      * The array of tokens.
      *
-     * @var array
+     * @var array|Token[]
      */
     public $tokens = array();
 
@@ -199,5 +199,17 @@ class TokensList implements \ArrayAccess
             $this->tokens[$i] = $this->tokens[$i + 1];
         }
         unset($this->tokens[$this->count]);
+    }
+
+    /**
+     * Added by Sinri
+     * @param int $index
+     * @param Token $token
+     */
+    public function insertInto($index, $token)
+    {
+        //echo __METHOD__ . '@' . __LINE__ . ' type = ' . get_class($token) . PHP_EOL;
+        array_splice($this->tokens, $index, 0, array($token));
+        $this->count += 1;
     }
 }
