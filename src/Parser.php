@@ -191,6 +191,10 @@ class Parser extends Core
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
+        'STRAIGHT_JOIN' => array(
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
+        ),
         'LEFT JOIN' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
