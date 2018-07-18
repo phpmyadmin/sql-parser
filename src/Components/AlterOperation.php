@@ -84,6 +84,7 @@ class AlterOperation extends Component
         'SPATIAL' => 2,
         'TABLESPACE' => 2,
         'INDEX' => 2,
+        'CHECK' => 3
     );
 
     /**

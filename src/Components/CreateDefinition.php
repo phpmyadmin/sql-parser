@@ -102,6 +102,13 @@ class CreateDefinition extends Component
     public $key;
 
     /**
+     * Check constraint
+     *
+     * @var check
+     */
+    public $check;
+
+    /**
      * The table that is referenced.
      *
      * @var Reference
@@ -214,6 +221,9 @@ class CreateDefinition extends Component
                 } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
                     $expr->key = Key::parse($parser, $list);
                     $state = 4;
+                } elseif (($token->type === Token::TYPE_KEYWORD) && $token->keyword === 'CHECK') {
+                    $expr->check = Check::parse($parser, $list);
+                    $state = 4;
                 } elseif ($token->type === Token::TYPE_SYMBOL || $token->type === Token::TYPE_NONE) {
                     $expr->name = $token->value;
                     if (!$expr->isConstraint) {
@@ -248,8 +258,13 @@ class CreateDefinition extends Component
                 $expr->type = DataType::parse($parser, $list);
                 $state = 3;
             } elseif ($state === 3) {
-                $expr->options = OptionsArray::parse($parser, $list, static::$FIELD_OPTIONS);
-                $state = 4;
+                if (($token->type === Token::TYPE_KEYWORD) && $token->keyword === 'CHECK') {
+                    $expr->check = Check::parse($parser, $list);
+                    $state = 4;
+                } else {
+                    $expr->options = OptionsArray::parse($parser, $list, static::$FIELD_OPTIONS);
+                    $state = 4;
+                }
             } elseif ($state === 4) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'REFERENCES') {
                     ++$list->idx; // Skipping keyword 'REFERENCES'.
@@ -259,7 +274,7 @@ class CreateDefinition extends Component
                 }
                 $state = 5;
             } elseif ($state === 5) {
-                if ((!empty($expr->type)) || (!empty($expr->key))) {
+                if ((!empty($expr->type)) || (!empty($expr->key)) || (!empty($expr->check))) {
                     $ret[] = $expr;
                 }
                 $expr = new self();
@@ -281,7 +296,7 @@ class CreateDefinition extends Component
         }
 
         // Last iteration was not saved.
-        if ((!empty($expr->type)) || (!empty($expr->key))) {
+        if ((!empty($expr->type)) || (!empty($expr->key)) || (!empty($expr->check))) {
             $ret[] = $expr;
         }
 
