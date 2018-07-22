@@ -334,6 +334,10 @@ class CreateDefinition extends Component
             $tmp .= Context::escape($component->name) . ' ';
         }
 
+        if ($component->isConstraint) {
+            $tmp .= Check::build($component->check);
+        }
+
         if (!empty($component->type)) {
             $tmp .= DataType::build(
                 $component->type,

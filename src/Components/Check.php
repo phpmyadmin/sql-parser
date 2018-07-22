@@ -156,7 +156,7 @@ class Check extends Component
                     $state = 2;
                 }
             } elseif ($state === 2) {
-                if(($token->type === Token::TYPE_OPERATOR)) {
+                if(($token->type === Token::TYPE_OPERATOR) || in_array($token->value, self::$operatorsArray)) {
                     if(($token->value === ')')) {
                         if(count($bracketStack) > 1) {
                             array_pop($bracketStack);
@@ -225,6 +225,7 @@ class Check extends Component
 
     /**
      * @param Check   $component the component to be built
+     * @param array $options   parameters for building
      *
      * @return string
      */
@@ -234,20 +235,20 @@ class Check extends Component
         $logical_op = $component->logicalOperators;
         $operators = $component->operators;
         $operands = $component->operands;
-        $definition = '(';
+        $definition = 'CHECK (';
         for($i=0; $i<count($columns); ++$i) {
             $columns[$i] = trim($columns[$i]);
             if($i>0) {
                 $definition .= ' ' . $logical_op[$i-1] . ' ';
             }
-            $definition .= Util::backquote($columns[$i]);
+            $definition .= Context::escape($columns[$i]);
             if($operators[$i] === 'IS NULL' || $operators[$i] === 'IS NOT NULL') {
                 $definition .= ' ' . $operators[$i];
             } else {
                 $definition .= ' ' . $operators[$i] . ' \'' . $operands[$i] . '\'';
             }
         }
-
+        $definition .= ')';
         return trim($definition);
     }
 }
