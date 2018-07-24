@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2018-07-21 23:42+0000\n"
+"PO-Revision-Date: 2018-07-24 05:41+0000\n"
 "Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/ro/>\n"
@@ -127,7 +127,7 @@ msgstr "Era așteptat numele nou al tabelului."
 
 #: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
-msgstr "Este așteptată o operație de redenumire."
+msgstr "Era așteptată o operație de redenumire."
 
 #: src/Components/SetOperation.php:117
 msgid "Missing expression."
@@ -146,10 +146,9 @@ msgid "Expected delimiter."
 msgstr "A fost așteptat delimitatorul."
 
 #: src/Lexer.php:843
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Evenimentul %1$s a fost creat."
+msgstr "Erau așteptate ghilimele la sfârșit %1$s."
 
 #: src/Lexer.php:884
 msgid "Variable name was expected."
@@ -185,8 +184,6 @@ msgid "Unrecognized keyword."
 msgstr "Cuvânt cheie nerecunoscut."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Keyword at end of statement."
 msgstr "Cuvânt cheie la sfârșitul declarației."
 
@@ -219,7 +216,5 @@ msgid "error #1"
 msgstr "eroare #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
 msgstr "eroare strictă"
