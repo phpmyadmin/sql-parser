@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2018-08-01 07:29+0000\n"
+"PO-Revision-Date: 2018-08-02 07:35+0000\n"
 "Last-Translator: popcorner <memoword@163.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/sql-parser/zh_Hans/>\n"
@@ -31,15 +31,15 @@ msgstr "无法识别的变更（alter）操作。"
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr "期望%1$d个值，但查找到了%2$d个。"
+msgstr "应有%1$d个值，但查找到了%2$d个。"
 
 #: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
-msgstr "正确形式是一个开头括号后面跟着一组值。"
+msgstr "应该有一个开头括号后面跟着一组值。"
 
 #: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
 msgid "An opening bracket was expected."
-msgstr "正确形式是一个打开的括号。"
+msgstr "应该有一个左括号。"
 
 #: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
 #: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
@@ -64,19 +64,19 @@ msgstr "CASE表达式意外结束"
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
-msgstr "正确形式应该有一个符号名称！保留的关键字不能用作没有反引号的列名。"
+msgstr "应该有一个符号名称！保留的关键字不能用作没有反引号的列名。"
 
 #: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
-msgstr "正确形式是有一个符号名称！"
+msgstr "应该有一个符号名称！"
 
 #: src/Components/CreateDefinition.php:270
 msgid "A comma or a closing bracket was expected."
-msgstr "正确形式是有逗号或结束括号。"
+msgstr "应该是有逗号或结束括号。"
 
 #: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
-msgstr "正确形式是有一个结束括号。"
+msgstr "应有一个右括号。"
 
 #: src/Components/DataType.php:123
 msgid "Unrecognized data type."
@@ -84,7 +84,7 @@ msgstr "无法识别的数据类型。"
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
 msgid "An alias was expected."
-msgstr "正确形式是有一个别名。"
+msgstr "应该有一个别名。"
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
@@ -97,11 +97,11 @@ msgstr "不应出现的点。"
 
 #: src/Components/ExpressionArray.php:102
 msgid "An expression was expected."
-msgstr "正确形式应为一个表达式。"
+msgstr "应该为一个表达式。"
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr "正确形式应为一个偏移。"
+msgstr "应该为一个偏移。"
 
 #: src/Components/OptionsArray.php:143
 #, php-format
@@ -114,15 +114,15 @@ msgstr "需要有表的旧名称。"
 
 #: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
-msgstr "正确形式应为关键词“TO”。"
+msgstr "应为关键词“TO”。"
 
 #: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
-msgstr "需要有表的新名称。"
+msgstr "应有表的新名称。"
 
 #: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
-msgstr "需要进行重命名操作。"
+msgstr "应进行重命名操作。"
 
 #: src/Components/SetOperation.php:117
 msgid "Missing expression."
@@ -176,7 +176,7 @@ msgstr "之前已解析此类型的子句。"
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr "不能识别的关键词"
+msgstr "不能识别的关键词。"
 
 #: src/Statement.php:377
 msgid "Keyword at end of statement."
