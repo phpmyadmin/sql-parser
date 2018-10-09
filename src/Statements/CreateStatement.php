@@ -37,7 +37,7 @@ class CreateStatement extends Statement
         'TEMPORARY' => 1,
 
         // CREATE VIEW
-        'OR REPLACE' => array(2, 'var='),
+        'OR REPLACE' => 2,
         'ALGORITHM' => array(3, 'var='),
         // `DEFINER` is also used for `CREATE FUNCTION / PROCEDURE`
         'DEFINER' => array(4, 'expr='),
