@@ -7,6 +7,7 @@
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -56,6 +57,13 @@ class CaseExpression extends Component
     public $else_result;
 
     /**
+     * The alias of this CASE statement
+     *
+     * @var string
+     */
+    public $alias;
+
+    /**
      * The sub-expression.
      *
      * @var string
@@ -93,6 +101,13 @@ class CaseExpression extends Component
          * @var int
          */
         $type = 0;
+
+        /**
+         * Whether an alias is expected
+         *
+         * @bool
+         */
+        $alias = false;
 
         ++$list->idx; // Skip 'CASE'
 
@@ -201,6 +216,56 @@ class CaseExpression extends Component
                 $list->tokens[$list->idx - 1]
             );
         } else {
+
+            // Parse alias for CASE statement
+            for (; $list->idx < $list->count; ++$list->idx) {
+                $token = $list->tokens[$list->idx];
+
+                // Skipping whitespaces and comments.
+                if (($token->type === Token::TYPE_WHITESPACE)
+                    || ($token->type === Token::TYPE_COMMENT)
+                ) {
+                    continue;
+                }
+
+                //
+                if($token->type === Token::TYPE_KEYWORD
+                    && $token->keyword === 'AS'){
+
+                    if ($alias) {
+                        $parser->error(
+                            'An alias was expected.',
+                            $token
+                        );
+                        break;
+                    }
+                    $alias = true;
+                    continue;
+                }
+
+                if ($alias){
+
+                    // An alias is expected (the keyword `AS` was previously found).
+                    if (!empty($ret->alias)) {
+                        $parser->error('An alias was previously found.', $token);
+                        break;
+                    }
+                    $ret->alias = $token->value;
+                    $alias = false;
+
+                    continue;
+                }
+
+                break;
+            }
+            if ($alias) {
+                $parser->error(
+                    'An alias was expected.',
+                    $list->tokens[$list->idx - 1]
+                );
+            }
+
+
             $ret->expr = self::build($ret);
         }
 
@@ -240,6 +305,10 @@ class CaseExpression extends Component
             $ret .= 'ELSE ' . $component->else_result . ' ';
         }
         $ret .= 'END';
+
+        if ($component->alias) {
+            $ret .= ' AS ' . Context::escape($component->alias);
+        }
 
         return $ret;
     }
