@@ -227,14 +227,19 @@ class CaseExpression extends Component
                     && $token->keyword === 'AS'){
 
                     if ($asFound || !empty($ret->alias)) {
-                        $parser->error(
-                            'Potential duplicate alias of CASE expression.',
-                            $token
-                        );
+                        $parser->error('Potential duplicate alias of CASE expression.', $token);
                         break;
                     }
                     $asFound = true;
                     continue;
+                }
+
+                if ($asFound
+                    && $token->type === Token::TYPE_KEYWORD
+                    && ($token->flags & Token::FLAG_KEYWORD_RESERVED || $token->flags & Token::FLAG_KEYWORD_FUNCTION)){
+                    $parser->error('An alias expected after AS but got '.$token->value, $token);
+                    $asFound = false;
+                    break;
                 }
 
                 if ($asFound
@@ -257,10 +262,7 @@ class CaseExpression extends Component
                 break;
             }
             if ($asFound) {
-                $parser->error(
-                    'An alias was expected after AS.',
-                    $list->tokens[$list->idx - 1]
-                );
+                $parser->error('An alias was expected after AS.', $list->tokens[$list->idx - 1]);
             }
 
 
