@@ -102,13 +102,6 @@ class CaseExpression extends Component
          */
         $type = 0;
 
-        /**
-         * Whether an alias is expected
-         *
-         * @bool
-         */
-        $alias = false;
-
         ++$list->idx; // Skip 'CASE'
 
         for (; $list->idx < $list->count; ++$list->idx) {
@@ -217,7 +210,8 @@ class CaseExpression extends Component
             );
         } else {
 
-            // Parse alias for CASE statement
+            // Parse for alias of CASE expression
+            $asFound = false;
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
 
@@ -228,22 +222,26 @@ class CaseExpression extends Component
                     continue;
                 }
 
-                //
+                // Handle optional AS keyword before alias
                 if($token->type === Token::TYPE_KEYWORD
                     && $token->keyword === 'AS'){
 
-                    if ($alias) {
+                    if ($asFound || !empty($ret->alias)) {
                         $parser->error(
-                            'An alias was expected.',
+                            'Potential duplicate alias of CASE expression.',
                             $token
                         );
                         break;
                     }
-                    $alias = true;
+                    $asFound = true;
                     continue;
                 }
 
-                if ($alias){
+                if ($asFound
+                    || $token->type === Token::TYPE_STRING
+                    || ($token->type === Token::TYPE_SYMBOL && !$token->flags & Token::FLAG_SYMBOL_VARIABLE)
+                    || $token->type === Token::TYPE_NONE
+                ){
 
                     // An alias is expected (the keyword `AS` was previously found).
                     if (!empty($ret->alias)) {
@@ -251,16 +249,16 @@ class CaseExpression extends Component
                         break;
                     }
                     $ret->alias = $token->value;
-                    $alias = false;
+                    $asFound = false;
 
                     continue;
                 }
 
                 break;
             }
-            if ($alias) {
+            if ($asFound) {
                 $parser->error(
-                    'An alias was expected.',
+                    'An alias was expected after AS.',
                     $list->tokens[$list->idx - 1]
                 );
             }
