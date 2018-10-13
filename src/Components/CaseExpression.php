@@ -215,6 +215,10 @@ class CaseExpression extends Component
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
 
+                // End of statement.
+                if ($token->type === Token::TYPE_DELIMITER) {
+                    break;
+                }
                 // Skipping whitespaces and comments.
                 if (($token->type === Token::TYPE_WHITESPACE)
                     || ($token->type === Token::TYPE_COMMENT)
