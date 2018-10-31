@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [4.2.5] - 2018-10-31
 
 * Fix issue with CREATE OR REPLACE VIEW.
 
