@@ -237,11 +237,7 @@ class IntoKeyword extends Component
                 static::$FIELDS_OPTIONS
             );
 
-            if ($keyword === 'FIELDS') {
-                $this->fields_keyword = true;
-            } else {
-                $this->fields_keyword = false;
-            }
+            $this->fields_keyword = ($keyword === 'FIELDS');
         } else {
             // parse line options
             $this->lines_options = OptionsArray::parse(
@@ -272,7 +268,7 @@ class IntoKeyword extends Component
 
         $fields_options_str = OptionsArray::build($component->fields_options);
         if (trim($fields_options_str) !== '') {
-            $ret .= ($component->fields_keyword) ? ' FIELDS' : ' COLUMNS';
+            $ret .= $component->fields_keyword ? ' FIELDS' : ' COLUMNS';
             $ret .= ' ' . $fields_options_str;
         }
 

@@ -142,7 +142,7 @@ class Condition extends Component
 
             // Conditions are delimited by logical operators.
             if (in_array($token->value, static::$DELIMITERS, true)) {
-                if (($betweenBefore) && ($token->value === 'AND')) {
+                if ($betweenBefore && ($token->value === 'AND')) {
                     // The syntax of keyword `BETWEEN` is hard-coded.
                     $betweenBefore = false;
                 } else {
@@ -170,7 +170,7 @@ class Condition extends Component
                 if ($token->value === 'BETWEEN') {
                     $betweenBefore = true;
                 }
-                if (($brackets === 0) && (empty(static::$ALLOWED_KEYWORDS[$token->value]))) {
+                if (($brackets === 0) && empty(static::$ALLOWED_KEYWORDS[$token->value])) {
                     break;
                 }
             }

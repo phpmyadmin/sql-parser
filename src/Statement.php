@@ -260,7 +260,7 @@ abstract class Statement
             // ON DUPLICATE KEY UPDATE ...
             // has to be parsed in parent statement (INSERT or REPLACE)
             // so look for it and break
-            if ($this instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement
+            if ($this instanceof Statements\SelectStatement
                 && $token->value === 'ON'
             ) {
                 ++$list->idx; // Skip ON
@@ -303,8 +303,8 @@ abstract class Statement
             $options = array();
 
             // Looking for duplicated clauses.
-            if ((!empty(Parser::$KEYWORD_PARSERS[$token->value]))
-                || (!empty(Parser::$STATEMENT_PARSERS[$token->value]))
+            if (!empty(Parser::$KEYWORD_PARSERS[$token->value])
+                || !empty(Parser::$STATEMENT_PARSERS[$token->value])
             ) {
                 if (!empty($parsedClauses[$token->value])) {
                     $parser->error(
@@ -327,8 +327,8 @@ abstract class Statement
 
             // Checking if this is the beginning of the statement.
             if (!empty(Parser::$STATEMENT_PARSERS[$token->keyword])) {
-                if ((!empty(static::$CLAUSES)) // Undefined for some statements.
-                    && (empty(static::$CLAUSES[$token->value]))
+                if (!empty(static::$CLAUSES) // Undefined for some statements.
+                    && empty(static::$CLAUSES[$token->value])
                 ) {
                     // Some keywords (e.g. `SET`) may be the beginning of a
                     // statement and a clause.
@@ -356,7 +356,7 @@ abstract class Statement
             } elseif ($class === null) {
                 // Handle special end options in Select statement
                 // See Statements\SelectStatement::$END_OPTIONS
-                if ($this instanceof \PhpMyAdmin\SqlParser\Statements\SelectStatement
+                if ($this instanceof Statements\SelectStatement
                     && ($token->value === 'FOR UPDATE'
                     || $token->value === 'LOCK IN SHARE MODE')
                 ) {

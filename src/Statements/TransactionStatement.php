@@ -82,12 +82,12 @@ class TransactionStatement extends Statement
         parent::parse($parser, $list);
 
         // Checks the type of this query.
-        if (($this->options->has('START TRANSACTION'))
-            || ($this->options->has('BEGIN'))
+        if ($this->options->has('START TRANSACTION')
+            || $this->options->has('BEGIN')
         ) {
             $this->type = self::TYPE_BEGIN;
-        } elseif (($this->options->has('COMMIT'))
-            || ($this->options->has('ROLLBACK'))
+        } elseif ($this->options->has('COMMIT')
+            || $this->options->has('ROLLBACK')
         ) {
             $this->type = self::TYPE_END;
         }

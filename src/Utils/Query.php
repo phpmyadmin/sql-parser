@@ -228,11 +228,11 @@ class Query
             $flags['distinct'] = true;
         }
 
-        if ((!empty($statement->group)) || (!empty($statement->having))) {
+        if (!empty($statement->group) || !empty($statement->having)) {
             $flags['is_group'] = true;
         }
 
-        if ((!empty($statement->into))
+        if (!empty($statement->into)
             && ($statement->into->type === 'OUTFILE')
         ) {
             $flags['is_export'] = true;
@@ -258,7 +258,7 @@ class Query
             }
         }
 
-        if ((!empty($statement->procedure))
+        if (!empty($statement->procedure)
             && ($statement->procedure->name === 'ANALYSE')
         ) {
             $flags['is_analyse'] = true;
@@ -330,8 +330,8 @@ class Query
             $flags['querytype'] = 'DROP';
             $flags['reload'] = true;
 
-            if (($statement->options->has('DATABASE')
-                || ($statement->options->has('SCHEMA')))
+            if ($statement->options->has('DATABASE')
+                || $statement->options->has('SCHEMA')
             ) {
                 $flags['drop_database'] = true;
             }
@@ -415,8 +415,7 @@ class Query
             // Finding tables' aliases and their associated real names.
             $tableAliases = array();
             foreach ($statement->from as $expr) {
-                if ((isset($expr->table)) && ($expr->table !== '')
-                    && (isset($expr->alias)) && ($expr->alias !== '')
+                if (isset($expr->table, $expr->alias) && ($expr->table !== '') && ($expr->alias !== '')
                 ) {
                     $tableAliases[$expr->alias] = array(
                         $expr->table,
@@ -429,13 +428,13 @@ class Query
             // Sometimes, this is not possible because the tables aren't defined
             // explicitly (e.g. SELECT * FROM film, SELECT film_id FROM film).
             foreach ($statement->expr as $expr) {
-                if ((isset($expr->table)) && ($expr->table !== '')) {
+                if (isset($expr->table) && ($expr->table !== '')) {
                     if (isset($tableAliases[$expr->table])) {
                         $arr = $tableAliases[$expr->table];
                     } else {
                         $arr = array(
                             $expr->table,
-                            ((isset($expr->database)) && ($expr->database !== '')) ?
+                            (isset($expr->database) && ($expr->database !== '')) ?
                                 $expr->database : null,
                         );
                     }
@@ -452,10 +451,10 @@ class Query
             // extracted from the FROM clause.
             if (empty($ret['select_tables'])) {
                 foreach ($statement->from as $expr) {
-                    if ((isset($expr->table)) && ($expr->table !== '')) {
+                    if (isset($expr->table) && ($expr->table !== '')) {
                         $arr = array(
                             $expr->table,
-                            ((isset($expr->database)) && ($expr->database !== '')) ?
+                            (isset($expr->database) && ($expr->database !== '')) ?
                                 $expr->database : null,
                         );
                         if (!in_array($arr, $ret['select_tables'])) {
@@ -627,14 +626,14 @@ class Query
                 }
             }
 
-            if ($brackets == 0) {
+            if ($brackets === 0) {
                 // Checking if the section was changed.
                 if (($token->type === Token::TYPE_KEYWORD)
-                    && (isset($clauses[$token->keyword]))
+                    && isset($clauses[$token->keyword])
                     && ($clauses[$token->keyword] >= $currIdx)
                 ) {
                     $currIdx = $clauses[$token->keyword];
-                    if (($skipFirst) && ($currIdx == $clauseIdx)) {
+                    if ($skipFirst && ($currIdx == $clauseIdx)) {
                         // This token is skipped (not added to the old
                         // clause) because it will be replaced.
                         continue;
@@ -727,7 +726,7 @@ class Query
         $ret .= static::getClause($statement, $list, $ops[0][0], -1) . ' ';
 
         // Doing replacements.
-        for ($i = 0; $i < $count; ++$i) {
+        foreach ($ops as $i => $iValue) {
             $ret .= $ops[$i][1] . ' ';
 
             // Adding everything between this and next replacement.
@@ -780,7 +779,7 @@ class Query
 
             $statement .= $token->token;
 
-            if (($token->type === Token::TYPE_DELIMITER) && (!empty($token->token))) {
+            if (($token->type === Token::TYPE_DELIMITER) && !empty($token->token)) {
                 $delimiter = $token->token;
                 $fullStatement = true;
                 break;
@@ -846,7 +845,7 @@ class Query
 
             if ($brackets == 0) {
                 if (($token->type === Token::TYPE_KEYWORD)
-                    && (isset($clauses[$token->keyword]))
+                    && isset($clauses[$token->keyword])
                     && ($clause === $token->keyword)
                 ) {
                     return $i;
