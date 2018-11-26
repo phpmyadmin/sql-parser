@@ -388,7 +388,7 @@ class CreateStatement extends Statement
          */
         $token = $list->tokens[$list->idx];
         $nextidx = $list->idx + 1;
-        while ($nextidx < $list->count && $list->tokens[$nextidx]->type == Token::TYPE_WHITESPACE) {
+        while ($nextidx < $list->count && $list->tokens[$nextidx]->type === Token::TYPE_WHITESPACE) {
             ++$nextidx;
         }
 
@@ -399,18 +399,18 @@ class CreateStatement extends Statement
                 static::$DB_OPTIONS
             );
         } elseif ($this->options->has('TABLE')) {
-            if (($token->type == Token::TYPE_KEYWORD)
-             && ($token->keyword == 'SELECT')) {
+            if (($token->type === Token::TYPE_KEYWORD)
+             && ($token->keyword === 'SELECT')) {
                 /* CREATE TABLE ... SELECT */
                 $this->select = new SelectStatement($parser, $list);
-            } elseif (($token->type == Token::TYPE_KEYWORD) && ($token->keyword == 'AS')
-                && ($list->tokens[$nextidx]->type == Token::TYPE_KEYWORD)
-                && ($list->tokens[$nextidx]->value == 'SELECT')) {
+            } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'AS')
+                && ($list->tokens[$nextidx]->type === Token::TYPE_KEYWORD)
+                && ($list->tokens[$nextidx]->value === 'SELECT')) {
                 /* CREATE TABLE ... AS SELECT */
                 $list->idx = $nextidx;
                 $this->select = new SelectStatement($parser, $list);
-            } elseif ($token->type == Token::TYPE_KEYWORD
-                && $token->keyword == 'LIKE') {
+            } elseif ($token->type === Token::TYPE_KEYWORD
+                && $token->keyword === 'LIKE') {
             /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
                 $list->idx = $nextidx;
                 $this->like = Expression::parse(
@@ -422,7 +422,7 @@ class CreateStatement extends Statement
                     )
                 );
                 // The 'LIKE' keyword was found, but no table_name was found next to it
-                if ($this->like == null) {
+                if (is_null($this->like)) {
                     $parser->error(
                         'A table name was expected.',
                         $list->tokens[$list->idx]

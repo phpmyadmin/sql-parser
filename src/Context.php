@@ -313,7 +313,7 @@ abstract class Context
     public static function isComment($str, $end = false)
     {
         $len = strlen($str);
-        if ($len == 0) {
+        if ($len === 0) {
             return null;
         }
         if ($str[0] === '#') {
@@ -382,7 +382,7 @@ abstract class Context
      */
     public static function isSymbol($str)
     {
-        if (strlen($str) == 0) {
+        if (strlen($str) === 0) {
             return null;
         }
         if ($str[0] === '@') {
@@ -408,7 +408,7 @@ abstract class Context
      */
     public static function isString($str)
     {
-        if (strlen($str) == 0) {
+        if (strlen($str) === 0) {
             return null;
         }
         if ($str[0] === '\'') {

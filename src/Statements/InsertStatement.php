@@ -113,15 +113,15 @@ class InsertStatement extends Statement
         $ret = 'INSERT ' . $this->options
             . ' INTO ' . $this->into;
 
-        if ($this->values != null && count($this->values) > 0) {
+        if (!is_null($this->values) && count($this->values) > 0) {
             $ret .= ' VALUES ' . Array2d::build($this->values);
-        } elseif ($this->set != null && count($this->set) > 0) {
+        } elseif (!is_null($this->set) && count($this->set) > 0) {
             $ret .= ' SET ' . SetOperation::build($this->set);
-        } elseif ($this->select != null && strlen($this->select) > 0) {
+        } elseif (!is_null($this->select) && strlen($this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 
-        if ($this->onDuplicateSet != null && count($this->onDuplicateSet) > 0) {
+        if (!is_null($this->onDuplicateSet) && count($this->onDuplicateSet) > 0) {
             $ret .= ' ON DUPLICATE KEY UPDATE ' . SetOperation::build($this->onDuplicateSet);
         }
 
@@ -229,7 +229,7 @@ class InsertStatement extends Statement
                     );
                     break;
                 }
-            } elseif ($state == 2) {
+            } elseif ($state === 2) {
                 $lastCount = $miniState;
 
                 if ($miniState === 1 && $token->keyword === 'ON') {

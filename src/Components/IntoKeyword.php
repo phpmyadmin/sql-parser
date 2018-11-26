@@ -207,10 +207,10 @@ class IntoKeyword extends Component
                 $ret->dest = $token->value;
 
                 $state = 3;
-            } elseif ($state == 3) {
+            } elseif ($state === 3) {
                 $ret->parseFileOptions($parser, $list, $token->value);
                 $state = 4;
-            } elseif ($state == 4) {
+            } elseif ($state === 4) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword !== 'LINES') {
                     break;
                 }

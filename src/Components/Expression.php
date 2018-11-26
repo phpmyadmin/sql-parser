@@ -299,7 +299,7 @@ class Expression extends Component
                         $ret->function = $prev[1]->value;
                     }
                 } elseif ($token->value === ')') {
-                    if ($brackets == 0) {
+                    if ($brackets === 0) {
                         // Not our bracket
                         break;
                     } else {

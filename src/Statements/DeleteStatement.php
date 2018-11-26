@@ -142,25 +142,25 @@ class DeleteStatement extends Statement
     {
         $ret = 'DELETE ' . OptionsArray::build($this->options);
 
-        if ($this->columns != null && count($this->columns) > 0) {
+        if (!is_null($this->columns) && count($this->columns) > 0) {
             $ret .= ' ' . ExpressionArray::build($this->columns);
         }
-        if ($this->from != null && count($this->from) > 0) {
+        if (!is_null($this->from) && count($this->from) > 0) {
             $ret .= ' FROM ' . ExpressionArray::build($this->from);
         }
-        if ($this->join != null && count($this->join) > 0) {
+        if (!is_null($this->join) && count($this->join) > 0) {
             $ret .= ' ' . JoinKeyword::build($this->join);
         }
-        if ($this->using != null && count($this->using) > 0) {
+        if (!is_null($this->using) && count($this->using) > 0) {
             $ret .= ' USING ' . ExpressionArray::build($this->using);
         }
-        if ($this->where != null && count($this->where) > 0) {
+        if (!is_null($this->where) && count($this->where) > 0) {
             $ret .= ' WHERE ' . Condition::build($this->where);
         }
-        if ($this->order != null && count($this->order) > 0) {
+        if (!is_null($this->order) && count($this->order) > 0) {
             $ret .= ' ORDER BY ' . ExpressionArray::build($this->order);
         }
-        if ($this->limit != null && strlen($this->limit) > 0) {
+        if (!is_null($this->limit) && strlen($this->limit) > 0) {
             $ret .= ' LIMIT ' . Limit::build($this->limit);
         }
 

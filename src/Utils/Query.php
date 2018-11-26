@@ -633,7 +633,7 @@ class Query
                     && ($clauses[$token->keyword] >= $currIdx)
                 ) {
                     $currIdx = $clauses[$token->keyword];
-                    if ($skipFirst && ($currIdx == $clauseIdx)) {
+                    if ($skipFirst && ($currIdx === $clauseIdx)) {
                         // This token is skipped (not added to the old
                         // clause) because it will be replaced.
                         continue;
@@ -843,7 +843,7 @@ class Query
                 }
             }
 
-            if ($brackets == 0) {
+            if ($brackets === 0) {
                 if (($token->type === Token::TYPE_KEYWORD)
                     && isset($clauses[$token->keyword])
                     && ($clause === $token->keyword)
