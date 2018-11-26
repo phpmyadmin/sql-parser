@@ -129,10 +129,10 @@ class CaseExpression extends Component
                         case 'END':
                             $state = 3; // end of CASE expression
                             ++$list->idx;
-                        break;
+                        break 2;
                         default:
                             $parser->error('Unexpected keyword.', $token);
-                        break;
+                        break 2;
                     }
                 } else {
                     $ret->value = Expression::parse($parser, $list);
@@ -148,43 +148,46 @@ class CaseExpression extends Component
                                 $new_value = Expression::parse($parser, $list);
                                 $state = 2;
                                 $ret->compare_values[] = $new_value;
-                                break;
+                            break;
                             case 'ELSE':
                                 ++$list->idx; // Skip 'ELSE'
                                 $ret->else_result = Expression::parse($parser, $list);
                                 $state = 0; // last clause of CASE expression
-                                break;
+                            break;
                             case 'END':
                                 $state = 3; // end of CASE expression
                                 ++$list->idx;
-                                break;
+                            break 2;
                             default:
                                 $parser->error('Unexpected keyword.', $token);
-                            break;
+                            break 2;
                         }
                     }
-                } else if ($token->type === Token::TYPE_KEYWORD) {
-                    if ($token->keyword === 'THEN') {
+                } else {
+                    if ($token->type === Token::TYPE_KEYWORD
+                        && $token->keyword === 'THEN'
+                    ) {
                         ++$list->idx; // Skip 'THEN'
                         $new_result = Expression::parse($parser, $list);
                         $state = 0;
                         $ret->results[] = $new_result;
-                    } else {
+                    } elseif ($token->type === Token::TYPE_KEYWORD) {
                         $parser->error('Unexpected keyword.', $token);
+                        break;
                     }
-                    break;
                 }
             } elseif ($state === 2) {
                 if ($type === 0) {
-                    if ($token->type === Token::TYPE_KEYWORD) {
-                        if ($token->keyword === 'THEN') {
-                            ++$list->idx; // Skip 'THEN'
-                            $new_result = Expression::parse($parser, $list);
-                            $ret->results[] = $new_result;
-                            $state = 1;
-                        } else {
-                            $parser->error('Unexpected keyword.', $token);
-                        }
+                    if ($token->type === Token::TYPE_KEYWORD
+                        && $token->keyword === 'THEN'
+                    ) {
+                        ++$list->idx; // Skip 'THEN'
+                        $new_result = Expression::parse($parser, $list);
+                        $ret->results[] = $new_result;
+                        $state = 1;
+                    } elseif ($token->type === Token::TYPE_KEYWORD) {
+                        $parser->error('Unexpected keyword.', $token);
+                        break;
                     }
                 }
             }

@@ -507,7 +507,7 @@ class CreateStatement extends Statement
                                 // This is used instead of `++$brackets` because,
                                 // initially, `$brackets` is `false` cannot be
                                 // incremented.
-                                ++$brackets;
+                                $brackets = $brackets + 1;
                             } elseif ($token->value === ')') {
                                 --$brackets;
                             }

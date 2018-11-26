@@ -179,7 +179,7 @@ class JoinKeyword extends Component
                                 $state = 1;
                             } else {
                                 /* Next clause is starting */
-                                break;
+                                break 2;
                             }
                         break;
                     }
