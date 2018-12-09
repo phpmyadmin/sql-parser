@@ -340,7 +340,7 @@ class Parser extends Core
      */
     public function __construct($list = null, $strict = false)
     {
-        if ((is_string($list)) || ($list instanceof UtfString)) {
+        if (is_string($list) || ($list instanceof UtfString)) {
             $lexer = new Lexer($list, $strict);
             $this->list = $lexer->list;
         } elseif ($list instanceof TokensList) {
@@ -488,7 +488,7 @@ class Parser extends Core
             $prevLastIdx = $list->idx;
 
             // Handles unions.
-            if ((!empty($unionType))
+            if (!empty($unionType)
                 && ($lastStatement instanceof SelectStatement)
                 && ($statement instanceof SelectStatement)
             ) {

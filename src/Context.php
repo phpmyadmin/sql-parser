@@ -255,10 +255,8 @@ abstract class Context
         $str = strtoupper($str);
 
         if (isset(static::$KEYWORDS[$str])) {
-            if ($isReserved) {
-                if (!(static::$KEYWORDS[$str] & Token::FLAG_KEYWORD_RESERVED)) {
-                    return null;
-                }
+            if ($isReserved && !(static::$KEYWORDS[$str] & Token::FLAG_KEYWORD_RESERVED)) {
+                return null;
             }
 
             return static::$KEYWORDS[$str];
@@ -315,21 +313,21 @@ abstract class Context
     public static function isComment($str, $end = false)
     {
         $len = strlen($str);
-        if ($len == 0) {
+        if ($len === 0) {
             return null;
         }
         if ($str[0] === '#') {
             return Token::FLAG_COMMENT_BASH;
         } elseif (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
-            return (($len > 2) && ($str[2] == '!')) ?
+            return (($len > 2) && ($str[2] === '!')) ?
                 Token::FLAG_COMMENT_MYSQL_CMD : Token::FLAG_COMMENT_C;
         } elseif (($len > 1) && ($str[0] === '*') && ($str[1] === '/')) {
             return Token::FLAG_COMMENT_C;
         } elseif (($len > 2) && ($str[0] === '-')
-            && ($str[1] === '-') && (static::isWhitespace($str[2]))
+            && ($str[1] === '-') && static::isWhitespace($str[2])
         ) {
             return Token::FLAG_COMMENT_SQL;
-        } elseif (($len == 2) && $end && ($str[0] === '-') && ($str[1] === '-')) {
+        } elseif (($len === 2) && $end && ($str[0] === '-') && ($str[1] === '-')) {
             return Token::FLAG_COMMENT_SQL;
         }
 
@@ -384,7 +382,7 @@ abstract class Context
      */
     public static function isSymbol($str)
     {
-        if (strlen($str) == 0) {
+        if (strlen($str) === 0) {
             return null;
         }
         if ($str[0] === '@') {
@@ -410,7 +408,7 @@ abstract class Context
      */
     public static function isString($str)
     {
-        if (strlen($str) == 0) {
+        if (strlen($str) === 0) {
             return null;
         }
         if ($str[0] === '\'') {

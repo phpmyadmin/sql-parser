@@ -236,7 +236,7 @@ class AlterOperation extends Component
                     // We have reached the end of ALTER operation and suddenly found
                     // a start to new statement, but have not find a delimiter between them
 
-                    if (!($token->value == 'SET' && $list->tokens[$list->idx - 1]->value == 'CHARACTER')) {
+                    if (!($token->value === 'SET' && $list->tokens[$list->idx - 1]->value === 'CHARACTER')) {
                         $parser->error(
                             'A new statement was found, but no delimiter between it and the previous one.',
                             $token

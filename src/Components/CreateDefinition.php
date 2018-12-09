@@ -259,7 +259,7 @@ class CreateDefinition extends Component
                 }
                 $state = 5;
             } elseif ($state === 5) {
-                if ((!empty($expr->type)) || (!empty($expr->key))) {
+                if (!empty($expr->type) || !empty($expr->key)) {
                     $ret[] = $expr;
                 }
                 $expr = new self();
@@ -281,7 +281,7 @@ class CreateDefinition extends Component
         }
 
         // Last iteration was not saved.
-        if ((!empty($expr->type)) || (!empty($expr->key))) {
+        if (!empty($expr->type) || !empty($expr->key)) {
             $ret[] = $expr;
         }
 
@@ -315,7 +315,7 @@ class CreateDefinition extends Component
             $tmp .= 'CONSTRAINT ';
         }
 
-        if ((isset($component->name)) && ($component->name !== '')) {
+        if (isset($component->name) && ($component->name !== '')) {
             $tmp .= Context::escape($component->name) . ' ';
         }
 

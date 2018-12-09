@@ -138,7 +138,7 @@ class ParameterDefinition extends Component
         }
 
         // Last iteration was not saved.
-        if ((isset($expr->name)) && ($expr->name !== '')) {
+        if (isset($expr->name) && ($expr->name !== '')) {
             $ret[] = $expr;
         }
 

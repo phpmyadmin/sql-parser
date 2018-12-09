@@ -226,8 +226,7 @@ class SelectStatement extends Statement
         // statement.
         if (!empty($this->union)) {
             $clauses = static::$CLAUSES;
-            unset($clauses['ORDER BY']);
-            unset($clauses['LIMIT']);
+            unset($clauses['ORDER BY'], $clauses['LIMIT']);
             $clauses['ORDER BY'] = array('ORDER BY', 3);
             $clauses['LIMIT'] = array('LIMIT', 3);
 

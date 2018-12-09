@@ -39,7 +39,7 @@ class BufferedQueryTest extends TestCase
         // Feeding chunks and extracting queries.
         $i = 0;
         while ($i < $count) {
-            if (($stmt = $bq->extract())) {
+            if ($stmt = $bq->extract()) {
                 $statements[] = $stmt;
             } else {
                 $bq->query .= $chunks[$i++];
@@ -47,7 +47,7 @@ class BufferedQueryTest extends TestCase
         }
 
         // Feeding ended, extracting remaining queries.
-        while (($stmt = $bq->extract(true))) {
+        while ($stmt = $bq->extract(true)) {
             $statements[] = $stmt;
         }
 

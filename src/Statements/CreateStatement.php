@@ -279,41 +279,43 @@ class CreateStatement extends Statement
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
                 . OptionsArray::build($this->entityOptions);
-        } elseif ($this->options->has('TABLE') && !is_null($this->select)) {
-            return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
-                . $this->select->build();
-        } elseif ($this->options->has('TABLE') && !is_null($this->like)) {
-            return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' LIKE '
-                . Expression::build($this->like);
         } elseif ($this->options->has('TABLE')) {
-            $partition = '';
+            if (!is_null($this->select)) {
+                return 'CREATE '
+                    . OptionsArray::build($this->options) . ' '
+                    . Expression::build($this->name) . ' '
+                    . $this->select->build();
+            } elseif (!is_null($this->like)) {
+                return 'CREATE '
+                    . OptionsArray::build($this->options) . ' '
+                    . Expression::build($this->name) . ' LIKE '
+                    . Expression::build($this->like);
+            } else {
+                $partition = '';
 
-            if (!empty($this->partitionBy)) {
-                $partition .= "\nPARTITION BY " . $this->partitionBy;
-            }
-            if (!empty($this->partitionsNum)) {
-                $partition .= "\nPARTITIONS " . $this->partitionsNum;
-            }
-            if (!empty($this->subpartitionBy)) {
-                $partition .= "\nSUBPARTITION BY " . $this->subpartitionBy;
-            }
-            if (!empty($this->subpartitionsNum)) {
-                $partition .= "\nSUBPARTITIONS " . $this->subpartitionsNum;
-            }
-            if (!empty($this->partitions)) {
-                $partition .= "\n" . PartitionDefinition::build($this->partitions);
-            }
+                if (!empty($this->partitionBy)) {
+                    $partition .= "\nPARTITION BY " . $this->partitionBy;
+                }
+                if (!empty($this->partitionsNum)) {
+                    $partition .= "\nPARTITIONS " . $this->partitionsNum;
+                }
+                if (!empty($this->subpartitionBy)) {
+                    $partition .= "\nSUBPARTITION BY " . $this->subpartitionBy;
+                }
+                if (!empty($this->subpartitionsNum)) {
+                    $partition .= "\nSUBPARTITIONS " . $this->subpartitionsNum;
+                }
+                if (!empty($this->partitions)) {
+                    $partition .= "\n" . PartitionDefinition::build($this->partitions);
+                }
 
-            return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
-                . $fields
-                . OptionsArray::build($this->entityOptions)
-                . $partition;
+                return 'CREATE '
+                    . OptionsArray::build($this->options) . ' '
+                    . Expression::build($this->name) . ' '
+                    . $fields
+                    . OptionsArray::build($this->entityOptions)
+                    . $partition;
+            }
         } elseif ($this->options->has('VIEW')) {
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
@@ -327,8 +329,8 @@ class CreateStatement extends Statement
                 . OptionsArray::build($this->entityOptions) . ' '
                 . 'ON ' . Expression::build($this->table) . ' '
                 . 'FOR EACH ROW ' . TokensList::build($this->body);
-        } elseif (($this->options->has('PROCEDURE'))
-            || ($this->options->has('FUNCTION'))
+        } elseif ($this->options->has('PROCEDURE')
+            || $this->options->has('FUNCTION')
         ) {
             $tmp = '';
             if ($this->options->has('FUNCTION')) {
@@ -370,7 +372,7 @@ class CreateStatement extends Statement
             )
         );
 
-        if ((!isset($this->name)) || ($this->name === '')) {
+        if (!isset($this->name) || ($this->name === '')) {
             $parser->error(
                 'The name of the entity was expected.',
                 $list->tokens[$list->idx]
@@ -386,7 +388,7 @@ class CreateStatement extends Statement
          */
         $token = $list->tokens[$list->idx];
         $nextidx = $list->idx + 1;
-        while ($nextidx < $list->count && $list->tokens[$nextidx]->type == Token::TYPE_WHITESPACE) {
+        while ($nextidx < $list->count && $list->tokens[$nextidx]->type === Token::TYPE_WHITESPACE) {
             ++$nextidx;
         }
 
@@ -396,150 +398,148 @@ class CreateStatement extends Statement
                 $list,
                 static::$DB_OPTIONS
             );
-        } elseif ($this->options->has('TABLE')
-            && ($token->type == Token::TYPE_KEYWORD)
-            && ($token->keyword == 'SELECT')
-        ) {
-            /* CREATE TABLE ... SELECT */
-            $this->select = new SelectStatement($parser, $list);
-        } elseif ($this->options->has('TABLE')
-            && ($token->type == Token::TYPE_KEYWORD) && ($token->keyword == 'AS')
-            && ($list->tokens[$nextidx]->type == Token::TYPE_KEYWORD)
-            && ($list->tokens[$nextidx]->value == 'SELECT')
-        ) {
-            /* CREATE TABLE ... AS SELECT */
-            $list->idx = $nextidx;
-            $this->select = new SelectStatement($parser, $list);
-        } elseif ($this->options->has('TABLE')
-            && $token->type == Token::TYPE_KEYWORD
-            && $token->keyword == 'LIKE'
-        ) {
-            /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
-            $list->idx = $nextidx;
-            $this->like = Expression::parse(
-                $parser,
-                $list,
-                array(
-                    'parseField' => 'table',
-                    'breakOnAlias' => true,
-                )
-            );
-            // The 'LIKE' keyword was found, but no table_name was found next to it
-            if ($this->like == null) {
-                $parser->error(
-                    'A table name was expected.',
-                    $list->tokens[$list->idx]
-                );
-            }
         } elseif ($this->options->has('TABLE')) {
-            $this->fields = CreateDefinition::parse($parser, $list);
-            if (empty($this->fields)) {
-                $parser->error(
-                    'At least one column definition was expected.',
-                    $list->tokens[$list->idx]
+            if (($token->type === Token::TYPE_KEYWORD)
+             && ($token->keyword === 'SELECT')) {
+                /* CREATE TABLE ... SELECT */
+                $this->select = new SelectStatement($parser, $list);
+            } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'AS')
+                && ($list->tokens[$nextidx]->type === Token::TYPE_KEYWORD)
+                && ($list->tokens[$nextidx]->value === 'SELECT')) {
+                /* CREATE TABLE ... AS SELECT */
+                $list->idx = $nextidx;
+                $this->select = new SelectStatement($parser, $list);
+            } elseif ($token->type === Token::TYPE_KEYWORD
+                && $token->keyword === 'LIKE') {
+            /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
+                $list->idx = $nextidx;
+                $this->like = Expression::parse(
+                    $parser,
+                    $list,
+                    array(
+                        'parseField' => 'table',
+                        'breakOnAlias' => true,
+                    )
                 );
-            }
-            ++$list->idx;
+                // The 'LIKE' keyword was found, but no table_name was found next to it
+                if (is_null($this->like)) {
+                    $parser->error(
+                        'A table name was expected.',
+                        $list->tokens[$list->idx]
+                    );
+                }
+            } else {
+                $this->fields = CreateDefinition::parse($parser, $list);
+                if (empty($this->fields)) {
+                    $parser->error(
+                        'At least one column definition was expected.',
+                        $list->tokens[$list->idx]
+                    );
+                }
+                ++$list->idx;
 
-            $this->entityOptions = OptionsArray::parse(
-                $parser,
-                $list,
-                static::$TABLE_OPTIONS
-            );
+                $this->entityOptions = OptionsArray::parse(
+                    $parser,
+                    $list,
+                    static::$TABLE_OPTIONS
+                );
 
-            /**
-             * The field that is being filled (`partitionBy` or
-             * `subpartitionBy`).
-             *
-             * @var string
-             */
-            $field = null;
-
-            /**
-             * The number of brackets. `false` means no bracket was found
-             * previously. At least one bracket is required to validate the
-             * expression.
-             *
-             * @var int|bool
-             */
-            $brackets = false;
-
-            /*
-             * Handles partitions.
-             */
-            for (; $list->idx < $list->count; ++$list->idx) {
                 /**
-                 * Token parsed at this moment.
+                 * The field that is being filled (`partitionBy` or
+                 * `subpartitionBy`).
                  *
-                 * @var Token
+                 * @var string
                  */
-                $token = $list->tokens[$list->idx];
+                $field = null;
 
-                // End of statement.
-                if ($token->type === Token::TYPE_DELIMITER) {
-                    break;
-                }
+                /**
+                 * The number of brackets. `false` means no bracket was found
+                 * previously. At least one bracket is required to validate the
+                 * expression.
+                 *
+                 * @var int|bool
+                 */
+                $brackets = false;
 
-                // Skipping comments.
-                if ($token->type === Token::TYPE_COMMENT) {
-                    continue;
-                }
-
-                if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITION BY')) {
-                    $field = 'partitionBy';
-                    $brackets = false;
-                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITION BY')) {
-                    $field = 'subpartitionBy';
-                    $brackets = false;
-                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITIONS')) {
-                    $token = $list->getNextOfType(Token::TYPE_NUMBER);
-                    --$list->idx; // `getNextOfType` also advances one position.
-                    $this->partitionsNum = $token->value;
-                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITIONS')) {
-                    $token = $list->getNextOfType(Token::TYPE_NUMBER);
-                    --$list->idx; // `getNextOfType` also advances one position.
-                    $this->subpartitionsNum = $token->value;
-                } elseif (!empty($field)) {
-                    /*
-                     * Handling the content of `PARTITION BY` and `SUBPARTITION BY`.
+                /*
+                 * Handles partitions.
+                 */
+                for (; $list->idx < $list->count; ++$list->idx) {
+                    /**
+                     * Token parsed at this moment.
+                     *
+                     * @var Token
                      */
+                    $token = $list->tokens[$list->idx];
 
-                    // Counting brackets.
-                    if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                        // This is used instead of `++$brackets` because,
-                        // initially, `$brackets` is `false` cannot be
-                        // incremented.
-                        $brackets = $brackets + 1;
-                    } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === ')')) {
-                        --$brackets;
+                    // End of statement.
+                    if ($token->type === Token::TYPE_DELIMITER) {
+                        break;
                     }
 
-                    // Building the expression used for partitioning.
-                    $this->$field .= ($token->type === Token::TYPE_WHITESPACE) ? ' ' : $token->token;
+                    // Skipping comments.
+                    if ($token->type === Token::TYPE_COMMENT) {
+                        continue;
+                    }
 
-                    // Last bracket was read, the expression ended.
-                    // Comparing with `0` and not `false`, because `false` means
-                    // that no bracket was found and at least one must is
-                    // required.
-                    if ($brackets === 0) {
-                        $this->$field = trim($this->$field);
-                        $field = null;
+                    if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITION BY')) {
+                        $field = 'partitionBy';
+                        $brackets = false;
+                    } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITION BY')) {
+                        $field = 'subpartitionBy';
+                        $brackets = false;
+                    } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITIONS')) {
+                        $token = $list->getNextOfType(Token::TYPE_NUMBER);
+                        --$list->idx; // `getNextOfType` also advances one position.
+                        $this->partitionsNum = $token->value;
+                    } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITIONS')) {
+                        $token = $list->getNextOfType(Token::TYPE_NUMBER);
+                        --$list->idx; // `getNextOfType` also advances one position.
+                        $this->subpartitionsNum = $token->value;
+                    } elseif (!empty($field)) {
+                        /*
+                         * Handling the content of `PARTITION BY` and `SUBPARTITION BY`.
+                         */
+
+                        // Counting brackets.
+                        if ($token->type === Token::TYPE_OPERATOR) {
+                            if ($token->value === '(') {
+                                // This is used instead of `++$brackets` because,
+                                // initially, `$brackets` is `false` cannot be
+                                // incremented.
+                                $brackets = $brackets + 1;
+                            } elseif ($token->value === ')') {
+                                --$brackets;
+                            }
+                        }
+
+                        // Building the expression used for partitioning.
+                        $this->$field .= ($token->type === Token::TYPE_WHITESPACE) ? ' ' : $token->token;
+
+                        // Last bracket was read, the expression ended.
+                        // Comparing with `0` and not `false`, because `false` means
+                        // that no bracket was found and at least one must is
+                        // required.
+                        if ($brackets === 0) {
+                            $this->$field = trim($this->$field);
+                            $field = null;
+                        }
+                    } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                        if (!empty($this->partitionBy)) {
+                            $this->partitions = ArrayObj::parse(
+                                $parser,
+                                $list,
+                                array(
+                                    'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition',
+                                )
+                            );
+                        }
+                        break;
                     }
-                } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    if (!empty($this->partitionBy)) {
-                        $this->partitions = ArrayObj::parse(
-                            $parser,
-                            $list,
-                            array(
-                                'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition',
-                            )
-                        );
-                    }
-                    break;
                 }
             }
-        } elseif (($this->options->has('PROCEDURE'))
-            || ($this->options->has('FUNCTION'))
+        } elseif ($this->options->has('PROCEDURE')
+            || $this->options->has('FUNCTION')
         ) {
             $this->parameters = ParameterDefinition::parse($parser, $list);
             if ($this->options->has('FUNCTION')) {

@@ -247,10 +247,10 @@ class OptionsArray extends Component
          */
         if ($state === 1
             && $lastOption
-            && ($lastOption[1] == 'expr'
-            || $lastOption[1] == 'var'
-            || $lastOption[1] == 'var='
-            || $lastOption[1] == 'expr=')
+            && ($lastOption[1] === 'expr'
+            || $lastOption[1] === 'var'
+            || $lastOption[1] === 'var='
+            || $lastOption[1] === 'expr=')
         ) {
             $parser->error(
                 sprintf(
