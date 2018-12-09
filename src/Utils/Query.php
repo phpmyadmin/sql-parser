@@ -726,12 +726,12 @@ class Query
         $ret .= static::getClause($statement, $list, $ops[0][0], -1) . ' ';
 
         // Doing replacements.
-        foreach ($ops as $i => $iValue) {
-            $ret .= $ops[$i][1] . ' ';
+        foreach ($ops as $i => $clause) {
+            $ret .= $clause[1] . ' ';
 
             // Adding everything between this and next replacement.
             if ($i + 1 !== $count) {
-                $ret .= static::getClause($statement, $list, $ops[$i][0], $ops[$i + 1][0]) . ' ';
+                $ret .= static::getClause($statement, $list, $clause[0], $ops[$i + 1][0]) . ' ';
             }
         }
 
