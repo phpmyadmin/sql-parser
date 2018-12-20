@@ -86,6 +86,8 @@ class Parser extends Core
         'COMMIT' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
         'ROLLBACK' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
         'START TRANSACTION' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
+
+        'PURGE' => 'PhpMyAdmin\\SqlParser\\Statements\\PurgeStatement',
     );
 
     /**
