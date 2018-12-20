@@ -411,7 +411,7 @@ class CreateStatement extends Statement
                 $this->select = new SelectStatement($parser, $list);
             } elseif ($token->type === Token::TYPE_KEYWORD
                 && $token->keyword === 'LIKE') {
-            /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
+                /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
                 $list->idx = $nextidx;
                 $this->like = Expression::parse(
                     $parser,
