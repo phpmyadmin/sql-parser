@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [4.2.5] - 2018-10-31
+
+* Fix issue with CREATE OR REPLACE VIEW.
+
 ## [4.2.4] - 2017-12-06
 
 * Fix parsing of CREATE TABLE with per field COLLATE.

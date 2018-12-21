@@ -153,7 +153,7 @@ class DataType extends Component
      */
     public static function build($component, array $options = array())
     {
-        $name = (empty($options['lowercase'])) ?
+        $name = empty($options['lowercase']) ?
             $component->name : strtolower($component->name);
 
         $parameters = '';

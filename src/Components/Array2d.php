@@ -82,7 +82,7 @@ class Array2d extends Component
                     $arrCount = count($arr->values);
                     if ($count === -1) {
                         $count = $arrCount;
-                    } elseif ($arrCount != $count) {
+                    } elseif ($arrCount !== $count) {
                         $parser->error(
                             sprintf(
                                 Translator::gettext('%1$d values were expected, but found %2$d.'),

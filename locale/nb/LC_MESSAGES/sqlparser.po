@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2018-04-03 16:38+0000\n"
-"Last-Translator: Master3395 <kimskorgenes@hotmail.com>\n"
+"PO-Revision-Date: 2018-11-29 06:08+0000\n"
+"Last-Translator: Kurt Eilertsen <kurt@kheds.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
-"phpmyadmin/sql-parser/nb/>\n"
+"phpmyadmin/sql-parser/nb_NO/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20-dev\n"
+"X-Generator: Weblate 3.3-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -26,10 +26,8 @@ msgstr ""
 "En ny uttalelse ble funnet, men ingen skilletegn mellom det og den forrige."
 
 #: src/Components/AlterOperation.php:253
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Ikoniske tabelloperasjoner"
+msgstr "Ukjent endringsoperasjon."
 
 #: src/Components/Array2d.php:88
 #, php-format
@@ -62,7 +60,6 @@ msgid "Unexpected keyword."
 msgstr "Uventede karakterer på linje %sd."
 
 #: src/Components/CaseExpression.php:199
-#, fuzzy
 msgid "Unexpected end of CASE expression"
 msgstr "Uventet slutt av CASE-uttrykket"
 
@@ -75,10 +72,8 @@ msgstr ""
 "et kolonnenavn uten tilbakesitater."
 
 #: src/Components/CreateDefinition.php:237
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Tabellnavnmal"
+msgstr "Et symbolnavn var forventet!"
 
 #: src/Components/CreateDefinition.php:270
 #, fuzzy
@@ -95,25 +90,21 @@ msgid "Unrecognized data type."
 msgstr "Ukjent datatype."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Ingen tabeller er valgt."
+msgstr "Et alias ble forventet."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Et alias ble tidligere funnet."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
 msgstr "Uventet dott."
 
 #: src/Components/ExpressionArray.php:102
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "Ingen rader valgt"
+msgstr "Et uttrykk var forventet."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
@@ -125,20 +116,16 @@ msgid "This option conflicts with \"%1$s\"."
 msgstr "Denne operasjonen konflikter med \"%1$s\"."
 
 #: src/Components/RenameOperation.php:109
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Antall åpne tabeller."
+msgstr "Det gamle navnet på tabellen var forventet."
 
 #: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Søkeordet \"TIL\" var forventet."
 
 #: src/Components/RenameOperation.php:135
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Antall åpne tabeller."
+msgstr "Det nye navnet på tabellen var forventet."
 
 #: src/Components/RenameOperation.php:153
 #, fuzzy
@@ -147,16 +134,12 @@ msgid "A rename operation was expected."
 msgstr "Raden er slettet."
 
 #: src/Components/SetOperation.php:117
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "som \"regular expression\""
+msgstr "Manglende uttrykk."
 
 #: src/Lexer.php:237
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Uventede karakterer på linje %s."
+msgstr "Uventet karakter."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
@@ -164,33 +147,28 @@ msgstr ""
 
 #: src/Lexer.php:296 src/Lexer.php:314
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Forventet avgrensning."
 
 #: src/Lexer.php:843
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Tabellen %1$s har blitt opprettet."
+msgstr "Sluttsitat %1$s var forventet."
 
 #: src/Lexer.php:884
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Tabellnavnmal"
+msgstr "Variabelt navn var forventet."
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "Ved begynnelsen av tabellen"
+msgstr "Uventet begynnelse av uttalelsen."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Ukjent setningstype."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Ingen transaksjon ble tidligere startet."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:254
 #: src/Statements/DeleteStatement.php:306
@@ -198,65 +176,49 @@ msgstr ""
 #: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
 #: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
 #: src/Statements/ReplaceStatement.php:190
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Uventede karakterer på linje %s."
+msgstr "Uventet tegn."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Denne typen klausul ble tidligere analysert."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Ukjent nøkkelord."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Keyword at end of statement."
-msgstr "Ved begynnelsen av tabellen"
+msgstr "Nøkkelord ved slutten av uttalelsen."
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "Ved begynnelsen av tabellen"
+msgstr "Uventet rekkefølge av klausuler."
 
 #: src/Statements/CreateStatement.php:375
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Antall åpne tabeller."
+msgstr "Navnet på enheten var forventet."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Tabellnavnmal"
+msgstr "Et tabellnavn ble forventet."
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Raden er slettet."
+msgstr "Minst en kolonnevariasjon ble forventet."
 
 #: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Et \"RETURNS\" søkeord ble forventet."
 
 #: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Denne typen klausul er ikke gyldig i Multi-tabell-spørringer."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "errors."
 msgid "error #1"
-msgstr "feil."
+msgstr "feil #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "Samle feilmeldinger"
+msgstr "streng feil"

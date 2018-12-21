@@ -120,7 +120,7 @@ class CLI
             $lexer = new Lexer($params['q'], false);
             $parser = new Parser($lexer->list);
             $errors = Error::get(array($lexer, $parser));
-            if (count($errors) == 0) {
+            if (count($errors) === 0) {
                 return 0;
             }
             $output = Error::format($errors);

@@ -79,8 +79,9 @@ class CaseExpression extends Component
     }
 
     /**
-     * @param Parser $parser the parser that serves as context
-     * @param TokensList $list the list of tokens that are being parsed
+     * @param Parser     $parser the parser that serves as context
+     * @param TokensList $list   the list of tokens that are being parsed
+     * @param array      $options parameters for parsing
      *
      * @return CaseExpression
      * @throws \PhpMyAdmin\SqlParser\Exceptions\ParserException
@@ -128,29 +129,28 @@ class CaseExpression extends Component
             }
 
             if ($state === 0) {
-                if ($token->type === Token::TYPE_KEYWORD
-                    && $token->keyword === 'WHEN'
-                ) {
-                    ++$list->idx; // Skip 'WHEN'
-                    $new_condition = Condition::parse($parser, $list);
-                    $type = 1;
-                    $state = 1;
-                    $ret->conditions[] = $new_condition;
-                } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->keyword === 'ELSE'
-                ) {
-                    ++$list->idx; // Skip 'ELSE'
-                    $ret->else_result = Expression::parse($parser, $list);
-                    $state = 0; // last clause of CASE expression
-                } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->keyword === 'END'
-                ) {
-                    $state = 3; // end of CASE expression
-                    ++$list->idx;
-                    break;
-                } elseif ($token->type === Token::TYPE_KEYWORD) {
-                    $parser->error('Unexpected keyword.', $token);
-                    break;
+                if ($token->type === Token::TYPE_KEYWORD) {
+                    switch($token->keyword) {
+                        case 'WHEN':
+                            ++$list->idx; // Skip 'WHEN'
+                            $new_condition = Condition::parse($parser, $list);
+                            $type = 1;
+                            $state = 1;
+                            $ret->conditions[] = $new_condition;
+                        break;
+                        case 'ELSE':
+                            ++$list->idx; // Skip 'ELSE'
+                            $ret->else_result = Expression::parse($parser, $list);
+                            $state = 0; // last clause of CASE expression
+                        break;
+                        case 'END':
+                            $state = 3; // end of CASE expression
+                            ++$list->idx;
+                        break 2;
+                        default:
+                            $parser->error('Unexpected keyword.', $token);
+                        break 2;
+                    }
                 } else {
                     $ret->value = Expression::parse($parser, $list);
                     $type = 0;
@@ -158,28 +158,27 @@ class CaseExpression extends Component
                 }
             } elseif ($state === 1) {
                 if ($type === 0) {
-                    if ($token->type === Token::TYPE_KEYWORD
-                        && $token->keyword === 'WHEN'
-                    ) {
-                        ++$list->idx; // Skip 'WHEN'
-                        $new_value = Expression::parse($parser, $list);
-                        $state = 2;
-                        $ret->compare_values[] = $new_value;
-                    } elseif ($token->type === Token::TYPE_KEYWORD
-                        && $token->keyword === 'ELSE'
-                    ) {
-                        ++$list->idx; // Skip 'ELSE'
-                        $ret->else_result = Expression::parse($parser, $list);
-                        $state = 0; // last clause of CASE expression
-                    } elseif ($token->type === Token::TYPE_KEYWORD
-                        && $token->keyword === 'END'
-                    ) {
-                        $state = 3; // end of CASE expression
-                        ++$list->idx;
-                        break;
-                    } elseif ($token->type === Token::TYPE_KEYWORD) {
-                        $parser->error('Unexpected keyword.', $token);
-                        break;
+                    if ($token->type === Token::TYPE_KEYWORD) {
+                        switch($token->keyword) {
+                            case 'WHEN':
+                                ++$list->idx; // Skip 'WHEN'
+                                $new_value = Expression::parse($parser, $list);
+                                $state = 2;
+                                $ret->compare_values[] = $new_value;
+                            break;
+                            case 'ELSE':
+                                ++$list->idx; // Skip 'ELSE'
+                                $ret->else_result = Expression::parse($parser, $list);
+                                $state = 0; // last clause of CASE expression
+                            break;
+                            case 'END':
+                                $state = 3; // end of CASE expression
+                                ++$list->idx;
+                            break 2;
+                            default:
+                                $parser->error('Unexpected keyword.', $token);
+                            break 2;
+                        }
                     }
                 } else {
                     if ($token->type === Token::TYPE_KEYWORD

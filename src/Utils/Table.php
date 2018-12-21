@@ -26,7 +26,7 @@ class Table
      */
     public static function getForeignKeys($statement)
     {
-        if ((empty($statement->fields))
+        if (empty($statement->fields)
             || (!is_array($statement->fields))
             || (!$statement->options->has('TABLE'))
         ) {
@@ -36,7 +36,7 @@ class Table
         $ret = array();
 
         foreach ($statement->fields as $field) {
-            if ((empty($field->key)) || ($field->key->type !== 'FOREIGN KEY')) {
+            if (empty($field->key) || ($field->key->type !== 'FOREIGN KEY')) {
                 continue;
             }
 
@@ -55,11 +55,11 @@ class Table
                 $tmp['ref_table_name'] = $field->references->table->table;
                 $tmp['ref_index_list'] = $field->references->columns;
 
-                if (($opt = $field->references->options->has('ON UPDATE'))) {
+                if ($opt = $field->references->options->has('ON UPDATE')) {
                     $tmp['on_update'] = str_replace(' ', '_', $opt);
                 }
 
-                if (($opt = $field->references->options->has('ON DELETE'))) {
+                if ($opt = $field->references->options->has('ON DELETE')) {
                     $tmp['on_delete'] = str_replace(' ', '_', $opt);
                 }
 
@@ -83,7 +83,7 @@ class Table
      */
     public static function getFields($statement)
     {
-        if ((empty($statement->fields))
+        if (empty($statement->fields)
             || (!is_array($statement->fields))
             || (!$statement->options->has('TABLE'))
         ) {
@@ -110,20 +110,20 @@ class Table
                     }
                 }
 
-                if (($option = $field->options->has('DEFAULT'))) {
+                if ($option = $field->options->has('DEFAULT')) {
                     $ret[$field->name]['default_value'] = $option;
                     if ($option === 'CURRENT_TIMESTAMP') {
                         $ret[$field->name]['default_current_timestamp'] = true;
                     }
                 }
 
-                if (($option = $field->options->has('ON UPDATE'))) {
+                if ($option = $field->options->has('ON UPDATE')) {
                     if ($option === 'CURRENT_TIMESTAMP') {
                         $ret[$field->name]['on_update_current_timestamp'] = true;
                     }
                 }
 
-                if (($option = $field->options->has('AS'))) {
+                if ($option = $field->options->has('AS')) {
                     $ret[$field->name]['generated'] = true;
                     $ret[$field->name]['expr'] = $option;
                 }

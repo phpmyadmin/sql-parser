@@ -270,15 +270,13 @@ class LoadStatement extends Statement
                 );
                 $state = 1;
             } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_KEYWORD)
-                    && ($token->keyword === 'REPLACE'
-                    || $token->keyword === 'IGNORE')
-                ) {
-                    $this->replace_ignore = trim($token->keyword);
-                } elseif ($token->type === Token::TYPE_KEYWORD
-                    && $token->keyword === 'INTO'
-                ) {
-                    $state = 2;
+                if ($token->type === Token::TYPE_KEYWORD) {
+                    if ($token->keyword === 'REPLACE'
+                     || $token->keyword === 'IGNORE') {
+                        $this->replace_ignore = trim($token->keyword);
+                    } elseif ($token->keyword === 'INTO') {
+                        $state = 2;
+                    }
                 }
             } elseif ($state === 2) {
                 if ($token->type === Token::TYPE_KEYWORD

@@ -38,7 +38,7 @@ class CreateDefinitionTest extends TestCase
     public function testParseErr2()
     {
         $parser = new Parser();
-        $component = CreateDefinition::parse(
+        CreateDefinition::parse(
             $parser,
             $this->getTokensList(')')
         );
