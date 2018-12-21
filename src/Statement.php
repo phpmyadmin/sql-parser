@@ -354,12 +354,23 @@ abstract class Statement
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
-                // Handle special end options in Select statement
-                // See Statements\SelectStatement::$END_OPTIONS
                 if ($this instanceof Statements\SelectStatement
                     && ($token->value === 'FOR UPDATE'
                     || $token->value === 'LOCK IN SHARE MODE')
                 ) {
+                    // Handle special end options in Select statement
+                    // See Statements\SelectStatement::$END_OPTIONS
+                    $this->end_options = OptionsArray::parse(
+                        $parser,
+                        $list,
+                        static::$END_OPTIONS
+                    );
+                } elseif ($this instanceof Statements\SetStatement
+                    && ($token->value === 'COLLATE'
+                    || $token->value === 'DEFAULT')
+                ) {
+                    // Handle special end options in SET statement
+                    // See Statements\SetStatement::$END_OPTIONS
                     $this->end_options = OptionsArray::parse(
                         $parser,
                         $list,
