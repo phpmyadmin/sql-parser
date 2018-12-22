@@ -177,6 +177,10 @@ class Parser extends Core
             'field' => 'fields',
             'options' => array('parseField' => 'table'),
         ),
+        'FORCE' => array(
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\IndexHint',
+            'field' => 'index_hints',
+        ),
         'FROM' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'from',
@@ -189,6 +193,10 @@ class Parser extends Core
         'HAVING' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\Condition',
             'field' => 'having',
+        ),
+        'IGNORE' => array(
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\IndexHint',
+            'field' => 'index_hints',
         ),
         'INTO' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\IntoKeyword',
@@ -307,6 +315,10 @@ class Parser extends Core
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
+        ),
+        'USE' => array(
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\IndexHint',
+            'field' => 'index_hints',
         ),
         'VALUE' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\Array2d',
