@@ -88,6 +88,11 @@ class Parser extends Core
         'START TRANSACTION' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
 
         'PURGE' => 'PhpMyAdmin\\SqlParser\\Statements\\PurgeStatement',
+
+        // Lock statements
+        // https://dev.mysql.com/doc/refman/5.7/en/lock-tables.html
+        'LOCK' => 'PhpMyAdmin\\SqlParser\\Statements\\LockStatement',
+        'UNLOCK' => 'PhpMyAdmin\\SqlParser\\Statements\\LockStatement',
     );
 
     /**
