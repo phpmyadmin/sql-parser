@@ -64,14 +64,21 @@ class SetOperation extends Component
          *
          * Below are the states of the parser.
          *
-         *      0 -------------------[ column name ]-------------------> 1
-         *
+         *      0 ---------------------[ col_name ]--------------------> 0
+         *      0 ------------------------[ = ]------------------------> 1
+         *      1 -----------------------[ value ]---------------------> 1
          *      1 ------------------------[ , ]------------------------> 0
-         *      1 ----------------------[ value ]----------------------> 1
          *
          * @var int
          */
         $state = 0;
+
+        /**
+         * Token when the parser has seen the latest comma
+         *
+         * @var Token
+         */
+        $commaLastSeenAt = null;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -104,6 +111,8 @@ class SetOperation extends Component
                     $state = 1;
                 } elseif ($token->value !== ',') {
                     $expr->column .= $token->token;
+                } elseif ($token->value === ',') {
+                    $commaLastSeenAt = $token;
                 }
             } elseif ($state === 1) {
                 $tmp = Expression::parse(
@@ -122,10 +131,15 @@ class SetOperation extends Component
                 $ret[] = $expr;
                 $expr = new self();
                 $state = 0;
+                $commaLastSeenAt = null;
             }
         }
-
         --$list->idx;
+
+        // We saw a comma, but didn't see a column-value pair after it
+        if ($commaLastSeenAt !== null) {
+            $parser->error('Unexpected token.', $commaLastSeenAt);
+        }
 
         return $ret;
     }
