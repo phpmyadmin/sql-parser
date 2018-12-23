@@ -497,6 +497,17 @@ abstract class Statement
                 $clauseType
             );
 
+            if ($clauseStartIdx !== -1
+                && $this instanceof Statements\SelectStatement
+                && ($clauseType === 'FORCE'
+                || $clauseType === 'IGNORE'
+                || $clauseType === 'USE')
+            ) {
+                // TODO: ordering of clauses in a SELECT statement with
+                // Index hints is not supported
+                return true;
+            }
+
             // Handle ordering of Multiple Joins in a query
             if ($clauseStartIdx !== -1) {
                 if ($minJoin === 0 && stripos($clauseType, 'JOIN')) {

@@ -69,6 +69,12 @@ class SelectStatementTest extends TestCase
             array('parser/parseSelectEndOptionsErr'),
             array('parser/parseSelectUnion'),
             array('parser/parseSelectUnion2'),
+            array('parser/parseSelectIndexHint1'),
+            array('parser/parseSelectIndexHint2'),
+            array('parser/parseSelectIndexHintErr1'),
+            array('parser/parseSelectIndexHintErr2'),
+            array('parser/parseSelectIndexHintErr3'),
+            array('parser/parseSelectIndexHintErr4'),
         );
     }
 }
