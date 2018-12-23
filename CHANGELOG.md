@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+* Add support for INDEX hints in SELECT statement
+* Add support for LOCK and UNLOCK TABLES statement
+* Add detection of extraneous comma in UPDATE statement
+* Add detection of a missing comma between two ALTER operations
+* Add missing support for STRAIGHT_JOIN
+* Add support for end options in SET statement
+* Fix building of RENAME statements
+* Add support for PURGE statements
+
 ## [4.2.5] - 2018-10-31
 
 * Fix issue with CREATE OR REPLACE VIEW.
