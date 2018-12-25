@@ -2,14 +2,16 @@
 
 ## [Unreleased]
 
-* Add support for INDEX hints in SELECT statement
-* Add support for LOCK and UNLOCK TABLES statement
-* Add detection of extraneous comma in UPDATE statement
-* Add detection of a missing comma between two ALTER operations
-* Add missing support for STRAIGHT_JOIN
-* Add support for end options in SET statement
-* Fix building of RENAME statements
-* Add support for PURGE statements
+* Add support for aliases on CASE expressions (#162 and #192)
+* Add support for INDEX hints in SELECT statement (#199)
+* Add support for LOCK and UNLOCK TABLES statement (#180)
+* Add detection of extraneous comma in UPDATE statement (#160)
+* Add detection of a missing comma between two ALTER operations (#189)
+* Add missing support for STRAIGHT_JOIN (#196)
+* Add support for end options in SET statement (#190)
+* Fix building of RENAME statements (#201)
+* Add support for PURGE statements (#207)
+* Add support for COLLATE keyword (#190)
 
 ## [4.2.5] - 2018-10-31
 
