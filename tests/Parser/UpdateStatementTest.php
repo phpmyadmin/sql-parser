@@ -22,6 +22,7 @@ class UpdateStatementTest extends TestCase
             array('parser/parseUpdate'),
             array('parser/parseUpdate2'),
             array('parser/parseUpdate3'),
+            array('parser/parseUpdateErr'),
         );
     }
 }

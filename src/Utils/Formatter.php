@@ -412,8 +412,8 @@ class Formatter
                 }
 
                 // Checking if this clause ended.
-                if ($tmp = static::isClause($curr)) {
-                    if (($tmp == 2 || $this->options['clause_newline']) && empty(self::$SHORT_CLAUSES[$lastClause])) {
+                if ($isClause = static::isClause($curr)) {
+                    if (($isClause === 2 || $this->options['clause_newline']) && empty(self::$SHORT_CLAUSES[$lastClause])) {
                         $lineEnded = true;
                         if ($this->options['parts_newline'] && $indent > 0) {
                             --$indent;
@@ -424,8 +424,8 @@ class Formatter
                 // Inline JOINs
                 if (($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::$JOINS[$prev->value]))
                     || (in_array($curr->value, array('ON', 'USING'), true) && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 2]->value]))
-                    || (isset($list->tokens[$list->idx - 4]) && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 4]->value]))
-                    || (isset($list->tokens[$list->idx - 6]) && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 6]->value]))
+                    || isset($list->tokens[$list->idx - 4], JoinKeyword::$JOINS[$list->tokens[$list->idx - 4]->value])
+                    || isset($list->tokens[$list->idx - 6], JoinKeyword::$JOINS[$list->tokens[$list->idx - 6]->value])
                 ) {
                     $lineEnded = false;
                 }
@@ -433,7 +433,7 @@ class Formatter
                 // Indenting BEGIN ... END blocks.
                 if ($prev->type === Token::TYPE_KEYWORD && $prev->keyword === 'BEGIN') {
                     $lineEnded = true;
-                    array_push($blocksIndentation, $indent);
+                    $blocksIndentation[] = $indent;
                     ++$indent;
                 } elseif ($curr->type === Token::TYPE_KEYWORD && $curr->keyword === 'END') {
                     $lineEnded = true;
@@ -460,14 +460,14 @@ class Formatter
                 // Brackets are indented only if the length of the fragment between
                 // them is longer than 30 characters.
                 if ($prev->type === Token::TYPE_OPERATOR && $prev->value === '(') {
-                    array_push($blocksIndentation, $indent);
+                    $blocksIndentation[] = $indent;
                     $shortGroup = true;
                     if (static::getGroupLength($list) > 30) {
                         ++$indent;
                         $lineEnded = true;
                         $shortGroup = false;
                     }
-                    array_push($blocksLineEndings, $lineEnded);
+                    $blocksLineEndings[] = $lineEnded;
                 } elseif ($curr->type === Token::TYPE_OPERATOR && $curr->value === ')') {
                     $indent = array_pop($blocksIndentation);
                     $lineEnded |= array_pop($blocksLineEndings);
@@ -554,7 +554,7 @@ class Formatter
                 if ($this->options['type'] === 'html') {
                     return '<span ' . $format['html'] . '>' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
                 } elseif ($this->options['type'] === 'cli') {
-                    if ($prev != $format['cli']) {
+                    if ($prev !== $format['cli']) {
                         $prev = $format['cli'];
 
                         return $format['cli'] . $this->escapeConsole($text);
@@ -568,7 +568,7 @@ class Formatter
         }
 
         if ($this->options['type'] === 'cli') {
-            if ($prev != "\x1b[39m") {
+            if ($prev !== "\x1b[39m") {
                 $prev = "\x1b[39m";
 
                 return "\x1b[39m" . $this->escapeConsole($text);
@@ -633,7 +633,7 @@ class Formatter
                     ++$count;
                 } elseif ($list->tokens[$idx]->value === ')') {
                     --$count;
-                    if ($count == 0) {
+                    if ($count === 0) {
                         break;
                     }
                 }

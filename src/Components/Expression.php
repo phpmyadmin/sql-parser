@@ -215,8 +215,8 @@ class Expression extends Component
             }
 
             if ($token->type === Token::TYPE_KEYWORD) {
-                if (($brackets > 0) && (empty($ret->subquery))
-                    && (!empty(Parser::$STATEMENT_PARSERS[$token->keyword]))
+                if (($brackets > 0) && empty($ret->subquery)
+                    && !empty(Parser::$STATEMENT_PARSERS[$token->keyword])
                 ) {
                     // A `(` was previously found and this keyword is the
                     // beginning of a statement, so this is a subquery.
@@ -282,7 +282,7 @@ class Expression extends Component
             }
 
             if ($token->type === Token::TYPE_OPERATOR) {
-                if ((!empty($options['breakOnParentheses']))
+                if (!empty($options['breakOnParentheses'])
                     && (($token->value === '(') || ($token->value === ')'))
                 ) {
                     // No brackets were expected.
@@ -290,7 +290,7 @@ class Expression extends Component
                 }
                 if ($token->value === '(') {
                     ++$brackets;
-                    if ((empty($ret->function)) && ($prev[1] !== null)
+                    if (empty($ret->function) && ($prev[1] !== null)
                         && (($prev[1]->type === Token::TYPE_NONE)
                         || ($prev[1]->type === Token::TYPE_SYMBOL)
                         || (($prev[1]->type === Token::TYPE_KEYWORD)
@@ -298,23 +298,25 @@ class Expression extends Component
                     ) {
                         $ret->function = $prev[1]->value;
                     }
-                } elseif ($token->value === ')' && $brackets == 0) {
-                    // Not our bracket
-                    break;
                 } elseif ($token->value === ')') {
-                    --$brackets;
                     if ($brackets === 0) {
-                        if (!empty($options['parenthesesDelimited'])) {
-                            // The current token is the last bracket, the next
-                            // one will be outside the expression.
-                            $ret->expr .= $token->token;
-                            ++$list->idx;
+                        // Not our bracket
+                        break;
+                    } else {
+                        --$brackets;
+                        if ($brackets === 0) {
+                            if (!empty($options['parenthesesDelimited'])) {
+                                // The current token is the last bracket, the next
+                                // one will be outside the expression.
+                                $ret->expr .= $token->token;
+                                ++$list->idx;
+                                break;
+                            }
+                        } elseif ($brackets < 0) {
+                            // $parser->error('Unexpected closing bracket.', $token);
+                            // $brackets = 0;
                             break;
                         }
-                    } elseif ($brackets < 0) {
-                        // $parser->error('Unexpected closing bracket.', $token);
-                        // $brackets = 0;
-                        break;
                     }
                 } elseif ($token->value === ',') {
                     // Expressions are comma-delimited.
@@ -362,7 +364,7 @@ class Expression extends Component
                     // Found a `.` which means we expect a column name and
                     // the column name we parsed is actually the table name
                     // and the table name is actually a database name.
-                    if ((!empty($ret->database)) || ($dot)) {
+                    if (!empty($ret->database) || $dot) {
                         $parser->error('Unexpected dot.', $token);
                     }
                     $ret->database = $ret->table;
@@ -426,13 +428,13 @@ class Expression extends Component
             $ret = $component->expr;
         } else {
             $fields = array();
-            if ((isset($component->database)) && ($component->database !== '')) {
+            if (isset($component->database) && ($component->database !== '')) {
                 $fields[] = $component->database;
             }
-            if ((isset($component->table)) && ($component->table !== '')) {
+            if (isset($component->table) && ($component->table !== '')) {
                 $fields[] = $component->table;
             }
-            if ((isset($component->column)) && ($component->column !== '')) {
+            if (isset($component->column) && ($component->column !== '')) {
                 $fields[] = $component->column;
             }
             $ret = implode('.', Context::escape($fields));

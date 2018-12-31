@@ -295,20 +295,20 @@ class Token
                 return $str;
             case self::TYPE_SYMBOL:
                 $str = $this->token;
-                if ((isset($str[0])) && ($str[0] === '@')) {
+                if (isset($str[0]) && ($str[0] === '@')) {
                     // `mb_strlen($str)` must be used instead of `null` because
                     // in PHP 5.3- the `null` parameter isn't handled correctly.
                     $str = mb_substr(
                         $str,
-                        ((!empty($str[1])) && ($str[1] === '@')) ? 2 : 1,
+                        (!empty($str[1]) && ($str[1] === '@')) ? 2 : 1,
                         mb_strlen($str),
                         'UTF-8'
                     );
                 }
-                if ((isset($str[0])) && ($str[0] === ':')) {
+                if (isset($str[0]) && ($str[0] === ':')) {
                     $str = mb_substr($str, 1, mb_strlen($str), 'UTF-8');
                 }
-                if ((isset($str[0])) && (($str[0] === '`')
+                if (isset($str[0]) && (($str[0] === '`')
                 || ($str[0] === '"') || ($str[0] === '\''))
                 ) {
                     $quote = $str[0];

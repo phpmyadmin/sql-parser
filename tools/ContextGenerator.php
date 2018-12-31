@@ -131,7 +131,7 @@ class ContextGenerator
 
         $types = array();
 
-        for ($i = 0, $count = count($words); $i != $count; ++$i) {
+        for ($i = 0, $count = count($words); $i !== $count; ++$i) {
             $type = 1;
             $value = trim($words[$i]);
 
@@ -198,17 +198,17 @@ class ContextGenerator
                 $i = 0;
 
                 foreach ($wordsByLen as $word) {
-                    if ($i == 0) {
+                    if ($i === 0) {
                         $ret .= str_repeat(' ', $spaces);
                     }
                     $ret .= sprintf('\'%s\' => %s, ', $word, $type);
-                    if (++$i == $count) {
+                    if (++$i === $count) {
                         $ret .= "\n";
                         $i = 0;
                     }
                 }
 
-                if ($i != 0) {
+                if ($i !== 0) {
                     $ret .= "\n";
                 }
             }
@@ -272,7 +272,7 @@ class ContextGenerator
 
         /* Parse version to array */
         $ver_str = $parts[2];
-        if (strlen($ver_str) % 2 == 1) {
+        if (strlen($ver_str) % 2 === 1) {
             $ver_str = '0' . $ver_str;
         }
         $version = array_map('intval', str_split($ver_str, 2));

@@ -91,6 +91,9 @@ class SelectStatement extends Statement
         '_SELECT' => array('SELECT', 1),
         'INTO' => array('INTO', 3),
         'FROM' => array('FROM', 3),
+        'FORCE' => array('FORCE', 1),
+        'USE' => array('USE', 1),
+        'IGNORE' => array('IGNORE', 3),
         'PARTITION' => array('PARTITION', 3),
 
         'JOIN' => array('JOIN', 1),
@@ -134,6 +137,13 @@ class SelectStatement extends Statement
      * @var Expression[]
      */
     public $from = array();
+
+    /**
+     * Index hints
+     *
+     * @var IndexHint[]
+     */
+    public $index_hints;
 
     /**
      * Partitions used as source for this statement.
@@ -226,8 +236,7 @@ class SelectStatement extends Statement
         // statement.
         if (!empty($this->union)) {
             $clauses = static::$CLAUSES;
-            unset($clauses['ORDER BY']);
-            unset($clauses['LIMIT']);
+            unset($clauses['ORDER BY'], $clauses['LIMIT']);
             $clauses['ORDER BY'] = array('ORDER BY', 3);
             $clauses['LIMIT'] = array('LIMIT', 3);
 
