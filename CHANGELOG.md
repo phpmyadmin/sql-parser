@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Fixed incorrect error thrown on DEFAULT keyword in ALTER statement (#218)
+
 ## [4.3.0] - 2018-12-25
 
 * Add support for aliases on CASE expressions (#162 and #192)
