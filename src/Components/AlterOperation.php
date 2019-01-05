@@ -294,7 +294,7 @@ class AlterOperation extends Component
      * @param string $tokenValue Value of current token
      */
     private static function checkIfColumnDefinitionKeyword($tokenValue) {
-        $common_options = array('AUTO_INCREMENT', 'COMMENT');
+        $common_options = array('AUTO_INCREMENT', 'COMMENT', 'DEFAULT');
         // Since AUTO_INCREMENT and COMMENT can be used for
         // both table as well as a specific column in the table
         return in_array($tokenValue, $common_options);
