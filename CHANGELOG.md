@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [4.3.1] - 2019-01-05
 
 * Fixed incorrect error thrown on DEFAULT keyword in ALTER statement (#218)
 
