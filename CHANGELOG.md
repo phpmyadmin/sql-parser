@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+* Drop support for PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
+
 ## [4.3.1] - 2019-01-05
 
 * Fixed incorrect error thrown on DEFAULT keyword in ALTER statement (#218)
@@ -333,4 +335,3 @@ __Breaking changes:__
 ## [1.0.0] - 2015-08-20
 
 * First release of this library.
-
