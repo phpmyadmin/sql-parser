@@ -40,6 +40,6 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-script: 
-  - if [ "$DOCS" != "yes" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml ; fi
+script:
+  - if [ "$DOCS" != "yes" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml.dist ; fi
   - if [ "$DOCS" = "yes" ] ; then ./vendor/bin/sami.php --no-interaction update ./tools/sami-config.php ; fi
