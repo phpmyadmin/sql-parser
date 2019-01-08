@@ -18,11 +18,11 @@ class UpdateStatementTest extends TestCase
 
     public function testUpdateProvider()
     {
-        return array(
-            array('parser/parseUpdate'),
-            array('parser/parseUpdate2'),
-            array('parser/parseUpdate3'),
-            array('parser/parseUpdateErr'),
-        );
+        return [
+            ['parser/parseUpdate'],
+            ['parser/parseUpdate2'],
+            ['parser/parseUpdate3'],
+            ['parser/parseUpdateErr'],
+        ];
     }
 }

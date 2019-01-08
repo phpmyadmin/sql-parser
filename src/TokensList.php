@@ -20,7 +20,7 @@ class TokensList implements \ArrayAccess
      *
      * @var array
      */
-    public $tokens = array();
+    public $tokens = [];
 
     /**
      * The count of tokens.
@@ -42,9 +42,9 @@ class TokensList implements \ArrayAccess
      * @param array $tokens the initial array of tokens
      * @param int   $count  the count of tokens in the initial array
      */
-    public function __construct(array $tokens = array(), $count = -1)
+    public function __construct(array $tokens = [], $count = -1)
     {
-        if (!empty($tokens)) {
+        if (! empty($tokens)) {
             $this->tokens = $tokens;
             if ($count === -1) {
                 $this->count = count($tokens);

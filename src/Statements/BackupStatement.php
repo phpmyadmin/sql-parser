@@ -22,12 +22,15 @@ class BackupStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         'TABLE' => 1,
 
         'NO_WRITE_TO_BINLOG' => 2,
         'LOCAL' => 3,
 
-        'TO' => array(4, 'var'),
-    );
+        'TO' => [
+            4,
+            'var',
+        ],
+    ];
 }

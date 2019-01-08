@@ -53,7 +53,7 @@ class Limit extends Component
      *
      * @return Limit
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
         $ret = new self();
 
@@ -121,7 +121,7 @@ class Limit extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         return $component->offset . ', ' . $component->rowCount;
     }

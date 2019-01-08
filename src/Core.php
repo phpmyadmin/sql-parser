@@ -28,7 +28,7 @@ class Core
      *
      * @see Core::error()
      */
-    public $errors = array();
+    public $errors = [];
 
     /**
      * Creates a new error log.

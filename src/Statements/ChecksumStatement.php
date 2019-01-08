@@ -22,10 +22,10 @@ class ChecksumStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         'TABLE' => 1,
 
         'QUICK' => 2,
         'EXTENDED' => 3,
-    );
+    ];
 }

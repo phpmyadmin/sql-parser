@@ -35,14 +35,14 @@ class AlterStatement extends Statement
      *
      * @var AlterOperation[]
      */
-    public $altered = array();
+    public $altered = [];
 
     /**
      * Options of this statement.
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         'ONLINE' => 1,
         'OFFLINE' => 1,
         'IGNORE' => 2,
@@ -55,7 +55,7 @@ class AlterStatement extends Statement
         'TABLE' => 3,
         'TABLESPACE' => 3,
         'VIEW' => 3,
-    );
+    ];
 
     /**
      * @param Parser     $parser the instance that requests parsing
@@ -75,10 +75,10 @@ class AlterStatement extends Statement
         $this->table = Expression::parse(
             $parser,
             $list,
-            array(
+            [
                 'parseField' => 'table',
                 'breakOnAlias' => true,
-            )
+            ]
         );
         ++$list->idx; // Skipping field.
 
@@ -114,7 +114,7 @@ class AlterStatement extends Statement
             }
 
             if ($state === 0) {
-                $options = array();
+                $options = [];
                 if ($this->options->has('DATABASE')) {
                     $options = AlterOperation::$DB_OPTIONS;
                 } elseif ($this->options->has('TABLE')) {
@@ -138,7 +138,7 @@ class AlterStatement extends Statement
      */
     public function build()
     {
-        $tmp = array();
+        $tmp = [];
         foreach ($this->altered as $altered) {
             $tmp[] = $altered::build($altered);
         }

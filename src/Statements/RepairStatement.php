@@ -24,7 +24,7 @@ class RepairStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         'TABLE' => 1,
 
         'NO_WRITE_TO_BINLOG' => 2,
@@ -33,5 +33,5 @@ class RepairStatement extends MaintenanceStatement
         'QUICK' => 4,
         'EXTENDED' => 5,
         'USE_FRM' => 6,
-    );
+    ];
 }

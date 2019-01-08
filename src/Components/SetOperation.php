@@ -53,9 +53,9 @@ class SetOperation extends Component
      *
      * @return SetOperation[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = array();
+        $ret = [];
 
         $expr = new self();
 
@@ -118,9 +118,9 @@ class SetOperation extends Component
                 $tmp = Expression::parse(
                     $parser,
                     $list,
-                    array(
+                    [
                         'breakOnAlias' => true,
-                    )
+                    ]
                 );
                 if (is_null($tmp)) {
                     $parser->error('Missing expression.', $token);
@@ -150,7 +150,7 @@ class SetOperation extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         if (is_array($component)) {
             return implode(', ', $component);

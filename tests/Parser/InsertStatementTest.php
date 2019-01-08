@@ -18,16 +18,16 @@ class InsertStatementTest extends TestCase
 
     public function testInsertProvider()
     {
-        return array(
-            array('parser/parseInsert'),
-            array('parser/parseInsertSelect'),
-            array('parser/parseInsertOnDuplicateKey'),
-            array('parser/parseInsertSetOnDuplicateKey'),
-            array('parser/parseInsertSelectOnDuplicateKey'),
-            array('parser/parseInsertOnDuplicateKeyErr'),
-            array('parser/parseInsertErr'),
-            array('parser/parseInsertErr2'),
-            array('parser/parseInsertIntoErr'),
-        );
+        return [
+            ['parser/parseInsert'],
+            ['parser/parseInsertSelect'],
+            ['parser/parseInsertOnDuplicateKey'],
+            ['parser/parseInsertSetOnDuplicateKey'],
+            ['parser/parseInsertSelectOnDuplicateKey'],
+            ['parser/parseInsertOnDuplicateKeyErr'],
+            ['parser/parseInsertErr'],
+            ['parser/parseInsertErr2'],
+            ['parser/parseInsertIntoErr'],
+        ];
     }
 }

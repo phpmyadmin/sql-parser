@@ -57,7 +57,7 @@ class FunctionCall extends Component
      *
      * @return FunctionCall
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
         $ret = new self();
 
@@ -112,7 +112,7 @@ class FunctionCall extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         return $component->name . $component->parameters;
     }

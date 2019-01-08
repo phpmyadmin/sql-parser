@@ -44,9 +44,9 @@ class IndexHint extends Component
     /**
      * List of indexes in this hint
      *
-     *  @var array
+     * @var array
      */
-    public $indexes = array();
+    public $indexes = [];
 
     /**
      * Constructor.
@@ -56,7 +56,7 @@ class IndexHint extends Component
      * @param string $for        the clause for which this hint is (JOIN/ORDER BY/GROUP BY)
      * @param string $indexes    List of indexes in this hint
      */
-    public function __construct(string $type = null, string $indexOrKey = null, string $for = null, array $indexes = array())
+    public function __construct(string $type = null, string $indexOrKey = null, string $for = null, array $indexes = [])
     {
         $this->type = $type;
         $this->indexOrKey = $indexOrKey;
@@ -71,9 +71,9 @@ class IndexHint extends Component
      *
      * @return IndexHint|Component[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = array();
+        $ret = [];
         $expr = new self();
         $expr->type = isset($options['type']) ? $options['type'] : null;
         /**
@@ -178,7 +178,7 @@ class IndexHint extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         if (is_array($component)) {
             return implode(' ', $component);

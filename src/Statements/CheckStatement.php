@@ -22,7 +22,7 @@ class CheckStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         'TABLE' => 1,
 
         'FOR UPGRADE' => 2,
@@ -31,5 +31,5 @@ class CheckStatement extends MaintenanceStatement
         'MEDIUM' => 5,
         'EXTENDED' => 6,
         'CHANGED' => 7,
-    );
+    ];
 }

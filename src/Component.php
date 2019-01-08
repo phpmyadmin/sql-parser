@@ -36,7 +36,7 @@ abstract class Component
     public static function parse(
         Parser $parser,
         TokensList $list,
-        array $options = array()
+        array $options = []
     ) {
         // This method should be abstract, but it can't be both static and
         // abstract.
@@ -56,7 +56,7 @@ abstract class Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         // This method should be abstract, but it can't be both static and
         // abstract.

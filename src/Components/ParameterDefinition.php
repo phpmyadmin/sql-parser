@@ -63,9 +63,9 @@ class ParameterDefinition extends Component
      *
      * @return ParameterDefinition[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = array();
+        $ret = [];
 
         $expr = new self();
 
@@ -153,14 +153,14 @@ class ParameterDefinition extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         if (is_array($component)) {
             return '(' . implode(', ', $component) . ')';
         }
 
         $tmp = '';
-        if (!empty($component->inOut)) {
+        if (! empty($component->inOut)) {
             $tmp .= $component->inOut . ' ';
         }
 

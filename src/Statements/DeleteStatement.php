@@ -54,11 +54,11 @@ class DeleteStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         'LOW_PRIORITY' => 1,
         'QUICK' => 2,
         'IGNORE' => 3,
-    );
+    ];
 
     /**
      * The clauses of this statement, in order.
@@ -67,17 +67,41 @@ class DeleteStatement extends Statement
      *
      * @var array
      */
-    public static $CLAUSES = array(
-        'DELETE' => array('DELETE', 2),
+    public static $CLAUSES = [
+        'DELETE' => [
+            'DELETE',
+            2,
+        ],
         // Used for options.
-        '_OPTIONS' => array('_OPTIONS', 1),
-        'FROM' => array('FROM', 3),
-        'PARTITION' => array('PARTITION', 3),
-        'USING' => array('USING', 3),
-        'WHERE' => array('WHERE', 3),
-        'ORDER BY' => array('ORDER BY', 3),
-        'LIMIT' => array('LIMIT', 3),
-    );
+        '_OPTIONS' => [
+            '_OPTIONS',
+            1,
+        ],
+        'FROM' => [
+            'FROM',
+            3,
+        ],
+        'PARTITION' => [
+            'PARTITION',
+            3,
+        ],
+        'USING' => [
+            'USING',
+            3,
+        ],
+        'WHERE' => [
+            'WHERE',
+            3,
+        ],
+        'ORDER BY' => [
+            'ORDER BY',
+            3,
+        ],
+        'LIMIT' => [
+            'LIMIT',
+            3,
+        ],
+    ];
 
     /**
      * Table(s) used as sources for this statement.
@@ -142,25 +166,25 @@ class DeleteStatement extends Statement
     {
         $ret = 'DELETE ' . OptionsArray::build($this->options);
 
-        if (!is_null($this->columns) && count($this->columns) > 0) {
+        if (! is_null($this->columns) && count($this->columns) > 0) {
             $ret .= ' ' . ExpressionArray::build($this->columns);
         }
-        if (!is_null($this->from) && count($this->from) > 0) {
+        if (! is_null($this->from) && count($this->from) > 0) {
             $ret .= ' FROM ' . ExpressionArray::build($this->from);
         }
-        if (!is_null($this->join) && count($this->join) > 0) {
+        if (! is_null($this->join) && count($this->join) > 0) {
             $ret .= ' ' . JoinKeyword::build($this->join);
         }
-        if (!is_null($this->using) && count($this->using) > 0) {
+        if (! is_null($this->using) && count($this->using) > 0) {
             $ret .= ' USING ' . ExpressionArray::build($this->using);
         }
-        if (!is_null($this->where) && count($this->where) > 0) {
+        if (! is_null($this->where) && count($this->where) > 0) {
             $ret .= ' WHERE ' . Condition::build($this->where);
         }
-        if (!is_null($this->order) && count($this->order) > 0) {
+        if (! is_null($this->order) && count($this->order) > 0) {
             $ret .= ' ORDER BY ' . ExpressionArray::build($this->order);
         }
-        if (!is_null($this->limit) && strlen($this->limit) > 0) {
+        if (! is_null($this->limit) && strlen($this->limit) > 0) {
             $ret .= ' LIMIT ' . Limit::build($this->limit);
         }
 
@@ -257,34 +281,33 @@ class DeleteStatement extends Statement
                         $this->join = JoinKeyword::parse($parser, $list);
 
                         // remain in state = 2
-                    }
-                    else {
-                        switch($token->keyword) {
+                    } else {
+                        switch ($token->keyword) {
                             case 'USING':
                                 ++$list->idx; // Skip 'USING'
                                 $this->using = ExpressionArray::parse($parser, $list);
                                 $state = 3;
 
                                 $multiTable = true;
-                            break;
+                                break;
                             case 'WHERE':
                                 ++$list->idx; // Skip 'WHERE'
                                 $this->where = Condition::parse($parser, $list);
                                 $state = 4;
-                            break;
+                                break;
                             case 'ORDER BY':
                                 ++$list->idx; // Skip 'ORDER BY'
                                 $this->order = OrderKeyword::parse($parser, $list);
                                 $state = 5;
-                            break;
+                                break;
                             case 'LIMIT':
                                 ++$list->idx; // Skip 'LIMIT'
                                 $this->limit = Limit::parse($parser, $list);
                                 $state = 6;
-                            break;
+                                break;
                             default:
                                 $parser->error('Unexpected keyword.', $token);
-                            break 2;
+                                break 2;
                         }
                     }
                 }
@@ -314,20 +337,20 @@ class DeleteStatement extends Statement
                 }
 
                 if ($token->type === Token::TYPE_KEYWORD) {
-                    switch($token->keyword) {
+                    switch ($token->keyword) {
                         case 'ORDER BY':
                             ++$list->idx; // Skip 'ORDER  BY'
                             $this->order = OrderKeyword::parse($parser, $list);
                             $state = 5;
-                        break;
+                            break;
                         case 'LIMIT':
                             ++$list->idx; // Skip 'LIMIT'
                             $this->limit = Limit::parse($parser, $list);
                             $state = 6;
-                        break;
+                            break;
                         default:
                             $parser->error('Unexpected keyword.', $token);
-                        break 2;
+                            break 2;
                     }
                 }
             } elseif ($state === 5) {

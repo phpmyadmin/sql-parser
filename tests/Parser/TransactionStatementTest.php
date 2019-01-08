@@ -18,11 +18,11 @@ class TransactionStatementTest extends TestCase
 
     public function testTransactionProvider()
     {
-        return array(
-            array('parser/parseTransaction'),
-            array('parser/parseTransaction2'),
-            array('parser/parseTransaction3'),
-            array('parser/parseTransactionErr1'),
-        );
+        return [
+            ['parser/parseTransaction'],
+            ['parser/parseTransaction2'],
+            ['parser/parseTransaction3'],
+            ['parser/parseTransactionErr1'],
+        ];
     }
 }

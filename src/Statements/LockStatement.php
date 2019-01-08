@@ -26,7 +26,7 @@ class LockStatement extends Statement
      *
      * @var LockExpression[]
      */
-    public $locked = array();
+    public $locked = [];
 
     /**
      * Whether it's a LOCK statement
@@ -95,7 +95,7 @@ class LockStatement extends Statement
                     break;
                 }
             } elseif ($state === 1) {
-                if (!$this->isLock) {
+                if (! $this->isLock) {
                     // UNLOCK statement should not have any more tokens
                     $parser->error('Unexpected token.', $token);
                     break;

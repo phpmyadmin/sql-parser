@@ -58,7 +58,7 @@ class Translator
      */
     public static function gettext($msgid)
     {
-        if (!class_exists('\PhpMyAdmin\MoTranslator\Loader', true)) {
+        if (! class_exists('\PhpMyAdmin\MoTranslator\Loader', true)) {
             return $msgid;
         }
 

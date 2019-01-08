@@ -60,12 +60,12 @@ class InsertStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         'LOW_PRIORITY' => 1,
         'DELAYED' => 2,
         'HIGH_PRIORITY' => 3,
         'IGNORE' => 4,
-    );
+    ];
 
     /**
      * Tables used as target for this statement.
@@ -113,15 +113,15 @@ class InsertStatement extends Statement
         $ret = 'INSERT ' . $this->options
             . ' INTO ' . $this->into;
 
-        if (!is_null($this->values) && count($this->values) > 0) {
+        if (! is_null($this->values) && count($this->values) > 0) {
             $ret .= ' VALUES ' . Array2d::build($this->values);
-        } elseif (!is_null($this->set) && count($this->set) > 0) {
+        } elseif (! is_null($this->set) && count($this->set) > 0) {
             $ret .= ' SET ' . SetOperation::build($this->set);
-        } elseif (!is_null($this->select) && strlen($this->select) > 0) {
+        } elseif (! is_null($this->select) && strlen($this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 
-        if (!is_null($this->onDuplicateSet) && count($this->onDuplicateSet) > 0) {
+        if (! is_null($this->onDuplicateSet) && count($this->onDuplicateSet) > 0) {
             $ret .= ' ON DUPLICATE KEY UPDATE ' . SetOperation::build($this->onDuplicateSet);
         }
 
@@ -195,7 +195,7 @@ class InsertStatement extends Statement
                 $this->into = IntoKeyword::parse(
                     $parser,
                     $list,
-                    array('fromInsert' => true)
+                    ['fromInsert' => true]
                 );
 
                 $state = 1;

@@ -41,18 +41,23 @@ class CLI
 
     public function parseHighlight()
     {
-        $longopts = array('help', 'query:', 'format:');
+        $longopts = [
+            'help',
+            'query:',
+            'format:',
+        ];
         $params = $this->getopt(
-            'hq:f:', $longopts
+            'hq:f:',
+            $longopts
         );
         if ($params === false) {
             return false;
         }
         $this->mergeLongOpts($params, $longopts);
-        if (!isset($params['f'])) {
+        if (! isset($params['f'])) {
             $params['f'] = 'cli';
         }
-        if (!in_array($params['f'], array('html', 'cli', 'text'))) {
+        if (! in_array($params['f'], ['html', 'cli', 'text'])) {
             echo "ERROR: Invalid value for format!\n";
 
             return false;
@@ -74,7 +79,8 @@ class CLI
         }
         if (isset($params['q'])) {
             echo Formatter::format(
-                $params['q'], array('type' => $params['f'])
+                $params['q'],
+                ['type' => $params['f']]
             );
             echo "\n";
 
@@ -93,9 +99,14 @@ class CLI
 
     public function parseLint()
     {
-        $longopts = array('help', 'query:', 'context:');
+        $longopts = [
+            'help',
+            'query:',
+            'context:',
+        ];
         $params = $this->getopt(
-            'hq:c:', $longopts
+            'hq:c:',
+            $longopts
         );
         $this->mergeLongOpts($params, $longopts);
 
@@ -119,7 +130,7 @@ class CLI
         if (isset($params['q'])) {
             $lexer = new Lexer($params['q'], false);
             $parser = new Parser($lexer->list);
-            $errors = Error::get(array($lexer, $parser));
+            $errors = Error::get([$lexer, $parser]);
             if (count($errors) === 0) {
                 return 0;
             }
@@ -142,9 +153,13 @@ class CLI
 
     public function parseTokenize()
     {
-        $longopts = array('help', 'query:');
+        $longopts = [
+            'help',
+            'query:',
+        ];
         $params = $this->getopt(
-            'hq:', $longopts
+            'hq:',
+            $longopts
         );
         $this->mergeLongOpts($params, $longopts);
 

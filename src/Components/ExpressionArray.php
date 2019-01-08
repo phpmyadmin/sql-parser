@@ -27,9 +27,9 @@ class ExpressionArray extends Component
      *
      * @return Expression[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = array();
+        $ret = [];
 
         /**
          * The state of the parser.
@@ -115,9 +115,9 @@ class ExpressionArray extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
-        $ret = array();
+        $ret = [];
         foreach ($component as $frag) {
             $ret[] = $frag::build($frag);
         }

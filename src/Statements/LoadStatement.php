@@ -49,33 +49,48 @@ class LoadStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         'LOW_PRIORITY' => 1,
         'CONCURRENT' => 1,
         'LOCAL' => 2,
-    );
+    ];
 
     /**
      * FIELDS/COLUMNS Options for `LOAD DATA...INFILE` statements.
      *
      * @var array
      */
-    public static $FIELDS_OPTIONS = array(
-        'TERMINATED BY' => array(1, 'expr'),
+    public static $FIELDS_OPTIONS = [
+        'TERMINATED BY' => [
+            1,
+            'expr',
+        ],
         'OPTIONALLY' => 2,
-        'ENCLOSED BY' => array(3, 'expr'),
-        'ESCAPED BY' => array(4, 'expr'),
-    );
+        'ENCLOSED BY' => [
+            3,
+            'expr',
+        ],
+        'ESCAPED BY' => [
+            4,
+            'expr',
+        ],
+    ];
 
     /**
      * LINES Options for `LOAD DATA...INFILE` statements.
      *
      * @var array
      */
-    public static $LINES_OPTIONS = array(
-        'STARTING BY' => array(1, 'expr'),
-        'TERMINATED BY' => array(2, 'expr'),
-    );
+    public static $LINES_OPTIONS = [
+        'STARTING BY' => [
+            1,
+            'expr',
+        ],
+        'TERMINATED BY' => [
+            2,
+            'expr',
+        ],
+    ];
 
     /**
      * File name being used to load data.
@@ -266,7 +281,7 @@ class LoadStatement extends Statement
                 $this->file_name = Expression::parse(
                     $parser,
                     $list,
-                    array('parseField' => 'file')
+                    ['parseField' => 'file']
                 );
                 $state = 1;
             } elseif ($state === 1) {
@@ -283,7 +298,7 @@ class LoadStatement extends Statement
                     && $token->keyword === 'TABLE'
                 ) {
                     ++$list->idx;
-                    $this->table = Expression::parse($parser, $list, array('parseField' => 'table'));
+                    $this->table = Expression::parse($parser, $list, ['parseField' => 'table']);
                     $state = 3;
                 } else {
                     $parser->error('Unexpected token.', $token);
@@ -292,7 +307,9 @@ class LoadStatement extends Statement
             } elseif ($state >= 3 && $state <= 7) {
                 if ($token->type === Token::TYPE_KEYWORD) {
                     $newState = $this->parseKeywordsAccordingToState(
-                        $parser, $list, $state
+                        $parser,
+                        $list,
+                        $state
                     );
                     if ($newState === $state) {
                         // Avoid infinite loop

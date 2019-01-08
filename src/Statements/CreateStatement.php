@@ -32,16 +32,25 @@ class CreateStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = array(
+    public static $OPTIONS = [
         // CREATE TABLE
         'TEMPORARY' => 1,
 
         // CREATE VIEW
         'OR REPLACE' => 2,
-        'ALGORITHM' => array(3, 'var='),
+        'ALGORITHM' => [
+            3,
+            'var=',
+        ],
         // `DEFINER` is also used for `CREATE FUNCTION / PROCEDURE`
-        'DEFINER' => array(4, 'expr='),
-        'SQL SECURITY' => array(5, 'var'),
+        'DEFINER' => [
+            4,
+            'expr=',
+        ],
+        'SQL SECURITY' => [
+            5,
+            'var',
+        ],
 
         'DATABASE' => 6,
         'EVENT' => 6,
@@ -60,62 +69,158 @@ class CreateStatement extends Statement
 
         // CREATE TABLE
         'IF NOT EXISTS' => 7,
-    );
+    ];
 
     /**
      * All database options.
      *
      * @var array
      */
-    public static $DB_OPTIONS = array(
-        'CHARACTER SET' => array(1, 'var='),
-        'CHARSET' => array(1, 'var='),
-        'DEFAULT CHARACTER SET' => array(1, 'var='),
-        'DEFAULT CHARSET' => array(1, 'var='),
-        'DEFAULT COLLATE' => array(2, 'var='),
-        'COLLATE' => array(2, 'var='),
-    );
+    public static $DB_OPTIONS = [
+        'CHARACTER SET' => [
+            1,
+            'var=',
+        ],
+        'CHARSET' => [
+            1,
+            'var=',
+        ],
+        'DEFAULT CHARACTER SET' => [
+            1,
+            'var=',
+        ],
+        'DEFAULT CHARSET' => [
+            1,
+            'var=',
+        ],
+        'DEFAULT COLLATE' => [
+            2,
+            'var=',
+        ],
+        'COLLATE' => [
+            2,
+            'var=',
+        ],
+    ];
 
     /**
      * All table options.
      *
      * @var array
      */
-    public static $TABLE_OPTIONS = array(
-        'ENGINE' => array(1, 'var='),
-        'AUTO_INCREMENT' => array(2, 'var='),
-        'AVG_ROW_LENGTH' => array(3, 'var'),
-        'CHARACTER SET' => array(4, 'var='),
-        'CHARSET' => array(4, 'var='),
-        'DEFAULT CHARACTER SET' => array(4, 'var='),
-        'DEFAULT CHARSET' => array(4, 'var='),
-        'CHECKSUM' => array(5, 'var'),
-        'DEFAULT COLLATE' => array(6, 'var='),
-        'COLLATE' => array(6, 'var='),
-        'COMMENT' => array(7, 'var='),
-        'CONNECTION' => array(8, 'var'),
-        'DATA DIRECTORY' => array(9, 'var'),
-        'DELAY_KEY_WRITE' => array(10, 'var'),
-        'INDEX DIRECTORY' => array(11, 'var'),
-        'INSERT_METHOD' => array(12, 'var'),
-        'KEY_BLOCK_SIZE' => array(13, 'var'),
-        'MAX_ROWS' => array(14, 'var'),
-        'MIN_ROWS' => array(15, 'var'),
-        'PACK_KEYS' => array(16, 'var'),
-        'PASSWORD' => array(17, 'var'),
-        'ROW_FORMAT' => array(18, 'var'),
-        'TABLESPACE' => array(19, 'var'),
-        'STORAGE' => array(20, 'var'),
-        'UNION' => array(21, 'var'),
-    );
+    public static $TABLE_OPTIONS = [
+        'ENGINE' => [
+            1,
+            'var=',
+        ],
+        'AUTO_INCREMENT' => [
+            2,
+            'var=',
+        ],
+        'AVG_ROW_LENGTH' => [
+            3,
+            'var',
+        ],
+        'CHARACTER SET' => [
+            4,
+            'var=',
+        ],
+        'CHARSET' => [
+            4,
+            'var=',
+        ],
+        'DEFAULT CHARACTER SET' => [
+            4,
+            'var=',
+        ],
+        'DEFAULT CHARSET' => [
+            4,
+            'var=',
+        ],
+        'CHECKSUM' => [
+            5,
+            'var',
+        ],
+        'DEFAULT COLLATE' => [
+            6,
+            'var=',
+        ],
+        'COLLATE' => [
+            6,
+            'var=',
+        ],
+        'COMMENT' => [
+            7,
+            'var=',
+        ],
+        'CONNECTION' => [
+            8,
+            'var',
+        ],
+        'DATA DIRECTORY' => [
+            9,
+            'var',
+        ],
+        'DELAY_KEY_WRITE' => [
+            10,
+            'var',
+        ],
+        'INDEX DIRECTORY' => [
+            11,
+            'var',
+        ],
+        'INSERT_METHOD' => [
+            12,
+            'var',
+        ],
+        'KEY_BLOCK_SIZE' => [
+            13,
+            'var',
+        ],
+        'MAX_ROWS' => [
+            14,
+            'var',
+        ],
+        'MIN_ROWS' => [
+            15,
+            'var',
+        ],
+        'PACK_KEYS' => [
+            16,
+            'var',
+        ],
+        'PASSWORD' => [
+            17,
+            'var',
+        ],
+        'ROW_FORMAT' => [
+            18,
+            'var',
+        ],
+        'TABLESPACE' => [
+            19,
+            'var',
+        ],
+        'STORAGE' => [
+            20,
+            'var',
+        ],
+        'UNION' => [
+            21,
+            'var',
+        ],
+    ];
 
     /**
      * All function options.
      *
      * @var array
      */
-    public static $FUNC_OPTIONS = array(
-        'COMMENT' => array(1, 'var='),
+    public static $FUNC_OPTIONS = [
+        'COMMENT' => [
+            1,
+            'var=',
+        ],
         'LANGUAGE SQL' => 2,
         'DETERMINISTIC' => 3,
         'NOT DETERMINISTIC' => 3,
@@ -123,21 +228,24 @@ class CreateStatement extends Statement
         'NO SQL' => 4,
         'READS SQL DATA' => 4,
         'MODIFIES SQL DATA' => 4,
-        'SQL SECURITY DEFINER' => array(5, 'var'),
-    );
+        'SQL SECURITY DEFINER' => [
+            5,
+            'var',
+        ],
+    ];
 
     /**
      * All trigger options.
      *
      * @var array
      */
-    public static $TRIGGER_OPTIONS = array(
+    public static $TRIGGER_OPTIONS = [
         'BEFORE' => 1,
         'AFTER' => 1,
         'INSERT' => 2,
         'UPDATE' => 2,
         'DELETE' => 2,
-    );
+    ];
 
     /**
      * The name of the entity that is created.
@@ -259,7 +367,7 @@ class CreateStatement extends Statement
      *
      * @var Token[]|string
      */
-    public $body = array();
+    public $body = [];
 
     /**
      * @return string
@@ -267,7 +375,7 @@ class CreateStatement extends Statement
     public function build()
     {
         $fields = '';
-        if (!empty($this->fields)) {
+        if (! empty($this->fields)) {
             if (is_array($this->fields)) {
                 $fields = CreateDefinition::build($this->fields) . ' ';
             } elseif ($this->fields instanceof ArrayObj) {
@@ -280,12 +388,12 @@ class CreateStatement extends Statement
                 . Expression::build($this->name) . ' '
                 . OptionsArray::build($this->entityOptions);
         } elseif ($this->options->has('TABLE')) {
-            if (!is_null($this->select)) {
+            if (! is_null($this->select)) {
                 return 'CREATE '
                     . OptionsArray::build($this->options) . ' '
                     . Expression::build($this->name) . ' '
                     . $this->select->build();
-            } elseif (!is_null($this->like)) {
+            } elseif (! is_null($this->like)) {
                 return 'CREATE '
                     . OptionsArray::build($this->options) . ' '
                     . Expression::build($this->name) . ' LIKE '
@@ -293,19 +401,19 @@ class CreateStatement extends Statement
             } else {
                 $partition = '';
 
-                if (!empty($this->partitionBy)) {
+                if (! empty($this->partitionBy)) {
                     $partition .= "\nPARTITION BY " . $this->partitionBy;
                 }
-                if (!empty($this->partitionsNum)) {
+                if (! empty($this->partitionsNum)) {
                     $partition .= "\nPARTITIONS " . $this->partitionsNum;
                 }
-                if (!empty($this->subpartitionBy)) {
+                if (! empty($this->subpartitionBy)) {
                     $partition .= "\nSUBPARTITION BY " . $this->subpartitionBy;
                 }
-                if (!empty($this->subpartitionsNum)) {
+                if (! empty($this->subpartitionsNum)) {
                     $partition .= "\nSUBPARTITIONS " . $this->subpartitionsNum;
                 }
-                if (!empty($this->partitions)) {
+                if (! empty($this->partitions)) {
                     $partition .= "\n" . PartitionDefinition::build($this->partitions);
                 }
 
@@ -366,13 +474,13 @@ class CreateStatement extends Statement
         $this->name = Expression::parse(
             $parser,
             $list,
-            array(
+            [
                 'parseField' => 'table',
                 'breakOnAlias' => true,
-            )
+            ]
         );
 
-        if (!isset($this->name) || ($this->name === '')) {
+        if (! isset($this->name) || ($this->name === '')) {
             $parser->error(
                 'The name of the entity was expected.',
                 $list->tokens[$list->idx]
@@ -416,10 +524,10 @@ class CreateStatement extends Statement
                 $this->like = Expression::parse(
                     $parser,
                     $list,
-                    array(
+                    [
                         'parseField' => 'table',
                         'breakOnAlias' => true,
-                    )
+                    ]
                 );
                 // The 'LIKE' keyword was found, but no table_name was found next to it
                 if (is_null($this->like)) {
@@ -496,7 +604,7 @@ class CreateStatement extends Statement
                         $token = $list->getNextOfType(Token::TYPE_NUMBER);
                         --$list->idx; // `getNextOfType` also advances one position.
                         $this->subpartitionsNum = $token->value;
-                    } elseif (!empty($field)) {
+                    } elseif (! empty($field)) {
                         /*
                          * Handling the content of `PARTITION BY` and `SUBPARTITION BY`.
                          */
@@ -525,13 +633,13 @@ class CreateStatement extends Statement
                             $field = null;
                         }
                     } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                        if (!empty($this->partitionBy)) {
+                        if (! empty($this->partitionBy)) {
                             $this->partitions = ArrayObj::parse(
                                 $parser,
                                 $list,
-                                array(
+                                [
                                     'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition',
-                                )
+                                ]
                             );
                         }
                         break;
@@ -606,10 +714,10 @@ class CreateStatement extends Statement
             $this->table = Expression::parse(
                 $parser,
                 $list,
-                array(
+                [
                     'parseField' => 'table',
                     'breakOnAlias' => true,
-                )
+                ]
             );
             ++$list->idx;
 

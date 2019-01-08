@@ -39,7 +39,7 @@ abstract class Statement
      *
      * @var array
      */
-    public static $OPTIONS = array();
+    public static $OPTIONS = [];
 
     /**
      * The clauses of this statement, in order.
@@ -53,7 +53,7 @@ abstract class Statement
      *
      * @var array
      */
-    public static $CLAUSES = array();
+    public static $CLAUSES = [];
 
     /**
      * The options of this query.
@@ -117,7 +117,7 @@ abstract class Statement
          *
          * @var array
          */
-        $built = array();
+        $built = [];
 
         /**
          * Statement's clauses.
@@ -165,7 +165,7 @@ abstract class Statement
 
             // Checking if this field was already built.
             if ($type & 1) {
-                if (!empty($built[$field])) {
+                if (! empty($built[$field])) {
                     continue;
                 }
                 $built[$field] = true;
@@ -199,7 +199,7 @@ abstract class Statement
          *
          * @var array
          */
-        $parsedClauses = array();
+        $parsedClauses = [];
 
         // This may be corrected by the parser.
         $this->first = $list->idx;
@@ -300,13 +300,13 @@ abstract class Statement
              *
              * @var array
              */
-            $options = array();
+            $options = [];
 
             // Looking for duplicated clauses.
-            if (!empty(Parser::$KEYWORD_PARSERS[$token->value])
-                || !empty(Parser::$STATEMENT_PARSERS[$token->value])
+            if (! empty(Parser::$KEYWORD_PARSERS[$token->value])
+                || ! empty(Parser::$STATEMENT_PARSERS[$token->value])
             ) {
-                if (!empty($parsedClauses[$token->value])) {
+                if (! empty($parsedClauses[$token->value])) {
                     $parser->error(
                         'This type of clause was previously parsed.',
                         $token
@@ -317,17 +317,17 @@ abstract class Statement
             }
 
             // Checking if this is the beginning of a clause.
-            if (!empty(Parser::$KEYWORD_PARSERS[$token->value]) && $list->idx < $list->count) {
+            if (! empty(Parser::$KEYWORD_PARSERS[$token->value]) && $list->idx < $list->count) {
                 $class = Parser::$KEYWORD_PARSERS[$token->value]['class'];
                 $field = Parser::$KEYWORD_PARSERS[$token->value]['field'];
-                if (!empty(Parser::$KEYWORD_PARSERS[$token->value]['options'])) {
+                if (! empty(Parser::$KEYWORD_PARSERS[$token->value]['options'])) {
                     $options = Parser::$KEYWORD_PARSERS[$token->value]['options'];
                 }
             }
 
             // Checking if this is the beginning of the statement.
-            if (!empty(Parser::$STATEMENT_PARSERS[$token->keyword])) {
-                if (!empty(static::$CLAUSES) // Undefined for some statements.
+            if (! empty(Parser::$STATEMENT_PARSERS[$token->keyword])) {
+                if (! empty(static::$CLAUSES) // Undefined for some statements.
                     && empty(static::$CLAUSES[$token->value])
                 ) {
                     // Some keywords (e.g. `SET`) may be the beginning of a
@@ -341,7 +341,7 @@ abstract class Statement
                     );
                     break;
                 }
-                if (!$parsedOptions) {
+                if (! $parsedOptions) {
                     if (empty(static::$OPTIONS[$token->value])) {
                         // Skipping keyword because if it is not a option.
                         ++$list->idx;
@@ -513,7 +513,7 @@ abstract class Statement
                 if ($minJoin === 0 && stripos($clauseType, 'JOIN')) {
                     // First JOIN clause is detected
                     $minJoin = $maxJoin = $clauseStartIdx;
-                } elseif ($minJoin !== 0 && !stripos($clauseType, 'JOIN')) {
+                } elseif ($minJoin !== 0 && ! stripos($clauseType, 'JOIN')) {
                     // After a previous JOIN clause, a non-JOIN clause has been detected
                     $maxJoin = $lastIdx;
                 } elseif ($maxJoin < $clauseStartIdx && stripos($clauseType, 'JOIN')) {

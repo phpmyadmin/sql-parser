@@ -20,7 +20,7 @@ class TokensListTest extends TestCase
      */
     public function setUp()
     {
-        $this->tokens = array(
+        $this->tokens = [
             new Token('SELECT', Token::TYPE_KEYWORD),
             new Token(' ', Token::TYPE_WHITESPACE),
             new Token('*', Token::TYPE_OPERATOR),
@@ -29,7 +29,7 @@ class TokensListTest extends TestCase
             new Token(' ', Token::TYPE_WHITESPACE),
             new Token('`test`', Token::TYPE_SYMBOL),
             new Token(' ', Token::TYPE_WHITESPACE),
-        );
+        ];
     }
 
     public function testBuild()

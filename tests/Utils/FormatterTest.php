@@ -18,37 +18,37 @@ class FormatTest extends TestCase
     {
         $formatter = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\Formatter')
             ->disableOriginalConstructor()
-            ->setMethods(array('getDefaultOptions', 'getDefaultFormats'))
+            ->setMethods(['getDefaultOptions', 'getDefaultFormats'])
             ->getMock();
 
         $formatter->expects($this->once())
             ->method('getDefaultOptions')
-            ->willReturn(array(
+            ->willReturn([
                 'type' => 'text',
                 'line_ending' => null,
                 'indentation' => null,
                 'clause_newline' => null,
                 'parts_newline' => null,
-            ));
+            ]);
 
         $formatter->expects($this->once())
             ->method('getDefaultFormats')
             ->willReturn($default);
 
-        $expectedOptions = array(
+        $expectedOptions = [
             'type' => 'test-type',
             'line_ending' => '<br>',
             'indentation' => '    ',
             'clause_newline' => null,
             'parts_newline' => 0,
             'formats' => $expected,
-        );
+        ];
 
-        $overridingOptions = array(
+        $overridingOptions = [
             'type' => 'test-type',
             'line_ending' => '<br>',
             'formats' => $overriding,
-        );
+        ];
 
         $reflectionMethod = new \ReflectionMethod($formatter, 'getMergedOptions');
         $reflectionMethod->setAccessible(true);
@@ -58,179 +58,178 @@ class FormatTest extends TestCase
     public function mergeFormats()
     {
         // array($default[], $overriding[], $expected[])
-        return array(
-            'empty formats' => array(
-                'default' => array(
-                    array(
+        return [
+            'empty formats' => [
+                'default' => [
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => '',
                         'cli' => '',
                         'function' => '',
-                    ),
-                ),
-                'overriding' => array(
-                    array(
-                    ),
-                ),
-                'expected' => array(
-                    array(
+                    ],
+                ],
+                'overriding' => [
+                    [],
+                ],
+                'expected' => [
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => '',
                         'cli' => '',
                         'function' => '',
-                    ),
-                ),
-            ),
-            'no flags' => array(
-                'default' => array(
-                    array(
+                    ],
+                ],
+            ],
+            'no flags' => [
+                'default' => [
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 0,
                         'flags' => 1,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                ),
-                'overriding' => array(
-                    array(
+                    ],
+                ],
+                'overriding' => [
+                    [
                         'type' => 0,
                         'html' => 'new html',
                         'cli' => 'new cli',
-                    ),
-                ),
-                'expected' => array(
-                    array(
+                    ],
+                ],
+                'expected' => [
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => 'new html',
                         'cli' => 'new cli',
                         'function' => '',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 0,
                         'flags' => 1,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                ),
-            ),
-            'with flags' => array(
-                'default' => array(
-                    array(
+                    ],
+                ],
+            ],
+            'with flags' => [
+                'default' => [
+                    [
                         'type' => -1,
                         'flags' => 0,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 0,
                         'flags' => 1,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                ),
-                'overriding' => array(
-                    array(
+                    ],
+                ],
+                'overriding' => [
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => 'new html',
                         'cli' => 'new cli',
-                    ),
-                ),
-                'expected' => array(
-                    array(
+                    ],
+                ],
+                'expected' => [
+                    [
                         'type' => -1,
                         'flags' => 0,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => 'new html',
                         'cli' => 'new cli',
                         'function' => '',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 0,
                         'flags' => 1,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                ),
-            ),
-            'with extra formats' => array(
-                'default' => array(
-                    array(
+                    ],
+                ],
+            ],
+            'with extra formats' => [
+                'default' => [
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                ),
-                'overriding' => array(
-                    array(
+                    ],
+                ],
+                'overriding' => [
+                    [
                         'type' => 0,
                         'flags' => 1,
                         'html' => 'new html',
                         'cli' => 'new cli',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 1,
                         'html' => 'new html',
                         'cli' => 'new cli',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 1,
                         'flags' => 1,
                         'html' => 'new html',
                         'cli' => 'new cli',
-                    ),
-                ),
-                'expected' => array(
-                    array(
+                    ],
+                ],
+                'expected' => [
+                    [
                         'type' => 0,
                         'flags' => 0,
                         'html' => 'html',
                         'cli' => 'cli',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 0,
                         'flags' => 1,
                         'html' => 'new html',
                         'cli' => 'new cli',
                         'function' => '',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 1,
                         'flags' => 0,
                         'html' => 'new html',
                         'cli' => 'new cli',
                         'function' => '',
-                    ),
-                    array(
+                    ],
+                    [
                         'type' => 1,
                         'flags' => 1,
                         'html' => 'new html',
                         'cli' => 'new cli',
                         'function' => '',
-                    ),
-                ),
-            ),
-        );
+                    ],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -241,28 +240,28 @@ class FormatTest extends TestCase
      * @param mixed $cli
      * @param mixed $html
      */
-    public function testFormat($query, $text, $cli, $html, array $options = array())
+    public function testFormat($query, $text, $cli, $html, array $options = [])
     {
         // Test TEXT format
-        $this->assertEquals($text, Formatter::format($query, array('type' => 'text') + $options), 'Text formatting failed.');
+        $this->assertEquals($text, Formatter::format($query, ['type' => 'text'] + $options), 'Text formatting failed.');
 
         // Test CLI format
-        $this->assertEquals($cli, Formatter::format($query, array('type' => 'cli') + $options), 'CLI formatting failed.');
+        $this->assertEquals($cli, Formatter::format($query, ['type' => 'cli'] + $options), 'CLI formatting failed.');
 
         // Test HTML format
-        $this->assertEquals($html, Formatter::format($query, array('type' => 'html') + $options), 'HTML formatting failed.');
+        $this->assertEquals($html, Formatter::format($query, ['type' => 'html'] + $options), 'HTML formatting failed.');
     }
 
     public function formatQueries()
     {
-        return array(
-            'empty' => array(
+        return [
+            'empty' => [
                 'query' => '',
                 'text' => '',
                 'cli' => "\x1b[0m",
                 'html' => '',
-            ),
-            'minimal' => array(
+            ],
+            'minimal' => [
                 'query' => 'select 1',
                 'text' => 'SELECT' . "\n" .
                     '    1',
@@ -270,8 +269,8 @@ class FormatTest extends TestCase
                     "    \x1b[92m1" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
-            ),
-            'simply' => array(
+            ],
+            'simply' => [
                 'query' => 'select * from tbl where 1',
                 'text' => 'SELECT' . "\n" .
                     '    *' . "\n" .
@@ -291,8 +290,8 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
                     '<span class="sql-reserved">WHERE</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
-            ),
-            'typical' => array(
+            ],
+            'typical' => [
                 'query' => 'SELECT id, if(id=1,"Si","No") from `tbl` where id = 0 or id = 1 group by id order by id desc limit 1 offset 0',
                 'text' => 'SELECT' . "\n" .
                     '    id,' . "\n" .
@@ -333,8 +332,8 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;id' . '<br/>' .
                     '<span class="sql-reserved">DESC</span>' . '<br/>' .
                     '<span class="sql-reserved">LIMIT</span> <span class="sql-number">1</span> <span class="sql-keyword">OFFSET</span> <span class="sql-number">0</span>',
-            ),
-            'comments' => array(
+            ],
+            'comments' => [
                 'query' => 'select /* Comment */ *' . "\n" .
                     'from tbl # Comment' . "\n" .
                     'where 1 -- Comment',
@@ -356,8 +355,8 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl <span class="sql-comment"># Comment</span>' . '<br/>' .
                     '<span class="sql-reserved">WHERE</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- Comment</span>',
-            ),
-            'strip comments' => array(
+            ],
+            'strip comments' => [
                 'query' => 'select /* Comment */ *' . "\n" .
                     'from tbl # Comment' . "\n" .
                     'where 1 -- Comment',
@@ -379,11 +378,11 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
                     '<span class="sql-reserved">WHERE</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
-                'options' => array(
+                'options' => [
                     'remove_comments' => true,
-                ),
-            ),
-            'keywords' => array(
+                ],
+            ],
+            'keywords' => [
                 'query' => 'select hex("1")',
                 'text' => 'SELECT' . "\n" .
                     '    HEX("1")',
@@ -391,8 +390,8 @@ class FormatTest extends TestCase
                     "    \x1b[95mHEX\x1b[39m(\x1b[91m\"1\"\x1b[39m)" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">HEX</span>(<span class="sql-string">"1"</span>)',
-            ),
-            'distinct count' => array(
+            ],
+            'distinct count' => [
                 'query' => 'select distinct count(*)',
                 'text' => 'SELECT DISTINCT' . "\n" .
                     '    COUNT(*)',
@@ -400,8 +399,8 @@ class FormatTest extends TestCase
                     "    \x1b[95mCOUNT\x1b[39m(*)" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span> <span class="sql-reserved">DISTINCT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-keyword">COUNT</span>(*)',
-            ),
-            'create procedure' => array(
+            ],
+            'create procedure' => [
                 'query' => 'create procedure test_procedure() begin from tbl select *; end',
                 'text' => 'CREATE PROCEDURE test_procedure()' . "\n" .
                     'BEGIN' . "\n" .
@@ -424,8 +423,8 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*;' . '<br/>' .
                     '<span class="sql-keyword">END</span>',
-            ),
-            'insert' => array(
+            ],
+            'insert' => [
                 'query' => 'insert into foo values (0, 0, 0), (1, 1, 1)',
                 'text' => 'INSERT INTO foo' . "\n" .
                     'VALUES(0, 0, 0),(1, 1, 1)',
@@ -433,8 +432,8 @@ class FormatTest extends TestCase
                     "\x1b[35mVALUES\x1b[39m(\x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m),(\x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m)" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">INSERT</span> <span class="sql-reserved">INTO</span> foo' . '<br/>' .
                     '<span class="sql-reserved">VALUES</span>(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
-            ),
-            'string as alias' => array(
+            ],
+            'string as alias' => [
                 'query' => 'select "Text" as bar',
                 'text' => 'SELECT' . "\n" .
                     '    "Text" AS bar',
@@ -442,8 +441,8 @@ class FormatTest extends TestCase
                     "    \x1b[91m\"Text\" \x1b[35mAS \x1b[39mbar" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Text"</span> <span class="sql-reserved">AS</span> bar',
-            ),
-            'escape cli' => array(
+            ],
+            'escape cli' => [
                 'query' => "select 'text\x1b[33mcolor-inj'",
                 'text' => 'SELECT' . "\n" .
                     "    'text\x1B[33mcolor-inj'",
@@ -451,8 +450,8 @@ class FormatTest extends TestCase
                     "    \x1b[91m'text\\x1B[33mcolor-inj'" . "\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'text' . "\x1b[33m" . 'color-inj\'</span>',
-            ),
-            'escape html' => array(
+            ],
+            'escape html' => [
                 'query' => "select '<s>xss' from `<s>xss` , <s>nxss /*s<s>xss*/",
                 'text' => 'SELECT' . "\n" .
                     '    \'<s>xss\'' . "\n" .
@@ -468,8 +467,8 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'&lt;s&gt;xss\'</span>' . '<br/>' .
                     '<span class="sql-reserved">FROM</span>' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`&lt;s&gt;xss`</span>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt; s &gt; nxss <span class="sql-comment">/*s&lt;s&gt;xss*/</span>',
-            ),
-            'create table' => array(
+            ],
+            'create table' => [
                 'query' => 'create table if not exists `pma__bookmark` (' . "\n" .
                     '`id` int(11) not null auto_increment,' . "\n" .
                     '`dbase` varchar(255) not null default "",' . "\n" .
@@ -498,14 +497,14 @@ class FormatTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`label`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">COLLATE</span> utf8_general_ci <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`query`</span> <span class="sql-keyword">TEXT</span> <span class="sql-reserved">NOT NULL</span>,' . '<br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">PRIMARY KEY</span>(<span class="sql-variable">`id`</span>)',
-            ),
-            'join' => array(
+            ],
+            'join' => [
                 'query' => 'join tbl2 on c1=c2',
                 'text' => 'JOIN tbl2 ON c1 = c2',
                 'cli' => "\x1b[35mJOIN \x1b[39mtbl2 \x1b[35mON \x1b[39mc1 = c2" .
                     "\x1b[0m",
                 'html' => '<span class="sql-reserved">JOIN</span> tbl2 <span class="sql-reserved">ON</span> c1 = c2',
-            ),
-        );
+            ],
+        ];
     }
 }

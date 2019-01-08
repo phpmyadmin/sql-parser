@@ -99,19 +99,19 @@ class CreateStatementTest extends TestCase
         $stmt = new CreateStatement();
 
         $stmt->name = new Expression('', 'test', '');
-        $stmt->options = new OptionsArray(array('TABLE'));
-        $stmt->fields = array(
+        $stmt->options = new OptionsArray(['TABLE']);
+        $stmt->fields = [
             new CreateDefinition(
                 'id',
-                new OptionsArray(array('NOT NULL', 'AUTO_INCREMENT')),
-                new DataType('INT', array(11), new OptionsArray(array('UNSIGNED')))
+                new OptionsArray(['NOT NULL', 'AUTO_INCREMENT']),
+                new DataType('INT', [11], new OptionsArray(['UNSIGNED']))
             ),
             new CreateDefinition(
                 '',
                 null,
-                new Key('', array(array('name' => 'id')), 'PRIMARY KEY')
+                new Key('', [['name' => 'id']], 'PRIMARY KEY')
             ),
-        );
+        ];
 
         $this->assertEquals(
             "CREATE TABLE `test` (\n" .
@@ -202,8 +202,8 @@ class CreateStatementTest extends TestCase
 
     public function partitionQueries()
     {
-        return array(
-            array(
+        return [
+            [
                 'subparts' => <<<EOT
 CREATE TABLE `ts` (
   `id` int(11) DEFAULT NULL,
@@ -226,8 +226,9 @@ SUBPARTITION s5 ENGINE=InnoDB
 )
 )
 EOT
-            ),
-            array(
+            ,
+            ],
+            [
                 'parts' => <<<EOT
 CREATE TABLE ptest (
   `event_date` date NOT NULL
@@ -241,8 +242,9 @@ PARTITION p3 ENGINE=InnoDB,
 PARTITION p4 ENGINE=InnoDB
 )
 EOT
-            ),
-        );
+            ,
+            ],
+        ];
     }
 
     /**
@@ -289,9 +291,9 @@ EOT
     {
         $stmt = new CreateStatement();
 
-        $stmt->options = new OptionsArray(array('TRIGGER'));
+        $stmt->options = new OptionsArray(['TRIGGER']);
         $stmt->name = new Expression('ins_sum');
-        $stmt->entityOptions = new OptionsArray(array('BEFORE', 'INSERT'));
+        $stmt->entityOptions = new OptionsArray(['BEFORE', 'INSERT']);
         $stmt->table = new Expression('account');
         $stmt->body = 'SET @sum = @sum + NEW.amount';
 

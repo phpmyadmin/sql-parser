@@ -84,7 +84,7 @@ class CaseExpression extends Component
      *
      * @return CaseExpression
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
         $ret = new self();
 
@@ -121,26 +121,26 @@ class CaseExpression extends Component
 
             if ($state === 0) {
                 if ($token->type === Token::TYPE_KEYWORD) {
-                    switch($token->keyword) {
+                    switch ($token->keyword) {
                         case 'WHEN':
                             ++$list->idx; // Skip 'WHEN'
                             $new_condition = Condition::parse($parser, $list);
                             $type = 1;
                             $state = 1;
                             $ret->conditions[] = $new_condition;
-                        break;
+                            break;
                         case 'ELSE':
                             ++$list->idx; // Skip 'ELSE'
                             $ret->else_result = Expression::parse($parser, $list);
                             $state = 0; // last clause of CASE expression
-                        break;
+                            break;
                         case 'END':
                             $state = 3; // end of CASE expression
                             ++$list->idx;
-                        break 2;
+                            break 2;
                         default:
                             $parser->error('Unexpected keyword.', $token);
-                        break 2;
+                            break 2;
                     }
                 } else {
                     $ret->value = Expression::parse($parser, $list);
@@ -150,25 +150,25 @@ class CaseExpression extends Component
             } elseif ($state === 1) {
                 if ($type === 0) {
                     if ($token->type === Token::TYPE_KEYWORD) {
-                        switch($token->keyword) {
+                        switch ($token->keyword) {
                             case 'WHEN':
                                 ++$list->idx; // Skip 'WHEN'
                                 $new_value = Expression::parse($parser, $list);
                                 $state = 2;
                                 $ret->compare_values[] = $new_value;
-                            break;
+                                break;
                             case 'ELSE':
                                 ++$list->idx; // Skip 'ELSE'
                                 $ret->else_result = Expression::parse($parser, $list);
                                 $state = 0; // last clause of CASE expression
-                            break;
+                                break;
                             case 'END':
                                 $state = 3; // end of CASE expression
                                 ++$list->idx;
-                            break 2;
+                                break 2;
                             default:
                                 $parser->error('Unexpected keyword.', $token);
-                            break 2;
+                                break 2;
                         }
                     }
                 } else {
@@ -227,7 +227,7 @@ class CaseExpression extends Component
                 // Handle optional AS keyword before alias
                 if ($token->type === Token::TYPE_KEYWORD
                     && $token->keyword === 'AS') {
-                    if ($asFound || !empty($ret->alias)) {
+                    if ($asFound || ! empty($ret->alias)) {
                         $parser->error('Potential duplicate alias of CASE expression.', $token);
                         break;
                     }
@@ -245,11 +245,11 @@ class CaseExpression extends Component
 
                 if ($asFound
                     || $token->type === Token::TYPE_STRING
-                    || ($token->type === Token::TYPE_SYMBOL && !$token->flags & Token::FLAG_SYMBOL_VARIABLE)
+                    || ($token->type === Token::TYPE_SYMBOL && ! $token->flags & Token::FLAG_SYMBOL_VARIABLE)
                     || $token->type === Token::TYPE_NONE
                 ) {
                     // An alias is expected (the keyword `AS` was previously found).
-                    if (!empty($ret->alias)) {
+                    if (! empty($ret->alias)) {
                         $parser->error('An alias was previously found.', $token);
                         break;
                     }
@@ -279,7 +279,7 @@ class CaseExpression extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         $ret = 'CASE ';
         if (isset($component->value)) {

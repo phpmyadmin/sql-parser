@@ -28,9 +28,9 @@ class Array2d extends Component
      *
      * @return ArrayObj[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = array();
+        $ret = [];
 
         /**
          * The number of values in each set.
@@ -124,7 +124,7 @@ class Array2d extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         return ArrayObj::build($component);
     }

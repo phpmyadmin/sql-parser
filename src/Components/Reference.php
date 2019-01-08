@@ -26,11 +26,20 @@ class Reference extends Component
      *
      * @var array
      */
-    public static $REFERENCES_OPTIONS = array(
-        'MATCH' => array(1, 'var'),
-        'ON DELETE' => array(2, 'var'),
-        'ON UPDATE' => array(3, 'var'),
-    );
+    public static $REFERENCES_OPTIONS = [
+        'MATCH' => [
+            1,
+            'var',
+        ],
+        'ON DELETE' => [
+            2,
+            'var',
+        ],
+        'ON UPDATE' => [
+            3,
+            'var',
+        ],
+    ];
 
     /**
      * The referenced table.
@@ -60,7 +69,7 @@ class Reference extends Component
      * @param array        $columns the columns referenced
      * @param OptionsArray $options the options
      */
-    public function __construct($table = null, array $columns = array(), $options = null)
+    public function __construct($table = null, array $columns = [], $options = null)
     {
         $this->table = $table;
         $this->columns = $columns;
@@ -74,7 +83,7 @@ class Reference extends Component
      *
      * @return Reference
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
         $ret = new self();
 
@@ -115,10 +124,10 @@ class Reference extends Component
                 $ret->table = Expression::parse(
                     $parser,
                     $list,
-                    array(
+                    [
                         'parseField' => 'table',
                         'breakOnAlias' => true,
-                    )
+                    ]
                 );
                 $state = 1;
             } elseif ($state === 1) {
@@ -142,7 +151,7 @@ class Reference extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         return trim(
             $component->table

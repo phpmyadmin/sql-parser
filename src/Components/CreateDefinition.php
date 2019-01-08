@@ -30,30 +30,53 @@ class CreateDefinition extends Component
      *
      * @var array
      */
-    public static $FIELD_OPTIONS = array(
+    public static $FIELD_OPTIONS = [
         // Tells the `OptionsArray` to not sort the options.
         // See the note below.
         '_UNSORTED' => true,
 
         'NOT NULL' => 1,
         'NULL' => 1,
-        'DEFAULT' => array(2, 'expr', array('breakOnAlias' => true)),
+        'DEFAULT' => [
+            2,
+            'expr',
+            ['breakOnAlias' => true],
+        ],
         /* Following are not according to grammar, but MySQL happily accepts
          * these at any location */
-        'CHARSET' => array(2, 'var'),
-        'COLLATE' => array(3, 'var'),
+        'CHARSET' => [
+            2,
+            'var',
+        ],
+        'COLLATE' => [
+            3,
+            'var',
+        ],
         'AUTO_INCREMENT' => 3,
         'PRIMARY' => 4,
         'PRIMARY KEY' => 4,
         'UNIQUE' => 4,
         'UNIQUE KEY' => 4,
-        'COMMENT' => array(5, 'var'),
-        'COLUMN_FORMAT' => array(6, 'var'),
-        'ON UPDATE' => array(7, 'expr'),
+        'COMMENT' => [
+            5,
+            'var',
+        ],
+        'COLUMN_FORMAT' => [
+            6,
+            'var',
+        ],
+        'ON UPDATE' => [
+            7,
+            'expr',
+        ],
 
         // Generated columns options.
         'GENERATED ALWAYS' => 8,
-        'AS' => array(9, 'expr', array('parenthesesDelimited' => true)),
+        'AS' => [
+            9,
+            'expr',
+            ['parenthesesDelimited' => true],
+        ],
         'VIRTUAL' => 10,
         'PERSISTENT' => 11,
         'STORED' => 11,
@@ -71,7 +94,7 @@ class CreateDefinition extends Component
         // 'NULL'                          => 1,
         // 'PRIMARY'                       => 4,
         // 'PRIMARY KEY'                   => 4,
-    );
+    ];
 
     /**
      * The name of the new column.
@@ -149,9 +172,9 @@ class CreateDefinition extends Component
      *
      * @return CreateDefinition[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = array();
+        $ret = [];
 
         $expr = new self();
 
@@ -216,7 +239,7 @@ class CreateDefinition extends Component
                     $state = 4;
                 } elseif ($token->type === Token::TYPE_SYMBOL || $token->type === Token::TYPE_NONE) {
                     $expr->name = $token->value;
-                    if (!$expr->isConstraint) {
+                    if (! $expr->isConstraint) {
                         $state = 2;
                     }
                 } elseif ($token->type === Token::TYPE_KEYWORD) {
@@ -259,7 +282,7 @@ class CreateDefinition extends Component
                 }
                 $state = 5;
             } elseif ($state === 5) {
-                if (!empty($expr->type) || !empty($expr->key)) {
+                if (! empty($expr->type) || ! empty($expr->key)) {
                     $ret[] = $expr;
                 }
                 $expr = new self();
@@ -281,7 +304,7 @@ class CreateDefinition extends Component
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->type) || !empty($expr->key)) {
+        if (! empty($expr->type) || ! empty($expr->key)) {
             $ret[] = $expr;
         }
 
@@ -303,7 +326,7 @@ class CreateDefinition extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         if (is_array($component)) {
             return "(\n  " . implode(",\n  ", $component) . "\n)";
@@ -319,18 +342,18 @@ class CreateDefinition extends Component
             $tmp .= Context::escape($component->name) . ' ';
         }
 
-        if (!empty($component->type)) {
+        if (! empty($component->type)) {
             $tmp .= DataType::build(
                 $component->type,
-                array('lowercase' => true)
+                ['lowercase' => true]
             ) . ' ';
         }
 
-        if (!empty($component->key)) {
+        if (! empty($component->key)) {
             $tmp .= $component->key . ' ';
         }
 
-        if (!empty($component->references)) {
+        if (! empty($component->references)) {
             $tmp .= 'REFERENCES ' . $component->references . ' ';
         }
 

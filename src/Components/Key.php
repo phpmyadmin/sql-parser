@@ -28,12 +28,24 @@ class Key extends Component
      *
      * @var array
      */
-    public static $KEY_OPTIONS = array(
-        'KEY_BLOCK_SIZE' => array(1, 'var'),
-        'USING' => array(2, 'var'),
-        'WITH PARSER' => array(3, 'var'),
-        'COMMENT' => array(4, 'var='),
-    );
+    public static $KEY_OPTIONS = [
+        'KEY_BLOCK_SIZE' => [
+            1,
+            'var',
+        ],
+        'USING' => [
+            2,
+            'var',
+        ],
+        'WITH PARSER' => [
+            3,
+            'var',
+        ],
+        'COMMENT' => [
+            4,
+            'var=',
+        ],
+    ];
 
     /**
      * The name of this key.
@@ -73,7 +85,7 @@ class Key extends Component
      */
     public function __construct(
         $name = null,
-        array $columns = array(),
+        array $columns = [],
         $type = null,
         $options = null
     ) {
@@ -90,7 +102,7 @@ class Key extends Component
      *
      * @return Key
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
         $ret = new self();
 
@@ -99,7 +111,7 @@ class Key extends Component
          *
          * @var array
          */
-        $lastColumn = array();
+        $lastColumn = [];
 
         /**
          * The state of the parser.
@@ -150,9 +162,9 @@ class Key extends Component
                         $state = 3;
                     } elseif (($token->value === ',') || ($token->value === ')')) {
                         $state = ($token->value === ',') ? 2 : 4;
-                        if (!empty($lastColumn)) {
+                        if (! empty($lastColumn)) {
                             $ret->columns[] = $lastColumn;
-                            $lastColumn = array();
+                            $lastColumn = [];
                         }
                     }
                 } else {
@@ -182,14 +194,14 @@ class Key extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         $ret = $component->type . ' ';
-        if (!empty($component->name)) {
+        if (! empty($component->name)) {
             $ret .= Context::escape($component->name) . ' ';
         }
 
-        $columns = array();
+        $columns = [];
         foreach ($component->columns as $column) {
             $tmp = Context::escape($column['name']);
             if (isset($column['length'])) {

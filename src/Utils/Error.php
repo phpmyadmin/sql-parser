@@ -32,26 +32,26 @@ class Error
      */
     public static function get($objs)
     {
-        $ret = array();
+        $ret = [];
 
         foreach ($objs as $obj) {
             if ($obj instanceof Lexer) {
                 foreach ($obj->errors as $err) {
-                    $ret[] = array(
+                    $ret[] = [
                         $err->getMessage(),
                         $err->getCode(),
                         $err->ch,
                         $err->pos,
-                    );
+                    ];
                 }
             } elseif ($obj instanceof Parser) {
                 foreach ($obj->errors as $err) {
-                    $ret[] = array(
+                    $ret[] = [
                         $err->getMessage(),
                         $err->getCode(),
                         $err->token->token,
                         $err->token->position,
-                    );
+                    ];
                 }
             }
         }
@@ -77,7 +77,7 @@ class Error
         $errors,
         $format = '#%1$d: %2$s (near "%4$s" at position %5$d)'
     ) {
-        $ret = array();
+        $ret = [];
 
         $i = 0;
         foreach ($errors as $key => $err) {

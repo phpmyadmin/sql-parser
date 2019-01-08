@@ -242,7 +242,7 @@ class Token
         switch ($this->type) {
             case self::TYPE_KEYWORD:
                 $this->keyword = strtoupper($this->token);
-                if (!($this->flags & self::FLAG_KEYWORD_RESERVED)) {
+                if (! ($this->flags & self::FLAG_KEYWORD_RESERVED)) {
                     // Unreserved keywords should stay the way they are because they
                     // might represent field names.
                     return $this->token;
@@ -300,7 +300,7 @@ class Token
                     // in PHP 5.3- the `null` parameter isn't handled correctly.
                     $str = mb_substr(
                         $str,
-                        (!empty($str[1]) && ($str[1] === '@')) ? 2 : 1,
+                        (! empty($str[1]) && ($str[1] === '@')) ? 2 : 1,
                         mb_strlen($str),
                         'UTF-8'
                     );
@@ -330,8 +330,16 @@ class Token
     public function getInlineToken()
     {
         return str_replace(
-            array("\r", "\n", "\t"),
-            array('\r', '\n', '\t'),
+            [
+                "\r",
+                "\n",
+                "\t",
+            ],
+            [
+                '\r',
+                '\n',
+                '\t',
+            ],
             $this->token
         );
     }

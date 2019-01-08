@@ -92,19 +92,19 @@ class PurgeStatement extends Statement
             switch ($state) {
                 case 0:
                     // parse `{ BINARY | MASTER }`
-                    $this->log_type = self::parseExpectedKeyword($parser, $token, array('BINARY', 'MASTER'));
+                    $this->log_type = self::parseExpectedKeyword($parser, $token, ['BINARY', 'MASTER']);
                     break;
                 case 1:
                     // parse `LOGS`
-                    self::parseExpectedKeyword($parser, $token, array('LOGS'));
+                    self::parseExpectedKeyword($parser, $token, ['LOGS']);
                     break;
                 case 2:
                     // parse `{ TO | BEFORE }`
-                    $this->end_option = self::parseExpectedKeyword($parser, $token, array('TO', 'BEFORE'));
+                    $this->end_option = self::parseExpectedKeyword($parser, $token, ['TO', 'BEFORE']);
                     break;
                 case 3:
                     // parse `expr`
-                    $this->end_expr = Expression::parse($parser, $list, array());
+                    $this->end_expr = Expression::parse($parser, $list, []);
                     break;
                 default:
                     $parser->error('Unexpected token.', $token);

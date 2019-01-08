@@ -15,7 +15,7 @@ class StatementTest extends TestCase
     {
         $stmt = new SelectStatement();
 
-        $stmt->options = new OptionsArray(array('DISTINCT'));
+        $stmt->options = new OptionsArray(['DISTINCT']);
 
         $stmt->expr[] = new Expression('sakila', 'film', 'film_id', 'fid');
         $stmt->expr[] = new Expression('COUNT(film_id)');

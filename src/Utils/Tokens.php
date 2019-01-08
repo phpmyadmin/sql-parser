@@ -76,7 +76,7 @@ class Tokens
         $isList = $list instanceof TokensList;
 
         // Parsing the tokens.
-        if (!$isList) {
+        if (! $isList) {
             $list = Lexer::getTokens($list);
         }
 
@@ -85,7 +85,7 @@ class Tokens
          *
          * @var array
          */
-        $newList = array();
+        $newList = [];
 
         /**
          * The length of the find pattern is calculated only once.
@@ -136,7 +136,7 @@ class Tokens
                     ++$j;
                 }
 
-                if (!static::match($list->tokens[$j], $find[$k])) {
+                if (! static::match($list->tokens[$j], $find[$k])) {
                     // This token does not match the pattern.
                     break;
                 }

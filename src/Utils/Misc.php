@@ -28,16 +28,16 @@ class Misc
      */
     public static function getAliases($statement, $database)
     {
-        if (!($statement instanceof SelectStatement)
+        if (! ($statement instanceof SelectStatement)
             || empty($statement->expr)
             || empty($statement->from)
         ) {
-            return array();
+            return [];
         }
 
-        $retval = array();
+        $retval = [];
 
-        $tables = array();
+        $tables = [];
 
         /**
          * Expressions that may contain aliases.
@@ -48,43 +48,43 @@ class Misc
         $expressions = $statement->from;
 
         // Adding expressions from JOIN.
-        if (!empty($statement->join)) {
+        if (! empty($statement->join)) {
             foreach ($statement->join as $join) {
                 $expressions[] = $join->expr;
             }
         }
 
         foreach ($expressions as $expr) {
-            if (!isset($expr->table) || ($expr->table === '')) {
+            if (! isset($expr->table) || ($expr->table === '')) {
                 continue;
             }
 
             $thisDb = (isset($expr->database) && ($expr->database !== '')) ?
                 $expr->database : $database;
 
-            if (!isset($retval[$thisDb])) {
-                $retval[$thisDb] = array(
+            if (! isset($retval[$thisDb])) {
+                $retval[$thisDb] = [
                     'alias' => null,
-                    'tables' => array(),
-                );
+                    'tables' => [],
+                ];
             }
 
-            if (!isset($retval[$thisDb]['tables'][$expr->table])) {
-                $retval[$thisDb]['tables'][$expr->table] = array(
+            if (! isset($retval[$thisDb]['tables'][$expr->table])) {
+                $retval[$thisDb]['tables'][$expr->table] = [
                     'alias' => (isset($expr->alias) && ($expr->alias !== '')) ?
                         $expr->alias : null,
-                    'columns' => array(),
-                );
+                    'columns' => [],
+                ];
             }
 
-            if (!isset($tables[$thisDb])) {
-                $tables[$thisDb] = array();
+            if (! isset($tables[$thisDb])) {
+                $tables[$thisDb] = [];
             }
             $tables[$thisDb][$expr->alias] = $expr->table;
         }
 
         foreach ($statement->expr as $expr) {
-            if (!isset($expr->column, $expr->alias) || ($expr->column === '') || ($expr->alias === '')
+            if (! isset($expr->column, $expr->alias) || ($expr->column === '') || ($expr->alias === '')
             ) {
                 continue;
             }

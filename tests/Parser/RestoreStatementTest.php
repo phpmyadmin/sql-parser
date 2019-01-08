@@ -18,8 +18,8 @@ class RestoreStatementTest extends TestCase
 
     public function testRestoreProvider()
     {
-        return array(
-            array('parser/parseRestore'),
-        );
+        return [
+            ['parser/parseRestore'],
+        ];
     }
 }

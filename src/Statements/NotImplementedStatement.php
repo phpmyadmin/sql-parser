@@ -27,7 +27,7 @@ class NotImplementedStatement extends Statement
      *
      * @var Token[]
      */
-    public $unknown = array();
+    public $unknown = [];
 
     /**
      * @return string

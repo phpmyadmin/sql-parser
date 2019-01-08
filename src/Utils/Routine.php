@@ -36,21 +36,27 @@ class Routine
         $type = DataType::parse(new Parser(), $lexer->list);
 
         if ($type === null) {
-            return array('', '', '', '', '');
+            return [
+                '',
+                '',
+                '',
+                '',
+                '',
+            ];
         }
 
-        $options = array();
+        $options = [];
         foreach ($type->options->options as $opt) {
             $options[] = is_string($opt) ? $opt : $opt['value'];
         }
 
-        return array(
+        return [
             '',
             '',
             $type->name,
             implode(',', $type->parameters),
             implode(' ', $options),
-        );
+        ];
     }
 
     /**
@@ -68,23 +74,29 @@ class Routine
         $param = ParameterDefinition::parse(new Parser(), $lexer->list);
 
         if (empty($param[0])) {
-            return array('', '', '', '', '');
+            return [
+                '',
+                '',
+                '',
+                '',
+                '',
+            ];
         }
 
         $param = $param[0];
 
-        $options = array();
+        $options = [];
         foreach ($param->type->options->options as $opt) {
             $options[] = is_string($opt) ? $opt : $opt['value'];
         }
 
-        return array(
+        return [
             empty($param->inOut) ? '' : $param->inOut,
             $param->name,
             $param->type->name,
             implode(',', $param->type->parameters),
             implode(' ', $options),
-        );
+        ];
     }
 
     /**
@@ -96,17 +108,17 @@ class Routine
      */
     public static function getParameters($statement)
     {
-        $retval = array(
+        $retval = [
             'num' => 0,
-            'dir' => array(),
-            'name' => array(),
-            'type' => array(),
-            'length' => array(),
-            'length_arr' => array(),
-            'opts' => array(),
-        );
+            'dir' => [],
+            'name' => [],
+            'type' => [],
+            'length' => [],
+            'length_arr' => [],
+            'opts' => [],
+        ];
 
-        if (!empty($statement->parameters)) {
+        if (! empty($statement->parameters)) {
             $idx = 0;
             foreach ($statement->parameters as $param) {
                 $retval['dir'][$idx] = $param->inOut;
@@ -114,7 +126,7 @@ class Routine
                 $retval['type'][$idx] = $param->type->name;
                 $retval['length'][$idx] = implode(',', $param->type->parameters);
                 $retval['length_arr'][$idx] = $param->type->parameters;
-                $retval['opts'][$idx] = array();
+                $retval['opts'][$idx] = [];
                 foreach ($param->type->options->options as $opt) {
                     $retval['opts'][$idx][] = is_string($opt) ?
                         $opt : $opt['value'];

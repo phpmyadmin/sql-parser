@@ -53,9 +53,9 @@ class RenameOperation extends Component
      *
      * @return RenameOperation[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = array())
+    public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = array();
+        $ret = [];
 
         $expr = new self();
 
@@ -99,10 +99,10 @@ class RenameOperation extends Component
                 $expr->old = Expression::parse(
                     $parser,
                     $list,
-                    array(
+                    [
                         'breakOnAlias' => true,
                         'parseField' => 'table',
-                    )
+                    ]
                 );
                 if (empty($expr->old)) {
                     $parser->error(
@@ -125,10 +125,10 @@ class RenameOperation extends Component
                 $expr->new = Expression::parse(
                     $parser,
                     $list,
-                    array(
+                    [
                         'breakOnAlias' => true,
                         'parseField' => 'table',
-                    )
+                    ]
                 );
                 if (empty($expr->new)) {
                     $parser->error(
@@ -156,7 +156,7 @@ class RenameOperation extends Component
         }
 
         // Last iteration was not saved.
-        if (!empty($expr->old)) {
+        if (! empty($expr->old)) {
             $ret[] = $expr;
         }
 
@@ -171,7 +171,7 @@ class RenameOperation extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = array())
+    public static function build($component, array $options = [])
     {
         if (is_array($component)) {
             return implode(', ', $component);

@@ -12,7 +12,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 
-if (!defined('USE_UTF_STRINGS')) {
+if (! defined('USE_UTF_STRINGS')) {
     // NOTE: In previous versions of PHP (5.5 and older) the default
     // internal encoding is "ISO-8859-1".
     // All `mb_` functions must specify the correct encoding, which is
@@ -46,7 +46,7 @@ class Lexer extends Core
      *
      * @var array
      */
-    public static $PARSER_METHODS = array(
+    public static $PARSER_METHODS = [
         // It is best to put the parsers in order of their complexity
         // (ascending) and their occurrence rate (descending).
         //
@@ -70,10 +70,18 @@ class Lexer extends Core
         // They fight over words. `parseUnknown` does not know about
         // keywords.
 
-        'parseDelimiter', 'parseWhitespace', 'parseNumber',
-        'parseComment', 'parseOperator', 'parseBool', 'parseString',
-        'parseSymbol', 'parseKeyword', 'parseLabel', 'parseUnknown',
-    );
+        'parseDelimiter',
+        'parseWhitespace',
+        'parseNumber',
+        'parseComment',
+        'parseOperator',
+        'parseBool',
+        'parseString',
+        'parseSymbol',
+        'parseKeyword',
+        'parseLabel',
+        'parseUnknown',
+    ];
 
     /**
      * The string to be parsed.
@@ -165,7 +173,7 @@ class Lexer extends Core
 
         // For multi-byte strings, a new instance of `UtfString` is
         // initialized (only if `UtfString` usage is forced.
-        if (!$str instanceof UtfString && USE_UTF_STRINGS && $len !== mb_strlen($str, 'UTF-8')) {
+        if (! $str instanceof UtfString && USE_UTF_STRINGS && $len !== mb_strlen($str, 'UTF-8')) {
             $str = new UtfString($str);
         }
 
@@ -176,7 +184,7 @@ class Lexer extends Core
 
         // Setting the delimiter.
         $this->setDelimiter(
-            !empty($delimiter) ? $delimiter : static::$DEFAULT_DELIMITER
+            ! empty($delimiter) ? $delimiter : static::$DEFAULT_DELIMITER
         );
 
         $this->lex();
@@ -304,7 +312,7 @@ class Lexer extends Core
                 // Parsing the delimiter.
                 $this->delimiter = null;
                 $delimiterLen = 0;
-                while (++$this->last < $this->len && !Context::isWhitespace($this->str[$this->last]) && $delimiterLen < 15) {
+                while (++$this->last < $this->len && ! Context::isWhitespace($this->str[$this->last]) && $delimiterLen < 15) {
                     $this->delimiter .= $this->str[$this->last];
                     ++$delimiterLen;
                 }
@@ -351,7 +359,9 @@ class Lexer extends Core
     {
         $error = new LexerException(
             Translator::gettext($msg),
-            $str, $pos, $code
+            $str,
+            $pos,
+            $code
         );
         parent::error($error);
     }
@@ -507,7 +517,7 @@ class Lexer extends Core
     {
         $token = $this->str[$this->last];
 
-        if (!Context::isWhitespace($token)) {
+        if (! Context::isWhitespace($token)) {
             return null;
         }
 
@@ -532,8 +542,7 @@ class Lexer extends Core
 
         // Bash style comments. (#comment\n)
         if (Context::isComment($token)) {
-            while (
-                ++$this->last < $this->len
+            while (++$this->last < $this->len
                 && $this->str[$this->last] !== "\n"
             ) {
                 $token .= $this->str[$this->last];
@@ -565,8 +574,7 @@ class Lexer extends Core
                     $flags |= Token::FLAG_COMMENT_MYSQL_CMD;
                     $token .= $this->str[++$this->last];
 
-                    while (
-                        ++$this->last < $this->len
+                    while (++$this->last < $this->len
                         && $this->str[$this->last] >= '0'
                         && $this->str[$this->last] <= '9'
                     ) {
@@ -580,8 +588,7 @@ class Lexer extends Core
                 }
 
                 // Parsing the comment.
-                while (
-                    ++$this->last < $this->len
+                while (++$this->last < $this->len
                     && (
                         $this->str[$this->last - 1] !== '*'
                         || $this->str[$this->last] !== '/'
@@ -610,8 +617,7 @@ class Lexer extends Core
         if (Context::isComment($token, $end)) {
             // Checking if this comment did not end already (```--\n```).
             if ($this->str[$this->last] !== "\n") {
-                while (
-                    ++$this->last < $this->len
+                while (++$this->last < $this->len
                     && $this->str[$this->last] !== "\n"
                 ) {
                     $token .= $this->str[$this->last];
@@ -733,8 +739,7 @@ class Lexer extends Core
                 }
             } elseif ($state === 2) {
                 $flags |= Token::FLAG_NUMBER_HEX;
-                if (
-                    !(
+                if (! (
                         ($this->str[$this->last] >= '0' && $this->str[$this->last] <= '9')
                         || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'F')
                         || ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'f')
@@ -816,7 +821,7 @@ class Lexer extends Core
     public function parseString($quote = '')
     {
         $token = $this->str[$this->last];
-        if (!($flags = Context::isString($token)) && $token !== $quote) {
+        if (! ($flags = Context::isString($token)) && $token !== $quote) {
             return null;
         }
         $quote = $token;
@@ -861,7 +866,7 @@ class Lexer extends Core
     public function parseSymbol()
     {
         $token = $this->str[$this->last];
-        if (!($flags = Context::isSymbol($token))) {
+        if (! ($flags = Context::isSymbol($token))) {
             return null;
         }
 
@@ -912,7 +917,7 @@ class Lexer extends Core
             return null;
         }
 
-        while (++$this->last < $this->len && !Context::isSeparator($this->str[$this->last])) {
+        while (++$this->last < $this->len && ! Context::isSeparator($this->str[$this->last])) {
             $token .= $this->str[$this->last];
         }
         --$this->last;

@@ -27,30 +27,30 @@ class Table
     public static function getForeignKeys($statement)
     {
         if (empty($statement->fields)
-            || (!is_array($statement->fields))
-            || (!$statement->options->has('TABLE'))
+            || (! is_array($statement->fields))
+            || (! $statement->options->has('TABLE'))
         ) {
-            return array();
+            return [];
         }
 
-        $ret = array();
+        $ret = [];
 
         foreach ($statement->fields as $field) {
             if (empty($field->key) || ($field->key->type !== 'FOREIGN KEY')) {
                 continue;
             }
 
-            $columns = array();
+            $columns = [];
             foreach ($field->key->columns as $column) {
                 $columns[] = $column['name'];
             }
 
-            $tmp = array(
+            $tmp = [
                 'constraint' => $field->name,
                 'index_list' => $columns,
-            );
+            ];
 
-            if (!empty($field->references)) {
+            if (! empty($field->references)) {
                 $tmp['ref_db_name'] = $field->references->table->database;
                 $tmp['ref_table_name'] = $field->references->table->table;
                 $tmp['ref_index_list'] = $field->references->columns;
@@ -84,13 +84,13 @@ class Table
     public static function getFields($statement)
     {
         if (empty($statement->fields)
-            || (!is_array($statement->fields))
-            || (!$statement->options->has('TABLE'))
+            || (! is_array($statement->fields))
+            || (! $statement->options->has('TABLE'))
         ) {
-            return array();
+            return [];
         }
 
-        $ret = array();
+        $ret = [];
 
         foreach ($statement->fields as $field) {
             // Skipping keys.
@@ -98,10 +98,10 @@ class Table
                 continue;
             }
 
-            $ret[$field->name] = array(
+            $ret[$field->name] = [
                 'type' => $field->type->name,
                 'timestamp_not_null' => false,
-            );
+            ];
 
             if ($field->options) {
                 if ($field->type->name === 'TIMESTAMP') {

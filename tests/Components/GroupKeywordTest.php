@@ -12,11 +12,11 @@ class GroupKeywordTest extends TestCase
     {
         $this->assertEquals(
             GroupKeyword::build(
-                array(
+                [
                     new GroupKeyword(new Expression('a')),
                     new GroupKeyword(new Expression('b')),
                     new GroupKeyword(new Expression('c')),
-                )
+                ]
             ),
             'a, b, c'
         );

@@ -18,17 +18,17 @@ class AlterStatementTest extends TestCase
 
     public function testAlterProvider()
     {
-        return array(
-            array('parser/parseAlter'),
-            array('parser/parseAlter2'),
-            array('parser/parseAlter3'),
-            array('parser/parseAlter4'),
-            array('parser/parseAlter5'),
-            array('parser/parseAlter6'),
-            array('parser/parseAlter7'),
-            array('parser/parseAlter8'),
-            array('parser/parseAlterErr'),
-            array('parser/parseAlterErr2'),
-        );
+        return [
+            ['parser/parseAlter'],
+            ['parser/parseAlter2'],
+            ['parser/parseAlter3'],
+            ['parser/parseAlter4'],
+            ['parser/parseAlter5'],
+            ['parser/parseAlter6'],
+            ['parser/parseAlter7'],
+            ['parser/parseAlter8'],
+            ['parser/parseAlterErr'],
+            ['parser/parseAlterErr2'],
+        ];
     }
 }

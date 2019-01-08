@@ -86,14 +86,14 @@ abstract class Context
      *
      * @var array
      */
-    public static $KEYWORDS = array();
+    public static $KEYWORDS = [];
 
     /**
      * List of operators and their flags.
      *
      * @var array
      */
-    public static $OPERATORS = array(
+    public static $OPERATORS = [
         // Some operators (*, =) may have ambiguous flags, because they depend on
         // the context they are being used in.
         // For example: 1. SELECT * FROM table; # SQL specific (wildcard)
@@ -102,23 +102,43 @@ abstract class Context
         //                 SET @i = 0;
 
         // @see Token::FLAG_OPERATOR_ARITHMETIC
-        '%' => 1, '*' => 1, '+' => 1, '-' => 1, '/' => 1,
+        '%' => 1,
+        '*' => 1,
+        '+' => 1,
+        '-' => 1,
+        '/' => 1,
 
         // @see Token::FLAG_OPERATOR_LOGICAL
-        '!' => 2, '!=' => 2, '&&' => 2, '<' => 2, '<=' => 2,
-        '<=>' => 2, '<>' => 2, '=' => 2, '>' => 2, '>=' => 2,
+        '!' => 2,
+        '!=' => 2,
+        '&&' => 2,
+        '<' => 2,
+        '<=' => 2,
+        '<=>' => 2,
+        '<>' => 2,
+        '=' => 2,
+        '>' => 2,
+        '>=' => 2,
         '||' => 2,
 
         // @see Token::FLAG_OPERATOR_BITWISE
-        '&' => 4, '<<' => 4, '>>' => 4, '^' => 4, '|' => 4,
+        '&' => 4,
+        '<<' => 4,
+        '>>' => 4,
+        '^' => 4,
+        '|' => 4,
         '~' => 4,
 
         // @see Token::FLAG_OPERATOR_ASSIGNMENT
         ':=' => 8,
 
         // @see Token::FLAG_OPERATOR_SQL
-        '(' => 16, ')' => 16, '.' => 16, ',' => 16, ';' => 16,
-    );
+        '(' => 16,
+        ')' => 16,
+        '.' => 16,
+        ',' => 16,
+        ';' => 16,
+    ];
 
     /**
      * The mode of the MySQL server that will be used in lexing, parsing and
@@ -255,7 +275,7 @@ abstract class Context
         $str = strtoupper($str);
 
         if (isset(static::$KEYWORDS[$str])) {
-            if ($isReserved && !(static::$KEYWORDS[$str] & Token::FLAG_KEYWORD_RESERVED)) {
+            if ($isReserved && ! (static::$KEYWORDS[$str] & Token::FLAG_KEYWORD_RESERVED)) {
                 return null;
             }
 
@@ -277,7 +297,7 @@ abstract class Context
      */
     public static function isOperator($str)
     {
-        if (!isset(static::$OPERATORS[$str])) {
+        if (! isset(static::$OPERATORS[$str])) {
             return null;
         }
 
@@ -459,7 +479,7 @@ abstract class Context
             // Short context name (must be formatted into class name).
             $context = self::$contextPrefix . $context;
         }
-        if (!class_exists($context)) {
+        if (! class_exists($context)) {
             throw @new LoaderException(
                 'Specified context ("' . $context . '") does not exist.',
                 $context
@@ -548,7 +568,7 @@ abstract class Context
         }
 
         if ((static::$MODE & self::SQL_MODE_NO_ENCLOSING_QUOTES)
-            && (!static::isKeyword($str, true))
+            && (! static::isKeyword($str, true))
         ) {
             return $str;
         }

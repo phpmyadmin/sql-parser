@@ -27,7 +27,7 @@ class BufferedQueryTest extends TestCase
          *
          * @var array
          */
-        $statements = array();
+        $statements = [];
 
         /**
          * The `BufferedQuery` instance used for extraction.
@@ -99,21 +99,21 @@ class BufferedQueryTest extends TestCase
             '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;' . "\n" .
             '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */';
 
-        return array(
-            array(
+        return [
+            [
                 "SELECT '\'';\nSELECT '\'';",
                 8,
-                array(
+                [
                     'parse_delimiter' => true,
                     'add_delimiter' => true,
-                ),
-                array(
+                ],
+                [
                     "SELECT '\'';",
                     "SELECT '\'';",
-                ),
-            ),
+                ],
+            ],
 
-            array(
+            [
                 "CREATE TABLE `test` (\n" .
                 "  `txt` varchar(10)\n" .
                 ");\n" .
@@ -121,58 +121,58 @@ class BufferedQueryTest extends TestCase
                 "INSERT INTO `test` (`txt`) VALUES('\\\\');\n" .
                 "INSERT INTO `test` (`txt`) VALUES('xyz');\n",
                 8,
-                array(
+                [
                     'parse_delimiter' => true,
                     'add_delimiter' => true,
-                ),
-                array(
+                ],
+                [
                     "CREATE TABLE `test` (\n" .
                     "  `txt` varchar(10)\n" .
                     ');',
                     "INSERT INTO `test` (`txt`) VALUES('abc');",
                     "INSERT INTO `test` (`txt`) VALUES('\\\\');",
                     "INSERT INTO `test` (`txt`) VALUES('xyz');",
-                ),
-            ),
+                ],
+            ],
 
-            array(
+            [
                 'SELECT """""""";' .
                 'SELECT """\\\\"""',
                 8,
-                array(
+                [
                     'parse_delimiter' => true,
                     'add_delimiter' => true,
-                ),
-                array(
+                ],
+                [
                     'SELECT """""""";',
                     'SELECT """\\\\"""',
-                ),
-            ),
+                ],
+            ],
 
-            array(
+            [
                 'DELIMITER A_VERY_LONG_DEL' . "\n" .
                 'SELECT 1 A_VERY_LONG_DEL' . "\n" .
                 'DELIMITER ;',
                 3,
-                array(
+                [
                     'parse_delimiter' => true,
                     'add_delimiter' => true,
-                ),
-                array(
+                ],
+                [
                     'DELIMITER A_VERY_LONG_DEL',
                     'SELECT 1 A_VERY_LONG_DEL',
                     'DELIMITER ;',
-                ),
-            ),
+                ],
+            ],
 
-            array(
+            [
                 $query,
                 32,
-                array(
+                [
                     'parse_delimiter' => false,
                     'add_delimiter' => false,
-                ),
-                array(
+                ],
+                [
                     '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */',
 
                     '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */',
@@ -216,17 +216,17 @@ class BufferedQueryTest extends TestCase
                     '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */',
 
                     '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */',
-                ),
-            ),
+                ],
+            ],
 
-            array(
+            [
                 $query,
                 32,
-                array(
+                [
                     'parse_delimiter' => true,
                     'add_delimiter' => false,
-                ),
-                array(
+                ],
+                [
                     '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */',
 
                     '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */',
@@ -274,17 +274,17 @@ class BufferedQueryTest extends TestCase
                     '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */',
 
                     '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */',
-                ),
-            ),
+                ],
+            ],
 
-            array(
+            [
                 $query,
                 64,
-                array(
+                [
                     'parse_delimiter' => false,
                     'add_delimiter' => true,
-                ),
-                array(
+                ],
+                [
                     '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;',
 
                     '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;',
@@ -328,8 +328,8 @@ class BufferedQueryTest extends TestCase
                     '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;',
 
                     '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */',
-                ),
-            ),
-        );
+                ],
+            ],
+        ];
     }
 }

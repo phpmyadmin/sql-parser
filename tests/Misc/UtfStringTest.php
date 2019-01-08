@@ -86,7 +86,7 @@ class UtfStringTest extends TestCase
     /**
      * Test access to string.
      *
-     * @dataProvider utf8_strings
+     * @dataProvider utf8Strings
      *
      * @param mixed $text
      * @param mixed $pos10
@@ -100,21 +100,29 @@ class UtfStringTest extends TestCase
         $this->assertEquals($pos10, $str->offsetGet(10));
     }
 
-    public function utf8_strings()
+    public function utf8Strings()
     {
-        return array(
-            'ascii' => array(
-                'abcdefghijklmnopqrstuvwxyz', 'k', 'u',
-            ),
-            'unicode' => array(
-                'áéíóúýěřťǔǐǒǎšďȟǰǩľžčǚň', 'ǐ', 'č',
-            ),
-            'emoji' => array(
-                '😂😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯', '😂', '😋',
-            ),
-            'iso' => array(
-                "P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy", null, null,
-            ),
-        );
+        return [
+            'ascii' => [
+                'abcdefghijklmnopqrstuvwxyz',
+                'k',
+                'u',
+            ],
+            'unicode' => [
+                'áéíóúýěřťǔǐǒǎšďȟǰǩľžčǚň',
+                'ǐ',
+                'č',
+            ],
+            'emoji' => [
+                '😂😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯',
+                '😂',
+                '😋',
+            ],
+            'iso' => [
+                "P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy",
+                null,
+                null,
+            ],
+        ];
     }
 }
