@@ -8,7 +8,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class BugsTest extends TestCase
 {
     /**
-     * @dataProvider testBugProvider
+     * @dataProvider bugProvider
      *
      * @param mixed $test
      */
@@ -17,7 +17,7 @@ class BugsTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testBugProvider()
+    public function bugProvider()
     {
         return [
             ['bugs/gh9'],

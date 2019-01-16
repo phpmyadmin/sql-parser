@@ -35,13 +35,20 @@ class Array2dTest extends TestCase
     {
         $parser = new Parser();
         Array2d::parse($parser, $this->getTokensList('(1, 2 +'));
-        // TODO: Assert errors.
+
+        $this->markTestIncomplete(
+            'This test has not been implemented yet.'
+        );
     }
 
     public function testParseErr2()
     {
         $parser = new Parser();
         Array2d::parse($parser, $this->getTokensList('(1, 2 TABLE'));
+
+        $this->markTestIncomplete(
+            'This test has not been implemented yet.'
+        );
     }
 
     public function testParseErr3()

@@ -8,7 +8,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class ExplainStatementTest extends TestCase
 {
     /**
-     * @dataProvider testExplainProvider
+     * @dataProvider explainProvider
      *
      * @param mixed $test
      */
@@ -17,7 +17,7 @@ class ExplainStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testExplainProvider()
+    public function explainProvider()
     {
         return [
             ['parser/parseExplain'],

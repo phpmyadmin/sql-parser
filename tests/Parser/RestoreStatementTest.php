@@ -8,7 +8,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class RestoreStatementTest extends TestCase
 {
     /**
-     * @dataProvider testRestoreProvider
+     * @dataProvider restoreProvider
      *
      * @param mixed $test
      */
@@ -17,7 +17,7 @@ class RestoreStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testRestoreProvider()
+    public function restoreProvider()
     {
         return [
             ['parser/parseRestore'],

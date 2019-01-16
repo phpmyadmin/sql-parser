@@ -8,7 +8,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class DeleteStatementTest extends TestCase
 {
     /**
-     * @dataProvider testDeleteProvider
+     * @dataProvider deleteProvider
      *
      * @param mixed $test
      */
@@ -17,7 +17,7 @@ class DeleteStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testDeleteProvider()
+    public function deleteProvider()
     {
         return [
             ['parser/parseDelete'],

@@ -17,7 +17,7 @@ class LoadStatementTest extends TestCase
     }
 
     /**
-     * @dataProvider testLoadProvider
+     * @dataProvider loadProvider
      *
      * @param mixed $test
      */
@@ -26,7 +26,7 @@ class LoadStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testLoadProvider()
+    public function loadProvider()
     {
         return [
             ['parser/parseLoad1'],

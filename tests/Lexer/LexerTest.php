@@ -48,7 +48,7 @@ class LexerTest extends TestCase
     }
 
     /**
-     * @dataProvider testLexProvider
+     * @dataProvider lexProvider
      *
      * @param mixed $test
      */
@@ -57,7 +57,7 @@ class LexerTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testLexProvider()
+    public function lexProvider()
     {
         return [
             ['lexer/lex'],

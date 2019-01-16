@@ -22,7 +22,7 @@ class ExpressionTest extends TestCase
     }
 
     /**
-     * @dataProvider testParseErrProvider
+     * @dataProvider parseErrProvider
      *
      * @param mixed $expr
      * @param mixed $error
@@ -35,7 +35,7 @@ class ExpressionTest extends TestCase
         $this->assertEquals($errors[0][0], $error);
     }
 
-    public function testParseErrProvider()
+    public function parseErrProvider()
     {
         return [
             /*

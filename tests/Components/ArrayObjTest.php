@@ -38,7 +38,7 @@ class ArrayObjTest extends TestCase
     }
 
     /**
-     * @dataProvider testParseProvider
+     * @dataProvider parseProvider
      *
      * @param mixed $test
      */
@@ -47,7 +47,7 @@ class ArrayObjTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testParseProvider()
+    public function parseProvider()
     {
         return [
             ['parser/parseArrayErr1'],

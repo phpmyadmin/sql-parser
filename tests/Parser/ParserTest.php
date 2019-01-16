@@ -12,7 +12,7 @@ use PhpMyAdmin\SqlParser\TokensList;
 class ParserTest extends TestCase
 {
     /**
-     * @dataProvider testParseProvider
+     * @dataProvider parseProvider
      *
      * @param mixed $test
      */
@@ -21,7 +21,7 @@ class ParserTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testParseProvider()
+    public function parseProvider()
     {
         return [
             ['parser/parse'],

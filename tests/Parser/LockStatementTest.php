@@ -8,7 +8,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class LockStatementTest extends TestCase
 {
     /**
-     * @dataProvider testLockProvider
+     * @dataProvider lockProvider
      *
      * @param mixed $test
      */
@@ -17,7 +17,7 @@ class LockStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testLockProvider()
+    public function lockProvider()
     {
         return [
             ['parser/parseLock1'],

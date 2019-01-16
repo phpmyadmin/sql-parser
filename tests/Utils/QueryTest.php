@@ -10,7 +10,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 class QueryTest extends TestCase
 {
     /**
-     * @dataProvider testGetFlagsProvider
+     * @dataProvider getFlagsProvider
      *
      * @param mixed $query
      * @param mixed $expected
@@ -24,7 +24,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testGetFlagsProvider()
+    public function getFlagsProvider()
     {
         return [
             [
@@ -396,7 +396,7 @@ class QueryTest extends TestCase
     }
 
     /**
-     * @dataProvider testGetTablesProvider
+     * @dataProvider getTablesProvider
      *
      * @param mixed $query
      * @param mixed $expected
@@ -410,7 +410,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testGetTablesProvider()
+    public function getTablesProvider()
     {
         return [
             [

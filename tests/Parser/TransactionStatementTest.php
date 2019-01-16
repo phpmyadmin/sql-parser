@@ -8,7 +8,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class TransactionStatementTest extends TestCase
 {
     /**
-     * @dataProvider testTransactionProvider
+     * @dataProvider transactionProvider
      *
      * @param mixed $test
      */
@@ -17,7 +17,7 @@ class TransactionStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testTransactionProvider()
+    public function transactionProvider()
     {
         return [
             ['parser/parseTransaction'],

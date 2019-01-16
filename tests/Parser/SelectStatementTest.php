@@ -17,7 +17,7 @@ class SelectStatementTest extends TestCase
     }
 
     /**
-     * @dataProvider testSelectProvider
+     * @dataProvider selectProvider
      *
      * @param mixed $test
      */
@@ -26,7 +26,7 @@ class SelectStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testSelectProvider()
+    public function selectProvider()
     {
         return [
             ['parser/parseSelect2'],

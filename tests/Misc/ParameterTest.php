@@ -8,7 +8,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class ParameterTest extends TestCase
 {
     /**
-     * @dataProvider testParameterProvider
+     * @dataProvider parameterProvider
      *
      * @param mixed $test
      */
@@ -17,7 +17,7 @@ class ParameterTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testParameterProvider()
+    public function parameterProvider()
     {
         return [
             ['misc/parseParameter'],

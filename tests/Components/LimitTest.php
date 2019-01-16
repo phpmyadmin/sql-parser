@@ -21,7 +21,7 @@ class LimitTest extends TestCase
     }
 
     /**
-     * @dataProvider testParseProvider
+     * @dataProvider parseProvider
      *
      * @param mixed $test
      */
@@ -30,7 +30,7 @@ class LimitTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testParseProvider()
+    public function parseProvider()
     {
         return [
             ['parser/parseLimitErr1'],

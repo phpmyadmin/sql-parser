@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 class BufferedQueryTest extends TestCase
 {
     /**
-     * @dataProvider testExtractProvider
+     * @dataProvider extractProvider
      *
      * @param mixed $query
      * @param mixed $chunkSize
@@ -55,7 +55,7 @@ class BufferedQueryTest extends TestCase
         $this->assertEquals($expected, $statements);
     }
 
-    public function testExtractProvider()
+    public function extractProvider()
     {
         $query =
             '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . "\n" .

@@ -8,7 +8,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class CreateStatementTest extends TestCase
 {
     /**
-     * @dataProvider testCreateProvider
+     * @dataProvider createProvider
      *
      * @param mixed $test
      */
@@ -17,7 +17,7 @@ class CreateStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function testCreateProvider()
+    public function createProvider()
     {
         return [
             ['parser/parseCreateFunction'],

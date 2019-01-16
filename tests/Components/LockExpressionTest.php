@@ -27,7 +27,7 @@ class LockExpressionTest extends TestCase
     }
 
     /**
-     * @dataProvider testParseErrProvider
+     * @dataProvider parseErrProvider
      *
      * @param mixed $expr
      * @param mixed $error
@@ -40,7 +40,7 @@ class LockExpressionTest extends TestCase
         $this->assertEquals($errors[0][0], $error);
     }
 
-    public function testParseErrProvider()
+    public function parseErrProvider()
     {
         return [
             [
