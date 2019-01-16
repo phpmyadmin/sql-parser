@@ -2,6 +2,29 @@
 
 ## [Unreleased]
 
+* Drop support for PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
+
+## [4.3.1] - 2019-01-05
+
+* Fixed incorrect error thrown on DEFAULT keyword in ALTER statement (#218)
+
+## [4.3.0] - 2018-12-25
+
+* Add support for aliases on CASE expressions (#162 and #192)
+* Add support for INDEX hints in SELECT statement (#199)
+* Add support for LOCK and UNLOCK TABLES statement (#180)
+* Add detection of extraneous comma in UPDATE statement (#160)
+* Add detection of a missing comma between two ALTER operations (#189)
+* Add missing support for STRAIGHT_JOIN (#196)
+* Add support for end options in SET statement (#190)
+* Fix building of RENAME statements (#201)
+* Add support for PURGE statements (#207)
+* Add support for COLLATE keyword (#190)
+
+## [4.2.5] - 2018-10-31
+
+* Fix issue with CREATE OR REPLACE VIEW.
+
 ## [4.2.4] - 2017-12-06
 
 * Fix parsing of CREATE TABLE with per field COLLATE.
@@ -312,4 +335,3 @@ __Breaking changes:__
 ## [1.0.0] - 2015-08-20
 
 * First release of this library.
-

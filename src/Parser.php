@@ -86,6 +86,13 @@ class Parser extends Core
         'COMMIT' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
         'ROLLBACK' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
         'START TRANSACTION' => 'PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement',
+
+        'PURGE' => 'PhpMyAdmin\\SqlParser\\Statements\\PurgeStatement',
+
+        // Lock statements
+        // https://dev.mysql.com/doc/refman/5.7/en/lock-tables.html
+        'LOCK' => 'PhpMyAdmin\\SqlParser\\Statements\\LockStatement',
+        'UNLOCK' => 'PhpMyAdmin\\SqlParser\\Statements\\LockStatement',
     );
 
     /**
@@ -170,6 +177,10 @@ class Parser extends Core
             'field' => 'fields',
             'options' => array('parseField' => 'table'),
         ),
+        'FORCE' => array(
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\IndexHint',
+            'field' => 'index_hints',
+        ),
         'FROM' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'from',
@@ -182,6 +193,10 @@ class Parser extends Core
         'HAVING' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\Condition',
             'field' => 'having',
+        ),
+        'IGNORE' => array(
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\IndexHint',
+            'field' => 'index_hints',
         ),
         'INTO' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\IntoKeyword',
@@ -244,6 +259,10 @@ class Parser extends Core
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ),
+        'STRAIGHT_JOIN' => array(
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
+            'field' => 'join',
+        ),
         'LIMIT' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\Limit',
             'field' => 'limit',
@@ -297,6 +316,10 @@ class Parser extends Core
             'field' => 'tables',
             'options' => array('parseField' => 'table'),
         ),
+        'USE' => array(
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\IndexHint',
+            'field' => 'index_hints',
+        ),
         'VALUE' => array(
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\Array2d',
             'field' => 'values',
@@ -340,7 +363,7 @@ class Parser extends Core
      */
     public function __construct($list = null, $strict = false)
     {
-        if ((is_string($list)) || ($list instanceof UtfString)) {
+        if (is_string($list) || ($list instanceof UtfString)) {
             $lexer = new Lexer($list, $strict);
             $this->list = $lexer->list;
         } elseif ($list instanceof TokensList) {
@@ -488,7 +511,7 @@ class Parser extends Core
             $prevLastIdx = $list->idx;
 
             // Handles unions.
-            if ((!empty($unionType))
+            if (!empty($unionType)
                 && ($lastStatement instanceof SelectStatement)
                 && ($statement instanceof SelectStatement)
             ) {

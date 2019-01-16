@@ -29,8 +29,8 @@ class Misc
     public static function getAliases($statement, $database)
     {
         if (!($statement instanceof SelectStatement)
-            || (empty($statement->expr))
-            || (empty($statement->from))
+            || empty($statement->expr)
+            || empty($statement->from)
         ) {
             return array();
         }
@@ -55,11 +55,11 @@ class Misc
         }
 
         foreach ($expressions as $expr) {
-            if ((!isset($expr->table)) || ($expr->table === '')) {
+            if (!isset($expr->table) || ($expr->table === '')) {
                 continue;
             }
 
-            $thisDb = ((isset($expr->database)) && ($expr->database !== '')) ?
+            $thisDb = (isset($expr->database) && ($expr->database !== '')) ?
                 $expr->database : $database;
 
             if (!isset($retval[$thisDb])) {
@@ -71,7 +71,7 @@ class Misc
 
             if (!isset($retval[$thisDb]['tables'][$expr->table])) {
                 $retval[$thisDb]['tables'][$expr->table] = array(
-                    'alias' => ((isset($expr->alias)) && ($expr->alias !== '')) ?
+                    'alias' => (isset($expr->alias) && ($expr->alias !== '')) ?
                         $expr->alias : null,
                     'columns' => array(),
                 );
@@ -84,16 +84,15 @@ class Misc
         }
 
         foreach ($statement->expr as $expr) {
-            if ((!isset($expr->column)) || ($expr->column === '')
-                || (!isset($expr->alias)) || ($expr->alias === '')
+            if (!isset($expr->column, $expr->alias) || ($expr->column === '') || ($expr->alias === '')
             ) {
                 continue;
             }
 
-            $thisDb = ((isset($expr->database)) && ($expr->database !== '')) ?
+            $thisDb = (isset($expr->database) && ($expr->database !== '')) ?
                 $expr->database : $database;
 
-            if ((isset($expr->table)) && ($expr->table !== '')) {
+            if (isset($expr->table) && ($expr->table !== '')) {
                 $thisTable = isset($tables[$thisDb][$expr->table]) ?
                     $tables[$thisDb][$expr->table] : $expr->table;
                 $retval[$thisDb]['tables'][$thisTable]['columns'][$expr->column] = $expr->alias;

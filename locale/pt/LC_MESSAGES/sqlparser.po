@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2017-01-16 01:33+0000\n"
-"Last-Translator: Manuela Silva <manuela.silva@sky.com>\n"
+"PO-Revision-Date: 2018-10-08 21:32+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 3.2.1\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -23,25 +23,25 @@ msgstr "Ainda não foi implementado."
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Uma nova instrução foi encontrada, mas nenhum delimitador entre ela e a "
+"anterior."
 
 #: src/Components/AlterOperation.php:253
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Tabela de operações em ícones"
+msgstr "Operação de alteração não reconhecida."
 
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Eram esperados %1$d valores, mas foram encontrados %2$d."
 
 #: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Uma abertura de chaveta seguida de um conjunto de valores era esperada."
 
 #: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Uma abertura de chaveta era esperada."
 
 #: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
 #: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
@@ -60,128 +60,110 @@ msgstr "Palavra-chave inesperada."
 
 #: src/Components/CaseExpression.php:199
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Fim da expressão CASE inesperada"
 
 #: src/Components/CreateDefinition.php:223
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Um nome de símbolo era esperado! Uma chave reservada não pode ser usada como "
+"um nome de coluna sem as chaves."
 
 #: src/Components/CreateDefinition.php:237
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Modelo de nome da tabela"
+msgstr "Um nome do símbolo era esperado!"
 
 #: src/Components/CreateDefinition.php:270
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Nenhuma tabela selecionada."
+msgstr "Uma vírgula ou um colchete de fechamento era esperado."
 
 #: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Um colchete ou parenteses era esperado."
 
 #: src/Components/DataType.php:123
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Tipo de dado desconhecido."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Nenhuma tabela selecionada."
+msgstr "Um alias era esperado."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Um alias foi previamente encontrado."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Ponto inesperado."
 
 #: src/Components/ExpressionArray.php:102
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "Nenhum registo(linha) seleccionado"
+msgstr "Uma expressão era esperada."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "Um offset era esperado."
 
 #: src/Components/OptionsArray.php:143
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Essa opção conflita com \"%1$s1\"."
 
 #: src/Components/RenameOperation.php:109
-#, fuzzy
-#| msgid "Title of browser window when a table is selected."
 msgid "The old name of the table was expected."
-msgstr "Título da janela do navegador quando uma tabela estiver selecionada."
+msgstr "O nome antigo da tabela era esperado."
 
 #: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Palavra-chave \"TO\" era esperada."
 
 #: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
-msgstr ""
+msgstr "O novo nome da tabela era esperado."
 
 #: src/Components/RenameOperation.php:153
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Registo eliminado."
+msgstr "Uma operação rename era esperada."
 
 #: src/Components/SetOperation.php:117
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "como expressão regular"
+msgstr "Faltando expressão."
 
 #: src/Lexer.php:237
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Caracteres inesperados na linha %s."
+msgstr "Caractere inesperado."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Espaço(s) em Branco(s) esperado antes do delimitador."
 
 #: src/Lexer.php:296 src/Lexer.php:314
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Delimitador esperado."
 
 #: src/Lexer.php:843
-#, fuzzy, php-format
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "A tabela %s foi eliminada"
+msgstr "Citação final %1$s1 era esperada."
 
 #: src/Lexer.php:884
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Modelo de nome da tabela"
+msgstr "Nome da variável era esperado."
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "No Início da Tabela"
+msgstr "Inesperado começo da declaração."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tipo de declaração desconhecida."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Nenhuma transação foi iniciada anteriormente."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:254
 #: src/Statements/DeleteStatement.php:306
@@ -189,63 +171,49 @@ msgstr ""
 #: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
 #: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
 #: src/Statements/ReplaceStatement.php:190
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Caracteres inesperados na linha %s."
+msgstr "Token inesperado."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Este tipo de cláusula foi previamente analisado."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Palavra-chave desconhecida."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Keyword at end of statement."
-msgstr "No Início da Tabela"
+msgstr "Palavra-chave no final da declaração."
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "No Início da Tabela"
+msgstr "Ordenação inesperada de cláusulas."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
-msgstr ""
+msgstr "O nome da entidade era esperado."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Modelo de nome da tabela"
+msgstr "Um nome para a tabela era esperado."
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Registo eliminado."
+msgstr "Pelo menos uma definição de coluna era esperada."
 
 #: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Uma palavra-chave \"RETURNS\" era esperada."
 
 #: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Esse tipo de clausula não é válida em queries Multi-tabela."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "Error"
 msgid "error #1"
-msgstr "Erro"
+msgstr "Erro #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "Reunir erros"
+msgstr "Erro severo"

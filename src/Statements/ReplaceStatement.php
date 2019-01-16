@@ -89,11 +89,11 @@ class ReplaceStatement extends Statement
     {
         $ret = 'REPLACE ' . $this->options . ' INTO ' . $this->into;
 
-        if ($this->values != null && count($this->values) > 0) {
+        if (!is_null($this->values) && count($this->values) > 0) {
             $ret .= ' VALUES ' . Array2d::build($this->values);
-        } elseif ($this->set != null && count($this->set) > 0) {
+        } elseif (!is_null($this->set) && count($this->set) > 0) {
             $ret .= ' SET ' . SetOperation::build($this->set);
-        } elseif ($this->select != null && strlen($this->select) > 0) {
+        } elseif (!is_null($this->select) && strlen($this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 

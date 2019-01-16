@@ -883,7 +883,7 @@ class Lexer extends Core
 
         if ($this->last < $this->len) {
             if (($str = $this->parseString('`')) === null) {
-                if (($str = static::parseUnknown()) === null) {
+                if (($str = $this->parseUnknown()) === null) {
                     $this->error(
                         'Variable name was expected.',
                         $this->str[$this->last],
