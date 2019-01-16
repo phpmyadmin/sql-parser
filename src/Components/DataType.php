@@ -1,8 +1,8 @@
 <?php
-
 /**
  * Parses a data type.
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
@@ -127,7 +127,7 @@ class DataType extends Component
             }
 
             if ($state === 0) {
-                $ret->name = strtoupper($token->value);
+                $ret->name = strtoupper((string) $token->value);
                 if (($token->type !== Token::TYPE_KEYWORD) || (! ($token->flags & Token::FLAG_KEYWORD_DATA_TYPE))) {
                     $parser->error('Unrecognized data type.', $token);
                 }

@@ -1,10 +1,10 @@
 <?php
-
 /**
  * Defines the parser of the library.
  *
  * This is one of the most important components, along with the lexer.
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 

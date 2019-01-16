@@ -1,8 +1,8 @@
 <?php
-
 /**
  * Token utilities.
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
@@ -44,7 +44,7 @@ class Tokens
         }
 
         if (isset($pattern['value_str'])
-            && strcasecmp($pattern['value_str'], $token->value)
+            && strcasecmp($pattern['value_str'], (string) $token->value)
         ) {
             return false;
         }

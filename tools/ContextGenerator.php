@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tools;
 
@@ -56,7 +57,6 @@ class ContextGenerator
      */
     const TEMPLATE =
         '<?php' . "\n" .
-        '' . "\n" .
         '/**' . "\n" .
         ' * Context for %1$s.' . "\n" .
         ' *' . "\n" .
@@ -64,6 +64,7 @@ class ContextGenerator
         ' *' . "\n" .
         ' * @see %3$s' . "\n" .
         ' */' . "\n" .
+        'declare(strict_types=1);' . "\n" .
         '' . "\n" .
         'namespace PhpMyAdmin\\SqlParser\\Contexts;' . "\n" .
         '' . "\n" .
@@ -90,9 +91,9 @@ class ContextGenerator
         '     *' . "\n" .
         '     * @var array' . "\n" .
         '     */' . "\n" .
-        '    public static $KEYWORDS = array(' . "\n" .
+        '    public static $KEYWORDS = [' . "\n" .
         '%4$s' .
-        '    );' . "\n" .
+        '    ];' . "\n" .
         '}' . "\n";
 
     /**

@@ -1,10 +1,10 @@
 <?php
-
 /**
  * Defines a token along with a set of types and flags and utility functions.
  *
  * An array of tokens will result after parsing the query.
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 

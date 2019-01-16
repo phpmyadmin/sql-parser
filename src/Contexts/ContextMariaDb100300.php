@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Context for MariaDB 10.3.
  *
@@ -7,6 +6,7 @@
  *
  * @see https://mariadb.com/kb/en/the-mariadb-library/reserved-words/
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Contexts;
 

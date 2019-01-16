@@ -1,8 +1,8 @@
 <?php
-
 /**
  * Parses an Index hint.
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 

@@ -1,10 +1,10 @@
 <?php
-
 /**
  * Parses the create definition of a partition.
  *
  * Used for parsing `CREATE TABLE` statement.
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 

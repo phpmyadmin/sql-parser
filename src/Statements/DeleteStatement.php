@@ -1,8 +1,8 @@
 <?php
-
 /**
  * `DELETE` statement.
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
@@ -184,7 +184,7 @@ class DeleteStatement extends Statement
         if (! is_null($this->order) && count($this->order) > 0) {
             $ret .= ' ORDER BY ' . ExpressionArray::build($this->order);
         }
-        if (! is_null($this->limit) && strlen($this->limit) > 0) {
+        if (! is_null($this->limit) && strlen((string) $this->limit) > 0) {
             $ret .= ' LIMIT ' . Limit::build($this->limit);
         }
 

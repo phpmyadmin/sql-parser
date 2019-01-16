@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Context for MySQL 5.0.
  *
@@ -7,6 +6,7 @@
  *
  * @see https://dev.mysql.com/doc/refman/5.0/en/keywords.html
  */
+declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Contexts;
 
