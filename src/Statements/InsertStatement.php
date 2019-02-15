@@ -111,7 +111,7 @@ class InsertStatement extends Statement
     public function build()
     {
         $ret = 'INSERT ' . $this->options
-            . ' INTO ' . $this->into;
+            . 'INTO ' . $this->into;
 
         if (! is_null($this->values) && count($this->values) > 0) {
             $ret .= ' VALUES ' . Array2d::build($this->values);

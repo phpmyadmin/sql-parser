@@ -334,7 +334,7 @@ EOT
             'CREATE TABLE new_tbl SELECT * FROM orig_tbl'
         );
         $this->assertEquals(
-            'CREATE TABLE new_tbl SELECT  * FROM orig_tbl ',
+            'CREATE TABLE new_tbl SELECT * FROM orig_tbl',
             $parser->statements[0]->build()
         );
     }

@@ -17,8 +17,8 @@ class SelectStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'SELECT  * FROM t1 LEFT JOIN (t2, t3, t4) '
-            . 'ON (t2.a=t1.a AND t3.b=t1.b AND t4.c=t1.c) ',
+            'SELECT * FROM t1 LEFT JOIN (t2, t3, t4) '
+            . 'ON (t2.a=t1.a AND t3.b=t1.b AND t4.c=t1.c)',
             $stmt->build()
         );
     }
@@ -29,7 +29,7 @@ class SelectStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'SELECT  1 UNION SELECT  2  ',
+            'SELECT 1 UNION SELECT 2',
             $stmt->build()
         );
     }
@@ -45,10 +45,10 @@ class SelectStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'SELECT  sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
             . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
-            . 'ORDER BY scb.id DESC LIMIT 0, 300 ',
+            . 'ORDER BY scb.id DESC LIMIT 0, 300',
             $stmt->build()
         );
     }
@@ -56,7 +56,7 @@ class SelectStatementTest extends TestCase
     public function testBuilderEndOptions()
     {
         /* Assertion 1 */
-        $query = 'SELECT  pid, name2 FROM tablename WHERE pid = 20 FOR UPDATE ';
+        $query = 'SELECT pid, name2 FROM tablename WHERE pid = 20 FOR UPDATE';
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
 
@@ -66,7 +66,7 @@ class SelectStatementTest extends TestCase
         );
 
         /* Assertion 2 */
-        $query = 'SELECT  pid, name2 FROM tablename WHERE pid = 20 LOCK IN SHARE MODE ';
+        $query = 'SELECT pid, name2 FROM tablename WHERE pid = 20 LOCK IN SHARE MODE';
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
 
@@ -79,10 +79,10 @@ class SelectStatementTest extends TestCase
     public function testBuilderIntoOptions()
     {
         /* Assertion 1 */
-        $query = 'SELECT  a, b, a+b INTO OUTFILE "/tmp/result.txt"'
+        $query = 'SELECT a, b, a+b INTO OUTFILE "/tmp/result.txt"'
             . ' COLUMNS TERMINATED BY \',\' OPTIONALLY ENCLOSED BY \'"\''
             . ' LINES TERMINATED BY \'\n\''
-            . ' FROM test_table ';
+            . ' FROM test_table';
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
 
@@ -94,7 +94,7 @@ class SelectStatementTest extends TestCase
 
     public function testBuildGroupBy()
     {
-        $query = 'SELECT  COUNT(CustomerID), Country FROM Customers GROUP BY Country ';
+        $query = 'SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country';
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
 
@@ -106,7 +106,7 @@ class SelectStatementTest extends TestCase
 
     public function testBuildIndexHint()
     {
-        $query = 'SELECT  * FROM address FORCE INDEX (idx_fk_city_id) IGNORE KEY FOR GROUP BY (a, b,c) WHERE city_id<0 ';
+        $query = 'SELECT * FROM address FORCE INDEX (idx_fk_city_id) IGNORE KEY FOR GROUP BY (a, b,c) WHERE city_id<0';
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
 
