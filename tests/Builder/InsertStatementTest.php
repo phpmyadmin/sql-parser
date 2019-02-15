@@ -63,5 +63,16 @@ class InsertStatementTest extends TestCase
             'INSERT INTO tbl SELECT * FROM bar ON DUPLICATE KEY UPDATE baz = 1',
             $stmt->build()
         );
+
+        /* Assertion 6 */
+        /* INSERT [OPTIONS] INTO ... */
+        $parser = new Parser(
+            'INSERT DELAYED IGNORE INTO tbl SELECT * FROM bar'
+        );
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'INSERT DELAYED IGNORE INTO tbl SELECT * FROM bar',
+            $stmt->build()
+        );
     }
 }
