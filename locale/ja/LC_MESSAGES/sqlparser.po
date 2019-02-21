@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2019-02-07 14:10+0000\n"
+"PO-Revision-Date: 2019-02-22 16:18+0000\n"
 "Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/ja/>\n"
@@ -174,37 +174,31 @@ msgstr "予期しないトークン。"
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "この句種類は既に処理しました。"
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
 msgstr "認識できないキーワードです。"
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Keyword at end of statement."
-msgstr "ステートメントの開始があるべきです。"
+msgstr "ステートメントの末尾にキーワードがあります。"
 
 #: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
 msgstr "予期しない節の順序。"
 
 #: src/Statements/CreateStatement.php:375
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "エンティティの名前が必要です。"
+msgstr "エンティティの名前が予想されていました。"
 
 #: src/Statements/CreateStatement.php:430
 msgid "A table name was expected."
 msgstr "テーブル名があるべきです。"
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "行を削除しました"
+msgstr "少なくとも 1 つのカラム定義が必要です。"
 
 #: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
@@ -212,16 +206,12 @@ msgstr "キーワード \"RETURNS\" があるべきです。"
 
 #: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "この句の種類は、複数テーブルクエリでは無効です。"
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "errors."
 msgid "error #1"
-msgstr "個"
+msgstr "エラー #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "エラーを収集する"
+msgstr "厳格なエラー"
