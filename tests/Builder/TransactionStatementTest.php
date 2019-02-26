@@ -20,8 +20,8 @@ class TransactionStatementTest extends TestCase
 
         $this->assertEquals(
             'START TRANSACTION;' .
-            'SELECT  @A:=SUM(salary) FROM table1 WHERE type=1 ;' .
-            'UPDATE  table2 SET summary = @A WHERE type=1 ;' .
+            'SELECT @A:=SUM(salary) FROM table1 WHERE type=1;' .
+            'UPDATE table2 SET summary = @A WHERE type=1;' .
             'COMMIT',
             $stmt->build()
         );

@@ -87,7 +87,8 @@ class ReplaceStatement extends Statement
      */
     public function build()
     {
-        $ret = 'REPLACE ' . $this->options . ' INTO ' . $this->into;
+        $ret = 'REPLACE ' . $this->options;
+        $ret = trim($ret) . ' INTO ' . $this->into;
 
         if (! is_null($this->values) && count($this->values) > 0) {
             $ret .= ' VALUES ' . Array2d::build($this->values);

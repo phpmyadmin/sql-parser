@@ -16,7 +16,7 @@ class InsertStatementTest extends TestCase
         );
         $stmt = $parser->statements[0];
         $this->assertEquals(
-            'INSERT  INTO tbl(`col1`, `col2`, `col3`) VALUES (1, "str", 3.14)',
+            'INSERT INTO tbl(`col1`, `col2`, `col3`) VALUES (1, "str", 3.14)',
             $stmt->build()
         );
 
@@ -27,7 +27,7 @@ class InsertStatementTest extends TestCase
         );
         $stmt = $parser->statements[0];
         $this->assertEquals(
-            'INSERT  INTO tbl(`order`) VALUES (1)',
+            'INSERT INTO tbl(`order`) VALUES (1)',
             $stmt->build()
         );
 
@@ -38,7 +38,7 @@ class InsertStatementTest extends TestCase
         );
         $stmt = $parser->statements[0];
         $this->assertEquals(
-            'INSERT  INTO tbl SET FOO = 1',
+            'INSERT INTO tbl SET FOO = 1',
             $stmt->build()
         );
 
@@ -49,7 +49,7 @@ class InsertStatementTest extends TestCase
         );
         $stmt = $parser->statements[0];
         $this->assertEquals(
-            'INSERT  INTO tbl SELECT  * FROM bar ',
+            'INSERT INTO tbl SELECT * FROM bar',
             $stmt->build()
         );
 
@@ -60,7 +60,18 @@ class InsertStatementTest extends TestCase
         );
         $stmt = $parser->statements[0];
         $this->assertEquals(
-            'INSERT  INTO tbl SELECT  * FROM bar  ON DUPLICATE KEY UPDATE baz = 1',
+            'INSERT INTO tbl SELECT * FROM bar ON DUPLICATE KEY UPDATE baz = 1',
+            $stmt->build()
+        );
+
+        /* Assertion 6 */
+        /* INSERT [OPTIONS] INTO ... */
+        $parser = new Parser(
+            'INSERT DELAYED IGNORE INTO tbl SELECT * FROM bar'
+        );
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'INSERT DELAYED IGNORE INTO tbl SELECT * FROM bar',
             $stmt->build()
         );
     }

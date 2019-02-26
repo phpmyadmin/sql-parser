@@ -173,12 +173,12 @@ abstract class Statement
 
             // Checking if the name of the clause should be added.
             if ($type & 2) {
-                $query .= $name . ' ';
+                $query = trim($query) . ' ' . $name;
             }
 
             // Checking if the result of the builder should be added.
             if ($type & 1) {
-                $query .= $class::build($this->$field) . ' ';
+                $query = trim($query) . ' ' . $class::build($this->$field);
             }
         }
 
