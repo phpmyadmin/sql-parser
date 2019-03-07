@@ -282,9 +282,9 @@ class AlterOperation extends Component
                         );
                         break;
                     }
-                } elseif (array_key_exists($token->value, self::$DB_OPTIONS)
-                    || (array_key_exists($token->value, self::$TABLE_OPTIONS)
-                    && ! self::checkIfColumnDefinitionKeyword($token->value))
+                } elseif ((array_key_exists($token->value, self::$DB_OPTIONS)
+                    || array_key_exists($token->value, self::$TABLE_OPTIONS))
+                    && ! self::checkIfColumnDefinitionKeyword($token->value)
                 ) {
                     // This alter operation has finished, which means a comma was missing before start of new alter operation
                     $parser->error(
@@ -338,8 +338,10 @@ class AlterOperation extends Component
             'AUTO_INCREMENT',
             'COMMENT',
             'DEFAULT',
+            'CHARACTER SET',
+            'COLLATE'
         ];
-        // Since AUTO_INCREMENT and COMMENT can be used for
+        // Since these options can be used for
         // both table as well as a specific column in the table
         return in_array($tokenValue, $common_options);
     }
