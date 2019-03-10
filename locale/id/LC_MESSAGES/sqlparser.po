@@ -4,16 +4,17 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2017-09-03 16:46+0000\n"
-"Last-Translator: Eurecode <jason.yonathan.h@gmail.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin"
-"/sql-parser/id/>\n"
+"PO-Revision-Date: 2019-03-11 15:03+0000\n"
+"Last-Translator: Muhammad Rifqi Priyo Susanto "
+"<muhammadrifqipriyosusanto@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 3.5.1\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: src/Component.php:43 src/Component.php:63
@@ -21,33 +22,28 @@ msgid "Not implemented yet."
 msgstr "Belum diimplementasikan."
 
 #: src/Components/AlterOperation.php:241 src/Statement.php:334
-#, fuzzy
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
-"Sebuah pernyataan baru ditemukan, tetapi tidak ada pembatas antara itu dan "
+"Suatu pernyataan baru ditemukan, tetapi tanpa pembatas antara itu dan "
 "sebelumnya."
 
 #: src/Components/AlterOperation.php:253
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Operasi tabel dengan ikon"
+msgstr "Operasi ubah tabel (alter) tak dikenal."
 
 #: src/Components/Array2d.php:88
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr "%1$d nilai yang diharapkan, tapi ditemukan %2$d."
+msgstr "Nilai %1$d diharapkan. Namun, ditemukan %2$d."
 
 #: src/Components/Array2d.php:111
-#, fuzzy
 msgid "An opening bracket followed by a set of values was expected."
-msgstr "Braket pembukaan diikuti oleh seperangkat nilai-nilai yang diharapkan."
+msgstr "Sebuah kurung buka yang diikuti oleh nilai-nilai diharapkan."
 
 #: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
-#, fuzzy
 msgid "An opening bracket was expected."
-msgstr "Braket pembukaan diharapkan."
+msgstr "Sebuah kurung buka diharapkan."
 
 #: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
 #: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
@@ -61,150 +57,115 @@ msgstr "Braket pembukaan diharapkan."
 #: src/Statements/InsertStatement.php:217 src/Statements/LoadStatement.php:258
 #: src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:182
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected keyword."
-msgstr "Karakter tidak diharapkan pada baris %s."
+msgstr "Kata kunci tak terduga."
 
 #: src/Components/CaseExpression.php:199
-#, fuzzy
 msgid "Unexpected end of CASE expression"
-msgstr "Akhir tak terduga dari ekspresi CASE"
+msgstr "Akhir operasi CASE tak terduga"
 
 #: src/Components/CreateDefinition.php:223
-#, fuzzy
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
-"Ada sebuah simbol yang menghilang! Kata kunci dasar tidak dapat digunakan "
-"sebagai nama field tanpa tanda kutip."
+"Sebuah nama simbol diharapkan! Kata kunci yang telah diatur tidak dapat "
+"digunakan sebagai nama kolom tanpa tanda kutip."
 
 #: src/Components/CreateDefinition.php:237
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Templat nama tabel"
+msgstr "Sebuah nama simbol diharapkan!"
 
 #: src/Components/CreateDefinition.php:270
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Tabel belum dipilih."
+msgstr "Sebuah koma atau kurung tutup diharapkan."
 
 #: src/Components/CreateDefinition.php:286
-#, fuzzy
 msgid "A closing bracket was expected."
-msgstr "Sebuah braket penutupan diharapkan."
+msgstr "Sebuah kurung tutup diharapkan."
 
 #: src/Components/DataType.php:123
-#, fuzzy
 msgid "Unrecognized data type."
-msgstr "tipe data yang belum diakui."
+msgstr "Tipe data tak dikenal."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Tabel belum dipilih."
+msgstr "Sebuah alias diharapkan."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr "sebuah alias sudah ditemukan sebelumnya."
+msgstr "Sebuah alias telah ditemukan sebelumnya."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
-msgstr "dot tak terduga."
+msgstr "Titik tak terduga."
 
 #: src/Components/ExpressionArray.php:102
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "Tidak ada baris yang dipilih"
+msgstr "Sebuah perintah (expression) diharapkan."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
-#, fuzzy
 msgid "An offset was expected."
-msgstr "Offset diharapkan."
+msgstr "Suatu pergeseran (offset) diharapkan."
 
 #: src/Components/OptionsArray.php:143
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr "Pilihan ini konflik dengan \"%1$s\"."
+msgstr "Pilihan ini bertentangan dengan \"%1$s\"."
 
 #: src/Components/RenameOperation.php:109
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Jumlah tabel yang terbuka."
+msgstr "Nama lama tabel diharapkan."
 
 #: src/Components/RenameOperation.php:119
-#, fuzzy
 msgid "Keyword \"TO\" was expected."
-msgstr "Kata kunci \"TO\" yang diharapkan."
+msgstr "Kata kunci \"TO\" diharapkan."
 
 #: src/Components/RenameOperation.php:135
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Jumlah tabel yang terbuka."
+msgstr "Nama baru tabel diharapkan."
 
 #: src/Components/RenameOperation.php:153
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Baris telah dihapus."
+msgstr "Sebuah operasi ganti nama diharapkan."
 
 #: src/Components/SetOperation.php:117
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "persamaan reguler"
+msgstr "Perintah (expression) hilang."
 
 #: src/Lexer.php:237
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "Karakter tidak diharapkan pada baris %s."
+msgstr "Karakter tak terduga."
 
 #: src/Lexer.php:278
-#, fuzzy
 msgid "Expected whitespace(s) before delimiter."
-msgstr "Diharapkan spasi sebelum pembatas."
+msgstr "Mengharapkan spasi sebelum pembatas."
 
 #: src/Lexer.php:296 src/Lexer.php:314
-#, fuzzy
 msgid "Expected delimiter."
-msgstr "Diharapkan pembatas."
+msgstr "Mengharapkan pembatas."
 
 #: src/Lexer.php:843
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Event %1$s telah dibuat."
+msgstr "Petik akhir %1$s diharapkan."
 
 #: src/Lexer.php:884
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Templat nama tabel"
+msgstr "Nama variabel diharapkan."
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "Pada Awal Tabel"
+msgstr "Awal pernyataan tak terduga."
 
 #: src/Parser.php:442
-#, fuzzy
 msgid "Unrecognized statement type."
-msgstr "Belum diakui jenis pernyataan."
+msgstr "Jenis pernyataan tak dikenal."
 
 #: src/Parser.php:527
-#, fuzzy
 msgid "No transaction was previously started."
-msgstr "Tidak ada transaksi sebelumnya dimulai."
+msgstr "Tidak ada transaksi yang dimulai sebelumnya."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:254
 #: src/Statements/DeleteStatement.php:306
@@ -212,69 +173,49 @@ msgstr "Tidak ada transaksi sebelumnya dimulai."
 #: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
 #: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
 #: src/Statements/ReplaceStatement.php:190
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "Karakter tidak diharapkan pada baris %s."
+msgstr "Token tak terduga."
 
 #: src/Statement.php:306
-#, fuzzy
 msgid "This type of clause was previously parsed."
-msgstr "Jenis klausa sebelumnya diurai."
+msgstr "Jenis klausa ini telah diurai sebelumnya."
 
 #: src/Statement.php:366
-#, fuzzy
 msgid "Unrecognized keyword."
-msgstr "kata kunci yang belum diakui."
+msgstr "Kata kunci tak dikenal."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Keyword at end of statement."
-msgstr "Pada Awal Tabel"
+msgstr "Kata kunci pada akhir pernyataan."
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "Pada Awal Tabel"
+msgstr "Pengurutan klausa tak terduga."
 
 #: src/Statements/CreateStatement.php:375
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Jumlah tabel yang terbuka."
+msgstr "Nama entitas diharapkan."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Templat nama tabel"
+msgstr "Sebuah nama tabel diharapkan."
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Baris telah dihapus."
+msgstr "Setidaknya satu definisi kolom diharapkan."
 
 #: src/Statements/CreateStatement.php:550
-#, fuzzy
 msgid "A \"RETURNS\" keyword was expected."
-msgstr "kunci \"RETURN\" yang Belum Diakui."
+msgstr "Sebuah kata kunci \"RETURNS\" diharapkan."
 
 #: src/Statements/DeleteStatement.php:314
-#, fuzzy
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "Jenis klausa sebelumnya diurai."
+msgstr "Jenis klausa ini tidak sah dalam kueri multitabel."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "errors."
 msgid "error #1"
-msgstr "galat."
+msgstr "galat #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "Kumpulkan galat"
+msgstr "galat ketat"
