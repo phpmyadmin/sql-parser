@@ -648,7 +648,7 @@ class Query
                 }
             }
 
-            if (($firstClauseIdx <= $currIdx) && ($currIdx <= $lastClauseIdx)) {
+            if (($firstClauseIdx <= $currIdx) && ($currIdx < $lastClauseIdx)) {
                 $ret .= $token->token;
             }
         }
