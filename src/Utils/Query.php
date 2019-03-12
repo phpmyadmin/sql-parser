@@ -594,7 +594,7 @@ class Query
         $clauseIdx = $clauses[$clauseType];
 
         $firstClauseIdx = $clauseIdx;
-        $lastClauseIdx = $clauseIdx + 1;
+        $lastClauseIdx = $clauseIdx;
 
         // Determining the behavior of this function.
         if ($type === -1) {
@@ -603,7 +603,7 @@ class Query
         } elseif ($type === 1) {
             $firstClauseIdx = $clauseIdx + 1;
             $lastClauseIdx = 10000; // Something big enough.
-        } elseif (is_string($type)) {
+        } elseif (is_string($type) && isset($clauses[$type])) {
             if ($clauses[$type] > $clauseIdx) {
                 $firstClauseIdx = $clauseIdx + 1;
                 $lastClauseIdx = $clauses[$type] - 1;
