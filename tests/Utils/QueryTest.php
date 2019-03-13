@@ -452,6 +452,7 @@ class QueryTest extends TestCase
 
     public function testGetClause()
     {
+        /* Assertion 1 */
         $parser = new Parser(
             'SELECT c.city_id, c.country_id ' .
             'FROM `city` ' .
@@ -461,12 +462,96 @@ class QueryTest extends TestCase
             'INTO OUTFILE "/dev/null"'
         );
         $this->assertEquals(
-            'WHERE city_id < 1 ORDER BY city_id ASC',
+            '0, 1 INTO OUTFILE "/dev/null"',
             Query::getClause(
                 $parser->statements[0],
                 $parser->list,
                 'LIMIT',
-                'FROM'
+                0
+            )
+        );
+        // Assert it returns all clauses between FROM and LIMIT
+        $this->assertEquals(
+            'WHERE city_id < 1 ORDER BY city_id ASC',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'FROM',
+                'LIMIT'
+            )
+        );
+        // Assert it returns all clauses between SELECT and LIMIT
+        $this->assertEquals(
+            'FROM `city` WHERE city_id < 1 ORDER BY city_id ASC',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'LIMIT',
+                'SELECT'
+            )
+        );
+
+        /* Assertion 2 */
+        $parser = new Parser(
+            'DELETE FROM `renewal` ' .
+            'WHERE number = "1DB" AND actionDate <= CURRENT_DATE() ' .
+            'ORDER BY id ASC ' .
+            'LIMIT 1'
+        );
+        $this->assertEquals(
+            'number = "1DB" AND actionDate <= CURRENT_DATE()',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'WHERE'
+            )
+        );
+        $this->assertEquals(
+            '1',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'LIMIT'
+            )
+        );
+        $this->assertEquals(
+            'id ASC',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'ORDER BY'
+            )
+        );
+
+        /* Assertion 3 */
+        $parser = new Parser(
+            'UPDATE `renewal` SET `some_column` = 1 ' .
+            'WHERE number = "1DB" AND actionDate <= CURRENT_DATE() ' .
+            'ORDER BY id ASC ' .
+            'LIMIT 1'
+        );
+        $this->assertEquals(
+            'number = "1DB" AND actionDate <= CURRENT_DATE()',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'WHERE'
+            )
+        );
+        $this->assertEquals(
+            '1',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'LIMIT'
+            )
+        );
+        $this->assertEquals(
+            'id ASC',
+            Query::getClause(
+                $parser->statements[0],
+                $parser->list,
+                'ORDER BY'
             )
         );
     }
