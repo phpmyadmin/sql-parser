@@ -4,6 +4,9 @@
 
 * Drop support for PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
 * Enable strict mode on PHP files
+* Fix redundant whitespaces in build() outputs (#228)
+* Fix incorrect error on DEFAULT keyword in ALTER operation (#229)
+* Fix incorrect outputs from Utils::getQuery (#233)
 
 ## [4.3.1] - 2019-01-05
 
