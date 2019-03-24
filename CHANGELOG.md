@@ -6,7 +6,7 @@
 * Enable strict mode on PHP files
 * Fix redundant whitespaces in build() outputs (#228)
 * Fix incorrect error on DEFAULT keyword in ALTER operation (#229)
-* Fix incorrect outputs from Utils::getQuery (#233)
+* Fix incorrect outputs from Query::getClause (#233)
 
 ## [4.3.1] - 2019-01-05
 
