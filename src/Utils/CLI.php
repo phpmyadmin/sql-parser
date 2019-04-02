@@ -31,7 +31,7 @@ class CLI
 
     public function usageHighlight()
     {
-        echo "Usage: highlight-query --query SQL [--format html|cli|text]\n";
+        echo "Usage: highlight-query [--query SQL|--path path/to/my.sql] [--format html|cli|text]\n";
     }
 
     public function getopt($opt, $long)
@@ -44,10 +44,11 @@ class CLI
         $longopts = [
             'help',
             'query:',
+            'path:',
             'format:',
         ];
         $params = $this->getopt(
-            'hq:f:',
+            'hq:p:f:',
             $longopts
         );
         if ($params === false) {
@@ -56,6 +57,22 @@ class CLI
         $this->mergeLongOpts($params, $longopts);
         if (! isset($params['f'])) {
             $params['f'] = 'cli';
+        }
+        if (isset($params['p']) && isset($params['q'])) {
+            echo "ERROR: pass either 'path' or 'query'; but not both";
+
+            return false;
+        }
+        if (isset($params['p'])) {
+            if (!file_exists($params['p'])) {
+                echo "ERROR: path ". $params['p'] ." doesn't exist";
+
+                return false;
+            } elseif (!is_readable($params['p'])) {
+                echo "ERROR: path ". $params['p'] ." is not readable";
+
+                return false;
+            }
         }
         if (! in_array($params['f'], ['html', 'cli', 'text'])) {
             echo "ERROR: Invalid value for format!\n";
@@ -76,6 +93,9 @@ class CLI
             $this->usageHighlight();
 
             return 0;
+        }
+        if (isset($params['p'])) {
+            $params['q'] = file_get_contents($params['p']);
         }
         if (isset($params['q'])) {
             echo Formatter::format(
