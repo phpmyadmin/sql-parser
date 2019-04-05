@@ -77,6 +77,11 @@ class CLI
 
             return 0;
         }
+        if (!isset($params['q'])) {
+            if ($stdIn = $this->readStdin()) {
+                $params['q'] = $stdIn;
+            }
+        }
         if (isset($params['q'])) {
             echo Formatter::format(
                 $params['q'],
@@ -126,6 +131,11 @@ class CLI
         }
         if (isset($params['c'])) {
             Context::load($params['c']);
+        }
+        if (!isset($params['q'])) {
+            if ($stdIn = $this->readStdin()) {
+                $params['q'] = $stdIn;
+            }
         }
         if (isset($params['q'])) {
             $lexer = new Lexer($params['q'], false);
@@ -177,6 +187,11 @@ class CLI
 
             return 0;
         }
+        if (!isset($params['q'])) {
+            if ($stdIn = $this->readStdin()) {
+                $params['q'] = $stdIn;
+            }
+        }
         if (isset($params['q'])) {
             $lexer = new Lexer($params['q'], false);
             foreach ($lexer->list->tokens as $idx => $token) {
@@ -198,5 +213,13 @@ class CLI
         $this->usageTokenize();
 
         return 1;
+    }
+
+    private function readStdin() {
+        stream_set_blocking(STDIN, false);
+        $stdin = stream_get_contents(STDIN);
+        // restore-default block-mode setting
+        stream_set_blocking(STDIN, true);
+        return $stdin;
     }
 }
