@@ -7,6 +7,8 @@
 * Fix redundant whitespaces in build() outputs (#228)
 * Fix incorrect error on DEFAULT keyword in ALTER operation (#229)
 * Fix incorrect outputs from Query::getClause (#233)
+* Add support for reading an SQL file from stdin
+* Fix for missing tokenize-query in Composer's vendor/bin/ directory
 
 ## [4.3.1] - 2019-01-05
 
