@@ -47,6 +47,12 @@ Command line utility to tokenize SQL query:
 ./vendor/bin/tokenize-query --query "SELECT 1"
 ```
 
+All commands are able to parse input from stdin (standard in), such as:
+
+```sh
+echo "SELECT 1" | ./vendor/bin/highlight-query
+cat example.sql | ./vendor/bin/lint-query
+```
 ### Formatting SQL query
 
 ```php
