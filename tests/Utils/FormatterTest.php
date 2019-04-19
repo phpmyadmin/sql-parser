@@ -506,6 +506,48 @@ class FormatTest extends TestCase
                     "\x1b[0m",
                 'html' => '<span class="sql-reserved">JOIN</span> tbl2 <span class="sql-reserved">ON</span> c1 = c2',
             ),
+            'named param' => array(
+                'query' => 'select * from tbl where col = :param',
+                'text' => 'SELECT' . "\n" .
+                    '    *' . "\n" .
+                    'FROM' . "\n" .
+                    '    tbl' . "\n" .
+                    'WHERE' . "\n" .
+                    '    col = :param',
+                'cli' => "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[39m*" . "\n" .
+                    "\x1b[35mFROM" . "\n" .
+                    "    \x1b[39mtbl" . "\n" .
+                    "\x1b[35mWHERE" . "\n" .
+                    "    \x1b[39mcol = \x1b[31m:param" . "\x1b[0m",
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;*' . '<br/>' .
+                    '<span class="sql-reserved">FROM</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
+                    '<span class="sql-reserved">WHERE</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;col = <span class="sql-parameter">:param</span>',
+            ),
+            'anon param' => array(
+                'query' => 'select * from tbl where col = ?',
+                'text' => 'SELECT' . "\n" .
+                    '    *' . "\n" .
+                    'FROM' . "\n" .
+                    '    tbl' . "\n" .
+                    'WHERE' . "\n" .
+                    '    col = ?',
+                'cli' => "\x1b[35mSELECT" . "\n" .
+                    "    \x1b[39m*" . "\n" .
+                    "\x1b[35mFROM" . "\n" .
+                    "    \x1b[39mtbl" . "\n" .
+                    "\x1b[35mWHERE" . "\n" .
+                    "    \x1b[39mcol = \x1b[31m?" . "\x1b[0m",
+                'html' => '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;*' . '<br/>' .
+                    '<span class="sql-reserved">FROM</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;tbl' . '<br/>' .
+                    '<span class="sql-reserved">WHERE</span>' . '<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;col = <span class="sql-parameter">?</span>',
+            ),
         );
     }
 }
