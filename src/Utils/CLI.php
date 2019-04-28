@@ -32,6 +32,7 @@ class CLI
     public function usageHighlight()
     {
         echo "Usage: highlight-query --query SQL [--format html|cli|text]\n";
+        echo "       cat file.sql | highlight-query\n";
     }
 
     public function getopt($opt, $long)
@@ -100,6 +101,7 @@ class CLI
     public function usageLint()
     {
         echo "Usage: lint-query --query SQL\n";
+        echo "       cat file.sql | lint-query\n";
     }
 
     public function parseLint()
@@ -159,6 +161,7 @@ class CLI
     public function usageTokenize()
     {
         echo "Usage: tokenize-query --query SQL\n";
+        echo "       cat file.sql | tokenize-query\n";
     }
 
     public function parseTokenize()
