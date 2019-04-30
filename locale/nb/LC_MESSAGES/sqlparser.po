@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2019-01-08 01:07+0000\n"
+"PO-Revision-Date: 2019-04-30 14:36+0000\n"
 "Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/sql-parser/nb_NO/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.4-dev\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -73,7 +73,7 @@ msgstr ""
 
 #: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
-msgstr "Et symbolnavn var forventet!"
+msgstr "Symbolnavn forventet!"
 
 #: src/Components/CreateDefinition.php:270
 #, fuzzy
@@ -91,7 +91,7 @@ msgstr "Ukjent datatype."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
 msgid "An alias was expected."
-msgstr "Et alias ble forventet."
+msgstr "Alias forventet."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
@@ -104,7 +104,7 @@ msgstr "Uventet dott."
 
 #: src/Components/ExpressionArray.php:102
 msgid "An expression was expected."
-msgstr "Et uttrykk var forventet."
+msgstr "Uttrykk forventet."
 
 #: src/Components/Limit.php:86 src/Components/Limit.php:108
 msgid "An offset was expected."
@@ -117,7 +117,7 @@ msgstr "Denne operasjonen konflikter med \"%1$s\"."
 
 #: src/Components/RenameOperation.php:109
 msgid "The old name of the table was expected."
-msgstr "Det gamle navnet på tabellen var forventet."
+msgstr "Forventet gammelt tabellnavn."
 
 #: src/Components/RenameOperation.php:119
 msgid "Keyword \"TO\" was expected."
@@ -125,7 +125,7 @@ msgstr "Søkeordet \"TIL\" var forventet."
 
 #: src/Components/RenameOperation.php:135
 msgid "The new name of the table was expected."
-msgstr "Det nye navnet på tabellen var forventet."
+msgstr "Forventet nytt tabellnavn."
 
 #: src/Components/RenameOperation.php:153
 msgid "A rename operation was expected."
@@ -137,7 +137,7 @@ msgstr "Manglende uttrykk."
 
 #: src/Lexer.php:237
 msgid "Unexpected character."
-msgstr "Uventet karakter."
+msgstr "Uventet tegn."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
@@ -150,15 +150,15 @@ msgstr "Forventet avgrensning."
 #: src/Lexer.php:843
 #, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Sluttsitat %1$s var forventet."
+msgstr "Sluttsitat %1$s forventet."
 
 #: src/Lexer.php:884
 msgid "Variable name was expected."
-msgstr "Variabelt navn var forventet."
+msgstr "Variabelnavn forventet."
 
 #: src/Parser.php:423
 msgid "Unexpected beginning of statement."
-msgstr "Uventet begynnelse av uttalelsen."
+msgstr "Uventet begynnelse på uttykket."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
@@ -191,19 +191,20 @@ msgstr "Nøkkelord ved slutten av uttalelsen."
 
 #: src/Statement.php:503
 msgid "Unexpected ordering of clauses."
-msgstr "Uventet rekkefølge av klausuler."
+msgstr "Uventet klausulrekkefølge."
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
-msgstr "Navnet på enheten var forventet."
+msgstr "Enhetsnavn forventet."
 
 #: src/Statements/CreateStatement.php:430
 msgid "A table name was expected."
-msgstr "Et tabellnavn ble forventet."
+msgstr "Tabellnavn forventet."
 
 #: src/Statements/CreateStatement.php:438
+#, fuzzy
 msgid "At least one column definition was expected."
-msgstr "Minst en kolonnevariasjon ble forventet."
+msgstr "Minst én kolonnedefinisjon forventet."
 
 #: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
