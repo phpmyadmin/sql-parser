@@ -83,13 +83,15 @@ class CLITest extends TestCase
             ],
             [
                 ['h' => true],
-                'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n",
+                'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
+                '       cat file.sql | highlight-query' . "\n",
                 0,
             ],
             [
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n",
+                'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
+                '       cat file.sql | highlight-query' . "\n",
                 1,
             ],
             [
@@ -136,13 +138,15 @@ class CLITest extends TestCase
             ],
             [
                 ['h' => true],
-                'Usage: lint-query --query SQL' . "\n",
+                'Usage: lint-query --query SQL' . "\n" .
+                '       cat file.sql | lint-query' . "\n",
                 0,
             ],
             [
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: lint-query --query SQL' . "\n",
+                'Usage: lint-query --query SQL' . "\n" .
+                '       cat file.sql | lint-query' . "\n",
                 1,
             ],
             [
@@ -189,13 +193,15 @@ class CLITest extends TestCase
             ],
             [
                 ['h' => true],
-                'Usage: tokenize-query --query SQL' . "\n",
+                'Usage: tokenize-query --query SQL' . "\n" .
+                '       cat file.sql | tokenize-query' . "\n",
                 0,
             ],
             [
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: tokenize-query --query SQL' . "\n",
+                'Usage: tokenize-query --query SQL' . "\n" .
+                '       cat file.sql | tokenize-query' . "\n",
                 1,
             ],
             [
