@@ -33,21 +33,21 @@ class CaseExpression extends Component
      *
      * @var array
      */
-    public $conditions;
+    public $conditions = [];
 
     /**
      * The results matching with the WHEN clauses.
      *
      * @var array
      */
-    public $results;
+    public $results = [];
 
     /**
      * The values to be compared against.
      *
      * @var array
      */
-    public $compare_values;
+    public $compare_values = [];
 
     /**
      * The result in ELSE section of expr.

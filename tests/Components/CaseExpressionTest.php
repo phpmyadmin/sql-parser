@@ -118,4 +118,10 @@ class CaseExpressionTest extends TestCase
             'CASE WHEN 1=1 THEN "Some" WHEN 1=2 THEN "SomeOther" END AS `foo`'
         );
     }
+
+    public function testBuildWithIncompleteCaseExpression()
+    {
+        $incomplete_case_expression_component = new CaseExpression();
+        $this->assertEquals('CASE END', CaseExpression::build($incomplete_case_expression_component));
+    }
 }
