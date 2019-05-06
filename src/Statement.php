@@ -9,6 +9,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use PhpMyAdmin\SqlParser\Components\FunctionCall;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 
 /**
@@ -247,10 +248,10 @@ abstract class Statement
             // Unions are parsed by the parser because they represent more than
             // one statement.
             if (($token->keyword === 'UNION') ||
-                    ($token->keyword === 'UNION ALL') ||
-                    ($token->keyword === 'UNION DISTINCT') ||
-                    ($token->keyword === 'EXCEPT') ||
-                    ($token->keyword === 'INTERSECT')
+                ($token->keyword === 'UNION ALL') ||
+                ($token->keyword === 'UNION DISTINCT') ||
+                ($token->keyword === 'EXCEPT') ||
+                ($token->keyword === 'INTERSECT')
             ) {
                 break;
             }
@@ -356,7 +357,7 @@ abstract class Statement
             } elseif ($class === null) {
                 if ($this instanceof Statements\SelectStatement
                     && ($token->value === 'FOR UPDATE'
-                    || $token->value === 'LOCK IN SHARE MODE')
+                        || $token->value === 'LOCK IN SHARE MODE')
                 ) {
                     // Handle special end options in Select statement
                     // See Statements\SelectStatement::$END_OPTIONS
@@ -367,7 +368,7 @@ abstract class Statement
                     );
                 } elseif ($this instanceof Statements\SetStatement
                     && ($token->value === 'COLLATE'
-                    || $token->value === 'DEFAULT')
+                        || $token->value === 'DEFAULT')
                 ) {
                     // Handle special end options in SET statement
                     // See Statements\SetStatement::$END_OPTIONS
@@ -398,6 +399,13 @@ abstract class Statement
             }
 
             $this->after($parser, $list, $token);
+
+            // #223 Here may make a patch, if last is delimiter, back one
+            if ((new $class()) instanceof FunctionCall) {
+                if ($list->offsetGet($list->idx)->type === Token::TYPE_DELIMITER) {
+                    --$list->idx;
+                }
+            }
         }
 
         // This may be corrected by the parser.
@@ -500,8 +508,8 @@ abstract class Statement
             if ($clauseStartIdx !== -1
                 && $this instanceof Statements\SelectStatement
                 && ($clauseType === 'FORCE'
-                || $clauseType === 'IGNORE'
-                || $clauseType === 'USE')
+                    || $clauseType === 'IGNORE'
+                    || $clauseType === 'USE')
             ) {
                 // TODO: ordering of clauses in a SELECT statement with
                 // Index hints is not supported
