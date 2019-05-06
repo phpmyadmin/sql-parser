@@ -10,6 +10,7 @@
 * Add support for reading an SQL file from stdin
 * Fix for missing tokenize-query in Composer's vendor/bin/ directory
 * Fix for PHP warnings with an incomplete CASE expression (#241)
+* Fix for error message with multiple CALL statements (#223)
 
 ## [4.3.1] - 2019-01-05
 
