@@ -56,6 +56,8 @@ abstract class Statement
      */
     public static $CLAUSES = [];
 
+    public static $END_OPTIONS = [];
+
     /**
      * The options of this query.
      *

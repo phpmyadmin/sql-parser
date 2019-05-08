@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Tests\Parser;
+namespace PhpMyAdmin\SqlParser\Tests\Misc;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
