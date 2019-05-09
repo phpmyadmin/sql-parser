@@ -403,9 +403,11 @@ abstract class Statement
             $this->after($parser, $list, $token);
 
             // #223 Here may make a patch, if last is delimiter, back one
-            if ((new $class()) instanceof FunctionCall) {
-                if ($list->offsetGet($list->idx)->type === Token::TYPE_DELIMITER) {
-                    --$list->idx;
+            if ($class !== null) {
+                if ((new $class()) instanceof FunctionCall) {
+                    if ($list->offsetGet($list->idx)->type === Token::TYPE_DELIMITER) {
+                        --$list->idx;
+                    }
                 }
             }
         }
