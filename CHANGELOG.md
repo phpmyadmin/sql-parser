@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [5.0.0] - 2019-05-09
 
 * Drop support for PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
 * Enable strict mode on PHP files
