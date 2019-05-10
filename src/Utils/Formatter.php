@@ -227,6 +227,13 @@ class Formatter
             ],
             [
                 'type' => Token::TYPE_SYMBOL,
+                'flags' => Token::FLAG_SYMBOL_PARAMETER,
+                'html' => 'class="sql-parameter"',
+                'cli' => "\x1b[31m",
+                'function' => '',
+            ],
+            [
+                'type' => Token::TYPE_SYMBOL,
                 'flags' => 0,
                 'html' => 'class="sql-variable"',
                 'cli' => "\x1b[36m",
