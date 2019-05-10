@@ -11,6 +11,7 @@
 * Fix for missing tokenize-query in Composer's vendor/bin/ directory
 * Fix for PHP warnings with an incomplete CASE expression (#241)
 * Fix for error message with multiple CALL statements (#223)
+* Recognize the question mark character as a paramenter (#242)
 
 ## [4.3.1] - 2019-01-05
 
