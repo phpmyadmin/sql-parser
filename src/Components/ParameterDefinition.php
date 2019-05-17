@@ -67,7 +67,7 @@ class ParameterDefinition extends Component
     {
         $ret = [];
 
-        $expr = new self();
+        $expr = new static();
 
         /**
          * The state of the parser.
@@ -127,7 +127,7 @@ class ParameterDefinition extends Component
                 $state = 3;
             } elseif ($state === 3) {
                 $ret[] = $expr;
-                $expr = new self();
+                $expr = new static();
                 if ($token->value === ',') {
                     $state = 1;
                 } elseif ($token->value === ')') {

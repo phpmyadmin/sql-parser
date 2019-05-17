@@ -104,7 +104,7 @@ class Key extends Component
      */
     public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = new self();
+        $ret = new static();
 
         /**
          * Last parsed column.

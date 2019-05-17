@@ -59,7 +59,7 @@ class FunctionCall extends Component
      */
     public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = new self();
+        $ret = new static();
 
         /**
          * The state of the parser.

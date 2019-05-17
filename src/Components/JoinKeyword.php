@@ -102,7 +102,7 @@ class JoinKeyword extends Component
     {
         $ret = [];
 
-        $expr = new self();
+        $expr = new static();
 
         /**
          * The state of the parser.
@@ -174,7 +174,7 @@ class JoinKeyword extends Component
                             if (! empty(static::$JOINS[$token->keyword])
                             ) {
                                 $ret[] = $expr;
-                                $expr = new self();
+                                $expr = new static();
                                 $expr->type = static::$JOINS[$token->keyword];
                                 $state = 1;
                             } else {
@@ -187,12 +187,12 @@ class JoinKeyword extends Component
             } elseif ($state === 3) {
                 $expr->on = Condition::parse($parser, $list);
                 $ret[] = $expr;
-                $expr = new self();
+                $expr = new static();
                 $state = 0;
             } elseif ($state === 4) {
                 $expr->using = ArrayObj::parse($parser, $list);
                 $ret[] = $expr;
-                $expr = new self();
+                $expr = new static();
                 $state = 0;
             }
         }

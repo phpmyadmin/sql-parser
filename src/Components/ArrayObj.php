@@ -55,7 +55,7 @@ class ArrayObj extends Component
      */
     public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = empty($options['type']) ? new self() : [];
+        $ret = empty($options['type']) ? new static() : [];
 
         /**
          * The last raw expression.

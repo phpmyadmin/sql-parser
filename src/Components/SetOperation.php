@@ -57,7 +57,7 @@ class SetOperation extends Component
     {
         $ret = [];
 
-        $expr = new self();
+        $expr = new static();
 
         /**
          * The state of the parser.
@@ -129,7 +129,7 @@ class SetOperation extends Component
                 $expr->column = trim($expr->column);
                 $expr->value = $tmp->expr;
                 $ret[] = $expr;
-                $expr = new self();
+                $expr = new static();
                 $state = 0;
                 $commaLastSeenAt = null;
             }

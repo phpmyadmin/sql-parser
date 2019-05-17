@@ -48,7 +48,7 @@ class GroupKeyword extends Component
     {
         $ret = [];
 
-        $expr = new self();
+        $expr = new static();
 
         /**
          * The state of the parser.
@@ -96,7 +96,7 @@ class GroupKeyword extends Component
                     if (! empty($expr->expr)) {
                         $ret[] = $expr;
                     }
-                    $expr = new self();
+                    $expr = new static();
                     $state = 0;
                 } else {
                     break;

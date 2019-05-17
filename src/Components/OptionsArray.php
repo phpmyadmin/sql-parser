@@ -49,7 +49,7 @@ class OptionsArray extends Component
      */
     public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
-        $ret = new self();
+        $ret = new static();
 
         /**
          * The ID that will be assigned to duplicate options.

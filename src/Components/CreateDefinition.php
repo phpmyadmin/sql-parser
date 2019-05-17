@@ -176,7 +176,7 @@ class CreateDefinition extends Component
     {
         $ret = [];
 
-        $expr = new self();
+        $expr = new static();
 
         /**
          * The state of the parser.
@@ -285,7 +285,7 @@ class CreateDefinition extends Component
                 if (! empty($expr->type) || ! empty($expr->key)) {
                     $ret[] = $expr;
                 }
-                $expr = new self();
+                $expr = new static();
                 if ($token->value === ',') {
                     $state = 1;
                 } elseif ($token->value === ')') {
