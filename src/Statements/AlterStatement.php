@@ -35,7 +35,7 @@ class AlterStatement extends Statement
      *
      * @var AlterOperation[]
      */
-    public $altered = [];
+    public $altered = array();
 
     /**
      * Options of this statement.
@@ -114,7 +114,7 @@ class AlterStatement extends Statement
             }
 
             if ($state === 0) {
-                $options = [];
+                $options = array();
                 if ($this->options->has('DATABASE')) {
                     $options = AlterOperation::$DB_OPTIONS;
                 } elseif ($this->options->has('TABLE')) {
@@ -138,7 +138,7 @@ class AlterStatement extends Statement
      */
     public function build()
     {
-        $tmp = [];
+        $tmp = array();
         foreach ($this->altered as $altered) {
             $tmp[] = $altered::build($altered);
         }

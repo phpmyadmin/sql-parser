@@ -367,7 +367,7 @@ class CreateStatement extends Statement
      *
      * @var Token[]|string
      */
-    public $body = [];
+    public $body = array();
 
     /**
      * @return string

@@ -346,7 +346,7 @@ class Parser extends Core
      *
      * @var Statement[]
      */
-    public $statements = [];
+    public $statements = array();
 
     /**
      * The number of opened brackets.
@@ -535,7 +535,7 @@ class Parser extends Core
                 // `LIMIT` keywords actually belong to the first statement.
                 $lastStatement->order = $statement->order;
                 $lastStatement->limit = $statement->limit;
-                $statement->order = [];
+                $statement->order = array();
                 $statement->limit = null;
 
                 // The statement actually ends where the last statement in

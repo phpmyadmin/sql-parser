@@ -85,7 +85,7 @@ class Key extends Component
      */
     public function __construct(
         $name = null,
-        array $columns = [],
+        array $columns = array(),
         $type = null,
         $options = null
     ) {
@@ -102,7 +102,7 @@ class Key extends Component
      *
      * @return Key
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new self();
 
@@ -111,7 +111,7 @@ class Key extends Component
          *
          * @var array
          */
-        $lastColumn = [];
+        $lastColumn = array();
 
         /**
          * The state of the parser.
@@ -164,7 +164,7 @@ class Key extends Component
                         $state = ($token->value === ',') ? 2 : 4;
                         if (! empty($lastColumn)) {
                             $ret->columns[] = $lastColumn;
-                            $lastColumn = [];
+                            $lastColumn = array();
                         }
                     }
                 } else {
@@ -194,14 +194,14 @@ class Key extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         $ret = $component->type . ' ';
         if (! empty($component->name)) {
             $ret .= Context::escape($component->name) . ' ';
         }
 
-        $columns = [];
+        $columns = array();
         foreach ($component->columns as $column) {
             $tmp = Context::escape($column['name']);
             if (isset($column['length'])) {

@@ -41,7 +41,7 @@ class LockExpression extends Component
      *
      * @return CaseExpression
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new self();
 
@@ -103,7 +103,7 @@ class LockExpression extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         if (is_array($component)) {
             return implode(', ', $component);

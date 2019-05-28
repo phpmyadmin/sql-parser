@@ -153,7 +153,7 @@ class AlterOperation extends Component
      *
      * @var Token[]|string
      */
-    public $unknown = [];
+    public $unknown = array();
 
     /**
      * Constructor.
@@ -165,7 +165,7 @@ class AlterOperation extends Component
     public function __construct(
         $options = null,
         $field = null,
-        $unknown = []
+        $unknown = array()
     ) {
         $this->options = $options;
         $this->field = $field;
@@ -179,7 +179,7 @@ class AlterOperation extends Component
      *
      * @return AlterOperation
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new self();
 
@@ -315,7 +315,7 @@ class AlterOperation extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         $ret = $component->options . ' ';
         if ((isset($component->field)) && ($component->field !== '')) {

@@ -40,7 +40,7 @@ abstract class Statement
      *
      * @var array
      */
-    public static $OPTIONS = [];
+    public static $OPTIONS = array();
 
     /**
      * The clauses of this statement, in order.
@@ -54,9 +54,9 @@ abstract class Statement
      *
      * @var array
      */
-    public static $CLAUSES = [];
+    public static $CLAUSES = array();
 
-    public static $END_OPTIONS = [];
+    public static $END_OPTIONS = array();
 
     /**
      * The options of this query.
@@ -120,7 +120,7 @@ abstract class Statement
          *
          * @var array
          */
-        $built = [];
+        $built = array();
 
         /**
          * Statement's clauses.
@@ -202,7 +202,7 @@ abstract class Statement
          *
          * @var array
          */
-        $parsedClauses = [];
+        $parsedClauses = array();
 
         // This may be corrected by the parser.
         $this->first = $list->idx;
@@ -303,7 +303,7 @@ abstract class Statement
              *
              * @var array
              */
-            $options = [];
+            $options = array();
 
             // Looking for duplicated clauses.
             if (! empty(Parser::$KEYWORD_PARSERS[$token->value])

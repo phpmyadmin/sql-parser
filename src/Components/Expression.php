@@ -155,7 +155,7 @@ class Expression extends Component
      *
      * @return Expression
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new self();
 
@@ -430,7 +430,7 @@ class Expression extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         if (is_array($component)) {
             return implode($component, ', ');
@@ -439,7 +439,7 @@ class Expression extends Component
         if ($component->expr !== '' && ! is_null($component->expr)) {
             $ret = $component->expr;
         } else {
-            $fields = [];
+            $fields = array();
             if (isset($component->database) && ($component->database !== '')) {
                 $fields[] = $component->database;
             }

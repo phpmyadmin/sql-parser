@@ -416,11 +416,11 @@ class Query
         $ret['statement'] = $statement;
 
         if ($statement instanceof SelectStatement) {
-            $ret['select_tables'] = [];
-            $ret['select_expr'] = [];
+            $ret['select_tables'] = array();
+            $ret['select_expr'] = array();
 
             // Finding tables' aliases and their associated real names.
-            $tableAliases = [];
+            $tableAliases = array();
             foreach ($statement->from as $expr) {
                 if (isset($expr->table, $expr->alias) && ($expr->table !== '') && ($expr->alias !== '')
                 ) {
@@ -484,7 +484,7 @@ class Query
      */
     public static function getTables($statement)
     {
-        $expressions = [];
+        $expressions = array();
 
         if (($statement instanceof InsertStatement)
             || ($statement instanceof ReplaceStatement)
@@ -503,7 +503,7 @@ class Query
         } elseif ($statement instanceof DropStatement) {
             if (! $statement->options->has('TABLE')) {
                 // No tables are dropped.
-                return [];
+                return array();
             }
             $expressions = $statement->fields;
         } elseif ($statement instanceof RenameStatement) {
@@ -512,7 +512,7 @@ class Query
             }
         }
 
-        $ret = [];
+        $ret = array();
         foreach ($expressions as $expr) {
             if (! empty($expr->table)) {
                 $expr->expr = null; // Force rebuild.

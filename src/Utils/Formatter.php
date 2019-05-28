@@ -74,7 +74,7 @@ class Formatter
      *
      * @param array $options the formatting options
      */
-    public function __construct(array $options = [])
+    public function __construct(array $options = array())
     {
         $this->options = $this->getMergedOptions($options);
     }
@@ -244,7 +244,7 @@ class Formatter
 
     private static function mergeFormats(array $formats, array $newFormats)
     {
-        $added = [];
+        $added = array();
         $integers = [
             'flags',
             'type',
@@ -341,7 +341,7 @@ class Formatter
          *
          * @var array
          */
-        $blocksIndentation = [];
+        $blocksIndentation = array();
 
         /**
          * A stack that keeps track of the line endings every time a new block
@@ -349,7 +349,7 @@ class Formatter
          *
          * @var array
          */
-        $blocksLineEndings = [];
+        $blocksLineEndings = array();
 
         /**
          * Whether clause's options were formatted.
@@ -663,7 +663,7 @@ class Formatter
      *
      * @return string the formatted string
      */
-    public static function format($query, array $options = [])
+    public static function format($query, array $options = array())
     {
         $lexer = new Lexer($query);
         $formatter = new self($options);

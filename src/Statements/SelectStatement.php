@@ -226,14 +226,14 @@ class SelectStatement extends Statement
      *
      * @var Expression[]
      */
-    public $expr = [];
+    public $expr = array();
 
     /**
      * Tables used as sources for this statement.
      *
      * @var Expression[]
      */
-    public $from = [];
+    public $from = array();
 
     /**
      * Index hints
@@ -310,7 +310,7 @@ class SelectStatement extends Statement
      *
      * @var SelectStatement[]
      */
-    public $union = [];
+    public $union = array();
 
     /**
      * The end options of this query.

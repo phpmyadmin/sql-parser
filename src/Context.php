@@ -86,7 +86,7 @@ abstract class Context
      *
      * @var array
      */
-    public static $KEYWORDS = [];
+    public static $KEYWORDS = array();
 
     /**
      * List of operators and their flags.

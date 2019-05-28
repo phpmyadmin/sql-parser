@@ -98,9 +98,9 @@ class JoinKeyword extends Component
      *
      * @return JoinKeyword[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = [];
+        $ret = array();
 
         $expr = new self();
 
@@ -212,9 +212,9 @@ class JoinKeyword extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
-        $ret = [];
+        $ret = array();
         foreach ($component as $c) {
             $ret[] = array_search($c->type, static::$JOINS) . ' ' . $c->expr
                 . (! empty($c->on)

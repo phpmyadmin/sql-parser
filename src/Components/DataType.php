@@ -63,7 +63,7 @@ class DataType extends Component
      *
      * @var array
      */
-    public $parameters = [];
+    public $parameters = array();
 
     /**
      * The options of this data type.
@@ -81,7 +81,7 @@ class DataType extends Component
      */
     public function __construct(
         $name = null,
-        array $parameters = [],
+        array $parameters = array(),
         $options = null
     ) {
         $this->name = $name;
@@ -96,7 +96,7 @@ class DataType extends Component
      *
      * @return DataType
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new self();
 
@@ -160,7 +160,7 @@ class DataType extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         $name = empty($options['lowercase']) ?
             $component->name : strtolower($component->name);

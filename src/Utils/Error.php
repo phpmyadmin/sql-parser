@@ -32,7 +32,7 @@ class Error
      */
     public static function get($objs)
     {
-        $ret = [];
+        $ret = array();
 
         foreach ($objs as $obj) {
             if ($obj instanceof Lexer) {
@@ -77,7 +77,7 @@ class Error
         $errors,
         $format = '#%1$d: %2$s (near "%4$s" at position %5$d)'
     ) {
-        $ret = [];
+        $ret = array();
 
         $i = 0;
         foreach ($errors as $key => $err) {

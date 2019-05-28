@@ -69,7 +69,7 @@ class Reference extends Component
      * @param array        $columns the columns referenced
      * @param OptionsArray $options the options
      */
-    public function __construct($table = null, array $columns = [], $options = null)
+    public function __construct($table = null, array $columns = array(), $options = null)
     {
         $this->table = $table;
         $this->columns = $columns;
@@ -83,7 +83,7 @@ class Reference extends Component
      *
      * @return Reference
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new self();
 
@@ -151,7 +151,7 @@ class Reference extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         return trim(
             $component->table

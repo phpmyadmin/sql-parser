@@ -45,7 +45,7 @@ class Routine
             ];
         }
 
-        $options = [];
+        $options = array();
         foreach ($type->options->options as $opt) {
             $options[] = is_string($opt) ? $opt : $opt['value'];
         }
@@ -85,7 +85,7 @@ class Routine
 
         $param = $param[0];
 
-        $options = [];
+        $options = array();
         foreach ($param->type->options->options as $opt) {
             $options[] = is_string($opt) ? $opt : $opt['value'];
         }
@@ -126,7 +126,7 @@ class Routine
                 $retval['type'][$idx] = $param->type->name;
                 $retval['length'][$idx] = implode(',', $param->type->parameters);
                 $retval['length_arr'][$idx] = $param->type->parameters;
-                $retval['opts'][$idx] = [];
+                $retval['opts'][$idx] = array();
                 foreach ($param->type->options->options as $opt) {
                     $retval['opts'][$idx][] = is_string($opt) ?
                         $opt : $opt['value'];

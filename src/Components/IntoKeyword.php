@@ -143,7 +143,7 @@ class IntoKeyword extends Component
      *
      * @return IntoKeyword
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new self();
 
@@ -269,7 +269,7 @@ class IntoKeyword extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         if ($component->dest instanceof Expression) {
             $columns = ! empty($component->columns) ? '(`' . implode('`, `', $component->columns) . '`)' : '';

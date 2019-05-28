@@ -45,7 +45,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function getErrorsAsArray($obj)
     {
-        $ret = [];
+        $ret = array();
         foreach ($obj->errors as $err) {
             $ret[] = $obj instanceof Lexer
                 ? [
@@ -101,14 +101,14 @@ abstract class TestCase extends BaseTestCase
         // Lexer.
         $lexer = new Lexer($data['query']);
         $lexerErrors = $this->getErrorsAsArray($lexer);
-        $lexer->errors = [];
+        $lexer->errors = array();
 
         // Parser.
         $parser = empty($data['parser']) ? null : new Parser($lexer->list);
-        $parserErrors = [];
+        $parserErrors = array();
         if ($parser !== null) {
             $parserErrors = $this->getErrorsAsArray($parser);
-            $parser->errors = [];
+            $parser->errors = array();
         }
 
         // Testing objects.

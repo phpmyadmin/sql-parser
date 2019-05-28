@@ -26,7 +26,7 @@ class OptionsArray extends Component
      *
      * @var array
      */
-    public $options = [];
+    public $options = array();
 
     /**
      * Constructor.
@@ -35,7 +35,7 @@ class OptionsArray extends Component
      *                       must be an array with at least two keys `name` and
      *                       `expr` or `value`.
      */
-    public function __construct(array $options = [])
+    public function __construct(array $options = array())
     {
         $this->options = $options;
     }
@@ -47,7 +47,7 @@ class OptionsArray extends Component
      *
      * @return OptionsArray
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
         $ret = new self();
 
@@ -276,13 +276,13 @@ class OptionsArray extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         if (empty($component->options)) {
             return '';
         }
 
-        $options = [];
+        $options = array();
         foreach ($component->options as $option) {
             if (! is_array($option)) {
                 $options[] = $option;

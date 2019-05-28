@@ -64,7 +64,7 @@ class Condition extends Component
      *
      * @var array
      */
-    public $identifiers = [];
+    public $identifiers = array();
 
     /**
      * Whether this component is an operator.
@@ -97,9 +97,9 @@ class Condition extends Component
      *
      * @return Condition[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = [];
+        $ret = array();
 
         $expr = new self();
 
@@ -222,7 +222,7 @@ class Condition extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         if (is_array($component)) {
             return implode(' ', $component);

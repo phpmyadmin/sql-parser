@@ -23,9 +23,9 @@ class UnionKeyword extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
-        $tmp = [];
+        $tmp = array();
         foreach ($component as $componentPart) {
             $tmp[] = $componentPart[0] . ' ' . $componentPart[1];
         }

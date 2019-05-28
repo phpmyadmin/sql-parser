@@ -241,7 +241,7 @@ class FormatterTest extends TestCase
      * @param mixed $cli
      * @param mixed $html
      */
-    public function testFormat($query, $text, $cli, $html, array $options = [])
+    public function testFormat($query, $text, $cli, $html, array $options = array())
     {
         // Test TEXT format
         $this->assertEquals($text, Formatter::format($query, ['type' => 'text'] + $options), 'Text formatting failed.');

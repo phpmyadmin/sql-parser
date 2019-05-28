@@ -49,7 +49,7 @@ class BufferedQuery
      *
      * @var array
      */
-    public $options = [];
+    public $options = array();
 
     /**
      * The last delimiter used.
@@ -85,7 +85,7 @@ class BufferedQuery
      * @param string $query   the query to be parsed
      * @param array  $options the options of this parser
      */
-    public function __construct($query = '', array $options = [])
+    public function __construct($query = '', array $options = array())
     {
         // Merges specified options with defaults.
         $this->options = array_merge(

@@ -32,12 +32,12 @@ class Misc
             || empty($statement->expr)
             || empty($statement->from)
         ) {
-            return [];
+            return array();
         }
 
-        $retval = [];
+        $retval = array();
 
-        $tables = [];
+        $tables = array();
 
         /**
          * Expressions that may contain aliases.
@@ -78,7 +78,7 @@ class Misc
             }
 
             if (! isset($tables[$thisDb])) {
-                $tables[$thisDb] = [];
+                $tables[$thisDb] = array();
             }
             $tables[$thisDb][$expr->alias] = $expr->table;
         }

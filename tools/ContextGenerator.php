@@ -125,12 +125,12 @@ class ContextGenerator
      */
     public static function readWords(array $files)
     {
-        $words = [];
+        $words = array();
         foreach ($files as $file) {
             $words = array_merge($words, file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
         }
 
-        $types = [];
+        $types = array();
 
         for ($i = 0, $count = count($words); $i !== $count; ++$i) {
             $type = 1;
@@ -163,14 +163,14 @@ class ContextGenerator
             }
         }
 
-        $ret = [];
+        $ret = array();
         foreach ($types as $word => $type) {
             $len = strlen($word);
             if (! isset($ret[$type])) {
-                $ret[$type] = [];
+                $ret[$type] = array();
             }
             if (! isset($ret[$type][$len])) {
-                $ret[$type][$len] = [];
+                $ret[$type][$len] = array();
             }
             $ret[$type][$len][] = $word;
         }
@@ -255,7 +255,7 @@ class ContextGenerator
     public static function formatName($name)
     {
         /* Split name and version */
-        $parts = [];
+        $parts = array();
         if (preg_match('/([^[0-9]*)([0-9]*)/', $name, $parts) === false) {
             return $name;
         }

@@ -85,7 +85,7 @@ class Tokens
          *
          * @var array
          */
-        $newList = [];
+        $newList = array();
 
         /**
          * The length of the find pattern is calculated only once.

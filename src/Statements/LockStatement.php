@@ -26,7 +26,7 @@ class LockStatement extends Statement
      *
      * @var LockExpression[]
      */
-    public $locked = [];
+    public $locked = array();
 
     /**
      * Whether it's a LOCK statement

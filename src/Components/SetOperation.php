@@ -53,9 +53,9 @@ class SetOperation extends Component
      *
      * @return SetOperation[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = [];
+        $ret = array();
 
         $expr = new self();
 
@@ -150,7 +150,7 @@ class SetOperation extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         if (is_array($component)) {
             return implode(', ', $component);

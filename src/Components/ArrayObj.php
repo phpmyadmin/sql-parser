@@ -25,14 +25,14 @@ class ArrayObj extends Component
      *
      * @var array
      */
-    public $raw = [];
+    public $raw = array();
 
     /**
      * The array that contains the processed value of each token.
      *
      * @var array
      */
-    public $values = [];
+    public $values = array();
 
     /**
      * Constructor.
@@ -40,7 +40,7 @@ class ArrayObj extends Component
      * @param array $raw    the unprocessed values
      * @param array $values the processed values
      */
-    public function __construct(array $raw = [], array $values = [])
+    public function __construct(array $raw = array(), array $values = array())
     {
         $this->raw = $raw;
         $this->values = $values;
@@ -53,9 +53,9 @@ class ArrayObj extends Component
      *
      * @return ArrayObj|Component[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
-        $ret = empty($options['type']) ? new self() : [];
+        $ret = empty($options['type']) ? new self() : array();
 
         /**
          * The last raw expression.
@@ -176,7 +176,7 @@ class ArrayObj extends Component
      *
      * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = array())
     {
         if (is_array($component)) {
             return implode(', ', $component);

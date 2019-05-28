@@ -47,14 +47,14 @@ class TestGenerator
          *
          * @var array
          */
-        $lexerErrors = [];
+        $lexerErrors = array();
 
         /**
          * Parser's errors.
          *
          * @var array
          */
-        $parserErrors = [];
+        $parserErrors = array();
 
         // Both the lexer and the parser construct exception for errors.
         // Usually, exceptions contain a full stack trace and other details that
@@ -71,7 +71,7 @@ class TestGenerator
                     $err->getCode(),
                 ];
             }
-            $lexer->errors = [];
+            $lexer->errors = array();
         }
 
         // Extracting parser's errors.
@@ -83,7 +83,7 @@ class TestGenerator
                     $err->getCode(),
                 ];
             }
-            $parser->errors = [];
+            $parser->errors = array();
         }
 
         return [

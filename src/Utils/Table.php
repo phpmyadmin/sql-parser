@@ -30,17 +30,17 @@ class Table
             || (! is_array($statement->fields))
             || (! $statement->options->has('TABLE'))
         ) {
-            return [];
+            return array();
         }
 
-        $ret = [];
+        $ret = array();
 
         foreach ($statement->fields as $field) {
             if (empty($field->key) || ($field->key->type !== 'FOREIGN KEY')) {
                 continue;
             }
 
-            $columns = [];
+            $columns = array();
             foreach ($field->key->columns as $column) {
                 $columns[] = $column['name'];
             }
@@ -87,10 +87,10 @@ class Table
             || (! is_array($statement->fields))
             || (! $statement->options->has('TABLE'))
         ) {
-            return [];
+            return array();
         }
 
-        $ret = [];
+        $ret = array();
 
         foreach ($statement->fields as $field) {
             // Skipping keys.
