@@ -24,20 +24,20 @@ class TokensTest extends TestCase
 
     public function replaceTokensProvider()
     {
-        return [
-            [
+        return array(
+            array(
                 'SELECT * FROM /*x*/a/*c*/.b',
-                [
-                    ['value_str' => 'a'],
-                    ['token' => '.'],
-                ],
-                [
+                array(
+                    array('value_str' => 'a'),
+                    array('token' => '.'),
+                ),
+                array(
                     new Token('c'),
                     new Token('.'),
-                ],
+                ),
                 'SELECT * FROM /*x*/c.b',
-            ],
-        ];
+            )
+        );
     }
 
     /**
@@ -54,64 +54,64 @@ class TokensTest extends TestCase
 
     public function matchProvider()
     {
-        return [
-            [
+        return array(
+            array(
                 new Token(''),
-                [],
+                array(),
                 true,
-            ],
+            ),
 
-            [
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['token' => '"abc"'],
+                array('token' => '"abc"'),
                 true,
-            ],
-            [
+            ),
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['value' => 'abc'],
+                array('value' => 'abc'),
                 true,
-            ],
-            [
+            ),
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['value_str' => 'ABC'],
+                array('value_str' => 'ABC'),
                 true,
-            ],
-            [
+            ),
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['type' => Token::TYPE_STRING],
+                array('type' => Token::TYPE_STRING),
                 true,
-            ],
-            [
+            ),
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['flags' => Token::FLAG_STRING_DOUBLE_QUOTES],
+                array('flags' => Token::FLAG_STRING_DOUBLE_QUOTES),
                 true,
-            ],
+            ),
 
-            [
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['token' => '"abcd"'],
+                array('token' => '"abcd"'),
                 false,
-            ],
-            [
+            ),
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['value' => 'abcd'],
+                array('value' => 'abcd'),
                 false,
-            ],
-            [
+            ),
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['value_str' => 'ABCd'],
+                array('value_str' => 'ABCd'),
                 false,
-            ],
-            [
+            ),
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['type' => Token::TYPE_NUMBER],
+                array('type' => Token::TYPE_NUMBER),
                 false,
-            ],
-            [
+            ),
+            array(
                 new Token('"abc"', Token::TYPE_STRING, Token::FLAG_STRING_DOUBLE_QUOTES),
-                ['flags' => Token::FLAG_STRING_SINGLE_QUOTES],
+                array('flags' => Token::FLAG_STRING_SINGLE_QUOTES),
                 false,
-            ],
-        ];
+            )
+        );
     }
 }

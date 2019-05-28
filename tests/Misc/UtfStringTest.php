@@ -103,27 +103,27 @@ class UtfStringTest extends TestCase
 
     public function utf8Strings()
     {
-        return [
-            'ascii' => [
+        return array(
+            'ascii' => array(
                 'abcdefghijklmnopqrstuvwxyz',
                 'k',
                 'u',
-            ],
-            'unicode' => [
+            ),
+            'unicode' => array(
                 'áéíóúýěřťǔǐǒǎšďȟǰǩľžčǚň',
                 'ǐ',
                 'č',
-            ],
-            'emoji' => [
+            ),
+            'emoji' => array(
                 '😂😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯',
                 '😂',
                 '😋',
-            ],
-            'iso' => [
+            ),
+            'iso' => array(
                 "P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy",
                 null,
                 null,
-            ],
-        ];
+            )
+        );
     }
 }

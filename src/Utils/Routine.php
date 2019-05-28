@@ -36,13 +36,13 @@ class Routine
         $type = DataType::parse(new Parser(), $lexer->list);
 
         if ($type === null) {
-            return [
+            return array(
                 '',
                 '',
                 '',
                 '',
-                '',
-            ];
+                ''
+            );
         }
 
         $options = array();
@@ -50,13 +50,13 @@ class Routine
             $options[] = is_string($opt) ? $opt : $opt['value'];
         }
 
-        return [
+        return array(
             '',
             '',
             $type->name,
             implode(',', $type->parameters),
-            implode(' ', $options),
-        ];
+            implode(' ', $options)
+        );
     }
 
     /**
@@ -74,13 +74,13 @@ class Routine
         $param = ParameterDefinition::parse(new Parser(), $lexer->list);
 
         if (empty($param[0])) {
-            return [
+            return array(
                 '',
                 '',
                 '',
                 '',
-                '',
-            ];
+                ''
+            );
         }
 
         $param = $param[0];
@@ -90,13 +90,13 @@ class Routine
             $options[] = is_string($opt) ? $opt : $opt['value'];
         }
 
-        return [
+        return array(
             empty($param->inOut) ? '' : $param->inOut,
             $param->name,
             $param->type->name,
             implode(',', $param->type->parameters),
-            implode(' ', $options),
-        ];
+            implode(' ', $options)
+        );
     }
 
     /**
@@ -108,15 +108,15 @@ class Routine
      */
     public static function getParameters($statement)
     {
-        $retval = [
+        $retval = array(
             'num' => 0,
-            'dir' => [],
-            'name' => [],
-            'type' => [],
-            'length' => [],
-            'length_arr' => [],
-            'opts' => [],
-        ];
+            'dir' => array(),
+            'name' => array(),
+            'type' => array(),
+            'length' => array(),
+            'length_arr' => array(),
+            'opts' => array()
+        );
 
         if (! empty($statement->parameters)) {
             $idx = 0;

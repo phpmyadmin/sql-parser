@@ -28,7 +28,7 @@ class Expression extends Component
      *
      * @var array
      */
-    private static $ALLOWED_KEYWORDS = [
+    private static $ALLOWED_KEYWORDS = array(
         'AS' => 1,
         'DUAL' => 1,
         'NULL' => 1,
@@ -39,8 +39,8 @@ class Expression extends Component
         'OR' => 1,
         'XOR' => 1,
         'NOT' => 1,
-        'MOD' => 1,
-    ];
+        'MOD' => 1
+    );
 
     /**
      * The name of this database.
@@ -192,10 +192,10 @@ class Expression extends Component
          *
          * @var Token[]
          */
-        $prev = [
+        $prev = array(
             null,
-            null,
-        ];
+            null
+        );
 
         // When a field is parsed, no parentheses are expected.
         if (! empty($options['parseField'])) {

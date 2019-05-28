@@ -65,7 +65,7 @@ class InsertStatementTest extends TestCase
         );
 
         /* Assertion 6 */
-        /* INSERT [OPTIONS] INTO ... */
+        /* INSERT array(OPTIONS] INTO ... */
         $parser = new Parser(
             'INSERT DELAYED IGNORE INTO tbl SELECT * FROM bar'
         );

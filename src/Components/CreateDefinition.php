@@ -30,56 +30,56 @@ class CreateDefinition extends Component
      *
      * @var array
      */
-    public static $FIELD_OPTIONS = [
+    public static $FIELD_OPTIONS = array(
         // Tells the `OptionsArray` to not sort the options.
         // See the note below.
         '_UNSORTED' => true,
 
         'NOT NULL' => 1,
         'NULL' => 1,
-        'DEFAULT' => [
+        'DEFAULT' => array(
             2,
             'expr',
-            ['breakOnAlias' => true],
-        ],
+            array('breakOnAlias' => true)
+        ),
         /* Following are not according to grammar, but MySQL happily accepts
          * these at any location */
-        'CHARSET' => [
+        'CHARSET' => array(
             2,
             'var',
-        ],
-        'COLLATE' => [
+        ),
+        'COLLATE' => array(
             3,
             'var',
-        ],
+        ),
         'AUTO_INCREMENT' => 3,
         'PRIMARY' => 4,
         'PRIMARY KEY' => 4,
         'UNIQUE' => 4,
         'UNIQUE KEY' => 4,
-        'COMMENT' => [
+        'COMMENT' => array(
             5,
             'var',
-        ],
-        'COLUMN_FORMAT' => [
+        ),
+        'COLUMN_FORMAT' => array(
             6,
             'var',
-        ],
-        'ON UPDATE' => [
+        ),
+        'ON UPDATE' => array(
             7,
             'expr',
-        ],
+        ),
 
         // Generated columns options.
         'GENERATED ALWAYS' => 8,
-        'AS' => [
+        'AS' => array(
             9,
             'expr',
-            ['parenthesesDelimited' => true],
-        ],
+            array('parenthesesDelimited' => true)
+        ),
         'VIRTUAL' => 10,
         'PERSISTENT' => 11,
-        'STORED' => 11,
+        'STORED' => 11
         // Common entries.
         //
         // NOTE: Some of the common options are not in the same order which
@@ -94,7 +94,7 @@ class CreateDefinition extends Component
         // 'NULL'                          => 1,
         // 'PRIMARY'                       => 4,
         // 'PRIMARY KEY'                   => 4,
-    ];
+    );
 
     /**
      * The name of the new column.
@@ -345,7 +345,7 @@ class CreateDefinition extends Component
         if (! empty($component->type)) {
             $tmp .= DataType::build(
                 $component->type,
-                ['lowercase' => true]
+                array('lowercase' => true)
             ) . ' ';
         }
 

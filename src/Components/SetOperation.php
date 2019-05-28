@@ -118,9 +118,9 @@ class SetOperation extends Component
                 $tmp = Expression::parse(
                     $parser,
                     $list,
-                    [
-                        'breakOnAlias' => true,
-                    ]
+                    array(
+                        'breakOnAlias' => true
+                    )
                 );
                 if (is_null($tmp)) {
                     $parser->error('Missing expression.', $token);

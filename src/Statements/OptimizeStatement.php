@@ -26,12 +26,12 @@ class OptimizeStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'TABLE' => 1,
 
         'NO_WRITE_TO_BINLOG' => 2,
-        'LOCAL' => 3,
-    ];
+        'LOCAL' => 3
+    );
 
     /**
      * Optimized tables.

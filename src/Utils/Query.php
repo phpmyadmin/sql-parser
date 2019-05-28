@@ -47,7 +47,7 @@ class Query
      *
      * @var array
      */
-    public static $FUNCTIONS = [
+    public static $FUNCTIONS = array(
         'SUM',
         'AVG',
         'STD',
@@ -55,10 +55,10 @@ class Query
         'MIN',
         'MAX',
         'BIT_OR',
-        'BIT_AND',
-    ];
+        'BIT_AND'
+    );
 
-    public static $ALLFLAGS = [
+    public static $ALLFLAGS = array(
         /*
          * select ... DISTINCT ...
          */
@@ -211,8 +211,8 @@ class Query
         /*
          * ... UNION ...
          */
-        'union' => false,
-    ];
+        'union' => false
+    );
 
     /**
      * Gets an array with flags select statement has.
@@ -300,7 +300,7 @@ class Query
      */
     public static function getFlags($statement, $all = false)
     {
-        $flags = ['querytype' => false];
+        $flags = array('querytype' => false);
         if ($all) {
             $flags = self::$ALLFLAGS;
         }
@@ -424,10 +424,10 @@ class Query
             foreach ($statement->from as $expr) {
                 if (isset($expr->table, $expr->alias) && ($expr->table !== '') && ($expr->alias !== '')
                 ) {
-                    $tableAliases[$expr->alias] = [
+                    $tableAliases[$expr->alias] = array(
                         $expr->table,
-                        isset($expr->database) ? $expr->database : null,
-                    ];
+                        isset($expr->database) ? $expr->database : null
+                    );
                 }
             }
 
@@ -439,11 +439,11 @@ class Query
                     if (isset($tableAliases[$expr->table])) {
                         $arr = $tableAliases[$expr->table];
                     } else {
-                        $arr = [
+                        $arr = array(
                             $expr->table,
                             (isset($expr->database) && ($expr->database !== '')) ?
-                                $expr->database : null,
-                        ];
+                                $expr->database : null
+                        );
                     }
                     if (! in_array($arr, $ret['select_tables'])) {
                         $ret['select_tables'][] = $arr;
@@ -459,11 +459,11 @@ class Query
             if (empty($ret['select_tables'])) {
                 foreach ($statement->from as $expr) {
                     if (isset($expr->table) && ($expr->table !== '')) {
-                        $arr = [
+                        $arr = array(
                             $expr->table,
                             (isset($expr->database) && ($expr->database !== '')) ?
-                                $expr->database : null,
-                        ];
+                                $expr->database : null
+                        );
                         if (! in_array($arr, $ret['select_tables'])) {
                             $ret['select_tables'][] = $arr;
                         }
@@ -489,7 +489,7 @@ class Query
         if (($statement instanceof InsertStatement)
             || ($statement instanceof ReplaceStatement)
         ) {
-            $expressions = [$statement->into->dest];
+            $expressions = array($statement->into->dest);
         } elseif ($statement instanceof UpdateStatement) {
             $expressions = $statement->tables;
         } elseif (($statement instanceof SelectStatement)
@@ -499,7 +499,7 @@ class Query
         } elseif (($statement instanceof AlterStatement)
             || ($statement instanceof TruncateStatement)
         ) {
-            $expressions = [$statement->table];
+            $expressions = array($statement->table);
         } elseif ($statement instanceof DropStatement) {
             if (! $statement->options->has('TABLE')) {
                 // No tables are dropped.
@@ -796,11 +796,11 @@ class Query
         // No statement was found so we return the entire query as being the
         // remaining part.
         if (! $fullStatement) {
-            return [
+            return array(
                 null,
                 $query,
-                $delimiter,
-            ];
+                $delimiter
+            );
         }
 
         // At least one query was found so we have to build the rest of the
@@ -810,11 +810,11 @@ class Query
             $query .= $list->tokens[$list->idx]->token;
         }
 
-        return [
+        return array(
             trim($statement),
             $query,
-            $delimiter,
-        ];
+            $delimiter
+        );
     }
 
     /**

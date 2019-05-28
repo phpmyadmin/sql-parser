@@ -15,20 +15,20 @@ class ErrorTest extends TestCase
         $lexer = new Lexer('SELECT * FROM db..tbl $');
         $parser = new Parser($lexer->list);
         $this->assertEquals(
-            [
-                [
+            array(
+                array(
                     'Unexpected character.',
                     0,
                     '$',
                     22,
-                ],
-                [
+                ),
+                array(
                     'Unexpected dot.',
                     0,
                     '.',
                     17,
-                ],
-            ],
+                ),
+            ),
             Error::get([$lexer, $parser])
         );
     }
@@ -36,7 +36,7 @@ class ErrorTest extends TestCase
     public function testFormat()
     {
         $this->assertEquals(
-            ['#1: error msg (near "token" at position 100)'],
+            array('#1: error msg (near "token" at position 100)'),
             Error::format([['error msg', 42, 'token', 100]])
         );
     }

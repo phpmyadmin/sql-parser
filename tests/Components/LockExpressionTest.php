@@ -42,28 +42,28 @@ class LockExpressionTest extends TestCase
 
     public function parseErrProvider()
     {
-        return [
-            [
+        return array(
+            array(
                 'table1 AS t1',
                 'Unexpected end of LOCK expression.',
-            ],
-            [
+            ),
+            array(
                 'table1 AS t1 READ WRITE',
                 'Unexpected keyword.',
-            ],
-            [
+            ),
+            array(
                 'table1 AS t1 READ 2',
                 'Unexpected token.',
-            ],
-        ];
+            )
+        );
     }
 
     public function testBuild()
     {
-        $component = [
+        $component = array(
             LockExpression::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL')),
-            LockExpression::parse(new Parser(), $this->getTokensList('table2 LOW_PRIORITY WRITE')),
-        ];
+            LockExpression::parse(new Parser(), $this->getTokensList('table2 LOW_PRIORITY WRITE'))
+        );
         $this->assertEquals(
             LockExpression::build($component),
             'table1 AS `t1` READ LOCAL, table2 LOW_PRIORITY WRITE'

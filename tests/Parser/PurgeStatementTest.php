@@ -19,14 +19,14 @@ class PurgeStatementTest extends TestCase
 
     public function purgeProvider()
     {
-        return [
-            ['parser/parsePurge'],
-            ['parser/parsePurge2'],
-            ['parser/parsePurge3'],
-            ['parser/parsePurge4'],
-            ['parser/parsePurgeErr'],
-            ['parser/parsePurgeErr2'],
-            ['parser/parsePurgeErr3'],
-        ];
+        return array(
+            array('parser/parsePurge'),
+            array('parser/parsePurge2'),
+            array('parser/parsePurge3'),
+            array('parser/parsePurge4'),
+            array('parser/parsePurgeErr'),
+            array('parser/parsePurgeErr2'),
+            array('parser/parsePurgeErr3')
+        );
     }
 }

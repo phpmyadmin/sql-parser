@@ -45,10 +45,10 @@ class Table
                 $columns[] = $column['name'];
             }
 
-            $tmp = [
+            $tmp = array(
                 'constraint' => $field->name,
-                'index_list' => $columns,
-            ];
+                'index_list' => $columns
+            );
 
             if (! empty($field->references)) {
                 $tmp['ref_db_name'] = $field->references->table->database;
@@ -98,10 +98,10 @@ class Table
                 continue;
             }
 
-            $ret[$field->name] = [
+            $ret[$field->name] = array(
                 'type' => $field->type->name,
-                'timestamp_not_null' => false,
-            ];
+                'timestamp_not_null' => false
+            );
 
             if ($field->options) {
                 if ($field->type->name === 'TIMESTAMP') {

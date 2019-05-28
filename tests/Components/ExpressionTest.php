@@ -37,38 +37,38 @@ class ExpressionTest extends TestCase
 
     public function parseErrProvider()
     {
-        return [
+        return array(
             /*
             array(
                 '(1))',
                 'Unexpected closing bracket.',
             ),
             */
-            [
+            array(
                 'tbl..col',
                 'Unexpected dot.',
-            ],
-            [
+            ),
+            array(
                 'id AS AS id2',
                 'An alias was expected.',
-            ],
-            [
+            ),
+            array(
                 'id`id2`\'id3\'',
                 'An alias was previously found.',
-            ],
-            [
+            ),
+            array(
                 '(id) id2 id3',
                 'An alias was previously found.',
-            ],
-        ];
+            )
+        );
     }
 
     public function testBuild()
     {
-        $component = [
+        $component = array(
             new Expression('1 + 2', 'three'),
-            new Expression('1 + 3', 'four'),
-        ];
+            new Expression('1 + 3', 'four')
+        );
         $this->assertEquals(
             Expression::build($component),
             '1 + 2 AS `three`, 1 + 3 AS `four`'

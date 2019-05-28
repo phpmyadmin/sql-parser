@@ -144,7 +144,7 @@ class ArrayObj extends Component
                 $ret[] = $options['type']::parse(
                     $parser,
                     $list,
-                    empty($options['typeOptions']) ? [] : $options['typeOptions']
+                    empty($options['typeOptions']) ? array() : $options['typeOptions']
                 );
             }
         }

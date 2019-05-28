@@ -25,20 +25,20 @@ class Condition extends Component
      *
      * @var array
      */
-    public static $DELIMITERS = [
+    public static $DELIMITERS = array(
         '&&',
         '||',
         'AND',
         'OR',
-        'XOR',
-    ];
+        'XOR'
+    );
 
     /**
      * List of allowed reserved keywords in conditions.
      *
      * @var array
      */
-    public static $ALLOWED_KEYWORDS = [
+    public static $ALLOWED_KEYWORDS = array(
         'ALL' => 1,
         'AND' => 1,
         'BETWEEN' => 1,
@@ -56,8 +56,8 @@ class Condition extends Component
         'OR' => 1,
         'REGEXP' => 1,
         'RLIKE' => 1,
-        'XOR' => 1,
-    ];
+        'XOR' => 1
+    );
 
     /**
      * Identifiers recognized.

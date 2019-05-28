@@ -99,10 +99,10 @@ class RenameOperation extends Component
                 $expr->old = Expression::parse(
                     $parser,
                     $list,
-                    [
+                    array(
                         'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ]
+                        'parseField' => 'table'
+                    )
                 );
                 if (empty($expr->old)) {
                     $parser->error(
@@ -125,10 +125,10 @@ class RenameOperation extends Component
                 $expr->new = Expression::parse(
                     $parser,
                     $list,
-                    [
+                    array(
                         'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ]
+                        'parseField' => 'table'
+                    )
                 );
                 if (empty($expr->new)) {
                     $parser->error(

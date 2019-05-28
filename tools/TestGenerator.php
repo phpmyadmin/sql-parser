@@ -64,12 +64,12 @@ class TestGenerator
         // Extracting lexer's errors.
         if (! empty($lexer->errors)) {
             foreach ($lexer->errors as $err) {
-                $lexerErrors[] = [
+                $lexerErrors[] = array(
                     $err->getMessage(),
                     $err->ch,
                     $err->pos,
-                    $err->getCode(),
-                ];
+                    $err->getCode()
+                );
             }
             $lexer->errors = array();
         }
@@ -77,24 +77,24 @@ class TestGenerator
         // Extracting parser's errors.
         if (! empty($parser->errors)) {
             foreach ($parser->errors as $err) {
-                $parserErrors[] = [
+                $parserErrors[] = array(
                     $err->getMessage(),
                     $err->token,
-                    $err->getCode(),
-                ];
+                    $err->getCode()
+                );
             }
             $parser->errors = array();
         }
 
-        return [
+        return array(
             'query' => $query,
             'lexer' => $lexer,
             'parser' => $parser,
-            'errors' => [
+            'errors' => array(
                 'lexer' => $lexerErrors,
                 'parser' => $parserErrors,
-            ],
-        ];
+            )
+        );
     }
 
     /**

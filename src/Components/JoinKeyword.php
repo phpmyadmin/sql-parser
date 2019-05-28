@@ -25,7 +25,7 @@ class JoinKeyword extends Component
      *
      * @var array
      */
-    public static $JOINS = [
+    public static $JOINS = array(
         'CROSS JOIN' => 'CROSS',
         'FULL JOIN' => 'FULL',
         'FULL OUTER JOIN' => 'FULL',
@@ -40,8 +40,8 @@ class JoinKeyword extends Component
         'NATURAL RIGHT JOIN' => 'NATURAL RIGHT',
         'NATURAL LEFT OUTER JOIN' => 'NATURAL LEFT OUTER',
         'NATURAL RIGHT OUTER JOIN' => 'NATURAL RIGHT OUTER',
-        'STRAIGHT_JOIN' => 'STRAIGHT',
-    ];
+        'STRAIGHT_JOIN' => 'STRAIGHT'
+    );
 
     /**
      * Type of this join.
@@ -159,7 +159,7 @@ class JoinKeyword extends Component
                     break;
                 }
             } elseif ($state === 1) {
-                $expr->expr = Expression::parse($parser, $list, ['field' => 'table']);
+                $expr->expr = Expression::parse($parser, $list, array('field' => 'table'));
                 $state = 2;
             } elseif ($state === 2) {
                 if ($token->type === Token::TYPE_KEYWORD) {

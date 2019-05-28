@@ -28,24 +28,24 @@ class Key extends Component
      *
      * @var array
      */
-    public static $KEY_OPTIONS = [
-        'KEY_BLOCK_SIZE' => [
+    public static $KEY_OPTIONS = array(
+        'KEY_BLOCK_SIZE' => array(
             1,
             'var',
-        ],
-        'USING' => [
+        ),
+        'USING' => array(
             2,
             'var',
-        ],
-        'WITH PARSER' => [
+        ),
+        'WITH PARSER' => array(
             3,
             'var',
-        ],
-        'COMMENT' => [
+        ),
+        'COMMENT' => array(
             4,
             'var=',
-        ],
-    ];
+        )
+    );
 
     /**
      * The name of this key.

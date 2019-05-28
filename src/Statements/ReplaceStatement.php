@@ -47,10 +47,10 @@ class ReplaceStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'LOW_PRIORITY' => 1,
-        'DELAYED' => 1,
-    ];
+        'DELAYED' => 1
+    );
 
     /**
      * Tables used as target for this statement.
@@ -160,7 +160,7 @@ class ReplaceStatement extends Statement
                 $this->into = IntoKeyword::parse(
                     $parser,
                     $list,
-                    ['fromReplace' => true]
+                    array('fromReplace' => true)
                 );
 
                 $state = 1;

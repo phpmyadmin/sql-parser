@@ -39,10 +39,10 @@ class UpdateStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'LOW_PRIORITY' => 1,
-        'IGNORE' => 2,
-    ];
+        'IGNORE' => 2
+    );
 
     /**
      * The clauses of this statement, in order.
@@ -51,38 +51,38 @@ class UpdateStatement extends Statement
      *
      * @var array
      */
-    public static $CLAUSES = [
-        'UPDATE' => [
+    public static $CLAUSES = array(
+        'UPDATE' => array(
             'UPDATE',
             2,
-        ],
+        ),
         // Used for options.
-        '_OPTIONS' => [
+        '_OPTIONS' => array(
             '_OPTIONS',
             1,
-        ],
+        ),
         // Used for updated tables.
-        '_UPDATE' => [
+        '_UPDATE' => array(
             'UPDATE',
             1,
-        ],
-        'SET' => [
+        ),
+        'SET' => array(
             'SET',
             3,
-        ],
-        'WHERE' => [
+        ),
+        'WHERE' => array(
             'WHERE',
             3,
-        ],
-        'ORDER BY' => [
+        ),
+        'ORDER BY' => array(
             'ORDER BY',
             3,
-        ],
-        'LIMIT' => [
+        ),
+        'LIMIT' => array(
             'LIMIT',
             3,
-        ],
-    ];
+        )
+    );
 
     /**
      * Tables used as sources for this statement.

@@ -26,48 +26,48 @@ class SetStatement extends Statement
      *
      * @var array
      */
-    public static $CLAUSES = [
-        'SET' => [
+    public static $CLAUSES = array(
+        'SET' => array(
             'SET',
-            3,
-        ],
-        '_END_OPTIONS' => [
+            3
+        ),
+        '_END_OPTIONS' => array(
             '_END_OPTIONS',
-            1,
-        ],
-    ];
+            1
+        )
+    );
 
     /**
      * Possible exceptions in SET statment.
      *
      * @var array
      */
-    public static $OPTIONS = [
-        'CHARSET' => [
+    public static $OPTIONS = array(
+        'CHARSET' => array(
             3,
             'var',
-        ],
-        'CHARACTER SET' => [
+        ),
+        'CHARACTER SET' => array(
             3,
             'var',
-        ],
-        'NAMES' => [
+        ),
+        'NAMES' => array(
             3,
             'var',
-        ],
-        'PASSWORD' => [
+        ),
+        'PASSWORD' => array(
             3,
             'expr',
-        ],
-    ];
+        )
+    );
 
-    public static $END_OPTIONS = [
-        'COLLATE' => [
+    public static $END_OPTIONS = array(
+        'COLLATE' => array(
             1,
             'var',
-        ],
-        'DEFAULT' => 1,
-    ];
+        ),
+        'DEFAULT' => 1
+    );
 
     /**
      * Options used in current statement.

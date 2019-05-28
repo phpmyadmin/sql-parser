@@ -24,7 +24,7 @@ class JoinKeywordTest extends TestCase
         $this->assertCount(1, $component);
         $this->assertEquals('table2', $component[0]->expr->expr);
         $this->assertNull($component[0]->on);
-        $this->assertEquals(['id'], $component[0]->using->values);
+        $this->assertEquals(array('id'), $component[0]->using->values);
     }
 
     public function testBuild()

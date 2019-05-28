@@ -11,7 +11,7 @@ class FunctionCallTest extends TestCase
 {
     public function testBuildArray()
     {
-        $component = new FunctionCall('func', ['a', 'b']);
+        $component = new FunctionCall('func', array('a', 'b'));
         $this->assertEquals('func(a, b)', FunctionCall::build($component));
     }
 

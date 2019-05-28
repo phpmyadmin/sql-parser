@@ -24,8 +24,8 @@ class CLITest extends TestCase
     {
         $cli = new \PhpMyAdmin\SqlParser\Utils\CLI();
         $this->assertEquals(
-            $cli->getopt('', []),
-            []
+            $cli->getopt('', array()),
+            array()
         );
     }
 
@@ -45,61 +45,61 @@ class CLITest extends TestCase
 
     public function highlightParams()
     {
-        return [
-            [
-                ['q' => 'SELECT 1'],
+        return array(
+            array(
+                array('q' => 'SELECT 1'),
                 "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m\n",
                 0,
-            ],
-            [
-                ['query' => 'SELECT 1'],
+            ),
+            array(
+                array('query' => 'SELECT 1'),
                 "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m\n",
                 0,
-            ],
-            [
-                [
+            ),
+            array(
+                array(
                     'q' => 'SELECT /* comment */ 1 /* other */',
                     'f' => 'text',
-                ],
+                ),
                 "SELECT\n    /* comment */ 1 /* other */\n",
                 0,
-            ],
-            [
-                [
+            ),
+            array(
+                array(
                     'q' => 'SELECT 1',
                     'f' => 'foo',
-                ],
+                ),
                 "ERROR: Invalid value for format!\n",
                 1,
-            ],
-            [
-                [
+            ),
+            array(
+                array(
                     'q' => 'SELECT 1',
                     'f' => 'html',
-                ],
+                ),
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>' . "\n",
                 0,
-            ],
-            [
-                ['h' => true],
+            ),
+            array(
+                array('h' => true),
                 'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
                 '       cat file.sql | highlight-query' . "\n",
                 0,
-            ],
-            [
-                [],
+            ),
+            array(
+                array(),
                 'ERROR: Missing parameters!' . "\n" .
                 'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
                 '       cat file.sql | highlight-query' . "\n",
                 1,
-            ],
-            [
+            ),
+            array(
                 false,
                 '',
                 1,
-            ],
-        ];
+            )
+        );
     }
 
     /**
@@ -118,43 +118,43 @@ class CLITest extends TestCase
 
     public function lintParams()
     {
-        return [
-            [
-                ['q' => 'SELECT 1'],
+        return array(
+            array(
+                array('q' => 'SELECT 1'),
                 '',
                 0,
-            ],
-            [
-                ['query' => 'SELECT 1'],
+            ),
+            array(
+                array('query' => 'SELECT 1'),
                 '',
                 0,
-            ],
-            [
-                ['q' => 'SELECT SELECT'],
+            ),
+            array(
+                array('q' => 'SELECT SELECT'),
                 '#1: An expression was expected. (near "SELECT" at position 7)' . "\n" .
                 '#2: This type of clause was previously parsed. (near "SELECT" at position 7)' . "\n" .
                 '#3: An expression was expected. (near "" at position 0)' . "\n",
                 10,
-            ],
-            [
-                ['h' => true],
+            ),
+            array(
+                array('h' => true),
                 'Usage: lint-query --query SQL' . "\n" .
                 '       cat file.sql | lint-query' . "\n",
                 0,
-            ],
-            [
-                [],
+            ),
+            array(
+                array(),
                 'ERROR: Missing parameters!' . "\n" .
                 'Usage: lint-query --query SQL' . "\n" .
                 '       cat file.sql | lint-query' . "\n",
                 1,
-            ],
-            [
+            ),
+            array(
                 false,
                 '',
                 1,
-            ],
-        ];
+            )
+        );
     }
 
     /**
@@ -180,36 +180,36 @@ class CLITest extends TestCase
             . "[TOKEN 3]\nType = 9\nFlags = 0\nValue = NULL\nToken = NULL\n\n"
         );
 
-        return [
-            [
-                ['q' => 'SELECT 1'],
+        return array(
+            array(
+                array('q' => 'SELECT 1'),
                 $result,
                 0,
-            ],
-            [
-                ['query' => 'SELECT 1'],
+            ),
+            array(
+                array('query' => 'SELECT 1'),
                 $result,
                 0,
-            ],
-            [
-                ['h' => true],
+            ),
+            array(
+                array('h' => true),
                 'Usage: tokenize-query --query SQL' . "\n" .
                 '       cat file.sql | tokenize-query' . "\n",
                 0,
-            ],
-            [
-                [],
+            ),
+            array(
+                array(),
                 'ERROR: Missing parameters!' . "\n" .
                 'Usage: tokenize-query --query SQL' . "\n" .
                 '       cat file.sql | tokenize-query' . "\n",
                 1,
-            ],
-            [
+            ),
+            array(
                 false,
                 '',
                 1,
-            ],
-        ];
+            )
+        );
     }
 
     /**
@@ -228,13 +228,13 @@ class CLITest extends TestCase
     {
         $binPath = PHP_BINARY .' '. dirname(__DIR__,2 ). '/bin/';
 
-        return [
-            ['echo "SELECT 1" | '. $binPath .'highlight-query', 0],
-            ['echo "invalid query" | '. $binPath .'highlight-query', 0],
-            ['echo "SELECT 1" | '. $binPath .'lint-query', 0],
-            ['echo "invalid query" | '. $binPath .'lint-query', 10],
-            ['echo "SELECT 1" | '. $binPath .'tokenize-query', 0],
-            ['echo "invalid query" | '. $binPath .'tokenize-query', 0],
-        ];
+        return array(
+            array('echo "SELECT 1" | '. $binPath .'highlight-query', 0),
+            array('echo "invalid query" | '. $binPath .'highlight-query', 0),
+            array('echo "SELECT 1" | '. $binPath .'lint-query', 0),
+            array('echo "invalid query" | '. $binPath .'lint-query', 10),
+            array('echo "SELECT 1" | '. $binPath .'tokenize-query', 0),
+            array('echo "invalid query" | '. $binPath .'tokenize-query', 0)
+        );
     }
 }

@@ -20,7 +20,7 @@ class ShowStatement extends NotImplementedStatement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'CREATE' => 1,
         'AUTHORS' => 2,
         'BINARY' => 2,
@@ -61,6 +61,6 @@ class ShowStatement extends NotImplementedStatement
         'TRIGGERS' => 2,
         'VARIABLES' => 2,
         'VIEW' => 2,
-        'WARNINGS' => 2,
-    ];
+        'WARNINGS' => 2
+    );
 }

@@ -23,11 +23,11 @@ class ParserTest extends TestCase
 
     public function parseProvider()
     {
-        return [
-            ['parser/parse'],
-            ['parser/parse2'],
-            ['parser/parseDelimiter'],
-        ];
+        return array(
+            array('parser/parse'),
+            array('parser/parse2'),
+            array('parser/parseDelimiter')
+        );
     }
 
     public function testUnrecognizedStatement()
@@ -61,10 +61,10 @@ class ParserTest extends TestCase
 
         $this->assertEquals(
             $parser->errors,
-            [
+            array(
                 new ParserException('error #1', new Token('foo'), 1),
                 new ParserException('error #2', new Token('bar'), 2),
-            ]
+            )
         );
     }
 

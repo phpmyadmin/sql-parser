@@ -13,10 +13,10 @@ class OrderKeywordTest extends TestCase
     {
         $this->assertEquals(
             OrderKeyword::build(
-                [
+                array(
                     new OrderKeyword(new Expression('a'), 'ASC'),
-                    new OrderKeyword(new Expression('b'), 'DESC'),
-                ]
+                    new OrderKeyword(new Expression('b'), 'DESC')
+                )
             ),
             'a ASC, b DESC'
         );

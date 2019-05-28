@@ -26,20 +26,20 @@ class Reference extends Component
      *
      * @var array
      */
-    public static $REFERENCES_OPTIONS = [
-        'MATCH' => [
+    public static $REFERENCES_OPTIONS = array(
+        'MATCH' => array(
             1,
             'var',
-        ],
-        'ON DELETE' => [
+        ),
+        'ON DELETE' => array(
             2,
             'var',
-        ],
-        'ON UPDATE' => [
+        ),
+        'ON UPDATE' => array(
             3,
             'var',
-        ],
-    ];
+        )
+    );
 
     /**
      * The referenced table.
@@ -124,10 +124,10 @@ class Reference extends Component
                 $ret->table = Expression::parse(
                     $parser,
                     $list,
-                    [
+                    array(
                         'parseField' => 'table',
-                        'breakOnAlias' => true,
-                    ]
+                        'breakOnAlias' => true
+                    )
                 );
                 $state = 1;
             } elseif ($state === 1) {

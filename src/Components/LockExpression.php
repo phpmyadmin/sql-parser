@@ -77,7 +77,7 @@ class LockExpression extends Component
             }
 
             if ($state === 0) {
-                $ret->table = Expression::parse($parser, $list, ['parseField' => 'table']);
+                $ret->table = Expression::parse($parser, $list, array('parseField' => 'table'));
                 $state = 1;
             } elseif ($state === 1) {
                 // parse lock type

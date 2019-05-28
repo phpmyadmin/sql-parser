@@ -101,18 +101,18 @@ class CreateStatementTest extends TestCase
 
         $stmt->name = new Expression('', 'test', '');
         $stmt->options = new OptionsArray(['TABLE']);
-        $stmt->fields = [
+        $stmt->fields = array(
             new CreateDefinition(
                 'id',
                 new OptionsArray(['NOT NULL', 'AUTO_INCREMENT']),
-                new DataType('INT', [11], new OptionsArray(['UNSIGNED']))
+                new DataType('INT', array(11), new OptionsArray(['UNSIGNED']))
             ),
             new CreateDefinition(
                 '',
                 null,
-                new Key('', [['name' => 'id']], 'PRIMARY KEY')
-            ),
-        ];
+                new Key('', array(['name' => 'id']), 'PRIMARY KEY')
+            )
+        );
 
         $this->assertEquals(
             "CREATE TABLE `test` (\n" .
@@ -203,8 +203,8 @@ class CreateStatementTest extends TestCase
 
     public function partitionQueries()
     {
-        return [
-            [
+        return array(
+            array(
                 'subparts' => <<<EOT
 CREATE TABLE `ts` (
   `id` int(11) DEFAULT NULL,
@@ -227,9 +227,8 @@ SUBPARTITION s5 ENGINE=InnoDB
 )
 )
 EOT
-            ,
-            ],
-            [
+            ),
+            array(
                 'parts' => <<<EOT
 CREATE TABLE ptest (
   `event_date` date NOT NULL
@@ -243,9 +242,8 @@ PARTITION p3 ENGINE=InnoDB,
 PARTITION p4 ENGINE=InnoDB
 )
 EOT
-            ,
-            ],
-        ];
+            )
+        );
     }
 
     /**

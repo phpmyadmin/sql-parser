@@ -11,13 +11,13 @@ class ArrayObjTest extends TestCase
 {
     public function testBuildRaw()
     {
-        $component = new ArrayObj(['a', 'b'], []);
+        $component = new ArrayObj(array('a', 'b'), array());
         $this->assertEquals('(a, b)', ArrayObj::build($component));
     }
 
     public function testBuildValues()
     {
-        $component = new ArrayObj([], ['a', 'b']);
+        $component = new ArrayObj(array(), array('a', 'b'));
         $this->assertEquals('(a, b)', ArrayObj::build($component));
     }
 
@@ -26,12 +26,12 @@ class ArrayObjTest extends TestCase
         $components = ArrayObj::parse(
             new Parser(),
             $this->getTokensList('(1 + 2, 3 + 4)'),
-            [
+            array(
                 'type' => 'PhpMyAdmin\\SqlParser\\Components\\Expression',
-                'typeOptions' => [
+                'typeOptions' => array(
                     'breakOnParentheses' => true,
-                ],
-            ]
+                )
+            )
         );
         $this->assertEquals($components[0]->expr, '1 + 2');
         $this->assertEquals($components[1]->expr, '3 + 4');
@@ -49,9 +49,9 @@ class ArrayObjTest extends TestCase
 
     public function parseProvider()
     {
-        return [
-            ['parser/parseArrayErr1'],
-            ['parser/parseArrayErr3'],
-        ];
+        return array(
+            array('parser/parseArrayErr1'),
+            array('parser/parseArrayErr3')
+        );
     }
 }

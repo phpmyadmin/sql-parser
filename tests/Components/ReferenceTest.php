@@ -14,12 +14,12 @@ class ReferenceTest extends TestCase
     {
         $component = Reference::parse(new Parser(), $this->getTokensList('tbl (id)'));
         $this->assertEquals('tbl', $component->table->table);
-        $this->assertEquals(['id'], $component->columns);
+        $this->assertEquals(array('id'), $component->columns);
     }
 
     public function testBuild()
     {
-        $component = new Reference(new Expression('`tbl`'), ['id']);
+        $component = new Reference(new Expression('`tbl`'), array('id'));
         $this->assertEquals('`tbl` (`id`)', Reference::build($component));
     }
 }

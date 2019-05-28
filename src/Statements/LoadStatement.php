@@ -49,48 +49,48 @@ class LoadStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'LOW_PRIORITY' => 1,
         'CONCURRENT' => 1,
-        'LOCAL' => 2,
-    ];
+        'LOCAL' => 2
+    );
 
     /**
      * FIELDS/COLUMNS Options for `LOAD DATA...INFILE` statements.
      *
      * @var array
      */
-    public static $FIELDS_OPTIONS = [
-        'TERMINATED BY' => [
+    public static $FIELDS_OPTIONS = array(
+        'TERMINATED BY' => array(
             1,
             'expr',
-        ],
+        ),
         'OPTIONALLY' => 2,
-        'ENCLOSED BY' => [
+        'ENCLOSED BY' => array(
             3,
             'expr',
-        ],
-        'ESCAPED BY' => [
+        ),
+        'ESCAPED BY' => array(
             4,
             'expr',
-        ],
-    ];
+        )
+    );
 
     /**
      * LINES Options for `LOAD DATA...INFILE` statements.
      *
      * @var array
      */
-    public static $LINES_OPTIONS = [
-        'STARTING BY' => [
+    public static $LINES_OPTIONS = array(
+        'STARTING BY' => array(
             1,
             'expr',
-        ],
-        'TERMINATED BY' => [
+        ),
+        'TERMINATED BY' => array(
             2,
             'expr',
-        ],
-    ];
+        )
+    );
 
     /**
      * File name being used to load data.

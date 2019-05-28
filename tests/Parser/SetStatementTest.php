@@ -19,14 +19,14 @@ class SetStatementTest extends TestCase
 
     public function setProvider()
     {
-        return [
-            ['parser/parseSetCharset'],
-            ['parser/parseSetCharsetError'],
-            ['parser/parseSetCharacterSet'],
-            ['parser/parseSetCharacterSetError'],
-            ['parser/parseSetNames'],
-            ['parser/parseSetNamesError'],
-            ['parser/parseSetError1'],
-        ];
+        return array(
+            array('parser/parseSetCharset'),
+            array('parser/parseSetCharsetError'),
+            array('parser/parseSetCharacterSet'),
+            array('parser/parseSetCharacterSetError'),
+            array('parser/parseSetNames'),
+            array('parser/parseSetNamesError'),
+            array('parser/parseSetError1')
+        );
     }
 }

@@ -14,10 +14,10 @@ class Array2dTest extends TestCase
         $parser = new Parser();
         $arrays = Array2d::parse($parser, $this->getTokensList('(1, 2) +'));
         $this->assertEquals(
-            [
+            array(
                 1,
                 2,
-            ],
+            ),
             $arrays[0]->values
         );
     }

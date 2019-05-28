@@ -37,21 +37,21 @@ class Error
         foreach ($objs as $obj) {
             if ($obj instanceof Lexer) {
                 foreach ($obj->errors as $err) {
-                    $ret[] = [
+                    $ret[] = array(
                         $err->getMessage(),
                         $err->getCode(),
                         $err->ch,
-                        $err->pos,
-                    ];
+                        $err->pos
+                    );
                 }
             } elseif ($obj instanceof Parser) {
                 foreach ($obj->errors as $err) {
-                    $ret[] = [
+                    $ret[] = array(
                         $err->getMessage(),
                         $err->getCode(),
                         $err->token->token,
-                        $err->token->position,
-                    ];
+                        $err->token->position
+                    );
                 }
             }
         }

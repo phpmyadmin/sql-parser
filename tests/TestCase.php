@@ -48,17 +48,17 @@ abstract class TestCase extends BaseTestCase
         $ret = array();
         foreach ($obj->errors as $err) {
             $ret[] = $obj instanceof Lexer
-                ? [
+                ? array(
                     $err->getMessage(),
                     $err->ch,
                     $err->pos,
                     $err->getCode(),
-                ]
-                : [
+                )
+                : array(
                     $err->getMessage(),
                     $err->token,
-                    $err->getCode(),
-                ];
+                    $err->getCode()
+                );
         }
 
         return $ret;

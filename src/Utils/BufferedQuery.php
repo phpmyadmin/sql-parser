@@ -89,7 +89,7 @@ class BufferedQuery
     {
         // Merges specified options with defaults.
         $this->options = array_merge(
-            [
+            array(
                 /*
                  * The starting delimiter.
                  *
@@ -111,7 +111,7 @@ class BufferedQuery
                  * @var bool
                  */
                 'add_delimiter' => false,
-            ],
+            ),
             $options
         );
 

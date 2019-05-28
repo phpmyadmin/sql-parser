@@ -9,7 +9,7 @@ namespace PhpMyAdmin\SqlParser\Statements;
 /**
  * `CHECKSUM` statement.
  *
- * CHECKSUM TABLE tbl_name [, tbl_name] ... [ QUICK | EXTENDED ]
+ * CHECKSUM TABLE tbl_name array(, tbl_name] ... array( QUICK | EXTENDED ]
  *
  * @category   Statements
  *
@@ -22,10 +22,10 @@ class ChecksumStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'TABLE' => 1,
 
         'QUICK' => 2,
-        'EXTENDED' => 3,
-    ];
+        'EXTENDED' => 3
+    );
 }

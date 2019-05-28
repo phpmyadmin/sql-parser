@@ -25,23 +25,23 @@ class DataType extends Component
      *
      * @var array
      */
-    public static $DATA_TYPE_OPTIONS = [
+    public static $DATA_TYPE_OPTIONS = array(
         'BINARY' => 1,
-        'CHARACTER SET' => [
+        'CHARACTER SET' => array(
             2,
             'var',
-        ],
-        'CHARSET' => [
+        ),
+        'CHARSET' => array(
             2,
             'var',
-        ],
-        'COLLATE' => [
+        ),
+        'COLLATE' => array(
             3,
             'var',
-        ],
+        ),
         'UNSIGNED' => 4,
-        'ZEROFILL' => 5,
-    ];
+        'ZEROFILL' => 5
+    );
 
     /**
      * The name of the data type.

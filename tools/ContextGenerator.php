@@ -19,19 +19,19 @@ class ContextGenerator
      *
      * @var array
      */
-    public static $LABELS_FLAGS = [
+    public static $LABELS_FLAGS = array(
         '(R)' => 2, // reserved
         '(D)' => 8, // data type
         '(K)' => 16, // keyword
-        '(F)' => 32, // function name
-    ];
+        '(F)' => 32 // function name
+    );
 
     /**
      * Documentation links for each context.
      *
      * @var array
      */
-    public static $LINKS = [
+    public static $LINKS = array(
         'MySql50000' => 'https://dev.mysql.com/doc/refman/5.0/en/keywords.html',
         'MySql50100' => 'https://dev.mysql.com/doc/refman/5.1/en/keywords.html',
         'MySql50500' => 'https://dev.mysql.com/doc/refman/5.5/en/keywords.html',
@@ -41,8 +41,8 @@ class ContextGenerator
         'MariaDb100000' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
         'MariaDb100100' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
         'MariaDb100200' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
-        'MariaDb100300' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/',
-    ];
+        'MariaDb100300' => 'https://mariadb.com/kb/en/the-mariadb-library/reserved-words/'
+    );
 
     /**
      * The template of a context.
@@ -91,9 +91,9 @@ class ContextGenerator
         '     *' . "\n" .
         '     * @var array' . "\n" .
         '     */' . "\n" .
-        '    public static $KEYWORDS = [' . "\n" .
+        '    public static $KEYWORDS = array(' . "\n" .
         '%4$s' .
-        '    ];' . "\n" .
+        '    );' . "\n" .
         '}' . "\n";
 
     /**
@@ -335,18 +335,18 @@ class ContextGenerator
         file_put_contents(
             $output . '/' . $class . '.php',
             static::generate(
-                [
+                array(
                     'name' => $formattedName,
                     'class' => $class,
                     'link' => static::$LINKS[$name],
                     'keywords' => static::readWords(
-                        [
+                        array(
                             $directory . '_common.txt',
                             $directory . '_functions' . $file,
-                            $directory . $file,
-                        ]
-                    ),
-                ]
+                            $directory . $file
+                        )
+                    )
+                )
             )
         );
     }

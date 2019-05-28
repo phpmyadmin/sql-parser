@@ -42,7 +42,7 @@ class AlterStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'ONLINE' => 1,
         'OFFLINE' => 1,
         'IGNORE' => 2,
@@ -54,8 +54,8 @@ class AlterStatement extends Statement
         'SERVER' => 3,
         'TABLE' => 3,
         'TABLESPACE' => 3,
-        'VIEW' => 3,
-    ];
+        'VIEW' => 3
+    );
 
     /**
      * @param Parser     $parser the instance that requests parsing
@@ -75,10 +75,10 @@ class AlterStatement extends Statement
         $this->table = Expression::parse(
             $parser,
             $list,
-            [
+            array(
                 'parseField' => 'table',
-                'breakOnAlias' => true,
-            ]
+                'breakOnAlias' => true
+            )
         );
         ++$list->idx; // Skipping field.
 

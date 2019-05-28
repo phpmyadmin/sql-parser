@@ -60,12 +60,12 @@ class InsertStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'LOW_PRIORITY' => 1,
         'DELAYED' => 2,
         'HIGH_PRIORITY' => 3,
-        'IGNORE' => 4,
-    ];
+        'IGNORE' => 4
+    );
 
     /**
      * Tables used as target for this statement.

@@ -60,7 +60,7 @@ class TransactionStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'START TRANSACTION' => 1,
         'BEGIN' => 1,
         'COMMIT' => 1,
@@ -70,8 +70,8 @@ class TransactionStatement extends Statement
         'AND NO CHAIN' => 3,
         'AND CHAIN' => 3,
         'RELEASE' => 4,
-        'NO RELEASE' => 4,
-    ];
+        'NO RELEASE' => 4
+    );
 
     /**
      * @param Parser     $parser the instance that requests parsing

@@ -19,8 +19,8 @@ class ParameterTest extends TestCase
 
     public function parameterProvider()
     {
-        return [
-            ['misc/parseParameter'],
-        ];
+        return array(
+            array('misc/parseParameter')
+        );
     }
 }

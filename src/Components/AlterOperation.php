@@ -25,67 +25,67 @@ class AlterOperation extends Component
      *
      * @var array
      */
-    public static $DB_OPTIONS = [
-        'CHARACTER SET' => [
+    public static $DB_OPTIONS = array(
+        'CHARACTER SET' => array(
             1,
-            'var',
-        ],
-        'CHARSET' => [
+            'var'
+        ),
+        'CHARSET' => array(
             1,
-            'var',
-        ],
-        'DEFAULT CHARACTER SET' => [
+            'var'
+        ),
+        'DEFAULT CHARACTER SET' => array(
             1,
-            'var',
-        ],
-        'DEFAULT CHARSET' => [
+            'var'
+        ),
+        'DEFAULT CHARSET' => array(
             1,
-            'var',
-        ],
-        'UPGRADE' => [
+            'var'
+        ),
+        'UPGRADE' => array(
             1,
-            'var',
-        ],
-        'COLLATE' => [
+            'var'
+        ),
+        'COLLATE' => array(
             2,
-            'var',
-        ],
-        'DEFAULT COLLATE' => [
+            'var'
+        ),
+        'DEFAULT COLLATE' => array(
             2,
-            'var',
-        ],
-    ];
+            'var'
+        )
+    );
 
     /**
      * All table options.
      *
      * @var array
      */
-    public static $TABLE_OPTIONS = [
-        'ENGINE' => [
+    public static $TABLE_OPTIONS = array(
+        'ENGINE' => array(
             1,
-            'var=',
-        ],
-        'AUTO_INCREMENT' => [
+            'var='
+        ),
+        'AUTO_INCREMENT' => array(
             1,
-            'var=',
-        ],
-        'AVG_ROW_LENGTH' => [
+            'var='
+        ),
+        'AVG_ROW_LENGTH' => array(
             1,
-            'var',
-        ],
-        'MAX_ROWS' => [
+            'var'
+        ),
+        'MAX_ROWS' => array(
             1,
-            'var',
-        ],
-        'ROW_FORMAT' => [
+            'var'
+        ),
+        'ROW_FORMAT' => array(
             1,
-            'var',
-        ],
-        'COMMENT' => [
+            'var'
+        ),
+        'COMMENT' => array(
             1,
-            'var',
-        ],
+            'var'
+        ),
         'ADD' => 1,
         'ALTER' => 1,
         'ANALYZE' => 1,
@@ -122,17 +122,17 @@ class AlterOperation extends Component
         'PRIMARY KEY' => 2,
         'SPATIAL' => 2,
         'TABLESPACE' => 2,
-        'INDEX' => 2,
-    ];
+        'INDEX' => 2
+    );
 
     /**
      * All view options.
      *
      * @var array
      */
-    public static $VIEW_OPTIONS = [
+    public static $VIEW_OPTIONS = array(
         'AS' => 1,
-    ];
+    );
 
     /**
      * Options of this operation.
@@ -251,10 +251,10 @@ class AlterOperation extends Component
                 $ret->field = Expression::parse(
                     $parser,
                     $list,
-                    [
+                    array(
                         'breakOnAlias' => true,
-                        'parseField' => 'column',
-                    ]
+                        'parseField' => 'column'
+                    )
                 );
                 if ($ret->field === null) {
                     // No field was read. We go back one token so the next
@@ -334,13 +334,13 @@ class AlterOperation extends Component
      */
     private static function checkIfColumnDefinitionKeyword($tokenValue)
     {
-        $common_options = [
+        $common_options = array(
             'AUTO_INCREMENT',
             'COMMENT',
             'DEFAULT',
             'CHARACTER SET',
             'COLLATE'
-        ];
+        );
         // Since these options can be used for
         // both table as well as a specific column in the table
         return in_array($tokenValue, $common_options);

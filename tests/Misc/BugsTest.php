@@ -19,15 +19,15 @@ class BugsTest extends TestCase
 
     public function bugProvider()
     {
-        return [
-            ['bugs/gh9'],
-            ['bugs/gh14'],
-            ['bugs/gh16'],
-            ['bugs/pma11800'],
-            ['bugs/pma11836'],
-            ['bugs/pma11843'],
-            ['bugs/pma11867'],
-            ['bugs/pma11879'],
-        ];
+        return array(
+            array('bugs/gh9'),
+            array('bugs/gh14'),
+            array('bugs/gh16'),
+            array('bugs/pma11800'),
+            array('bugs/pma11836'),
+            array('bugs/pma11843'),
+            array('bugs/pma11867'),
+            array('bugs/pma11879')
+        );
     }
 }

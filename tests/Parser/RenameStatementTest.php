@@ -19,14 +19,14 @@ class RenameStatementTest extends TestCase
 
     public function renameProvider()
     {
-        return [
-            ['parser/parseRename'],
-            ['parser/parseRename2'],
-            ['parser/parseRenameErr1'],
-            ['parser/parseRenameErr2'],
-            ['parser/parseRenameErr3'],
-            ['parser/parseRenameErr4'],
-            ['parser/parseRenameErr5'],
-        ];
+        return array(
+            array('parser/parseRename'),
+            array('parser/parseRename2'),
+            array('parser/parseRenameErr1'),
+            array('parser/parseRenameErr2'),
+            array('parser/parseRenameErr3'),
+            array('parser/parseRenameErr4'),
+            array('parser/parseRenameErr5')
+        );
     }
 }

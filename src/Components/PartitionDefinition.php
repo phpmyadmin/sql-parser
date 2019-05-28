@@ -29,44 +29,44 @@ class PartitionDefinition extends Component
      *
      * @var array
      */
-    public static $OPTIONS = [
-        'STORAGE ENGINE' => [
+    public static $OPTIONS = array(
+        'STORAGE ENGINE' => array(
             1,
             'var',
-        ],
-        'ENGINE' => [
+        ),
+        'ENGINE' => array(
             1,
             'var',
-        ],
-        'COMMENT' => [
+        ),
+        'COMMENT' => array(
             2,
             'var',
-        ],
-        'DATA DIRECTORY' => [
+        ),
+        'DATA DIRECTORY' => array(
             3,
             'var',
-        ],
-        'INDEX DIRECTORY' => [
+        ),
+        'INDEX DIRECTORY' => array(
             4,
             'var',
-        ],
-        'MAX_ROWS' => [
+        ),
+        'MAX_ROWS' => array(
             5,
             'var',
-        ],
-        'MIN_ROWS' => [
+        ),
+        'MIN_ROWS' => array(
             6,
             'var',
-        ],
-        'TABLESPACE' => [
+        ),
+        'TABLESPACE' => array(
             7,
             'var',
-        ],
-        'NODEGROUP' => [
+        ),
+        'NODEGROUP' => array(
             8,
             'var',
-        ],
-    ];
+        )
+    );
 
     /**
      * Whether this entry is a subpartition or a partition.
@@ -190,10 +190,10 @@ class PartitionDefinition extends Component
                     $ret->expr = Expression::parse(
                         $parser,
                         $list,
-                        [
+                        array(
                             'parenthesesDelimited' => true,
-                            'breakOnAlias' => true,
-                        ]
+                            'breakOnAlias' => true
+                        )
                     );
                 }
                 $state = 5;
@@ -205,9 +205,9 @@ class PartitionDefinition extends Component
                     $ret->subpartitions = ArrayObj::parse(
                         $parser,
                         $list,
-                        [
-                            'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition',
-                        ]
+                        array(
+                            'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition'
+                        )
                     );
                     ++$list->idx;
                 }

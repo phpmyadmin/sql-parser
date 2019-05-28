@@ -41,36 +41,36 @@ class ContextTest extends TestCase
 
     public function contextLoading()
     {
-        return [
-            'MySQL match' => [
+        return array(
+            'MySQL match' => array(
                 'MySql50500',
                 'MySql50500',
-            ],
-            'MySQL strip' => [
+            ),
+            'MySQL strip' => array(
                 'MySql50712',
                 'MySql50700',
-            ],
-            'MySQL fallback' => [
+            ),
+            'MySQL fallback' => array(
                 'MySql99999',
                 'MySql50700',
-            ],
-            'MariaDB match' => [
+            ),
+            'MariaDB match' => array(
                 'MariaDb100000',
                 'MariaDb100000',
-            ],
-            'MariaDB stripg' => [
+            ),
+            'MariaDB stripg' => array(
                 'MariaDb109900',
                 'MariaDb100000',
-            ],
-            'MariaDB fallback' => [
+            ),
+            'MariaDB fallback' => array(
                 'MariaDb990000',
                 'MariaDb100300',
-            ],
-            'Invalid' => [
+            ),
+            'Invalid' => array(
                 'Sql',
                 null,
-            ],
-        ];
+            )
+        );
     }
 
     /**
@@ -89,18 +89,18 @@ class ContextTest extends TestCase
 
     public function contextNames()
     {
-        return [
-            ['MySql50000'],
-            ['MySql50100'],
-            ['MySql50500'],
-            ['MySql50600'],
-            ['MySql50700'],
-            ['MySql80000'],
-            ['MariaDb100000'],
-            ['MariaDb100100'],
-            ['MariaDb100200'],
-            ['MariaDb100300'],
-        ];
+        return array(
+            array('MySql50000'),
+            array('MySql50100'),
+            array('MySql50500'),
+            array('MySql50600'),
+            array('MySql50700'),
+            array('MySql80000'),
+            array('MariaDb100000'),
+            array('MariaDb100100'),
+            array('MariaDb100200'),
+            array('MariaDb100300')
+        );
     }
 
     /**
@@ -140,10 +140,10 @@ class ContextTest extends TestCase
         $this->assertEquals('`test`', Context::escape('test'));
 
         $this->assertEquals(
-            [
+            array(
                 '`a`',
                 '`b`',
-            ],
+            ),
             Context::escape(['a', 'b'])
         );
     }

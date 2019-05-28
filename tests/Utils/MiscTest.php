@@ -25,104 +25,104 @@ class MiscTest extends TestCase
 
     public function getAliasesProvider()
     {
-        return [
-            [
+        return array(
+            array(
                 'select * from (select 1) tbl',
                 'mydb',
-                [],
-            ],
-            [
+                array(),
+            ),
+            array(
                 'select i.name as `n`,abcdef gh from qwerty i',
                 'mydb',
-                [
-                    'mydb' => [
+                array(
+                    'mydb' => array(
                         'alias' => null,
-                        'tables' => [
-                            'qwerty' => [
+                        'tables' => array(
+                            'qwerty' => array(
                                 'alias' => 'i',
-                                'columns' => [
+                                'columns' => array(
                                     'name' => 'n',
                                     'abcdef' => 'gh',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            [
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            array(
                 'select film_id id,title from film',
                 'sakila',
-                [
-                    'sakila' => [
+                array(
+                    'sakila' => array(
                         'alias' => null,
-                        'tables' => [
-                            'film' => [
+                        'tables' => array(
+                            'film' => array(
                                 'alias' => null,
-                                'columns' => [
+                                'columns' => array(
                                     'film_id' => 'id',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            [
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            array(
                 'select `sakila`.`A`.`actor_id` as aid,`F`.`film_id` `fid`,'
                 . 'last_update updated from `sakila`.actor A join `film_actor` as '
                 . '`F` on F.actor_id = A.`actor_id`',
                 'sakila',
-                [
-                    'sakila' => [
+                array(
+                    'sakila' => array(
                         'alias' => null,
-                        'tables' => [
-                            'film_actor' => [
+                        'tables' => array(
+                            'film_actor' => array(
                                 'alias' => 'F',
-                                'columns' => [
+                                'columns' => array(
                                     'film_id' => 'fid',
                                     'last_update' => 'updated',
-                                ],
-                            ],
-                            'actor' => [
+                                ),
+                            ),
+                            'actor' => array(
                                 'alias' => 'A',
-                                'columns' => [
+                                'columns' => array(
                                     'actor_id' => 'aid',
                                     'last_update' => 'updated',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-            [
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            array(
                 'SELECT film_id FROM (SELECT * FROM film) as f;',
                 'sakila',
-                [],
-            ],
-            [
+                array(),
+            ),
+            array(
                 '',
                 null,
-                [],
-            ],
-            [
+                array(),
+            ),
+            array(
                 'SELECT 1',
                 null,
-                [],
-            ],
-            [
+                array(),
+            ),
+            array(
                 'SELECT * FROM orders AS ord WHERE 1',
                 'db',
-                [
-                    'db' => [
+                array(
+                    'db' => array(
                         'alias' => null,
-                        'tables' => [
-                            'orders' => [
+                        'tables' => array(
+                            'orders' => array(
                                 'alias' => 'ord',
-                                'columns' => [],
-                            ],
-                        ],
-                    ],
-                ],
-            ],
-        ];
+                                'columns' => array(),
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        );
     }
 }

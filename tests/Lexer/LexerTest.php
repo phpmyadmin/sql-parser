@@ -27,10 +27,10 @@ class LexerTest extends TestCase
 
         $this->assertEquals(
             $lexer->errors,
-            [
+            array(
                 new LexerException('error #1', 'foo', 1, 2),
                 new LexerException('error #2', 'bar', 3, 4),
-            ]
+            )
         );
     }
 
@@ -59,33 +59,33 @@ class LexerTest extends TestCase
 
     public function lexProvider()
     {
-        return [
-            ['lexer/lex'],
-            ['lexer/lexUtf8'],
-            ['lexer/lexBool'],
-            ['lexer/lexComment'],
-            ['lexer/lexCommentEnd'],
-            ['lexer/lexDelimiter'],
-            ['lexer/lexDelimiter2'],
-            ['lexer/lexDelimiterErr1'],
-            ['lexer/lexDelimiterErr2'],
-            ['lexer/lexDelimiterErr3'],
-            ['lexer/lexDelimiterLen'],
-            ['lexer/lexKeyword'],
-            ['lexer/lexKeyword2'],
-            ['lexer/lexNumber'],
-            ['lexer/lexOperator'],
-            ['lexer/lexString'],
-            ['lexer/lexStringErr1'],
-            ['lexer/lexSymbol'],
-            ['lexer/lexSymbolErr1'],
-            ['lexer/lexSymbolErr2'],
-            ['lexer/lexSymbolErr3'],
-            ['lexer/lexSymbolUser'],
-            ['lexer/lexWhitespace'],
-            ['lexer/lexLabel1'],
-            ['lexer/lexLabel2'],
-            ['lexer/lexNoLabel'],
-        ];
+        return array(
+            array('lexer/lex'),
+            array('lexer/lexUtf8'),
+            array('lexer/lexBool'),
+            array('lexer/lexComment'),
+            array('lexer/lexCommentEnd'),
+            array('lexer/lexDelimiter'),
+            array('lexer/lexDelimiter2'),
+            array('lexer/lexDelimiterErr1'),
+            array('lexer/lexDelimiterErr2'),
+            array('lexer/lexDelimiterErr3'),
+            array('lexer/lexDelimiterLen'),
+            array('lexer/lexKeyword'),
+            array('lexer/lexKeyword2'),
+            array('lexer/lexNumber'),
+            array('lexer/lexOperator'),
+            array('lexer/lexString'),
+            array('lexer/lexStringErr1'),
+            array('lexer/lexSymbol'),
+            array('lexer/lexSymbolErr1'),
+            array('lexer/lexSymbolErr2'),
+            array('lexer/lexSymbolErr3'),
+            array('lexer/lexSymbolUser'),
+            array('lexer/lexWhitespace'),
+            array('lexer/lexLabel1'),
+            array('lexer/lexLabel2'),
+            array('lexer/lexNoLabel')
+        );
     }
 }

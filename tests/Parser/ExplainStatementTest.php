@@ -19,8 +19,8 @@ class ExplainStatementTest extends TestCase
 
     public function explainProvider()
     {
-        return [
-            ['parser/parseExplain'],
-        ];
+        return array(
+            array('parser/parseExplain')
+        );
     }
 }

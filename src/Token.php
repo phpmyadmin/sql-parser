@@ -330,16 +330,16 @@ class Token
     public function getInlineToken()
     {
         return str_replace(
-            [
+            array(
                 "\r",
                 "\n",
                 "\t",
-            ],
-            [
+            ),
+            array(
                 '\r',
                 '\n',
                 '\t',
-            ],
+            ),
             $this->token
         );
     }

@@ -22,12 +22,12 @@ class RestoreStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $OPTIONS = array(
         'TABLE' => 1,
 
-        'FROM' => [
+        'FROM' => array(
             2,
             'var',
-        ],
-    ];
+        )
+    );
 }
