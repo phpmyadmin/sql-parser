@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Utilities that are used for formatting queries.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
@@ -507,7 +507,7 @@ class Formatter
                             // No space after . (
                             || ($curr->type === Token::TYPE_OPERATOR && ($curr->value === '.' || $curr->value === ',' || $curr->value === '(' || $curr->value === ')'))
                             // No space before . , ( )
-                            || $curr->type === Token::TYPE_DELIMITER && mb_strlen((string) $curr->value, 'UTF-8') < 2
+                            || $curr->type === Token::TYPE_DELIMITER && mb_strlen($curr->value, 'UTF-8') < 2
                         )
                     ) {
                         $ret .= ' ';
@@ -713,7 +713,7 @@ class Formatter
             }
 
             // Keeping track of this group's length.
-            $length += mb_strlen((string) $list->tokens[$idx]->value, 'UTF-8');
+            $length += mb_strlen($list->tokens[$idx]->value, 'UTF-8');
         }
 
         return $length;

@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Parses a list of expressions delimited by a comma.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 

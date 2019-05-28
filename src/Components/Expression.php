@@ -1,9 +1,9 @@
 <?php
+
 /**
  * Parses a reference to an expression (column, table or database name, function
  * call, mathematical expression, etc.).
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
@@ -269,7 +269,7 @@ class Expression extends Component
                         continue;
                     }
                     $isExpr = true;
-                } elseif ($brackets === 0 && strlen((string) $ret->expr) > 0 && ! $alias) {
+                } elseif ($brackets === 0 && strlen($ret->expr) > 0 && ! $alias) {
                     /* End of expression */
                     break;
                 }
@@ -413,7 +413,7 @@ class Expression extends Component
         }
 
         // White-spaces might be added at the end.
-        $ret->expr = trim((string) $ret->expr);
+        $ret->expr = trim($ret->expr);
 
         if ($ret->expr === '') {
             return null;

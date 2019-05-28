@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Defines the lexer of the library.
  *
@@ -6,7 +7,6 @@
  *
  * Depends on context to extract lexemes.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 

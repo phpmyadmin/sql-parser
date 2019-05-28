@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Parses a reference to a LOCK expression.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 

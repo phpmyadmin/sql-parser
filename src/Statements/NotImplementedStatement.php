@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Not implemented (yet) statements.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 

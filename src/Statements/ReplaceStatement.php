@@ -1,8 +1,8 @@
 <?php
+
 /**
  * `REPLACE` statement.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
@@ -94,7 +94,7 @@ class ReplaceStatement extends Statement
             $ret .= ' VALUES ' . Array2d::build($this->values);
         } elseif (! is_null($this->set) && count($this->set) > 0) {
             $ret .= ' SET ' . SetOperation::build($this->set);
-        } elseif (! is_null($this->select) && strlen((string) $this->select) > 0) {
+        } elseif (! is_null($this->select) && strlen($this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 

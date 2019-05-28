@@ -1,8 +1,8 @@
 <?php
+
 /**
  * `LOAD` statement.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
@@ -194,7 +194,7 @@ class LoadStatement extends Statement
 
         $ret .= ' INTO TABLE ' . $this->table;
 
-        if ($this->partition !== null && strlen((string) $this->partition) > 0) {
+        if ($this->partition !== null && strlen($this->partition) > 0) {
             $ret .= ' PARTITION ' . ArrayObj::build($this->partition);
         }
 
@@ -206,7 +206,7 @@ class LoadStatement extends Statement
             $ret .= ' ' . $this->fields_keyword . ' ' . $this->fields_options;
         }
 
-        if ($this->lines_options !== null && strlen((string) $this->lines_options) > 0) {
+        if ($this->lines_options !== null && strlen($this->lines_options) > 0) {
             $ret .= ' LINES ' . $this->lines_options;
         }
 

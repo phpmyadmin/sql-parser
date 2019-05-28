@@ -1,8 +1,8 @@
 <?php
+
 /**
  * `GROUP BY` keyword parser.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
@@ -126,6 +126,6 @@ class GroupKeyword extends Component
             return implode(', ', $component);
         }
 
-        return trim((string) $component->expr);
+        return trim($component->expr);
     }
 }

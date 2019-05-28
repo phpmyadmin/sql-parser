@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Defines an array of tokens and utility functions to iterate through it.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Defines a component that is later extended to parse specialized components or
  * keywords.
@@ -7,7 +8,6 @@
  * *Component parsers can be reused in multiple  situations and *Keyword parsers
  * count on the *Component classes to do their job.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 

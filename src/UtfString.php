@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Implementation for UTF-8 strings.
  *
@@ -9,7 +10,6 @@
  * Because the lexer relies on the subscript operator this class had to be
  * implemented.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 

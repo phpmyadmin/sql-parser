@@ -1,8 +1,8 @@
 <?php
+
 /**
  * `WHERE` keyword parser.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
@@ -87,7 +87,7 @@ class Condition extends Component
      */
     public function __construct($expr = null)
     {
-        $this->expr = trim((string) $expr);
+        $this->expr = trim($expr);
     }
 
     /**

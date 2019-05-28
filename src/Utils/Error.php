@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Error related utilities.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
@@ -86,7 +86,7 @@ class Error
                 ++$i,
                 $err[0],
                 $err[1],
-                htmlspecialchars((string) $err[2]),
+                htmlspecialchars($err[2]),
                 $err[3]
             );
         }

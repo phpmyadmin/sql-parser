@@ -1,11 +1,11 @@
 <?php
+
 /**
  * Defines a context class that is later extended to define other contexts.
  *
  * A context is a collection of keywords, operators and functions used for
  * parsing.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 

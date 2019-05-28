@@ -1,11 +1,11 @@
 <?php
+
 /**
  * The result of the parser is an array of statements are extensions of the
  * class defined here.
  *
  * A statement represents the result of parsing the lexemes.
  */
-declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
