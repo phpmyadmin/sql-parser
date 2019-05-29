@@ -143,7 +143,7 @@ class ContextTest extends TestCase
                 '`a`',
                 '`b`',
             ),
-            Context::escape(['a', 'b'])
+            Context::escape(array('a', 'b'))
         );
     }
 }

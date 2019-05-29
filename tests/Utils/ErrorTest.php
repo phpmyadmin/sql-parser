@@ -28,7 +28,7 @@ class ErrorTest extends TestCase
                     17,
                 ),
             ),
-            Error::get([$lexer, $parser])
+            Error::get(array($lexer, $parser))
         );
     }
 
@@ -36,7 +36,7 @@ class ErrorTest extends TestCase
     {
         $this->assertEquals(
             array('#1: error msg (near "token" at position 100)'),
-            Error::format([['error msg', 42, 'token', 100]])
+            Error::format(array(array('error msg', 42, 'token', 100)))
         );
     }
 }

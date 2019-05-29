@@ -109,7 +109,7 @@ class TestGenerator
     public static function build($type, $input, $output, $debug = null)
     {
         // Support query types: `lexer` / `parser`.
-        if (! in_array($type, ['lexer', 'parser'])) {
+        if (! in_array($type, array('lexer', 'parser'))) {
             throw new \Exception('Unknown test type (expected `lexer` or `parser`).');
         }
 

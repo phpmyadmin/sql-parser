@@ -8,7 +8,7 @@ class CLITest extends TestCase
 {
     private function getCLI($getopt)
     {
-        $cli = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\CLI')->setMethods(['getopt'])->getMock();
+        $cli = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\CLI')->setMethods(array('getopt'))->getMock();
         $cli->method('getopt')->willReturn($getopt);
 
         return $cli;
@@ -48,12 +48,12 @@ class CLITest extends TestCase
             array(
                 array('q' => 'SELECT 1'),
                 "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m\n",
-                0,
+                0
             ),
             array(
                 array('query' => 'SELECT 1'),
                 "\x1b[35mSELECT\n    \x1b[92m1\x1b[0m\n",
-                0,
+                0
             ),
             array(
                 array(
@@ -61,7 +61,7 @@ class CLITest extends TestCase
                     'f' => 'text',
                 ),
                 "SELECT\n    /* comment */ 1 /* other */\n",
-                0,
+                0
             ),
             array(
                 array(
@@ -69,7 +69,7 @@ class CLITest extends TestCase
                     'f' => 'foo',
                 ),
                 "ERROR: Invalid value for format!\n",
-                1,
+                1
             ),
             array(
                 array(
@@ -78,13 +78,13 @@ class CLITest extends TestCase
                 ),
                 '<span class="sql-reserved">SELECT</span>' . '<br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>' . "\n",
-                0,
+                0
             ),
             array(
                 array('h' => true),
                 'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
                 '       cat file.sql | highlight-query' . "\n",
-                0,
+                0
             ),
             array(
                 array(),
@@ -96,7 +96,7 @@ class CLITest extends TestCase
             array(
                 false,
                 '',
-                1,
+                1
             )
         );
     }
@@ -225,7 +225,11 @@ class CLITest extends TestCase
 
     public function stdinParams()
     {
-        $binPath = PHP_BINARY .' '. dirname(__DIR__,2 ). '/bin/';
+        if (defined('PHP_BINARY')) {
+            $binPath = PHP_BINARY . ' ' . dirname(__DIR__, 2) . '/bin/';
+        } else {
+            $binPath = 'php' . ' ' . realpath(dirname(__DIR__) . '/../') . '/bin/';
+        }
 
         return array(
             array('echo "SELECT 1" | '. $binPath .'highlight-query', 0),

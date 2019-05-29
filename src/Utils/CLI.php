@@ -142,7 +142,7 @@ class CLI
         if (isset($params['q'])) {
             $lexer = new Lexer($params['q'], false);
             $parser = new Parser($lexer->list);
-            $errors = Error::get([$lexer, $parser]);
+            $errors = Error::get(array($lexer, $parser));
             if (count($errors) === 0) {
                 return 0;
             }

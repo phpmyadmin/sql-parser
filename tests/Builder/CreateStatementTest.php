@@ -99,17 +99,17 @@ class CreateStatementTest extends TestCase
         $stmt = new CreateStatement();
 
         $stmt->name = new Expression('', 'test', '');
-        $stmt->options = new OptionsArray(['TABLE']);
+        $stmt->options = new OptionsArray(array('TABLE'));
         $stmt->fields = array(
             new CreateDefinition(
                 'id',
-                new OptionsArray(['NOT NULL', 'AUTO_INCREMENT']),
-                new DataType('INT', array(11), new OptionsArray(['UNSIGNED']))
+                new OptionsArray(array('NOT NULL', 'AUTO_INCREMENT')),
+                new DataType('INT', array(11), new OptionsArray(array('UNSIGNED')))
             ),
             new CreateDefinition(
                 '',
                 null,
-                new Key('', array(['name' => 'id']), 'PRIMARY KEY')
+                new Key('', array(array('name' => 'id')), 'PRIMARY KEY')
             )
         );
 
@@ -289,9 +289,9 @@ EOT
     {
         $stmt = new CreateStatement();
 
-        $stmt->options = new OptionsArray(['TRIGGER']);
+        $stmt->options = new OptionsArray(array('TRIGGER'));
         $stmt->name = new Expression('ins_sum');
-        $stmt->entityOptions = new OptionsArray(['BEFORE', 'INSERT']);
+        $stmt->entityOptions = new OptionsArray(array('BEFORE', 'INSERT'));
         $stmt->table = new Expression('account');
         $stmt->body = 'SET @sum = @sum + NEW.amount';
 

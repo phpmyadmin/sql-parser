@@ -281,7 +281,7 @@ class LoadStatement extends Statement
                 $this->file_name = Expression::parse(
                     $parser,
                     $list,
-                    ['parseField' => 'file']
+                    array('parseField' => 'file')
                 );
                 $state = 1;
             } elseif ($state === 1) {
@@ -298,7 +298,7 @@ class LoadStatement extends Statement
                     && $token->keyword === 'TABLE'
                 ) {
                     ++$list->idx;
-                    $this->table = Expression::parse($parser, $list, ['parseField' => 'table']);
+                    $this->table = Expression::parse($parser, $list, array('parseField' => 'table'));
                     $state = 3;
                 } else {
                     $parser->error('Unexpected token.', $token);

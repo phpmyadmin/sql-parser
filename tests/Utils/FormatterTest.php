@@ -18,7 +18,7 @@ class FormatterTest extends TestCase
     {
         $formatter = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\Formatter')
             ->disableOriginalConstructor()
-            ->setMethods(['getDefaultOptions', 'getDefaultFormats'])
+            ->setMethods(array('getDefaultOptions', 'getDefaultFormats'))
             ->getMock();
 
         $formatter->expects($this->once())
@@ -57,7 +57,7 @@ class FormatterTest extends TestCase
 
     public function mergeFormats()
     {
-        // array($default[), $overriding[), $expected[])
+        // array($default[], $overriding[], $expected[])
         return array(
             'empty formats' => array(
                 'default' => array(

@@ -81,7 +81,7 @@ class OptionsArrayTest extends TestCase
     public function testRemove()
     {
         /* Assertion 1 */
-        $component = new OptionsArray(['a', 'b', 'c']);
+        $component = new OptionsArray(array('a', 'b', 'c'));
         $this->assertTrue($component->remove('b'));
         $this->assertFalse($component->remove('d'));
         $this->assertEquals($component->options, array(0 => 'a', 2 => 'c'));
@@ -106,8 +106,8 @@ class OptionsArrayTest extends TestCase
 
     public function testMerge()
     {
-        $component = new OptionsArray(['a']);
-        $component->merge(['b', 'c']);
+        $component = new OptionsArray(array('a'));
+        $component->merge(array('b', 'c'));
         $this->assertEquals($component->options, array('a', 'b', 'c'));
     }
 
