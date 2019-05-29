@@ -226,7 +226,7 @@ class CLITest extends TestCase
     public function stdinParams()
     {
         if (defined('PHP_BINARY')) {
-            $binPath = PHP_BINARY . ' ' . dirname(__DIR__, 2) . '/bin/';
+            $binPath = PHP_BINARY . ' ' . realpath(dirname(__DIR__) . '/../') . '/bin/';
         } else {
             $binPath = 'php' . ' ' . realpath(dirname(__DIR__) . '/../') . '/bin/';
         }
