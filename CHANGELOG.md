@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased]
+## [Unreleased] -
 
 ## [4.3.1] - 2019-01-05
 
@@ -83,7 +83,7 @@
 
 ## [4.1.3] - 2017-04-06
 
-* Added suppport for DELETE ... JOIN clauses.
+* Added support for DELETE ... JOIN clauses.
 * Changed BufferedQuery to include comments in output.
 * Fixed parsing of inline comments.
 
@@ -237,7 +237,7 @@
 * Misc: Added PHPUnit's Code Coverage 3.0 as a dependency.
 * Misc: Added support for PHP 5.4 back.
 * Misc: Removed dependency to Ctype.
-* Misc: Repository transfered from @udan11 to @phpMyAdmin.
+* Misc: Repository transferred from @udan11 to @phpMyAdmin.
 * Misc: Updated `.gitignore` to ignore `composer.lock`.
 * Misc: Updated Composer and Travis configuration for PHP 7 and PHPUnit 5.
 * Tools: Documented tags in `ContextGenerator`.
