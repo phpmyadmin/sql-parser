@@ -1,6 +1,15 @@
 # Change Log
 
-## [Unreleased] -
+## [4.3.2] - 2019-06-03
+
+* Fix redundant whitespaces in build() outputs (#228)
+* Fix incorrect error on DEFAULT keyword in ALTER operation (#229)
+* Fix incorrect outputs from Query::getClause (#233)
+* Add support for reading an SQL file from stdin
+* Fix for missing tokenize-query in Composer's vendor/bin/ directory
+* Fix for PHP warnings with an incomplete CASE expression (#241)
+* Fix for error message with multiple CALL statements (#223)
+* Recognize the question mark character as a parameter (#242)
 
 ## [4.3.1] - 2019-01-05
 
