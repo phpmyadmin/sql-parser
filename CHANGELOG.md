@@ -1,7 +1,9 @@
 # Change Log
 
-## [4.3.2] - 2019-06-03
+## [5.0.0] - 2019-05-09
 
+* Drop support for PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
+* Enable strict mode on PHP files
 * Fix redundant whitespaces in build() outputs (#228)
 * Fix incorrect error on DEFAULT keyword in ALTER operation (#229)
 * Fix incorrect outputs from Query::getClause (#233)
@@ -11,10 +13,10 @@
 * Fix for error message with multiple CALL statements (#223)
 * Recognize the question mark character as a parameter (#242)
 
-## [5.0.0] - 2019-05-09
+## [4.3.2] - 2019-06-03
 
-* Drop support for PHP 5.3, PHP 5.4, PHP 5.5, PHP 5.6, PHP 7.0 and HHVM
-* Enable strict mode on PHP files
+Backport fixes from 5.0.0 to QA branch:
+
 * Fix redundant whitespaces in build() outputs (#228)
 * Fix incorrect error on DEFAULT keyword in ALTER operation (#229)
 * Fix incorrect outputs from Query::getClause (#233)
