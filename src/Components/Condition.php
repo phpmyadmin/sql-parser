@@ -101,7 +101,7 @@ class Condition extends Component
     {
         $ret = [];
 
-        $expr = new self();
+        $expr = new static();
 
         /**
          * Counts brackets.
@@ -159,12 +159,12 @@ class Condition extends Component
                     }
 
                     // Adding the operator.
-                    $expr = new self($token->value);
+                    $expr = new static($token->value);
                     $expr->isOperator = true;
                     $ret[] = $expr;
 
                     // Preparing to parse another condition.
-                    $expr = new self();
+                    $expr = new static();
                     continue;
                 }
             }

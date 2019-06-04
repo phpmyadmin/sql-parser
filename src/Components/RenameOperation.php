@@ -57,7 +57,7 @@ class RenameOperation extends Component
     {
         $ret = [];
 
-        $expr = new self();
+        $expr = new static();
 
         /**
          * The state of the parser.
@@ -140,7 +140,7 @@ class RenameOperation extends Component
             } elseif ($state === 3) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
                     $ret[] = $expr;
-                    $expr = new self();
+                    $expr = new static();
                     $state = 0;
                 } else {
                     break;

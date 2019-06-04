@@ -74,7 +74,7 @@ class IndexHint extends Component
     public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
         $ret = [];
-        $expr = new self();
+        $expr = new static();
         $expr->type = isset($options['type']) ? $options['type'] : null;
         /**
          * The state of the parser.
@@ -143,7 +143,7 @@ class IndexHint extends Component
                         $expr->indexes = ExpressionArray::parse($parser, $list);
                         $state = 0;
                         $ret[] = $expr;
-                        $expr = new self();
+                        $expr = new static();
                     }
                     break;
                 case 3:
@@ -163,7 +163,7 @@ class IndexHint extends Component
                     $expr->indexes = ExpressionArray::parse($parser, $list);
                     $state = 0;
                     $ret[] = $expr;
-                    $expr = new self();
+                    $expr = new static();
                     break;
             }
         }

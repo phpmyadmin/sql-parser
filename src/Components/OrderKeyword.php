@@ -57,7 +57,7 @@ class OrderKeyword extends Component
     {
         $ret = [];
 
-        $expr = new self();
+        $expr = new static();
 
         /**
          * The state of the parser.
@@ -105,7 +105,7 @@ class OrderKeyword extends Component
                     if (! empty($expr->expr)) {
                         $ret[] = $expr;
                     }
-                    $expr = new self();
+                    $expr = new static();
                     $state = 0;
                 } else {
                     break;
