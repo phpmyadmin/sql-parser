@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2018-08-17 10:42+0000\n"
-"Last-Translator: Anusuk Sangubon <jaideejung007@gmail.com>\n"
+"PO-Revision-Date: 2019-07-19 00:04+0000\n"
+"Last-Translator: Kongfa Warorot <gongpha@hotmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/th/>\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.2-dev\n"
+"X-Generator: Weblate 3.8-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -170,59 +170,48 @@ msgstr "ไม่มีข้อมูลเข้าออกได้เริ
 #: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
 #: src/Statements/ReplaceStatement.php:190
 msgid "Unexpected token."
-msgstr ""
+msgstr "โทเค็นที่ไม่ได้คาดหวังไว้"
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "ชนิดของประโยคนี้ถูกวิเคราะห์มาแล้วก่อนหน้านี้"
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "ไม่รู้จักชนิดของคีย์เวิร์ด"
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Keyword at end of statement."
-msgstr "ไม่อาจคาดเดาจุดเริ่มต้นของประพจน์"
+msgstr "คีย์เวิร์ดในตอนท้ายของคำสั่ง"
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "ที่จุดเริ่มต้นของตาราง"
+msgstr "การเรียงของประโยคที่ไม่ได้คาดหวังไว้"
 
 #: src/Statements/CreateStatement.php:375
 msgid "The name of the entity was expected."
-msgstr ""
+msgstr "ชื่อเอนทิติได้รับการคาดหวัง"
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
 msgid "A table name was expected."
-msgstr "รูปแบบของชื่อไฟล์"
+msgstr "ชื่อตารางได้รับการคาดหวัง"
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "ลบเรียบร้อยแล้ว"
+msgstr "การกำหนดคอลัมน์อย่างน้อยหนึ่งคอลัมน์ได้รับการคาดหวัง"
 
 #: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "คีย์เวิร์ด \"RETURNS\" ได้รับการคาดหวัง"
 
 #: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "ประโยคชนิดนี้ไม่ถูกต้องในการเรียกใช้แบบหลายตาราง"
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "Error"
 msgid "error #1"
-msgstr "ผิดพลาด"
+msgstr "ผิดพลาด #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "รวบรวมข้อผิดพลาด"
+msgstr "ข้อผิดพลาดที่ครัดเคร้ง"
