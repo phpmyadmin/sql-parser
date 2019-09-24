@@ -68,13 +68,11 @@ class ParserTest extends TestCase
         );
     }
 
-    /**
-     * @expectedException \PhpMyAdmin\SqlParser\Exceptions\ParserException
-     * @expectedExceptionMessage strict error
-     * @expectedExceptionCode 3
-     */
     public function testErrorStrict()
     {
+        $this->expectExceptionCode(3);
+        $this->expectExceptionMessage('strict error');
+        $this->expectException(ParserException::class);
         $parser = new Parser(new TokensList());
         $parser->strict = true;
 

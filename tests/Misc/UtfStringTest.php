@@ -37,22 +37,18 @@ class UtfStringTest extends TestCase
         $this->assertNull($str[static::TEST_PHRASE_LEN]);
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Not implemented.
-     */
     public function testSet()
     {
+        $this->expectExceptionMessage('Not implemented.');
+        $this->expectException(\Exception::class);
         $str = new UtfString('');
         $str[0] = 'a';
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Not implemented.
-     */
     public function testUnset()
     {
+        $this->expectExceptionMessage('Not implemented.');
+        $this->expectException(\Exception::class);
         $str = new UtfString('');
         unset($str[0]);
     }

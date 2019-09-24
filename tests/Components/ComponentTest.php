@@ -11,22 +11,20 @@ use PhpMyAdmin\SqlParser\TokensList;
 class ComponentTest extends TestCase
 {
     /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Not implemented yet.
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
     public function testParse()
     {
+        $this->expectExceptionMessage('Not implemented yet.');
+        $this->expectException(\Exception::class);
         Component::parse(new Parser(), new TokensList());
     }
 
-    /**
-     * @expectedException \Exception
-     * @expectedExceptionMessage Not implemented yet.
-     */
     public function testBuild()
     {
+        $this->expectExceptionMessage('Not implemented yet.');
+        $this->expectException(\Exception::class);
         Component::build(null);
     }
 }

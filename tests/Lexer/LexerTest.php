@@ -34,13 +34,11 @@ class LexerTest extends TestCase
         );
     }
 
-    /**
-     * @expectedException \PhpMyAdmin\SqlParser\Exceptions\LexerException
-     * @expectedExceptionMessage strict error
-     * @expectedExceptionCode 4
-     */
     public function testErrorStrict()
     {
+        $this->expectExceptionCode(4);
+        $this->expectExceptionMessage('strict error');
+        $this->expectException(LexerException::class);
         $lexer = new Lexer('');
         $lexer->strict = true;
 
