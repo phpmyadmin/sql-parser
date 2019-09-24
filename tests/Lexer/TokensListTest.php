@@ -19,7 +19,7 @@ class TokensListTest extends TestCase
     /**
      * Test setup.
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->tokens = [
             new Token('SELECT', Token::TYPE_KEYWORD),
