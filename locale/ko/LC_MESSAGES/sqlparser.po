@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 0\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2017-08-21 12:54+0200\n"
-"PO-Revision-Date: 2016-12-25 22:02+0000\n"
-"Last-Translator: SD SkyKlouD <koongchi135@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/sql-"
-"parser/ko/>\n"
+"PO-Revision-Date: 2019-10-06 06:56+0000\n"
+"Last-Translator: Yoonseo Kim <yyumz6961@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.11-dev\n"
+"X-Generator: Weblate 3.9-dev\n"
 
 #: src/Component.php:43 src/Component.php:63
 msgid "Not implemented yet."
@@ -22,7 +22,7 @@ msgstr "아직 구현되지 않은 기능입니다."
 #: src/Components/AlterOperation.php:241 src/Statement.php:334
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr ""
+msgstr "새로운 문장이 발견되었지만, 이전 문장과의 구분기호가 없습니다."
 
 #: src/Components/AlterOperation.php:253
 msgid "Unrecognized alter operation."
@@ -35,11 +35,11 @@ msgstr "값 %1$d 이 예상되었지만, %2$d 가 발견되었습니다."
 
 #: src/Components/Array2d.php:111
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "일련의 값들에 의해 여는 괄호('(')가 예상됩니다."
 
 #: src/Components/ArrayObj.php:114 src/Components/CreateDefinition.php:201
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "여는 괄호가 예상됩니다."
 
 #: src/Components/CaseExpression.php:135 src/Components/CaseExpression.php:164
 #: src/Components/CaseExpression.php:176 src/Components/CaseExpression.php:190
@@ -64,36 +64,32 @@ msgstr "예상되지 않은 CASE 문의 종료"
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
-msgstr ""
+msgstr "상징적인 이름이 예상되었습니다! 예약어는 큰 따옴표 없이 열 이름으로 사용될 수 없습니다."
 
 #: src/Components/CreateDefinition.php:237
 msgid "A symbol name was expected!"
 msgstr "심볼 이름이 예상되었습니다!"
 
 #: src/Components/CreateDefinition.php:270
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "테이블이 선택되지 않았습니다."
+msgstr "쉼표 또는 닫는 괄호가 예상됩니다."
 
 #: src/Components/CreateDefinition.php:286
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "닫는 괄호가 예상됩니다."
 
 #: src/Components/DataType.php:123
 msgid "Unrecognized data type."
 msgstr "인식할 수 없는 데이터 형식입니다."
 
 #: src/Components/Expression.php:244 src/Components/Expression.php:394
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "테이블이 선택되지 않았습니다."
+msgstr "가명(별칭)이 예상됩니다."
 
 #: src/Components/Expression.php:332 src/Components/Expression.php:351
 #: src/Components/Expression.php:383
 msgid "An alias was previously found."
-msgstr ""
+msgstr "가명(별칭) 이전에 발견되었습니다."
 
 #: src/Components/Expression.php:364
 msgid "Unexpected dot."
@@ -125,56 +121,45 @@ msgid "The new name of the table was expected."
 msgstr "테이블의 새로운 이름이 예상되었습니다."
 
 #: src/Components/RenameOperation.php:153
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "행을 삭제 하였습니다."
+msgstr "이름 바꾸기 작업이 예상되었습니다."
 
 #: src/Components/SetOperation.php:117
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "정규표현식"
+msgstr "누락된 표현입니다."
 
 #: src/Lexer.php:237
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "%s 라인에 알 수 없는 문자가 있습니다."
+msgstr "예상치 못한 문자입니다."
 
 #: src/Lexer.php:278
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "구분기호 앞에 공백이 필요합니다."
 
 #: src/Lexer.php:296 src/Lexer.php:314
 msgid "Expected delimiter."
-msgstr ""
+msgstr "구분기호가 필요합니다."
 
 #: src/Lexer.php:843
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "이벤트 %1$s 를 생성했습니다."
+msgstr "종료 견적 %1$s 가 예상됩니다."
 
 #: src/Lexer.php:884
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "파일명 템플릿"
+msgstr "변수명이 필요합니다."
 
 #: src/Parser.php:423
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "테이블의 처음"
+msgstr "예상치 못한 명령문의 시작입니다."
 
 #: src/Parser.php:442
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "인식할 수 없는 명령문 유형입니다."
 
 #: src/Parser.php:527
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "이전에 시작된 처리가 없습니다."
 
 #: src/Statement.php:242 src/Statements/DeleteStatement.php:254
 #: src/Statements/DeleteStatement.php:306
@@ -182,65 +167,49 @@ msgstr ""
 #: src/Statements/InsertStatement.php:246 src/Statements/LoadStatement.php:261
 #: src/Statements/LoadStatement.php:291 src/Statements/LoadStatement.php:310
 #: src/Statements/ReplaceStatement.php:190
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "%s 라인에 알 수 없는 문자가 있습니다."
+msgstr "예상치 못한 표현(토큰)입니다."
 
 #: src/Statement.php:306
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "이 유형의 절은 이전에 구문 분석되었습니다."
 
 #: src/Statement.php:366
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "인식할 수 없는 키워드입니다."
 
 #: src/Statement.php:377
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Keyword at end of statement."
-msgstr "테이블의 처음"
+msgstr "명령문 끝에 있는 키워드."
 
 #: src/Statement.php:503
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "테이블의 처음"
+msgstr "예기치 못한 문장(절) 순서."
 
 #: src/Statements/CreateStatement.php:375
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "열린 테이블 수."
+msgstr "개체의 이름으로 예상됩니다."
 
 #: src/Statements/CreateStatement.php:430
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "파일명 템플릿"
+msgstr "테이블 이름으로 예상됩니다."
 
 #: src/Statements/CreateStatement.php:438
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "행을 삭제 하였습니다."
+msgstr "최소한 하나의 열 정의가 예상됩니다."
 
 #: src/Statements/CreateStatement.php:550
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "\"RETURNS\"키워드가 필요합니다."
 
 #: src/Statements/DeleteStatement.php:314
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "이 유형의 문장(절)은 다중테이블 쿼리에서 유효하지 않습니다."
 
 #: tests/Lexer/LexerTest.php:19 tests/Parser/ParserTest.php:58
-#, fuzzy
-#| msgid "Error"
 msgid "error #1"
-msgstr "오류"
+msgstr "오류 #1"
 
 #: tests/Lexer/LexerTest.php:46 tests/Parser/ParserTest.php:80
-#, fuzzy
-#| msgid "Gather errors"
 msgid "strict error"
-msgstr "오류 수집"
+msgstr "엄격한 오류"
