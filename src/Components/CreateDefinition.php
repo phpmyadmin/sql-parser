@@ -132,6 +132,13 @@ class CreateDefinition extends Component
     public $references;
 
     /**
+     * The check constraint.
+     *
+     * @var Check
+     */
+    public $check;
+
+    /**
      * The options of this field.
      *
      * @var OptionsArray
@@ -193,10 +200,12 @@ class CreateDefinition extends Component
          *
          *      3 ---------------------[ options ]--------------------> 4
          *
-         *      4 --------------------[ REFERENCES ]------------------> 4
+         *      4 --------------------[ REFERENCES ]------------------> 5
          *
-         *      5 ------------------------[ , ]-----------------------> 1
-         *      5 ------------------------[ ) ]-----------------------> 6 (-1)
+         *      5 -----------------------[ CHECK ]--------------------> 6
+         *
+         *      6 ------------------------[ , ]-----------------------> 1
+         *      6 ------------------------[ ) ]-----------------------> 7 (-1)
          *
          * @var int
          */
@@ -282,6 +291,14 @@ class CreateDefinition extends Component
                 }
                 $state = 5;
             } elseif ($state === 5) {
+                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'CHECK') {
+                    ++$list->idx; // Skipping keyword 'CHECK'.
+                    $expr->check = Check::parse($parser, $list);
+                } else {
+                    --$list->idx;
+                }
+                $state = 6;
+            } elseif ($state === 6) {
                 if (! empty($expr->type) || ! empty($expr->key)) {
                     $ret[] = $expr;
                 }
@@ -289,7 +306,7 @@ class CreateDefinition extends Component
                 if ($token->value === ',') {
                     $state = 1;
                 } elseif ($token->value === ')') {
-                    $state = 6;
+                    $state = 7;
                     ++$list->idx;
                     break;
                 } else {
@@ -357,7 +374,11 @@ class CreateDefinition extends Component
             $tmp .= 'REFERENCES ' . $component->references . ' ';
         }
 
-        $tmp .= $component->options;
+        $tmp .= $component->options . ' ';
+
+        if (! empty($component->check)) {
+            $tmp .= 'CHECK ' . $component->check . ' ';
+        }
 
         return trim($tmp);
     }

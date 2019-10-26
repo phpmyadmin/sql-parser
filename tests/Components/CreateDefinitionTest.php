@@ -56,12 +56,13 @@ class CreateDefinitionTest extends TestCase
             'CREATE TABLE `payment` (' .
             '-- snippet' . "\n" .
             '`customer_id` smallint(5) unsigned NOT NULL,' .
+            '`customer_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(customer_data)),' .
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE' .
             ') ENGINE=InnoDB"'
         );
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
-            CreateDefinition::build($parser->statements[0]->fields[1])
+            CreateDefinition::build($parser->statements[0]->fields[2])
         );
     }
 }
