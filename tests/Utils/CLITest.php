@@ -220,21 +220,39 @@ class CLITest extends TestCase
      */
     public function testStdinPipe($cmd, $result)
     {
-        exec ($cmd, $out, $ret);
+        exec($cmd, $out, $ret);
         $this->assertSame($result, $ret);
     }
 
     public function stdinParams()
     {
-        $binPath = PHP_BINARY .' '. dirname(__DIR__,2 ). '/bin/';
+        $binPath = PHP_BINARY . ' ' . dirname(__DIR__, 2) . '/bin/';
 
         return [
-            ['echo "SELECT 1" | '. $binPath .'highlight-query', 0],
-            ['echo "invalid query" | '. $binPath .'highlight-query', 0],
-            ['echo "SELECT 1" | '. $binPath .'lint-query', 0],
-            ['echo "invalid query" | '. $binPath .'lint-query', 10],
-            ['echo "SELECT 1" | '. $binPath .'tokenize-query', 0],
-            ['echo "invalid query" | '. $binPath .'tokenize-query', 0],
+            [
+                'echo "SELECT 1" | ' . $binPath . 'highlight-query',
+                0,
+            ],
+            [
+                'echo "invalid query" | ' . $binPath . 'highlight-query',
+                0,
+            ],
+            [
+                'echo "SELECT 1" | ' . $binPath . 'lint-query',
+                0,
+            ],
+            [
+                'echo "invalid query" | ' . $binPath . 'lint-query',
+                10,
+            ],
+            [
+                'echo "SELECT 1" | ' . $binPath . 'tokenize-query',
+                0,
+            ],
+            [
+                'echo "invalid query" | ' . $binPath . 'tokenize-query',
+                0,
+            ],
         ];
     }
 }

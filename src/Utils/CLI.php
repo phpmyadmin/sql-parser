@@ -78,7 +78,7 @@ class CLI
 
             return 0;
         }
-        if (!isset($params['q'])) {
+        if (! isset($params['q'])) {
             if ($stdIn = $this->readStdin()) {
                 $params['q'] = $stdIn;
             }
@@ -134,7 +134,7 @@ class CLI
         if (isset($params['c'])) {
             Context::load($params['c']);
         }
-        if (!isset($params['q'])) {
+        if (! isset($params['q'])) {
             if ($stdIn = $this->readStdin()) {
                 $params['q'] = $stdIn;
             }
@@ -190,7 +190,7 @@ class CLI
 
             return 0;
         }
-        if (!isset($params['q'])) {
+        if (! isset($params['q'])) {
             if ($stdIn = $this->readStdin()) {
                 $params['q'] = $stdIn;
             }
@@ -218,7 +218,8 @@ class CLI
         return 1;
     }
 
-    private function readStdin() {
+    private function readStdin()
+    {
         stream_set_blocking(STDIN, false);
         $stdin = stream_get_contents(STDIN);
         // restore-default block-mode setting

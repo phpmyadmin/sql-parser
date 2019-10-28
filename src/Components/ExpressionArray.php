@@ -122,6 +122,6 @@ class ExpressionArray extends Component
             $ret[] = $frag::build($frag);
         }
 
-        return implode($ret, ', ');
+        return implode(', ', $ret);
     }
 }

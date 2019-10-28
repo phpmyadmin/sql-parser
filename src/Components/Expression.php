@@ -433,7 +433,7 @@ class Expression extends Component
     public static function build($component, array $options = [])
     {
         if (is_array($component)) {
-            return implode($component, ', ');
+            return implode(', ', $component);
         }
 
         if ($component->expr !== '' && ! is_null($component->expr)) {
