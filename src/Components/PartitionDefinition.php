@@ -170,10 +170,16 @@ class PartitionDefinition extends Component
                 $ret->name = $token->value;
 
                 // Looking ahead for a 'VALUES' keyword.
-                $idx = $list->idx;
-                $list->getNext();
-                $nextToken = $list->getNext();
-                $list->idx = $idx;
+                // Loop until the end of the partition name (delimited by a whitespace)
+                while ($nextToken = $list->tokens[++$list->idx]) {
+                    if ($nextToken->type === Token::TYPE_WHITESPACE) {
+                        break;
+                    }
+                    $ret->name .= $nextToken->value;
+                }
+                $idx = $list->idx--;
+                // Get the first token after the white space.
+                $nextToken = $list->tokens[++$idx];
 
                 $state = ($nextToken->type === Token::TYPE_KEYWORD)
                     && ($nextToken->value === 'VALUES')
