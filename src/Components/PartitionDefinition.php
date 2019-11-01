@@ -172,7 +172,7 @@ class PartitionDefinition extends Component
                 // Looking ahead for a 'VALUES' keyword.
                 // Loop until the end of the partition name (delimited by a whitespace)
                 while ($nextToken = $list->tokens[++$list->idx]) {
-                    if ($nextToken->type === Token::TYPE_WHITESPACE) {
+                    if ($nextToken->type !== Token::TYPE_NONE) {
                         break;
                     }
                     $ret->name .= $nextToken->value;
