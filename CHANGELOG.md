@@ -4,6 +4,7 @@
 * Fix for PHP deprecations messages about implode for php 7.4+ (#258)
 * Parse CHECK keyword on table definition (#264)
 * Parse truncate statement (#221)
+* Fix wrong parsing of partitions (#265)
 
 ## [5.0.0] - 2019-05-09
 
