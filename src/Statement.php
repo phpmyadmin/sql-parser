@@ -323,7 +323,7 @@ abstract class Statement
             // Fix Issue #221: As `truncate` is not a keyword
             // but it might be the beginning of a statement of truncate,
             // so let the value use the keyword field for truncate type.
-            $token_value = in_array($token->keyword, ['TRUNCATE']) ? $token->keyword : $token->value;
+            $token_value = in_array($token->keyword, array('TRUNCATE')) ? $token->keyword : $token->value;
             if (! empty(Parser::$KEYWORD_PARSERS[$token_value]) && $list->idx < $list->count) {
                 $class = Parser::$KEYWORD_PARSERS[$token_value]['class'];
                 $field = Parser::$KEYWORD_PARSERS[$token_value]['field'];
