@@ -1,6 +1,7 @@
 # Change Log
 
-## [Unreleased] -
+## [5.1.0] - 2019-11-12
+
 * Fix for PHP deprecations messages about implode for php 7.4+ (#258)
 * Parse CHECK keyword on table definition (#264)
 * Parse truncate statement (#221)
