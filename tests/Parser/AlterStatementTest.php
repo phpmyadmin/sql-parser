@@ -27,8 +27,11 @@ class AlterStatementTest extends TestCase
             array('parser/parseAlter6'),
             array('parser/parseAlter7'),
             array('parser/parseAlter8'),
+            array('parser/parseAlter9'),
+            array('parser/parseAlter10'),
             array('parser/parseAlterErr'),
-            array('parser/parseAlterErr2')
+            array('parser/parseAlterErr2'),
+            array('parser/parseAlterErr3')
         );
     }
 }
