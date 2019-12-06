@@ -71,6 +71,7 @@ class PurgeStatement extends Statement
          */
         $state = 0;
 
+        $prevToken = null;
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
