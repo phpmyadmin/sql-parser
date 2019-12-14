@@ -5,6 +5,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Misc;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\UtfString;
+use Throwable;
 
 class UtfStringTest extends TestCase
 {
@@ -40,7 +41,7 @@ class UtfStringTest extends TestCase
     public function testSet()
     {
         $this->expectExceptionMessage('Not implemented.');
-        $this->expectException(\Exception::class);
+        $this->expectException(Throwable::class);
         $str = new UtfString('');
         $str[0] = 'a';
     }
@@ -48,7 +49,7 @@ class UtfStringTest extends TestCase
     public function testUnset()
     {
         $this->expectExceptionMessage('Not implemented.');
-        $this->expectException(\Exception::class);
+        $this->expectException(Throwable::class);
         $str = new UtfString('');
         unset($str[0]);
     }

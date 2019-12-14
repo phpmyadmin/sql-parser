@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Utils\CLI;
 
 class CLITest extends TestCase
 {
@@ -22,7 +23,7 @@ class CLITest extends TestCase
      */
     public function testGetopt()
     {
-        $cli = new \PhpMyAdmin\SqlParser\Utils\CLI();
+        $cli = new CLI();
         $this->assertEquals(
             $cli->getopt('', []),
             []

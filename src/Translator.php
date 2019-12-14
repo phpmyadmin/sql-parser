@@ -6,12 +6,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use PhpMyAdmin\MoTranslator\Loader;
+
 class Translator
 {
     /**
      * The MoTranslator loader object.
      *
-     * @var \PhpMyAdmin\MoTranslator\Loader
+     * @var Loader
      */
     private static $loader;
 
@@ -29,7 +31,7 @@ class Translator
     {
         if (is_null(self::$loader)) {
             // Create loader object
-            self::$loader = new \PhpMyAdmin\MoTranslator\Loader();
+            self::$loader = new Loader();
 
             // Set locale
             self::$loader->setlocale(

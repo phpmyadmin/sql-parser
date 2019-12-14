@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Exceptions;
 
+use Exception;
 use PhpMyAdmin\SqlParser\Token;
 
 /**
@@ -15,7 +16,7 @@ use PhpMyAdmin\SqlParser\Token;
  *
  * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
-class ParserException extends \Exception
+class ParserException extends Exception
 {
     /**
      * The token that produced this error.

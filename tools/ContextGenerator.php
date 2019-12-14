@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tools;
 
+use Exception;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 /**
@@ -391,9 +393,9 @@ if (count($argv) >= 3) {
 
     // Checking if all directories are valid.
     if (! is_dir($input)) {
-        throw new \Exception('The input directory does not exist.');
+        throw new Exception('The input directory does not exist.');
     } elseif (! is_dir($output)) {
-        throw new \Exception('The output directory does not exist.');
+        throw new Exception('The output directory does not exist.');
     }
 
     // Finally, building the tests.

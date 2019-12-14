@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use Exception;
+
 class Core
 {
     /**
@@ -24,7 +26,7 @@ class Core
      * error might be false positive or a partial result (even a bad one)
      * might be needed.
      *
-     * @var \Exception[]
+     * @var Exception[]
      *
      * @see Core::error()
      */
@@ -33,9 +35,9 @@ class Core
     /**
      * Creates a new error log.
      *
-     * @param \Exception $error the error exception
+     * @param Exception $error the error exception
      *
-     * @throws \Exception throws the exception, if strict mode is enabled
+     * @throws Exception throws the exception, if strict mode is enabled
      */
     public function error($error)
     {

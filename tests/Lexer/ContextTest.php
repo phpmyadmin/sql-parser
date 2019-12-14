@@ -5,6 +5,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use Throwable;
 
 class ContextTest extends TestCase
 {
@@ -106,7 +107,7 @@ class ContextTest extends TestCase
     public function testLoadError()
     {
         $this->expectExceptionMessage('Specified context ("\PhpMyAdmin\SqlParser\Contexts\ContextFoo") does not exist.');
-        $this->expectException(\Exception::class);
+        $this->expectException(Throwable::class);
         Context::load('Foo');
     }
 

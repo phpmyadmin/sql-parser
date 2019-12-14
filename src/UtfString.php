@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use ArrayAccess;
+use Exception;
+
 /**
  * Implements array-like access for UTF-8 strings.
  *
@@ -22,7 +25,7 @@ namespace PhpMyAdmin\SqlParser;
  *
  * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
-class UtfString implements \ArrayAccess
+class UtfString implements ArrayAccess
 {
     /**
      * The raw, multi-byte string.
@@ -141,11 +144,11 @@ class UtfString implements \ArrayAccess
      * @param int    $offset the offset to be set
      * @param string $value  the value to be set
      *
-     * @throws \Exception not implemented
+     * @throws Exception not implemented
      */
     public function offsetSet($offset, $value)
     {
-        throw new \Exception('Not implemented.');
+        throw new Exception('Not implemented.');
     }
 
     /**
@@ -153,11 +156,11 @@ class UtfString implements \ArrayAccess
      *
      * @param int $offset the value to be unset
      *
-     * @throws \Exception not implemented
+     * @throws Exception not implemented
      */
     public function offsetUnset($offset)
     {
-        throw new \Exception('Not implemented.');
+        throw new Exception('Not implemented.');
     }
 
     /**

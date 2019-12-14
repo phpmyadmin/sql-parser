@@ -5,6 +5,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Formatter;
+use ReflectionMethod;
 
 class FormatterTest extends TestCase
 {
@@ -51,7 +52,7 @@ class FormatterTest extends TestCase
             'formats' => $overriding,
         ];
 
-        $reflectionMethod = new \ReflectionMethod($formatter, 'getMergedOptions');
+        $reflectionMethod = new ReflectionMethod($formatter, 'getMergedOptions');
         $reflectionMethod->setAccessible(true);
         $this->assertEquals($expectedOptions, $reflectionMethod->invoke($formatter, $overridingOptions));
     }

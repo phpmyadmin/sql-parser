@@ -5,6 +5,7 @@ namespace PhpMyAdmin\SqlParser\Tools;
 
 require_once '../vendor/autoload.php';
 
+use Exception;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 
@@ -111,7 +112,7 @@ class TestGenerator
     {
         // Support query types: `lexer` / `parser`.
         if (! in_array($type, ['lexer', 'parser'])) {
-            throw new \Exception('Unknown test type (expected `lexer` or `parser`).');
+            throw new Exception('Unknown test type (expected `lexer` or `parser`).');
         }
 
         /**
@@ -123,7 +124,7 @@ class TestGenerator
 
         // There is no point in generating a test without a query.
         if (empty($query)) {
-            throw new \Exception('No input query specified.');
+            throw new Exception('No input query specified.');
         }
 
         $test = static::generate($query, $type);
@@ -214,11 +215,11 @@ if (count($argv) >= 3) {
 
     // Checking if all directories are valid.
     if (! is_dir($input)) {
-        throw new \Exception('The input directory does not exist.');
+        throw new Exception('The input directory does not exist.');
     } elseif (! is_dir($output)) {
-        throw new \Exception('The output directory does not exist.');
+        throw new Exception('The output directory does not exist.');
     } elseif (($debug !== null) && (! is_dir($debug))) {
-        throw new \Exception('The debug directory does not exist.');
+        throw new Exception('The debug directory does not exist.');
     }
 
     // Finally, building the tests.
