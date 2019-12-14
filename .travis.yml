@@ -7,7 +7,6 @@ php:
   - 7.2
   - 7.3
   - 7.4
-  - nightly
 
 matrix:
   fast_finish: true
@@ -18,6 +17,9 @@ matrix:
       env: DOCS=yes
     - php: 7.1
       env: REQUIRE="phpmyadmin/motranslator:^3.0"
+    - php: nightly
+      install:
+        - composer install --no-interaction --ignore-platform-reqs
 
 sudo: false
 
