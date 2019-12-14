@@ -29,7 +29,7 @@ class Translator
      */
     public static function load()
     {
-        if (is_null(self::$loader)) {
+        if (self::$loader === null) {
             // Create loader object
             self::$loader = new Loader();
 
@@ -45,7 +45,7 @@ class Translator
             self::$loader->bindtextdomain('sqlparser', __DIR__ . '/../locale/');
         }
 
-        if (is_null(self::$translator)) {
+        if (self::$translator === null) {
             // Get translator
             self::$translator = self::$loader->getTranslator();
         }

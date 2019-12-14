@@ -122,7 +122,7 @@ class SetOperation extends Component
                         'breakOnAlias' => true,
                     ]
                 );
-                if (is_null($tmp)) {
+                if ($tmp === null) {
                     $parser->error('Missing expression.', $token);
                     break;
                 }

@@ -99,11 +99,11 @@ class Formatter
             $options['formats'] = $this->getDefaultFormats();
         }
 
-        if (is_null($options['line_ending'])) {
+        if ($options['line_ending'] === null) {
             $options['line_ending'] = $options['type'] === 'html' ? '<br/>' : "\n";
         }
 
-        if (is_null($options['indentation'])) {
+        if ($options['indentation'] === null) {
             $options['indentation'] = $options['type'] === 'html' ? '&nbsp;&nbsp;&nbsp;&nbsp;' : '    ';
         }
 

@@ -388,12 +388,12 @@ class CreateStatement extends Statement
                 . Expression::build($this->name) . ' '
                 . OptionsArray::build($this->entityOptions);
         } elseif ($this->options->has('TABLE')) {
-            if (! is_null($this->select)) {
+            if ($this->select !== null) {
                 return 'CREATE '
                     . OptionsArray::build($this->options) . ' '
                     . Expression::build($this->name) . ' '
                     . $this->select->build();
-            } elseif (! is_null($this->like)) {
+            } elseif ($this->like !== null) {
                 return 'CREATE '
                     . OptionsArray::build($this->options) . ' '
                     . Expression::build($this->name) . ' LIKE '
@@ -530,7 +530,7 @@ class CreateStatement extends Statement
                     ]
                 );
                 // The 'LIKE' keyword was found, but no table_name was found next to it
-                if (is_null($this->like)) {
+                if ($this->like === null) {
                     $parser->error(
                         'A table name was expected.',
                         $list->tokens[$list->idx]
@@ -653,10 +653,10 @@ class CreateStatement extends Statement
             if ($this->options->has('FUNCTION')) {
                 $prev_token = $token;
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
-                if (is_null($token) || $token->keyword !== 'RETURNS') {
+                if ($token === null || $token->keyword !== 'RETURNS') {
                     $parser->error(
                         'A "RETURNS" keyword was expected.',
-                        is_null($token) ? $prev_token : $token
+                        $token ?? $prev_token
                     );
                 } else {
                     ++$list->idx;

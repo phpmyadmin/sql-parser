@@ -31,7 +31,7 @@ class ContextTest extends TestCase
     public function testLoadClosest($context, $expected)
     {
         $this->assertEquals($expected, Context::loadClosest($context));
-        if (! is_null($expected)) {
+        if ($expected !== null) {
             $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\Context' . $expected, Context::$loadedContext);
             $this->assertTrue(class_exists(Context::$loadedContext));
         }

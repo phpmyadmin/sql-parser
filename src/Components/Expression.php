@@ -436,7 +436,7 @@ class Expression extends Component
             return implode(', ', $component);
         }
 
-        if ($component->expr !== '' && ! is_null($component->expr)) {
+        if ($component->expr !== '' && $component->expr !== null) {
             $ret = $component->expr;
         } else {
             $fields = [];
