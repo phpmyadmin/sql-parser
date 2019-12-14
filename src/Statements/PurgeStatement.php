@@ -50,7 +50,7 @@ class PurgeStatement extends Statement
      */
     public function build()
     {
-        $ret = 'PURGE ' . $this->log_type . ' ' . 'LOGS '
+        $ret = 'PURGE ' . $this->log_type . ' LOGS '
             . ($this->end_option !== null ? ($this->end_option . ' ' . $this->end_expr) : '');
         return trim($ret);
     }

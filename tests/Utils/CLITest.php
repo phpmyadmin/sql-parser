@@ -78,7 +78,7 @@ class CLITest extends TestCase
                     'q' => 'SELECT 1',
                     'f' => 'html',
                 ],
-                '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                '<span class="sql-reserved">SELECT</span><br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>' . "\n",
                 0,
             ],
