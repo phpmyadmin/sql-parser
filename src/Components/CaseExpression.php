@@ -216,7 +216,7 @@ class CaseExpression extends Component
                 if ($token->type === Token::TYPE_DELIMITER) {
                     break;
                 }
-                
+
                 // Skipping whitespaces and comments.
                 if (($token->type === Token::TYPE_WHITESPACE)
                     || ($token->type === Token::TYPE_COMMENT)

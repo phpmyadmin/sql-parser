@@ -84,7 +84,7 @@ class CreateDefinition extends Component
             12,
             'expr',
             ['parenthesesDelimited' => true],
-        ]
+        ],
         // Common entries.
         //
         // NOTE: Some of the common options are not in the same order which
