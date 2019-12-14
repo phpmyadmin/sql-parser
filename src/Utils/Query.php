@@ -441,7 +441,7 @@ class Query
                     } else {
                         $arr = [
                             $expr->table,
-                            (isset($expr->database) && ($expr->database !== '')) ?
+                            isset($expr->database) && ($expr->database !== '') ?
                                 $expr->database : null,
                         ];
                     }
@@ -461,7 +461,7 @@ class Query
                     if (isset($expr->table) && ($expr->table !== '')) {
                         $arr = [
                             $expr->table,
-                            (isset($expr->database) && ($expr->database !== '')) ?
+                            isset($expr->database) && ($expr->database !== '') ?
                                 $expr->database : null,
                         ];
                         if (! in_array($arr, $ret['select_tables'])) {

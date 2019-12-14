@@ -552,7 +552,7 @@ abstract class Statement
                 $minIdx = $clauseStartIdx;
             }
 
-            $lastIdx = ($clauseStartIdx !== -1) ? $clauseStartIdx : $lastIdx;
+            $lastIdx = $clauseStartIdx !== -1 ? $clauseStartIdx : $lastIdx;
         }
 
         return true;

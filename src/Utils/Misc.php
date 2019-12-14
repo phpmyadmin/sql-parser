@@ -59,7 +59,7 @@ class Misc
                 continue;
             }
 
-            $thisDb = (isset($expr->database) && ($expr->database !== '')) ?
+            $thisDb = isset($expr->database) && ($expr->database !== '') ?
                 $expr->database : $database;
 
             if (! isset($retval[$thisDb])) {
@@ -71,7 +71,7 @@ class Misc
 
             if (! isset($retval[$thisDb]['tables'][$expr->table])) {
                 $retval[$thisDb]['tables'][$expr->table] = [
-                    'alias' => (isset($expr->alias) && ($expr->alias !== '')) ?
+                    'alias' => isset($expr->alias) && ($expr->alias !== '') ?
                         $expr->alias : null,
                     'columns' => [],
                 ];
@@ -89,7 +89,7 @@ class Misc
                 continue;
             }
 
-            $thisDb = (isset($expr->database) && ($expr->database !== '')) ?
+            $thisDb = isset($expr->database) && ($expr->database !== '') ?
                 $expr->database : $database;
 
             if (isset($expr->table) && ($expr->table !== '')) {

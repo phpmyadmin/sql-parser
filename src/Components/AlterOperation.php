@@ -318,7 +318,7 @@ class AlterOperation extends Component
     public static function build($component, array $options = [])
     {
         $ret = $component->options . ' ';
-        if ((isset($component->field)) && ($component->field !== '')) {
+        if (isset($component->field) && ($component->field !== '')) {
             $ret .= $component->field . ' ';
         }
         $ret .= TokensList::build($component->unknown);

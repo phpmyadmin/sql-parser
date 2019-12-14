@@ -622,7 +622,7 @@ class CreateStatement extends Statement
                         }
 
                         // Building the expression used for partitioning.
-                        $this->$field .= ($token->type === Token::TYPE_WHITESPACE) ? ' ' : $token->token;
+                        $this->$field .= $token->type === Token::TYPE_WHITESPACE ? ' ' : $token->token;
 
                         // Last bracket was read, the expression ended.
                         // Comparing with `0` and not `false`, because `false` means

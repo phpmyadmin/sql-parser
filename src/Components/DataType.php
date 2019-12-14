@@ -136,7 +136,7 @@ class DataType extends Component
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $parameters = ArrayObj::parse($parser, $list);
                     ++$list->idx;
-                    $ret->parameters = (($ret->name === 'ENUM') || ($ret->name === 'SET')) ?
+                    $ret->parameters = ($ret->name === 'ENUM') || ($ret->name === 'SET') ?
                         $parameters->raw : $parameters->values;
                 }
                 $ret->options = OptionsArray::parse($parser, $list, static::$DATA_TYPE_OPTIONS);

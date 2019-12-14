@@ -161,7 +161,7 @@ class Key extends Component
                     if ($token->value === '(') {
                         $state = 3;
                     } elseif (($token->value === ',') || ($token->value === ')')) {
-                        $state = ($token->value === ',') ? 2 : 4;
+                        $state = $token->value === ',' ? 2 : 4;
                         if (! empty($lastColumn)) {
                             $ret->columns[] = $lastColumn;
                             $lastColumn = [];

@@ -339,7 +339,7 @@ abstract class Context
         if ($str[0] === '#') {
             return Token::FLAG_COMMENT_BASH;
         } elseif (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
-            return (($len > 2) && ($str[2] === '!')) ?
+            return ($len > 2) && ($str[2] === '!') ?
                 Token::FLAG_COMMENT_MYSQL_CMD : Token::FLAG_COMMENT_C;
         } elseif (($len > 1) && ($str[0] === '*') && ($str[1] === '/')) {
             return Token::FLAG_COMMENT_C;
@@ -385,7 +385,7 @@ abstract class Context
      */
     public static function isNumber($str)
     {
-        return (($str >= '0') && ($str <= '9')) || ($str === '.')
+        return ($str >= '0') && ($str <= '9') || ($str === '.')
             || ($str === '-') || ($str === '+') || ($str === 'e') || ($str === 'E');
     }
 

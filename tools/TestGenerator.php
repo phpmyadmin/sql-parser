@@ -41,7 +41,7 @@ class TestGenerator
          *
          * @var Parser
          */
-        $parser = ($type === 'parser') ? new Parser($lexer->list) : null;
+        $parser = $type === 'parser' ? new Parser($lexer->list) : null;
 
         /**
          * Lexer's errors.
@@ -158,7 +158,7 @@ class TestGenerator
             // Appending the filename to directories.
             $inputFile = $input . '/' . $file;
             $outputFile = $output . '/' . $file;
-            $debugFile = ($debug !== null) ? $debug . '/' . $file : null;
+            $debugFile = $debug !== null ? $debug . '/' . $file : null;
 
             if (is_dir($inputFile)) {
                 // Creating required directories to maintain the structure.

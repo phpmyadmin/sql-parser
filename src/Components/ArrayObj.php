@@ -160,7 +160,7 @@ class ArrayObj extends Component
         //      (a)  => array('a')
         //
         $lastRaw = trim($lastRaw);
-        if ((empty($options['type']))
+        if (empty($options['type'])
             && ((strlen($lastRaw) > 0) || ($isCommaLast))
         ) {
             $ret->raw[] = $lastRaw;
