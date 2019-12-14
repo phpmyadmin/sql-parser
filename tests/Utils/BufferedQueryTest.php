@@ -9,10 +9,10 @@ use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 class BufferedQueryTest extends TestCase
 {
     /**
-     * @dataProvider extractProvider
-     *
      * @param mixed $query
      * @param mixed $chunkSize
+     *
+     * @dataProvider extractProvider
      */
     public function testExtract(
         $query,

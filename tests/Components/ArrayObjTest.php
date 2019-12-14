@@ -38,9 +38,9 @@ class ArrayObjTest extends TestCase
     }
 
     /**
-     * @dataProvider parseProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider parseProvider
      */
     public function testParse($test)
     {

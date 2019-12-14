@@ -15,10 +15,6 @@ use PhpMyAdmin\SqlParser\TokensList;
  * Not implemented (yet) statements.
  *
  * The `after` function makes the parser jump straight to the first delimiter.
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class NotImplementedStatement extends Statement
 {

@@ -14,10 +14,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Parses a reference to a CASE expression.
- *
- * @category   Components
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CaseExpression extends Component
 {
@@ -70,9 +66,6 @@ class CaseExpression extends Component
      */
     public $expr = '';
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
     }

@@ -14,10 +14,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * The definition of a parameter of a function or procedure.
- *
- * @category   Components
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ParameterDefinition extends Component
 {
@@ -43,8 +39,6 @@ class ParameterDefinition extends Component
     public $type;
 
     /**
-     * Constructor.
-     *
      * @param string   $name  parameter's name
      * @param string   $inOut parameter's directional type (IN / OUT or None)
      * @param DataType $type  parameter's type

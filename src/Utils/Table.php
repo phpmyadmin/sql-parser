@@ -10,10 +10,6 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 /**
  * Table utilities.
- *
- * @category   Statement
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Table
 {

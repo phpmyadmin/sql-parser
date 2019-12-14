@@ -18,10 +18,6 @@ use PhpMyAdmin\SqlParser\TokensList;
  *
  * They follow the syntax:
  *     STMT [some options] tbl_name [, tbl_name] ... [some more options]
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class MaintenanceStatement extends Statement
 {

@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class LockStatementTest extends TestCase
 {
     /**
-     * @dataProvider lockProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider lockProvider
      */
     public function testLock($test)
     {

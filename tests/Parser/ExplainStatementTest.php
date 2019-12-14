@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class ExplainStatementTest extends TestCase
 {
     /**
-     * @dataProvider explainProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider explainProvider
      */
     public function testExplain($test)
     {

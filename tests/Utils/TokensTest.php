@@ -10,12 +10,12 @@ use PhpMyAdmin\SqlParser\Utils\Tokens;
 class TokensTest extends TestCase
 {
     /**
-     * @dataProvider replaceTokensProvider
-     *
      * @param mixed $list
      * @param mixed $find
      * @param mixed $replace
      * @param mixed $expected
+     *
+     * @dataProvider replaceTokensProvider
      */
     public function testReplaceTokens($list, $find, $replace, $expected)
     {
@@ -41,11 +41,11 @@ class TokensTest extends TestCase
     }
 
     /**
-     * @dataProvider matchProvider
-     *
      * @param mixed $token
      * @param mixed $pattern
      * @param mixed $expected
+     *
+     * @dataProvider matchProvider
      */
     public function testMatch($token, $pattern, $expected)
     {

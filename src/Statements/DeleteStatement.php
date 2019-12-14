@@ -41,11 +41,6 @@ use PhpMyAdmin\SqlParser\TokensList;
  *   FROM tbl_name[.*] [, tbl_name[.*]] ...
  *   USING table_references
  *   [WHERE where_condition]
- *
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class DeleteStatement extends Statement
 {

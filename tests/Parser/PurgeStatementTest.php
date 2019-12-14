@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class PurgeStatementTest extends TestCase
 {
     /**
-     * @dataProvider purgeProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider purgeProvider
      */
     public function testPurge($test)
     {

@@ -13,10 +13,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `SET` keyword parser.
- *
- * @category   Keywords
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class SetOperation extends Component
 {
@@ -35,8 +31,6 @@ class SetOperation extends Component
     public $value;
 
     /**
-     * Constructor.
-     *
      * @param string $column Field's name..
      * @param string $value  new value
      */

@@ -12,10 +12,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Token utilities.
- *
- * @category   Token
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Tokens
 {

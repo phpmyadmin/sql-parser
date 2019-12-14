@@ -17,10 +17,6 @@ use PhpMyAdmin\SqlParser\TokensList;
  * Parses the create definition of a partition.
  *
  * Used for parsing `CREATE TABLE` statement.
- *
- * @category   Components
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class PartitionDefinition extends Component
 {

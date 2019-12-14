@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class RestoreStatementTest extends TestCase
 {
     /**
-     * @dataProvider restoreProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider restoreProvider
      */
     public function testRestore($test)
     {

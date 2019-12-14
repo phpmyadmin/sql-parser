@@ -10,9 +10,9 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 class RoutineTest extends TestCase
 {
     /**
-     * @dataProvider getReturnTypeProvider
-     *
      * @param mixed $def
+     *
+     * @dataProvider getReturnTypeProvider
      */
     public function testGetReturnType($def, array $expected)
     {
@@ -106,9 +106,9 @@ class RoutineTest extends TestCase
     }
 
     /**
-     * @dataProvider getParameterProvider
-     *
      * @param mixed $def
+     *
+     * @dataProvider getParameterProvider
      */
     public function testGetParameter($def, array $expected)
     {
@@ -202,9 +202,9 @@ class RoutineTest extends TestCase
     }
 
     /**
-     * @dataProvider getParametersProvider
-     *
      * @param mixed $query
+     *
+     * @dataProvider getParametersProvider
      */
     public function testGetParameters($query, array $expected)
     {

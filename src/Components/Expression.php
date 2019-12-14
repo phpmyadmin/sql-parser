@@ -16,10 +16,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 /**
  * Parses a reference to an expression (column, table or database name, function
  * call, mathematical expression, etc.).
- *
- * @category   Components
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Expression extends Component
 {
@@ -92,8 +88,6 @@ class Expression extends Component
     public $subquery;
 
     /**
-     * Constructor.
-     *
      * Syntax:
      *     new Expression('expr')
      *     new Expression('expr', 'alias')

@@ -31,11 +31,11 @@ class CLITest extends TestCase
     }
 
     /**
-     * @dataProvider highlightParams
-     *
      * @param mixed $getopt
      * @param mixed $output
      * @param mixed $result
+     *
+     * @dataProvider highlightParams
      */
     public function testRunHighlight($getopt, $output, $result)
     {
@@ -104,11 +104,11 @@ class CLITest extends TestCase
     }
 
     /**
-     * @dataProvider lintParams
-     *
      * @param mixed $getopt
      * @param mixed $output
      * @param mixed $result
+     *
+     * @dataProvider lintParams
      */
     public function testRunLint($getopt, $output, $result)
     {
@@ -159,11 +159,11 @@ class CLITest extends TestCase
     }
 
     /**
-     * @dataProvider tokenizeParams
-     *
      * @param mixed $getopt
      * @param mixed $output
      * @param mixed $result
+     *
+     * @dataProvider tokenizeParams
      */
     public function testRunTokenize($getopt, $output, $result)
     {
@@ -212,10 +212,10 @@ class CLITest extends TestCase
     }
 
     /**
-     * @dataProvider stdinParams
-     *
      * @param string $cmd
-     * @param int $result
+     * @param int    $result
+     *
+     * @dataProvider stdinParams
      */
     public function testStdinPipe($cmd, $result)
     {

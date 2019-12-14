@@ -249,9 +249,9 @@ EOT
     }
 
     /**
-     * @dataProvider partitionQueries
-     *
      * @param string $query
+     *
+     * @dataProvider partitionQueries
      */
     public function testBuilderPartitionsEngine($query)
     {

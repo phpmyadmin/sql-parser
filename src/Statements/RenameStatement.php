@@ -17,10 +17,6 @@ use PhpMyAdmin\SqlParser\TokensList;
  *
  * RENAME TABLE tbl_name TO new_tbl_name
  *  [, tbl_name2 TO new_tbl_name2] ...
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class RenameStatement extends Statement
 {

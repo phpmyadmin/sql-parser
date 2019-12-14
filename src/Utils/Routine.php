@@ -14,10 +14,6 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 /**
  * Routine utilities.
- *
- * @category   Routines
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Routine
 {

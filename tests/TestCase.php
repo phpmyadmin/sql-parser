@@ -15,10 +15,6 @@ $GLOBALS['lang'] = 'en';
 
 /**
  * Implements useful methods for testing.
- *
- * @category   Tests
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 abstract class TestCase extends BaseTestCase
 {

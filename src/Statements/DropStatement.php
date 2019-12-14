@@ -11,10 +11,6 @@ use PhpMyAdmin\SqlParser\Statement;
 
 /**
  * `DROP` statement.
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class DropStatement extends Statement
 {

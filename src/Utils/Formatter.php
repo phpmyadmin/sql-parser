@@ -14,10 +14,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Utilities that are used for formatting queries.
- *
- * @category   Misc
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Formatter
 {
@@ -70,8 +66,6 @@ class Formatter
     ];
 
     /**
-     * Constructor.
-     *
      * @param array $options the formatting options
      */
     public function __construct(array $options = [])

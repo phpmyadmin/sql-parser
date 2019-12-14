@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class BugsTest extends TestCase
 {
     /**
-     * @dataProvider bugProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider bugProvider
      */
     public function testBug($test)
     {

@@ -27,10 +27,6 @@ use PhpMyAdmin\SqlParser\Statement;
  * UPDATE [LOW_PRIORITY] [IGNORE] table_references
  *     SET col_name1={expr1|DEFAULT} [, col_name2={expr2|DEFAULT}] ...
  *     [WHERE where_condition]
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class UpdateStatement extends Statement
 {

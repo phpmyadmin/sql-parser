@@ -13,10 +13,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `GROUP BY` keyword parser.
- *
- * @category   Keywords
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class GroupKeyword extends Component
 {
@@ -28,8 +24,6 @@ class GroupKeyword extends Component
     public $expr;
 
     /**
-     * Constructor.
-     *
      * @param Expression $expr the expression that we are sorting by
      */
     public function __construct($expr = null)

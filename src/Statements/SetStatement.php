@@ -12,10 +12,6 @@ use PhpMyAdmin\SqlParser\Statement;
 
 /**
  * `SET` statement.
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class SetStatement extends Statement
 {
@@ -79,9 +75,9 @@ class SetStatement extends Statement
     /**
      * The end options of this query.
      *
-     * @var OptionsArray
-     *
      * @see static::$END_OPTIONS
+     *
+     * @var OptionsArray
      */
     public $end_options;
 

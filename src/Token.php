@@ -11,10 +11,6 @@ namespace PhpMyAdmin\SqlParser;
 /**
  * A structure representing a lexeme that explicitly indicates its
  * categorization for the purpose of parsing.
- *
- * @category Tokens
- *
- * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Token
 {
@@ -215,8 +211,6 @@ class Token
     public $position;
 
     /**
-     * Constructor.
-     *
      * @param string $token the value of the token
      * @param int    $type  the type of the token
      * @param int    $flags the flags of the token

@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class DeleteStatementTest extends TestCase
 {
     /**
-     * @dataProvider deleteProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider deleteProvider
      */
     public function testDelete($test)
     {

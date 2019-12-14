@@ -13,10 +13,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Parses an Index hint.
- *
- * @category   Components
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class IndexHint extends Component
 {
@@ -49,8 +45,6 @@ class IndexHint extends Component
     public $indexes = [];
 
     /**
-     * Constructor.
-     *
      * @param string $type       the type of hint (USE/FORCE/IGNORE)
      * @param string $indexOrKey What the hint is for (INDEX/KEY)
      * @param string $for        the clause for which this hint is (JOIN/ORDER BY/GROUP BY)
@@ -86,6 +80,7 @@ class IndexHint extends Component
          *      2 -------------------- [ expr_list ] --------------------> 0
          *      3 -------------- [ JOIN/GROUP BY/ORDER BY ] -------------> 4
          *      4 -------------------- [ expr_list ] --------------------> 0
+         *
          * @var int
          */
         $state = 0;

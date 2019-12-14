@@ -10,10 +10,6 @@ namespace PhpMyAdmin\SqlParser\Statements;
  * `BACKUP` statement.
  *
  * BACKUP TABLE tbl_name [, tbl_name] ... TO '/path/to/backup/directory'
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class BackupStatement extends MaintenanceStatement
 {

@@ -16,10 +16,6 @@ use Exception;
 /**
  * A component (of a statement) is a part of a statement that is common to
  * multiple query types.
- *
- * @category Components
- *
- * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 abstract class Component
 {
@@ -31,9 +27,9 @@ abstract class Component
      * @param TokensList $list    the list of tokens that are being parsed
      * @param array      $options parameters for parsing
      *
-     * @throws Exception not implemented yet
-     *
      * @return mixed
+     *
+     * @throws Exception not implemented yet.
      */
     public static function parse(
         Parser $parser,
@@ -54,9 +50,9 @@ abstract class Component
      * @param mixed $component the component to be built
      * @param array $options   parameters for building
      *
-     * @throws Exception not implemented yet
+     * @return mixed
      *
-     * @return string
+     * @throws Exception not implemented yet.
      */
     public static function build($component, array $options = [])
     {

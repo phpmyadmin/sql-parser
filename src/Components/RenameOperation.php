@@ -13,10 +13,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `RENAME TABLE` keyword parser.
- *
- * @category   Keywords
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class RenameOperation extends Component
 {
@@ -35,8 +31,6 @@ class RenameOperation extends Component
     public $new;
 
     /**
-     * Constructor.
-     *
      * @param Expression $old old expression
      * @param Expression $new new expression containing new name
      */

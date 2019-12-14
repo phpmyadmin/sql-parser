@@ -13,10 +13,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * Parses a data type.
- *
- * @category   Components
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class DataType extends Component
 {
@@ -73,8 +69,6 @@ class DataType extends Component
     public $options;
 
     /**
-     * Constructor.
-     *
      * @param string       $name       the name of this data type
      * @param array        $parameters the parameters (size or possible values)
      * @param OptionsArray $options    the options of this data type

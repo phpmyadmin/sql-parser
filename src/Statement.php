@@ -14,10 +14,6 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 
 /**
  * Abstract statement definition.
- *
- * @category Statements
- *
- * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 abstract class Statement
 {
@@ -61,9 +57,9 @@ abstract class Statement
     /**
      * The options of this query.
      *
-     * @var OptionsArray
-     *
      * @see static::$OPTIONS
+     *
+     * @var OptionsArray
      */
     public $options;
 
@@ -82,8 +78,6 @@ abstract class Statement
     public $last;
 
     /**
-     * Constructor.
-     *
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      */

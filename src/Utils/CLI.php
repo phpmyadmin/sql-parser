@@ -12,10 +12,6 @@ use PhpMyAdmin\SqlParser\Parser;
 
 /**
  * CLI interface.
- *
- * @category   Exceptions
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CLI
 {

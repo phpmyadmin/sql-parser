@@ -13,10 +13,6 @@ use PhpMyAdmin\SqlParser\Exceptions\LoaderException;
 
 /**
  * Holds the configuration of the context that is currently used.
- *
- * @category Contexts
- *
- * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 abstract class Context
 {
@@ -468,7 +464,7 @@ abstract class Context
      * @param string $context name of the context or full class name that
      *                        defines the context
      *
-     * @throws LoaderException if the specified context doesn't exist
+     * @throws LoaderException if the specified context doesn't exist.
      */
     public static function load($context = '')
     {

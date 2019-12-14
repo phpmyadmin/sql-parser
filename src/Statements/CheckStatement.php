@@ -10,10 +10,6 @@ namespace PhpMyAdmin\SqlParser\Statements;
  * `CHECK` statement.
  *
  * CHECK TABLE tbl_name [, tbl_name] ... [option] ...
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CheckStatement extends MaintenanceStatement
 {

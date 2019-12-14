@@ -10,9 +10,9 @@ use PhpMyAdmin\SqlParser\Utils\Table;
 class TableTest extends TestCase
 {
     /**
-     * @dataProvider getForeignKeysProvider
-     *
      * @param mixed $query
+     *
+     * @dataProvider getForeignKeysProvider
      */
     public function testGetForeignKeys($query, array $expected)
     {
@@ -112,9 +112,9 @@ class TableTest extends TestCase
     }
 
     /**
-     * @dataProvider getFieldsProvider
-     *
      * @param mixed $query
+     *
+     * @dataProvider getFieldsProvider
      */
     public function testGetFields($query, array $expected)
     {

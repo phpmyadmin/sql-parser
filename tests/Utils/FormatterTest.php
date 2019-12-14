@@ -10,11 +10,11 @@ use ReflectionMethod;
 class FormatterTest extends TestCase
 {
     /**
-     * @dataProvider mergeFormats
-     *
      * @param mixed $default
      * @param mixed $overriding
      * @param mixed $expected
+     *
+     * @dataProvider mergeFormats
      */
     public function testMergeFormats($default, $overriding, $expected)
     {
@@ -235,12 +235,12 @@ class FormatterTest extends TestCase
     }
 
     /**
-     * @dataProvider formatQueries
-     *
      * @param mixed $query
      * @param mixed $text
      * @param mixed $cli
      * @param mixed $html
+     *
+     * @dataProvider formatQueries
      */
     public function testFormat($query, $text, $cli, $html, array $options = [])
     {

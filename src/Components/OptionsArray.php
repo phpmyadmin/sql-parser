@@ -14,10 +14,6 @@ use PhpMyAdmin\SqlParser\Translator;
 
 /**
  * Parses a list of options.
- *
- * @category   Components
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class OptionsArray extends Component
 {
@@ -29,8 +25,6 @@ class OptionsArray extends Component
     public $options = [];
 
     /**
-     * Constructor.
-     *
      * @param array $options The array of options. Options that have a value
      *                       must be an array with at least two keys `name` and
      *                       `expr` or `value`.

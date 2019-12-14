@@ -17,10 +17,6 @@ use PhpMyAdmin\SqlParser\TokensList;
  *
  * PURGE { BINARY | MASTER } LOGS
  *   { TO 'log_name' | BEFORE datetime_expr }
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class PurgeStatement extends Statement
 {

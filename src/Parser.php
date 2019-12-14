@@ -15,10 +15,6 @@ use PhpMyAdmin\SqlParser\Statements\TransactionStatement;
 /**
  * Takes multiple tokens (contained in a Lexer instance) as input and builds a
  * parse tree.
- *
- * @category Parser
- *
- * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Parser extends Core
 {
@@ -356,8 +352,6 @@ class Parser extends Core
     public $brackets = 0;
 
     /**
-     * Constructor.
-     *
      * @param string|UtfString|TokensList $list   the list of tokens to be parsed
      * @param bool                        $strict whether strict mode should be enabled or not
      */
@@ -597,7 +591,7 @@ class Parser extends Core
      * @param Token  $token the token that produced the error
      * @param int    $code  the code of the error
      *
-     * @throws ParserException throws the exception, if strict mode is enabled
+     * @throws ParserException throws the exception, if strict mode is enabled.
      */
     public function error($msg, Token $token = null, $code = 0)
     {

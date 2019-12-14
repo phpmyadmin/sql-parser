@@ -20,10 +20,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `CREATE` statement.
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class CreateStatement extends Statement
 {
@@ -261,11 +257,11 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE TABLE`, `CREATE FUNCTION` and `CREATE PROCEDURE`.
      *
-     * @var OptionsArray
-     *
      * @see static::$TABLE_OPTIONS
      * @see static::$FUNC_OPTIONS
      * @see static::$TRIGGER_OPTIONS
+     *
+     * @var OptionsArray
      */
     public $entityOptions;
 

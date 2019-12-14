@@ -22,10 +22,10 @@ class ExpressionTest extends TestCase
     }
 
     /**
-     * @dataProvider parseErrProvider
-     *
      * @param mixed $expr
      * @param mixed $error
+     *
+     * @dataProvider parseErrProvider
      */
     public function testParseErr($expr, $error)
     {

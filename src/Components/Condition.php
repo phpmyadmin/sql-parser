@@ -13,10 +13,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `WHERE` keyword parser.
- *
- * @category   Keywords
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Condition extends Component
 {
@@ -81,8 +77,6 @@ class Condition extends Component
     public $expr;
 
     /**
-     * Constructor.
-     *
      * @param string $expr the condition or the operator
      */
     public function __construct($expr = null)

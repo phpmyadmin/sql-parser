@@ -33,10 +33,6 @@ if (! defined('USE_UTF_STRINGS')) {
  *
  * The output of the lexer is affected by the context of the SQL statement.
  *
- * @category Lexer
- *
- * @license  https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
- *
  * @see      Context
  */
 class Lexer extends Core
@@ -158,8 +154,6 @@ class Lexer extends Core
     }
 
     /**
-     * Constructor.
-     *
      * @param string|UtfString $str       the query to be lexed
      * @param bool             $strict    whether strict mode should be
      *                                    enabled or not
@@ -353,7 +347,7 @@ class Lexer extends Core
      * @param int    $pos  the position of the character
      * @param int    $code the code of the error
      *
-     * @throws LexerException throws the exception, if strict mode is enabled
+     * @throws LexerException throws the exception, if strict mode is enabled.
      */
     public function error($msg, $str = '', $pos = 0, $code = 0)
     {

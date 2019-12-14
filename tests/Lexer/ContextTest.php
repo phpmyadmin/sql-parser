@@ -75,9 +75,9 @@ class ContextTest extends TestCase
     }
 
     /**
-     * @dataProvider contextNames
-     *
      * @param mixed $context
+     *
+     * @dataProvider contextNames
      */
     public function testLoadAll($context)
     {

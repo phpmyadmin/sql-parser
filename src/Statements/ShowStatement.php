@@ -8,10 +8,6 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 /**
  * `SHOW` statement.
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ShowStatement extends NotImplementedStatement
 {

@@ -10,10 +10,6 @@ use Exception;
 
 /**
  * Exception thrown by the lexer.
- *
- * @category   Exceptions
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class LoaderException extends Exception
 {
@@ -25,8 +21,6 @@ class LoaderException extends Exception
     public $name;
 
     /**
-     * Constructor.
-     *
      * @param string $msg  the message of this exception
      * @param string $name the character that produced this exception
      * @param int    $code the code of this error

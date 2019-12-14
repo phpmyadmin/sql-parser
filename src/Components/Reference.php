@@ -14,10 +14,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `REFERENCES` keyword parser.
- *
- * @category   Keywords
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class Reference extends Component
 {
@@ -63,8 +59,6 @@ class Reference extends Component
     public $options;
 
     /**
-     * Constructor.
-     *
      * @param Expression   $table   the name of the table referenced
      * @param array        $columns the columns referenced
      * @param OptionsArray $options the options

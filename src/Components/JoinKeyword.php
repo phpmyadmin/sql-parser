@@ -13,10 +13,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `JOIN` keyword parser.
- *
- * @category   Keywords
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class JoinKeyword extends Component
 {
@@ -74,14 +70,12 @@ class JoinKeyword extends Component
     public $using;
 
     /**
-     * Constructor.
+     * @see JoinKeyword::$JOINS
      *
      * @param string      $type  Join type
      * @param Expression  $expr  join expression
      * @param Condition[] $on    join conditions
      * @param ArrayObj    $using columns joined
-     *
-     * @see JoinKeyword::$JOINS
      */
     public function __construct($type = null, $expr = null, $on = null, $using = null)
     {

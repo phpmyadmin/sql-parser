@@ -9,10 +9,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 /**
  * Used for context generation.
- *
- * @category   Contexts
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ContextGenerator
 {
@@ -384,7 +380,6 @@ class ContextGenerator
 //
 // Input data must be in the `data` folder.
 // The output will be generated in the same `data` folder.
-//
 if (count($argv) >= 3) {
     // Extracting directories' name from command line and trimming unnecessary
     // slashes at the end.

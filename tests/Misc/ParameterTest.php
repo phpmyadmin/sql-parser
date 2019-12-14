@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class ParameterTest extends TestCase
 {
     /**
-     * @dataProvider parameterProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider parameterProvider
      */
     public function testParameter($test)
     {

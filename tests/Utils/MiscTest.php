@@ -10,10 +10,10 @@ use PhpMyAdmin\SqlParser\Utils\Misc;
 class MiscTest extends TestCase
 {
     /**
-     * @dataProvider getAliasesProvider
-     *
      * @param mixed $query
      * @param mixed $db
+     *
+     * @dataProvider getAliasesProvider
      */
     public function testGetAliases($query, $db, array $expected)
     {

@@ -11,10 +11,6 @@ use PhpMyAdmin\SqlParser\Parser;
 
 /**
  * Used for test generation.
- *
- * @category   Tests
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class TestGenerator
 {
@@ -205,7 +201,6 @@ class TestGenerator
 //
 // Input data must be in the `../tests/data` folder.
 // The output will be generated in the same `../tests/data` folder.
-//
 if (count($argv) >= 3) {
     // Extracting directories' name from command line and trimming unnecessary
     // slashes at the end.

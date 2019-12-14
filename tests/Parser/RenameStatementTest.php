@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class RenameStatementTest extends TestCase
 {
     /**
-     * @dataProvider renameProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider renameProvider
      */
     public function testRename($test)
     {

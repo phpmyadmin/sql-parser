@@ -36,11 +36,6 @@ use PhpMyAdmin\SqlParser\TokensList;
  *   [IGNORE number {LINES | ROWS}]
  *   [(col_name_or_user_var,...)]
  *   [SET col_name = expr,...]
- *
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class LoadStatement extends Statement
 {
@@ -123,9 +118,9 @@ class LoadStatement extends Statement
     /**
      * Options for FIELDS/COLUMNS keyword.
      *
-     * @var OptionsArray
-     *
      * @see static::$FIELDS_OPTIONS
+     *
+     * @var OptionsArray
      */
     public $fields_options;
 
@@ -139,9 +134,9 @@ class LoadStatement extends Statement
     /**
      * Options for OPTIONS keyword.
      *
-     * @var OptionsArray
-     *
      * @see static::$LINES_OPTIONS
+     *
+     * @var OptionsArray
      */
     public $lines_options;
 

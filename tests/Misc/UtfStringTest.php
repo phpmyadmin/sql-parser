@@ -84,11 +84,11 @@ class UtfStringTest extends TestCase
     /**
      * Test access to string.
      *
-     * @dataProvider utf8Strings
-     *
      * @param mixed $text
      * @param mixed $pos10
      * @param mixed $pos20
+     *
+     * @dataProvider utf8Strings
      */
     public function testAccess($text, $pos10, $pos20)
     {

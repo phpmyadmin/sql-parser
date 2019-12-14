@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class CallStatementTest extends TestCase
 {
     /**
-     * @dataProvider callProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider callProvider
      */
     public function testCall($test)
     {

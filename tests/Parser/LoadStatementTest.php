@@ -17,9 +17,9 @@ class LoadStatementTest extends TestCase
     }
 
     /**
-     * @dataProvider loadProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider loadProvider
      */
     public function testLoad($test)
     {

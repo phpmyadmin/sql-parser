@@ -12,10 +12,6 @@ namespace PhpMyAdmin\SqlParser\Statements;
  * REPAIR [NO_WRITE_TO_BINLOG | LOCAL] TABLE
  *  tbl_name [, tbl_name] ...
  *  [QUICK] [EXTENDED] [USE_FRM]
- *
- * @category   Statements
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class RepairStatement extends MaintenanceStatement
 {

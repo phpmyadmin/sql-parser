@@ -8,9 +8,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class ReplaceStatementTest extends TestCase
 {
     /**
-     * @dataProvider replaceProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider replaceProvider
      */
     public function testReplace($test)
     {
