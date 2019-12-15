@@ -488,7 +488,7 @@ class Formatter
                 // Finishing the line.
                 if ($lineEnded) {
                     $ret .= $this->options['line_ending']
-                        . str_repeat($this->options['indentation'], $indent);
+                        . str_repeat($this->options['indentation'], (int) $indent);
 
                     $lineEnded = false;
                 } else {
