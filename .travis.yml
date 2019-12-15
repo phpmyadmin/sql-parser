@@ -28,6 +28,13 @@ matrix:
     - php: nightly
       install:
         - composer install --no-interaction --ignore-platform-reqs
+    - php: 7.4
+      name: "Backward compatibility check"
+      install:
+        - composer require --dev roave/backward-compatibility-check
+        - composer install --no-interaction
+      script:
+        - vendor/bin/roave-backward-compatibility-check
 
 install:
   - composer install --no-interaction
