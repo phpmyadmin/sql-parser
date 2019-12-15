@@ -1,5 +1,5 @@
 language: php
-
+sudo: false
 dist: xenial
 
 php:
@@ -13,19 +13,24 @@ matrix:
   allow_failures:
     - php: nightly
   include:
-    - php: 7.2
-      env: DOCS=yes
     - php: 7.1
-      env: REQUIRE="phpmyadmin/motranslator:^3.0"
+      name: "phpmyadmin/motranslator"
+      install:
+        - composer require "phpmyadmin/motranslator:^3.0"
+        - composer install --no-interaction
+    - php: 7.2
+      name: "API docs"
+      install:
+        - composer global require "sami/sami:^4.0"
+        - composer install --no-interaction
+      script:
+        - $HOME/.composer/vendor/bin/sami.php --no-interaction update ./tools/sami-config.php
     - php: nightly
       install:
         - composer install --no-interaction --ignore-platform-reqs
 
-sudo: false
-
 install:
-  - if [ -n "$REQUIRE" ] ; then composer require "$REQUIRE" ; fi
-  - composer install
+  - composer install --no-interaction
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -35,5 +40,4 @@ cache:
     - $HOME/.composer/cache
 
 script:
-  - if [ "$DOCS" != "yes" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml.dist ; fi
-  - if [ "$DOCS" = "yes" ] ; then ./vendor/bin/sami.php --no-interaction update ./tools/sami-config.php ; fi
+  - vendor/bin/phpunit --configuration phpunit.xml.dist
