@@ -5,6 +5,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class CreateDefinitionTest extends TestCase
@@ -59,6 +60,7 @@ class CreateDefinitionTest extends TestCase
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE' .
             ') ENGINE=InnoDB"'
         );
+        $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
             CreateDefinition::build($parser->statements[0]->fields[1])
@@ -75,6 +77,7 @@ class CreateDefinitionTest extends TestCase
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE' .
             ') ENGINE=InnoDB"'
         );
+        $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
             CreateDefinition::build($parser->statements[0]->fields[2])

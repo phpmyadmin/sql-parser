@@ -16,6 +16,8 @@ use PhpMyAdmin\SqlParser\TokensList;
  */
 class GroupKeyword extends Component
 {
+    public $type;
+
     /**
      * The expression that is used for grouping.
      *

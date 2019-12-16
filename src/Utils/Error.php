@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
+use PhpMyAdmin\SqlParser\Exceptions\LexerException;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 
@@ -32,6 +34,7 @@ class Error
 
         foreach ($objs as $obj) {
             if ($obj instanceof Lexer) {
+                /** @var LexerException $err */
                 foreach ($obj->errors as $err) {
                     $ret[] = [
                         $err->getMessage(),
@@ -41,6 +44,7 @@ class Error
                     ];
                 }
             } elseif ($obj instanceof Parser) {
+                /** @var ParserException $err */
                 foreach ($obj->errors as $err) {
                     $ret[] = [
                         $err->getMessage(),

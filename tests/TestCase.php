@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests;
 
+use PhpMyAdmin\SqlParser\Exceptions\LexerException;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -42,6 +44,7 @@ abstract class TestCase extends BaseTestCase
     public function getErrorsAsArray($obj)
     {
         $ret = [];
+        /** @var LexerException|ParserException $err */
         foreach ($obj->errors as $err) {
             $ret[] = $obj instanceof Lexer
                 ? [
