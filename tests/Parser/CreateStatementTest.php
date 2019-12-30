@@ -19,12 +19,16 @@ class CreateStatementTest extends TestCase
     public function createProvider()
     {
         return array(
+            array('parser/parseCreateDatabase'),
+            array('parser/parseCreateDatabaseErr'),
             array('parser/parseCreateFunction'),
             array('parser/parseCreateFunctionErr1'),
             array('parser/parseCreateFunctionErr2'),
             array('parser/parseCreateFunctionErr3'),
             array('parser/parseCreateProcedure'),
             array('parser/parseCreateProcedure2'),
+            array('parser/parseCreateSchema'),
+            array('parser/parseCreateSchemaErr'),
             array('parser/parseCreateTable'),
             array('parser/parseCreateTable2'),
             array('parser/parseCreateTable3'),
@@ -47,7 +51,7 @@ class CreateStatementTest extends TestCase
             array('parser/parseCreateView'),
             array('parser/parseCreateView2'),
             array('parser/parseCreateViewWithoutQuotes'),
-            array('parser/parseCreateViewWithQuotes')
+            array('parser/parseCreateViewWithQuotes'),
         );
     }
 }
