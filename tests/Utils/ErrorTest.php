@@ -38,5 +38,9 @@ class ErrorTest extends TestCase
             array('#1: error msg (near "token" at position 100)'),
             Error::format(array(array('error msg', 42, 'token', 100)))
         );
+        $this->assertEquals(
+            array('#1: error msg (near "token" at position 100)', '#2: error msg (near "token" at position 200)'),
+            Error::format(array(array('error msg', 42, 'token', 100), array('error msg', 42, 'token', 200)))
+        );
     }
 }
