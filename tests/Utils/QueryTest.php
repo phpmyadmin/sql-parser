@@ -598,6 +598,20 @@ class QueryTest extends TestCase
         );
     }
 
+    public function testReplaceNonExistingPart()
+    {
+        $parser = new Parser('ALTER TABLE `sale_mast` OPTIMIZE PARTITION p3');
+        $this->assertEquals(
+            '  ALTER TABLE `sale_mast` OPTIMIZE PARTITION p3',
+            Query::replaceClause(
+                $parser->statements[0],
+                $parser->list,
+                'ORDER BY',
+                ''
+            )
+        );
+    }
+
     public function testReplaceClauses()
     {
         $this->assertEquals('', Query::replaceClauses(null, null, array()));

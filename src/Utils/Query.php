@@ -591,7 +591,7 @@ class Query
          *
          * @var int
          */
-        $clauseIdx = $clauses[$clauseType];
+        $clauseIdx = isset($clauses[$clauseType]) ? $clauses[$clauseType] : -1;
 
         $firstClauseIdx = $clauseIdx;
         $lastClauseIdx = $clauseIdx;
