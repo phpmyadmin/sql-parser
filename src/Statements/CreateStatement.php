@@ -66,6 +66,7 @@ class CreateStatement extends Statement
         'TRIGGER' => 6,
         'USER' => 6,
         'VIEW' => 6,
+        'SCHEMA' => 6,
 
         // CREATE TABLE
         'IF NOT EXISTS' => 7
@@ -382,7 +383,7 @@ class CreateStatement extends Statement
                 $fields = ArrayObj::build($this->fields);
             }
         }
-        if ($this->options->has('DATABASE')) {
+        if ($this->options->has('DATABASE') || $this->options->has('SCHEMA')) {
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
@@ -470,12 +471,15 @@ class CreateStatement extends Statement
         $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
         ++$list->idx; // Skipping last option.
 
+        $isDatabase = $this->options->has('DATABASE') || $this->options->has('SCHEMA');
+        $fieldName = $isDatabase ? 'database' : 'table';
+
         // Parsing the field name.
         $this->name = Expression::parse(
             $parser,
             $list,
             array(
-                'parseField' => 'table',
+                'parseField' => $fieldName,
                 'breakOnAlias' => true
             )
         );
@@ -500,7 +504,7 @@ class CreateStatement extends Statement
             ++$nextidx;
         }
 
-        if ($this->options->has('DATABASE')) {
+        if ($isDatabase) {
             $this->entityOptions = OptionsArray::parse(
                 $parser,
                 $list,

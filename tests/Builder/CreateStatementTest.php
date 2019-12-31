@@ -27,6 +27,7 @@ class CreateStatementTest extends TestCase
 
     public function testBuilderDatabase()
     {
+        // CREATE DATABASE ...
         $parser = new Parser(
             'CREATE DATABASE `mydb` ' .
             'DEFAULT CHARACTER SET = utf8 DEFAULT COLLATE = utf8_general_ci'
@@ -35,6 +36,20 @@ class CreateStatementTest extends TestCase
 
         $this->assertEquals(
             'CREATE DATABASE `mydb` ' .
+            'DEFAULT CHARACTER SET=utf8 DEFAULT COLLATE=utf8_general_ci',
+            $stmt->build()
+        );
+
+
+        // CREATE SCHEMA ...
+        $parser = new Parser(
+            'CREATE SCHEMA `mydb` ' .
+            'DEFAULT CHARACTER SET = utf8 DEFAULT COLLATE = utf8_general_ci'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE SCHEMA `mydb` ' .
             'DEFAULT CHARACTER SET=utf8 DEFAULT COLLATE=utf8_general_ci',
             $stmt->build()
         );
