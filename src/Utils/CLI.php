@@ -214,7 +214,7 @@ class CLI
         return 1;
     }
 
-    private function readStdin()
+    public function readStdin()
     {
         stream_set_blocking(STDIN, false);
         $stdin = stream_get_contents(STDIN);
