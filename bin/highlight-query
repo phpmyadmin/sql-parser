@@ -2,12 +2,12 @@
 <?php
 declare(strict_types=1);
 
-$files = array(
+$files = [
     __DIR__ . "/../vendor/autoload.php",
     __DIR__ . "/../../vendor/autoload.php",
     __DIR__ . "/../../../autoload.php",
     "vendor/autoload.php"
-);
+];
 
 $found = false;
 foreach ($files as $file) {

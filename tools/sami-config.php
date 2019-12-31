@@ -14,9 +14,9 @@ $iterator = Finder::create()
     ->in("./src")
 ;
 
-return new Sami($iterator, array(
+return new Sami($iterator, [
     "title"                => "A validating SQL lexer and parser with a focus on MySQL dialect.",
     "build_dir"            => "./doc/",
     "cache_dir"            => "./tmp"
-));
+]);
 

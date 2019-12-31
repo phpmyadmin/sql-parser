@@ -213,8 +213,8 @@ class SelectStatement extends Statement
             1,
         ],
         // These are available only when `UNION` is present.
-        // 'ORDER BY'                      => array('ORDER BY', 3),
-        // 'LIMIT'                         => array('LIMIT', 3),
+        // 'ORDER BY'                      => ['ORDER BY', 3],
+        // 'LIMIT'                         => ['LIMIT', 3],
     ];
 
     /**

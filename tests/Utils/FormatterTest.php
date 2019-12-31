@@ -59,7 +59,7 @@ class FormatterTest extends TestCase
 
     public function mergeFormats()
     {
-        // array($default[], $overriding[], $expected[])
+        // [default[], overriding[], expected[]]
         return [
             'empty formats' => [
                 'default' => [

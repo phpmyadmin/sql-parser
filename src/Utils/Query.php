@@ -694,7 +694,7 @@ class Query
      * @param Statement  $statement the parsed query that has to be modified
      * @param TokensList $list      the list of tokens
      * @param array      $ops       Clauses to be replaced. Contains multiple
-     *                              arrays having two values: array($old, $new).
+     *                              arrays having two values: [$old, $new].
      *                              Clauses must be sorted.
      *
      * @return string

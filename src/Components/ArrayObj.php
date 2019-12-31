@@ -147,11 +147,11 @@ class ArrayObj extends Component
         //
         // This is treated differently to treat the following cases:
         //
-        //           => array()
-        //      (,)  => array('', '')
-        //      ()   => array()
-        //      (a,) => array('a', '')
-        //      (a)  => array('a')
+        //           => []
+        //      [,]  => ['', '']
+        //      []   => []
+        //      [a,] => ['a', '']
+        //      [a]  => ['a']
         $lastRaw = trim($lastRaw);
         if (empty($options['type'])
             && ((strlen($lastRaw) > 0) || ($isCommaLast))

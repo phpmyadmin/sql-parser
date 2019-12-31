@@ -90,7 +90,7 @@ class CreateDefinition extends Component
         //
         // 'UNIQUE'                        => 4,
         // 'UNIQUE KEY'                    => 4,
-        // 'COMMENT'                       => array(5, 'var'),
+        // 'COMMENT'                       => [5, 'var'],
         // 'NOT NULL'                      => 1,
         // 'NULL'                          => 1,
         // 'PRIMARY'                       => 4,

@@ -170,7 +170,7 @@ class Formatter
 
     /**
      * The styles used for HTML formatting.
-     * array($type, $flags, $span, $callback).
+     * [$type, $flags, $span, $callback].
      *
      * @return array
      */

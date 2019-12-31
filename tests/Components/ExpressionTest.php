@@ -39,10 +39,10 @@ class ExpressionTest extends TestCase
     {
         return [
             /*
-            array(
+            [
                 '(1))',
                 'Unexpected closing bracket.',
-            ),
+            ],
             */
             [
                 'tbl..col',

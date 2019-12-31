@@ -56,7 +56,7 @@ cat example.sql | ./vendor/bin/lint-query
 ### Formatting SQL query
 
 ```php
-echo PhpMyAdmin\SqlParser\Utils\Formatter::format($query, array('type' => 'html'));
+echo PhpMyAdmin\SqlParser\Utils\Formatter::format($query, ['type' => 'html']);
 ```
 
 ### Discoverying query type
