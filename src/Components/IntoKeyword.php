@@ -118,7 +118,7 @@ class IntoKeyword extends Component
      * @param array             $columns        column list of destination
      * @param array             $values         selected fields
      * @param OptionsArray      $fields_options options for FIELDS/COLUMNS keyword
-     * @param OptionsArray      $fields_keyword options for OPTINOS keyword
+     * @param bool              $fields_keyword options for OPTIONS keyword
      */
     public function __construct(
         $type = null,

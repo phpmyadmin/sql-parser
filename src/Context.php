@@ -268,7 +268,7 @@ abstract class Context
      * @param string $str        string to be checked
      * @param bool   $isReserved checks if the keyword is reserved
      *
-     * @return int
+     * @return int|null
      */
     public static function isKeyword($str, $isReserved = false)
     {
@@ -293,7 +293,7 @@ abstract class Context
      *
      * @param string $str string to be checked
      *
-     * @return int the appropriate flag for the operator
+     * @return int|null the appropriate flag for the operator
      */
     public static function isOperator($str)
     {
@@ -328,7 +328,7 @@ abstract class Context
      * @param string $str string to be checked
      * @param mixed  $end
      *
-     * @return int the appropriate flag for the comment type
+     * @return int|null the appropriate flag for the comment type
      */
     public static function isComment($str, $end = false)
     {
@@ -398,7 +398,7 @@ abstract class Context
      *
      * @param string $str string to be checked
      *
-     * @return int the appropriate flag for the symbol type
+     * @return int|null the appropriate flag for the symbol type
      */
     public static function isSymbol($str)
     {
@@ -424,7 +424,7 @@ abstract class Context
      *
      * @param string $str string to be checked
      *
-     * @return int the appropriate flag for the string type
+     * @return int|null the appropriate flag for the string type
      */
     public static function isString($str)
     {
@@ -500,7 +500,7 @@ abstract class Context
      * @param string $context name of the context or full class name that
      *                        defines the context
      *
-     * @return string The loaded context. `null` if no context was loaded.
+     * @return string|null The loaded context. `null` if no context was loaded.
      */
     public static function loadClosest($context = '')
     {
@@ -555,7 +555,7 @@ abstract class Context
      * @param array|string $str   the string to be escaped
      * @param string       $quote quote to be used when escaping
      *
-     * @return string
+     * @return string|array
      */
     public static function escape($str, $quote = '`')
     {

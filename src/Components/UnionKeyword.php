@@ -18,8 +18,8 @@ use PhpMyAdmin\SqlParser\Component;
 class UnionKeyword extends Component
 {
     /**
-     * @param UnionKeyword[] $component the component to be built
-     * @param array          $options   parameters for building
+     * @param array<UnionKeyword[]> $component the component to be built
+     * @param array                 $options   parameters for building
      *
      * @return string
      */
