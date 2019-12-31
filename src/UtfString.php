@@ -96,7 +96,7 @@ class UtfString implements ArrayAccess
      *
      * @param int $offset the offset to be returned
      *
-     * @return string
+     * @return string|null
      */
     public function offsetGet($offset)
     {

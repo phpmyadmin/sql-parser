@@ -131,7 +131,7 @@ class BufferedQuery
      *
      * @param bool $end whether the end of the buffer was reached
      *
-     * @return string
+     * @return string|false
      */
     public function extract($end = false)
     {
