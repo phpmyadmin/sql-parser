@@ -52,6 +52,142 @@ class SelectStatementTest extends TestCase
         );
     }
 
+    public function testBuilderAliasOrder()
+    {
+        $parser = new Parser(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
+            . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
+            . 'ORDER BY scb.id LIMIT 0,300'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
+            . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
+            . 'ORDER BY scb.id ASC LIMIT 0, 300',
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderAliasOrderMultiple()
+    {
+        $parser = new Parser(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
+            . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
+            . 'ORDER BY scb.id DESC, scb.order LIMIT 0,300'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
+            . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
+            . 'ORDER BY scb.id DESC, scb.order ASC LIMIT 0, 300',
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderAliasOrderMultipleFunctions()
+    {
+        $parser = new Parser(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
+            . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
+            . 'ORDER BY scb.id DESC, YEAR(scb.dob) LIMIT 0,300'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
+            . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
+            . 'ORDER BY scb.id DESC, YEAR(scb.dob) ASC LIMIT 0, 300',
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderAliasGroupByMultipleFunctions()
+    {
+        $parser = new Parser(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
+            . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' '
+            . 'GROUP BY scb.id, YEAR(scb.dob) LIMIT 0,300'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
+            . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' '
+            . 'GROUP BY scb.id, YEAR(scb.dob) LIMIT 0, 300',
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderAliasGroupByMultipleFunctionsOrderRemoved()
+    {
+        $parser = new Parser(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
+            . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' '
+            . 'GROUP BY scb.id ASC, YEAR(scb.dob) DESC LIMIT 0,300'
+        );
+        $stmt = $parser->statements[0];
+
+        // The order is not kept, is this an expected behavior ?
+        // Ref: 4af06d24b041e499fb0e75ab3a98caf9a91700ef
+        // Issue: #154
+        $this->assertEquals(
+            'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` AS `sgu` '
+            . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
+            . 'WHERE `has_found_course` = \'1\' '
+            . 'GROUP BY scb.id, YEAR(scb.dob) LIMIT 0, 300',
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderAliasOrderCase()
+    {
+        $parser = new Parser(
+            'SELECT * FROM `world_borders` ORDER BY CASE '
+            . 'WHEN REGION = 2 THEN 99 '
+            . 'WHEN REGION > 3 THEN REGION+1 '
+            . 'ELSE 100 END LIMIT 0,300'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT * FROM `world_borders` ORDER BY CASE '
+            . 'WHEN REGION = 2 THEN 99 '
+            . 'WHEN REGION > 3 THEN REGION+1 '
+            . 'ELSE 100 END ASC LIMIT 0, 300',
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderAliasGroupByCase()
+    {
+        $parser = new Parser(
+            'SELECT * FROM `world_borders` GROUP BY CASE '
+            . 'WHEN REGION = 2 THEN 99 '
+            . 'WHEN REGION > 3 THEN REGION+1 '
+            . 'ELSE 100 END LIMIT 0,300'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT * FROM `world_borders` GROUP BY CASE '
+            . 'WHEN REGION = 2 THEN 99 '
+            . 'WHEN REGION > 3 THEN REGION+1 '
+            . 'ELSE 100 END LIMIT 0, 300',
+            $stmt->build()
+        );
+    }
+
     public function testBuilderEndOptions()
     {
         /* Assertion 1 */

@@ -68,6 +68,7 @@ class IsMethodsTest extends TestCase
         $this->assertEquals(Token::FLAG_COMMENT_C, Context::isComment('/*comment */'));
         $this->assertEquals(Token::FLAG_COMMENT_SQL, Context::isComment('-- my comment'));
 
+        $this->assertNull(Context::isComment(''));
         $this->assertNull(Context::isComment('--not a comment'));
     }
 
@@ -107,7 +108,8 @@ class IsMethodsTest extends TestCase
         $this->assertEquals(Token::FLAG_STRING_SINGLE_QUOTES, Context::isString("'foo bar'"));
         $this->assertEquals(Token::FLAG_STRING_DOUBLE_QUOTES, Context::isString('"foo bar"'));
 
-        $this->assertEquals(Context::isString('foo bar'), null);
+        $this->assertNull(Context::isString(''));
+        $this->assertNull(Context::isString('foo bar'));
     }
 
     public function testIsSymbol()
@@ -118,7 +120,8 @@ class IsMethodsTest extends TestCase
         $this->assertEquals(Token::FLAG_SYMBOL_VARIABLE, Context::isSymbol('@id'));
         $this->assertEquals(Token::FLAG_SYMBOL_BACKTICK, Context::isSymbol('`id`'));
 
-        $this->assertEquals(Context::isSymbol('id'), null);
+        $this->assertNull(Context::isSymbol(''));
+        $this->assertNull(Context::isSymbol('id'));
     }
 
     public function testisSeparator()
