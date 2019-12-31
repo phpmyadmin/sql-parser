@@ -91,7 +91,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuildGroupBy()
+    public function testBuilderGroupBy()
     {
         $query = 'SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country';
         $parser = new Parser($query);
@@ -103,7 +103,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuildIndexHint()
+    public function testBuilderIndexHint()
     {
         $query = 'SELECT * FROM address FORCE INDEX (idx_fk_city_id) IGNORE KEY FOR GROUP BY (a, b,c) WHERE city_id<0';
         $parser = new Parser($query);
@@ -111,6 +111,17 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderSurroundedByParanthesisWithLimit() {
+        $query = '(SELECT first_name FROM `actor` LIMIT 1, 2)';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SELECT first_name FROM `actor` LIMIT 1, 2',
             $stmt->build()
         );
     }

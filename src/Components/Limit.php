@@ -95,6 +95,11 @@ class Limit extends Component
                 continue;
             }
 
+            // Skip if not a number
+            if (($token->type !== Token::TYPE_NUMBER)) {
+                break;
+            }
+
             if ($offset) {
                 $ret->offset = $token->value;
                 $offset = false;
