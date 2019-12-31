@@ -63,5 +63,115 @@ class SetStatementTest extends TestCase
             'SET NAMES \'utf8\'  DEFAULT',
             $stmt->build()
         );
+
+        /* Assertion 6 */
+        $query = 'SET sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET  sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 7 */
+        $query = 'SET SESSION   sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET SESSION sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 8 */
+        $query = 'SET GLOBAL   sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET GLOBAL sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 9 */
+        $query = 'SET @@SESSION   sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET SESSION sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 10 */
+        $query = 'SET @@GLOBAL   sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET GLOBAL sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 11 */
+        $query = 'SET @@sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET  @@sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 12 */
+        $query = 'SET PERSIST sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET PERSIST sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 13 */
+        $query = 'SET PERSIST_ONLY sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET PERSIST_ONLY sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 14 */
+        $query = 'SET @@PERSIST sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET PERSIST sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
+
+        /* Assertion 15 */
+        $query = 'SET @@PERSIST_ONLY sql_mode = \'TRADITIONAL\'';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'SET PERSIST_ONLY sql_mode = \'TRADITIONAL\'',
+            $stmt->build()
+        );
     }
 }
