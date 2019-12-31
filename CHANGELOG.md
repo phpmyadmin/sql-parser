@@ -6,6 +6,8 @@
 * Prevent overwrite of offset in Limit clause by parenthesis (#275)
 * Allow SCHEMA to be used in CREATE Database statement (#231)
 * Add missing options in SET statement (#255)
+* Add support for DROP USER statement (#259)
+* Fix php error "undefined index" when replacing a non existing clause (#249)
 
 ## [5.1.0] - 2019-11-12
 

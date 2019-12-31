@@ -32,6 +32,7 @@ class DropStatement extends Statement
         'VIEW' => 1,
         'TABLESPACE' => 1,
         'TRIGGER' => 1,
+        'USER' => 1,
 
         'TEMPORARY' => 2,
         'IF EXISTS' => 3,
