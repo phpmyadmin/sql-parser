@@ -3,6 +3,9 @@
 ## [Unreleased] -
 
 * Fix ALTER TABLE ... PRIMARY/UNIQUE KEY results in error (#267)
+* Prevent overwrite of offset in Limit clause by parenthesis (#275)
+* Allow SCHEMA to be used in CREATE Database statement (#231)
+* Add missing options in SET statement (#255)
 
 ## [5.1.0] - 2019-11-12
 

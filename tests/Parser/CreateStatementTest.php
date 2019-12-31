@@ -20,12 +20,16 @@ class CreateStatementTest extends TestCase
     public function createProvider()
     {
         return [
+            ['parser/parseCreateDatabase'],
+            ['parser/parseCreateDatabaseErr'],
             ['parser/parseCreateFunction'],
             ['parser/parseCreateFunctionErr1'],
             ['parser/parseCreateFunctionErr2'],
             ['parser/parseCreateFunctionErr3'],
             ['parser/parseCreateProcedure'],
             ['parser/parseCreateProcedure2'],
+            ['parser/parseCreateSchema'],
+            ['parser/parseCreateSchemaErr'],
             ['parser/parseCreateTable'],
             ['parser/parseCreateTable2'],
             ['parser/parseCreateTable3'],

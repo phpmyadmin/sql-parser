@@ -86,6 +86,7 @@ class SelectStatementTest extends TestCase
             ['parser/parseSelectIndexHintErr2'],
             ['parser/parseSelectIndexHintErr3'],
             ['parser/parseSelectIndexHintErr4'],
+            ['parser/parseSelectWithParenthesis'],
         ];
     }
 }

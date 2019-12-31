@@ -55,6 +55,14 @@ class SetStatement extends Statement
             3,
             'expr',
         ],
+        'SESSION' => 3,
+        'GLOBAL' => 3,
+        'PERSIST' => 3,
+        'PERSIST_ONLY' => 3,
+        '@@SESSION' => 3,
+        '@@GLOBAL' => 3,
+        '@@PERSIST' => 3,
+        '@@PERSIST_ONLY' => 3,
     ];
 
     public static $END_OPTIONS = [
