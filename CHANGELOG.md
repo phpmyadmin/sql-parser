@@ -1,6 +1,6 @@
 # Change Log
 
-## [4.5.0] - 2020-01-07
+## [5.2.0] - 2020-01-07
 
 * Fix ALTER TABLE ... PRIMARY/UNIQUE KEY results in error (#267)
 * Prevent overwrite of offset in Limit clause by parenthesis (#275)
