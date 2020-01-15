@@ -426,11 +426,20 @@ class CreateStatement extends Statement
                     . $partition;
             }
         } elseif ($this->options->has('VIEW')) {
-            return 'CREATE '
+            if(isset($GLOBALS['sql_simple_view_export'])){
+                return 'CREATE '
+                . 'VIEW' . ' '
+                . Expression::build($this->name) . ' '
+                . $fields . ' AS ' . TokensList::build($this->body) . ' '
+                . OptionsArray::build($this->entityOptions);
+            }
+            else{
+                return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
                 . $fields . ' AS ' . TokensList::build($this->body) . ' '
                 . OptionsArray::build($this->entityOptions);
+            }
         } elseif ($this->options->has('TRIGGER')) {
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
