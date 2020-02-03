@@ -74,6 +74,8 @@ class LexerTest extends TestCase
             array('lexer/lexKeyword2'),
             array('lexer/lexNumber'),
             array('lexer/lexOperator'),
+            array('lexer/lexOperatorStarIsArithmetic'),
+            array('lexer/lexOperatorStarIsWildcard'),
             array('lexer/lexString'),
             array('lexer/lexStringErr1'),
             array('lexer/lexSymbol'),
