@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased] -
+
+* Stop instanciating an object to check its class name. (#290)
+
 ## [4.5.0] - 2020-01-07
 
 * Fix ALTER TABLE ... PRIMARY/UNIQUE KEY results in error (#267)
