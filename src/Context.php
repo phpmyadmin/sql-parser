@@ -336,18 +336,28 @@ abstract class Context
         if ($len === 0) {
             return null;
         }
+
+        // If comment is Bash style (#):
         if ($str[0] === '#') {
             return Token::FLAG_COMMENT_BASH;
-        } elseif (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
-            return (($len > 2) && ($str[2] === '!')) ?
+        }
+        // If comment is opening C style (/*), warning, it could be a MySQL command (/*!)
+        if (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
+            return ($len > 2) && ($str[2] === '!') ?
                 Token::FLAG_COMMENT_MYSQL_CMD : Token::FLAG_COMMENT_C;
-        } elseif (($len > 1) && ($str[0] === '*') && ($str[1] === '/')) {
+        }
+        // If comment is closing C style (*/), warning, it could conflicts with wildcard and a real opening C style.
+        // It would looks like the following valid SQL statement: "SELECT */* comment */ FROM...".
+        if (($len > 1) && ($str[0] === '*') && ($str[1] === '/')) {
             return Token::FLAG_COMMENT_C;
-        } elseif (($len > 2) && ($str[0] === '-')
+        }
+        // If comment is SQL style (--\s?):
+        if (($len > 2) && ($str[0] === '-')
             && ($str[1] === '-') && static::isWhitespace($str[2])
         ) {
             return Token::FLAG_COMMENT_SQL;
-        } elseif (($len === 2) && $end && ($str[0] === '-') && ($str[1] === '-')) {
+        }
+        if (($len === 2) && $end && ($str[0] === '-') && ($str[1] === '-')) {
             return Token::FLAG_COMMENT_SQL;
         }
 
