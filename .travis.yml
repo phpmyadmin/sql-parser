@@ -24,6 +24,8 @@ matrix:
       install:
         - composer require "phpmyadmin/motranslator:^3.0"
         - composer install --no-interaction
+      after_success:
+        - bash <(curl -s https://codecov.io/bash) -F motranslator
     - php: 7.2
       name: "API docs"
       install:
