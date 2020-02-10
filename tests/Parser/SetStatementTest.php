@@ -24,6 +24,7 @@ class SetStatementTest extends TestCase
             ['parser/parseSetCharsetError'],
             ['parser/parseSetCharacterSet'],
             ['parser/parseSetCharacterSetError'],
+            ['parser/parseAlterTableSetAutoIncrementError'],
             ['parser/parseSetNames'],
             ['parser/parseSetNamesError'],
             ['parser/parseSetError1'],

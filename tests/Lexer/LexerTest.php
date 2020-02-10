@@ -84,6 +84,7 @@ class LexerTest extends TestCase
             ['lexer/lexLabel1'],
             ['lexer/lexLabel2'],
             ['lexer/lexNoLabel'],
+            ['lexer/lexWildcardThenComment'],
         ];
     }
 }

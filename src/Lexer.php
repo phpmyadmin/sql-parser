@@ -553,6 +553,19 @@ class Lexer extends Core
         if (++$this->last < $this->len) {
             $token .= $this->str[$this->last];
             if (Context::isComment($token)) {
+                // There might be a conflict with "*" operator here, when string is "*/*".
+                // This can occurs in the following statements:
+                // - "SELECT */* comment */ FROM ..."
+                // - "SELECT 2*/* comment */3 AS `six`;"
+                $next = $this->last+1;
+                if (($next < $this->len) && $this->str[$next] === '*') {
+                    // Conflict in "*/*": first "*" was not for ending a comment.
+                    // Stop here and let other parsing method define the true behavior of that first star.
+                    $this->last = $iBak;
+
+                    return null;
+                }
+
                 $flags = Token::FLAG_COMMENT_C;
 
                 // This comment already ended. It may be a part of a

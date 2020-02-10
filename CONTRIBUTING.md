@@ -48,7 +48,6 @@ regenerate some of these there are helper scripts in tools directory:
 # Remove file you want to regenerate
 rm tests/data/parser/parse.out
 
-# Run the generator in the tools directory
-cd tools
-./run_generators.sh
+# Run the generator located in the tools directory
+./tools/run_generators.sh
 ```
