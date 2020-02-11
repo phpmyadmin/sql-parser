@@ -75,7 +75,7 @@ echo $flags['querytype'];
 ### Parsing and building SQL query
 
 ```php
-require __DIR__."/vendor/autoload.php";
+require __DIR__ . '/vendor/autoload.php';
 
 $query1 = "select * from a";
 $parser = new PhpMyAdmin\SqlParser\Parser($query1);
@@ -107,7 +107,7 @@ You can localize error messages installing `phpmyadmin/motranslator` version `3.
 composer require phpmyadmin/motranslator:^3.0
 ```
 
-The locale is automatically detected from your enrivonment, you can also set a different locale
+The locale is automatically detected from your environment, you can also set a different locale
 
 **From cli**:
 ```sh
@@ -116,7 +116,7 @@ LC_ALL=pl ./vendor/bin/lint-query --query "SELECT 1"
 
 **From php**:
 ```php
-require __DIR__."/vendor/autoload.php";
+require __DIR__ . '/vendor/autoload.php';
 
 $GLOBALS['lang'] = 'pl';
 
