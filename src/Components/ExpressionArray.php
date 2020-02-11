@@ -26,6 +26,7 @@ class ExpressionArray extends Component
      * @param array      $options parameters for parsing
      *
      * @return Expression[]
+     * @throws \PhpMyAdmin\SqlParser\Exceptions\ParserException
      */
     public static function parse(Parser $parser, TokensList $list, array $options = array())
     {
@@ -106,12 +107,21 @@ class ExpressionArray extends Component
 
         --$list->idx;
 
+        // TODO verify #156 Hotfix
+        if (is_array($ret)) {
+            $expr = $ret[count($ret) - 1]->expr;
+            if (preg_match('/\s*--\s.*$/', $expr, $matches)) {
+                $found = $matches[0];
+                $ret[count($ret) - 1]->expr = substr($expr, 0, strlen($expr) - strlen($found));
+            }
+        }
+
         return $ret;
     }
 
     /**
-     * @param ExpressionArray[] $component the component to be built
-     * @param array             $options   parameters for building
+     * @param Expression[] $component the component to be built
+     * @param array        $options   parameters for building
      *
      * @return string
      */
