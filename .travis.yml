@@ -16,9 +16,13 @@ matrix:
     - php: 7.1
       name: "Coding standard check"
       script: vendor/bin/phpcs
+      before_install: phpenv config-rm xdebug.ini
+      after_success: skip
     - php: 7.1
       name: "PHPStan"
       script: vendor/bin/phpstan analyze
+      before_install: phpenv config-rm xdebug.ini
+      after_success: skip
     - php: 7.1
       name: "phpmyadmin/motranslator"
       install:
@@ -28,6 +32,8 @@ matrix:
         - bash <(curl -s https://codecov.io/bash) -F motranslator
     - php: 7.2
       name: "API docs"
+      before_install: phpenv config-rm xdebug.ini
+      after_success: skip
       install:
         - composer global require "sami/sami:^4.0"
         - composer install --no-interaction
@@ -38,6 +44,8 @@ matrix:
         - composer install --no-interaction --ignore-platform-reqs
     - php: 7.4
       name: "Backward compatibility check"
+      before_install: phpenv config-rm xdebug.ini
+      after_success: skip
       install:
         - composer require --dev roave/backward-compatibility-check
         - composer install --no-interaction
