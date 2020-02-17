@@ -45,6 +45,7 @@ class TokensListTest extends TestCase
         foreach ($this->tokens as $token) {
             $list->add($token);
         }
+
         $this->assertEquals(new TokensList($this->tokens), $list);
     }
 

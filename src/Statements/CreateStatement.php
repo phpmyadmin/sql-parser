@@ -379,6 +379,7 @@ class CreateStatement extends Statement
                 $fields = ArrayObj::build($this->fields);
             }
         }
+
         if ($this->options->has('DATABASE') || $this->options->has('SCHEMA')) {
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
@@ -401,15 +402,19 @@ class CreateStatement extends Statement
                 if (! empty($this->partitionBy)) {
                     $partition .= "\nPARTITION BY " . $this->partitionBy;
                 }
+
                 if (! empty($this->partitionsNum)) {
                     $partition .= "\nPARTITIONS " . $this->partitionsNum;
                 }
+
                 if (! empty($this->subpartitionBy)) {
                     $partition .= "\nSUBPARTITION BY " . $this->subpartitionBy;
                 }
+
                 if (! empty($this->subpartitionsNum)) {
                     $partition .= "\nSUBPARTITIONS " . $this->subpartitionsNum;
                 }
+
                 if (! empty($this->partitions)) {
                     $partition .= "\n" . PartitionDefinition::build($this->partitions);
                 }
@@ -544,6 +549,7 @@ class CreateStatement extends Statement
                         $list->tokens[$list->idx]
                     );
                 }
+
                 ++$list->idx;
 
                 $this->entityOptions = OptionsArray::parse(
@@ -642,6 +648,7 @@ class CreateStatement extends Statement
                                 ]
                             );
                         }
+
                         break;
                     }
                 }
@@ -666,6 +673,7 @@ class CreateStatement extends Statement
                     );
                 }
             }
+
             ++$list->idx;
 
             $this->entityOptions = OptionsArray::parse(
@@ -696,6 +704,7 @@ class CreateStatement extends Statement
                 if ($token->type === Token::TYPE_DELIMITER) {
                     break;
                 }
+
                 $this->body[] = $token;
             }
         } elseif ($this->options->has('TRIGGER')) {
@@ -734,6 +743,7 @@ class CreateStatement extends Statement
                 if ($token->type === Token::TYPE_DELIMITER) {
                     break;
                 }
+
                 $this->body[] = $token;
             }
         }

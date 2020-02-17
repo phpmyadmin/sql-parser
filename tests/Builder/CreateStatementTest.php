@@ -41,7 +41,6 @@ class CreateStatementTest extends TestCase
             $stmt->build()
         );
 
-
         // CREATE SCHEMA ...
         $parser = new Parser(
             'CREATE SCHEMA `mydb` ' .

@@ -82,6 +82,7 @@ class ExpressionArray extends Component
                 if ($expr === null) {
                     break;
                 }
+
                 $ret[] = $expr;
                 $state = 1;
             } elseif ($state === 1) {

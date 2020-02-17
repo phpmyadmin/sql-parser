@@ -194,6 +194,7 @@ class TokensList implements ArrayAccess
         for ($i = $offset; $i < $this->count; ++$i) {
             $this->tokens[$i] = $this->tokens[$i + 1];
         }
+
         unset($this->tokens[$this->count]);
     }
 }

@@ -118,6 +118,7 @@ class UtfString implements ArrayAccess
                 do {
                     $byte = ord($this->str[--$this->byteIdx]);
                 } while (($byte >= 128) && ($byte < 192));
+
                 --$this->charIdx;
             }
         }

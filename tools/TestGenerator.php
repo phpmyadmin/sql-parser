@@ -68,6 +68,7 @@ class TestGenerator
                     $err->getCode(),
                 ];
             }
+
             $lexer->errors = [];
         }
 
@@ -80,6 +81,7 @@ class TestGenerator
                     $err->getCode(),
                 ];
             }
+
             $parser->errors = [];
         }
 
@@ -162,6 +164,7 @@ class TestGenerator
                 if (! is_dir($outputFile)) {
                     mkdir($outputFile);
                 }
+
                 if (($debug !== null) && (! is_dir($debugFile))) {
                     mkdir($debugFile);
                 }

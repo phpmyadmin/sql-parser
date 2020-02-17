@@ -102,6 +102,7 @@ class TransactionStatement extends Statement
                  */
                 $ret .= ';' . $statement->build();
             }
+
             $ret .= ';' . $this->end->build();
         }
 

@@ -120,6 +120,7 @@ class SetOperation extends Component
                     $parser->error('Missing expression.', $token);
                     break;
                 }
+
                 $expr->column = trim($expr->column);
                 $expr->value = $tmp->expr;
                 $ret[] = $expr;
@@ -128,6 +129,7 @@ class SetOperation extends Component
                 $commaLastSeenAt = null;
             }
         }
+
         --$list->idx;
 
         // We saw a comma, but didn't see a column-value pair after it

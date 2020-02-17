@@ -48,6 +48,7 @@ class PurgeStatement extends Statement
     {
         $ret = 'PURGE ' . $this->log_type . ' LOGS '
             . ($this->end_option !== null ? ($this->end_option . ' ' . $this->end_expr) : '');
+
         return trim($ret);
     }
 
@@ -106,6 +107,7 @@ class PurgeStatement extends Statement
                     $parser->error('Unexpected token.', $token);
                     break;
             }
+
             $state++;
             $prevToken = $token;
         }
@@ -134,6 +136,7 @@ class PurgeStatement extends Statement
         } else {
             $parser->error('Unexpected token.', $token);
         }
+
         return null;
     }
 }

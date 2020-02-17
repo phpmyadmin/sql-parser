@@ -51,6 +51,7 @@ class NotImplementedStatement extends Statement
             if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {
                 break;
             }
+
             $this->unknown[] = $list->tokens[$list->idx];
         }
     }

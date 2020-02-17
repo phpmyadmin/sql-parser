@@ -449,6 +449,7 @@ class Parser extends Core
                         $token
                     );
                 }
+
                 continue;
             }
 
@@ -473,6 +474,7 @@ class Parser extends Core
                         $token
                     );
                 }
+
                 // Skipping to the end of this statement.
                 $list->getNextOfType(Token::TYPE_DELIMITER);
                 $prevLastIdx = $list->idx;
@@ -563,6 +565,7 @@ class Parser extends Core
                     } else {
                         $lastTransaction->end = $statement;
                     }
+
                     $lastTransaction = null;
                 }
 
@@ -580,6 +583,7 @@ class Parser extends Core
             } else {
                 $this->statements[] = $statement;
             }
+
             $lastStatement = $statement;
         }
     }

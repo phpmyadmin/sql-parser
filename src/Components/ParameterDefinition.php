@@ -104,6 +104,7 @@ class ParameterDefinition extends Component
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $state = 1;
                 }
+
                 continue;
             } elseif ($state === 1) {
                 if (($token->value === 'IN') || ($token->value === 'OUT') || ($token->value === 'INOUT')) {

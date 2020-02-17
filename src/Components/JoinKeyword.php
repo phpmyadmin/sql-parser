@@ -175,6 +175,7 @@ class JoinKeyword extends Component
                                 /* Next clause is starting */
                                 break 2;
                             }
+
                             break;
                     }
                 }

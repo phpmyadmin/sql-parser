@@ -127,6 +127,7 @@ class Routine
                     $retval['opts'][$idx][] = is_string($opt) ?
                         $opt : $opt['value'];
                 }
+
                 $retval['opts'][$idx] = implode(' ', $retval['opts'][$idx]);
                 ++$idx;
             }

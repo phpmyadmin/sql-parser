@@ -7,9 +7,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class DropStatementTest extends TestCase
 {
     /**
-     * @dataProvider dropProvider
-     *
      * @param mixed $test
+     *
+     * @dataProvider dropProvider
      */
     public function testDrop($test)
     {

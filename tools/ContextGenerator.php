@@ -167,9 +167,11 @@ class ContextGenerator
             if (! isset($ret[$type])) {
                 $ret[$type] = [];
             }
+
             if (! isset($ret[$type][$len])) {
                 $ret[$type][$len] = [];
             }
+
             $ret[$type][$len][] = $word;
         }
 
@@ -200,6 +202,7 @@ class ContextGenerator
                     if ($i === 0) {
                         $ret .= str_repeat(' ', $spaces);
                     }
+
                     $ret .= sprintf('\'%s\' => %s, ', $word, $type);
                     if (++$i === $count) {
                         $ret .= "\n";
@@ -274,11 +277,13 @@ class ContextGenerator
         if (strlen($ver_str) % 2 === 1) {
             $ver_str = '0' . $ver_str;
         }
+
         $version = array_map('intval', str_split($ver_str, 2));
         /* Remove trailing zero */
         if ($version[count($version) - 1] === 0) {
             $version = array_slice($version, 0, count($version) - 1);
         }
+
         /* Create name */
         return $base . ' ' . implode('.', $version);
     }

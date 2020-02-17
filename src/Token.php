@@ -298,9 +298,11 @@ class Token
                         'UTF-8'
                     );
                 }
+
                 if (isset($str[0]) && ($str[0] === ':')) {
                     $str = mb_substr($str, 1, mb_strlen($str), 'UTF-8');
                 }
+
                 if (isset($str[0]) && (($str[0] === '`')
                 || ($str[0] === '"') || ($str[0] === '\''))
                 ) {

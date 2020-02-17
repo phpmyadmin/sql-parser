@@ -92,6 +92,7 @@ class GroupKeyword extends Component
                     if (! empty($expr->expr)) {
                         $ret[] = $expr;
                     }
+
                     $expr = new static();
                     $state = 0;
                 } else {

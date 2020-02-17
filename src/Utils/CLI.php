@@ -50,10 +50,12 @@ class CLI
         if ($params === false) {
             return false;
         }
+
         $this->mergeLongOpts($params, $longopts);
         if (! isset($params['f'])) {
             $params['f'] = 'cli';
         }
+
         if (! in_array($params['f'], ['html', 'cli', 'text'])) {
             echo "ERROR: Invalid value for format!\n";
 
@@ -69,16 +71,19 @@ class CLI
         if ($params === false) {
             return 1;
         }
+
         if (isset($params['h'])) {
             $this->usageHighlight();
 
             return 0;
         }
+
         if (! isset($params['q'])) {
             if ($stdIn = $this->readStdin()) {
                 $params['q'] = $stdIn;
             }
         }
+
         if (isset($params['q'])) {
             echo Formatter::format(
                 $params['q'],
@@ -88,6 +93,7 @@ class CLI
 
             return 0;
         }
+
         echo "ERROR: Missing parameters!\n";
         $this->usageHighlight();
 
@@ -122,19 +128,23 @@ class CLI
         if ($params === false) {
             return 1;
         }
+
         if (isset($params['h'])) {
             $this->usageLint();
 
             return 0;
         }
+
         if (isset($params['c'])) {
             Context::load($params['c']);
         }
+
         if (! isset($params['q'])) {
             if ($stdIn = $this->readStdin()) {
                 $params['q'] = $stdIn;
             }
         }
+
         if (isset($params['q'])) {
             $lexer = new Lexer($params['q'], false);
             $parser = new Parser($lexer->list);
@@ -142,12 +152,14 @@ class CLI
             if (count($errors) === 0) {
                 return 0;
             }
+
             $output = Error::format($errors);
             echo implode("\n", $output);
             echo "\n";
 
             return 10;
         }
+
         echo "ERROR: Missing parameters!\n";
         $this->usageLint();
 
@@ -181,16 +193,19 @@ class CLI
         if ($params === false) {
             return 1;
         }
+
         if (isset($params['h'])) {
             $this->usageTokenize();
 
             return 0;
         }
+
         if (! isset($params['q'])) {
             if ($stdIn = $this->readStdin()) {
                 $params['q'] = $stdIn;
             }
         }
+
         if (isset($params['q'])) {
             $lexer = new Lexer($params['q'], false);
             foreach ($lexer->list->tokens as $idx => $token) {
@@ -208,6 +223,7 @@ class CLI
 
             return 0;
         }
+
         echo "ERROR: Missing parameters!\n";
         $this->usageTokenize();
 
@@ -220,6 +236,7 @@ class CLI
         $stdin = stream_get_contents(STDIN);
         // restore-default block-mode setting
         stream_set_blocking(STDIN, true);
+
         return $stdin;
     }
 }

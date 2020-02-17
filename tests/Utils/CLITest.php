@@ -21,6 +21,7 @@ class CLITest extends TestCase
         $cli = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\CLI')->setMethods(['getopt', 'readStdin'])->getMock();
         $cli->method('getopt')->willReturn($getopt);
         $cli->method('readStdin')->willReturn($input);
+
         return $cli;
     }
 
@@ -111,14 +112,13 @@ class CLITest extends TestCase
         ];
     }
 
-
     /**
-     * @dataProvider highlightParamsStdIn
-     *
      * @param mixed $input
      * @param mixed $getopt
      * @param mixed $output
      * @param mixed $result
+     *
+     * @dataProvider highlightParamsStdIn
      */
     public function testRunHighlightStdIn($input, $getopt, $output, $result)
     {
@@ -157,7 +157,7 @@ class CLITest extends TestCase
                 [
                     'f' => 'html',
                 ],
-                '<span class="sql-reserved">SELECT</span>' . '<br/>' .
+                '<span class="sql-reserved">SELECT</span><br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>' . "\n",
                 0,
             ],

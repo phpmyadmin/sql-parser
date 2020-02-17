@@ -127,6 +127,7 @@ class ArrayObj extends Component
                             $lastRaw = $lastValue = '';
                         }
                     }
+
                     continue;
                 }
             }

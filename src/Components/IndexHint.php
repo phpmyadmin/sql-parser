@@ -90,6 +90,7 @@ class IndexHint extends Component
         if ($list->idx > 0) {
             --$list->idx;
         }
+
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
@@ -102,6 +103,7 @@ class IndexHint extends Component
             if ($token->type === Token::TYPE_DELIMITER) {
                 break;
             }
+
             // Skipping whitespaces and comments.
             if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
                 continue;
@@ -117,6 +119,7 @@ class IndexHint extends Component
                             break 2;
                         }
                     }
+
                     break;
                 case 1:
                     if ($token->type === Token::TYPE_KEYWORD) {
@@ -125,11 +128,13 @@ class IndexHint extends Component
                         } else {
                             $parser->error('Unexpected keyword.', $token);
                         }
+
                         $state = 2;
                     } else {
                         // we expect the token to be a keyword
                         $parser->error('Unexpected token.', $token);
                     }
+
                     break;
                 case 2:
                     if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'FOR') {
@@ -140,6 +145,7 @@ class IndexHint extends Component
                         $ret[] = $expr;
                         $expr = new static();
                     }
+
                     break;
                 case 3:
                     if ($token->type === Token::TYPE_KEYWORD) {
@@ -148,11 +154,13 @@ class IndexHint extends Component
                         } else {
                             $parser->error('Unexpected keyword.', $token);
                         }
+
                         $state = 4;
                     } else {
                         // we expect the token to be a keyword
                         $parser->error('Unexpected token.', $token);
                     }
+
                     break;
                 case 4:
                     $expr->indexes = ExpressionArray::parse($parser, $list);
@@ -162,6 +170,7 @@ class IndexHint extends Component
                     break;
             }
         }
+
         --$list->idx;
 
         return $ret;
@@ -183,6 +192,7 @@ class IndexHint extends Component
         if ($component->for !== null) {
             $ret .= 'FOR ' . $component->for . ' ';
         }
+
         return $ret . ExpressionArray::build($component->indexes);
     }
 }

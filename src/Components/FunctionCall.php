@@ -93,6 +93,7 @@ class FunctionCall extends Component
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
                     $ret->parameters = ArrayObj::parse($parser, $list);
                 }
+
                 break;
             }
         }

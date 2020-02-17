@@ -170,6 +170,7 @@ class Condition extends Component
                 if ($token->value === 'BETWEEN') {
                     $betweenBefore = true;
                 }
+
                 if (($brackets === 0) && empty(static::$ALLOWED_KEYWORDS[$token->value])) {
                     break;
                 }
@@ -182,6 +183,7 @@ class Condition extends Component
                     if ($brackets === 0) {
                         break;
                     }
+
                     --$brackets;
                 }
             }

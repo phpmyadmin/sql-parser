@@ -76,6 +76,7 @@ class Misc
             if (! isset($tables[$thisDb])) {
                 $tables[$thisDb] = [];
             }
+
             $tables[$thisDb][$expr->alias] = $expr->table;
         }
 

@@ -88,6 +88,7 @@ class Array2d extends Component
                             $token
                         );
                     }
+
                     $ret[] = $arr;
                     $state = 1;
                 } else {

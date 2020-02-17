@@ -104,6 +104,7 @@ class RenameOperation extends Component
                         $token
                     );
                 }
+
                 $state = 1;
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'TO') {
@@ -130,6 +131,7 @@ class RenameOperation extends Component
                         $token
                     );
                 }
+
                 $state = 3;
             } elseif ($state === 3) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {

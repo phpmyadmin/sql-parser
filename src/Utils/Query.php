@@ -256,6 +256,7 @@ class Query
                     $flags['is_func'] = true;
                 }
             }
+
             if (! empty($expr->subquery)) {
                 $flags['is_subquery'] = true;
             }
@@ -373,6 +374,7 @@ class Query
             if (! empty($statement->limit)) {
                 $flags['limit'] = true;
             }
+
             if (! empty($statement->order)) {
                 $flags['order'] = true;
             }
@@ -441,6 +443,7 @@ class Query
                                 $expr->database : null,
                         ];
                     }
+
                     if (! in_array($arr, $ret['select_tables'])) {
                         $ret['select_tables'][] = $arr;
                     }
@@ -501,6 +504,7 @@ class Query
                 // No tables are dropped.
                 return [];
             }
+
             $expressions = $statement->fields;
         } elseif ($statement instanceof RenameStatement) {
             foreach ($statement->renames as $rename) {

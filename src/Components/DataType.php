@@ -125,6 +125,7 @@ class DataType extends Component
                 if (($token->type !== Token::TYPE_KEYWORD) || (! ($token->flags & Token::FLAG_KEYWORD_DATA_TYPE))) {
                     $parser->error('Unrecognized data type.', $token);
                 }
+
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
@@ -133,6 +134,7 @@ class DataType extends Component
                     $ret->parameters = ($ret->name === 'ENUM') || ($ret->name === 'SET') ?
                         $parameters->raw : $parameters->values;
                 }
+
                 $ret->options = OptionsArray::parse($parser, $list, static::$DATA_TYPE_OPTIONS);
                 ++$list->idx;
                 break;

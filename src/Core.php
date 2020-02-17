@@ -44,6 +44,7 @@ class Core
         if ($this->strict) {
             throw $error;
         }
+
         $this->errors[] = $error;
     }
 }

@@ -301,6 +301,7 @@ class Lexer extends Core
                     );
                     continue;
                 }
+
                 $pos = $this->last + 1;
 
                 // Parsing the delimiter.
@@ -398,6 +399,7 @@ class Lexer extends Core
                     --$j; // The size of the keyword didn't increase.
                     continue;
                 }
+
                 $lastSpace = true;
             } else {
                 $lastSpace = false;
@@ -458,6 +460,7 @@ class Lexer extends Core
                 // Any other separator
                 break;
             }
+
             $token .= $this->str[$this->last];
         }
 
@@ -541,6 +544,7 @@ class Lexer extends Core
             ) {
                 $token .= $this->str[$this->last];
             }
+
             // Include trailing \n as whitespace token
             if ($this->last < $this->len) {
                 --$this->last;
@@ -587,6 +591,7 @@ class Lexer extends Core
                     ) {
                         $token .= $this->str[$this->last];
                     }
+
                     --$this->last;
 
                     // We split this comment and parse only its beginning
@@ -621,6 +626,7 @@ class Lexer extends Core
             --$this->last;
             $end = true;
         }
+
         if (Context::isComment($token, $end)) {
             // Checking if this comment did not end already (```--\n```).
             if ($this->str[$this->last] !== "\n") {
@@ -630,6 +636,7 @@ class Lexer extends Core
                     $token .= $this->str[$this->last];
                 }
             }
+
             // Include trailing \n as whitespace token
             if ($this->last < $this->len) {
                 --$this->last;
@@ -803,8 +810,10 @@ class Lexer extends Core
             } elseif ($state === 9) {
                 break;
             }
+
             $token .= $this->str[$this->last];
         }
+
         if ($state === 2 || $state === 3
             || ($token !== '.' && $state === 4)
             || $state === 6 || $state === 9
@@ -813,6 +822,7 @@ class Lexer extends Core
 
             return new Token($token, Token::TYPE_NUMBER, $flags);
         }
+
         $this->last = $iBak;
 
         return null;
@@ -831,6 +841,7 @@ class Lexer extends Core
         if (! ($flags = Context::isString($token)) && $token !== $quote) {
             return null;
         }
+
         $quote = $token;
 
         while (++$this->last < $this->len) {
@@ -845,6 +856,7 @@ class Lexer extends Core
                 if ($this->str[$this->last] === $quote) {
                     break;
                 }
+
                 $token .= $this->str[$this->last];
             }
         }
@@ -927,6 +939,7 @@ class Lexer extends Core
         while (++$this->last < $this->len && ! Context::isSeparator($this->str[$this->last])) {
             $token .= $this->str[$this->last];
         }
+
         --$this->last;
 
         return new Token($token);
@@ -945,6 +958,7 @@ class Lexer extends Core
             if ($this->delimiter[$idx] !== $this->str[$this->last + $idx]) {
                 return null;
             }
+
             ++$idx;
         }
 

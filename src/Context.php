@@ -337,22 +337,26 @@ abstract class Context
         if ($str[0] === '#') {
             return Token::FLAG_COMMENT_BASH;
         }
+
         // If comment is opening C style (/*), warning, it could be a MySQL command (/*!)
         if (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
             return ($len > 2) && ($str[2] === '!') ?
                 Token::FLAG_COMMENT_MYSQL_CMD : Token::FLAG_COMMENT_C;
         }
+
         // If comment is closing C style (*/), warning, it could conflicts with wildcard and a real opening C style.
         // It would looks like the following valid SQL statement: "SELECT */* comment */ FROM...".
         if (($len > 1) && ($str[0] === '*') && ($str[1] === '/')) {
             return Token::FLAG_COMMENT_C;
         }
+
         // If comment is SQL style (--\s?):
         if (($len > 2) && ($str[0] === '-')
             && ($str[1] === '-') && static::isWhitespace($str[2])
         ) {
             return Token::FLAG_COMMENT_SQL;
         }
+
         if (($len === 2) && $end && ($str[0] === '-') && ($str[1] === '-')) {
             return Token::FLAG_COMMENT_SQL;
         }
@@ -411,6 +415,7 @@ abstract class Context
         if (strlen($str) === 0) {
             return null;
         }
+
         if ($str[0] === '@') {
             return Token::FLAG_SYMBOL_VARIABLE;
         } elseif ($str[0] === '`') {
@@ -437,6 +442,7 @@ abstract class Context
         if (strlen($str) === 0) {
             return null;
         }
+
         if ($str[0] === '\'') {
             return Token::FLAG_STRING_SINGLE_QUOTES;
         } elseif ($str[0] === '"') {
@@ -481,16 +487,19 @@ abstract class Context
         if (empty($context)) {
             $context = self::$defaultContext;
         }
+
         if ($context[0] !== '\\') {
             // Short context name (must be formatted into class name).
             $context = self::$contextPrefix . $context;
         }
+
         if (! class_exists($context)) {
             throw @new LoaderException(
                 'Specified context ("' . $context . '") does not exist.',
                 $context
             );
         }
+
         self::$loadedContext = $context;
         self::$KEYWORDS = $context::$KEYWORDS;
     }
@@ -515,6 +524,7 @@ abstract class Context
             try {
                 /* Trying to load the new context */
                 static::load($context);
+
                 return $context;
             } catch (LoaderException $e) {
                 /* Replace last two non zero digits by zeroes */
@@ -526,15 +536,18 @@ abstract class Context
                         break 2;
                     }
                 } while (intval($part) === 0 && $i > 0);
+
                 $context = substr($context, 0, $i) . '00' . substr($context, $i + 2);
             }
         }
+
         /* Fallback to loading at least matching engine */
         if (strncmp($context, 'MariaDb', 7) === 0) {
             return static::loadClosest('MariaDb100300');
         } elseif (strncmp($context, 'MySql', 5) === 0) {
             return static::loadClosest('MySql50700');
         }
+
         return null;
     }
 
@@ -549,6 +562,7 @@ abstract class Context
         if (empty($mode)) {
             return;
         }
+
         $mode = explode(',', $mode);
         foreach ($mode as $m) {
             static::$MODE |= constant('static::SQL_MODE_' . $m);

@@ -256,6 +256,7 @@ class Formatter
                     $newFormats[$j][$name] = 0;
                 }
             }
+
             foreach ($strings as $name) {
                 if (! isset($new[$name])) {
                     $newFormats[$j][$name] = '';
@@ -385,6 +386,7 @@ class Formatter
                 ) {
                     $lineEnded = true;
                 }
+
                 // Whitespaces are skipped because the formatter adds its own.
                 continue;
             }
@@ -475,6 +477,7 @@ class Formatter
                         $lineEnded = true;
                         $shortGroup = false;
                     }
+
                     $blocksLineEndings[] = $lineEnded;
                 } elseif ($curr->type === Token::TYPE_OPERATOR && $curr->value === ')') {
                     $indent = array_pop($blocksIndentation);

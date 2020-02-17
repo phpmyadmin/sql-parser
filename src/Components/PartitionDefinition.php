@@ -171,8 +171,10 @@ class PartitionDefinition extends Component
                     if ($nextToken->type !== Token::TYPE_NONE) {
                         break;
                     }
+
                     $ret->name .= $nextToken->value;
                 }
+
                 $idx = $list->idx--;
                 // Get the first token after the white space.
                 $nextToken = $list->tokens[++$idx];
@@ -198,6 +200,7 @@ class PartitionDefinition extends Component
                         ]
                     );
                 }
+
                 $state = 5;
             } elseif ($state === 5) {
                 $ret->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
@@ -213,6 +216,7 @@ class PartitionDefinition extends Component
                     );
                     ++$list->idx;
                 }
+
                 break;
             }
         }

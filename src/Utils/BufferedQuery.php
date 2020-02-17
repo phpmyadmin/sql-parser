@@ -198,6 +198,7 @@ class BufferedQuery
                 if ($this->query[$i] === '\'') {
                     $this->status = 0;
                 }
+
                 $this->current .= $this->query[$i];
                 continue;
             } elseif ($this->status === static::STATUS_STRING_DOUBLE_QUOTES) {
@@ -205,12 +206,14 @@ class BufferedQuery
                 if ($this->query[$i] === '"') {
                     $this->status = 0;
                 }
+
                 $this->current .= $this->query[$i];
                 continue;
             } elseif ($this->status === static::STATUS_STRING_BACKTICK) {
                 if ($this->query[$i] === '`') {
                     $this->status = 0;
                 }
+
                 $this->current .= $this->query[$i];
                 continue;
             } elseif (($this->status === static::STATUS_COMMENT_BASH)
@@ -220,6 +223,7 @@ class BufferedQuery
                 if ($this->query[$i] === "\n") {
                     $this->status = 0;
                 }
+
                 $this->current .= $this->query[$i];
                 continue;
             } elseif ($this->status === static::STATUS_COMMENT_C) {
@@ -227,6 +231,7 @@ class BufferedQuery
                 if (($this->query[$i - 1] === '*') && ($this->query[$i] === '/')) {
                     $this->status = 0;
                 }
+
                 $this->current .= $this->query[$i];
                 continue;
             }

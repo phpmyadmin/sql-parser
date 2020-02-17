@@ -164,21 +164,27 @@ class DeleteStatement extends Statement
         if ($this->columns !== null && count($this->columns) > 0) {
             $ret .= ' ' . ExpressionArray::build($this->columns);
         }
+
         if ($this->from !== null && count($this->from) > 0) {
             $ret .= ' FROM ' . ExpressionArray::build($this->from);
         }
+
         if ($this->join !== null && count($this->join) > 0) {
             $ret .= ' ' . JoinKeyword::build($this->join);
         }
+
         if ($this->using !== null && count($this->using) > 0) {
             $ret .= ' USING ' . ExpressionArray::build($this->using);
         }
+
         if ($this->where !== null && count($this->where) > 0) {
             $ret .= ' WHERE ' . Condition::build($this->where);
         }
+
         if ($this->order !== null && count($this->order) > 0) {
             $ret .= ' ORDER BY ' . ExpressionArray::build($this->order);
         }
+
         if ($this->limit !== null && strlen((string) $this->limit) > 0) {
             $ret .= ' LIMIT ' . Limit::build($this->limit);
         }

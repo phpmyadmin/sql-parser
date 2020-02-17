@@ -201,6 +201,7 @@ class Key extends Component
             if (isset($column['length'])) {
                 $tmp .= '(' . $column['length'] . ')';
             }
+
             $columns[] = $tmp;
         }
 

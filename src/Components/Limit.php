@@ -79,6 +79,7 @@ class Limit extends Component
                 if ($offset) {
                     $parser->error('An offset was expected.', $token);
                 }
+
                 $offset = true;
                 continue;
             }
