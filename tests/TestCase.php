@@ -12,6 +12,8 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use function file_get_contents;
+use function unserialize;
 
 $GLOBALS['lang'] = 'en';
 

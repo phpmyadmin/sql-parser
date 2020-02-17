@@ -11,6 +11,9 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function implode;
+use function is_array;
+use function trim;
 
 /**
  * The definition of a parameter of a function or procedure.

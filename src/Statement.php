@@ -11,6 +11,12 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Components\FunctionCall;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use function array_flip;
+use function array_keys;
+use function count;
+use function in_array;
+use function stripos;
+use function trim;
 
 /**
  * Abstract statement definition.

@@ -7,6 +7,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Utils;
 
 use PhpMyAdmin\SqlParser\Context;
+use function array_merge;
+use function strlen;
+use function substr;
+use function trim;
 
 /**
  * Buffer query utilities.

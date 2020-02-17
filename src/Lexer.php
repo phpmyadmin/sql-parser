@@ -11,6 +11,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
+use function define;
+use function defined;
+use function mb_strlen;
+use function sprintf;
+use function strlen;
 
 if (! defined('USE_UTF_STRINGS')) {
     // NOTE: In previous versions of PHP (5.5 and older) the default

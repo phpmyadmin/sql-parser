@@ -8,6 +8,7 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\FunctionCall;
 use PhpMyAdmin\SqlParser\Statement;
+use function implode;
 
 /**
  * `CALL` statement.

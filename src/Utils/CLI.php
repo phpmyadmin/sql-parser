@@ -9,6 +9,15 @@ namespace PhpMyAdmin\SqlParser\Utils;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use function count;
+use function getopt;
+use function implode;
+use function in_array;
+use function rtrim;
+use function stream_get_contents;
+use function stream_set_blocking;
+use function var_export;
+use const STDIN;
 
 /**
  * CLI interface.

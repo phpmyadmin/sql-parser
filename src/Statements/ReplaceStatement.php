@@ -14,6 +14,9 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function count;
+use function strlen;
+use function trim;
 
 /**
  * `REPLACE` statement.

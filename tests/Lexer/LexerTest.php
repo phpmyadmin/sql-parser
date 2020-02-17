@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use function sprintf;
 
 class LexerTest extends TestCase
 {

@@ -8,6 +8,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use function hexdec;
+use function mb_strlen;
+use function mb_substr;
+use function str_replace;
+use function stripcslashes;
+use function strtoupper;
+
 /**
  * A structure representing a lexeme that explicitly indicates its
  * categorization for the purpose of parsing.

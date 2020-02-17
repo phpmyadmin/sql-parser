@@ -11,6 +11,8 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Translator;
+use function count;
+use function sprintf;
 
 /**
  * `VALUES` keyword parser.

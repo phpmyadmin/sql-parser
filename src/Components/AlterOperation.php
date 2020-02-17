@@ -10,6 +10,8 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function array_key_exists;
+use function in_array;
 
 /**
  * Parses an alter operation.

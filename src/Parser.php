@@ -11,6 +11,8 @@ namespace PhpMyAdmin\SqlParser;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Statements\TransactionStatement;
+use function is_string;
+use function strtoupper;
 
 /**
  * Takes multiple tokens (contained in a Lexer instance) as input and builds a

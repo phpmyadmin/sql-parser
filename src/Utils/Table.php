@@ -7,6 +7,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Utils;
 
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+use function is_array;
+use function str_replace;
 
 /**
  * Table utilities.

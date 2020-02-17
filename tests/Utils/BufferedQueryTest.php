@@ -5,6 +5,8 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
+use function count;
+use function str_split;
 
 class BufferedQueryTest extends TestCase
 {

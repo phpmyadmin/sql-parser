@@ -3,11 +3,25 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tools;
 
-require_once '../vendor/autoload.php';
-
 use Exception;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use function count;
+use function file_exists;
+use function file_get_contents;
+use function file_put_contents;
+use function in_array;
+use function is_dir;
+use function mkdir;
+use function print_r;
+use function rtrim;
+use function scandir;
+use function serialize;
+use function sprintf;
+use function strpos;
+use function substr;
+
+require_once '../vendor/autoload.php';
 
 /**
  * Used for test generation.

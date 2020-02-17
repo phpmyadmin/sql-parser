@@ -13,6 +13,9 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function implode;
+use function is_array;
+use function trim;
 
 /**
  * Parses the create definition of a column or a key.

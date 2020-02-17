@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Misc;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\UtfString;
 use Throwable;
+use function chr;
 
 class UtfStringTest extends TestCase
 {

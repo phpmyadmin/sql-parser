@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function count;
 
 /**
  * Parses a reference to a CASE expression.

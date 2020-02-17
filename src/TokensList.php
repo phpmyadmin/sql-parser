@@ -7,6 +7,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use ArrayAccess;
+use function count;
+use function is_array;
+use function is_string;
 
 /**
  * A structure representing a list of tokens.

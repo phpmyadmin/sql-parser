@@ -32,6 +32,12 @@ use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function array_flip;
+use function array_keys;
+use function count;
+use function in_array;
+use function is_string;
+use function trim;
 
 /**
  * Statement utilities.

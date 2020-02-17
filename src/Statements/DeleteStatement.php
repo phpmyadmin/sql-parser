@@ -18,6 +18,9 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function count;
+use function stripos;
+use function strlen;
 
 /**
  * `DELETE` statement.

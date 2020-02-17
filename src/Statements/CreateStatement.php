@@ -17,6 +17,8 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function is_array;
+use function trim;
 
 /**
  * `CREATE` statement.

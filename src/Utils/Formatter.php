@@ -11,6 +11,18 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function array_merge;
+use function array_pop;
+use function end;
+use function htmlspecialchars;
+use function in_array;
+use function mb_strlen;
+use function php_sapi_name;
+use function str_repeat;
+use function str_replace;
+use function strpos;
+use function strtoupper;
+use const ENT_NOQUOTES;
 
 /**
  * Utilities that are used for formatting queries.

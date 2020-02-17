@@ -11,6 +11,14 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Translator;
+use function array_merge_recursive;
+use function count;
+use function implode;
+use function is_array;
+use function ksort;
+use function sprintf;
+use function strcasecmp;
+use function strtoupper;
 
 /**
  * Parses a list of options.

@@ -9,6 +9,8 @@ namespace PhpMyAdmin\SqlParser\Utils;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function count;
+use function strcasecmp;
 
 /**
  * Token utilities.

@@ -1,9 +1,38 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tools;
 
 use Exception;
+use function array_map;
+use function array_merge;
+use function array_slice;
+use function basename;
+use function count;
+use function dirname;
+use function file;
+use function file_put_contents;
+use function implode;
+use function is_dir;
+use function ksort;
+use function preg_match;
+use function round;
+use function rtrim;
+use function scandir;
+use function sort;
+use function sprintf;
+use function str_repeat;
+use function str_replace;
+use function str_split;
+use function strlen;
+use function strstr;
+use function strtoupper;
+use function substr;
+use function trim;
+use const FILE_IGNORE_NEW_LINES;
+use const FILE_SKIP_EMPTY_LINES;
+use const SORT_STRING;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

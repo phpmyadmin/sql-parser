@@ -10,6 +10,17 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Exceptions\LoaderException;
+use function class_exists;
+use function constant;
+use function explode;
+use function intval;
+use function is_array;
+use function is_numeric;
+use function str_replace;
+use function strlen;
+use function strncmp;
+use function strtoupper;
+use function substr;
 
 /**
  * Holds the configuration of the context that is currently used.

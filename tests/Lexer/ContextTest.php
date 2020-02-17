@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use Throwable;
+use function class_exists;
 
 class ContextTest extends TestCase
 {
