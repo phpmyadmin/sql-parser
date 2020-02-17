@@ -90,8 +90,7 @@ class Misc
                 $expr->database : $database;
 
             if (isset($expr->table) && ($expr->table !== '')) {
-                $thisTable = isset($tables[$thisDb][$expr->table]) ?
-                    $tables[$thisDb][$expr->table] : $expr->table;
+                $thisTable = $tables[$thisDb][$expr->table] ?? $expr->table;
                 $retval[$thisDb]['tables'][$thisTable]['columns'][$expr->column] = $expr->alias;
             } else {
                 foreach ($retval[$thisDb]['tables'] as &$table) {

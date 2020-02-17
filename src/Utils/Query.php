@@ -424,7 +424,7 @@ class Query
                 ) {
                     $tableAliases[$expr->alias] = [
                         $expr->table,
-                        isset($expr->database) ? $expr->database : null,
+                        $expr->database ?? null,
                     ];
                 }
             }
@@ -591,7 +591,7 @@ class Query
          *
          * @var int
          */
-        $clauseIdx = isset($clauses[$clauseType]) ? $clauses[$clauseType] : -1;
+        $clauseIdx = $clauses[$clauseType] ?? -1;
 
         $firstClauseIdx = $clauseIdx;
         $lastClauseIdx = $clauseIdx;

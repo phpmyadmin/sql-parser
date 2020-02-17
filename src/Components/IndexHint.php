@@ -69,7 +69,7 @@ class IndexHint extends Component
     {
         $ret = [];
         $expr = new static();
-        $expr->type = isset($options['type']) ? $options['type'] : null;
+        $expr->type = $options['type'] ?? null;
         /**
          * The state of the parser.
          *
