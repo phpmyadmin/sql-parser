@@ -112,7 +112,7 @@ class LockStatement extends Statement
             $prevToken = $token;
         }
 
-        if ($state !== 2 && $prevToken != null) {
+        if ($state !== 2 && $prevToken !== null) {
             $parser->error('Unexpected end of LOCK statement.', $prevToken);
         }
     }

@@ -322,7 +322,7 @@ class BufferedQuery
 
                 // Checking if the delimiter definition ended.
                 if (($delimiter !== '')
-                    && ((($i < $len) && Context::isWhitespace($this->query[$i]))
+                    && (($i < $len) && Context::isWhitespace($this->query[$i])
                     || (($i === $len) && $end))
                 ) {
                     // Saving the delimiter.

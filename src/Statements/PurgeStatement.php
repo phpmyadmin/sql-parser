@@ -115,7 +115,7 @@ class PurgeStatement extends Statement
         }
 
         // Only one possible end state
-        if ($state != 4) {
+        if ($state !== 4) {
             $parser->error('Unexpected token.', $prevToken);
         }
     }

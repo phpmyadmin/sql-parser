@@ -228,7 +228,7 @@ class OptionsArray extends Component
 
                     $ret->options[$lastOptionId]['expr'] .= $token->token;
 
-                    if (! ((($token->token === '(') && ($brackets === 1))
+                    if (! (($token->token === '(') && ($brackets === 1)
                         || (($token->token === ')') && ($brackets === 0)))
                     ) {
                         // First pair of brackets is being skipped.
