@@ -25,17 +25,17 @@ class UtfStringTest extends TestCase
 
     public function testArrayAccess()
     {
-        $str = new UtfString(static::TEST_PHRASE);
+        $str = new UtfString(self::TEST_PHRASE);
 
         // offsetExists
-        $this->assertArrayHasKey(static::TEST_PHRASE_LEN - 1, $str);
+        $this->assertArrayHasKey(self::TEST_PHRASE_LEN - 1, $str);
         $this->assertArrayNotHasKey(-1, $str);
-        $this->assertArrayNotHasKey(static::TEST_PHRASE_LEN, $str);
+        $this->assertArrayNotHasKey(self::TEST_PHRASE_LEN, $str);
 
         // offsetGet
-        $this->assertEquals('.', $str[static::TEST_PHRASE_LEN - 1]);
+        $this->assertEquals('.', $str[self::TEST_PHRASE_LEN - 1]);
         $this->assertNull($str[-1]);
-        $this->assertNull($str[static::TEST_PHRASE_LEN]);
+        $this->assertNull($str[self::TEST_PHRASE_LEN]);
     }
 
     public function testSet()
@@ -77,8 +77,8 @@ class UtfStringTest extends TestCase
 
     public function testToString()
     {
-        $str = new UtfString(static::TEST_PHRASE);
-        $this->assertEquals(static::TEST_PHRASE, (string) $str);
+        $str = new UtfString(self::TEST_PHRASE);
+        $this->assertEquals(self::TEST_PHRASE, (string) $str);
     }
 
     /**

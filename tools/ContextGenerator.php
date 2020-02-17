@@ -238,7 +238,7 @@ class ContextGenerator
         }
 
         return sprintf(
-            static::TEMPLATE,
+            self::TEMPLATE,
             $options['name'],
             $options['class'],
             $options['link'],
