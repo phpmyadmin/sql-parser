@@ -267,9 +267,7 @@ class QueryTest extends TestCase
             ],
             [
                 'SET NAMES \'latin\'',
-                [
-                    'querytype' => 'SET',
-                ],
+                ['querytype' => 'SET'],
             ],
         ];
     }
@@ -386,9 +384,7 @@ class QueryTest extends TestCase
                 [
                     'parser' => $parser,
                     'statement' => $parser->statements[0],
-                    'select_expr' => [
-                        'CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END',
-                    ],
+                    'select_expr' => ['CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END'],
                     'select_tables' => [],
                 ]
             ),

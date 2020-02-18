@@ -19,9 +19,7 @@ class TruncateStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
-        'TABLE' => 1,
-    ];
+    public static $OPTIONS = ['TABLE' => 1];
 
     /**
      * The name of the truncated table.

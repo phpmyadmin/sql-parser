@@ -29,9 +29,7 @@ class ArrayObjTest extends TestCase
             $this->getTokensList('(1 + 2, 3 + 4)'),
             [
                 'type' => Expression::class,
-                'typeOptions' => [
-                    'breakOnParentheses' => true,
-                ],
+                'typeOptions' => ['breakOnParentheses' => true],
             ]
         );
         $this->assertInstanceOf(Expression::class, $components[0]);

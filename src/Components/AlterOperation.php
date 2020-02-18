@@ -128,9 +128,7 @@ class AlterOperation extends Component
      *
      * @var array
      */
-    public static $VIEW_OPTIONS = [
-        'AS' => 1,
-    ];
+    public static $VIEW_OPTIONS = ['AS' => 1];
 
     /**
      * Options of this operation.

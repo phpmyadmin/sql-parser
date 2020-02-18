@@ -213,9 +213,7 @@ class PartitionDefinition extends Component
                     $ret->subpartitions = ArrayObj::parse(
                         $parser,
                         $list,
-                        [
-                            'type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition',
-                        ]
+                        ['type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition']
                     );
                     ++$list->idx;
                 }

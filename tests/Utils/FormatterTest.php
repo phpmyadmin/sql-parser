@@ -398,9 +398,7 @@ class FormatterTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl<br/>' .
                     '<span class="sql-reserved">WHERE</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
-                'options' => [
-                    'remove_comments' => true,
-                ],
+                'options' => ['remove_comments' => true],
             ],
             'keywords' => [
                 'query' => 'select hex("1")',

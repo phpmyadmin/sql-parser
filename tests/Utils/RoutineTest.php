@@ -231,48 +231,28 @@ class RoutineTest extends TestCase
                 'CREATE DEFINER=`user\\`@`somehost``(` FUNCTION `foo```(`baz` INT) BEGIN SELECT NULL; END',
                 [
                     'num' => 1,
-                    'dir' => [
-                        0 => '',
-                    ],
-                    'name' => [
-                        0 => 'baz',
-                    ],
-                    'type' => [
-                        0 => 'INT',
-                    ],
-                    'length' => [
-                        0 => '',
-                    ],
+                    'dir' => [0 => ''],
+                    'name' => [0 => 'baz'],
+                    'type' => [0 => 'INT'],
+                    'length' => [0 => ''],
                     'length_arr' => [
                         0 => [],
                     ],
-                    'opts' => [
-                        0 => '',
-                    ],
+                    'opts' => [0 => ''],
                 ],
             ],
             [
                 'CREATE PROCEDURE `foo`(IN `baz\\)` INT(25) zerofill unsigned) BEGIN SELECT NULL; END',
                 [
                     'num' => 1,
-                    'dir' => [
-                        0 => 'IN',
-                    ],
-                    'name' => [
-                        0 => 'baz\\)',
-                    ],
-                    'type' => [
-                        0 => 'INT',
-                    ],
-                    'length' => [
-                        0 => '25',
-                    ],
+                    'dir' => [0 => 'IN'],
+                    'name' => [0 => 'baz\\)'],
+                    'type' => [0 => 'INT'],
+                    'length' => [0 => '25'],
                     'length_arr' => [
                         0 => ['25'],
                     ],
-                    'opts' => [
-                        0 => 'UNSIGNED ZEROFILL',
-                    ],
+                    'opts' => [0 => 'UNSIGNED ZEROFILL'],
                 ],
             ],
             [

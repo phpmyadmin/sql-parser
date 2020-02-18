@@ -141,25 +141,19 @@ class CLITest extends TestCase
             ],
             [
                 'SELECT /* comment */ 1 /* other */',
-                [
-                    'f' => 'text',
-                ],
+                ['f' => 'text'],
                 "SELECT\n    /* comment */ 1 /* other */\n",
                 0,
             ],
             [
                 'SELECT 1',
-                [
-                    'f' => 'foo',
-                ],
+                ['f' => 'foo'],
                 "ERROR: Invalid value for format!\n",
                 1,
             ],
             [
                 'SELECT 1',
-                [
-                    'f' => 'html',
-                ],
+                ['f' => 'html'],
                 '<span class="sql-reserved">SELECT</span><br/>' .
                 '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>' . "\n",
                 0,
