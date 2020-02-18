@@ -21,14 +21,14 @@ class TransactionStatement extends Statement
      *
      * @var int
      */
-    const TYPE_BEGIN = 1;
+    public const TYPE_BEGIN = 1;
 
     /**
      * COMMIT and ROLLBACK.
      *
      * @var int
      */
-    const TYPE_END = 2;
+    public const TYPE_END = 2;
 
     /**
      * The type of this query.

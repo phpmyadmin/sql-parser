@@ -30,14 +30,14 @@ class Token
      *
      * @var int
      */
-    const TYPE_NONE = 0;
+    public const TYPE_NONE = 0;
 
     /**
      * SQL specific keywords: SELECT, UPDATE, INSERT, etc.
      *
      * @var int
      */
-    const TYPE_KEYWORD = 1;
+    public const TYPE_KEYWORD = 1;
 
     /**
      * Any type of legal operator.
@@ -51,14 +51,14 @@ class Token
      *
      * @var int
      */
-    const TYPE_OPERATOR = 2;
+    public const TYPE_OPERATOR = 2;
 
     /**
      * Spaces, tabs, new lines, etc.
      *
      * @var int
      */
-    const TYPE_WHITESPACE = 3;
+    public const TYPE_WHITESPACE = 3;
 
     /**
      * Any type of legal comment.
@@ -80,21 +80,21 @@ class Token
      *
      * @var int
      */
-    const TYPE_COMMENT = 4;
+    public const TYPE_COMMENT = 4;
 
     /**
      * Boolean values: true or false.
      *
      * @var int
      */
-    const TYPE_BOOL = 5;
+    public const TYPE_BOOL = 5;
 
     /**
      * Numbers: 4, 0x8, 15.16, 23e42, etc.
      *
      * @var int
      */
-    const TYPE_NUMBER = 6;
+    public const TYPE_NUMBER = 6;
 
     /**
      * Literal strings: 'string', "test".
@@ -102,7 +102,7 @@ class Token
      *
      * @var int
      */
-    const TYPE_STRING = 7;
+    public const TYPE_STRING = 7;
 
     /**
      * Database, table names, variables, etc.
@@ -110,7 +110,7 @@ class Token
      *
      * @var int
      */
-    const TYPE_SYMBOL = 8;
+    public const TYPE_SYMBOL = 8;
 
     /**
      * Delimits an unknown string.
@@ -118,7 +118,7 @@ class Token
      *
      * @var int
      */
-    const TYPE_DELIMITER = 9;
+    public const TYPE_DELIMITER = 9;
 
     /**
      * Labels in LOOP statement, ITERATE statement etc.
@@ -130,47 +130,47 @@ class Token
      *
      * @var int
      */
-    const TYPE_LABEL = 10;
+    public const TYPE_LABEL = 10;
 
     // Flags that describe the tokens in more detail.
     // All keywords must have flag 1 so `Context::isKeyword` method doesn't
     // require strict comparison.
-    const FLAG_KEYWORD_RESERVED = 2;
-    const FLAG_KEYWORD_COMPOSED = 4;
-    const FLAG_KEYWORD_DATA_TYPE = 8;
-    const FLAG_KEYWORD_KEY = 16;
-    const FLAG_KEYWORD_FUNCTION = 32;
+    public const FLAG_KEYWORD_RESERVED = 2;
+    public const FLAG_KEYWORD_COMPOSED = 4;
+    public const FLAG_KEYWORD_DATA_TYPE = 8;
+    public const FLAG_KEYWORD_KEY = 16;
+    public const FLAG_KEYWORD_FUNCTION = 32;
 
     // Numbers related flags.
-    const FLAG_NUMBER_HEX = 1;
-    const FLAG_NUMBER_FLOAT = 2;
-    const FLAG_NUMBER_APPROXIMATE = 4;
-    const FLAG_NUMBER_NEGATIVE = 8;
-    const FLAG_NUMBER_BINARY = 16;
+    public const FLAG_NUMBER_HEX = 1;
+    public const FLAG_NUMBER_FLOAT = 2;
+    public const FLAG_NUMBER_APPROXIMATE = 4;
+    public const FLAG_NUMBER_NEGATIVE = 8;
+    public const FLAG_NUMBER_BINARY = 16;
 
     // Strings related flags.
-    const FLAG_STRING_SINGLE_QUOTES = 1;
-    const FLAG_STRING_DOUBLE_QUOTES = 2;
+    public const FLAG_STRING_SINGLE_QUOTES = 1;
+    public const FLAG_STRING_DOUBLE_QUOTES = 2;
 
     // Comments related flags.
-    const FLAG_COMMENT_BASH = 1;
-    const FLAG_COMMENT_C = 2;
-    const FLAG_COMMENT_SQL = 4;
-    const FLAG_COMMENT_MYSQL_CMD = 8;
+    public const FLAG_COMMENT_BASH = 1;
+    public const FLAG_COMMENT_C = 2;
+    public const FLAG_COMMENT_SQL = 4;
+    public const FLAG_COMMENT_MYSQL_CMD = 8;
 
     // Operators related flags.
-    const FLAG_OPERATOR_ARITHMETIC = 1;
-    const FLAG_OPERATOR_LOGICAL = 2;
-    const FLAG_OPERATOR_BITWISE = 4;
-    const FLAG_OPERATOR_ASSIGNMENT = 8;
-    const FLAG_OPERATOR_SQL = 16;
+    public const FLAG_OPERATOR_ARITHMETIC = 1;
+    public const FLAG_OPERATOR_LOGICAL = 2;
+    public const FLAG_OPERATOR_BITWISE = 4;
+    public const FLAG_OPERATOR_ASSIGNMENT = 8;
+    public const FLAG_OPERATOR_SQL = 16;
 
     // Symbols related flags.
-    const FLAG_SYMBOL_VARIABLE = 1;
-    const FLAG_SYMBOL_BACKTICK = 2;
-    const FLAG_SYMBOL_USER = 4;
-    const FLAG_SYMBOL_SYSTEM = 8;
-    const FLAG_SYMBOL_PARAMETER = 16;
+    public const FLAG_SYMBOL_VARIABLE = 1;
+    public const FLAG_SYMBOL_BACKTICK = 2;
+    public const FLAG_SYMBOL_USER = 4;
+    public const FLAG_SYMBOL_SYSTEM = 8;
+    public const FLAG_SYMBOL_PARAMETER = 16;
 
     /**
      * The token it its raw string representation.

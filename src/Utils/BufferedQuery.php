@@ -24,16 +24,16 @@ class BufferedQuery
     // Constants that describe the current status of the parser.
 
     // A string is being parsed.
-    const STATUS_STRING = 16; // 0001 0000
-    const STATUS_STRING_SINGLE_QUOTES = 17; // 0001 0001
-    const STATUS_STRING_DOUBLE_QUOTES = 18; // 0001 0010
-    const STATUS_STRING_BACKTICK = 20; // 0001 0100
+    public const STATUS_STRING = 16; // 0001 0000
+    public const STATUS_STRING_SINGLE_QUOTES = 17; // 0001 0001
+    public const STATUS_STRING_DOUBLE_QUOTES = 18; // 0001 0010
+    public const STATUS_STRING_BACKTICK = 20; // 0001 0100
 
     // A comment is being parsed.
-    const STATUS_COMMENT = 32; // 0010 0000
-    const STATUS_COMMENT_BASH = 33; // 0010 0001
-    const STATUS_COMMENT_C = 34; // 0010 0010
-    const STATUS_COMMENT_SQL = 36; // 0010 0100
+    public const STATUS_COMMENT = 32; // 0010 0000
+    public const STATUS_COMMENT_BASH = 33; // 0010 0001
+    public const STATUS_COMMENT_C = 34; // 0010 0010
+    public const STATUS_COMMENT_SQL = 36; // 0010 0100
 
     /**
      * The query that is being processed.

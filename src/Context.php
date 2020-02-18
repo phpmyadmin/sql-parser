@@ -34,7 +34,7 @@ abstract class Context
      *
      * @var int
      */
-    const KEYWORD_MAX_LENGTH = 30;
+    public const KEYWORD_MAX_LENGTH = 30;
 
     /**
      * The maximum length of a label.
@@ -44,7 +44,7 @@ abstract class Context
      *
      * @var int
      */
-    const LABEL_MAX_LENGTH = 16;
+    public const LABEL_MAX_LENGTH = 16;
 
     /**
      * The maximum length of an operator.
@@ -53,7 +53,7 @@ abstract class Context
      *
      * @var int
      */
-    const OPERATOR_MAX_LENGTH = 4;
+    public const OPERATOR_MAX_LENGTH = 4;
 
     /**
      * The name of the default content.
@@ -162,77 +162,77 @@ abstract class Context
 
     // Compatibility mode for Microsoft's SQL server.
     // This is the equivalent of ANSI_QUOTES.
-    const SQL_MODE_COMPAT_MYSQL = 2;
+    public const SQL_MODE_COMPAT_MYSQL = 2;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_allow_invalid_dates
-    const SQL_MODE_ALLOW_INVALID_DATES = 1;
+    public const SQL_MODE_ALLOW_INVALID_DATES = 1;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_ansi_quotes
-    const SQL_MODE_ANSI_QUOTES = 2;
+    public const SQL_MODE_ANSI_QUOTES = 2;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_error_for_division_by_zero
-    const SQL_MODE_ERROR_FOR_DIVISION_BY_ZERO = 4;
+    public const SQL_MODE_ERROR_FOR_DIVISION_BY_ZERO = 4;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_high_not_precedence
-    const SQL_MODE_HIGH_NOT_PRECEDENCE = 8;
+    public const SQL_MODE_HIGH_NOT_PRECEDENCE = 8;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_ignore_space
-    const SQL_MODE_IGNORE_SPACE = 16;
+    public const SQL_MODE_IGNORE_SPACE = 16;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_auto_create_user
-    const SQL_MODE_NO_AUTO_CREATE_USER = 32;
+    public const SQL_MODE_NO_AUTO_CREATE_USER = 32;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero
-    const SQL_MODE_NO_AUTO_VALUE_ON_ZERO = 64;
+    public const SQL_MODE_NO_AUTO_VALUE_ON_ZERO = 64;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_backslash_escapes
-    const SQL_MODE_NO_BACKSLASH_ESCAPES = 128;
+    public const SQL_MODE_NO_BACKSLASH_ESCAPES = 128;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_dir_in_create
-    const SQL_MODE_NO_DIR_IN_CREATE = 256;
+    public const SQL_MODE_NO_DIR_IN_CREATE = 256;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_dir_in_create
-    const SQL_MODE_NO_ENGINE_SUBSTITUTION = 512;
+    public const SQL_MODE_NO_ENGINE_SUBSTITUTION = 512;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_field_options
-    const SQL_MODE_NO_FIELD_OPTIONS = 1024;
+    public const SQL_MODE_NO_FIELD_OPTIONS = 1024;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_key_options
-    const SQL_MODE_NO_KEY_OPTIONS = 2048;
+    public const SQL_MODE_NO_KEY_OPTIONS = 2048;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_table_options
-    const SQL_MODE_NO_TABLE_OPTIONS = 4096;
+    public const SQL_MODE_NO_TABLE_OPTIONS = 4096;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction
-    const SQL_MODE_NO_UNSIGNED_SUBTRACTION = 8192;
+    public const SQL_MODE_NO_UNSIGNED_SUBTRACTION = 8192;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_zero_date
-    const SQL_MODE_NO_ZERO_DATE = 16384;
+    public const SQL_MODE_NO_ZERO_DATE = 16384;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_zero_in_date
-    const SQL_MODE_NO_ZERO_IN_DATE = 32768;
+    public const SQL_MODE_NO_ZERO_IN_DATE = 32768;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_only_full_group_by
-    const SQL_MODE_ONLY_FULL_GROUP_BY = 65536;
+    public const SQL_MODE_ONLY_FULL_GROUP_BY = 65536;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_pipes_as_concat
-    const SQL_MODE_PIPES_AS_CONCAT = 131072;
+    public const SQL_MODE_PIPES_AS_CONCAT = 131072;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_real_as_float
-    const SQL_MODE_REAL_AS_FLOAT = 262144;
+    public const SQL_MODE_REAL_AS_FLOAT = 262144;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_all_tables
-    const SQL_MODE_STRICT_ALL_TABLES = 524288;
+    public const SQL_MODE_STRICT_ALL_TABLES = 524288;
 
     // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_trans_tables
-    const SQL_MODE_STRICT_TRANS_TABLES = 1048576;
+    public const SQL_MODE_STRICT_TRANS_TABLES = 1048576;
 
     // Custom modes.
 
     // The table and column names and any other field that must be escaped will
     // not be.
     // Reserved keywords are being escaped regardless this mode is used or not.
-    const SQL_MODE_NO_ENCLOSING_QUOTES = 1073741824;
+    public const SQL_MODE_NO_ENCLOSING_QUOTES = 1073741824;
 
     /*
      * Combination SQL Modes
@@ -240,31 +240,31 @@ abstract class Context
      */
 
     // REAL_AS_FLOAT, PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE
-    const SQL_MODE_ANSI = 393234;
+    public const SQL_MODE_ANSI = 393234;
 
     // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
     // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS,
-    const SQL_MODE_DB2 = 138258;
+    public const SQL_MODE_DB2 = 138258;
 
     // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
     // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS, NO_AUTO_CREATE_USER
-    const SQL_MODE_MAXDB = 138290;
+    public const SQL_MODE_MAXDB = 138290;
 
     // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
     // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS
-    const SQL_MODE_MSSQL = 138258;
+    public const SQL_MODE_MSSQL = 138258;
 
     // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
     // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS, NO_AUTO_CREATE_USER
-    const SQL_MODE_ORACLE = 138290;
+    public const SQL_MODE_ORACLE = 138290;
 
     // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
     // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS
-    const SQL_MODE_POSTGRESQL = 138258;
+    public const SQL_MODE_POSTGRESQL = 138258;
 
     // STRICT_TRANS_TABLES, STRICT_ALL_TABLES, NO_ZERO_IN_DATE, NO_ZERO_DATE,
     // ERROR_FOR_DIVISION_BY_ZERO, NO_AUTO_CREATE_USER
-    const SQL_MODE_TRADITIONAL = 1622052;
+    public const SQL_MODE_TRADITIONAL = 1622052;
 
     // -------------------------------------------------------------------------
     // Keyword.

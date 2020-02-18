@@ -82,7 +82,7 @@ class ContextGenerator
      *
      * @var string
      */
-    const TEMPLATE =
+    public const TEMPLATE =
         '<?php' . "\n" .
         '/**' . "\n" .
         ' * Context for %1$s.' . "\n" .
