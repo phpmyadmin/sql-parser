@@ -35,6 +35,7 @@ class CallStatement extends Statement
      */
     public function build()
     {
-        return 'CALL ' . $this->call->name . '(' . ($this->call->parameters ? implode(',', $this->call->parameters->raw) : '') . ')';
+        return 'CALL ' . $this->call->name . '('
+            . ($this->call->parameters ? implode(',', $this->call->parameters->raw) : '') . ')';
     }
 }

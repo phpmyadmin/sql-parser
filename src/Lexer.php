@@ -312,7 +312,10 @@ class Lexer extends Core
                 // Parsing the delimiter.
                 $this->delimiter = null;
                 $delimiterLen = 0;
-                while (++$this->last < $this->len && ! Context::isWhitespace($this->str[$this->last]) && $delimiterLen < 15) {
+                while (++$this->last < $this->len
+                    && ! Context::isWhitespace($this->str[$this->last])
+                    && $delimiterLen < 15
+                ) {
                     $this->delimiter .= $this->str[$this->last];
                     ++$delimiterLen;
                 }

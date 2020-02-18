@@ -286,7 +286,8 @@ class AlterOperation extends Component
                     || array_key_exists($token->value, self::$TABLE_OPTIONS))
                     && ! self::checkIfColumnDefinitionKeyword($token->value)
                 ) {
-                    // This alter operation has finished, which means a comma was missing before start of new alter operation
+                    // This alter operation has finished, which means a comma
+                    // was missing before start of new alter operation
                     $parser->error(
                         'Missing comma before start of a new alter operation.',
                         $token

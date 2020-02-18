@@ -245,13 +245,25 @@ class FormatterTest extends TestCase
     public function testFormat($query, $text, $cli, $html, array $options = [])
     {
         // Test TEXT format
-        $this->assertEquals($text, Formatter::format($query, ['type' => 'text'] + $options), 'Text formatting failed.');
+        $this->assertEquals(
+            $text,
+            Formatter::format($query, ['type' => 'text'] + $options),
+            'Text formatting failed.'
+        );
 
         // Test CLI format
-        $this->assertEquals($cli, Formatter::format($query, ['type' => 'cli'] + $options), 'CLI formatting failed.');
+        $this->assertEquals(
+            $cli,
+            Formatter::format($query, ['type' => 'cli'] + $options),
+            'CLI formatting failed.'
+        );
 
         // Test HTML format
-        $this->assertEquals($html, Formatter::format($query, ['type' => 'html'] + $options), 'HTML formatting failed.');
+        $this->assertEquals(
+            $html,
+            Formatter::format($query, ['type' => 'html'] + $options),
+            'HTML formatting failed.'
+        );
     }
 
     public function formatQueries()
@@ -294,7 +306,8 @@ class FormatterTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
             ],
             'typical' => [
-                'query' => 'SELECT id, if(id=1,"Si","No") from `tbl` where id = 0 or id = 1 group by id order by id desc limit 1 offset 0',
+                'query' => 'SELECT id, if(id=1,"Si","No") from `tbl` where id = 0 or ' .
+                    'id = 1 group by id order by id desc limit 1 offset 0',
                 'text' => 'SELECT' . "\n" .
                     '    id,' . "\n" .
                     '    IF(id = 1, "Si", "No")' . "\n" .
@@ -323,17 +336,21 @@ class FormatterTest extends TestCase
                     "LIMIT \x1b[92m1 \x1b[95mOFFSET \x1b[92m0\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;id,<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">IF</span>(id = <span class="sql-number">1</span>, <span class="sql-string">"Si"</span>, <span class="sql-string">"No"</span>)<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">IF</span>(id = ' .
+                    '<span class="sql-number">1</span>, <span class="sql-string">"Si"</span>, ' .
+                    '<span class="sql-string">"No"</span>)<br/>' .
                     '<span class="sql-reserved">FROM</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`tbl`</span><br/>' .
                     '<span class="sql-reserved">WHERE</span><br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;id = <span class="sql-number">0</span> <span class="sql-reserved">OR</span> id = <span class="sql-number">1</span><br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;id = <span class="sql-number">0</span> ' .
+                    '<span class="sql-reserved">OR</span> id = <span class="sql-number">1</span><br/>' .
                     '<span class="sql-reserved">GROUP BY</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;id<br/>' .
                     '<span class="sql-reserved">ORDER BY</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;id<br/>' .
                     '<span class="sql-reserved">DESC</span><br/>' .
-                    '<span class="sql-reserved">LIMIT</span> <span class="sql-number">1</span> <span class="sql-keyword">OFFSET</span> <span class="sql-number">0</span>',
+                    '<span class="sql-reserved">LIMIT</span> <span class="sql-number">1</span> ' .
+                    '<span class="sql-keyword">OFFSET</span> <span class="sql-number">0</span>',
             ],
             'comments' => [
                 'query' => 'select /* Comment */ *' . "\n" .
@@ -356,7 +373,8 @@ class FormatterTest extends TestCase
                     '<span class="sql-reserved">FROM</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl <span class="sql-comment"># Comment</span><br/>' .
                     '<span class="sql-reserved">WHERE</span><br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> <span class="sql-comment">-- Comment</span>',
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span> ' .
+                    '<span class="sql-comment">-- Comment</span>',
             ],
             'strip comments' => [
                 'query' => 'select /* Comment */ *' . "\n" .
@@ -418,7 +436,8 @@ class FormatterTest extends TestCase
                     "    \x1b[35mSELECT\n" .
                     "        \x1b[39m*;\n" .
                     "\x1b[95mEND\x1b[0m",
-                'html' => '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">PROCEDURE</span> test_procedure()<br/>' .
+                'html' => '<span class="sql-reserved">CREATE</span> ' .
+                    '<span class="sql-reserved">PROCEDURE</span> test_procedure()<br/>' .
                     '<span class="sql-keyword">BEGIN</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">FROM</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tbl<br/>' .
@@ -431,9 +450,13 @@ class FormatterTest extends TestCase
                 'text' => 'INSERT INTO foo' . "\n" .
                     'VALUES(0, 0, 0),(1, 1, 1)',
                 'cli' => "\x1b[35mINSERT INTO \x1b[39mfoo\n" .
-                    "\x1b[35mVALUES\x1b[39m(\x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m),(\x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m)\x1b[0m",
+                    "\x1b[35mVALUES\x1b[39m(\x1b[92m0\x1b[39m, \x1b[92m0\x1b[39m, " .
+                    "\x1b[92m0\x1b[39m),(\x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m, \x1b[92m1\x1b[39m)\x1b[0m",
                 'html' => '<span class="sql-reserved">INSERT</span> <span class="sql-reserved">INTO</span> foo<br/>' .
-                    '<span class="sql-reserved">VALUES</span>(<span class="sql-number">0</span>, <span class="sql-number">0</span>, <span class="sql-number">0</span>),(<span class="sql-number">1</span>, <span class="sql-number">1</span>, <span class="sql-number">1</span>)',
+                    '<span class="sql-reserved">VALUES</span>(<span class="sql-number">0</span>, ' .
+                    '<span class="sql-number">0</span>, <span class="sql-number">0</span>),(' .
+                    '<span class="sql-number">1</span>, <span class="sql-number">1</span>, ' .
+                    '<span class="sql-number">1</span>)',
             ],
             'string as alias' => [
                 'query' => 'select "Text" as bar',
@@ -442,7 +465,8 @@ class FormatterTest extends TestCase
                 'cli' => "\x1b[35mSELECT\n" .
                     "    \x1b[91m\"Text\" \x1b[35mAS \x1b[39mbar\x1b[0m",
                 'html' => '<span class="sql-reserved">SELECT</span><br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Text"</span> <span class="sql-reserved">AS</span> bar',
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">"Text"</span> ' .
+                    '<span class="sql-reserved">AS</span> bar',
             ],
             'escape cli' => [
                 'query' => "select 'text\x1b[33mcolor-inj'",
@@ -468,7 +492,8 @@ class FormatterTest extends TestCase
                 'html' => '<span class="sql-reserved">SELECT</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-string">\'&lt;s&gt;xss\'</span><br/>' .
                     '<span class="sql-reserved">FROM</span><br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`&lt;s&gt;xss`</span>,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt; s &gt; nxss <span class="sql-comment">/*s&lt;s&gt;xss*/</span>',
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`&lt;s&gt;xss`</span>,' .
+                    '<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt; s &gt; nxss <span class="sql-comment">/*s&lt;s&gt;xss*/</span>',
             ],
             'create table' => [
                 'query' => 'create table if not exists `pma__bookmark` (' . "\n" .
@@ -486,19 +511,39 @@ class FormatterTest extends TestCase
                     '    `query` TEXT NOT NULL,' . "\n" .
                     '    PRIMARY KEY(`id`)',
                 'cli' => "\x1b[35mCREATE TABLE IF NOT EXISTS \x1b[36m`pma__bookmark`\x1b[39m(\n" .
-                    "    \x1b[36m`id` \x1b[35mINT\x1b[39m(\x1b[92m11\x1b[39m) \x1b[35mNOT NULL \x1b[95mAUTO_INCREMENT\x1b[39m,\n" .
-                    "    \x1b[36m`dbase` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m,\n" .
-                    "    \x1b[36m`user` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m,\n" .
-                    "    \x1b[36m`label` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) \x1b[35mCOLLATE \x1b[39mutf8_general_ci \x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m,\n" .
+                    "    \x1b[36m`id` \x1b[35mINT\x1b[39m(\x1b[92m11\x1b[39m) " .
+                    "\x1b[35mNOT NULL \x1b[95mAUTO_INCREMENT\x1b[39m,\n" .
+                    "    \x1b[36m`dbase` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) " .
+                    "\x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m,\n" .
+                    "    \x1b[36m`user` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) " .
+                    "\x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m,\n" .
+                    "    \x1b[36m`label` \x1b[35mVARCHAR\x1b[39m(\x1b[92m255\x1b[39m) " .
+                    "\x1b[35mCOLLATE \x1b[39mutf8_general_ci \x1b[35mNOT NULL DEFAULT \x1b[91m\"\"\x1b[39m,\n" .
                     "    \x1b[36m`query` \x1b[95mTEXT \x1b[35mNOT NULL\x1b[39m,\n" .
                     "    \x1b[35mPRIMARY KEY\x1b[39m(\x1b[36m`id`\x1b[39m)\x1b[0m",
-                'html' => '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">TABLE</span> <span class="sql-reserved">IF NOT EXISTS</span> <span class="sql-variable">`pma__bookmark`</span>(<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`id`</span> <span class="sql-reserved">INT</span>(<span class="sql-number">11</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-keyword">AUTO_INCREMENT</span>,<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`dbase`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`user`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`label`</span> <span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) <span class="sql-reserved">COLLATE</span> utf8_general_ci <span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> <span class="sql-string">""</span>,<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`query`</span> <span class="sql-keyword">TEXT</span> <span class="sql-reserved">NOT NULL</span>,<br/>' .
-                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">PRIMARY KEY</span>(<span class="sql-variable">`id`</span>)',
+                'html' => '<span class="sql-reserved">CREATE</span> <span class="sql-reserved">TABLE</span> ' .
+                    '<span class="sql-reserved">IF NOT EXISTS</span> <span class="sql-variable">' .
+                    '`pma__bookmark`</span>(<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`id`</span> ' .
+                    '<span class="sql-reserved">INT</span>(<span class="sql-number">11</span>) ' .
+                    '<span class="sql-reserved">NOT NULL</span> <span class="sql-keyword">AUTO_INCREMENT</span>,<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`dbase`</span> ' .
+                    '<span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) ' .
+                    '<span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> ' .
+                    '<span class="sql-string">""</span>,<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`user`</span> ' .
+                    '<span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) ' .
+                    '<span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> ' .
+                    '<span class="sql-string">""</span>,<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`label`</span> ' .
+                    '<span class="sql-reserved">VARCHAR</span>(<span class="sql-number">255</span>) ' .
+                    '<span class="sql-reserved">COLLATE</span> utf8_general_ci ' .
+                    '<span class="sql-reserved">NOT NULL</span> <span class="sql-reserved">DEFAULT</span> ' .
+                    '<span class="sql-string">""</span>,<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`query`</span> ' .
+                    '<span class="sql-keyword">TEXT</span> <span class="sql-reserved">NOT NULL</span>,<br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-reserved">' .
+                    'PRIMARY KEY</span>(<span class="sql-variable">`id`</span>)',
             ],
             'join' => [
                 'query' => 'join tbl2 on c1=c2',

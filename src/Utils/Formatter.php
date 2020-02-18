@@ -435,7 +435,9 @@ class Formatter
 
                 // Checking if this clause ended.
                 if ($isClause = static::isClause($curr)) {
-                    if (($isClause === 2 || $this->options['clause_newline']) && empty(self::$SHORT_CLAUSES[$lastClause])) {
+                    if (($isClause === 2 || $this->options['clause_newline'])
+                        && empty(self::$SHORT_CLAUSES[$lastClause])
+                    ) {
                         $lineEnded = true;
                         if ($this->options['parts_newline'] && $indent > 0) {
                             --$indent;
@@ -445,7 +447,8 @@ class Formatter
 
                 // Inline JOINs
                 if (($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::$JOINS[$prev->value]))
-                    || (in_array($curr->value, ['ON', 'USING'], true) && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 2]->value]))
+                    || (in_array($curr->value, ['ON', 'USING'], true)
+                        && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 2]->value]))
                     || isset($list->tokens[$list->idx - 4], JoinKeyword::$JOINS[$list->tokens[$list->idx - 4]->value])
                     || isset($list->tokens[$list->idx - 6], JoinKeyword::$JOINS[$list->tokens[$list->idx - 6]->value])
                 ) {
@@ -514,7 +517,9 @@ class Formatter
                         || ! (
                             ($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
                             // No space after . (
-                            || ($curr->type === Token::TYPE_OPERATOR && ($curr->value === '.' || $curr->value === ',' || $curr->value === '(' || $curr->value === ')'))
+                            || ($curr->type === Token::TYPE_OPERATOR
+                                && ($curr->value === '.' || $curr->value === ','
+                                    || $curr->value === '(' || $curr->value === ')'))
                             // No space before . , ( )
                             || $curr->type === Token::TYPE_DELIMITER && mb_strlen((string) $curr->value, 'UTF-8') < 2
                         )

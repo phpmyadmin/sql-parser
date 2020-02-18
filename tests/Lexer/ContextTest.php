@@ -107,7 +107,9 @@ class ContextTest extends TestCase
 
     public function testLoadError()
     {
-        $this->expectExceptionMessage('Specified context ("\PhpMyAdmin\SqlParser\Contexts\ContextFoo") does not exist.');
+        $this->expectExceptionMessage(
+            'Specified context ("\PhpMyAdmin\SqlParser\Contexts\ContextFoo") does not exist.'
+        );
         $this->expectException(Throwable::class);
         Context::load('Foo');
     }

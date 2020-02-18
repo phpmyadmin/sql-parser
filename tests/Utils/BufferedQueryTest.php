@@ -71,7 +71,8 @@ class BufferedQueryTest extends TestCase
             '/* a comment */ DELIMITER $$' . "\n" .
             '' . "\n" .
             '# Bash-like comment sytanx.' . "\n" .
-            'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
+            'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` ' .
+            'INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
             'BEGIN' . "\n" .
             '     SELECT inventory_id' . "\n" .
             '     FROM inventory' . "\n" .
@@ -189,7 +190,8 @@ class BufferedQueryTest extends TestCase
                     'SET time_zone = "+00:00"',
 
                     '# Bash-like comment sytanx.' . "\n" .
-                    'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
+                    'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` ' .
+                    'INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
                     'BEGIN' . "\n" .
                     '     SELECT inventory_id' . "\n" .
                     '     FROM inventory' . "\n" .
@@ -245,7 +247,8 @@ class BufferedQueryTest extends TestCase
                     '/* a comment */  DELIMITER $$',
 
                     '# Bash-like comment sytanx.' . "\n" .
-                    'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
+                    'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` ' .
+                    'INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
                     'BEGIN' . "\n" .
                     '     SELECT inventory_id' . "\n" .
                     '     FROM inventory' . "\n" .
@@ -301,7 +304,8 @@ class BufferedQueryTest extends TestCase
                     'SET time_zone = "+00:00";',
 
                     '# Bash-like comment sytanx.' . "\n" .
-                    'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
+                    'CREATE DEFINER=`root`@`localhost` PROCEDURE `film_in_stock` (IN `p_film_id` ' .
+                    'INT, IN `p_store_id` INT, OUT `p_film_count` INT)  READS SQL DATA' . "\n" .
                     'BEGIN' . "\n" .
                     '     SELECT inventory_id' . "\n" .
                     '     FROM inventory' . "\n" .

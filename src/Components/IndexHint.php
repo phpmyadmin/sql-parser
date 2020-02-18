@@ -151,7 +151,10 @@ class IndexHint extends Component
                     break;
                 case 3:
                     if ($token->type === Token::TYPE_KEYWORD) {
-                        if ($token->keyword === 'JOIN' || $token->keyword === 'GROUP BY' || $token->keyword === 'ORDER BY') {
+                        if ($token->keyword === 'JOIN'
+                            || $token->keyword === 'GROUP BY'
+                            || $token->keyword === 'ORDER BY'
+                        ) {
                             $expr->for = $token->keyword;
                         } else {
                             $parser->error('Unexpected keyword.', $token);
