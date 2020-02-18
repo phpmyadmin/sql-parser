@@ -55,13 +55,8 @@ class Tokens
         }
 
         // Flags.
-        if (isset($pattern['flags'])
-            && (($pattern['flags'] & $token->flags) === 0)
-        ) {
-            return false;
-        }
-
-        return true;
+        return ! isset($pattern['flags'])
+            || (! (($pattern['flags'] & $token->flags) === 0));
     }
 
     public static function replaceTokens($list, array $find, array $replace)
