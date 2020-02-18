@@ -749,9 +749,7 @@ class Query
         }
 
         // Adding everything after the last replacement.
-        $ret .= static::getClause($statement, $list, $ops[$count - 1][0], 1);
-
-        return $ret;
+        return $ret . static::getClause($statement, $list, $ops[$count - 1][0], 1);
     }
 
     /**

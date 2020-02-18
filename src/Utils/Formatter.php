@@ -17,12 +17,12 @@ use function end;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strlen;
-use function php_sapi_name;
 use function str_repeat;
 use function str_replace;
 use function strpos;
 use function strtoupper;
 use const ENT_NOQUOTES;
+use const PHP_SAPI;
 
 /**
  * Utilities that are used for formatting queries.
@@ -132,7 +132,7 @@ class Formatter
              *
              * @var string The type ('text', 'cli' or 'html')
              */
-            'type' => php_sapi_name() === 'cli' ? 'cli' : 'text',
+            'type' => PHP_SAPI === 'cli' ? 'cli' : 'text',
 
             /*
              * The line ending used.
