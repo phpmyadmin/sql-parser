@@ -31,8 +31,6 @@ abstract class Context
      * The maximum length of a keyword.
      *
      * @see static::$TOKEN_KEYWORD
-     *
-     * @var int
      */
     public const KEYWORD_MAX_LENGTH = 30;
 
@@ -41,8 +39,6 @@ abstract class Context
      *
      * @see static::$TOKEN_LABEL
      * Ref: https://dev.mysql.com/doc/refman/5.7/en/statement-labels.html
-     *
-     * @var int
      */
     public const LABEL_MAX_LENGTH = 16;
 
@@ -50,8 +46,6 @@ abstract class Context
      * The maximum length of an operator.
      *
      * @see static::$TOKEN_OPERATOR
-     *
-     * @var int
      */
     public const OPERATOR_MAX_LENGTH = 4;
 

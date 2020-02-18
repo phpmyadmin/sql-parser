@@ -79,8 +79,6 @@ class ContextGenerator
      *     2 - class
      *     3 - link
      *     4 - keywords array
-     *
-     * @var string
      */
     public const TEMPLATE =
         '<?php' . "\n" .

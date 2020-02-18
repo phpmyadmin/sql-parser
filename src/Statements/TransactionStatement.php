@@ -18,15 +18,11 @@ class TransactionStatement extends Statement
 {
     /**
      * START TRANSACTION and BEGIN.
-     *
-     * @var int
      */
     public const TYPE_BEGIN = 1;
 
     /**
      * COMMIT and ROLLBACK.
-     *
-     * @var int
      */
     public const TYPE_END = 2;
 

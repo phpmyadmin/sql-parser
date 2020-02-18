@@ -12,15 +12,11 @@ class UtfStringTest extends TestCase
 {
     /**
      * Sample phrase in French.
-     *
-     * @var UtfString
      */
     public const TEST_PHRASE = 'Les naïfs ægithales hâtifs pondant à Noël où il gèle sont sûrs d\'être déçus en voyant leurs drôles d\'œufs abîmés.';
 
     /**
      * The length of the sample phrase.
-     *
-     * @var int
      */
     public const TEST_PHRASE_LEN = 113;
 

@@ -27,15 +27,11 @@ class Token
      * This type is used when the token is invalid or its type cannot be
      * determined because of the ambiguous context. Further analysis might be
      * required to detect its type.
-     *
-     * @var int
      */
     public const TYPE_NONE = 0;
 
     /**
      * SQL specific keywords: SELECT, UPDATE, INSERT, etc.
-     *
-     * @var int
      */
     public const TYPE_KEYWORD = 1;
 
@@ -48,15 +44,11 @@ class Token
      * Assignment operators: =, +=, -=, etc.
      * SQL specific operators: . (e.g. .. WHERE database.table ..),
      *                         * (e.g. SELECT * FROM ..)
-     *
-     * @var int
      */
     public const TYPE_OPERATOR = 2;
 
     /**
      * Spaces, tabs, new lines, etc.
-     *
-     * @var int
      */
     public const TYPE_WHITESPACE = 3;
 
@@ -77,46 +69,34 @@ class Token
      *        comment*\/
      *
      * Backslashes were added to respect PHP's comments syntax.
-     *
-     * @var int
      */
     public const TYPE_COMMENT = 4;
 
     /**
      * Boolean values: true or false.
-     *
-     * @var int
      */
     public const TYPE_BOOL = 5;
 
     /**
      * Numbers: 4, 0x8, 15.16, 23e42, etc.
-     *
-     * @var int
      */
     public const TYPE_NUMBER = 6;
 
     /**
      * Literal strings: 'string', "test".
      * Some of these strings are actually symbols.
-     *
-     * @var int
      */
     public const TYPE_STRING = 7;
 
     /**
      * Database, table names, variables, etc.
      * For example: ```SELECT `foo`, `bar` FROM `database`.`table`;```.
-     *
-     * @var int
      */
     public const TYPE_SYMBOL = 8;
 
     /**
      * Delimits an unknown string.
      * For example: ```SELECT * FROM test;```, `test` is a delimiter.
-     *
-     * @var int
      */
     public const TYPE_DELIMITER = 9;
 
@@ -127,8 +107,6 @@ class Token
      *  begin_label: LOOP [statement_list] END LOOP [end_label]
      *  begin_label: REPEAT [statement_list] ... END REPEAT [end_label]
      *  begin_label: WHILE ... DO [statement_list] END WHILE [end_label].
-     *
-     * @var int
      */
     public const TYPE_LABEL = 10;
 
