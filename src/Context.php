@@ -417,7 +417,7 @@ abstract class Context
         }
         if ($str[0] === '@') {
             return Token::FLAG_SYMBOL_VARIABLE;
-        } elseif ($str[0] === self::getIdentifierQuote()) {
+        } elseif ($str[0] === '`') {
             return Token::FLAG_SYMBOL_BACKTICK;
         } elseif ($str[0] === ':' || $str[0] === '?') {
             return Token::FLAG_SYMBOL_PARAMETER;
@@ -443,8 +443,6 @@ abstract class Context
         }
         if ($str[0] === '\'') {
             return Token::FLAG_STRING_SINGLE_QUOTES;
-        } elseif (self::hasMode(self::SQL_MODE_ANSI_QUOTES) && $str[0] === '"') {
-            return null;
         } elseif ($str[0] === '"') {
             return Token::FLAG_STRING_DOUBLE_QUOTES;
         }
