@@ -90,14 +90,14 @@ class CLITest extends TestCase
             ),
             array(
                 array('h' => true),
-                'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
+                'Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]' . "\n" .
                 '       cat file.sql | highlight-query' . "\n",
                 0
             ),
             array(
                 array(),
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
+                'Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]' . "\n" .
                 '       cat file.sql | highlight-query' . "\n",
                 1,
             ),
@@ -162,7 +162,7 @@ class CLITest extends TestCase
             array(
                 '',
                 array('h' => true),
-                'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
+                'Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]' . "\n" .
                 '       cat file.sql | highlight-query' . "\n",
                 0
             ),
@@ -170,7 +170,7 @@ class CLITest extends TestCase
                 '',
                 array(),
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: highlight-query --query SQL [--format html|cli|text]' . "\n" .
+                'Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]' . "\n" .
                 '       cat file.sql | highlight-query' . "\n",
                 1,
             ),
@@ -227,14 +227,14 @@ class CLITest extends TestCase
                 '',
                 array(),
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: lint-query --query SQL' . "\n" .
+                'Usage: lint-query --query SQL [--ansi]' . "\n" .
                 '       cat file.sql | lint-query' . "\n",
                 1,
             ),
             array(
                 '',
                 array('h' => true),
-                'Usage: lint-query --query SQL' . "\n" .
+                'Usage: lint-query --query SQL [--ansi]' . "\n" .
                 '       cat file.sql | lint-query' . "\n",
                 0,
             ),
@@ -290,14 +290,14 @@ class CLITest extends TestCase
             ),
             array(
                 array('h' => true),
-                'Usage: lint-query --query SQL' . "\n" .
+                'Usage: lint-query --query SQL [--ansi]' . "\n" .
                 '       cat file.sql | lint-query' . "\n",
                 0,
             ),
             array(
                 array(),
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: lint-query --query SQL' . "\n" .
+                'Usage: lint-query --query SQL [--ansi]' . "\n" .
                 '       cat file.sql | lint-query' . "\n",
                 1,
             ),
@@ -345,14 +345,14 @@ class CLITest extends TestCase
             ),
             array(
                 array('h' => true),
-                'Usage: tokenize-query --query SQL' . "\n" .
+                'Usage: tokenize-query --query SQL [--ansi]' . "\n" .
                 '       cat file.sql | tokenize-query' . "\n",
                 0,
             ),
             array(
                 array(),
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: tokenize-query --query SQL' . "\n" .
+                'Usage: tokenize-query --query SQL [--ansi]' . "\n" .
                 '       cat file.sql | tokenize-query' . "\n",
                 1,
             ),
@@ -398,7 +398,7 @@ class CLITest extends TestCase
             array(
                 '',
                 array('h' => true),
-                'Usage: tokenize-query --query SQL' . "\n" .
+                'Usage: tokenize-query --query SQL [--ansi]' . "\n" .
                 '       cat file.sql | tokenize-query' . "\n",
                 0,
             ),
@@ -406,7 +406,7 @@ class CLITest extends TestCase
                 '',
                 array(),
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: tokenize-query --query SQL' . "\n" .
+                'Usage: tokenize-query --query SQL [--ansi]' . "\n" .
                 '       cat file.sql | tokenize-query' . "\n",
                 1,
             ),
