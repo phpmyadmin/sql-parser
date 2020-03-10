@@ -37,7 +37,7 @@ class SetOperation extends Component
      * @param string $column Field's name..
      * @param string $value  new value
      */
-    public function __construct($column = null, $value = null)
+    public function __construct($column = '', $value = '')
     {
         $this->column = $column;
         $this->value = $value;

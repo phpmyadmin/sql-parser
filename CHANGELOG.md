@@ -5,6 +5,7 @@
 * Stop instanciating an object to check its class name. (#290)
 * Replace sscanf by equivalent native PHP functions because sscanf can be disabled for security reasons. (#270)
 * Allow phpunit 9
+* Fix for php error when "INSERT INTO x SET a = 1" is "INSERT INTO x SET = 1" (#295)
 
 ## [5.2.0] - 2020-01-07
 
