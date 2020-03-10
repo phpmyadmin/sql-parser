@@ -15,6 +15,10 @@ use PhpMyAdmin\SqlParser\Token;
 
 /**
  * Context for MariaDB 10.2.
+ *
+ * @category   Contexts
+ *
+ * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ContextMariaDb100200 extends Context
 {
