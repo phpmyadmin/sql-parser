@@ -26,7 +26,8 @@ class SetStatementTest extends TestCase
             array('parser/parseAlterTableSetAutoIncrementError'),
             array('parser/parseSetNames'),
             array('parser/parseSetNamesError'),
-            array('parser/parseSetError1')
+            array('parser/parseSetError1'),
+            array('parser/parseInsertIntoSet')
         );
     }
 }
