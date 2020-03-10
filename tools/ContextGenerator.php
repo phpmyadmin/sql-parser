@@ -214,7 +214,7 @@ class ContextGenerator
      *
      * @return string
      */
-    public static function printWords($words, $spaces = 8, $line = 80)
+    public static function printWords($words, $spaces = 8, $line = 140)
     {
         $typesCount = count($words);
         $ret = '';
@@ -231,7 +231,7 @@ class ContextGenerator
                     }
 
                     $ret .= sprintf('\'%s\' => %s, ', $word, $type);
-                    if (++$i === $count) {
+                    if (++$i === $count || ++$i > $count) {
                         $ret .= "\n";
                         $i = 0;
                     }
