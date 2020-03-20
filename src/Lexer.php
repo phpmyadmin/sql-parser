@@ -863,6 +863,7 @@ class Lexer extends Core
      * @param string $quote additional starting symbol
      *
      * @return null|Token
+     * @throws LexerException
      */
     public function parseString($quote = '')
     {
@@ -908,6 +909,7 @@ class Lexer extends Core
      * Parses a symbol.
      *
      * @return null|Token
+     * @throws LexerException
      */
     public function parseSymbol()
     {
@@ -933,7 +935,7 @@ class Lexer extends Core
         $str = null;
 
         if ($this->last < $this->len) {
-            if (($str = $this->parseString('`')) === null) {
+            if (($str = $this->parseString(Context::getIdentifierQuote())) === null) {
                 if (($str = $this->parseUnknown()) === null) {
                     $this->error(
                         'Variable name was expected.',

@@ -417,7 +417,7 @@ abstract class Context
         }
         if ($str[0] === '@') {
             return Token::FLAG_SYMBOL_VARIABLE;
-        } elseif ($str[0] === '`') {
+        } elseif ($str[0] === self::getIdentifierQuote()) {
             return Token::FLAG_SYMBOL_BACKTICK;
         } elseif ($str[0] === ':' || $str[0] === '?') {
             return Token::FLAG_SYMBOL_PARAMETER;
@@ -443,6 +443,8 @@ abstract class Context
         }
         if ($str[0] === '\'') {
             return Token::FLAG_STRING_SINGLE_QUOTES;
+        } elseif (self::hasMode(self::SQL_MODE_ANSI_QUOTES) && $str[0] === '"') {
+            return null;
         } elseif ($str[0] === '"') {
             return Token::FLAG_STRING_DOUBLE_QUOTES;
         }
@@ -588,6 +590,29 @@ abstract class Context
         }
 
         return $quote . str_replace($quote, $quote . $quote, $str) . $quote;
+    }
+
+    /**
+     * Returns char used to quote identifiers based on currently set SQL Mode (ie. standard or ANSI_QUOTES)
+     * @return string either " (double quote, ansi_quotes mode) or ` (backtick, standard mode)
+     */
+    public static function getIdentifierQuote()
+    {
+        return self::hasMode(self::SQL_MODE_ANSI_QUOTES) ? '"' : '`';
+    }
+
+    /**
+     * Function verifies that given SQL Mode constant is currently set
+     *
+     * @return boolean false on empty param, true/false on given constant/int value
+     * @param int $flag for example Context::SQL_MODE_ANSI_QUOTES
+     */
+    public static function hasMode($flag = null)
+    {
+        if (empty($flag)) {
+            return false;
+        }
+        return (self::$MODE & $flag) === $flag;
     }
 }
 
