@@ -119,8 +119,9 @@ class TestGenerator
      * @param string $input  the input file
      * @param string $output the output file
      * @param string $debug  the debug file
+     * @param bool   $ansi   activate quotes ANSI mode
      */
-    public static function build($type, $input, $output, $debug = null)
+    public static function build($type, $input, $output, $debug = null, $ansi = false)
     {
         // Support query types: `lexer` / `parser`.
         if (! in_array($type, ['lexer', 'parser'])) {
@@ -139,7 +140,15 @@ class TestGenerator
             throw new Exception('No input query specified.');
         }
 
+        if ($ansi === true) {
+            // set ANSI_QUOTES for ansi tests
+            Context::setMode('ANSI_QUOTES');
+        }
+
         $test = static::generate($query, $type);
+
+        // unset mode, reset to default every time, to be sure
+        Context::setMode();
 
         // Writing test's data.
         file_put_contents($output, serialize($test));
@@ -200,7 +209,8 @@ class TestGenerator
                         strpos($inputFile, 'lex') !== false ? 'lexer' : 'parser',
                         $inputFile,
                         $outputFile,
-                        $debugFile
+                        $debugFile,
+                        strpos($inputFile, 'ansi') !== false
                     );
                 } else {
                     sprintf("Test for %s already built!\n", $inputFile);

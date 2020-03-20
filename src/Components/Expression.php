@@ -152,6 +152,7 @@ class Expression extends Component
      * @param array      $options parameters for parsing
      *
      * @return Expression|null
+     * @throws \PhpMyAdmin\SqlParser\Exceptions\ParserException
      */
     public static function parse(Parser $parser, TokensList $list, array $options = [])
     {

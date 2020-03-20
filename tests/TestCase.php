@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Context;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use function file_get_contents;
 use function unserialize;
@@ -99,6 +100,11 @@ abstract class TestCase extends BaseTestCase
          */
         $data = $this->getData($name);
 
+        if (strpos($name, '/ansi/') !== false) {
+            // set mode if appropriate
+            Context::setMode('ANSI_QUOTES');
+        }
+
         // Lexer.
         $lexer = new Lexer($data['query']);
         $lexerErrors = $this->getErrorsAsArray($lexer);
@@ -119,5 +125,8 @@ abstract class TestCase extends BaseTestCase
         // Testing errors.
         $this->assertEquals($data['errors']['parser'], $parserErrors);
         $this->assertEquals($data['errors']['lexer'], $lexerErrors);
+
+        // reset mode after test run
+        Context::setMode();
     }
 }

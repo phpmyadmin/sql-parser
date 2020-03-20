@@ -194,6 +194,7 @@ abstract class Statement
      *
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
+     * @throws Exceptions\ParserException
      */
     public function parse(Parser $parser, TokensList $list)
     {
@@ -478,6 +479,7 @@ abstract class Statement
      * @param TokensList $list   the list of tokens to be parsed
      *
      * @return bool
+     * @throws Exceptions\ParserException
      */
     public function validateClauseOrder($parser, $list)
     {
