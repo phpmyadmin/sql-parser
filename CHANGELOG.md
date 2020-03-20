@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased] -
+## [4.6.0] - 2020-03-20
 
 * Stop instanciating an object to check its class name. (#290)
 * Replace sscanf by equivalent native PHP functions because sscanf can be disabled for security reasons. (#270)
