@@ -4,6 +4,7 @@ namespace PhpMyAdmin\SqlParser\Tools;
 
 require_once '../vendor/autoload.php';
 
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 
