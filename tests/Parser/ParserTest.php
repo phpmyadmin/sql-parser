@@ -28,7 +28,6 @@ class ParserTest extends TestCase
             ['parser/parse'],
             ['parser/parse2'],
             ['parser/parseDelimiter'],
-            ['parser/ansi/parseAnsi'],
         ];
     }
 
