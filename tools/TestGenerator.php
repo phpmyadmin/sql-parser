@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tools;
 
 use Exception;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use function count;
