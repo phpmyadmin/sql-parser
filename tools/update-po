@@ -19,9 +19,9 @@ xgettext \
     --from-code=utf-8 \
     --keyword=gettext --keyword=error \
     --copyright-holder="phpMyAdmin devel team" \
-    `find \( -name '*.php' -o -name '*.phtml' \) -not -path './test/*' -not -path './locale/*' \( -not -path './release/*' -not -path './vendor/*' \) | sort`
+    `find -name '*.php' -not -path './tests/*' -not -path './locale/*' -not -path './build/*' -not -path './vendor/*' | sort --dictionary-order --ignore-case`
 
-ver=0
+ver=5
 
 sed -i '
     s/SOME DESCRIPTIVE TITLE/phpMyAdmin SQL parser translation/;
