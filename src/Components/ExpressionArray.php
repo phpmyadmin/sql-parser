@@ -106,10 +106,13 @@ class ExpressionArray extends Component
         --$list->idx;
 
         if (is_array($ret)) {
-            $expr = $ret[count($ret) - 1]->expr;
-            if (preg_match('/\s*--\s.*$/', $expr, $matches)) {
-                $found = $matches[0];
-                $ret[count($ret) - 1]->expr = substr($expr, 0, strlen($expr) - strlen($found));
+            $retIndex = count($ret) - 1;
+            if (isset($ret[$retIndex])) {
+                $expr = $ret[$retIndex]->expr;
+                if (preg_match('/\s*--\s.*$/', $expr, $matches)) {
+                    $found = $matches[0];
+                    $ret[$retIndex]->expr = substr($expr, 0, strlen($expr) - strlen($found));
+                }
             }
         }
 
