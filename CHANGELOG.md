@@ -7,6 +7,7 @@
 * Allow phpunit 7
 * Fix for php error when "INSERT INTO x SET a = 1" is "INSERT INTO x SET = 1" (#295)
 * Fixed lexer fails to detect "*" as a wildcard (#288)
+* Fixed ANSI_QUOTES support (#284)
 
 ## [4.5.0] - 2020-01-07
 
