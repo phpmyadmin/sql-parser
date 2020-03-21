@@ -102,9 +102,9 @@ var_dump($query2); // outputs string(19) "SELECT  * FROM "b" "
 
 ## Localization
 
-You can localize error messages installing `phpmyadmin/motranslator` version `3.0` or newer:
+You can localize error messages installing `phpmyadmin/motranslator` version `4.0` or newer:
 ```sh
-composer require phpmyadmin/motranslator:^3.0
+composer require phpmyadmin/motranslator:^4.0
 ```
 
 The locale is automatically detected from your environment, you can also set a different locale
