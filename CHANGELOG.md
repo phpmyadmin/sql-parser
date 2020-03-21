@@ -40,6 +40,10 @@
 * Fix for error message with multiple CALL statements (#223)
 * Recognize the question mark character as a parameter (#242)
 
+## [4.6.1] - 2020-03-20
+* Revert some changes with the understanding of ANSI_QUOTES mode and identifiers
+* Suggest motranslator 4.0 in README
+
 ## [4.6.0] - 2020-03-20
 
 * Stop instanciating an object to check its class name. (#290)
