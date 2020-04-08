@@ -2,7 +2,8 @@
 /**
  * Context for MySQL 5.6.
  *
- * This file was auto-generated.
+ * This file was auto-generated from tools/contexts/*.txt.
+ * Use tools/run_generators.sh for update.
  *
  * @see https://dev.mysql.com/doc/refman/5.6/en/keywords.html
  */
@@ -130,10 +131,10 @@ class ContextMySql50600 extends Context
         'UNION' => 3, 'USAGE' => 3, 'USING' => 3, 'WHERE' => 3, 'WHILE' => 3,
         'WRITE' => 3,
         'BEFORE' => 3, 'CHANGE' => 3, 'COLUMN' => 3, 'CREATE' => 3, 'CURSOR' => 3,
-        'DELETE' => 3, 'ELSEIF' => 3, 'EXISTS' => 3, 'FLOAT4' => 3, 'FLOAT8' => 3,
-        'HAVING' => 3, 'IGNORE' => 3, 'INFILE' => 3, 'LINEAR' => 3, 'OPTION' => 3,
-        'REGEXP' => 3, 'RENAME' => 3, 'RETURN' => 3, 'REVOKE' => 3, 'SELECT' => 3,
-        'SIGNAL' => 3, 'UNLOCK' => 3, 'UPDATE' => 3,
+        'DELETE' => 3, 'ELSEIF' => 3, 'FLOAT4' => 3, 'FLOAT8' => 3, 'HAVING' => 3,
+        'IGNORE' => 3, 'INFILE' => 3, 'LINEAR' => 3, 'OPTION' => 3, 'REGEXP' => 3,
+        'RENAME' => 3, 'RETURN' => 3, 'REVOKE' => 3, 'SELECT' => 3, 'SIGNAL' => 3,
+        'UNLOCK' => 3, 'UPDATE' => 3,
         'ANALYZE' => 3, 'BETWEEN' => 3, 'CASCADE' => 3, 'COLLATE' => 3, 'DECLARE' => 3,
         'DELAYED' => 3, 'ESCAPED' => 3, 'EXPLAIN' => 3, 'FOREIGN' => 3, 'ITERATE' => 3,
         'LEADING' => 3, 'NATURAL' => 3, 'OUTFILE' => 3, 'PRIMARY' => 3, 'RELEASE' => 3,
@@ -303,7 +304,7 @@ class ContextMySql50600 extends Context
         'MOD' => 35,
         'LEFT' => 35,
         'MATCH' => 35, 'RIGHT' => 35,
-        'INSERT' => 35, 'REPEAT' => 35, 'SCHEMA' => 35, 'VALUES' => 35,
+        'EXISTS' => 35, 'INSERT' => 35, 'REPEAT' => 35, 'SCHEMA' => 35, 'VALUES' => 35,
         'CONVERT' => 35, 'DEFAULT' => 35, 'REPLACE' => 35,
         'DATABASE' => 35, 'UTC_DATE' => 35, 'UTC_TIME' => 35,
         'LOCALTIME' => 35,

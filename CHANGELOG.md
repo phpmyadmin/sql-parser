@@ -1,5 +1,9 @@
 # Change Log
 
+## [Unreleased] -
+
+* EXISTS is also a function. (#297)
+
 ## [5.3.1] - 2020-03-20
 
 * Revert some changes with the understanding of ANSI_QUOTES mode and identifiers

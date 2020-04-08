@@ -85,7 +85,8 @@ class ContextGenerator
         '/**' . "\n" .
         ' * Context for %1$s.' . "\n" .
         ' *' . "\n" .
-        ' * This file was auto-generated.' . "\n" .
+        ' * This file was auto-generated from tools/contexts/*.txt.' . "\n" .
+        ' * Use tools/run_generators.sh for update.' . "\n" .
         ' *' . "\n" .
         ' * @see %3$s' . "\n" .
         ' */' . "\n" .
