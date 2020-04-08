@@ -3,6 +3,7 @@
 ## [Unreleased] -
 
 * EXISTS is also a function. (#297)
+* Remove some usesless dev-dependencies
 
 ## [4.6.1] - 2020-03-20
 
