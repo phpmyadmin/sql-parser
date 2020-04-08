@@ -22,7 +22,11 @@ matrix:
     - php: nightly
   include:
     - php: 7.2
-      env: DOCS=yes
+      env:
+        - DOCS=yes
+        - REQUIRE="sami/sami:^4.0"
+      script: ./vendor/bin/sami.php --no-interaction update ./tools/sami-config.php
+      after_success: skip
     - php: 7.1
       env: REQUIRE="phpmyadmin/motranslator:^3.0"
     - dist: precise
@@ -31,7 +35,6 @@ matrix:
 sudo: false
 
 install:
-  - if [ $(php -r "echo PHP_MAJOR_VERSION;") -lt 7 ] ; then sed -i '/sami/D' composer.json ; fi
   - if [ -n "$REQUIRE" ] ; then composer require "$REQUIRE" ; fi
   - composer install
 
@@ -43,5 +46,4 @@ cache:
     - $HOME/.composer/cache
 
 script:
-  - if [ "$DOCS" != "yes" ] ; then ./vendor/bin/phpunit --configuration phpunit.xml.dist ; fi
-  - if [ "$DOCS" = "yes" ] ; then ./vendor/bin/sami.php --no-interaction update ./tools/sami-config.php ; fi
+  - ./vendor/bin/phpunit --configuration phpunit.xml.dist
