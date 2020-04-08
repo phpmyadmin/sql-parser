@@ -22,6 +22,7 @@ matrix:
     - php: nightly
   include:
     - php: 7.2
+      name: "Build documentation"
       env:
         - DOCS=yes
         - REQUIRE="sami/sami:^4.0"
@@ -31,8 +32,6 @@ matrix:
       env: REQUIRE="phpmyadmin/motranslator:^3.0"
     - dist: precise
       php: 5.3
-
-sudo: false
 
 install:
   - if [ -n "$REQUIRE" ] ; then composer require "$REQUIRE" ; fi
