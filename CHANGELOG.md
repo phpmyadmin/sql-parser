@@ -4,6 +4,7 @@
 
 * EXISTS is also a function. (#297)
 * Remove some useless dev-dependencies
+* Fix lexer to not allow numbers with letters (#300)
 
 ## [4.6.1] - 2020-03-20
 
