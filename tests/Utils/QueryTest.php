@@ -417,12 +417,24 @@ class QueryTest extends TestCase
                 array('`tbl`')
             ),
             array(
+                'INSERT INTO 0tbl(`id`, `name`) VALUES (1, "Name")',
+                array('`0tbl`')
+            ),
+            array(
                 'UPDATE tbl SET id = 0',
                 array('`tbl`')
             ),
             array(
+                'UPDATE 0tbl SET id = 0',
+                array('`0tbl`')
+            ),
+            array(
                 'DELETE FROM tbl WHERE id < 10',
                 array('`tbl`')
+            ),
+            array(
+                'DELETE FROM 0tbl WHERE id < 10',
+                array('`0tbl`')
             ),
             array(
                 'TRUNCATE tbl',
