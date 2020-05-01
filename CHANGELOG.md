@@ -3,6 +3,7 @@
 ## [Unreleased] -
 
 * EXISTS is also a function. (#297)
+* Fix lexer to not allow numbers with letters (#300)
 
 ## [5.3.1] - 2020-03-20
 

@@ -765,6 +765,7 @@ class Lexer extends Core
         //
         // Valid final states are: 2, 3, 4 and 6. Any parsing that finished in a
         // state other than these is invalid.
+        // Also, negative states are invalid states.
         $iBak = $this->last;
         $token = '';
         $flags = 0;
@@ -807,6 +808,10 @@ class Lexer extends Core
                     $state = 4;
                 } elseif ($this->str[$this->last] === 'e' || $this->str[$this->last] === 'E') {
                     $state = 5;
+                } elseif (($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
+                    || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')) {
+                    // A number can't be directly followed by a letter
+                    $state = -$state;
                 } elseif ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
                     // Just digits and `.`, `e` and `E` are valid characters.
                     break;
@@ -815,6 +820,10 @@ class Lexer extends Core
                 $flags |= Token::FLAG_NUMBER_FLOAT;
                 if ($this->str[$this->last] === 'e' || $this->str[$this->last] === 'E') {
                     $state = 5;
+                } elseif (($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
+                    || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')) {
+                    // A number can't be directly followed by a letter
+                    $state = -$state;
                 } elseif ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
                     // Just digits, `e` and `E` are valid characters.
                     break;
@@ -825,6 +834,10 @@ class Lexer extends Core
                     || ($this->str[$this->last] >= '0' && $this->str[$this->last] <= '9')
                 ) {
                     $state = 6;
+                } elseif (($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
+                    || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')) {
+                    // A number can't be directly followed by a letter
+                    $state = -$state;
                 } else {
                     break;
                 }

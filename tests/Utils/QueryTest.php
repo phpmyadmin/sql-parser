@@ -415,12 +415,24 @@ class QueryTest extends TestCase
                 ['`tbl`'],
             ],
             [
+                'INSERT INTO 0tbl(`id`, `name`) VALUES (1, "Name")',
+                ['`0tbl`'],
+            ],
+            [
                 'UPDATE tbl SET id = 0',
                 ['`tbl`'],
             ],
             [
+                'UPDATE 0tbl SET id = 0',
+                ['`0tbl`'],
+            ],
+            [
                 'DELETE FROM tbl WHERE id < 10',
                 ['`tbl`'],
+            ],
+            [
+                'DELETE FROM 0tbl WHERE id < 10',
+                ['`0tbl`'],
             ],
             [
                 'TRUNCATE tbl',
