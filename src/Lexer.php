@@ -980,7 +980,15 @@ class Lexer extends Core
 
         while (++$this->last < $this->len && ! Context::isSeparator($this->str[$this->last])) {
             $token .= $this->str[$this->last];
+
+            // Test if end of token equals the current delimiter. If so, remove it from the token.
+            if (substr($token, -$this->delimiterLen) === $this->delimiter) {
+                $token = substr($token, 0, -$this->delimiterLen);
+                $this->last -= $this->delimiterLen - 1;
+                break;
+            }
         }
+
         --$this->last;
 
         return new Token($token);

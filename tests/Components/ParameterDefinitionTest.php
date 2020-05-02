@@ -17,4 +17,14 @@ class ParameterDefinitionTest extends TestCase
         $this->assertEquals('a', $component[0]->name);
         $this->assertEquals('b', $component[1]->name);
     }
+
+    public function testParseComplex()
+    {
+        $parser = new Parser();
+        $component = ParameterDefinition::parse(
+            $parser,
+            $this->getTokensList('CREATE DEFINER=`root`@`%` PROCEDURE `foo`( $bar int )')
+        );
+        $this->assertEquals('$bar', $component[0]->name);
+    }
 }
