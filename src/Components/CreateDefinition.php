@@ -84,7 +84,9 @@ class CreateDefinition extends Component
             12,
             'expr',
             array('parenthesesDelimited' => true),
-        )
+        ),
+
+        'INVISIBLE' => 13,
         // Common entries.
         //
         // NOTE: Some of the common options are not in the same order which
