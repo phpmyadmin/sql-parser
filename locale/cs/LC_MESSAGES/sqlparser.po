@@ -6,16 +6,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-20 21:01+0100\n"
-"PO-Revision-Date: 2019-04-28 12:48+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/sql-"
-"parser/cs/>\n"
+"PO-Revision-Date: 2020-05-06 22:12+0000\n"
+"Last-Translator: Petr Duda <petrduda@seznam.cz>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: src/Component.php:41 src/Component.php:61
 msgid "Not implemented yet."
@@ -24,17 +24,15 @@ msgstr "Zatím není implementováno."
 #: src/Components/AlterOperation.php:278 src/Statement.php:351
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr ""
+msgstr "Byl nalezen nový výraz bez oddělovače od předchozího výrazu."
 
 #: src/Components/AlterOperation.php:290
 msgid "Missing comma before start of a new alter operation."
-msgstr ""
+msgstr "Chybí čárka před začátkem nové operace změny."
 
 #: src/Components/AlterOperation.php:302
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "Zobrazení ikon pro operace s tabulkami"
+msgstr "Nerozpoznaná operace změny."
 
 #: src/Components/Array2d.php:86
 #, php-format
@@ -43,11 +41,11 @@ msgstr "Byly nalezeny %2$d hodnoty, namísto očekávaných %1$d."
 
 #: src/Components/Array2d.php:110
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Byla očekávána úvodní závorka následovaná sadou hodnot."
 
 #: src/Components/ArrayObj.php:112 src/Components/CreateDefinition.php:230
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Byla očekávána úvodní závorka."
 
 #: src/Components/CaseExpression.php:136 src/Components/CaseExpression.php:164
 #: src/Components/CaseExpression.php:177 src/Components/CaseExpression.php:191
@@ -71,67 +69,57 @@ msgid "Unexpected end of CASE expression"
 msgstr "Neočekávaný konec CASE výrazu"
 
 #: src/Components/CaseExpression.php:225
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Potential duplicate alias of CASE expression."
-msgstr "Neočekávaný konec CASE výrazu"
+msgstr "Možný duplicitní alias CASE výrazu."
 
 #: src/Components/CaseExpression.php:236
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "Za klíčovým slovem AS byl očekáván alias, ale bylo nalezeno "
 
 #: src/Components/CaseExpression.php:248 src/Components/Expression.php:353
 #: src/Components/Expression.php:373 src/Components/Expression.php:408
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Byl nalezen alias."
 
 #: src/Components/CaseExpression.php:262
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected after AS."
-msgstr "Nebyly vybrány žádné tabulky."
+msgstr "Za klíčovým slovem AS byl očekáván alias."
 
 #: src/Components/CreateDefinition.php:252
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"Byl očekáván název symbolu! Vyhrazené klíčové slovo nelze použít jako název "
+"sloupce bez zpětných apostrofů."
 
 #: src/Components/CreateDefinition.php:266
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "Vzor pro jméno tabulky"
+msgstr "Byl očekáván název symbolu!"
 
 #: src/Components/CreateDefinition.php:301
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Nebyly vybrány žádné tabulky."
+msgstr "Byla očekávána čárka nebo koncová závorka."
 
 #: src/Components/CreateDefinition.php:317
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Byla očekávána koncová závorka."
 
 #: src/Components/DataType.php:130
 msgid "Unrecognized data type."
 msgstr "Nerozpoznaný datový typ."
 
 #: src/Components/ExpressionArray.php:101
-#, fuzzy
-#| msgid "No versions selected."
 msgid "An expression was expected."
-msgstr "Nebyly vybrány žádné verze."
+msgstr "Byl očekáván výraz."
 
 #: src/Components/Expression.php:258 src/Components/Expression.php:420
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "Nebyly vybrány žádné tabulky."
+msgstr "Byl očekáván alias."
 
 #: src/Components/Expression.php:387
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Neočekávaná tečka."
 
 #: src/Components/IndexHint.php:137 src/Components/IndexHint.php:166
 #: src/Components/LockExpression.php:159 src/Components/SetOperation.php:138
@@ -149,53 +137,40 @@ msgstr "Neočekávaný token."
 
 #: src/Components/Limit.php:80 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "Byl očekáván offset."
 
 #: src/Components/LockExpression.php:91
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of LOCK expression."
-msgstr "Neočekávaný konec CASE výrazu"
+msgstr "Neočekávaný konec LOCK výrazu."
 
 #: src/Components/LockExpression.php:199
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of Lock expression."
-msgstr "Neočekávaný konec CASE výrazu"
+msgstr "Neočekávaný konec LOCK výrazu."
 
 #: src/Components/OptionsArray.php:145
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Tato volba koliduje s \"%1$s\"."
 
 #: src/Components/RenameOperation.php:105
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The old name of the table was expected."
-msgstr "Počet aktuálně otevřených tabulek."
+msgstr "Byl očekáván starý název tabulky."
 
 #: src/Components/RenameOperation.php:116
-#, fuzzy
 msgid "Keyword \"TO\" was expected."
 msgstr "Bylo očekáváno klíčové slovo \"TO\"."
 
 #: src/Components/RenameOperation.php:132
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The new name of the table was expected."
-msgstr "Počet aktuálně otevřených tabulek."
+msgstr "Byl očekáván nový název tabulky."
 
 #: src/Components/RenameOperation.php:151
-#, fuzzy
-#| msgid "Template was deleted."
 msgid "A rename operation was expected."
-msgstr "Šablona byla smazána."
+msgstr "Byla očekávána operace přejmenování."
 
 #: src/Components/SetOperation.php:121
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "jako regulární výraz"
+msgstr "Chybí výraz."
 
 #: src/Lexer.php:244
 msgid "Unexpected character."
@@ -203,29 +178,24 @@ msgstr "Neočekávaný znak."
 
 #: src/Lexer.php:285
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Před oddělovačem byla očekávána mezera."
 
 #: src/Lexer.php:303 src/Lexer.php:325
 msgid "Expected delimiter."
 msgstr "Byl očekáván oddělovač."
 
 #: src/Lexer.php:909
-#, fuzzy, php-format
-#| msgid "Event %1$s has been created."
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Byla vytvořena událost %1$s."
+msgstr "Byly očekávány koncové uvozovky %1$s."
 
 #: src/Lexer.php:955
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "Vzor pro jméno tabulky"
+msgstr "Byl očekáván název proměnné."
 
 #: src/Parser.php:451
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Unexpected beginning of statement."
-msgstr "na začátku tabulky"
+msgstr "Neočekávaný začátek výrazu."
 
 #: src/Parser.php:476
 msgid "Unrecognized statement type."
@@ -233,66 +203,51 @@ msgstr "Nerozpoznaný typ výrazu."
 
 #: src/Parser.php:565
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Nebyla zahájena žádná transakce."
 
 #: src/Statement.php:318
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Pro tento typ klauzule proběhlo parsování."
 
 #: src/Statement.php:396
 msgid "Unrecognized keyword."
 msgstr "Nerozpoznané klíčové slovo."
 
 #: src/Statement.php:407
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Keyword at end of statement."
-msgstr "na začátku tabulky"
+msgstr "Klíčové slovo na konci výrazu."
 
 #: src/Statement.php:551
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Unexpected ordering of clauses."
-msgstr "na začátku tabulky"
+msgstr "Neočekávané pořadí klauzulí."
 
 #: src/Statements/CreateStatement.php:492
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Počet aktuálně otevřených tabulek."
+msgstr "Byl očekáván název entity."
 
 #: src/Statements/CreateStatement.php:542
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Bylo očekáváno jméno tabulky."
+msgstr "Byl očekáván název tabulky."
 
 #: src/Statements/CreateStatement.php:550
-#, fuzzy
-#| msgid "Template was deleted."
 msgid "At least one column definition was expected."
-msgstr "Šablona byla smazána."
+msgstr "Byla očekávána alespoň jedna definice sloupce."
 
 #: src/Statements/CreateStatement.php:665
-#, fuzzy
 msgid "A \"RETURNS\" keyword was expected."
 msgstr "Bylo očekáváno klíčové slovo \"RETURNS\"."
 
 #: src/Statements/DeleteStatement.php:337
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Tento typ klauzule je ve vícetabulkových dotazech neplatný."
 
 #: src/Statements/LockStatement.php:116
-#, fuzzy
-#| msgid "at beginning of table"
 msgid "Unexpected end of LOCK statement."
-msgstr "na začátku tabulky"
+msgstr "Neočekávaný konec LOCK výrazu."
 
 #: src/Statements/PurgeStatement.php:136
-#, fuzzy
-#| msgid "Unexpected keyword."
 msgid "Unexpected keyword"
-msgstr "Neočekávané klíčové slovo."
+msgstr "Neočekávané klíčové slovo"
 
 #~ msgid "error #1"
 #~ msgstr "chyba #1"
