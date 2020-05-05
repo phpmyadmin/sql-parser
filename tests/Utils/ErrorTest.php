@@ -12,14 +12,14 @@ class ErrorTest extends TestCase
 {
     public function testGet()
     {
-        $lexer = new Lexer('SELECT * FROM db..tbl $');
+        $lexer = new Lexer('SELECT * FROM db..tbl }');
         $parser = new Parser($lexer->list);
         $this->assertEquals(
             [
                 [
                     'Unexpected character.',
                     0,
-                    '$',
+                    '}',
                     22,
                 ],
                 [

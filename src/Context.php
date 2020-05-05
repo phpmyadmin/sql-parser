@@ -471,7 +471,9 @@ abstract class Context
     {
         // NOTES:   Only non alphanumeric ASCII characters may be separators.
         //          `~` is the last printable ASCII character.
-        return ($str <= '~') && ($str !== '_')
+        return ($str <= '~')
+            && ($str !== '_')
+            && ($str !== '$')
             && (($str < '0') || ($str > '9'))
             && (($str < 'a') || ($str > 'z'))
             && (($str < 'A') || ($str > 'Z'));

@@ -4,6 +4,8 @@
 
 * EXISTS is also a function. (#297)
 * Fix lexer to not allow numbers with letters (#300)
+* Add support for INVISIBLE keyword (#292)
+* Fix the "$" might be a character used in a name (#301)
 
 ## [5.3.1] - 2020-03-20
 
