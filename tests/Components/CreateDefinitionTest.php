@@ -5,6 +5,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 class CreateDefinitionTest extends TestCase
 {
@@ -18,6 +19,18 @@ class CreateDefinitionTest extends TestCase
         $this->assertEquals('FULLTEXT INDEX', $component[1]->key->type);
         $this->assertEquals('indx', $component[1]->key->name);
         $this->assertEquals('FULLTEXT INDEX `indx` (`str`)', (string) $component[1]);
+    }
+
+    public function testParse2()
+    {
+        $component = CreateDefinition::parse(
+            new Parser(),
+            $this->getTokensList('(str TEXT NOT NULL INVISIBLE)')
+        );
+        $this->assertEquals('str', $component[0]->name);
+        $this->assertEquals('TEXT', $component[0]->type->name);
+        $this->assertTrue($component[0]->options->has('INVISIBLE'));
+        $this->assertTrue($component[0]->options->has('NOT NULL'));
     }
 
     public function testParseErr1()
@@ -77,6 +90,24 @@ class CreateDefinitionTest extends TestCase
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
             CreateDefinition::build($parser->statements[0]->fields[2])
+        );
+    }
+
+    public function testBuildWithInvisibleKeyword()
+    {
+        $parser = new Parser(
+            'CREATE TABLE `payment` (' .
+            '-- snippet' . "\n" .
+            '`customer_id` smallint(5) unsigned NOT NULL INVISIBLE,' .
+            '`customer_data` longtext CHARACTER SET utf8mb4 CHARSET utf8mb4_bin NOT NULL ' .
+            'CHECK (json_valid(customer_data)),CONSTRAINT `fk_payment_customer` FOREIGN KEY ' .
+            '(`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE' .
+            ') ENGINE=InnoDB"'
+        );
+        $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
+        $this->assertEquals(
+            '`customer_id` smallint(5) UNSIGNED NOT NULL INVISIBLE',
+            CreateDefinition::build($parser->statements[0]->fields[0])
         );
     }
 }
