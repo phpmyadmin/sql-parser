@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tools;
@@ -165,7 +166,7 @@ class TestGenerator
      *
      * @param string     $input  the input directory
      * @param string     $output the output directory
-     * @param null|mixed $debug
+     * @param mixed|null $debug
      */
     public static function buildAll($input, $output, $debug = null)
     {

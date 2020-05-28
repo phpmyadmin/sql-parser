@@ -2,15 +2,22 @@
 /**
  * Parses a list of expressions delimited by a comma.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use function count;
 use function implode;
+use function is_array;
+use function preg_match;
+use function strlen;
+use function substr;
 
 /**
  * Parses a list of expressions delimited by a comma.
@@ -23,7 +30,8 @@ class ExpressionArray extends Component
      * @param array      $options parameters for parsing
      *
      * @return Expression[]
-     * @throws \PhpMyAdmin\SqlParser\Exceptions\ParserException
+     *
+     * @throws ParserException
      */
     public static function parse(Parser $parser, TokensList $list, array $options = [])
     {

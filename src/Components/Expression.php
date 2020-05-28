@@ -3,12 +3,14 @@
  * Parses a reference to an expression (column, table or database name, function
  * call, mathematical expression, etc.).
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -152,7 +154,8 @@ class Expression extends Component
      * @param array      $options parameters for parsing
      *
      * @return Expression|null
-     * @throws \PhpMyAdmin\SqlParser\Exceptions\ParserException
+     *
+     * @throws ParserException
      */
     public static function parse(Parser $parser, TokensList $list, array $options = [])
     {
@@ -358,16 +361,15 @@ class Expression extends Component
                 $alias = false;
             } elseif ($isExpr) {
                 // Handling aliases.
-                if (/* (empty($ret->alias)) && */ ($brackets === 0)
-                    && (($prev[0] === null)
-                    || ((($prev[0]->type !== Token::TYPE_OPERATOR)
-                    || ($prev[0]->token === ')'))
-                    && (($prev[0]->type !== Token::TYPE_KEYWORD)
-                    || (! ($prev[0]->flags & Token::FLAG_KEYWORD_RESERVED)))))
+                if ($brackets === 0
+                    && ($prev[0] === null
+                        || (($prev[0]->type !== Token::TYPE_OPERATOR || $prev[0]->token === ')')
+                            && ($prev[0]->type !== Token::TYPE_KEYWORD
+                                || ! ($prev[0]->flags & Token::FLAG_KEYWORD_RESERVED))))
                     && (($prev[1]->type === Token::TYPE_STRING)
-                    || (($prev[1]->type === Token::TYPE_SYMBOL)
-                    && (! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE)))
-                    || ($prev[1]->type === Token::TYPE_NONE))
+                        || ($prev[1]->type === Token::TYPE_SYMBOL
+                            && ! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE))
+                        || ($prev[1]->type === Token::TYPE_NONE))
                 ) {
                     if (! empty($ret->alias)) {
                         $parser->error('An alias was previously found.', $token);

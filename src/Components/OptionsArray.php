@@ -2,6 +2,7 @@
 /**
  * Parses a list of options.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;

@@ -2,6 +2,7 @@
 /**
  * Utilities that are used for formatting queries.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;

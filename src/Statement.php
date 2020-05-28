@@ -5,6 +5,7 @@
  *
  * A statement represents the result of parsing the lexemes.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
@@ -87,7 +88,7 @@ abstract class Statement
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      */
-    public function __construct(Parser $parser = null, TokensList $list = null)
+    public function __construct(?Parser $parser = null, ?TokensList $list = null)
     {
         if (($parser !== null) && ($list !== null)) {
             $this->parse($parser, $list);
@@ -194,6 +195,7 @@ abstract class Statement
      *
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
+     *
      * @throws Exceptions\ParserException
      */
     public function parse(Parser $parser, TokensList $list)
@@ -479,6 +481,7 @@ abstract class Statement
      * @param TokensList $list   the list of tokens to be parsed
      *
      * @return bool
+     *
      * @throws Exceptions\ParserException
      */
     public function validateClauseOrder($parser, $list)

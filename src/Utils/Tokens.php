@@ -2,6 +2,7 @@
 /**
  * Token utilities.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;

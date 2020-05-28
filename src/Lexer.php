@@ -6,6 +6,7 @@
  *
  * Depends on context to extract lexemes.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
@@ -13,9 +14,11 @@ namespace PhpMyAdmin\SqlParser;
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use function define;
 use function defined;
+use function in_array;
 use function mb_strlen;
 use function sprintf;
 use function strlen;
+use function substr;
 
 if (! defined('USE_UTF_STRINGS')) {
     // NOTE: In previous versions of PHP (5.5 and older) the default
@@ -368,7 +371,7 @@ class Lexer extends Core
     private function solveAmbiguityOnStarOperator()
     {
         $iBak = $this->list->idx;
-        while (null !== ($starToken = $this->list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, '*'))) {
+        while (($starToken = $this->list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, '*')) !== null) {
             // ::getNext already gets rid of whitespaces and comments.
             if (($next = $this->list->getNext()) !== null) {
                 if (($next->type === Token::TYPE_KEYWORD && in_array($next->value, ['FROM', 'USING'], true))
@@ -405,7 +408,7 @@ class Lexer extends Core
     /**
      * Parses a keyword.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseKeyword()
     {
@@ -467,7 +470,7 @@ class Lexer extends Core
     /**
      * Parses a label.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseLabel()
     {
@@ -513,7 +516,7 @@ class Lexer extends Core
     /**
      * Parses an operator.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseOperator()
     {
@@ -549,7 +552,7 @@ class Lexer extends Core
     /**
      * Parses a whitespace.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseWhitespace()
     {
@@ -571,7 +574,7 @@ class Lexer extends Core
     /**
      * Parses a comment.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseComment()
     {
@@ -694,7 +697,7 @@ class Lexer extends Core
     /**
      * Parses a boolean.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseBool()
     {
@@ -725,7 +728,7 @@ class Lexer extends Core
     /**
      * Parses a number.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseNumber()
     {
@@ -887,7 +890,8 @@ class Lexer extends Core
      *
      * @param string $quote additional starting symbol
      *
-     * @return null|Token
+     * @return Token|null
+     *
      * @throws LexerException
      */
     public function parseString($quote = '')
@@ -935,7 +939,8 @@ class Lexer extends Core
     /**
      * Parses a symbol.
      *
-     * @return null|Token
+     * @return Token|null
+     *
      * @throws LexerException
      */
     public function parseSymbol()
@@ -983,7 +988,7 @@ class Lexer extends Core
     /**
      * Parses unknown parts of the query.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseUnknown()
     {
@@ -1011,7 +1016,7 @@ class Lexer extends Core
     /**
      * Parses the delimiter of the query.
      *
-     * @return null|Token
+     * @return Token|null
      */
     public function parseDelimiter()
     {

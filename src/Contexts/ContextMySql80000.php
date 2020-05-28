@@ -7,6 +7,7 @@
  *
  * @see https://dev.mysql.com/doc/refman/8.0/en/keywords.html
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Contexts;
@@ -16,10 +17,6 @@ use PhpMyAdmin\SqlParser\Token;
 
 /**
  * Context for MySQL 8.0.
- *
- * @category   Contexts
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ContextMySql80000 extends Context
 {

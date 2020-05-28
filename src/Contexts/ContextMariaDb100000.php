@@ -7,6 +7,7 @@
  *
  * @see https://mariadb.com/kb/en/the-mariadb-library/reserved-words/
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Contexts;
@@ -16,10 +17,6 @@ use PhpMyAdmin\SqlParser\Token;
 
 /**
  * Context for MariaDB 10.0.
- *
- * @category   Contexts
- *
- * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
  */
 class ContextMariaDb100000 extends Context
 {

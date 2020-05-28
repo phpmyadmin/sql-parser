@@ -2,21 +2,21 @@
 /**
  * Bootstrap for tests.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests;
 
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Context;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use function file_get_contents;
+use function strpos;
 use function unserialize;
-
-$GLOBALS['lang'] = 'en';
 
 /**
  * Implements useful methods for testing.

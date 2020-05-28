@@ -4,6 +4,7 @@
  *
  * This is one of the most important components, along with the lexer.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
@@ -375,6 +376,7 @@ class Parser extends Core
 
     /**
      * Builds the parse trees.
+     *
      * @throws ParserException
      */
     public function parse()
@@ -600,7 +602,7 @@ class Parser extends Core
      *
      * @throws ParserException throws the exception, if strict mode is enabled.
      */
-    public function error($msg, Token $token = null, $code = 0)
+    public function error($msg, ?Token $token = null, $code = 0)
     {
         $error = new ParserException(
             Translator::gettext($msg),

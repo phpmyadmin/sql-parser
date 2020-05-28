@@ -2,6 +2,7 @@
 /**
  * Parses an Index hint.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
@@ -52,8 +53,12 @@ class IndexHint extends Component
      * @param string $for        the clause for which this hint is (JOIN/ORDER BY/GROUP BY)
      * @param array  $indexes    List of indexes in this hint
      */
-    public function __construct(string $type = null, string $indexOrKey = null, string $for = null, array $indexes = [])
-    {
+    public function __construct(
+        ?string $type = null,
+        ?string $indexOrKey = null,
+        ?string $for = null,
+        array $indexes = []
+    ) {
         $this->type = $type;
         $this->indexOrKey = $indexOrKey;
         $this->for = $for;

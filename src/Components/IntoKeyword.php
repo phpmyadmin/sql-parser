@@ -2,6 +2,7 @@
 /**
  * `INTO` keyword parser.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;

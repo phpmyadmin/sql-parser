@@ -5,6 +5,7 @@
  * A context is a collection of keywords, operators and functions used for
  * parsing.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
@@ -609,6 +610,7 @@ abstract class Context
 
     /**
      * Returns char used to quote identifiers based on currently set SQL Mode (ie. standard or ANSI_QUOTES)
+     *
      * @return string either " (double quote, ansi_quotes mode) or ` (backtick, standard mode)
      */
     public static function getIdentifierQuote()
@@ -619,14 +621,16 @@ abstract class Context
     /**
      * Function verifies that given SQL Mode constant is currently set
      *
-     * @return boolean false on empty param, true/false on given constant/int value
      * @param int $flag for example Context::SQL_MODE_ANSI_QUOTES
+     *
+     * @return bool false on empty param, true/false on given constant/int value
      */
     public static function hasMode($flag = null)
     {
         if (empty($flag)) {
             return false;
         }
+
         return (self::$MODE & $flag) === $flag;
     }
 }

@@ -2,6 +2,7 @@
 /**
  * The definition of a parameter of a function or procedure.
  */
+
 declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
