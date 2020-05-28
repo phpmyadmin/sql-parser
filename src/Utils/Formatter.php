@@ -435,7 +435,9 @@ class Formatter
                 }
 
                 // Checking if this clause ended.
-                if ($isClause = static::isClause($curr)) {
+                $isClause = static::isClause($curr);
+
+                if ($isClause) {
                     if (($isClause === 2 || $this->options['clause_newline'])
                         && empty(self::$SHORT_CLAUSES[$lastClause])
                     ) {

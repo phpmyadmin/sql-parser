@@ -90,7 +90,9 @@ class CLI
         }
 
         if (! isset($params['q'])) {
-            if ($stdIn = $this->readStdin()) {
+            $stdIn = $this->readStdin();
+
+            if ($stdIn) {
                 $params['q'] = $stdIn;
             }
         }
@@ -155,7 +157,9 @@ class CLI
         }
 
         if (! isset($params['q'])) {
-            if ($stdIn = $this->readStdin()) {
+            $stdIn = $this->readStdin();
+
+            if ($stdIn) {
                 $params['q'] = $stdIn;
             }
         }
@@ -220,7 +224,9 @@ class CLI
         }
 
         if (! isset($params['q'])) {
-            if ($stdIn = $this->readStdin()) {
+            $stdIn = $this->readStdin();
+
+            if ($stdIn) {
                 $params['q'] = $stdIn;
             }
         }

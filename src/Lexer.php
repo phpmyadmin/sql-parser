@@ -235,7 +235,9 @@ class Lexer extends Core
             $token = null;
 
             foreach (static::$PARSER_METHODS as $method) {
-                if ($token = $this->$method()) {
+                $token = $this->$method();
+
+                if ($token) {
                     break;
                 }
             }
@@ -295,7 +297,9 @@ class Lexer extends Core
                 // Skipping last R (from `delimiteR`) and whitespaces between
                 // the keyword `DELIMITER` and the actual delimiter.
                 $pos = ++$this->last;
-                if (($token = $this->parseWhitespace()) !== null) {
+                $token = $this->parseWhitespace();
+
+                if ($token !== null) {
                     $token->position = $pos;
                     $list->tokens[$list->count++] = $token;
                 }
@@ -372,8 +376,10 @@ class Lexer extends Core
     {
         $iBak = $this->list->idx;
         while (($starToken = $this->list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, '*')) !== null) {
-            // ::getNext already gets rid of whitespaces and comments.
-            if (($next = $this->list->getNext()) !== null) {
+            // getNext() already gets rid of whitespaces and comments.
+            $next = $this->list->getNext();
+
+            if ($next !== null) {
                 if (($next->type === Token::TYPE_KEYWORD && in_array($next->value, ['FROM', 'USING'], true))
                     || ($next->type === Token::TYPE_OPERATOR && in_array($next->value, [',', ')'], true))
                 ) {
@@ -450,9 +456,9 @@ class Lexer extends Core
             }
 
             $token .= $this->str[$this->last];
-            if (($this->last + 1 === $this->len || Context::isSeparator($this->str[$this->last + 1]))
-                && $flags = Context::isKeyword($token)
-            ) {
+            $flags = Context::isKeyword($token);
+
+            if (($this->last + 1 === $this->len || Context::isSeparator($this->str[$this->last + 1])) && $flags) {
                 $ret = new Token($token, Token::TYPE_KEYWORD, $flags);
                 $iEnd = $this->last;
 
@@ -538,7 +544,9 @@ class Lexer extends Core
 
         for ($j = 1; $j < Context::OPERATOR_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
             $token .= $this->str[$this->last];
-            if ($flags = Context::isOperator($token)) {
+            $flags = Context::isOperator($token);
+
+            if ($flags) {
                 $ret = new Token($token, Token::TYPE_OPERATOR, $flags);
                 $iEnd = $this->last;
             }
@@ -897,7 +905,9 @@ class Lexer extends Core
     public function parseString($quote = '')
     {
         $token = $this->str[$this->last];
-        if (! ($flags = Context::isString($token)) && $token !== $quote) {
+        $flags = Context::isString($token);
+
+        if (! $flags && $token !== $quote) {
             return null;
         }
 
@@ -946,7 +956,9 @@ class Lexer extends Core
     public function parseSymbol()
     {
         $token = $this->str[$this->last];
-        if (! ($flags = Context::isSymbol($token))) {
+        $flags = Context::isSymbol($token);
+
+        if (! $flags) {
             return null;
         }
 
@@ -967,8 +979,12 @@ class Lexer extends Core
         $str = null;
 
         if ($this->last < $this->len) {
-            if (($str = $this->parseString('`')) === null) {
-                if (($str = $this->parseUnknown()) === null) {
+            $str = $this->parseString('`');
+
+            if ($str === null) {
+                $str = $this->parseUnknown();
+
+                if ($str === null) {
                     $this->error(
                         'Variable name was expected.',
                         $this->str[$this->last],

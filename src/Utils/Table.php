@@ -54,17 +54,17 @@ class Table
                 $tmp['ref_table_name'] = $field->references->table->table;
                 $tmp['ref_index_list'] = $field->references->columns;
 
-                if ($opt = $field->references->options->has('ON UPDATE')) {
+                $opt = $field->references->options->has('ON UPDATE');
+
+                if ($opt) {
                     $tmp['on_update'] = str_replace(' ', '_', $opt);
                 }
 
-                if ($opt = $field->references->options->has('ON DELETE')) {
+                $opt = $field->references->options->has('ON DELETE');
+
+                if ($opt) {
                     $tmp['on_delete'] = str_replace(' ', '_', $opt);
                 }
-
-                // if (($opt = $field->references->options->has('MATCH'))) {
-                //     $tmp['match'] = str_replace(' ', '_', $opt);
-                // }
             }
 
             $ret[] = $tmp;
@@ -109,20 +109,24 @@ class Table
                     }
                 }
 
-                if ($option = $field->options->has('DEFAULT')) {
+                $option = $field->options->has('DEFAULT');
+
+                if ($option) {
                     $ret[$field->name]['default_value'] = $option;
                     if ($option === 'CURRENT_TIMESTAMP') {
                         $ret[$field->name]['default_current_timestamp'] = true;
                     }
                 }
 
-                if ($option = $field->options->has('ON UPDATE')) {
-                    if ($option === 'CURRENT_TIMESTAMP') {
-                        $ret[$field->name]['on_update_current_timestamp'] = true;
-                    }
+                $option = $field->options->has('ON UPDATE');
+
+                if ($option === 'CURRENT_TIMESTAMP') {
+                    $ret[$field->name]['on_update_current_timestamp'] = true;
                 }
 
-                if ($option = $field->options->has('AS')) {
+                $option = $field->options->has('AS');
+
+                if ($option) {
                     $ret[$field->name]['generated'] = true;
                     $ret[$field->name]['expr'] = $option;
                 }
