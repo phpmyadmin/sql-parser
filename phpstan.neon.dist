@@ -1,10 +1,10 @@
+includes:
+    - phpstan-baseline.neon
 parameters:
-    level: 2
+    level: max
     paths:
+        - bin
         - src
         - tests
-        - bin
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
-    ignoreErrors:
-        - '#Unsafe usage of new static\(\)\.#'
