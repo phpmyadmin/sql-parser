@@ -6,5 +6,8 @@ parameters:
         - bin
         - src
         - tests
+        - tools
     reportUnmatchedIgnoredErrors: true
     inferPrivatePropertyTypeFromConstructor: true
+    excludes_analyse:
+        - tools/sami-config.php
