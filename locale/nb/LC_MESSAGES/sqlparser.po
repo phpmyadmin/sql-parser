@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-20 21:01+0100\n"
-"PO-Revision-Date: 2019-08-18 18:22+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
+"PO-Revision-Date: 2020-06-24 17:41+0000\n"
+"Last-Translator: Sebastian <sebastian@sgundersen.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/sql-parser/nb_NO/>\n"
 "Language: nb\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: src/Component.php:41 src/Component.php:61
 msgid "Not implemented yet."
@@ -27,7 +27,7 @@ msgstr ""
 
 #: src/Components/AlterOperation.php:290
 msgid "Missing comma before start of a new alter operation."
-msgstr ""
+msgstr "Mangler komma før starten av ny endringsoperasjon."
 
 #: src/Components/AlterOperation.php:302
 msgid "Unrecognized alter operation."
@@ -40,7 +40,7 @@ msgstr "%1$d verdier var forventet, men fant %2$d."
 
 #: src/Components/Array2d.php:110
 msgid "An opening bracket followed by a set of values was expected."
-msgstr "Åpeningsklamme etterfulgt av ett sett verdier forventet."
+msgstr "Åpningsklamme etterfulgt av et sett verdier forventet."
 
 #: src/Components/ArrayObj.php:112 src/Components/CreateDefinition.php:230
 msgid "An opening bracket was expected."
@@ -68,14 +68,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "Uventet slutt av CASE-uttrykket"
 
 #: src/Components/CaseExpression.php:225
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Potential duplicate alias of CASE expression."
-msgstr "Uventet slutt av CASE-uttrykket"
+msgstr "Mulig duplisert alias av CASE-uttrykk."
 
 #: src/Components/CaseExpression.php:236
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "Forventet et alias etter AS, men ble gitt "
 
 #: src/Components/CaseExpression.php:248 src/Components/Expression.php:353
 #: src/Components/Expression.php:373 src/Components/Expression.php:408
@@ -83,30 +81,28 @@ msgid "An alias was previously found."
 msgstr "Et alias ble tidligere funnet."
 
 #: src/Components/CaseExpression.php:262
-#, fuzzy
-#| msgid "An alias was expected."
 msgid "An alias was expected after AS."
-msgstr "Alias forventet."
+msgstr "Et alias var forventet etter AS."
 
 #: src/Components/CreateDefinition.php:252
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
-"Et symbol navn var forventet! Et forbeholdt nøkkelord kan ikke bli brukt som "
-"et kolonnenavn uten tilbakesitater."
+"Forventet et symbolnavn! Reserverte nøkkelord kan bare bli brukt som "
+"kolonnenavn ved å sette gravistegn (`) før og etter navnet."
 
 #: src/Components/CreateDefinition.php:266
 msgid "A symbol name was expected!"
-msgstr "Symbolnavn forventet!"
+msgstr "Forventet et symbolnavn!"
 
 #: src/Components/CreateDefinition.php:301
 msgid "A comma or a closing bracket was expected."
-msgstr "Komma eller lukkingsklamme forventet."
+msgstr "Forventet et komma eller en lukkingsklamme."
 
 #: src/Components/CreateDefinition.php:317
 msgid "A closing bracket was expected."
-msgstr "En sluttende brakett var forventet."
+msgstr "Forventet en lukkingsklamme."
 
 #: src/Components/DataType.php:130
 msgid "Unrecognized data type."
@@ -143,16 +139,12 @@ msgid "An offset was expected."
 msgstr "En forskyvning var forventet."
 
 #: src/Components/LockExpression.php:91
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of LOCK expression."
-msgstr "Uventet slutt av CASE-uttrykket"
+msgstr "Uventet slutt av LOCK-uttrykket."
 
 #: src/Components/LockExpression.php:199
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of Lock expression."
-msgstr "Uventet slutt av CASE-uttrykket"
+msgstr "Uventet slutt av LOCK-uttrykket."
 
 #: src/Components/OptionsArray.php:145
 #, php-format
@@ -249,16 +241,12 @@ msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Denne typen klausul er ikke gyldig i Multi-tabell-spørringer."
 
 #: src/Statements/LockStatement.php:116
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of LOCK statement."
-msgstr "Uventet begynnelse på uttykket."
+msgstr "Uventet slutt på LOCK-uttrykket."
 
 #: src/Statements/PurgeStatement.php:136
-#, fuzzy
-#| msgid "Unexpected keyword."
 msgid "Unexpected keyword"
-msgstr "Uventede karakterer på linje %sd."
+msgstr "Uventet nøkkelord"
 
 #~ msgid "error #1"
 #~ msgstr "feil #1"
