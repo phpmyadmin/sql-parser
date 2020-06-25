@@ -75,47 +75,42 @@ class ContextGenerator
      *     3 - link
      *     4 - keywords array
      */
-    public const TEMPLATE =
-        '<?php' . "\n" .
-        '/**' . "\n" .
-        ' * Context for %1$s.' . "\n" .
-        ' *' . "\n" .
-        ' * This file was auto-generated from tools/contexts/*.txt.' . "\n" .
-        ' * Use tools/run_generators.sh for update.' . "\n" .
-        ' *' . "\n" .
-        ' * @see %3$s' . "\n" .
-        ' */' . "\n" .
-        'declare(strict_types=1);' . "\n" .
-        '' . "\n" .
-        'namespace PhpMyAdmin\\SqlParser\\Contexts;' . "\n" .
-        '' . "\n" .
-        'use PhpMyAdmin\\SqlParser\\Context;' . "\n" .
-        'use PhpMyAdmin\\SqlParser\\Token;' . "\n" .
-        '' . "\n" .
-        '/**' . "\n" .
-        ' * Context for %1$s.' . "\n" .
-        ' *' . "\n" .
-        ' * @category   Contexts' . "\n" .
-        ' *' . "\n" .
-        ' * @license    https://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+' . "\n" .
-        ' */' . "\n" .
-        'class %2$s extends Context' . "\n" .
-        '{' . "\n" .
-        '    /**' . "\n" .
-        '     * List of keywords.' . "\n" .
-        '     *' . "\n" .
-        '     * The value associated to each keyword represents its flags.' . "\n" .
-        '     *' . "\n" .
-        '     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED' . "\n" .
-        '     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY' . "\n" .
-        '     *      Token::FLAG_KEYWORD_FUNCTION' . "\n" .
-        '     *' . "\n" .
-        '     * @var array' . "\n" .
-        '     */' . "\n" .
-        '    public static $KEYWORDS = [' . "\n" .
-        '%4$s' .
-        '    ];' . "\n" .
-        '}' . "\n";
+    public const TEMPLATE = <<<'PHP'
+<?php
+
+declare(strict_types=1);
+
+namespace PhpMyAdmin\SqlParser\Contexts;
+
+use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Token;
+
+/**
+ * Context for %1$s.
+ *
+ * This class was auto-generated from tools/contexts/*.txt.
+ * Use tools/run_generators.sh for update.
+ *
+ * @see %3$s
+ */
+class %2$s extends Context
+{
+    /**
+     * List of keywords.
+     *
+     * The value associated to each keyword represents its flags.
+     *
+     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED
+     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
+     *      Token::FLAG_KEYWORD_FUNCTION
+     *
+     * @var array
+     */
+    public static $KEYWORDS = [
+%4$s    ];
+}
+
+PHP;
 
     /**
      * Sorts an array of words.

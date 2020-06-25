@@ -1,12 +1,4 @@
 <?php
-/**
- * Context for MySQL 5.7.
- *
- * This file was auto-generated from tools/contexts/*.txt.
- * Use tools/run_generators.sh for update.
- *
- * @see https://dev.mysql.com/doc/refman/5.7/en/keywords.html
- */
 
 declare(strict_types=1);
 
@@ -17,6 +9,11 @@ use PhpMyAdmin\SqlParser\Token;
 
 /**
  * Context for MySQL 5.7.
+ *
+ * This class was auto-generated from tools/contexts/*.txt.
+ * Use tools/run_generators.sh for update.
+ *
+ * @see https://dev.mysql.com/doc/refman/5.7/en/keywords.html
  */
 class ContextMySql50700 extends Context
 {

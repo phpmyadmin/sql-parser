@@ -1,12 +1,4 @@
 <?php
-/**
- * Context for MariaDB 10.2.
- *
- * This file was auto-generated from tools/contexts/*.txt.
- * Use tools/run_generators.sh for update.
- *
- * @see https://mariadb.com/kb/en/the-mariadb-library/reserved-words/
- */
 
 declare(strict_types=1);
 
@@ -17,6 +9,11 @@ use PhpMyAdmin\SqlParser\Token;
 
 /**
  * Context for MariaDB 10.2.
+ *
+ * This class was auto-generated from tools/contexts/*.txt.
+ * Use tools/run_generators.sh for update.
+ *
+ * @see https://mariadb.com/kb/en/the-mariadb-library/reserved-words/
  */
 class ContextMariaDb100200 extends Context
 {
