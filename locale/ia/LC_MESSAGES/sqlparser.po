@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-20 21:01+0100\n"
-"PO-Revision-Date: 2017-11-14 22:08+0000\n"
+"PO-Revision-Date: 2020-08-11 17:32+0000\n"
 "Last-Translator: Giovanni Sora <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/ia/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.18-dev\n"
+"X-Generator: Weblate 4.2-dev\n"
 
 #: src/Component.php:41 src/Component.php:61
 msgid "Not implemented yet."
@@ -73,10 +73,8 @@ msgid "Unexpected end of CASE expression"
 msgstr "Un fin inexpectate del expression CASE"
 
 #: src/Components/CaseExpression.php:225
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Potential duplicate alias of CASE expression."
-msgstr "Un fin inexpectate del expression CASE"
+msgstr "Un potential alias duplicate del expression CASE."
 
 #: src/Components/CaseExpression.php:236
 msgid "An alias expected after AS but got "
@@ -85,13 +83,11 @@ msgstr ""
 #: src/Components/CaseExpression.php:248 src/Components/Expression.php:353
 #: src/Components/Expression.php:373 src/Components/Expression.php:408
 msgid "An alias was previously found."
-msgstr "Previemente  on trovava un pseudonymo."
+msgstr "Previemente on trovava un pseudonymo."
 
 #: src/Components/CaseExpression.php:262
-#, fuzzy
-#| msgid "An alias was expected."
 msgid "An alias was expected after AS."
-msgstr "On expectava un alias."
+msgstr "On expectava un pseudonymo AS."
 
 #: src/Components/CreateDefinition.php:252
 msgid ""
@@ -148,16 +144,12 @@ msgid "An offset was expected."
 msgstr "On expectava un displaciamento."
 
 #: src/Components/LockExpression.php:91
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of LOCK expression."
-msgstr "Un fin inexpectate del expression CASE"
+msgstr "Un fin inexpectate del expression LOCK."
 
 #: src/Components/LockExpression.php:199
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of Lock expression."
-msgstr "Un fin inexpectate del expression CASE"
+msgstr "Un fin inexpectate del expression Lock."
 
 #: src/Components/OptionsArray.php:145
 #, php-format
@@ -186,7 +178,7 @@ msgstr "Expression mancante."
 
 #: src/Lexer.php:244
 msgid "Unexpected character."
-msgstr "Un  character non expectate."
+msgstr "Un character non expectate."
 
 #: src/Lexer.php:285
 msgid "Expected whitespace(s) before delimiter."
@@ -231,7 +223,7 @@ msgstr "Parola clave al fin del instruction."
 
 #: src/Statement.php:551
 msgid "Unexpected ordering of clauses."
-msgstr "Un ordine de clausas  non expectate."
+msgstr "Un ordine de clausas non expectate."
 
 #: src/Statements/CreateStatement.php:492
 msgid "The name of the entity was expected."
@@ -254,16 +246,12 @@ msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Iste typo de proposition non es valide in query de multi-tabella."
 
 #: src/Statements/LockStatement.php:116
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of LOCK statement."
-msgstr "Un initio de instruction non expectate."
+msgstr "Un initio de instruction LOCK non expectate."
 
 #: src/Statements/PurgeStatement.php:136
-#, fuzzy
-#| msgid "Unexpected keyword."
 msgid "Unexpected keyword"
-msgstr "Un parola clave non expectate."
+msgstr "Un parola clave non expectate"
 
 #~ msgid "error #1"
 #~ msgstr "error #1"
