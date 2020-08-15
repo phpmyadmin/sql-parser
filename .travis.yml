@@ -25,8 +25,8 @@ matrix:
       name: "Build documentation"
       env:
         - DOCS=yes
-        - REQUIRE="sami/sami:^4.0"
-      script: ./vendor/bin/sami.php --no-interaction update ./tools/sami-config.php
+        - REQUIRE="code-lts/doctum:^5.0"
+      script: ./vendor/bin/doctum.php --no-interaction update ./tools/doctum-config.php
       after_success: skip
     - php: 7.1
       env: REQUIRE="phpmyadmin/motranslator:^3.0"
