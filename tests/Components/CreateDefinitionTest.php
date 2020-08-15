@@ -5,7 +5,6 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
-use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 class CreateDefinitionTest extends TestCase
 {
@@ -104,7 +103,8 @@ class CreateDefinitionTest extends TestCase
             '(`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE' .
             ') ENGINE=InnoDB"'
         );
-        $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
+        // TODO: when not supporting PHP 5.3 anymore, replace this by CreateStatement::class.
+        $this->assertInstanceOf('PhpMyAdmin\\SqlParser\\Statements\\CreateStatement', $parser->statements[0]);
         $this->assertEquals(
             '`customer_id` smallint(5) UNSIGNED NOT NULL INVISIBLE',
             CreateDefinition::build($parser->statements[0]->fields[0])
