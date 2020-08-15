@@ -34,10 +34,10 @@ matrix:
       before_install: phpenv config-rm xdebug.ini
       after_success: skip
       install:
-        - composer global require "sami/sami:^4.0"
+        - composer global require "code-lts/doctum:^5.0"
         - composer install --no-interaction
       script:
-        - $HOME/.composer/vendor/bin/sami.php --no-interaction update ./tools/sami-config.php
+        - $HOME/.composer/vendor/bin/doctum.php --no-interaction update ./tools/doctum-config.php
     - php: nightly
       install:
         - composer install --no-interaction --ignore-platform-reqs
