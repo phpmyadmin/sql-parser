@@ -4,40 +4,39 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-20 21:01+0100\n"
-"PO-Revision-Date: 2015-10-15 11:29+0200\n"
-"Last-Translator: Michal Čihař <michal@cihar.com>\n"
-"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
-"hi/>\n"
+"PO-Revision-Date: 2020-08-21 12:50+0000\n"
+"Last-Translator: sanjukumarverma <vsanjukumar@gmail.com>\n"
+"Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/hi/>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 4.2.1-dev\n"
 
 #: src/Component.php:41 src/Component.php:61
 msgid "Not implemented yet."
-msgstr ""
+msgstr "अभी लागू नहीं किया गया।"
 
 #: src/Components/AlterOperation.php:278 src/Statement.php:351
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"एक नया कथन मिला, परंतु पूर्व कथन और नए कथन के बीच कोई सीमांकक नहीं मिला।"
 
 #: src/Components/AlterOperation.php:290
 msgid "Missing comma before start of a new alter operation."
-msgstr ""
+msgstr "नए बदलाव संक्रिया के आरंभ में अल्प विराम नही है।"
 
 #: src/Components/AlterOperation.php:302
-#, fuzzy
-#| msgid "Iconic table operations"
 msgid "Unrecognized alter operation."
-msgstr "चिह्न टेबल ऑपरेटरों"
+msgstr "अमान्य बदलाव संक्रिया।"
 
 #: src/Components/Array2d.php:86
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d आपेक्षित था परन्तु %2$d मिला।"
 
 #: src/Components/Array2d.php:110
 msgid "An opening bracket followed by a set of values was expected."
@@ -45,7 +44,7 @@ msgstr ""
 
 #: src/Components/ArrayObj.php:112 src/Components/CreateDefinition.php:230
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "एक खुला कोष्ठक आपेक्षित था।"
 
 #: src/Components/CaseExpression.php:136 src/Components/CaseExpression.php:164
 #: src/Components/CaseExpression.php:177 src/Components/CaseExpression.php:191
@@ -62,11 +61,11 @@ msgstr ""
 #: src/Statements/LockStatement.php:86 src/Statements/ReplaceStatement.php:155
 #: src/Statements/ReplaceStatement.php:183
 msgid "Unexpected keyword."
-msgstr ""
+msgstr "अनापेक्षित बीजशब्द।"
 
 #: src/Components/CaseExpression.php:200
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "CASE वाक्यांश का अनापेक्षित अंत"
 
 #: src/Components/CaseExpression.php:225
 msgid "Potential duplicate alias of CASE expression."
@@ -94,30 +93,24 @@ msgid ""
 msgstr ""
 
 #: src/Components/CreateDefinition.php:266
-#, fuzzy
-#| msgid "Table name template"
 msgid "A symbol name was expected!"
-msgstr "टेबल नाम टेम्पलेट"
+msgstr "एक प्रतीक नाम आपेक्षित था!"
 
 #: src/Components/CreateDefinition.php:301
-#, fuzzy
-#| msgid "No databases selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "कोइ डाटाबेस नहीं चुना गया है।"
+msgstr "एक अल्पविराम या एक समापन कोष्ठक अपेक्षित था।"
 
 #: src/Components/CreateDefinition.php:317
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "एक समापन कोष्ठक अपेक्षित था।"
 
 #: src/Components/DataType.php:130
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "आंकड़े का अमान्य प्रकार।"
 
 #: src/Components/ExpressionArray.php:101
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "कोई पंक्ति चयनित नहीं"
+msgstr "एक वाक्यांश अपेक्षित था।"
 
 #: src/Components/Expression.php:258 src/Components/Expression.php:420
 #, fuzzy
@@ -127,7 +120,7 @@ msgstr "कोइ डाटाबेस नहीं चुना गया ह�
 
 #: src/Components/Expression.php:387
 msgid "Unexpected dot."
-msgstr ""
+msgstr "अनापेक्षित बिंदु।"
 
 #: src/Components/IndexHint.php:137 src/Components/IndexHint.php:166
 #: src/Components/LockExpression.php:159 src/Components/SetOperation.php:138
@@ -141,23 +134,19 @@ msgstr ""
 #: src/Statements/PurgeStatement.php:139
 #: src/Statements/ReplaceStatement.php:192
 msgid "Unexpected token."
-msgstr ""
+msgstr "अनापेक्षित टोकन।"
 
 #: src/Components/Limit.php:80 src/Components/Limit.php:108
 msgid "An offset was expected."
-msgstr ""
+msgstr "एक सीमांक अपेक्षित था।"
 
 #: src/Components/LockExpression.php:91
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected end of LOCK expression."
-msgstr "टेबल के शुरू में"
+msgstr "LOCK वाक्यांश का अनापेक्षित अंत।"
 
 #: src/Components/LockExpression.php:199
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected end of Lock expression."
-msgstr "टेबल के शुरू में"
+msgstr "Lock वाक्यांश का अनापेक्षित अंत ‌"
 
 #: src/Components/OptionsArray.php:145
 #, php-format
@@ -209,24 +198,20 @@ msgid "Ending quote %1$s was expected."
 msgstr "%1$s टेबल बना दिया गया है"
 
 #: src/Lexer.php:955
-#, fuzzy
-#| msgid "Table name template"
 msgid "Variable name was expected."
-msgstr "टेबल नाम टेम्पलेट"
+msgstr "चर नाम अपेक्षित।"
 
 #: src/Parser.php:451
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "टेबल के शुरू में"
+msgstr "कथन का अनापेक्षित आरंभ।"
 
 #: src/Parser.php:476
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "अमान्य कथन प्रकार।"
 
 #: src/Parser.php:565
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "पूर्व में कोई अंतरण आरंभ नहीं किया गया था।"
 
 #: src/Statement.php:318
 msgid "This type of clause was previously parsed."
