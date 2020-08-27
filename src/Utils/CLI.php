@@ -235,9 +235,9 @@ class CLI
 
     public function readStdin()
     {
-        $read = [STDIN];
-        $write = [];
-        $except = [];
+        $read = array(STDIN);
+        $write = array();
+        $except = array();
 
         // Assume there's nothing to be read from STDIN.
         $stdin = null;
