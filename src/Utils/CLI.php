@@ -233,11 +233,22 @@ class CLI
         return 1;
     }
 
-    public function readStdin() {
-        stream_set_blocking(STDIN, false);
-        $stdin = stream_get_contents(STDIN);
-        // restore-default block-mode setting
-        stream_set_blocking(STDIN, true);
+    public function readStdin()
+    {
+        $read = array(STDIN);
+        $write = array();
+        $except = array();
+
+        // Assume there's nothing to be read from STDIN.
+        $stdin = null;
+
+        // Try to read from STDIN.  Wait 0.2 second before timing out.
+        $result = stream_select($read, $write, $except, 0, 2000);
+
+        if ($result > 0) {
+            $stdin = stream_get_contents(STDIN);
+        }
+
         return $stdin;
     }
 }
