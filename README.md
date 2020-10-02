@@ -16,7 +16,7 @@ A validating SQL lexer and parser with a focus on MySQL dialect.
 
 Please use [Composer][1] to install:
 
-```
+```sh
 composer require phpmyadmin/sql-parser
 ```
 
@@ -53,6 +53,7 @@ All commands are able to parse input from stdin (standard in), such as:
 echo "SELECT 1" | ./vendor/bin/highlight-query
 cat example.sql | ./vendor/bin/lint-query
 ```
+
 ### Formatting SQL query
 
 ```php
@@ -77,7 +78,7 @@ echo $flags['querytype'];
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-$query1 = "select * from a";
+$query1 = 'select * from a';
 $parser = new PhpMyAdmin\SqlParser\Parser($query1);
 
 // inspect query
@@ -103,6 +104,7 @@ var_dump($query2); // outputs string(19) 'SELECT  * FROM "b" '
 ## Localization
 
 You can localize error messages installing `phpmyadmin/motranslator` version `5.0` or newer:
+
 ```sh
 composer require phpmyadmin/motranslator:^5.0
 ```
@@ -110,11 +112,13 @@ composer require phpmyadmin/motranslator:^5.0
 The locale is automatically detected from your environment, you can also set a different locale
 
 **From cli**:
+
 ```sh
 LC_ALL=pl ./vendor/bin/lint-query --query "SELECT 1"
 ```
 
 **From php**:
+
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
