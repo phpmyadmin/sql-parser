@@ -123,7 +123,7 @@ Backport fixes from 5.0.0 to QA branch:
 
 * Fix parsing of CREATE TABLE with per field COLLATE.
 * Improved Context::loadClosest to better deal with corner cases.
-* Localizaton updates.
+* Localization updates.
 
 ## [4.2.3] - 2017-10-10
 
@@ -137,7 +137,7 @@ Backport fixes from 5.0.0 to QA branch:
 ## [4.2.1] - 2017-09-08
 
 * Fixed minor bug in Query::getFlags.
-* Localizaton updates.
+* Localization updates.
 
 ## [4.2.0] - 2017-08-30
 
