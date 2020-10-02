@@ -1031,11 +1031,6 @@ parameters:
 			path: src/Lexer.php
 
 		-
-			message: "#^Right side of && is always true\\.$#"
-			count: 1
-			path: src/Lexer.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:setDelimiter\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Lexer.php
@@ -1267,7 +1262,7 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
-			count: 3
+			count: 2
 			path: src/Statements/CreateStatement.php
 
 		-
@@ -1283,11 +1278,6 @@ parameters:
 		-
 			message: "#^Cannot assign new offset to array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\.$#"
 			count: 4
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
-			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
