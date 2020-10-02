@@ -52,6 +52,7 @@ class CreateStatementTest extends TestCase
             array('parser/parseCreateView2'),
             array('parser/parseCreateViewWithoutQuotes'),
             array('parser/parseCreateViewWithQuotes'),
+            array('parser/parseCreateViewWithWrongSyntax'),
         );
     }
 }
