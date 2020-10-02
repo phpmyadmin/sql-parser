@@ -23,7 +23,7 @@ class Translator
     private static $translator;
 
     /**
-     * Loads transator.
+     * Loads translator.
      */
     public static function load()
     {
