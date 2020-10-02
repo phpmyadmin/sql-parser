@@ -8,6 +8,7 @@
 * Add support for INVISIBLE keyword (#292)
 * Fix the "$" might be a character used in a name (#301)
 * Fix use stream_select instead of non-blocking STDIN (#309)
+* Add select validation to a create view statement (#310)
 
 ## [4.6.1] - 2020-03-20
 
