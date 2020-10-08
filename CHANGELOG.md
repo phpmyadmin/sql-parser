@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased] -
+## [4.7.0] - 2020-10-08
 
 * EXISTS is also a function. (#297)
 * Remove some useless dev-dependencies
