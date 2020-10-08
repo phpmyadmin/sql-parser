@@ -1,6 +1,6 @@
 # Change Log
 
-## [Unreleased] -
+## [5.4.0] - 2020-10-08
 
 * EXISTS is also a function. (#297)
 * Fix lexer to not allow numbers with letters (#300)
