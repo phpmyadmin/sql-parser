@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-20 21:01+0100\n"
-"PO-Revision-Date: 2019-02-22 16:18+0000\n"
-"Last-Translator: Joshua PowellNishiyama <nzjpnboy@outlook.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/sql-"
-"parser/ja/>\n"
+"PO-Revision-Date: 2020-10-11 17:09+0000\n"
+"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.5-dev\n"
+"X-Generator: Weblate 4.3-dev\n"
 
 #: src/Component.php:41 src/Component.php:61
 msgid "Not implemented yet."
@@ -28,7 +28,7 @@ msgstr ""
 
 #: src/Components/AlterOperation.php:290
 msgid "Missing comma before start of a new alter operation."
-msgstr ""
+msgstr "新しい ALTER 操作を開始する前にカンマがありません。"
 
 #: src/Components/AlterOperation.php:302
 msgid "Unrecognized alter operation."
@@ -66,17 +66,15 @@ msgstr "予期しないキーワード。"
 
 #: src/Components/CaseExpression.php:200
 msgid "Unexpected end of CASE expression"
-msgstr "予期しないCASE式の終了"
+msgstr "予期しない CASE 式の終了。"
 
 #: src/Components/CaseExpression.php:225
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Potential duplicate alias of CASE expression."
-msgstr "予期しないCASE式の終了"
+msgstr "CASE 式の重複したエイリアスの可能性があります。"
 
 #: src/Components/CaseExpression.php:236
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "AS の後にエイリアスが必要ですが、取得したものは "
 
 #: src/Components/CaseExpression.php:248 src/Components/Expression.php:353
 #: src/Components/Expression.php:373 src/Components/Expression.php:408
@@ -84,10 +82,8 @@ msgid "An alias was previously found."
 msgstr "エイリアスが前に見つかっています。"
 
 #: src/Components/CaseExpression.php:262
-#, fuzzy
-#| msgid "An alias was expected."
 msgid "An alias was expected after AS."
-msgstr "エイリアスがあるべきです。"
+msgstr "AS の後にエイリアスが必要です。"
 
 #: src/Components/CreateDefinition.php:252
 msgid ""
@@ -144,16 +140,12 @@ msgid "An offset was expected."
 msgstr "オフセットがあるべきです。"
 
 #: src/Components/LockExpression.php:91
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of LOCK expression."
-msgstr "予期しないCASE式の終了"
+msgstr "予期しない LOCK 式の終了。"
 
 #: src/Components/LockExpression.php:199
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of Lock expression."
-msgstr "予期しないCASE式の終了"
+msgstr "予期しない Lock 式の終了。"
 
 #: src/Components/OptionsArray.php:145
 #, php-format
@@ -250,16 +242,12 @@ msgid "This type of clause is not valid in Multi-table queries."
 msgstr "この句の種類は、複数テーブルクエリでは無効です。"
 
 #: src/Statements/LockStatement.php:116
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of LOCK statement."
-msgstr "ステートメントの開始があるべきです。"
+msgstr "LOCK ステートメントが予期せず終了しました。"
 
 #: src/Statements/PurgeStatement.php:136
-#, fuzzy
-#| msgid "Unexpected keyword."
 msgid "Unexpected keyword"
-msgstr "予期しないキーワード。"
+msgstr "予期しないキーワード"
 
 #~ msgid "error #1"
 #~ msgstr "エラー #1"
