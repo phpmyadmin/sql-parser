@@ -1,5 +1,8 @@
 # Change Log
 
+## [4.7.1] - 2020-10-10
+* Fix array_key_exists warning when parsing a "DEFAULT FALSE" token (#299)
+
 ## [4.7.0] - 2020-10-08
 
 * EXISTS is also a function. (#297)
