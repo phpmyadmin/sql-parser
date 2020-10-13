@@ -11,7 +11,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class CreateDefinitionTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
         $component = CreateDefinition::parse(
             new Parser(),
@@ -23,7 +23,7 @@ class CreateDefinitionTest extends TestCase
         $this->assertEquals('FULLTEXT INDEX `indx` (`str`)', (string) $component[1]);
     }
 
-    public function testParse2()
+    public function testParse2(): void
     {
         $component = CreateDefinition::parse(
             new Parser(),
@@ -35,7 +35,7 @@ class CreateDefinitionTest extends TestCase
         $this->assertTrue($component[0]->options->has('NOT NULL'));
     }
 
-    public function testParseErr1()
+    public function testParseErr1(): void
     {
         $parser = new Parser();
         $component = CreateDefinition::parse(
@@ -50,7 +50,7 @@ class CreateDefinitionTest extends TestCase
         );
     }
 
-    public function testParseErr2()
+    public function testParseErr2(): void
     {
         $parser = new Parser();
         CreateDefinition::parse(
@@ -64,7 +64,7 @@ class CreateDefinitionTest extends TestCase
         );
     }
 
-    public function testBuild()
+    public function testBuild(): void
     {
         $parser = new Parser(
             'CREATE TABLE `payment` (' .
@@ -82,7 +82,7 @@ class CreateDefinitionTest extends TestCase
         );
     }
 
-    public function testBuild2()
+    public function testBuild2(): void
     {
         $parser = new Parser(
             'CREATE TABLE `payment` (' .
@@ -101,7 +101,7 @@ class CreateDefinitionTest extends TestCase
         );
     }
 
-    public function testBuild3()
+    public function testBuild3(): void
     {
         $parser = new Parser(
             'DROP TABLE IF EXISTS `searches`;'
@@ -133,7 +133,7 @@ class CreateDefinitionTest extends TestCase
         );
     }
 
-    public function testBuildWithInvisibleKeyword()
+    public function testBuildWithInvisibleKeyword(): void
     {
         $parser = new Parser(
             'CREATE TABLE `payment` (' .
