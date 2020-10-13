@@ -1,6 +1,6 @@
 # Change Log
 
-## [4.7.1] - 2020-10-10
+## [4.7.1] - 2020-10-13
 * Fix array_key_exists warning when parsing a "DEFAULT FALSE" token (#299)
 
 ## [4.7.0] - 2020-10-08
