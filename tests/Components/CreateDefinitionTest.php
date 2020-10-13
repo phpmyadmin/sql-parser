@@ -101,6 +101,38 @@ class CreateDefinitionTest extends TestCase
         );
     }
 
+    public function testBuild3()
+    {
+        $parser = new Parser(
+            'DROP TABLE IF EXISTS `searches`;'
+            . 'CREATE TABLE `searches` ('
+            . '  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,'
+            . '  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,'
+            . '  `public_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL,'
+            . '  `group_id` smallint(5) unsigned NOT NULL DEFAULT \'0\','
+            . '  `shortdesc` tinytext COLLATE utf8_unicode_ci,'
+            . '  `show_separators` tinyint(1) NOT NULL DEFAULT \'0\','
+            . '  `show_separators_two` tinyint(1) NOT NULL DEFAULT FALSE,'
+            . '  `deleted` tinyint(1) NOT NULL DEFAULT \'0\','
+            . '  PRIMARY KEY (`id`)'
+            . ') ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;'
+            . ''
+            . 'ALTER TABLE `searches` ADD `admins_only` BOOLEAN NOT NULL DEFAULT FALSE AFTER `show_separators`;'
+        );
+        $this->assertEquals(
+            '`public_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL',
+            CreateDefinition::build($parser->statements[1]->fields[2])
+        );
+        $this->assertEquals(
+            '`show_separators` tinyint(1) NOT NULL DEFAULT \'0\'',
+            CreateDefinition::build($parser->statements[1]->fields[5])
+        );
+        $this->assertEquals(
+            '`show_separators_two` tinyint(1) NOT NULL DEFAULT FALSE',
+            CreateDefinition::build($parser->statements[1]->fields[6])
+        );
+    }
+
     public function testBuildWithInvisibleKeyword()
     {
         $parser = new Parser(

@@ -1,5 +1,8 @@
 # Change Log
 
+## [5.4.1] - 2020-10-10
+* Fix array_key_exists warning when parsing a "DEFAULT FALSE" token (#299)
+
 ## [5.4.0] - 2020-10-08
 
 * EXISTS is also a function. (#297)
@@ -53,6 +56,9 @@
 * Fix for PHP warnings with an incomplete CASE expression (#241)
 * Fix for error message with multiple CALL statements (#223)
 * Recognize the question mark character as a parameter (#242)
+
+## [4.7.1] - 2020-10-10
+* Fix array_key_exists warning when parsing a "DEFAULT FALSE" token (#299)
 
 ## [4.7.0] - 2020-10-08
 
