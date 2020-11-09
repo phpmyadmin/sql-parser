@@ -126,6 +126,21 @@ parameters:
 			path: src/Components/ArrayObj.php
 
 		-
+			message: "#^Cannot access property \\$raw on array\\<int, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 2
+			path: src/Components/ArrayObj.php
+
+		-
+			message: "#^Cannot access property \\$values on array\\<int, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 2
+			path: src/Components/ArrayObj.php
+
+		-
+			message: "#^Cannot access an offset on array\\<int, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Components/ArrayObj.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/ArrayObj.php
@@ -1051,23 +1066,8 @@ parameters:
 			path: src/Lexer.php
 
 		-
-			message: "#^Parameter \\#1 \\$token of class PhpMyAdmin\\\\SqlParser\\\\Token constructor expects string, string\\|null given\\.$#"
-			count: 7
-			path: src/Lexer.php
-
-		-
-			message: "#^Parameter \\#2 \\$str of method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:error\\(\\) expects string, string\\|null given\\.$#"
-			count: 2
-			path: src/Lexer.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$delimiter \\(string\\) does not accept null\\.$#"
 			count: 1
-			path: src/Lexer.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isWhitespace\\(\\) expects string, string\\|null given\\.$#"
-			count: 5
 			path: src/Lexer.php
 
 		-
@@ -1086,27 +1086,7 @@ parameters:
 			path: src/Lexer.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isSeparator\\(\\) expects string, string\\|null given\\.$#"
-			count: 4
-			path: src/Lexer.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isComment\\(\\) expects string, string\\|null given\\.$#"
-			count: 2
-			path: src/Lexer.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isString\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: src/Lexer.php
-
-		-
 			message: "#^Parameter \\#3 \\$flags of class PhpMyAdmin\\\\SqlParser\\\\Token constructor expects int, int\\|null given\\.$#"
-			count: 1
-			path: src/Lexer.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isSymbol\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Lexer.php
 
@@ -1182,6 +1162,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:getClauses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between int\\<1, max\\> and 0 will always evaluate to false\\.$#"
 			count: 1
 			path: src/Statement.php
 
