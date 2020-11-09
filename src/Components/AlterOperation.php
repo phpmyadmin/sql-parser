@@ -278,30 +278,31 @@ class AlterOperation extends Component
                     } elseif (($token->value === ',') && ($brackets === 0)) {
                         break;
                     }
-                } elseif (! empty(Parser::$STATEMENT_PARSERS[$token->value])) {
-                    // We have reached the end of ALTER operation and suddenly found
-                    // a start to new statement, but have not find a delimiter between them
+                } elseif (! self::checkIfTokenQuotedSymbol($token)) {
+                    if (! empty(Parser::$STATEMENT_PARSERS[$token->value])) {
+                        // We have reached the end of ALTER operation and suddenly found
+                        // a start to new statement, but have not find a delimiter between them
 
-                    if (! ($token->value === 'SET' && $list->tokens[$list->idx - 1]->value === 'CHARACTER')) {
+                        if (! ($token->value === 'SET' && $list->tokens[$list->idx - 1]->value === 'CHARACTER')) {
+                            $parser->error(
+                                'A new statement was found, but no delimiter between it and the previous one.',
+                                $token
+                            );
+                            break;
+                        }
+                    } elseif ((array_key_exists($array_key, self::$DB_OPTIONS)
+                        || array_key_exists($array_key, self::$TABLE_OPTIONS))
+                        && ! self::checkIfColumnDefinitionKeyword($array_key)
+                    ) {
+                        // This alter operation has finished, which means a comma
+                        // was missing before start of new alter operation
                         $parser->error(
-                            'A new statement was found, but no delimiter between it and the previous one.',
+                            'Missing comma before start of a new alter operation.',
                             $token
                         );
                         break;
                     }
-                } elseif ((array_key_exists($array_key, self::$DB_OPTIONS)
-                    || array_key_exists($array_key, self::$TABLE_OPTIONS))
-                    && ! self::checkIfColumnDefinitionKeyword($array_key)
-                ) {
-                    // This alter operation has finished, which means a comma
-                    // was missing before start of new alter operation
-                    $parser->error(
-                        'Missing comma before start of a new alter operation.',
-                        $token
-                    );
-                    break;
                 }
-
                 $ret->unknown[] = $token;
             }
         }
@@ -361,5 +362,17 @@ class AlterOperation extends Component
         // Since these options can be used for
         // both table as well as a specific column in the table
         return in_array($tokenValue, $common_options);
+    }
+
+    /**
+     * Check if token is symbol and quoted with backtick
+     *
+     * @param Token $token token to check
+     *
+     * @return bool
+     */
+    private static function checkIfTokenQuotedSymbol($token)
+    {
+        return $token->type === Token::TYPE_SYMBOL && $token->flags === Token::FLAG_SYMBOL_BACKTICK;
     }
 }
