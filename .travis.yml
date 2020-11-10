@@ -38,7 +38,7 @@ matrix:
         - composer global require "code-lts/doctum:^5.0"
         - composer install --no-interaction
       script:
-        - $HOME/.composer/vendor/bin/doctum.php --no-interaction update ./tools/doctum-config.php
+        - $(composer global config bin-dir --absolute --quiet)/doctum.php --no-interaction update ./tools/doctum-config.php
     - php: nightly
       install:
         - composer install --no-interaction --ignore-platform-reqs
