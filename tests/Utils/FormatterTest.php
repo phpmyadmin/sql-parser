@@ -21,7 +21,7 @@ class FormatterTest extends TestCase
     {
         $formatter = $this->getMockBuilder(Formatter::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['getDefaultOptions', 'getDefaultFormats'])
+            ->setMethods(['getDefaultOptions', 'getDefaultFormats'])
             ->getMock();
 
         $formatter->expects($this->once())

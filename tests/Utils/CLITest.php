@@ -19,7 +19,7 @@ class CLITest extends TestCase
      */
     private function getCLI($getopt)
     {
-        $cli = $this->getMockBuilder(CLI::class)->onlyMethods(['getopt'])->getMock();
+        $cli = $this->getMockBuilder(CLI::class)->setMethods(['getopt'])->getMock();
         $cli->method('getopt')->willReturn($getopt);
 
         return $cli;
@@ -33,7 +33,7 @@ class CLITest extends TestCase
      */
     private function getCLIStdIn($input, $getopt)
     {
-        $cli = $this->getMockBuilder(CLI::class)->onlyMethods(['getopt', 'readStdin'])->getMock();
+        $cli = $this->getMockBuilder(CLI::class)->setMethods(['getopt', 'readStdin'])->getMock();
         $cli->method('getopt')->willReturn($getopt);
         $cli->method('readStdin')->willReturn($input);
 
