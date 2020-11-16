@@ -436,11 +436,6 @@ parameters:
 			path: src/Components/FunctionCall.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$type has no typehint specified\\.$#"
-			count: 1
-			path: src/Components/GroupKeyword.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
 			path: src/Components/GroupKeyword.php
@@ -572,16 +567,6 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) has parameter \\$keyword with no typehint specified\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
@@ -727,11 +712,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/LockExpression.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:parseLockType\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
 
@@ -1136,7 +1116,7 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$END_OPTIONS has no typehint specified\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$END_OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -1361,36 +1341,6 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseFileOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseFileOptions\\(\\) has parameter \\$keyword with no typehint specified\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseKeywordsAccordingToState\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseKeywordsAccordingToState\\(\\) has parameter \\$list with no typehint specified\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseKeywordsAccordingToState\\(\\) has parameter \\$parser with no typehint specified\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseKeywordsAccordingToState\\(\\) has parameter \\$state with no typehint specified\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$partition \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
@@ -1406,9 +1356,19 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LockStatement\\:\\:\\$isLock has no typehint specified\\.$#"
+			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
 			count: 1
-			path: src/Statements/LockStatement.php
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 2
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Cannot access property \\$token on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LockStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
@@ -1437,11 +1397,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_expr \\(string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Statements/PurgeStatement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:parseExpectedKeyword\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
@@ -1501,11 +1456,6 @@ parameters:
 			path: src/Statements/SelectStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$END_OPTIONS has no typehint specified\\.$#"
-			count: 1
-			path: src/Statements/SelectStatement.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SelectStatement.php
@@ -1526,7 +1476,7 @@ parameters:
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$END_OPTIONS has no typehint specified\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$END_OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
@@ -1741,82 +1691,17 @@ parameters:
 			path: src/Utils/BufferedQuery.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:mergeLongOpts\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:getopt\\(\\) has parameter \\$long with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/CLI.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:mergeLongOpts\\(\\) has parameter \\$longopts with no typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:getopt\\(\\) should return array\\<string\\|false\\>\\|false but returns array\\<string, array\\<int, mixed\\>\\|string\\|false\\>\\.$#"
 			count: 1
 			path: src/Utils/CLI.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:mergeLongOpts\\(\\) has parameter \\$params with no typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:usageHighlight\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:getopt\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:getopt\\(\\) has parameter \\$long with no typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:getopt\\(\\) has parameter \\$opt with no typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:parseHighlight\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:runHighlight\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:usageLint\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:parseLint\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:runLint\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:usageTokenize\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:parseTokenize\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:runTokenize\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:readStdin\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:readStdin\\(\\) should return string\\|false but returns string\\|false\\|null\\.$#"
 			count: 1
 			path: src/Utils/CLI.php
 
@@ -1881,11 +1766,6 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:mergeFormats\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/Formatter.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:mergeFormats\\(\\) has parameter \\$formats with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
@@ -1896,18 +1776,13 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:mergeFormats\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
 			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
 			count: 2
-			path: src/Utils/Formatter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:escapeConsole\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/Formatter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:escapeConsole\\(\\) has parameter \\$string with no typehint specified\\.$#"
-			count: 1
 			path: src/Utils/Formatter.php
 
 		-
@@ -1919,16 +1794,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Misc.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:\\$FUNCTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:\\$ALLFLAGS has no typehint specified\\.$#"
-			count: 1
-			path: src/Utils/Query.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getFlagsSelect\\(\\) has parameter \\$flags with no value type specified in iterable type array\\.$#"
@@ -2021,17 +1886,7 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has parameter \\$find with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has parameter \\$list with no typehint specified\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -2041,7 +1896,32 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
+			message: "#^Parameter \\$list of method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has invalid typehint type PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			count: 1
+			path: src/Utils/Tokens.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:getTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\|string given\\.$#"
+			count: 1
+			path: src/Utils/Tokens.php
+
+		-
 			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Tokens.php
+
+		-
+			message: "#^Access to property \\$count on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			count: 2
+			path: src/Utils/Tokens.php
+
+		-
+			message: "#^Access to property \\$tokens on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			count: 5
+			path: src/Utils/Tokens.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) should return PhpMyAdmin\\\\SqlParser\\\\TokensList but returns PhpMyAdmin\\\\SqlParser\\\\TokensList\\|string\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -2056,67 +1936,7 @@ parameters:
 			path: tests/Builder/CallStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilder\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderDatabase\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderDefaultInt\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderCollate\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderDefaultComment\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderTable\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderPartitions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:partitionQueries\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderPartitionsEngine\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderView\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderTrigger\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuilderRoutine\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:testBuildSelect\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:partitionQueriesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Builder/CreateStatementTest.php
 
@@ -2356,7 +2176,7 @@ parameters:
 			path: tests/Components/ArrayObjTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:parseProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Components/ArrayObjTest.php
 
@@ -2476,7 +2296,7 @@ parameters:
 			path: tests/Components/ExpressionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:parseErrProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:parseErrProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Components/ExpressionTest.php
 
@@ -2576,7 +2396,7 @@ parameters:
 			path: tests/Components/LimitTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LimitTest\\:\\:parseProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LimitTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Components/LimitTest.php
 
@@ -2596,7 +2416,7 @@ parameters:
 			path: tests/Components/LockExpressionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LockExpressionTest\\:\\:parseErrProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LockExpressionTest\\:\\:parseErrProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Components/LockExpressionTest.php
 
@@ -2696,17 +2516,7 @@ parameters:
 			path: tests/Lexer/ContextTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoadClosest\\(\\) has parameter \\$context with no typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoadClosest\\(\\) has parameter \\$expected with no typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:contextLoading\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:contextLoadingProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Lexer/ContextTest.php
 
@@ -2716,22 +2526,7 @@ parameters:
 			path: tests/Lexer/ContextTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:contextNames\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoadError\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testMode\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testEscape\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:contextNamesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Lexer/ContextTest.php
 
@@ -2781,22 +2576,12 @@ parameters:
 			path: tests/Lexer/IsMethodsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:testError\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/LexerTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:testErrorStrict\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/LexerTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:testLex\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/LexerTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:lexProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:lexProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Lexer/LexerTest.php
 
@@ -2876,7 +2661,7 @@ parameters:
 			path: tests/Misc/BugsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\BugsTest\\:\\:bugProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\BugsTest\\:\\:bugProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Misc/BugsTest.php
 
@@ -2886,42 +2671,12 @@ parameters:
 			path: tests/Misc/ParameterTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\ParameterTest\\:\\:parameterProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\ParameterTest\\:\\:parameterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Misc/ParameterTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:testArrayAccess\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:testSet\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:testUnset\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:testGetCharLength\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:testToString\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:testAccess\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:utf8Strings\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:utf8StringsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Misc/UtfStringTest.php
 
@@ -2931,7 +2686,7 @@ parameters:
 			path: tests/Parser/AlterStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\AlterStatementTest\\:\\:alterProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\AlterStatementTest\\:\\:alterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/AlterStatementTest.php
 
@@ -2941,7 +2696,7 @@ parameters:
 			path: tests/Parser/CallStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CallStatementTest\\:\\:callProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CallStatementTest\\:\\:callProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/CallStatementTest.php
 
@@ -2951,7 +2706,7 @@ parameters:
 			path: tests/Parser/CreateStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CreateStatementTest\\:\\:createProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CreateStatementTest\\:\\:createProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/CreateStatementTest.php
 
@@ -2961,7 +2716,7 @@ parameters:
 			path: tests/Parser/DeleteStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DeleteStatementTest\\:\\:deleteProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DeleteStatementTest\\:\\:deleteProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/DeleteStatementTest.php
 
@@ -2971,7 +2726,7 @@ parameters:
 			path: tests/Parser/DropStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DropStatementTest\\:\\:dropProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DropStatementTest\\:\\:dropProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/DropStatementTest.php
 
@@ -2981,7 +2736,7 @@ parameters:
 			path: tests/Parser/ExplainStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ExplainStatementTest\\:\\:explainProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ExplainStatementTest\\:\\:explainProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/ExplainStatementTest.php
 
@@ -2991,7 +2746,7 @@ parameters:
 			path: tests/Parser/InsertStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\InsertStatementTest\\:\\:insertProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\InsertStatementTest\\:\\:insertProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/InsertStatementTest.php
 
@@ -3006,7 +2761,7 @@ parameters:
 			path: tests/Parser/LoadStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LoadStatementTest\\:\\:loadProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LoadStatementTest\\:\\:loadProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/LoadStatementTest.php
 
@@ -3016,7 +2771,7 @@ parameters:
 			path: tests/Parser/LockStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LockStatementTest\\:\\:lockProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LockStatementTest\\:\\:lockProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/LockStatementTest.php
 
@@ -3026,7 +2781,7 @@ parameters:
 			path: tests/Parser/ParserTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:parseProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/ParserTest.php
 
@@ -3056,7 +2811,7 @@ parameters:
 			path: tests/Parser/PurgeStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\PurgeStatementTest\\:\\:purgeProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\PurgeStatementTest\\:\\:purgeProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/PurgeStatementTest.php
 
@@ -3066,7 +2821,7 @@ parameters:
 			path: tests/Parser/RenameStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RenameStatementTest\\:\\:renameProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RenameStatementTest\\:\\:renameProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/RenameStatementTest.php
 
@@ -3076,7 +2831,7 @@ parameters:
 			path: tests/Parser/ReplaceStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ReplaceStatementTest\\:\\:replaceProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ReplaceStatementTest\\:\\:replaceProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/ReplaceStatementTest.php
 
@@ -3086,7 +2841,7 @@ parameters:
 			path: tests/Parser/RestoreStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RestoreStatementTest\\:\\:restoreProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RestoreStatementTest\\:\\:restoreProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/RestoreStatementTest.php
 
@@ -3101,7 +2856,7 @@ parameters:
 			path: tests/Parser/SelectStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SelectStatementTest\\:\\:selectProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SelectStatementTest\\:\\:selectProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/SelectStatementTest.php
 
@@ -3111,7 +2866,7 @@ parameters:
 			path: tests/Parser/SetStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SetStatementTest\\:\\:setProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SetStatementTest\\:\\:setProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/SetStatementTest.php
 
@@ -3121,7 +2876,7 @@ parameters:
 			path: tests/Parser/TransactionStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\TransactionStatementTest\\:\\:transactionProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\TransactionStatementTest\\:\\:transactionProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/TransactionStatementTest.php
 
@@ -3131,7 +2886,7 @@ parameters:
 			path: tests/Parser/UpdateStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\UpdateStatementTest\\:\\:updateProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\UpdateStatementTest\\:\\:updateProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/UpdateStatementTest.php
 
@@ -3206,34 +2961,9 @@ parameters:
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:extractProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:extractProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:getCLI\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:getCLI\\(\\) has parameter \\$getopt with no typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:getCLIStdIn\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:getCLIStdIn\\(\\) has parameter \\$getopt with no typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:getCLIStdIn\\(\\) has parameter \\$input with no typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:testGetopt\\(\\) has no return typehint specified\\.$#"
@@ -3246,7 +2976,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:highlightParams\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:highlightParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3256,7 +2986,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:highlightParamsStdIn\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:highlightParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3266,7 +2996,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:lintParamsStdIn\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:lintParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3276,7 +3006,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:lintParams\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:lintParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3286,7 +3016,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:tokenizeParams\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:tokenizeParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3296,7 +3026,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:tokenizeParamsStdIn\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:tokenizeParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3306,7 +3036,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:stdinParams\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:stdinParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3326,7 +3056,7 @@ parameters:
 			path: tests/Utils/FormatterTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:mergeFormats\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:mergeFormatsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/FormatterTest.php
 
@@ -3341,7 +3071,7 @@ parameters:
 			path: tests/Utils/FormatterTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:formatQueries\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:formatQueriesProviders\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/FormatterTest.php
 
@@ -3361,7 +3091,7 @@ parameters:
 			path: tests/Utils/MiscTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\MiscTest\\:\\:getAliasesProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\MiscTest\\:\\:getAliasesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/MiscTest.php
 
@@ -3371,7 +3101,7 @@ parameters:
 			path: tests/Utils/QueryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:getFlagsProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:getFlagsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/QueryTest.php
 
@@ -3386,7 +3116,7 @@ parameters:
 			path: tests/Utils/QueryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:getTablesProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:getTablesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/QueryTest.php
 
@@ -3441,7 +3171,7 @@ parameters:
 			path: tests/Utils/RoutineTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getReturnTypeProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getReturnTypeProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/RoutineTest.php
 
@@ -3456,7 +3186,7 @@ parameters:
 			path: tests/Utils/RoutineTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getParameterProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getParameterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/RoutineTest.php
 
@@ -3476,7 +3206,7 @@ parameters:
 			path: tests/Utils/RoutineTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getParametersProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getParametersProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/RoutineTest.php
 
@@ -3496,7 +3226,7 @@ parameters:
 			path: tests/Utils/TableTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:getForeignKeysProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:getForeignKeysProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
 
@@ -3516,7 +3246,7 @@ parameters:
 			path: tests/Utils/TableTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:getFieldsProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:getFieldsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
 
@@ -3526,7 +3256,7 @@ parameters:
 			path: tests/Utils/TokensTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:replaceTokensProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:replaceTokensProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/TokensTest.php
 
@@ -3536,7 +3266,7 @@ parameters:
 			path: tests/Utils/TokensTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:matchProvider\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:matchProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/TokensTest.php
 
