@@ -249,7 +249,7 @@ class Formatter
         ];
     }
 
-    private static function mergeFormats(array $formats, array $newFormats)
+    private static function mergeFormats(array $formats, array $newFormats): array
     {
         $added = [];
         $integers = [
@@ -543,7 +543,7 @@ class Formatter
         return $ret;
     }
 
-    public function escapeConsole($string)
+    public function escapeConsole(string $string): string
     {
         return str_replace(
             [

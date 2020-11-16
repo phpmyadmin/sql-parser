@@ -112,6 +112,9 @@ class LockExpression extends Component
         return $component->table . ' ' . $component->type;
     }
 
+    /**
+     * @return string
+     */
     private static function parseLockType(Parser $parser, TokensList $list)
     {
         $lockType = '';

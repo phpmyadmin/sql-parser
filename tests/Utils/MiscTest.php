@@ -24,7 +24,7 @@ class MiscTest extends TestCase
         $this->assertEquals($expected, Misc::getAliases($statement, $db));
     }
 
-    public function getAliasesProvider()
+    public function getAliasesProvider(): array
     {
         return [
             [

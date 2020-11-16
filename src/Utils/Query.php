@@ -48,7 +48,7 @@ class Query
     /**
      * Functions that set the flag `is_func`.
      *
-     * @var array
+     * @var string[]
      */
     public static $FUNCTIONS = [
         'SUM',
@@ -61,6 +61,7 @@ class Query
         'BIT_AND',
     ];
 
+    /** @var array<string,false> */
     public static $ALLFLAGS = [
         /*
          * select ... DISTINCT ...

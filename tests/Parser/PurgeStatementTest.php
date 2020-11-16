@@ -18,7 +18,7 @@ class PurgeStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function purgeProvider()
+    public function purgeProvider(): array
     {
         return [
             ['parser/parsePurge'],

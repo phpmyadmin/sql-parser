@@ -18,7 +18,7 @@ class CallStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function callProvider()
+    public function callProvider(): array
     {
         return [
             ['parser/parseCall'],

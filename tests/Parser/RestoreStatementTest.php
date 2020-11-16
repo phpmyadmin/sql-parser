@@ -18,7 +18,7 @@ class RestoreStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function restoreProvider()
+    public function restoreProvider(): array
     {
         return [
             ['parser/parseRestore'],

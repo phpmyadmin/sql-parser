@@ -15,13 +15,13 @@ class FormatterTest extends TestCase
      * @param mixed $overriding
      * @param mixed $expected
      *
-     * @dataProvider mergeFormats
+     * @dataProvider mergeFormatsProvider
      */
     public function testMergeFormats($default, $overriding, $expected)
     {
-        $formatter = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\Formatter')
+        $formatter = $this->getMockBuilder(Formatter::class)
             ->disableOriginalConstructor()
-            ->setMethods(['getDefaultOptions', 'getDefaultFormats'])
+            ->onlyMethods(['getDefaultOptions', 'getDefaultFormats'])
             ->getMock();
 
         $formatter->expects($this->once())
@@ -58,7 +58,7 @@ class FormatterTest extends TestCase
         $this->assertEquals($expectedOptions, $reflectionMethod->invoke($formatter, $overridingOptions));
     }
 
-    public function mergeFormats()
+    public function mergeFormatsProvider(): array
     {
         // [default[], overriding[], expected[]]
         return [
@@ -241,7 +241,7 @@ class FormatterTest extends TestCase
      * @param mixed $cli
      * @param mixed $html
      *
-     * @dataProvider formatQueries
+     * @dataProvider formatQueriesProviders
      */
     public function testFormat($query, $text, $cli, $html, array $options = [])
     {
@@ -267,7 +267,7 @@ class FormatterTest extends TestCase
         );
     }
 
-    public function formatQueries()
+    public function formatQueriesProviders(): array
     {
         return [
             'empty' => [

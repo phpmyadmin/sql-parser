@@ -18,7 +18,7 @@ class RenameStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function renameProvider()
+    public function renameProvider(): array
     {
         return [
             ['parser/parseRename'],

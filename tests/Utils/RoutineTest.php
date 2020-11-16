@@ -20,7 +20,7 @@ class RoutineTest extends TestCase
         $this->assertEquals($expected, Routine::getReturnType($def));
     }
 
-    public function getReturnTypeProvider()
+    public function getReturnTypeProvider(): array
     {
         return [
             [
@@ -116,7 +116,7 @@ class RoutineTest extends TestCase
         $this->assertEquals($expected, Routine::getParameter($def));
     }
 
-    public function getParameterProvider()
+    public function getParameterProvider(): array
     {
         return [
             [
@@ -213,7 +213,7 @@ class RoutineTest extends TestCase
         $this->assertEquals($expected, Routine::getParameters($parser->statements[0]));
     }
 
-    public function getParametersProvider()
+    public function getParametersProvider(): array
     {
         return [
             [

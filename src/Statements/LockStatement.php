@@ -29,6 +29,8 @@ class LockStatement extends Statement
     /**
      * Whether it's a LOCK statement
      * if false, it's an UNLOCK statement
+     *
+     * @var bool
      */
     public $isLock = true;
 

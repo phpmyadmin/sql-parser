@@ -18,7 +18,7 @@ class InsertStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function insertProvider()
+    public function insertProvider(): array
     {
         return [
             ['parser/parseInsert'],

@@ -18,7 +18,7 @@ class LockStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function lockProvider()
+    public function lockProvider(): array
     {
         return [
             ['parser/parseLock1'],

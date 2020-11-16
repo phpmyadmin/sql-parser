@@ -72,6 +72,7 @@ class SelectStatement extends Statement
         'SQL_CALC_FOUND_ROWS' => 9,
     ];
 
+    /** @var array<string,int> */
     public static $END_OPTIONS = [
         'FOR UPDATE' => 1,
         'LOCK IN SHARE MODE' => 1,

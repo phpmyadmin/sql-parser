@@ -15,7 +15,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class CreateStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         $parser = new Parser(
             'CREATE USER "jeffrey"@"localhost" IDENTIFIED BY "mypass"'
@@ -27,7 +27,7 @@ class CreateStatementTest extends TestCase
         );
     }
 
-    public function testBuilderDatabase()
+    public function testBuilderDatabase(): void
     {
         // CREATE DATABASE ...
         $parser = new Parser(
@@ -56,7 +56,7 @@ class CreateStatementTest extends TestCase
         );
     }
 
-    public function testBuilderDefaultInt()
+    public function testBuilderDefaultInt(): void
     {
         $parser = new Parser(
             'CREATE TABLE IF NOT EXISTS t1 (' .
@@ -73,7 +73,7 @@ class CreateStatementTest extends TestCase
         );
     }
 
-    public function testBuilderCollate()
+    public function testBuilderCollate(): void
     {
         $parser = new Parser(
             'CREATE TABLE IF NOT EXISTS t1 (' .
@@ -90,7 +90,7 @@ class CreateStatementTest extends TestCase
         );
     }
 
-    public function testBuilderDefaultComment()
+    public function testBuilderDefaultComment(): void
     {
         $parser = new Parser(
             'CREATE TABLE `wp_audio` (' .
@@ -109,7 +109,7 @@ class CreateStatementTest extends TestCase
         );
     }
 
-    public function testBuilderTable()
+    public function testBuilderTable(): void
     {
         /* Assertion 1 */
         $stmt = new CreateStatement();
@@ -169,7 +169,7 @@ class CreateStatementTest extends TestCase
         $this->assertEquals($query, $parser->statements[0]->build());
     }
 
-    public function testBuilderPartitions()
+    public function testBuilderPartitions(): void
     {
         /* Assertion 1 */
         $query = 'CREATE TABLE ts (' . "\n"
@@ -216,7 +216,7 @@ class CreateStatementTest extends TestCase
         $this->assertEquals($query, $parser->statements[0]->build());
     }
 
-    public function partitionQueries()
+    public function partitionQueriesProvider(): array
     {
         return [
             [
@@ -264,11 +264,9 @@ EOT
     }
 
     /**
-     * @param string $query
-     *
-     * @dataProvider partitionQueries
+     * @dataProvider partitionQueriesProvider
      */
-    public function testBuilderPartitionsEngine($query)
+    public function testBuilderPartitionsEngine(string $query): void
     {
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
@@ -276,7 +274,7 @@ EOT
         $this->assertEquals($query, $stmt->build());
     }
 
-    public function testBuilderView()
+    public function testBuilderView(): void
     {
         $parser = new Parser(
             'CREATE VIEW myView (vid, vfirstname) AS ' .
@@ -315,7 +313,7 @@ EOT
         );
     }
 
-    public function testBuilderTrigger()
+    public function testBuilderTrigger(): void
     {
         $stmt = new CreateStatement();
 
@@ -332,7 +330,7 @@ EOT
         );
     }
 
-    public function testBuilderRoutine()
+    public function testBuilderRoutine(): void
     {
         $parser = new Parser(
             'CREATE FUNCTION test (IN `i` INT) RETURNS VARCHAR ' .
@@ -355,7 +353,7 @@ EOT
         );
     }
 
-    public function testBuildSelect()
+    public function testBuildSelect(): void
     {
         $parser = new Parser(
             'CREATE TABLE new_tbl SELECT * FROM orig_tbl'

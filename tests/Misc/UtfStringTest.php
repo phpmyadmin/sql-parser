@@ -22,7 +22,7 @@ class UtfStringTest extends TestCase
      */
     public const TEST_PHRASE_LEN = 113;
 
-    public function testArrayAccess()
+    public function testArrayAccess(): void
     {
         $str = new UtfString(self::TEST_PHRASE);
 
@@ -37,7 +37,7 @@ class UtfStringTest extends TestCase
         $this->assertNull($str[self::TEST_PHRASE_LEN]);
     }
 
-    public function testSet()
+    public function testSet(): void
     {
         $this->expectExceptionMessage('Not implemented.');
         $this->expectException(Throwable::class);
@@ -45,7 +45,7 @@ class UtfStringTest extends TestCase
         $str[0] = 'a';
     }
 
-    public function testUnset()
+    public function testUnset(): void
     {
         $this->expectExceptionMessage('Not implemented.');
         $this->expectException(Throwable::class);
@@ -53,7 +53,7 @@ class UtfStringTest extends TestCase
         unset($str[0]);
     }
 
-    public function testGetCharLength()
+    public function testGetCharLength(): void
     {
         $this->assertEquals(1, UtfString::getCharLength(chr(0x00))); // 00000000
         $this->assertEquals(1, UtfString::getCharLength(chr(0x7F))); // 01111111
@@ -74,7 +74,7 @@ class UtfStringTest extends TestCase
         $this->assertEquals(6, UtfString::getCharLength(chr(0xFD))); // 11111101
     }
 
-    public function testToString()
+    public function testToString(): void
     {
         $str = new UtfString(self::TEST_PHRASE);
         $this->assertEquals(self::TEST_PHRASE, (string) $str);
@@ -87,9 +87,9 @@ class UtfStringTest extends TestCase
      * @param mixed $pos10
      * @param mixed $pos20
      *
-     * @dataProvider utf8Strings
+     * @dataProvider utf8StringsProvider
      */
-    public function testAccess($text, $pos10, $pos20)
+    public function testAccess($text, $pos10, $pos20): void
     {
         $str = new UtfString($text);
         $this->assertEquals($pos10, $str->offsetGet(10));
@@ -97,7 +97,7 @@ class UtfStringTest extends TestCase
         $this->assertEquals($pos10, $str->offsetGet(10));
     }
 
-    public function utf8Strings()
+    public function utf8StringsProvider(): array
     {
         return [
             'ascii' => [

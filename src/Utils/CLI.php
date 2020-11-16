@@ -25,6 +25,12 @@ use const STDIN;
  */
 class CLI
 {
+    /**
+     * @param string[]|false[] $params
+     * @param string[]         $longopts
+     *
+     * @return void
+     */
     public function mergeLongOpts(&$params, &$longopts)
     {
         foreach ($longopts as $value) {
@@ -35,17 +41,29 @@ class CLI
         }
     }
 
+    /**
+     * @return void
+     */
     public function usageHighlight()
     {
         echo "Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]\n";
         echo "       cat file.sql | highlight-query\n";
     }
 
+    /**
+     * @param string $opt
+     * @param array  $long
+     *
+     * @return string[]|false[]|false
+     */
     public function getopt($opt, $long)
     {
         return getopt($opt, $long);
     }
 
+    /**
+     * @return mixed|false
+     */
     public function parseHighlight()
     {
         $longopts = [
@@ -76,6 +94,9 @@ class CLI
         return $params;
     }
 
+    /**
+     * @return int
+     */
     public function runHighlight()
     {
         $params = $this->parseHighlight();
@@ -116,12 +137,18 @@ class CLI
         return 1;
     }
 
+    /**
+     * @return void
+     */
     public function usageLint()
     {
         echo "Usage: lint-query --query SQL [--ansi]\n";
         echo "       cat file.sql | lint-query\n";
     }
 
+    /**
+     * @return mixed
+     */
     public function parseLint()
     {
         $longopts = [
@@ -139,6 +166,9 @@ class CLI
         return $params;
     }
 
+    /**
+     * @return int
+     */
     public function runLint()
     {
         $params = $this->parseLint();
@@ -188,12 +218,18 @@ class CLI
         return 1;
     }
 
+    /**
+     * @return void
+     */
     public function usageTokenize()
     {
         echo "Usage: tokenize-query --query SQL [--ansi]\n";
         echo "       cat file.sql | tokenize-query\n";
     }
 
+    /**
+     * @return mixed
+     */
     public function parseTokenize()
     {
         $longopts = [
@@ -210,6 +246,9 @@ class CLI
         return $params;
     }
 
+    /**
+     * @return int
+     */
     public function runTokenize()
     {
         $params = $this->parseTokenize();
@@ -258,6 +297,9 @@ class CLI
         return 1;
     }
 
+    /**
+     * @return string|false
+     */
     public function readStdin()
     {
         $read = [STDIN];

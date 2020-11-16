@@ -18,7 +18,7 @@ class AlterStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function alterProvider()
+    public function alterProvider(): array
     {
         return [
             ['parser/parseAlter'],

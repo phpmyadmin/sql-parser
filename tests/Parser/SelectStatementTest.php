@@ -27,7 +27,7 @@ class SelectStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function selectProvider()
+    public function selectProvider(): array
     {
         return [
             ['parser/parseSelect2'],

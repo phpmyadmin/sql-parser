@@ -60,7 +60,7 @@ class BufferedQueryTest extends TestCase
         $this->assertEquals($expected, $statements);
     }
 
-    public function extractProvider()
+    public function extractProvider(): array
     {
         $query =
             '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . "\n" .

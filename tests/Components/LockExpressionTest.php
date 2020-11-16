@@ -41,7 +41,7 @@ class LockExpressionTest extends TestCase
         $this->assertEquals($errors[0][0], $error);
     }
 
-    public function parseErrProvider()
+    public function parseErrProvider(): array
     {
         return [
             [

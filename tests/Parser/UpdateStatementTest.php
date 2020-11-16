@@ -18,7 +18,7 @@ class UpdateStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function updateProvider()
+    public function updateProvider(): array
     {
         return [
             ['parser/parseUpdate'],

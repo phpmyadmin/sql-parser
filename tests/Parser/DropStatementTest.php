@@ -18,7 +18,7 @@ class DropStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function dropProvider()
+    public function dropProvider(): array
     {
         return [
             ['parser/parseDrop'],

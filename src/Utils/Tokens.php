@@ -60,6 +60,11 @@ class Tokens
             || (! (($pattern['flags'] & $token->flags) === 0));
     }
 
+    /**
+     * @param TokensList|string|UtfString $list
+     *
+     * @return TokensList
+     */
     public static function replaceTokens($list, array $find, array $replace)
     {
         /**

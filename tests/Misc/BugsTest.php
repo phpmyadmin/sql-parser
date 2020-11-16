@@ -18,7 +18,7 @@ class BugsTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function bugProvider()
+    public function bugProvider(): array
     {
         return [
             ['bugs/gh9'],

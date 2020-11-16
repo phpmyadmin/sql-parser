@@ -18,7 +18,7 @@ class SetStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function setProvider()
+    public function setProvider(): array
     {
         return [
             ['parser/parseSetCharset'],

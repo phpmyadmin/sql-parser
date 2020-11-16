@@ -18,7 +18,7 @@ class ParameterTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function parameterProvider()
+    public function parameterProvider(): array
     {
         return [
             ['misc/parseParameter'],

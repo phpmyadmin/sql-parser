@@ -18,7 +18,7 @@ class CreateStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function createProvider()
+    public function createProvider(): array
     {
         return [
             ['parser/parseCreateDatabase'],

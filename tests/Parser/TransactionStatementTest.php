@@ -18,7 +18,7 @@ class TransactionStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function transactionProvider()
+    public function transactionProvider(): array
     {
         return [
             ['parser/parseTransaction'],

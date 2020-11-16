@@ -31,7 +31,7 @@ class LimitTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function parseProvider()
+    public function parseProvider(): array
     {
         return [
             ['parser/parseLimitErr1'],

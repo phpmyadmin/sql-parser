@@ -23,7 +23,7 @@ class TokensTest extends TestCase
         $this->assertEquals($expected, Tokens::replaceTokens($list, $find, $replace));
     }
 
-    public function replaceTokensProvider()
+    public function replaceTokensProvider(): array
     {
         return [
             [
@@ -53,7 +53,7 @@ class TokensTest extends TestCase
         $this->assertEquals($expected, Tokens::match($token, $pattern));
     }
 
-    public function matchProvider()
+    public function matchProvider(): array
     {
         return [
             [

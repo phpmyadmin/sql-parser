@@ -27,7 +27,7 @@ class LoadStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    public function loadProvider()
+    public function loadProvider(): array
     {
         return [
             ['parser/parseLoad1'],

@@ -26,7 +26,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function getFlagsProvider()
+    public function getFlagsProvider(): array
     {
         return [
             [
@@ -408,7 +408,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function getTablesProvider()
+    public function getTablesProvider(): array
     {
         return [
             [

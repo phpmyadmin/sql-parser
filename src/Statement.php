@@ -59,6 +59,7 @@ abstract class Statement
      */
     public static $CLAUSES = [];
 
+    /** @var array */
     public static $END_OPTIONS = [];
 
     /**

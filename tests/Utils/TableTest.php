@@ -21,7 +21,7 @@ class TableTest extends TestCase
         $this->assertEquals($expected, Table::getForeignKeys($parser->statements[0]));
     }
 
-    public function getForeignKeysProvider()
+    public function getForeignKeysProvider(): array
     {
         return [
             [
@@ -126,7 +126,7 @@ class TableTest extends TestCase
         $this->assertEquals($expected, Table::getFields($parser->statements[0]));
     }
 
-    public function getFieldsProvider()
+    public function getFieldsProvider(): array
     {
         return [
             [

@@ -12,17 +12,28 @@ use const PHP_BINARY;
 
 class CLITest extends TestCase
 {
+    /**
+     * @param mixed $getopt
+     *
+     * @return CLI
+     */
     private function getCLI($getopt)
     {
-        $cli = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\CLI')->setMethods(['getopt'])->getMock();
+        $cli = $this->getMockBuilder(CLI::class)->onlyMethods(['getopt'])->getMock();
         $cli->method('getopt')->willReturn($getopt);
 
         return $cli;
     }
 
+    /**
+     * @param mixed $input
+     * @param mixed $getopt
+     *
+     * @return CLI
+     */
     private function getCLIStdIn($input, $getopt)
     {
-        $cli = $this->getMockBuilder('PhpMyAdmin\SqlParser\Utils\CLI')->setMethods(['getopt', 'readStdin'])->getMock();
+        $cli = $this->getMockBuilder(CLI::class)->onlyMethods(['getopt', 'readStdin'])->getMock();
         $cli->method('getopt')->willReturn($getopt);
         $cli->method('readStdin')->willReturn($input);
 
@@ -48,7 +59,7 @@ class CLITest extends TestCase
      * @param mixed $output
      * @param mixed $result
      *
-     * @dataProvider highlightParams
+     * @dataProvider highlightParamsProvider
      */
     public function testRunHighlight($getopt, $output, $result)
     {
@@ -57,7 +68,7 @@ class CLITest extends TestCase
         $this->assertEquals($result, $cli->runHighlight());
     }
 
-    public function highlightParams()
+    public function highlightParamsProvider(): array
     {
         return [
             [
@@ -122,7 +133,7 @@ class CLITest extends TestCase
      * @param mixed $output
      * @param mixed $result
      *
-     * @dataProvider highlightParamsStdIn
+     * @dataProvider highlightParamsStdInProvider
      */
     public function testRunHighlightStdIn($input, $getopt, $output, $result)
     {
@@ -131,7 +142,7 @@ class CLITest extends TestCase
         $this->assertEquals($result, $cli->runHighlight());
     }
 
-    public function highlightParamsStdIn()
+    public function highlightParamsStdInProvider(): array
     {
         return [
             [
@@ -189,7 +200,7 @@ class CLITest extends TestCase
      * @param mixed $output
      * @param mixed $result
      *
-     * @dataProvider lintParamsStdIn
+     * @dataProvider lintParamsStdInProvider
      */
     public function testRunLintFromStdIn($input, $getopt, $output, $result)
     {
@@ -198,7 +209,7 @@ class CLITest extends TestCase
         $this->assertEquals($result, $cli->runLint());
     }
 
-    public function lintParamsStdIn()
+    public function lintParamsStdInProvider(): array
     {
         return [
             [
@@ -252,7 +263,7 @@ class CLITest extends TestCase
      * @param mixed $output
      * @param mixed $result
      *
-     * @dataProvider lintParams
+     * @dataProvider lintParamsProvider
      */
     public function testRunLint($getopt, $output, $result)
     {
@@ -261,7 +272,7 @@ class CLITest extends TestCase
         $this->assertEquals($result, $cli->runLint());
     }
 
-    public function lintParams()
+    public function lintParamsProvider(): array
     {
         return [
             [
@@ -317,7 +328,7 @@ class CLITest extends TestCase
      * @param mixed $output
      * @param mixed $result
      *
-     * @dataProvider tokenizeParams
+     * @dataProvider tokenizeParamsProvider
      */
     public function testRunTokenize($getopt, $output, $result)
     {
@@ -326,7 +337,7 @@ class CLITest extends TestCase
         $this->assertEquals($result, $cli->runTokenize());
     }
 
-    public function tokenizeParams()
+    public function tokenizeParamsProvider(): array
     {
         $result = "[TOKEN 0]\nType = 1\nFlags = 3\nValue = 'SELECT'\nToken = 'SELECT'\n\n"
             . "[TOKEN 1]\nType = 3\nFlags = 0\nValue = ' '\nToken = ' '\n\n"
@@ -371,7 +382,7 @@ class CLITest extends TestCase
      * @param mixed $output
      * @param mixed $result
      *
-     * @dataProvider tokenizeParamsStdIn
+     * @dataProvider tokenizeParamsStdInProvider
      */
     public function testRunTokenizeStdIn($input, $getopt, $output, $result)
     {
@@ -380,7 +391,7 @@ class CLITest extends TestCase
         $this->assertEquals($result, $cli->runTokenize());
     }
 
-    public function tokenizeParamsStdIn()
+    public function tokenizeParamsStdInProvider(): array
     {
         $result = "[TOKEN 0]\nType = 1\nFlags = 3\nValue = 'SELECT'\nToken = 'SELECT'\n\n"
             . "[TOKEN 1]\nType = 3\nFlags = 0\nValue = ' '\nToken = ' '\n\n"
@@ -419,18 +430,15 @@ class CLITest extends TestCase
     }
 
     /**
-     * @param string $cmd
-     * @param int    $result
-     *
-     * @dataProvider stdinParams
+     * @dataProvider stdinParamsProvider
      */
-    public function testStdinPipe($cmd, $result)
+    public function testStdinPipe(string $cmd, int $result)
     {
         exec($cmd, $out, $ret);
         $this->assertSame($result, $ret);
     }
 
-    public function stdinParams()
+    public function stdinParamsProvider(): array
     {
         $binPath = PHP_BINARY . ' ' . dirname(__DIR__, 2) . '/bin/';
 
