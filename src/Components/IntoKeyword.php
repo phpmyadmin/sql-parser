@@ -240,7 +240,9 @@ class IntoKeyword extends Component
     }
 
     /**
-     * @param string $keyword
+     * @param Parser     $parser  The parser
+     * @param TokensList $list    A token list
+     * @param string     $keyword They keyword
      *
      * @return void
      */

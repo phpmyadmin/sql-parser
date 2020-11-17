@@ -62,6 +62,8 @@ class Tokens
 
     /**
      * @param TokensList|string|UtfString $list
+     * @param array                       $find
+     * @param array                       $replace
      *
      * @return TokensList
      */
