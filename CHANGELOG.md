@@ -1,7 +1,8 @@
 # Change Log
 
 # [5.4.2] - YYYY-MM-DD
-- Added check for quoted symbol to avoid parser error in case of keyword (#317)
+* Added check for quoted symbol to avoid parser error in case of keyword (#317)
+* Allow PHP 8
 
 ## [5.4.1] - 2020-10-15
 * Fix array_key_exists warning when parsing a "DEFAULT FALSE" token (#299)
