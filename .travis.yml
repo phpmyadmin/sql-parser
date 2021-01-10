@@ -3,14 +3,6 @@ language: php
 dist: trusty
 
 php:
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - 7.1
-  - 7.2
-  - 7.3
-  - 7.4
   - hhvm-3.12
   - hhvm-3.24
   - nightly
@@ -19,30 +11,13 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: nightly
-  include:
-    - php: 7.2
-      name: "Build documentation"
-      env:
-        - DOCS=yes
-        - REQUIRE="code-lts/doctum:^5.0"
-      script: ./vendor/bin/doctum.php --no-interaction update ./tools/doctum-config.php
-      after_success: skip
-    - php: 7.1
-      env: REQUIRE="phpmyadmin/motranslator:^3.0"
-    - dist: precise
-      php: 5.3
 
 install:
-  - if [ -n "$REQUIRE" ] ; then composer require "$REQUIRE" ; fi
   - composer install
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-  - if [ -f build/logs/clover.xml ] ; then curl -LsO https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml; fi
 
 cache:
   directories:
     - $HOME/.composer/cache
 
 script:
-  - ./vendor/bin/phpunit --configuration phpunit.xml.dist
+  - ./vendor/bin/phpunit
