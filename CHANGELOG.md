@@ -63,6 +63,7 @@
 
 # [4.7.2] - YYYY-MM-DD
 - Added check for quoted symbol to avoid parser error in case of keyword (#317)
+- Adjust PHP version constraint to not support PHP 8.0 on the 4.7 series (5.x series supports it)
 
 ## [4.7.1] - 2020-10-15
 * Fix array_key_exists warning when parsing a "DEFAULT FALSE" token (#299)
