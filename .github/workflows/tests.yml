@@ -39,5 +39,8 @@ jobs:
             - name: Send coverage
               uses: codecov/codecov-action@v1
             - name: Send coverage to Scrutinizer
+              uses: sudo-bot/action-scrutinizer@latest
+              # Upload can fail on forks
               continue-on-error: true
-              run: curl -LsO https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+              with:
+                  cli-args: "--format=php-clover build/logs/clover.xml"
