@@ -1,0 +1,43 @@
+name: Run tests
+
+on: 
+  push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+      - QA
+
+jobs:
+    test-php:
+        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        strategy:
+            matrix:
+                php-version: ["5.3", "5.4", "5.5", "5.6", "7.0", "7.1", "7.2", "7.3", "7.4"]
+                os: [ubuntu-latest]
+        steps:
+            - uses: actions/checkout@v1
+            - name: Use php ${{ matrix.php-version }}
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  extensions: mbstring
+                  coverage: xdebug
+            - name: Cache module
+              uses: actions/cache@v2
+              with:
+                  path: ~/.composer/cache/
+                  key: composer-cache
+            - name: Install dependencies
+              run: composer install --no-interaction --prefer-dist --no-progress --no-suggest
+            - name: Install motranslator
+              if: ${{ matrix.php-version == '7.1' }}
+              run: composer require phpmyadmin/motranslator:^3.0
+            - name: Run php tests
+              run: ./vendor/bin/phpunit
+            - name: Send coverage
+              uses: codecov/codecov-action@v1
+            - name: Send coverage to Scrutinizer
+              continue-on-error: true
+              run: curl -LsO https://scrutinizer-ci.com/ocular.phar && php ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
