@@ -16,6 +16,7 @@ use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Components\GroupKeyword;
 use PhpMyAdmin\SqlParser\Statement;
 
 /**
@@ -259,7 +260,7 @@ class SelectStatement extends Statement
     /**
      * Conditions used for grouping the result set.
      *
-     * @var OrderKeyword[]
+     * @var GroupKeyword[]
      */
     public $group;
 
