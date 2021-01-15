@@ -26,7 +26,7 @@ jobs:
                   path: ~/.composer/cache/
                   key: composer-cache
             - name: Install dependencies
-              run: composer install --no-interaction --prefer-dist --no-progress --no-suggest
+              run: composer install
             - name: Lint files
               run: ./vendor/bin/phpcs
 
