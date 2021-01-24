@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-20 21:01+0100\n"
-"PO-Revision-Date: 2020-10-11 17:09+0000\n"
-"Last-Translator: Kyotaro Iijima <kyotaro.eyes@gmail.com>\n"
+"PO-Revision-Date: 2021-01-25 09:32+0000\n"
+"Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/ja/>\n"
 "Language: ja\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"X-Generator: Weblate 4.5-dev\n"
 
 #: src/Component.php:41 src/Component.php:61
 msgid "Not implemented yet."
@@ -41,11 +41,11 @@ msgstr "値 %1$d があるべきですが、 %2$d が見つかりました。"
 
 #: src/Components/Array2d.php:110
 msgid "An opening bracket followed by a set of values was expected."
-msgstr "左括弧とそれに続く一連の値が予期されていました。"
+msgstr "左括弧とそれに続く一連の値があるべきです。"
 
 #: src/Components/ArrayObj.php:112 src/Components/CreateDefinition.php:230
 msgid "An opening bracket was expected."
-msgstr "左括弧が予期されていました。"
+msgstr "左括弧が必要です。"
 
 #: src/Components/CaseExpression.php:136 src/Components/CaseExpression.php:164
 #: src/Components/CaseExpression.php:177 src/Components/CaseExpression.php:191
@@ -70,7 +70,7 @@ msgstr "予期しない CASE 式の終了。"
 
 #: src/Components/CaseExpression.php:225
 msgid "Potential duplicate alias of CASE expression."
-msgstr "CASE 式の重複したエイリアスの可能性があります。"
+msgstr "CASE 式でエイリアスが重複している可能性があります。"
 
 #: src/Components/CaseExpression.php:236
 msgid "An alias expected after AS but got "
@@ -89,17 +89,15 @@ msgstr "AS の後にエイリアスが必要です。"
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
-msgstr ""
-"シンボル名が予期されていました。 カラム名は予約語を利用するときに、バック"
-"クォートでエスケープする必要があります。"
+msgstr "シンボル名が必要です。 予約語をバッククォートなしでカラム名として使用することはできません。"
 
 #: src/Components/CreateDefinition.php:266
 msgid "A symbol name was expected!"
-msgstr "シンボル名があるべきです!"
+msgstr "シンボル名が必要です!"
 
 #: src/Components/CreateDefinition.php:301
 msgid "A comma or a closing bracket was expected."
-msgstr "カンマか閉じる括弧があるべきです。"
+msgstr "カンマか閉じ括弧が必要です。"
 
 #: src/Components/CreateDefinition.php:317
 msgid "A closing bracket was expected."
@@ -111,11 +109,11 @@ msgstr "認識できないデータ形式。"
 
 #: src/Components/ExpressionArray.php:101
 msgid "An expression was expected."
-msgstr "式があるべきです。"
+msgstr "式が必要です。"
 
 #: src/Components/Expression.php:258 src/Components/Expression.php:420
 msgid "An alias was expected."
-msgstr "エイリアスがあるべきです。"
+msgstr "エイリアスが必要です。"
 
 #: src/Components/Expression.php:387
 msgid "Unexpected dot."
@@ -158,7 +156,7 @@ msgstr "テーブルの古い名前が必要です。"
 
 #: src/Components/RenameOperation.php:116
 msgid "Keyword \"TO\" was expected."
-msgstr "キーワード \"TO\" があるべきです。"
+msgstr "キーワード \"TO\" が必要です。"
 
 #: src/Components/RenameOperation.php:132
 msgid "The new name of the table was expected."
@@ -178,16 +176,16 @@ msgstr "予期しない文字。"
 
 #: src/Lexer.php:285
 msgid "Expected whitespace(s) before delimiter."
-msgstr "空白が区切り文字の前にあるべきです。"
+msgstr "区切り文字の前に空白が必要です。"
 
 #: src/Lexer.php:303 src/Lexer.php:325
 msgid "Expected delimiter."
-msgstr "区切り文字があるべきです。"
+msgstr "区切り文字が必要です。"
 
 #: src/Lexer.php:909
 #, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "終端クォート %1$s があるべきです。"
+msgstr "終端クォート %1$s が必要です。"
 
 #: src/Lexer.php:955
 msgid "Variable name was expected."
@@ -195,7 +193,7 @@ msgstr "変数名があるべきです。"
 
 #: src/Parser.php:451
 msgid "Unexpected beginning of statement."
-msgstr "ステートメントの開始があるべきです。"
+msgstr "ここで文を始めることができません。"
 
 #: src/Parser.php:476
 msgid "Unrecognized statement type."
@@ -207,7 +205,7 @@ msgstr "開始されているトランザクションはありません。"
 
 #: src/Statement.php:318
 msgid "This type of clause was previously parsed."
-msgstr "この句種類は既に処理しました。"
+msgstr "この種類の句は以前に解釈済みです。"
 
 #: src/Statement.php:396
 msgid "Unrecognized keyword."
