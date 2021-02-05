@@ -12,7 +12,7 @@ jobs:
     lint-php:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v1
+            - uses: actions/checkout@v2
             - name: Use php 7.1
               uses: shivammathur/setup-php@v2
               with:
@@ -45,6 +45,6 @@ jobs:
                   path: ~/.composer/cache/
                   key: composer-cache
             - name: Install dependencies
-              run: composer install --no-interaction --prefer-dist --no-progress --no-suggest
+              run: composer install
             - name: Analyse files
               run: ./vendor/bin/phpstan analyse
