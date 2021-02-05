@@ -1,5 +1,7 @@
 # Change Log
 
+## [5.4.3] - YYYY-MM-DD
+
 ## [5.4.2] - 2021-02-05
 
 * Added check for quoted symbol to avoid parser error in case of keyword (#317)
