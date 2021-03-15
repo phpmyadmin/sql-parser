@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-03-20 21:01+0100\n"
-"PO-Revision-Date: 2018-08-02 07:35+0000\n"
-"Last-Translator: popcorner <memoword@163.com>\n"
+"PO-Revision-Date: 2021-03-16 14:02+0000\n"
+"Last-Translator: xiao0yy <xiao0yy@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "phpmyadmin/sql-parser/zh_Hans/>\n"
 "Language: zh_CN\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 4.5.2-dev\n"
 
 #: src/Component.php:41 src/Component.php:61
 msgid "Not implemented yet."
@@ -67,14 +67,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "CASE表达式意外结束"
 
 #: src/Components/CaseExpression.php:225
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Potential duplicate alias of CASE expression."
-msgstr "CASE表达式意外结束"
+msgstr "CASE表达式有潜在的重复别名。"
 
 #: src/Components/CaseExpression.php:236
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "AS关键字后应跟随别名，但是发现 "
 
 #: src/Components/CaseExpression.php:248 src/Components/Expression.php:353
 #: src/Components/Expression.php:373 src/Components/Expression.php:408
@@ -82,10 +80,8 @@ msgid "An alias was previously found."
 msgstr "之前发现了一个别名。"
 
 #: src/Components/CaseExpression.php:262
-#, fuzzy
-#| msgid "An alias was expected."
 msgid "An alias was expected after AS."
-msgstr "应该有一个别名。"
+msgstr "AS关键字后应跟随别名。"
 
 #: src/Components/CreateDefinition.php:252
 msgid ""
@@ -140,16 +136,12 @@ msgid "An offset was expected."
 msgstr "应该为一个偏移。"
 
 #: src/Components/LockExpression.php:91
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of LOCK expression."
-msgstr "CASE表达式意外结束"
+msgstr "LOCK表达式意外结束。"
 
 #: src/Components/LockExpression.php:199
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of Lock expression."
-msgstr "CASE表达式意外结束"
+msgstr "lock表达式意外结束。"
 
 #: src/Components/OptionsArray.php:145
 #, php-format
@@ -246,16 +238,12 @@ msgid "This type of clause is not valid in Multi-table queries."
 msgstr "此类型的子句在多表查询中无效。"
 
 #: src/Statements/LockStatement.php:116
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of LOCK statement."
-msgstr "不应出现的开始声明。"
+msgstr "LOCK语句意外结束。"
 
 #: src/Statements/PurgeStatement.php:136
-#, fuzzy
-#| msgid "Unexpected keyword."
 msgid "Unexpected keyword"
-msgstr "不应出现的关键词。"
+msgstr "不应出现的关键词"
 
 #~ msgid "error #1"
 #~ msgstr "错误 #1"
