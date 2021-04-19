@@ -25,10 +25,7 @@ class Misc
      */
     public static function getAliases($statement, $database)
     {
-        if (! ($statement instanceof SelectStatement)
-            || empty($statement->expr)
-            || empty($statement->from)
-        ) {
+        if (! ($statement instanceof SelectStatement) || empty($statement->expr) || empty($statement->from)) {
             return [];
         }
 
@@ -82,8 +79,7 @@ class Misc
         }
 
         foreach ($statement->expr as $expr) {
-            if (! isset($expr->column, $expr->alias) || ($expr->column === '') || ($expr->alias === '')
-            ) {
+            if (! isset($expr->column, $expr->alias) || ($expr->column === '') || ($expr->alias === '')) {
                 continue;
             }
 

@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function array_key_exists;
 use function in_array;
 use function is_numeric;
@@ -270,6 +271,7 @@ class AlterOperation extends Component
                 } else {
                     $array_key = $token->token;
                 }
+
                 if ($token->type === Token::TYPE_OPERATOR) {
                     if ($token->value === '(') {
                         ++$brackets;
@@ -290,28 +292,24 @@ class AlterOperation extends Component
                             );
                             break;
                         }
-                    } elseif ((array_key_exists($array_key, self::$DB_OPTIONS)
+                    } elseif (
+                        (array_key_exists($array_key, self::$DB_OPTIONS)
                         || array_key_exists($array_key, self::$TABLE_OPTIONS))
                         && ! self::checkIfColumnDefinitionKeyword($array_key)
                     ) {
                         // This alter operation has finished, which means a comma
                         // was missing before start of new alter operation
-                        $parser->error(
-                            'Missing comma before start of a new alter operation.',
-                            $token
-                        );
+                        $parser->error('Missing comma before start of a new alter operation.', $token);
                         break;
                     }
                 }
+
                 $ret->unknown[] = $token;
             }
         }
 
         if ($ret->options->isEmpty()) {
-            $parser->error(
-                'Unrecognized alter operation.',
-                $list->tokens[$list->idx]
-            );
+            $parser->error('Unrecognized alter operation.', $list->tokens[$list->idx]);
         }
 
         --$list->idx;

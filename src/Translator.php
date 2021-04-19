@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\MoTranslator\Loader;
+
 use function class_exists;
 
 class Translator

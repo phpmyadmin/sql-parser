@@ -27,6 +27,7 @@ use function strstr;
 use function strtoupper;
 use function substr;
 use function trim;
+
 use const FILE_IGNORE_NEW_LINES;
 use const FILE_SKIP_EMPTY_LINES;
 use const SORT_STRING;
@@ -263,13 +264,7 @@ PHP;
             $options['keywords'] = static::printWords($options['keywords']);
         }
 
-        return sprintf(
-            self::TEMPLATE,
-            $options['name'],
-            $options['class'],
-            $options['link'],
-            $options['keywords']
-        );
+        return sprintf(self::TEMPLATE, $options['name'], $options['class'], $options['link'], $options['keywords']);
     }
 
     /**

@@ -17,9 +17,7 @@ class CreateStatementTest extends TestCase
 {
     public function testBuilder(): void
     {
-        $parser = new Parser(
-            'CREATE USER "jeffrey"@"localhost" IDENTIFIED BY "mypass"'
-        );
+        $parser = new Parser('CREATE USER "jeffrey"@"localhost" IDENTIFIED BY "mypass"');
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'CREATE USER "jeffrey"@"localhost" IDENTIFIED BY "mypass"',
@@ -355,9 +353,7 @@ EOT
 
     public function testBuildSelect(): void
     {
-        $parser = new Parser(
-            'CREATE TABLE new_tbl SELECT * FROM orig_tbl'
-        );
+        $parser = new Parser('CREATE TABLE new_tbl SELECT * FROM orig_tbl');
         $this->assertEquals(
             'CREATE TABLE new_tbl SELECT * FROM orig_tbl',
             $parser->statements[0]->build()

@@ -229,10 +229,13 @@ class Token
                 }
 
                 return $this->keyword;
+
             case self::TYPE_WHITESPACE:
                 return ' ';
+
             case self::TYPE_BOOL:
                 return strtoupper($this->token) === 'TRUE';
+
             case self::TYPE_NUMBER:
                 $ret = str_replace('--', '', $this->token); // e.g. ---42 === -42
                 if ($this->flags & self::FLAG_NUMBER_HEX) {
@@ -242,15 +245,14 @@ class Token
                     } else {
                         $ret = hexdec($ret);
                     }
-                } elseif (($this->flags & self::FLAG_NUMBER_APPROXIMATE)
-                || ($this->flags & self::FLAG_NUMBER_FLOAT)
-                ) {
+                } elseif (($this->flags & self::FLAG_NUMBER_APPROXIMATE) || ($this->flags & self::FLAG_NUMBER_FLOAT)) {
                     $ret = (float) $ret;
                 } elseif (! ($this->flags & self::FLAG_NUMBER_BINARY)) {
                     $ret = (int) $ret;
                 }
 
                 return $ret;
+
             case self::TYPE_STRING:
                 // Trims quotes.
                 $str = $this->token;
@@ -272,6 +274,7 @@ class Token
                 $str = stripcslashes($str);
 
                 return $str;
+
             case self::TYPE_SYMBOL:
                 $str = $this->token;
                 if (isset($str[0]) && ($str[0] === '@')) {
@@ -289,9 +292,7 @@ class Token
                     $str = mb_substr($str, 1, mb_strlen($str), 'UTF-8');
                 }
 
-                if (isset($str[0]) && (($str[0] === '`')
-                || ($str[0] === '"') || ($str[0] === '\''))
-                ) {
+                if (isset($str[0]) && (($str[0] === '`') || ($str[0] === '"') || ($str[0] === '\''))) {
                     $quote = $str[0];
                     $str = str_replace($quote . $quote, $quote, $str);
                     $str = mb_substr($str, 1, -1, 'UTF-8');

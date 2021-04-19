@@ -19,6 +19,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function count;
 use function stripos;
 use function strlen;
@@ -205,11 +206,7 @@ class DeleteStatement extends Statement
         ++$list->idx; // Skipping `DELETE`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse(
-            $parser,
-            $list,
-            static::$OPTIONS
-        );
+        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
         ++$list->idx;
 
         /**
@@ -331,13 +328,8 @@ class DeleteStatement extends Statement
                 $this->where = Condition::parse($parser, $list);
                 $state = 4;
             } elseif ($state === 4) {
-                if ($multiTable === true
-                    && $token->type === Token::TYPE_KEYWORD
-                ) {
-                    $parser->error(
-                        'This type of clause is not valid in Multi-table queries.',
-                        $token
-                    );
+                if ($multiTable === true && $token->type === Token::TYPE_KEYWORD) {
+                    $parser->error('This type of clause is not valid in Multi-table queries.', $token);
                     break;
                 }
 

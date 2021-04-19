@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Utils;
 
 use PhpMyAdmin\SqlParser\Context;
+
 use function array_merge;
 use function strlen;
 use function substr;
@@ -221,9 +222,7 @@ class BufferedQuery
 
                 $this->current .= $this->query[$i];
                 continue;
-            } elseif (($this->status === self::STATUS_COMMENT_BASH)
-                || ($this->status === self::STATUS_COMMENT_SQL)
-            ) {
+            } elseif (($this->status === self::STATUS_COMMENT_BASH) || ($this->status === self::STATUS_COMMENT_SQL)) {
                 // Bash-like (#) or SQL-like (-- ) comments end in new line.
                 if ($this->query[$i] === "\n") {
                     $this->status = 0;
@@ -272,17 +271,17 @@ class BufferedQuery
             }
 
             if ($i + 2 < $len) {
-                if (($this->query[$i] === '-')
-                 && ($this->query[$i + 1] === '-')
-                 && Context::isWhitespace($this->query[$i + 2])) {
+                if (
+                    ($this->query[$i] === '-')
+                    && ($this->query[$i + 1] === '-')
+                    && Context::isWhitespace($this->query[$i + 2])
+                ) {
                     $this->status = self::STATUS_COMMENT_SQL;
                     $this->current .= $this->query[$i];
                     continue;
                 }
 
-                if (($this->query[$i] === '/')
-                 && ($this->query[$i + 1] === '*')
-                 && ($this->query[$i + 2] !== '!')) {
+                if (($this->query[$i] === '/') && ($this->query[$i + 1] === '*') && ($this->query[$i + 2] !== '!')) {
                     $this->status = self::STATUS_COMMENT_C;
                     $this->current .= $this->query[$i];
                     continue;
@@ -301,7 +300,8 @@ class BufferedQuery
              * it has a special meaning is when it is the beginning of a
              * statement. This is the reason for the last condition.
              */
-            if (($i + 9 < $len)
+            if (
+                ($i + 9 < $len)
                 && (($this->query[$i] === 'D') || ($this->query[$i] === 'd'))
                 && (($this->query[$i + 1] === 'E') || ($this->query[$i + 1] === 'e'))
                 && (($this->query[$i + 2] === 'L') || ($this->query[$i + 2] === 'l'))
@@ -330,7 +330,8 @@ class BufferedQuery
                 }
 
                 // Checking if the delimiter definition ended.
-                if (($delimiter !== '')
+                if (
+                    ($delimiter !== '')
                     && (($i < $len) && Context::isWhitespace($this->query[$i])
                     || (($i === $len) && $end))
                 ) {
@@ -373,7 +374,8 @@ class BufferedQuery
              * There is no point in checking if two strings match if not even
              * the first letter matches.
              */
-            if (($this->query[$i] === $this->delimiter[0])
+            if (
+                ($this->query[$i] === $this->delimiter[0])
                 && (($this->delimiterLen === 1)
                 || (substr($this->query, $i, $this->delimiterLen) === $this->delimiter))
             ) {

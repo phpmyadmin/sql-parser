@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function implode;
 use function is_array;
 use function trim;
@@ -227,10 +228,7 @@ class CreateDefinition extends Component
 
             if ($state === 0) {
                 if (($token->type !== Token::TYPE_OPERATOR) || ($token->value !== '(')) {
-                    $parser->error(
-                        'An opening bracket was expected.',
-                        $token
-                    );
+                    $parser->error('An opening bracket was expected.', $token);
 
                     break;
                 }
@@ -265,10 +263,7 @@ class CreateDefinition extends Component
                     $expr->name = $token->value;
                     $state = 2;
                 } else {
-                    $parser->error(
-                        'A symbol name was expected!',
-                        $token
-                    );
+                    $parser->error('A symbol name was expected!', $token);
 
                     return $ret;
                 }
@@ -300,10 +295,7 @@ class CreateDefinition extends Component
                     ++$list->idx;
                     break;
                 } else {
-                    $parser->error(
-                        'A comma or a closing bracket was expected.',
-                        $token
-                    );
+                    $parser->error('A comma or a closing bracket was expected.', $token);
                     $state = 0;
                     break;
                 }
@@ -316,10 +308,7 @@ class CreateDefinition extends Component
         }
 
         if (($state !== 0) && ($state !== 6)) {
-            $parser->error(
-                'A closing bracket was expected.',
-                $list->tokens[$list->idx - 1]
-            );
+            $parser->error('A closing bracket was expected.', $list->tokens[$list->idx - 1]);
         }
 
         --$list->idx;

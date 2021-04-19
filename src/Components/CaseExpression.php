@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function count;
 
 /**
@@ -108,9 +109,7 @@ class CaseExpression extends Component
             $token = $list->tokens[$list->idx];
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE)
-                || ($token->type === Token::TYPE_COMMENT)
-            ) {
+            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
                 continue;
             }
 
@@ -167,9 +166,7 @@ class CaseExpression extends Component
                         }
                     }
                 } else {
-                    if ($token->type === Token::TYPE_KEYWORD
-                        && $token->keyword === 'THEN'
-                    ) {
+                    if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'THEN') {
                         ++$list->idx; // Skip 'THEN'
                         $new_result = Expression::parse($parser, $list);
                         $state = 0;
@@ -181,9 +178,7 @@ class CaseExpression extends Component
                 }
             } elseif ($state === 2) {
                 if ($type === 0) {
-                    if ($token->type === Token::TYPE_KEYWORD
-                        && $token->keyword === 'THEN'
-                    ) {
+                    if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'THEN') {
                         ++$list->idx; // Skip 'THEN'
                         $new_result = Expression::parse($parser, $list);
                         $ret->results[] = $new_result;
@@ -197,10 +192,7 @@ class CaseExpression extends Component
         }
 
         if ($state !== 3) {
-            $parser->error(
-                'Unexpected end of CASE expression',
-                $list->tokens[$list->idx - 1]
-            );
+            $parser->error('Unexpected end of CASE expression', $list->tokens[$list->idx - 1]);
         } else {
             // Parse for alias of CASE expression
             $asFound = false;
@@ -213,15 +205,12 @@ class CaseExpression extends Component
                 }
 
                 // Skipping whitespaces and comments.
-                if (($token->type === Token::TYPE_WHITESPACE)
-                    || ($token->type === Token::TYPE_COMMENT)
-                ) {
+                if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
                     continue;
                 }
 
                 // Handle optional AS keyword before alias
-                if ($token->type === Token::TYPE_KEYWORD
-                    && $token->keyword === 'AS') {
+                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'AS') {
                     if ($asFound || ! empty($ret->alias)) {
                         $parser->error('Potential duplicate alias of CASE expression.', $token);
                         break;
@@ -231,15 +220,18 @@ class CaseExpression extends Component
                     continue;
                 }
 
-                if ($asFound
+                if (
+                    $asFound
                     && $token->type === Token::TYPE_KEYWORD
-                    && ($token->flags & Token::FLAG_KEYWORD_RESERVED || $token->flags & Token::FLAG_KEYWORD_FUNCTION)) {
+                    && ($token->flags & Token::FLAG_KEYWORD_RESERVED || $token->flags & Token::FLAG_KEYWORD_FUNCTION)
+                ) {
                     $parser->error('An alias expected after AS but got ' . $token->value, $token);
                     $asFound = false;
                     break;
                 }
 
-                if ($asFound
+                if (
+                    $asFound
                     || $token->type === Token::TYPE_STRING
                     || ($token->type === Token::TYPE_SYMBOL && ! $token->flags & Token::FLAG_SYMBOL_VARIABLE)
                     || $token->type === Token::TYPE_NONE

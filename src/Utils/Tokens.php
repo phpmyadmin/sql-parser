@@ -10,6 +10,7 @@ namespace PhpMyAdmin\SqlParser\Utils;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function count;
 use function strcasecmp;
 
@@ -29,29 +30,21 @@ class Tokens
     public static function match(Token $token, array $pattern)
     {
         // Token.
-        if (isset($pattern['token'])
-            && ($pattern['token'] !== $token->token)
-        ) {
+        if (isset($pattern['token']) && ($pattern['token'] !== $token->token)) {
             return false;
         }
 
         // Value.
-        if (isset($pattern['value'])
-            && ($pattern['value'] !== $token->value)
-        ) {
+        if (isset($pattern['value']) && ($pattern['value'] !== $token->value)) {
             return false;
         }
 
-        if (isset($pattern['value_str'])
-            && strcasecmp($pattern['value_str'], (string) $token->value)
-        ) {
+        if (isset($pattern['value_str']) && strcasecmp($pattern['value_str'], (string) $token->value)) {
             return false;
         }
 
         // Type.
-        if (isset($pattern['type'])
-            && ($pattern['type'] !== $token->type)
-        ) {
+        if (isset($pattern['type']) && ($pattern['type'] !== $token->type)) {
             return false;
         }
 

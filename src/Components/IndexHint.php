@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function implode;
 use function is_array;
 
@@ -156,7 +157,8 @@ class IndexHint extends Component
                     break;
                 case 3:
                     if ($token->type === Token::TYPE_KEYWORD) {
-                        if ($token->keyword === 'JOIN'
+                        if (
+                            $token->keyword === 'JOIN'
                             || $token->keyword === 'GROUP BY'
                             || $token->keyword === 'ORDER BY'
                         ) {

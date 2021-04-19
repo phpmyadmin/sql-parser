@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Translator;
+
 use function array_merge_recursive;
 use function count;
 use function implode;
@@ -232,7 +233,8 @@ class OptionsArray extends Component
 
                 $ret->options[$lastOptionId]['expr'] .= $token->token;
 
-                if (! (($token->token === '(') && ($brackets === 1)
+                if (
+                    ! (($token->token === '(') && ($brackets === 1)
                     || (($token->token === ')') && ($brackets === 0)))
                 ) {
                     // First pair of brackets is being skipped.
@@ -250,7 +252,8 @@ class OptionsArray extends Component
          * We reached the end of statement without getting a value
          * for an option for which a value was required
          */
-        if ($state === 1
+        if (
+            $state === 1
             && $lastOption
             && ($lastOption[1] === 'expr'
             || $lastOption[1] === 'var'

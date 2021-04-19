@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function implode;
 use function is_array;
 
@@ -102,19 +103,13 @@ class RenameOperation extends Component
                     ]
                 );
                 if (empty($expr->old)) {
-                    $parser->error(
-                        'The old name of the table was expected.',
-                        $token
-                    );
+                    $parser->error('The old name of the table was expected.', $token);
                 }
 
                 $state = 1;
             } elseif ($state === 1) {
                 if ($token->type !== Token::TYPE_KEYWORD || $token->keyword !== 'TO') {
-                    $parser->error(
-                        'Keyword "TO" was expected.',
-                        $token
-                    );
+                    $parser->error('Keyword "TO" was expected.', $token);
                     break;
                 }
 
@@ -129,10 +124,7 @@ class RenameOperation extends Component
                     ]
                 );
                 if (empty($expr->new)) {
-                    $parser->error(
-                        'The new name of the table was expected.',
-                        $token
-                    );
+                    $parser->error('The new name of the table was expected.', $token);
                 }
 
                 $state = 3;
@@ -148,10 +140,7 @@ class RenameOperation extends Component
         }
 
         if ($state !== 3) {
-            $parser->error(
-                'A rename operation was expected.',
-                $list->tokens[$list->idx - 1]
-            );
+            $parser->error('A rename operation was expected.', $list->tokens[$list->idx - 1]);
         }
 
         // Last iteration was not saved.

@@ -6,8 +6,10 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\CLI;
+
 use function dirname;
 use function exec;
+
 use const PHP_BINARY;
 
 class CLITest extends TestCase

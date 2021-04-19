@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Translator;
+
 use function count;
 use function sprintf;
 
@@ -107,10 +108,7 @@ class Array2d extends Component
         }
 
         if ($state === 0) {
-            $parser->error(
-                'An opening bracket followed by a set of values was expected.',
-                $list->tokens[$list->idx]
-            );
+            $parser->error('An opening bracket followed by a set of values was expected.', $list->tokens[$list->idx]);
         }
 
         --$list->idx;

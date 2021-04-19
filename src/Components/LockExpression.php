@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function implode;
 use function is_array;
 
@@ -68,7 +69,8 @@ class LockExpression extends Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER
+            if (
+                $token->type === Token::TYPE_DELIMITER
                 || ($token->type === Token::TYPE_OPERATOR
                 && $token->value === ',')
             ) {
@@ -145,7 +147,8 @@ class LockExpression extends Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER
+            if (
+                $token->type === Token::TYPE_DELIMITER
                 || ($token->type === Token::TYPE_OPERATOR
                 && $token->value === ',')
             ) {

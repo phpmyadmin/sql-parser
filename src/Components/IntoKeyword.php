@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function implode;
 use function trim;
 
@@ -192,7 +193,8 @@ class IntoKeyword extends Component
             }
 
             if ($state === 0) {
-                if ((isset($options['fromInsert'])
+                if (
+                    (isset($options['fromInsert'])
                     && $options['fromInsert'])
                     || (isset($options['fromReplace'])
                     && $options['fromReplace'])
@@ -252,20 +254,12 @@ class IntoKeyword extends Component
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
             // parse field options
-            $this->fields_options = OptionsArray::parse(
-                $parser,
-                $list,
-                static::$FIELDS_OPTIONS
-            );
+            $this->fields_options = OptionsArray::parse($parser, $list, static::$FIELDS_OPTIONS);
 
             $this->fields_keyword = ($keyword === 'FIELDS');
         } else {
             // parse line options
-            $this->lines_options = OptionsArray::parse(
-                $parser,
-                $list,
-                static::$LINES_OPTIONS
-            );
+            $this->lines_options = OptionsArray::parse($parser, $list, static::$LINES_OPTIONS);
         }
     }
 

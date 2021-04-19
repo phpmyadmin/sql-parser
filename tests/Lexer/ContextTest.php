@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use Throwable;
+
 use function class_exists;
 
 class ContextTest extends TestCase
@@ -121,10 +122,7 @@ class ContextTest extends TestCase
             Context::$MODE
         );
         Context::setMode('TRADITIONAL');
-        $this->assertEquals(
-            Context::SQL_MODE_TRADITIONAL,
-            Context::$MODE
-        );
+        $this->assertEquals(Context::SQL_MODE_TRADITIONAL, Context::$MODE);
         Context::setMode();
         $this->assertEquals(0, Context::$MODE);
     }

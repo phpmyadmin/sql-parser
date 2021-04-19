@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Exceptions\LoaderException;
+
 use function class_exists;
 use function constant;
 use function explode;
@@ -357,9 +358,7 @@ abstract class Context
         }
 
         // If comment is SQL style (--\s?):
-        if (($len > 2) && ($str[0] === '-')
-            && ($str[1] === '-') && static::isWhitespace($str[2])
-        ) {
+        if (($len > 2) && ($str[0] === '-') && ($str[1] === '-') && static::isWhitespace($str[2])) {
             return Token::FLAG_COMMENT_SQL;
         }
 
@@ -508,10 +507,7 @@ abstract class Context
         }
 
         if (! class_exists($context)) {
-            throw @new LoaderException(
-                'Specified context ("' . $context . '") does not exist.',
-                $context
-            );
+            throw @new LoaderException('Specified context ("' . $context . '") does not exist.', $context);
         }
 
         self::$loadedContext = $context;
@@ -603,9 +599,7 @@ abstract class Context
             return $str;
         }
 
-        if ((static::$MODE & self::SQL_MODE_NO_ENCLOSING_QUOTES)
-            && (! static::isKeyword($str, true))
-        ) {
+        if ((static::$MODE & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
             return $str;
         }
 

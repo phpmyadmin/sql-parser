@@ -33,6 +33,7 @@ use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function array_flip;
 use function array_keys;
 use function count;
@@ -243,9 +244,7 @@ class Query
             $flags['is_group'] = true;
         }
 
-        if (! empty($statement->into)
-            && ($statement->into->type === 'OUTFILE')
-        ) {
+        if (! empty($statement->into) && ($statement->into->type === 'OUTFILE')) {
             $flags['is_export'] = true;
         }
 
@@ -272,9 +271,7 @@ class Query
             $flags['is_subquery'] = true;
         }
 
-        if (! empty($statement->procedure)
-            && ($statement->procedure->name === 'ANALYSE')
-        ) {
+        if (! empty($statement->procedure) && ($statement->procedure->name === 'ANALYSE')) {
             $flags['is_analyse'] = true;
         }
 
@@ -344,9 +341,7 @@ class Query
             $flags['querytype'] = 'DROP';
             $flags['reload'] = true;
 
-            if ($statement->options->has('DATABASE')
-                || $statement->options->has('SCHEMA')
-            ) {
+            if ($statement->options->has('DATABASE') || $statement->options->has('SCHEMA')) {
                 $flags['drop_database'] = true;
             }
         } elseif ($statement instanceof ExplainStatement) {
@@ -377,7 +372,8 @@ class Query
             $flags['querytype'] = 'SET';
         }
 
-        if (($statement instanceof SelectStatement)
+        if (
+            ($statement instanceof SelectStatement)
             || ($statement instanceof UpdateStatement)
             || ($statement instanceof DeleteStatement)
         ) {
@@ -430,8 +426,7 @@ class Query
             // Finding tables' aliases and their associated real names.
             $tableAliases = [];
             foreach ($statement->from as $expr) {
-                if (! isset($expr->table, $expr->alias) || ($expr->table === '') || ($expr->alias === '')
-                ) {
+                if (! isset($expr->table, $expr->alias) || ($expr->table === '') || ($expr->alias === '')) {
                     continue;
                 }
 
@@ -501,19 +496,13 @@ class Query
     {
         $expressions = [];
 
-        if (($statement instanceof InsertStatement)
-            || ($statement instanceof ReplaceStatement)
-        ) {
+        if (($statement instanceof InsertStatement) || ($statement instanceof ReplaceStatement)) {
             $expressions = [$statement->into->dest];
         } elseif ($statement instanceof UpdateStatement) {
             $expressions = $statement->tables;
-        } elseif (($statement instanceof SelectStatement)
-            || ($statement instanceof DeleteStatement)
-        ) {
+        } elseif (($statement instanceof SelectStatement) || ($statement instanceof DeleteStatement)) {
             $expressions = $statement->from;
-        } elseif (($statement instanceof AlterStatement)
-            || ($statement instanceof TruncateStatement)
-        ) {
+        } elseif (($statement instanceof AlterStatement) || ($statement instanceof TruncateStatement)) {
             $expressions = [$statement->table];
         } elseif ($statement instanceof DropStatement) {
             if (! $statement->options->has('TABLE')) {
@@ -653,7 +642,8 @@ class Query
 
             if ($brackets === 0) {
                 // Checking if the section was changed.
-                if (($token->type === Token::TYPE_KEYWORD)
+                if (
+                    ($token->type === Token::TYPE_KEYWORD)
                     && isset($clauses[$token->keyword])
                     && ($clauses[$token->keyword] >= $currIdx)
                 ) {
@@ -741,12 +731,7 @@ class Query
 
         // If there is only one clause, `replaceClause()` should be used.
         if ($count === 1) {
-            return static::replaceClause(
-                $statement,
-                $list,
-                $ops[0][0],
-                $ops[0][1]
-            );
+            return static::replaceClause($statement, $list, $ops[0][0], $ops[0][1]);
         }
 
         // Adding everything before first replacement.
@@ -882,7 +867,8 @@ class Query
                 continue;
             }
 
-            if (($token->type === Token::TYPE_KEYWORD)
+            if (
+                ($token->type === Token::TYPE_KEYWORD)
                 && isset($clauses[$token->keyword])
                 && ($clause === $token->keyword)
             ) {

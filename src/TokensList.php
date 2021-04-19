@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use ArrayAccess;
+
 use function count;
 use function is_array;
 use function is_string;
@@ -102,7 +103,8 @@ class TokensList implements ArrayAccess
     public function getNext()
     {
         for (; $this->idx < $this->count; ++$this->idx) {
-            if (($this->tokens[$this->idx]->type !== Token::TYPE_WHITESPACE)
+            if (
+                ($this->tokens[$this->idx]->type !== Token::TYPE_WHITESPACE)
                 && ($this->tokens[$this->idx]->type !== Token::TYPE_COMMENT)
             ) {
                 return $this->tokens[$this->idx++];
@@ -141,9 +143,7 @@ class TokensList implements ArrayAccess
     public function getNextOfTypeAndValue($type, $value)
     {
         for (; $this->idx < $this->count; ++$this->idx) {
-            if (($this->tokens[$this->idx]->type === $type)
-                && ($this->tokens[$this->idx]->value === $value)
-            ) {
+            if (($this->tokens[$this->idx]->type === $type) && ($this->tokens[$this->idx]->value === $value)) {
                 return $this->tokens[$this->idx++];
             }
         }

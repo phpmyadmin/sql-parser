@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function implode;
 use function in_array;
 use function is_array;
@@ -168,7 +169,8 @@ class Condition extends Component
                 }
             }
 
-            if (($token->type === Token::TYPE_KEYWORD)
+            if (
+                ($token->type === Token::TYPE_KEYWORD)
                 && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
                 && ! ($token->flags & Token::FLAG_KEYWORD_FUNCTION)
             ) {
@@ -194,7 +196,8 @@ class Condition extends Component
             }
 
             $expr->expr .= $token->token;
-            if (($token->type !== Token::TYPE_NONE)
+            if (
+                ($token->type !== Token::TYPE_NONE)
                 && (($token->type !== Token::TYPE_KEYWORD)
                 || ($token->flags & Token::FLAG_KEYWORD_RESERVED))
                 && ($token->type !== Token::TYPE_STRING)

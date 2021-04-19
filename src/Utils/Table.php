@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Utils;
 
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
+
 use function is_array;
 use function str_replace;
 
@@ -25,10 +26,7 @@ class Table
      */
     public static function getForeignKeys($statement)
     {
-        if (empty($statement->fields)
-            || (! is_array($statement->fields))
-            || (! $statement->options->has('TABLE'))
-        ) {
+        if (empty($statement->fields) || (! is_array($statement->fields)) || (! $statement->options->has('TABLE'))) {
             return [];
         }
 
@@ -82,10 +80,7 @@ class Table
      */
     public static function getFields($statement)
     {
-        if (empty($statement->fields)
-            || (! is_array($statement->fields))
-            || (! $statement->options->has('TABLE'))
-        ) {
+        if (empty($statement->fields) || (! is_array($statement->fields)) || (! $statement->options->has('TABLE'))) {
             return [];
         }
 

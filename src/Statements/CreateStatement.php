@@ -18,6 +18,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function is_array;
 use function trim;
 
@@ -446,9 +447,7 @@ class CreateStatement extends Statement
                 . OptionsArray::build($this->entityOptions) . ' '
                 . 'ON ' . Expression::build($this->table) . ' '
                 . 'FOR EACH ROW ' . TokensList::build($this->body);
-        } elseif ($this->options->has('PROCEDURE')
-            || $this->options->has('FUNCTION')
-        ) {
+        } elseif ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
             $tmp = '';
             if ($this->options->has('FUNCTION')) {
                 $tmp = 'RETURNS ' . DataType::build($this->return);
@@ -493,10 +492,7 @@ class CreateStatement extends Statement
         );
 
         if (! isset($this->name) || ($this->name === '')) {
-            $parser->error(
-                'The name of the entity was expected.',
-                $list->tokens[$list->idx]
-            );
+            $parser->error('The name of the entity was expected.', $list->tokens[$list->idx]);
         } else {
             ++$list->idx; // Skipping field.
         }
@@ -513,24 +509,20 @@ class CreateStatement extends Statement
         }
 
         if ($isDatabase) {
-            $this->entityOptions = OptionsArray::parse(
-                $parser,
-                $list,
-                static::$DB_OPTIONS
-            );
+            $this->entityOptions = OptionsArray::parse($parser, $list, static::$DB_OPTIONS);
         } elseif ($this->options->has('TABLE')) {
-            if (($token->type === Token::TYPE_KEYWORD)
-             && ($token->keyword === 'SELECT')) {
+            if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SELECT')) {
                 /* CREATE TABLE ... SELECT */
                 $this->select = new SelectStatement($parser, $list);
-            } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'AS')
+            } elseif (
+                ($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'AS')
                 && ($list->tokens[$nextidx]->type === Token::TYPE_KEYWORD)
-                && ($list->tokens[$nextidx]->value === 'SELECT')) {
+                && ($list->tokens[$nextidx]->value === 'SELECT')
+            ) {
                 /* CREATE TABLE ... AS SELECT */
                 $list->idx = $nextidx;
                 $this->select = new SelectStatement($parser, $list);
-            } elseif ($token->type === Token::TYPE_KEYWORD
-                && $token->keyword === 'LIKE') {
+            } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'LIKE') {
                 /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
                 $list->idx = $nextidx;
                 $this->like = Expression::parse(
@@ -543,27 +535,17 @@ class CreateStatement extends Statement
                 );
                 // The 'LIKE' keyword was found, but no table_name was found next to it
                 if ($this->like === null) {
-                    $parser->error(
-                        'A table name was expected.',
-                        $list->tokens[$list->idx]
-                    );
+                    $parser->error('A table name was expected.', $list->tokens[$list->idx]);
                 }
             } else {
                 $this->fields = CreateDefinition::parse($parser, $list);
                 if (empty($this->fields)) {
-                    $parser->error(
-                        'At least one column definition was expected.',
-                        $list->tokens[$list->idx]
-                    );
+                    $parser->error('At least one column definition was expected.', $list->tokens[$list->idx]);
                 }
 
                 ++$list->idx;
 
-                $this->entityOptions = OptionsArray::parse(
-                    $parser,
-                    $list,
-                    static::$TABLE_OPTIONS
-                );
+                $this->entityOptions = OptionsArray::parse($parser, $list, static::$TABLE_OPTIONS);
 
                 /**
                  * The field that is being filled (`partitionBy` or
@@ -658,34 +640,22 @@ class CreateStatement extends Statement
                     }
                 }
             }
-        } elseif ($this->options->has('PROCEDURE')
-            || $this->options->has('FUNCTION')
-        ) {
+        } elseif ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
             $this->parameters = ParameterDefinition::parse($parser, $list);
             if ($this->options->has('FUNCTION')) {
                 $prev_token = $token;
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
                 if ($token === null || $token->keyword !== 'RETURNS') {
-                    $parser->error(
-                        'A "RETURNS" keyword was expected.',
-                        $token ?? $prev_token
-                    );
+                    $parser->error('A "RETURNS" keyword was expected.', $token ?? $prev_token);
                 } else {
                     ++$list->idx;
-                    $this->return = DataType::parse(
-                        $parser,
-                        $list
-                    );
+                    $this->return = DataType::parse($parser, $list);
                 }
             }
 
             ++$list->idx;
 
-            $this->entityOptions = OptionsArray::parse(
-                $parser,
-                $list,
-                static::$FUNC_OPTIONS
-            );
+            $this->entityOptions = OptionsArray::parse($parser, $list, static::$FUNC_OPTIONS);
             ++$list->idx;
 
             for (; $list->idx < $list->count; ++$list->idx) {
@@ -705,11 +675,10 @@ class CreateStatement extends Statement
             }
 
             // Parsing the SELECT expression with and without the `AS` keyword
-            if ($token->type === Token::TYPE_KEYWORD
-                && $token->keyword === 'SELECT'
-            ) {
+            if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'SELECT') {
                 $this->select = new SelectStatement($parser, $list);
-            } elseif ($token->type === Token::TYPE_KEYWORD
+            } elseif (
+                $token->type === Token::TYPE_KEYWORD
                 && $token->keyword === 'AS'
                 && $list->tokens[$nextidx]->type === Token::TYPE_KEYWORD
                 && $list->tokens[$nextidx]->value === 'SELECT'
@@ -722,16 +691,13 @@ class CreateStatement extends Statement
                     if ($token->type === Token::TYPE_DELIMITER) {
                         break;
                     }
+
                     $this->body[] = $token;
                 }
             }
         } elseif ($this->options->has('TRIGGER')) {
             // Parsing the time and the event.
-            $this->entityOptions = OptionsArray::parse(
-                $parser,
-                $list,
-                static::$TRIGGER_OPTIONS
-            );
+            $this->entityOptions = OptionsArray::parse($parser, $list, static::$TRIGGER_OPTIONS);
             ++$list->idx;
 
             $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ON');

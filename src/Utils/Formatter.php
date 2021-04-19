@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function array_merge;
 use function array_pop;
 use function end;
@@ -22,6 +23,7 @@ use function str_repeat;
 use function str_replace;
 use function strpos;
 use function strtoupper;
+
 use const ENT_NOQUOTES;
 use const PHP_SAPI;
 
@@ -284,9 +286,7 @@ class Formatter
         /* Process changes to existing formats */
         foreach ($formats as $i => $original) {
             foreach ($newFormats as $j => $new) {
-                if ($new['type'] !== $original['type']
-                    || $original['flags'] !== $new['flags']
-                ) {
+                if ($new['type'] !== $original['type'] || $original['flags'] !== $new['flags']) {
                     continue;
                 }
 
@@ -400,7 +400,8 @@ class Formatter
 
             if ($curr->type === Token::TYPE_WHITESPACE) {
                 // Keep linebreaks before and after comments
-                if (strpos($curr->token, "\n") !== false && (
+                if (
+                    strpos($curr->token, "\n") !== false && (
                         ($prev !== null && $prev->type === Token::TYPE_COMMENT) ||
                         ($next !== null && $next->type === Token::TYPE_COMMENT)
                     )
@@ -426,7 +427,8 @@ class Formatter
                 }
 
                 // The options of a clause should stay on the same line and everything that follows.
-                if ($this->options['parts_newline']
+                if (
+                    $this->options['parts_newline']
                     && ! $formattedOptions
                     && empty(self::$INLINE_CLAUSES[$lastClause])
                     && (
@@ -446,7 +448,8 @@ class Formatter
                 $isClause = static::isClause($curr);
 
                 if ($isClause) {
-                    if (($isClause === 2 || $this->options['clause_newline'])
+                    if (
+                        ($isClause === 2 || $this->options['clause_newline'])
                         && empty(self::$SHORT_CLAUSES[$lastClause])
                     ) {
                         $lineEnded = true;
@@ -457,7 +460,8 @@ class Formatter
                 }
 
                 // Inline JOINs
-                if (($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::$JOINS[$prev->value]))
+                if (
+                    ($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::$JOINS[$prev->value]))
                     || (in_array($curr->value, ['ON', 'USING'], true)
                         && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 2]->value]))
                     || isset($list->tokens[$list->idx - 4], JoinKeyword::$JOINS[$list->tokens[$list->idx - 4]->value])
@@ -481,7 +485,8 @@ class Formatter
                     // Fragments delimited by a comma are broken into multiple
                     // pieces only if the clause is not inlined or this fragment
                     // is between brackets that are on new line.
-                    if (end($blocksLineEndings) === true
+                    if (
+                        end($blocksLineEndings) === true
                         || (
                             empty(self::$INLINE_CLAUSES[$lastClause])
                             && ! $shortGroup
@@ -523,7 +528,8 @@ class Formatter
                 } else {
                     // If the line ended there is no point in adding whitespaces.
                     // Also, some tokens do not have spaces before or after them.
-                    if (// A space after delimiters that are longer than 2 characters.
+                    if (
+                        // A space after delimiters that are longer than 2 characters.
                         $prev->keyword === 'DELIMITER'
                         || ! (
                             ($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
@@ -639,9 +645,7 @@ class Formatter
         static $prev;
 
         foreach ($this->options['formats'] as $format) {
-            if ($token->type !== $format['type']
-                || ! (($token->flags & $format['flags']) === $format['flags'])
-            ) {
+            if ($token->type !== $format['type'] || ! (($token->flags & $format['flags']) === $format['flags'])) {
                 continue;
             }
 
@@ -759,14 +763,14 @@ class Formatter
      */
     public static function isClause($token)
     {
-        if (($token->type === Token::TYPE_KEYWORD && isset(Parser::$STATEMENT_PARSERS[$token->keyword]))
+        if (
+            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$STATEMENT_PARSERS[$token->keyword]))
             || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
         }
 
-        if ($token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->keyword])
-        ) {
+        if ($token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->keyword])) {
             return 1;
         }
 

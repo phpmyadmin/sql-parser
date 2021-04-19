@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+
 use function array_search;
 use function implode;
 
@@ -147,9 +148,7 @@ class JoinKeyword extends Component
             }
 
             if ($state === 0) {
-                if (($token->type !== Token::TYPE_KEYWORD)
-                    || empty(static::$JOINS[$token->keyword])
-                ) {
+                if (($token->type !== Token::TYPE_KEYWORD) || empty(static::$JOINS[$token->keyword])) {
                     break;
                 }
 
@@ -168,8 +167,7 @@ class JoinKeyword extends Component
                             $state = 4;
                             break;
                         default:
-                            if (empty(static::$JOINS[$token->keyword])
-                            ) {
+                            if (empty(static::$JOINS[$token->keyword])) {
                                 /* Next clause is starting */
                                 break 2;
                             }
