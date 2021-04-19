@@ -369,9 +369,11 @@ class Parser extends Core
 
         $this->strict = $strict;
 
-        if ($list !== null) {
-            $this->parse();
+        if ($list === null) {
+            return;
         }
+
+        $this->parse();
     }
 
     /**

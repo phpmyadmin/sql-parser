@@ -116,9 +116,11 @@ class PurgeStatement extends Statement
         }
 
         // Only one possible end state
-        if ($state !== 4) {
-            $parser->error('Unexpected token.', $prevToken);
+        if ($state === 4) {
+            return;
         }
+
+        $parser->error('Unexpected token.', $prevToken);
     }
 
     /**
@@ -135,9 +137,9 @@ class PurgeStatement extends Statement
         if ($token->type === Token::TYPE_KEYWORD) {
             if (in_array($token->keyword, $expected_keywords)) {
                 return $token->keyword;
-            } else {
-                $parser->error('Unexpected keyword', $token);
             }
+
+            $parser->error('Unexpected keyword', $token);
         } else {
             $parser->error('Unexpected token.', $token);
         }

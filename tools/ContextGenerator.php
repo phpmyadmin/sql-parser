@@ -28,7 +28,9 @@ $output = rtrim($argv[2], '/');
 // Checking if all directories are valid.
 if (! is_dir($input)) {
     throw new Exception('The input directory does not exist.');
-} elseif (! is_dir($output)) {
+}
+
+if (! is_dir($output)) {
     throw new Exception('The output directory does not exist.');
 }
 

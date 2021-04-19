@@ -179,7 +179,9 @@ class ArrayObj extends Component
     {
         if (is_array($component)) {
             return implode(', ', $component);
-        } elseif (! empty($component->raw)) {
+        }
+
+        if (! empty($component->raw)) {
             return '(' . implode(', ', $component->raw) . ')';
         }
 

@@ -265,9 +265,11 @@ class Query
                 }
             }
 
-            if (! empty($expr->subquery)) {
-                $flags['is_subquery'] = true;
+            if (empty($expr->subquery)) {
+                continue;
             }
+
+            $flags['is_subquery'] = true;
         }
 
         if (! empty($statement->procedure)
@@ -428,13 +430,15 @@ class Query
             // Finding tables' aliases and their associated real names.
             $tableAliases = [];
             foreach ($statement->from as $expr) {
-                if (isset($expr->table, $expr->alias) && ($expr->table !== '') && ($expr->alias !== '')
+                if (! isset($expr->table, $expr->alias) || ($expr->table === '') || ($expr->alias === '')
                 ) {
-                    $tableAliases[$expr->alias] = [
-                        $expr->table,
-                        $expr->database ?? null,
-                    ];
+                    continue;
                 }
+
+                $tableAliases[$expr->alias] = [
+                    $expr->table,
+                    $expr->database ?? null,
+                ];
             }
 
             // Trying to find selected tables only from the select expression.
@@ -465,16 +469,20 @@ class Query
             // extracted from the FROM clause.
             if (empty($ret['select_tables'])) {
                 foreach ($statement->from as $expr) {
-                    if (isset($expr->table) && ($expr->table !== '')) {
-                        $arr = [
-                            $expr->table,
-                            isset($expr->database) && ($expr->database !== '') ?
-                                $expr->database : null,
-                        ];
-                        if (! in_array($arr, $ret['select_tables'])) {
-                            $ret['select_tables'][] = $arr;
-                        }
+                    if (! isset($expr->table) || ($expr->table === '')) {
+                        continue;
                     }
+
+                    $arr = [
+                        $expr->table,
+                        isset($expr->database) && ($expr->database !== '') ?
+                            $expr->database : null,
+                    ];
+                    if (in_array($arr, $ret['select_tables'])) {
+                        continue;
+                    }
+
+                    $ret['select_tables'][] = $arr;
                 }
             }
         }
@@ -522,11 +530,13 @@ class Query
 
         $ret = [];
         foreach ($expressions as $expr) {
-            if (! empty($expr->table)) {
-                $expr->expr = null; // Force rebuild.
-                $expr->alias = null; // Aliases are not required.
-                $ret[] = Expression::build($expr);
+            if (empty($expr->table)) {
+                continue;
             }
+
+            $expr->expr = null; // Force rebuild.
+            $expr->alias = null; // Aliases are not required.
+            $ret[] = Expression::build($expr);
         }
 
         return $ret;
@@ -656,9 +666,11 @@ class Query
                 }
             }
 
-            if (($firstClauseIdx <= $currIdx) && ($currIdx <= $lastClauseIdx)) {
-                $ret .= $token->token;
+            if (($firstClauseIdx > $currIdx) || ($currIdx > $lastClauseIdx)) {
+                continue;
             }
+
+            $ret .= $token->token;
         }
 
         return trim($ret);
@@ -745,9 +757,11 @@ class Query
             $ret .= $clause[1] . ' ';
 
             // Adding everything between this and next replacement.
-            if ($i + 1 !== $count) {
-                $ret .= static::getClause($statement, $list, $clause[0], $ops[$i + 1][0]) . ' ';
+            if ($i + 1 === $count) {
+                continue;
             }
+
+            $ret .= static::getClause($statement, $list, $clause[0], $ops[$i + 1][0]) . ' ';
         }
 
         // Adding everything after the last replacement.
@@ -864,15 +878,19 @@ class Query
                 }
             }
 
-            if ($brackets === 0) {
-                if (($token->type === Token::TYPE_KEYWORD)
-                    && isset($clauses[$token->keyword])
-                    && ($clause === $token->keyword)
-                ) {
-                    return $i;
-                } elseif ($token->keyword === 'UNION') {
-                    return -1;
-                }
+            if ($brackets !== 0) {
+                continue;
+            }
+
+            if (($token->type === Token::TYPE_KEYWORD)
+                && isset($clauses[$token->keyword])
+                && ($clause === $token->keyword)
+            ) {
+                return $i;
+            }
+
+            if ($token->keyword === 'UNION') {
+                return -1;
             }
         }
 

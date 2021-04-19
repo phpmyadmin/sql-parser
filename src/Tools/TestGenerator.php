@@ -152,9 +152,11 @@ class TestGenerator
         file_put_contents($output, serialize($test));
 
         // Dumping test's data in human readable format too (if required).
-        if (! empty($debug)) {
-            file_put_contents($debug, print_r($test, true));
+        if (empty($debug)) {
+            return;
         }
+
+        file_put_contents($debug, print_r($test, true));
     }
 
     /**

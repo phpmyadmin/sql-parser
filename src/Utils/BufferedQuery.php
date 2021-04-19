@@ -248,11 +248,15 @@ class BufferedQuery
                 $this->status = self::STATUS_STRING_SINGLE_QUOTES;
                 $this->current .= $this->query[$i];
                 continue;
-            } elseif ($this->query[$i] === '"') {
+            }
+
+            if ($this->query[$i] === '"') {
                 $this->status = self::STATUS_STRING_DOUBLE_QUOTES;
                 $this->current .= $this->query[$i];
                 continue;
-            } elseif ($this->query[$i] === '`') {
+            }
+
+            if ($this->query[$i] === '`') {
                 $this->status = self::STATUS_STRING_BACKTICK;
                 $this->current .= $this->query[$i];
                 continue;
@@ -265,14 +269,18 @@ class BufferedQuery
                 $this->status = self::STATUS_COMMENT_BASH;
                 $this->current .= $this->query[$i];
                 continue;
-            } elseif ($i + 2 < $len) {
+            }
+
+            if ($i + 2 < $len) {
                 if (($this->query[$i] === '-')
                  && ($this->query[$i + 1] === '-')
                  && Context::isWhitespace($this->query[$i + 2])) {
                     $this->status = self::STATUS_COMMENT_SQL;
                     $this->current .= $this->query[$i];
                     continue;
-                } elseif (($this->query[$i] === '/')
+                }
+
+                if (($this->query[$i] === '/')
                  && ($this->query[$i + 1] === '*')
                  && ($this->query[$i + 2] !== '!')) {
                     $this->status = self::STATUS_COMMENT_C;

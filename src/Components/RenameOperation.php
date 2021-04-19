@@ -110,15 +110,15 @@ class RenameOperation extends Component
 
                 $state = 1;
             } elseif ($state === 1) {
-                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'TO') {
-                    $state = 2;
-                } else {
+                if ($token->type !== Token::TYPE_KEYWORD || $token->keyword !== 'TO') {
                     $parser->error(
                         'Keyword "TO" was expected.',
                         $token
                     );
                     break;
                 }
+
+                $state = 2;
             } elseif ($state === 2) {
                 $expr->new = Expression::parse(
                     $parser,
@@ -137,13 +137,13 @@ class RenameOperation extends Component
 
                 $state = 3;
             } elseif ($state === 3) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
-                    $ret[] = $expr;
-                    $expr = new static();
-                    $state = 0;
-                } else {
+                if (($token->type !== Token::TYPE_OPERATOR) || ($token->value !== ',')) {
                     break;
                 }
+
+                $ret[] = $expr;
+                $expr = new static();
+                $state = 0;
             }
         }
 

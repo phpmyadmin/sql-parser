@@ -119,12 +119,12 @@ class IndexHint extends Component
             switch ($state) {
                 case 0:
                     if ($token->type === Token::TYPE_KEYWORD) {
-                        if ($token->keyword === 'USE' || $token->keyword === 'IGNORE' || $token->keyword === 'FORCE') {
-                            $expr->type = $token->keyword;
-                            $state = 1;
-                        } else {
+                        if ($token->keyword !== 'USE' && $token->keyword !== 'IGNORE' && $token->keyword !== 'FORCE') {
                             break 2;
                         }
+
+                        $expr->type = $token->keyword;
+                        $state = 1;
                     }
 
                     break;

@@ -178,21 +178,21 @@ class LockExpression extends Component
 
                 $lockType .= $token->keyword;
             } elseif ($state === 1) {
-                if ($token->keyword === 'LOCAL') {
-                    $lockType .= ' ' . $token->keyword;
-                    $state = 3;
-                } else {
+                if ($token->keyword !== 'LOCAL') {
                     $parser->error('Unexpected keyword.', $token);
                     break;
                 }
+
+                $lockType .= ' ' . $token->keyword;
+                $state = 3;
             } elseif ($state === 2) {
-                if ($token->keyword === 'WRITE') {
-                    $lockType .= ' ' . $token->keyword;
-                    $state = 3; // parsing over
-                } else {
+                if ($token->keyword !== 'WRITE') {
                     $parser->error('Unexpected keyword.', $token);
                     break;
                 }
+
+                $lockType .= ' ' . $token->keyword;
+                $state = 3; // parsing over
             }
 
             $prevToken = $token;

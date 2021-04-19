@@ -154,10 +154,12 @@ PHP;
 
             // Reserved, data types, keys, functions, etc. keywords.
             foreach (static::$LABELS_FLAGS as $label => $flags) {
-                if (strstr($value, $label) !== false) {
-                    $type |= $flags;
-                    $value = trim(str_replace($label, '', $value));
+                if (strstr($value, $label) === false) {
+                    continue;
                 }
+
+                $type |= $flags;
+                $value = trim(str_replace($label, '', $value));
             }
 
             // Composed keyword.
@@ -222,20 +224,26 @@ PHP;
                     }
 
                     $ret .= sprintf('\'%s\' => %s, ', $word, $type);
-                    if (++$i === $count || ++$i > $count) {
-                        $ret .= "\n";
-                        $i = 0;
+                    if (++$i !== $count && ++$i <= $count) {
+                        continue;
                     }
-                }
 
-                if ($i !== 0) {
                     $ret .= "\n";
+                    $i = 0;
                 }
-            }
 
-            if (++$j < $typesCount) {
+                if ($i === 0) {
+                    continue;
+                }
+
                 $ret .= "\n";
             }
+
+            if (++$j >= $typesCount) {
+                continue;
+            }
+
+            $ret .= "\n";
         }
 
         // Trim trailing spaces and return.

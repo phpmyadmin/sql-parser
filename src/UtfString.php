@@ -180,13 +180,21 @@ class UtfString implements ArrayAccess
         $byte = ord($byte);
         if ($byte < 128) {
             return 1;
-        } elseif ($byte < 224) {
+        }
+
+        if ($byte < 224) {
             return 2;
-        } elseif ($byte < 240) {
+        }
+
+        if ($byte < 240) {
             return 3;
-        } elseif ($byte < 248) {
+        }
+
+        if ($byte < 248) {
             return 4;
-        } elseif ($byte < 252) {
+        }
+
+        if ($byte < 252) {
             return 5; // unofficial
         }
 

@@ -254,31 +254,31 @@ class DeleteStatement extends Statement
                     if ($token->keyword !== 'FROM') {
                         $parser->error('Unexpected keyword.', $token);
                         break;
-                    } else {
-                        ++$list->idx; // Skip 'FROM'
-                        $this->from = ExpressionArray::parse($parser, $list);
-
-                        $state = 2;
                     }
+
+                    ++$list->idx; // Skip 'FROM'
+                    $this->from = ExpressionArray::parse($parser, $list);
+
+                    $state = 2;
                 } else {
                     $this->columns = ExpressionArray::parse($parser, $list);
                     $state = 1;
                 }
             } elseif ($state === 1) {
-                if ($token->type === Token::TYPE_KEYWORD) {
-                    if ($token->keyword !== 'FROM') {
-                        $parser->error('Unexpected keyword.', $token);
-                        break;
-                    } else {
-                        ++$list->idx; // Skip 'FROM'
-                        $this->from = ExpressionArray::parse($parser, $list);
-
-                        $state = 2;
-                    }
-                } else {
+                if ($token->type !== Token::TYPE_KEYWORD) {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
+
+                if ($token->keyword !== 'FROM') {
+                    $parser->error('Unexpected keyword.', $token);
+                    break;
+                }
+
+                ++$list->idx; // Skip 'FROM'
+                $this->from = ExpressionArray::parse($parser, $list);
+
+                $state = 2;
             } elseif ($state === 2) {
                 if ($token->type === Token::TYPE_KEYWORD) {
                     if (stripos($token->keyword, 'JOIN') !== false) {
@@ -317,19 +317,19 @@ class DeleteStatement extends Statement
                     }
                 }
             } elseif ($state === 3) {
-                if ($token->type === Token::TYPE_KEYWORD) {
-                    if ($token->keyword === 'WHERE') {
-                        ++$list->idx; // Skip 'WHERE'
-                        $this->where = Condition::parse($parser, $list);
-                        $state = 4;
-                    } else {
-                        $parser->error('Unexpected keyword.', $token);
-                        break;
-                    }
-                } else {
+                if ($token->type !== Token::TYPE_KEYWORD) {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
+
+                if ($token->keyword !== 'WHERE') {
+                    $parser->error('Unexpected keyword.', $token);
+                    break;
+                }
+
+                ++$list->idx; // Skip 'WHERE'
+                $this->where = Condition::parse($parser, $list);
+                $state = 4;
             } elseif ($state === 4) {
                 if ($multiTable === true
                     && $token->type === Token::TYPE_KEYWORD
@@ -360,14 +360,14 @@ class DeleteStatement extends Statement
                 }
             } elseif ($state === 5) {
                 if ($token->type === Token::TYPE_KEYWORD) {
-                    if ($token->keyword === 'LIMIT') {
-                        ++$list->idx; // Skip 'LIMIT'
-                        $this->limit = Limit::parse($parser, $list);
-                        $state = 6;
-                    } else {
+                    if ($token->keyword !== 'LIMIT') {
                         $parser->error('Unexpected keyword.', $token);
                         break;
                     }
+
+                    ++$list->idx; // Skip 'LIMIT'
+                    $this->limit = Limit::parse($parser, $list);
+                    $state = 6;
                 }
             }
         }

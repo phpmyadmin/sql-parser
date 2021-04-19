@@ -281,7 +281,9 @@ class IntoKeyword extends Component
             $columns = ! empty($component->columns) ? '(`' . implode('`, `', $component->columns) . '`)' : '';
 
             return $component->dest . $columns;
-        } elseif (isset($component->values)) {
+        }
+
+        if (isset($component->values)) {
             return ExpressionArray::build($component->values);
         }
 

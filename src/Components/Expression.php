@@ -266,7 +266,9 @@ class Expression extends Component
 
                         $alias = true;
                         continue;
-                    } elseif ($token->keyword === 'CASE') {
+                    }
+
+                    if ($token->keyword === 'CASE') {
                         // For a use of CASE like
                         // 'SELECT a = CASE .... END, b=1, `id`, ... FROM ...'
                         $tempCaseExpr = CaseExpression::parse($parser, $list);
@@ -322,21 +324,21 @@ class Expression extends Component
                     if ($brackets === 0) {
                         // Not our bracket
                         break;
-                    } else {
-                        --$brackets;
-                        if ($brackets === 0) {
-                            if (! empty($options['parenthesesDelimited'])) {
-                                // The current token is the last bracket, the next
-                                // one will be outside the expression.
-                                $ret->expr .= $token->token;
-                                ++$list->idx;
-                                break;
-                            }
-                        } elseif ($brackets < 0) {
-                            // $parser->error('Unexpected closing bracket.', $token);
-                            // $brackets = 0;
+                    }
+
+                    --$brackets;
+                    if ($brackets === 0) {
+                        if (! empty($options['parenthesesDelimited'])) {
+                            // The current token is the last bracket, the next
+                            // one will be outside the expression.
+                            $ret->expr .= $token->token;
+                            ++$list->idx;
                             break;
                         }
+                    } elseif ($brackets < 0) {
+                        // $parser->error('Unexpected closing bracket.', $token);
+                        // $brackets = 0;
+                        break;
                     }
                 } elseif ($token->value === ',') {
                     // Expressions are comma-delimited.

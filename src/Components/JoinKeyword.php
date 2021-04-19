@@ -147,14 +147,14 @@ class JoinKeyword extends Component
             }
 
             if ($state === 0) {
-                if (($token->type === Token::TYPE_KEYWORD)
-                    && ! empty(static::$JOINS[$token->keyword])
+                if (($token->type !== Token::TYPE_KEYWORD)
+                    || empty(static::$JOINS[$token->keyword])
                 ) {
-                    $expr->type = static::$JOINS[$token->keyword];
-                    $state = 1;
-                } else {
                     break;
                 }
+
+                $expr->type = static::$JOINS[$token->keyword];
+                $state = 1;
             } elseif ($state === 1) {
                 $expr->expr = Expression::parse($parser, $list, ['field' => 'table']);
                 $state = 2;
@@ -168,16 +168,16 @@ class JoinKeyword extends Component
                             $state = 4;
                             break;
                         default:
-                            if (! empty(static::$JOINS[$token->keyword])
+                            if (empty(static::$JOINS[$token->keyword])
                             ) {
-                                $ret[] = $expr;
-                                $expr = new static();
-                                $expr->type = static::$JOINS[$token->keyword];
-                                $state = 1;
-                            } else {
                                 /* Next clause is starting */
                                 break 2;
                             }
+
+                            $ret[] = $expr;
+                            $expr = new static();
+                            $expr->type = static::$JOINS[$token->keyword];
+                            $state = 1;
 
                             break;
                     }

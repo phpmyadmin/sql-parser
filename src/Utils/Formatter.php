@@ -265,35 +265,43 @@ class Formatter
         /* Sanitize the array so that we do not have to care later */
         foreach ($newFormats as $j => $new) {
             foreach ($integers as $name) {
-                if (! isset($new[$name])) {
-                    $newFormats[$j][$name] = 0;
+                if (isset($new[$name])) {
+                    continue;
                 }
+
+                $newFormats[$j][$name] = 0;
             }
 
             foreach ($strings as $name) {
-                if (! isset($new[$name])) {
-                    $newFormats[$j][$name] = '';
+                if (isset($new[$name])) {
+                    continue;
                 }
+
+                $newFormats[$j][$name] = '';
             }
         }
 
         /* Process changes to existing formats */
         foreach ($formats as $i => $original) {
             foreach ($newFormats as $j => $new) {
-                if ($new['type'] === $original['type']
-                    && $original['flags'] === $new['flags']
+                if ($new['type'] !== $original['type']
+                    || $original['flags'] !== $new['flags']
                 ) {
-                    $formats[$i] = $new;
-                    $added[] = $j;
+                    continue;
                 }
+
+                $formats[$i] = $new;
+                $added[] = $j;
             }
         }
 
         /* Add not already handled formats */
         foreach ($newFormats as $j => $new) {
-            if (! in_array($j, $added)) {
-                $formats[] = $new;
+            if (in_array($j, $added)) {
+                continue;
             }
+
+            $formats[] = $new;
         }
 
         return $formats;
@@ -631,30 +639,34 @@ class Formatter
         static $prev;
 
         foreach ($this->options['formats'] as $format) {
-            if ($token->type === $format['type']
-                && ($token->flags & $format['flags']) === $format['flags']
+            if ($token->type !== $format['type']
+                || ! (($token->flags & $format['flags']) === $format['flags'])
             ) {
-                // Running transformation function.
-                if (! empty($format['function'])) {
-                    $func = $format['function'];
-                    $text = $func($text);
-                }
-
-                // Formatting HTML.
-                if ($this->options['type'] === 'html') {
-                    return '<span ' . $format['html'] . '>' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
-                } elseif ($this->options['type'] === 'cli') {
-                    if ($prev !== $format['cli']) {
-                        $prev = $format['cli'];
-
-                        return $format['cli'] . $this->escapeConsole($text);
-                    }
-
-                    return $this->escapeConsole($text);
-                }
-
-                break;
+                continue;
             }
+
+            // Running transformation function.
+            if (! empty($format['function'])) {
+                $func = $format['function'];
+                $text = $func($text);
+            }
+
+            // Formatting HTML.
+            if ($this->options['type'] === 'html') {
+                return '<span ' . $format['html'] . '>' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
+            }
+
+            if ($this->options['type'] === 'cli') {
+                if ($prev !== $format['cli']) {
+                    $prev = $format['cli'];
+
+                    return $format['cli'] . $this->escapeConsole($text);
+                }
+
+                return $this->escapeConsole($text);
+            }
+
+            break;
         }
 
         if ($this->options['type'] === 'cli') {
@@ -665,7 +677,9 @@ class Formatter
             }
 
             return $this->escapeConsole($text);
-        } elseif ($this->options['type'] === 'html') {
+        }
+
+        if ($this->options['type'] === 'html') {
             return htmlspecialchars($text, ENT_NOQUOTES);
         }
 
@@ -749,7 +763,9 @@ class Formatter
             || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
-        } elseif ($token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->keyword])
+        }
+
+        if ($token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->keyword])
         ) {
             return 1;
         }

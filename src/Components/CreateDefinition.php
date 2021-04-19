@@ -226,9 +226,7 @@ class CreateDefinition extends Component
             }
 
             if ($state === 0) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $state = 1;
-                } else {
+                if (($token->type !== Token::TYPE_OPERATOR) || ($token->value !== '(')) {
                     $parser->error(
                         'An opening bracket was expected.',
                         $token
@@ -236,6 +234,8 @@ class CreateDefinition extends Component
 
                     break;
                 }
+
+                $state = 1;
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'CONSTRAINT') {
                     $expr->isConstraint = true;

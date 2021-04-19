@@ -44,12 +44,16 @@ class TokensList implements ArrayAccess
      */
     public function __construct(array $tokens = [], $count = -1)
     {
-        if (! empty($tokens)) {
-            $this->tokens = $tokens;
-            if ($count === -1) {
-                $this->count = count($tokens);
-            }
+        if (empty($tokens)) {
+            return;
         }
+
+        $this->tokens = $tokens;
+        if ($count !== -1) {
+            return;
+        }
+
+        $this->count = count($tokens);
     }
 
     /**

@@ -29,9 +29,13 @@ $debug = empty($argv[3]) ? null : rtrim($argv[3], '/');
 // Checking if all directories are valid.
 if (! is_dir($input)) {
     throw new Exception('The input directory does not exist.');
-} elseif (! is_dir($output)) {
+}
+
+if (! is_dir($output)) {
     throw new Exception('The output directory does not exist.');
-} elseif (($debug !== null) && (! is_dir($debug))) {
+}
+
+if (($debug !== null) && (! is_dir($debug))) {
     throw new Exception('The debug directory does not exist.');
 }
 

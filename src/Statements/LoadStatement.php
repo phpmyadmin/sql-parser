@@ -271,7 +271,9 @@ class LoadStatement extends Statement
                 ) {
                     $parser->error('Unexpected keyword.', $token);
                     break;
-                } elseif ($token->type !== Token::TYPE_KEYWORD) {
+                }
+
+                if ($token->type !== Token::TYPE_KEYWORD) {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
@@ -293,16 +295,16 @@ class LoadStatement extends Statement
                     }
                 }
             } elseif ($state === 2) {
-                if ($token->type === Token::TYPE_KEYWORD
-                    && $token->keyword === 'TABLE'
+                if ($token->type !== Token::TYPE_KEYWORD
+                    || $token->keyword !== 'TABLE'
                 ) {
-                    ++$list->idx;
-                    $this->table = Expression::parse($parser, $list, ['parseField' => 'table']);
-                    $state = 3;
-                } else {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
+
+                ++$list->idx;
+                $this->table = Expression::parse($parser, $list, ['parseField' => 'table']);
+                $state = 3;
             } elseif ($state >= 3 && $state <= 7) {
                 if ($token->type === Token::TYPE_KEYWORD) {
                     $newState = $this->parseKeywordsAccordingToState(

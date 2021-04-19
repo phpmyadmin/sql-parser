@@ -39,10 +39,12 @@ class RenameStatement extends Statement
      */
     public function before(Parser $parser, TokensList $list, Token $token)
     {
-        if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'RENAME')) {
-            // Checking if it is the beginning of the query.
-            $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
+        if (($token->type !== Token::TYPE_KEYWORD) || ($token->keyword !== 'RENAME')) {
+            return;
         }
+
+        // Checking if it is the beginning of the query.
+        $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
     }
 
     /**

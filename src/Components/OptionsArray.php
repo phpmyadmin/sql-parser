@@ -122,39 +122,39 @@ class OptionsArray extends Component
 
             if ($lastOption === null) {
                 $upper = strtoupper($token->token);
-                if (isset($options[$upper])) {
-                    $lastOption = $options[$upper];
-                    $lastOptionId = is_array($lastOption) ?
-                        $lastOption[0] : $lastOption;
-                    $state = 0;
-
-                    // Checking for option conflicts.
-                    // For example, in `SELECT` statements the keywords `ALL`
-                    // and `DISTINCT` conflict and if used together, they
-                    // produce an invalid query.
-                    //
-                    // Usually, tokens can be identified in the array by the
-                    // option ID, but if conflicts occur, a generated option ID
-                    // is used.
-                    //
-                    // The first pseudo duplicate ID is the maximum value of the
-                    // real options (e.g.  if there are 5 options, the first
-                    // fake ID is 6).
-                    if (isset($ret->options[$lastOptionId])) {
-                        $parser->error(
-                            sprintf(
-                                Translator::gettext('This option conflicts with "%1$s".'),
-                                is_array($ret->options[$lastOptionId])
-                                ? $ret->options[$lastOptionId]['name']
-                                : $ret->options[$lastOptionId]
-                            ),
-                            $token
-                        );
-                        $lastOptionId = $lastAssignedId++;
-                    }
-                } else {
+                if (! isset($options[$upper])) {
                     // There is no option to be processed.
                     break;
+                }
+
+                $lastOption = $options[$upper];
+                $lastOptionId = is_array($lastOption) ?
+                    $lastOption[0] : $lastOption;
+                $state = 0;
+
+                // Checking for option conflicts.
+                // For example, in `SELECT` statements the keywords `ALL`
+                // and `DISTINCT` conflict and if used together, they
+                // produce an invalid query.
+                //
+                // Usually, tokens can be identified in the array by the
+                // option ID, but if conflicts occur, a generated option ID
+                // is used.
+                //
+                // The first pseudo duplicate ID is the maximum value of the
+                // real options (e.g.  if there are 5 options, the first
+                // fake ID is 6).
+                if (isset($ret->options[$lastOptionId])) {
+                    $parser->error(
+                        sprintf(
+                            Translator::gettext('This option conflicts with "%1$s".'),
+                            is_array($ret->options[$lastOptionId])
+                            ? $ret->options[$lastOptionId]['name']
+                            : $ret->options[$lastOptionId]
+                        ),
+                        $token
+                    );
+                    $lastOptionId = $lastAssignedId++;
                 }
             }
 
@@ -209,37 +209,39 @@ class OptionsArray extends Component
 
             // This is outside the `elseif` group above because the change might
             // change this iteration.
-            if ($state === 2) {
-                if ($lastOption[1] === 'expr' || $lastOption[1] === 'expr=') {
-                    $ret->options[$lastOptionId]['expr'] = Expression::parse(
-                        $parser,
-                        $list,
-                        empty($lastOption[2]) ? [] : $lastOption[2]
-                    );
-                    $ret->options[$lastOptionId]['value']
-                        = $ret->options[$lastOptionId]['expr']->expr;
+            if ($state !== 2) {
+                continue;
+            }
+
+            if ($lastOption[1] === 'expr' || $lastOption[1] === 'expr=') {
+                $ret->options[$lastOptionId]['expr'] = Expression::parse(
+                    $parser,
+                    $list,
+                    empty($lastOption[2]) ? [] : $lastOption[2]
+                );
+                $ret->options[$lastOptionId]['value']
+                    = $ret->options[$lastOptionId]['expr']->expr;
+                $lastOption = null;
+                $state = 0;
+            } else {
+                if ($token->token === '(') {
+                    ++$brackets;
+                } elseif ($token->token === ')') {
+                    --$brackets;
+                }
+
+                $ret->options[$lastOptionId]['expr'] .= $token->token;
+
+                if (! (($token->token === '(') && ($brackets === 1)
+                    || (($token->token === ')') && ($brackets === 0)))
+                ) {
+                    // First pair of brackets is being skipped.
+                    $ret->options[$lastOptionId]['value'] .= $token->value;
+                }
+
+                // Checking if we finished parsing.
+                if ($brackets === 0) {
                     $lastOption = null;
-                    $state = 0;
-                } else {
-                    if ($token->token === '(') {
-                        ++$brackets;
-                    } elseif ($token->token === ')') {
-                        --$brackets;
-                    }
-
-                    $ret->options[$lastOptionId]['expr'] .= $token->token;
-
-                    if (! (($token->token === '(') && ($brackets === 1)
-                        || (($token->token === ')') && ($brackets === 0)))
-                    ) {
-                        // First pair of brackets is being skipped.
-                        $ret->options[$lastOptionId]['value'] .= $token->value;
-                    }
-
-                    // Checking if we finished parsing.
-                    if ($brackets === 0) {
-                        $lastOption = null;
-                    }
                 }
             }
         }

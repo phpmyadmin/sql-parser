@@ -200,36 +200,36 @@ class InsertStatement extends Statement
 
                 $state = 1;
             } elseif ($state === 1) {
-                if ($token->type === Token::TYPE_KEYWORD) {
-                    if ($token->keyword === 'VALUE'
-                        || $token->keyword === 'VALUES'
-                    ) {
-                        ++$list->idx; // skip VALUES
-
-                        $this->values = Array2d::parse($parser, $list);
-                    } elseif ($token->keyword === 'SET') {
-                        ++$list->idx; // skip SET
-
-                        $this->set = SetOperation::parse($parser, $list);
-                    } elseif ($token->keyword === 'SELECT') {
-                        $this->select = new SelectStatement($parser, $list);
-                    } else {
-                        $parser->error(
-                            'Unexpected keyword.',
-                            $token
-                        );
-                        break;
-                    }
-
-                    $state = 2;
-                    $miniState = 1;
-                } else {
+                if ($token->type !== Token::TYPE_KEYWORD) {
                     $parser->error(
                         'Unexpected token.',
                         $token
                     );
                     break;
                 }
+
+                if ($token->keyword === 'VALUE'
+                    || $token->keyword === 'VALUES'
+                ) {
+                    ++$list->idx; // skip VALUES
+
+                    $this->values = Array2d::parse($parser, $list);
+                } elseif ($token->keyword === 'SET') {
+                    ++$list->idx; // skip SET
+
+                    $this->set = SetOperation::parse($parser, $list);
+                } elseif ($token->keyword === 'SELECT') {
+                    $this->select = new SelectStatement($parser, $list);
+                } else {
+                    $parser->error(
+                        'Unexpected keyword.',
+                        $token
+                    );
+                    break;
+                }
+
+                $state = 2;
+                $miniState = 1;
             } elseif ($state === 2) {
                 $lastCount = $miniState;
 

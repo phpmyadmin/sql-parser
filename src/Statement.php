@@ -91,9 +91,11 @@ abstract class Statement
      */
     public function __construct(?Parser $parser = null, ?TokensList $list = null)
     {
-        if (($parser !== null) && ($list !== null)) {
-            $this->parse($parser, $list);
+        if (($parser === null) || ($list === null)) {
+            return;
         }
+
+        $this->parse($parser, $list);
     }
 
     /**
@@ -183,9 +185,11 @@ abstract class Statement
             }
 
             // Checking if the result of the builder should be added.
-            if ($type & 1) {
-                $query = trim($query) . ' ' . $class::build($this->$field);
+            if (! ($type & 1)) {
+                continue;
             }
+
+            $query = trim($query) . ' ' . $class::build($this->$field);
         }
 
         return $query;
@@ -418,11 +422,13 @@ abstract class Statement
             $this->after($parser, $list, $token);
 
             // #223 Here may make a patch, if last is delimiter, back one
-            if ($class === FunctionCall::class
-                && $list->offsetGet($list->idx)->type === Token::TYPE_DELIMITER
+            if ($class !== FunctionCall::class
+                || $list->offsetGet($list->idx)->type !== Token::TYPE_DELIMITER
             ) {
-                --$list->idx;
+                continue;
             }
+
+            --$list->idx;
         }
 
         // This may be corrected by the parser.

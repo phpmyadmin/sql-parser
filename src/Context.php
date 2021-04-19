@@ -424,9 +424,13 @@ abstract class Context
 
         if ($str[0] === '@') {
             return Token::FLAG_SYMBOL_VARIABLE;
-        } elseif ($str[0] === '`') {
+        }
+
+        if ($str[0] === '`') {
             return Token::FLAG_SYMBOL_BACKTICK;
-        } elseif ($str[0] === ':' || $str[0] === '?') {
+        }
+
+        if ($str[0] === ':' || $str[0] === '?') {
             return Token::FLAG_SYMBOL_PARAMETER;
         }
 
@@ -451,7 +455,9 @@ abstract class Context
 
         if ($str[0] === '\'') {
             return Token::FLAG_STRING_SINGLE_QUOTES;
-        } elseif ($str[0] === '"') {
+        }
+
+        if ($str[0] === '"') {
             return Token::FLAG_STRING_DOUBLE_QUOTES;
         }
 
@@ -552,7 +558,9 @@ abstract class Context
         /* Fallback to loading at least matching engine */
         if (strncmp($context, 'MariaDb', 7) === 0) {
             return static::loadClosest('MariaDb100300');
-        } elseif (strncmp($context, 'MySql', 5) === 0) {
+        }
+
+        if (strncmp($context, 'MySql', 5) === 0) {
             return static::loadClosest('MySql50700');
         }
 

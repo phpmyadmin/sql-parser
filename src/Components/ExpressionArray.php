@@ -96,11 +96,11 @@ class ExpressionArray extends Component
                 $ret[] = $expr;
                 $state = 1;
             } elseif ($state === 1) {
-                if ($token->value === ',') {
-                    $state = 0;
-                } else {
+                if ($token->value !== ',') {
                     break;
                 }
+
+                $state = 0;
             }
         }
 

@@ -379,13 +379,17 @@ class Lexer extends Core
             // getNext() already gets rid of whitespaces and comments.
             $next = $this->list->getNext();
 
-            if ($next !== null) {
-                if (($next->type === Token::TYPE_KEYWORD && in_array($next->value, ['FROM', 'USING'], true))
-                    || ($next->type === Token::TYPE_OPERATOR && in_array($next->value, [',', ')'], true))
-                ) {
-                    $starToken->flags = Token::FLAG_OPERATOR_SQL;
-                }
+            if ($next === null) {
+                continue;
             }
+
+            if (($next->type !== Token::TYPE_KEYWORD || ! in_array($next->value, ['FROM', 'USING'], true))
+                && ($next->type !== Token::TYPE_OPERATOR || ! in_array($next->value, [',', ')'], true))
+            ) {
+                continue;
+            }
+
+            $starToken->flags = Token::FLAG_OPERATOR_SQL;
         }
         $this->list->idx = $iBak;
     }
@@ -458,14 +462,16 @@ class Lexer extends Core
             $token .= $this->str[$this->last];
             $flags = Context::isKeyword($token);
 
-            if (($this->last + 1 === $this->len || Context::isSeparator($this->str[$this->last + 1])) && $flags) {
-                $ret = new Token($token, Token::TYPE_KEYWORD, $flags);
-                $iEnd = $this->last;
-
-                // We don't break so we find longest keyword.
-                // For example, `OR` and `ORDER` have a common prefix `OR`.
-                // If we stopped at `OR`, the parsing would be invalid.
+            if (($this->last + 1 !== $this->len && ! Context::isSeparator($this->str[$this->last + 1])) || ! $flags) {
+                continue;
             }
+
+            $ret = new Token($token, Token::TYPE_KEYWORD, $flags);
+            $iEnd = $this->last;
+
+            // We don't break so we find longest keyword.
+            // For example, `OR` and `ORDER` have a common prefix `OR`.
+            // If we stopped at `OR`, the parsing would be invalid.
         }
 
         $this->last = $iEnd;
@@ -502,7 +508,9 @@ class Lexer extends Core
                 $ret = new Token($token, Token::TYPE_LABEL);
                 $iEnd = $this->last;
                 break;
-            } elseif (Context::isWhitespace($this->str[$this->last]) && $j > 1) {
+            }
+
+            if (Context::isWhitespace($this->str[$this->last]) && $j > 1) {
                 // Whitespace between label and :
                 // The size of the keyword didn't increase.
                 --$j;
@@ -546,10 +554,12 @@ class Lexer extends Core
             $token .= $this->str[$this->last];
             $flags = Context::isOperator($token);
 
-            if ($flags) {
-                $ret = new Token($token, Token::TYPE_OPERATOR, $flags);
-                $iEnd = $this->last;
+            if (! $flags) {
+                continue;
             }
+
+            $ret = new Token($token, Token::TYPE_OPERATOR, $flags);
+            $iEnd = $this->last;
         }
 
         $this->last = $iEnd;
@@ -721,7 +731,9 @@ class Lexer extends Core
 
         if (Context::isBool($token)) {
             return new Token($token, Token::TYPE_BOOL);
-        } elseif (++$this->last < $this->len) {
+        }
+
+        if (++$this->last < $this->len) {
             $token .= $this->str[$this->last]; // fals_E_
             if (Context::isBool($token)) {
                 return new Token($token, Token::TYPE_BOOL, 1);
@@ -859,11 +871,11 @@ class Lexer extends Core
                 }
             } elseif ($state === 7) {
                 $flags |= Token::FLAG_NUMBER_BINARY;
-                if ($this->str[$this->last] === '\'') {
-                    $state = 8;
-                } else {
+                if ($this->str[$this->last] !== '\'') {
                     break;
                 }
+
+                $state = 8;
             } elseif ($state === 8) {
                 if ($this->str[$this->last] === '\'') {
                     $state = 9;

@@ -35,9 +35,11 @@ class CLI
     {
         foreach ($longopts as $value) {
             $value = rtrim($value, ':');
-            if (isset($params[$value])) {
-                $params[$value[0]] = $params[$value];
+            if (! isset($params[$value])) {
+                continue;
             }
+
+            $params[$value[0]] = $params[$value];
         }
     }
 

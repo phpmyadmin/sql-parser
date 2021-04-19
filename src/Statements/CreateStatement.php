@@ -388,47 +388,51 @@ class CreateStatement extends Statement
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
                 . OptionsArray::build($this->entityOptions);
-        } elseif ($this->options->has('TABLE')) {
+        }
+
+        if ($this->options->has('TABLE')) {
             if ($this->select !== null) {
                 return 'CREATE '
                     . OptionsArray::build($this->options) . ' '
                     . Expression::build($this->name) . ' '
                     . $this->select->build();
-            } elseif ($this->like !== null) {
+            }
+
+            if ($this->like !== null) {
                 return 'CREATE '
                     . OptionsArray::build($this->options) . ' '
                     . Expression::build($this->name) . ' LIKE '
                     . Expression::build($this->like);
-            } else {
-                $partition = '';
-
-                if (! empty($this->partitionBy)) {
-                    $partition .= "\nPARTITION BY " . $this->partitionBy;
-                }
-
-                if (! empty($this->partitionsNum)) {
-                    $partition .= "\nPARTITIONS " . $this->partitionsNum;
-                }
-
-                if (! empty($this->subpartitionBy)) {
-                    $partition .= "\nSUBPARTITION BY " . $this->subpartitionBy;
-                }
-
-                if (! empty($this->subpartitionsNum)) {
-                    $partition .= "\nSUBPARTITIONS " . $this->subpartitionsNum;
-                }
-
-                if (! empty($this->partitions)) {
-                    $partition .= "\n" . PartitionDefinition::build($this->partitions);
-                }
-
-                return 'CREATE '
-                    . OptionsArray::build($this->options) . ' '
-                    . Expression::build($this->name) . ' '
-                    . $fields
-                    . OptionsArray::build($this->entityOptions)
-                    . $partition;
             }
+
+            $partition = '';
+
+            if (! empty($this->partitionBy)) {
+                $partition .= "\nPARTITION BY " . $this->partitionBy;
+            }
+
+            if (! empty($this->partitionsNum)) {
+                $partition .= "\nPARTITIONS " . $this->partitionsNum;
+            }
+
+            if (! empty($this->subpartitionBy)) {
+                $partition .= "\nSUBPARTITION BY " . $this->subpartitionBy;
+            }
+
+            if (! empty($this->subpartitionsNum)) {
+                $partition .= "\nSUBPARTITIONS " . $this->subpartitionsNum;
+            }
+
+            if (! empty($this->partitions)) {
+                $partition .= "\n" . PartitionDefinition::build($this->partitions);
+            }
+
+            return 'CREATE '
+                . OptionsArray::build($this->options) . ' '
+                . Expression::build($this->name) . ' '
+                . $fields
+                . OptionsArray::build($this->entityOptions)
+                . $partition;
         } elseif ($this->options->has('VIEW')) {
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '

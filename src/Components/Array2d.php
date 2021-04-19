@@ -76,33 +76,33 @@ class Array2d extends Component
             }
 
             if ($state === 0) {
-                if ($token->value === '(') {
-                    $arr = ArrayObj::parse($parser, $list, $options);
-                    $arrCount = count($arr->values);
-                    if ($count === -1) {
-                        $count = $arrCount;
-                    } elseif ($arrCount !== $count) {
-                        $parser->error(
-                            sprintf(
-                                Translator::gettext('%1$d values were expected, but found %2$d.'),
-                                $count,
-                                $arrCount
-                            ),
-                            $token
-                        );
-                    }
+                if ($token->value !== '(') {
+                    break;
+                }
 
-                    $ret[] = $arr;
-                    $state = 1;
-                } else {
-                    break;
+                $arr = ArrayObj::parse($parser, $list, $options);
+                $arrCount = count($arr->values);
+                if ($count === -1) {
+                    $count = $arrCount;
+                } elseif ($arrCount !== $count) {
+                    $parser->error(
+                        sprintf(
+                            Translator::gettext('%1$d values were expected, but found %2$d.'),
+                            $count,
+                            $arrCount
+                        ),
+                        $token
+                    );
                 }
+
+                $ret[] = $arr;
+                $state = 1;
             } elseif ($state === 1) {
-                if ($token->value === ',') {
-                    $state = 0;
-                } else {
+                if ($token->value !== ',') {
                     break;
                 }
+
+                $state = 0;
             }
         }
 

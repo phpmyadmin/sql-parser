@@ -47,10 +47,12 @@ class Translator
             self::$loader->bindtextdomain('sqlparser', __DIR__ . '/../locale/');
         }
 
-        if (self::$translator === null) {
-            // Get translator
-            self::$translator = self::$loader->getTranslator();
+        if (self::$translator !== null) {
+            return;
         }
+
+        // Get translator
+        self::$translator = self::$loader->getTranslator();
     }
 
     /**
