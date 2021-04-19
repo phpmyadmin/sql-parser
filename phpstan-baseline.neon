@@ -1,14 +1,44 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Component.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Component.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Cannot assign new offset to array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\.$#"
+			count: 3
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:__construct\\(\\) has parameter \\$unknown with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Component.php
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, float\\|int\\|string given\\.$#"
+			count: 2
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Parameter \\#1 \\$tokenValue of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:checkIfColumnDefinitionKeyword\\(\\) expects string, float\\|int\\|string given\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$DB_OPTIONS type has no value type specified in iterable type array\\.$#"
@@ -26,22 +56,12 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:__construct\\(\\) has parameter \\$unknown with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Components/AlterOperation.php
 
@@ -51,42 +71,12 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Cannot assign new offset to array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\.$#"
-			count: 3
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
 			count: 2
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, float\\|int\\|string given\\.$#"
-			count: 2
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Parameter \\#1 \\$tokenValue of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:checkIfColumnDefinitionKeyword\\(\\) expects string, float\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Array2d.php
-
-		-
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Components/Array2d.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\> but returns array\\<int, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
 			count: 1
 			path: src/Components/Array2d.php
 
@@ -96,32 +86,17 @@ parameters:
 			path: src/Components/Array2d.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:\\$raw type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Components/ArrayObj.php
+			path: src/Components/Array2d.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:\\$values type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\> but returns array\\<int, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
 			count: 1
-			path: src/Components/ArrayObj.php
+			path: src/Components/Array2d.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:__construct\\(\\) has parameter \\$raw with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:__construct\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			message: "#^Cannot access an offset on array\\<int, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/ArrayObj.php
 
@@ -136,7 +111,12 @@ parameters:
 			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Cannot access an offset on array\\<int, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:__construct\\(\\) has parameter \\$raw with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/ArrayObj.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:__construct\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/ArrayObj.php
 
@@ -146,37 +126,27 @@ parameters:
 			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$conditions type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Components/CaseExpression.php
+			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$results type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:\\$raw type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Components/CaseExpression.php
+			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$compare_values type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:\\$values type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
+			path: src/Components/ArrayObj.php
 
 		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
-			path: src/Components/CaseExpression.php
+			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$else_result \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: src/Components/CaseExpression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$value \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Binary operation \"\\.\" between ' AS ' and array\\|string results in an error\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
@@ -186,22 +156,42 @@ parameters:
 			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Binary operation \"\\.\" between ' AS ' and array\\|string results in an error\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$DELIMITERS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$compare_values type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Components/Condition.php
+			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$ALLOWED_KEYWORDS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$conditions type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Components/Condition.php
+			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$identifiers type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$else_result \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
+			path: src/Components/CaseExpression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$results type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/CaseExpression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$value \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Components/CaseExpression.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Components/CaseExpression.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Condition.php
 
@@ -211,12 +201,17 @@ parameters:
 			path: src/Components/Condition.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 3
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$ALLOWED_KEYWORDS type has no value type specified in iterable type array\\.$#"
+			count: 1
 			path: src/Components/Condition.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$DELIMITERS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Condition.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$identifiers type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Condition.php
 
@@ -224,6 +219,26 @@ parameters:
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: src/Components/Condition.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 3
+			path: src/Components/Condition.php
+
+		-
+			message: "#^Binary operation \"\\.\" between array\\|string and ' ' results in an error\\.$#"
+			count: 1
+			path: src/Components/CreateDefinition.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/CreateDefinition.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/CreateDefinition.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$FIELD_OPTIONS type has no value type specified in iterable type array\\.$#"
@@ -246,7 +261,7 @@ parameters:
 			path: src/Components/CreateDefinition.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
 			count: 1
 			path: src/Components/CreateDefinition.php
 
@@ -256,32 +271,32 @@ parameters:
 			path: src/Components/CreateDefinition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Binary operation \"\\.\" between array\\|string and ' ' results in an error\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$DATA_TYPE_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access property \\$raw on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/DataType.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/DataType.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/DataType.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/DataType.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/DataType.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$DATA_TYPE_OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/DataType.php
 
@@ -296,7 +311,7 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/DataType.php
 
@@ -306,72 +321,7 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
-			message: "#^Cannot access property \\$raw on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Components/DataType.php
-
-		-
-			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Components/DataType.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/DataType.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$ALLOWED_KEYWORDS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$expr \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept string\\|null\\.$#"
-			count: 2
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\SqlParser\\\\Token and null will always evaluate to false\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) does not accept null\\.$#"
+			message: "#^Binary operation \"\\.\" between ' AS ' and array\\|string results in an error\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
@@ -381,14 +331,69 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Negated boolean expression is always true\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
 			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|string given\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Binary operation \"\\.\" between ' AS ' and array\\|string results in an error\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$ALLOWED_KEYWORDS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Expression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept string\\|null\\.$#"
+			count: 2
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) does not accept null\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$expr \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\SqlParser\\\\Token and null will always evaluate to false\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/ExpressionArray.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
@@ -401,32 +406,7 @@ parameters:
 			path: src/Components/ExpressionArray.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ExpressionArray.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/FunctionCall.php
 
@@ -436,8 +416,28 @@ parameters:
 			path: src/Components/FunctionCall.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/FunctionCall.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/FunctionCall.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Components/FunctionCall.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Components/FunctionCall.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
 			path: src/Components/GroupKeyword.php
 
 		-
@@ -446,19 +446,14 @@ parameters:
 			path: src/Components/GroupKeyword.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
 			path: src/Components/GroupKeyword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 2
 			path: src/Components/GroupKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$indexes type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IndexHint.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:__construct\\(\\) has parameter \\$indexes with no value type specified in iterable type array\\.$#"
@@ -466,17 +461,7 @@ parameters:
 			path: src/Components/IndexHint.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/IndexHint.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$indexOrKey \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/IndexHint.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$for \\(string\\) does not accept string\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/IndexHint.php
 
@@ -486,27 +471,32 @@ parameters:
 			path: src/Components/IndexHint.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$for \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/IndexHint.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$indexOrKey \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/IndexHint.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$indexes type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/IndexHint.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/IndexHint.php
+
+		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 3
 			path: src/Components/IndexHint.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IndexHint.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$FIELDS_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$LINES_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
@@ -521,32 +511,7 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$columns \\(array\\) does not accept array\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$values \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept array\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$fields_options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$fields_keyword \\(bool\\) does not accept bool\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
@@ -556,7 +521,22 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$FIELDS_OPTIONS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$LINES_OPTIONS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$columns \\(array\\) does not accept array\\|null\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
@@ -566,22 +546,47 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$fields_keyword \\(bool\\) does not accept bool\\|null\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$JOINS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$fields_options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$values \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept array\\|null\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/JoinKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/JoinKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$JOINS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/JoinKeyword.php
 
@@ -596,18 +601,13 @@ parameters:
 			path: src/Components/JoinKeyword.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/JoinKeyword.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
 			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 4
 			path: src/Components/JoinKeyword.php
 
 		-
@@ -616,59 +616,9 @@ parameters:
 			path: src/Components/JoinKeyword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$KEY_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:__construct\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Key.php
+			count: 4
+			path: src/Components/JoinKeyword.php
 
 		-
 			message: "#^Binary operation \"\\.\" between array\\|string and ' ' results in an error\\.$#"
@@ -681,6 +631,61 @@ parameters:
 			path: src/Components/Key.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:__construct\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$KEY_OPTIONS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Limit.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Limit.php
@@ -691,17 +696,12 @@ parameters:
 			path: src/Components/Limit.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Limit.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
 
@@ -711,32 +711,17 @@ parameters:
 			path: src/Components/LockExpression.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Components/OptionsArray.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/OptionsArray.php
 
@@ -756,8 +741,28 @@ parameters:
 			path: src/Components/OptionsArray.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/OptionsArray.php
+
+		-
+			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/OptionsArray.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/OptionsArray.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Components/OptionsArray.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
 			path: src/Components/OrderKeyword.php
 
 		-
@@ -766,17 +771,22 @@ parameters:
 			path: src/Components/OrderKeyword.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
+			path: src/Components/OrderKeyword.php
+
+		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 2
 			path: src/Components/OrderKeyword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Components/OrderKeyword.php
+			path: src/Components/ParameterDefinition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
 
@@ -786,12 +796,17 @@ parameters:
 			path: src/Components/ParameterDefinition.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/ParameterDefinition.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
 			count: 2
 			path: src/Components/ParameterDefinition.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
 
@@ -801,17 +816,7 @@ parameters:
 			path: src/Components/ParameterDefinition.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ParameterDefinition.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: src/Components/ParameterDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
 
@@ -821,7 +826,7 @@ parameters:
 			path: src/Components/PartitionDefinition.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
 
@@ -836,9 +841,34 @@ parameters:
 			path: src/Components/PartitionDefinition.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
+
+		-
+			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Components/Reference.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:__construct\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Reference.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Reference.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Reference.php
+
+		-
+			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|string given\\.$#"
+			count: 1
+			path: src/Components/Reference.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$REFERENCES_OPTIONS type has no value type specified in iterable type array\\.$#"
@@ -851,7 +881,7 @@ parameters:
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:__construct\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Components/Reference.php
 
@@ -861,53 +891,13 @@ parameters:
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Call to function is_array\\(\\) with PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation will always evaluate to false\\.$#"
 			count: 1
-			path: src/Components/Reference.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|string given\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: src/Components/RenameOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: src/Components/RenameOperation.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/RenameOperation.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 2
 			path: src/Components/RenameOperation.php
 
 		-
@@ -916,9 +906,29 @@ parameters:
 			path: src/Components/RenameOperation.php
 
 		-
-			message: "#^Call to function is_array\\(\\) with PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation will always evaluate to false\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/RenameOperation.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
+			path: src/Components/RenameOperation.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
+			path: src/Components/RenameOperation.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 2
+			path: src/Components/RenameOperation.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/SetOperation.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
@@ -931,22 +941,17 @@ parameters:
 			path: src/Components/SetOperation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/SetOperation.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/UnionKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$KEYWORDS type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) has parameter \\$str with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Context.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$OPERATORS type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Context.php
 
@@ -961,12 +966,12 @@ parameters:
 			path: src/Context.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) has parameter \\$str with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$KEYWORDS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Context.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$OPERATORS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Context.php
 
@@ -1031,12 +1036,7 @@ parameters:
 			path: src/Exceptions/ParserException.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$PARSER_METHODS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Lexer.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:setDelimiter\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:error\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Lexer.php
 
@@ -1046,17 +1046,7 @@ parameters:
 			path: src/Lexer.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$delimiter \\(string\\) does not accept null\\.$#"
-			count: 1
-			path: src/Lexer.php
-
-		-
-			message: "#^Parameter \\#1 \\$token of class PhpMyAdmin\\\\SqlParser\\\\Token constructor expects string, null given\\.$#"
-			count: 1
-			path: src/Lexer.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:error\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:setDelimiter\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Lexer.php
 
@@ -1066,32 +1056,27 @@ parameters:
 			path: src/Lexer.php
 
 		-
+			message: "#^Parameter \\#1 \\$token of class PhpMyAdmin\\\\SqlParser\\\\Token constructor expects string, null given\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
 			message: "#^Parameter \\#3 \\$flags of class PhpMyAdmin\\\\SqlParser\\\\Token constructor expects int, int\\|null given\\.$#"
 			count: 1
 			path: src/Lexer.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$STATEMENT_PARSERS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$PARSER_METHODS type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Parser.php
+			path: src/Lexer.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$KEYWORD_PARSERS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$delimiter \\(string\\) does not accept null\\.$#"
 			count: 1
-			path: src/Parser.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:parse\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Parser.php
+			path: src/Lexer.php
 
 		-
 			message: "#^Array \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\) does not accept array\\<int, PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\|string\\|true\\>\\.$#"
-			count: 1
-			path: src/Parser.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) does not accept null\\.$#"
 			count: 1
 			path: src/Parser.php
 
@@ -1101,13 +1086,53 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
 			message: "#^Parameter \\#1 \\$msg \\(string\\) of method PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:error\\(\\) should be compatible with parameter \\$error \\(Exception\\) of method PhpMyAdmin\\\\SqlParser\\\\Core\\:\\:error\\(\\)$#"
 			count: 1
 			path: src/Parser.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$KEYWORD_PARSERS type has no value type specified in iterable type array\\.$#"
 			count: 1
+			path: src/Parser.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$STATEMENT_PARSERS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$limit \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\) does not accept null\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:after\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:before\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:getClauses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
+			count: 4
 			path: src/Statement.php
 
 		-
@@ -1121,27 +1146,7 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 4
-			path: src/Statement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Statement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:before\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Statement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:after\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Statement.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:getClauses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -1151,12 +1156,12 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Statements/AlterStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/AlterStatement.php
 
@@ -1191,7 +1196,17 @@ parameters:
 			path: src/Statements/ChecksumStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 2
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Cannot assign new offset to array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\.$#"
+			count: 4
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -1201,12 +1216,17 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$TABLE_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$FUNC_OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$FUNC_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$TABLE_OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -1216,17 +1236,7 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression and '' will always evaluate to false\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$fields \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -1236,8 +1246,8 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
-			count: 2
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
@@ -1251,27 +1261,17 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Cannot assign new offset to array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\.$#"
-			count: 4
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$fields \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression and '' will always evaluate to false\\.$#"
 			count: 1
-			path: src/Statements/DeleteStatement.php
+			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
@@ -1281,19 +1281,19 @@ parameters:
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Statements/DeleteStatement.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) does not accept null\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DropStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Statements/DropStatement.php
+			path: src/Statements/DeleteStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statements/DeleteStatement.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DropStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
@@ -1301,9 +1301,9 @@ parameters:
 			path: src/Statements/DropStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\InsertStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DropStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Statements/InsertStatement.php
+			path: src/Statements/DropStatement.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\InsertStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
@@ -1311,7 +1311,27 @@ parameters:
 			path: src/Statements/InsertStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\InsertStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statements/InsertStatement.php
+
+		-
+			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 2
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Cannot access property \\$token on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
@@ -1326,22 +1346,7 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$file_name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$partition \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
@@ -1351,22 +1356,22 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$file_name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$ignore_number \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$partition \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
-			count: 2
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Cannot access property \\$token on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
@@ -1396,12 +1401,12 @@ parameters:
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_expr \\(string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:parseExpectedKeyword\\(\\) has parameter \\$expectedKeywords with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:parseExpectedKeyword\\(\\) has parameter \\$expectedKeywords with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_expr \\(string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
@@ -1421,12 +1426,7 @@ parameters:
 			path: src/Statements/RepairStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/ReplaceStatement.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d given\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
@@ -1436,7 +1436,12 @@ parameters:
 			path: src/Statements/ReplaceStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d given\\.$#"
+			count: 1
+			path: src/Statements/ReplaceStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
@@ -1451,7 +1456,7 @@ parameters:
 			path: src/Statements/RestoreStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:getClauses\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SelectStatement.php
 
@@ -1461,17 +1466,17 @@ parameters:
 			path: src/Statements/SelectStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:getClauses\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SelectStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\> given\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
@@ -1481,7 +1486,7 @@ parameters:
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\> given\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
@@ -1491,12 +1496,12 @@ parameters:
 			path: src/Statements/ShowStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Statements/TransactionStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/TransactionStatement.php
 
@@ -1506,22 +1511,17 @@ parameters:
 			path: src/Statements/TruncateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/UpdateStatement.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/UpdateStatement.php
 
 		-
-			message: "#^Class PhpMyAdmin\\\\SqlParser\\\\TokensList implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/TokensList.php
+			path: src/Statements/UpdateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\TokensList\\:\\:\\$tokens type has no value type specified in iterable type array\\.$#"
+			message: "#^Class PhpMyAdmin\\\\SqlParser\\\\TokensList implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
 			count: 1
 			path: src/TokensList.php
 
@@ -1536,52 +1536,22 @@ parameters:
 			path: src/TokensList.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\TokensList\\:\\:\\$tokens type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/TokensList.php
+
+		-
 			message: "#^Strict comparison using \\=\\=\\= between int and null will always evaluate to false\\.$#"
 			count: 1
 			path: src/TokensList.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:\\$LABELS_FLAGS type has no value type specified in iterable type array\\.$#"
+			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:\\$LINKS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:sortWords\\(\\) has parameter \\$arr with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:sortWords\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:readWords\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\<int, string\\>\\|false given\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:printWords\\(\\) has parameter \\$words with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between int and float will always evaluate to false\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:generate\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Call to function sprintf\\(\\) on a separate line has no effect\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
@@ -1596,24 +1566,44 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:generate\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Call to function sprintf\\(\\) on a separate line has no effect\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:printWords\\(\\) has parameter \\$words with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\TestGenerator\\:\\:generate\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:readWords\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Tools/TestGenerator.php
+			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 2
-			path: src/Tools/TestGenerator.php
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:sortWords\\(\\) has parameter \\$arr with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:sortWords\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\<int, string\\>\\|false given\\.$#"
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:\\$LABELS_FLAGS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:\\$LINKS type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tools/ContextGenerator.php
 
 		-
 			message: "#^Access to an undefined property Exception\\:\\:\\$ch\\.$#"
@@ -1631,6 +1621,16 @@ parameters:
 			path: src/Tools/TestGenerator.php
 
 		-
+			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Tools/TestGenerator.php
+
+		-
+			message: "#^Call to function sprintf\\(\\) on a separate line has no effect\\.$#"
+			count: 2
+			path: src/Tools/TestGenerator.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\TestGenerator\\:\\:build\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
@@ -1641,8 +1641,13 @@ parameters:
 			path: src/Tools/TestGenerator.php
 
 		-
-			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\TestGenerator\\:\\:generate\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
+			path: src/Tools/TestGenerator.php
+
+		-
+			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
+			count: 2
 			path: src/Tools/TestGenerator.php
 
 		-
@@ -1661,11 +1666,6 @@ parameters:
 			path: src/Tools/TestGenerator.php
 
 		-
-			message: "#^Call to function sprintf\\(\\) on a separate line has no effect\\.$#"
-			count: 2
-			path: src/Tools/TestGenerator.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Translator\\:\\:load\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: src/Translator.php
@@ -1676,17 +1676,17 @@ parameters:
 			path: src/UtfString.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\BufferedQuery\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/BufferedQuery.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\BufferedQuery\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/BufferedQuery.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\BufferedQuery\\:\\:setDelimiter\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Utils/BufferedQuery.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\BufferedQuery\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/BufferedQuery.php
 
@@ -1706,16 +1706,6 @@ parameters:
 			path: src/Utils/CLI.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Error\\:\\:get\\(\\) has parameter \\$objs with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Error.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Error\\:\\:get\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Error.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Error\\:\\:format\\(\\) has parameter \\$errors with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Error.php
@@ -1726,22 +1716,32 @@ parameters:
 			path: src/Utils/Error.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Error\\:\\:get\\(\\) has parameter \\$objs with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Utils/Formatter.php
+			path: src/Utils/Error.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$SHORT_CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Error\\:\\:get\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Utils/Formatter.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$INLINE_CLAUSES type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Formatter.php
+			path: src/Utils/Error.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:getDefaultFormats\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:getDefaultOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
 
@@ -1752,16 +1752,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:getMergedOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Formatter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:getDefaultOptions\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Formatter.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:getDefaultFormats\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
 
@@ -1786,7 +1776,17 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$INLINE_CLAUSES type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$SHORT_CLAUSES type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
 
@@ -1794,6 +1794,26 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Misc.php
+
+		-
+			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getAll\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getFirstStatement\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getFlags\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Query.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getFlagsSelect\\(\\) has parameter \\$flags with no value type specified in iterable type array\\.$#"
@@ -1806,37 +1826,7 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getFlags\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getAll\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getTables\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$expr \\(string\\) does not accept null\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept null\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 2
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
@@ -1846,14 +1836,19 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getFirstStatement\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
+			count: 2
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept null\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getReturnType\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$expr \\(string\\) does not accept null\\.$#"
 			count: 1
-			path: src/Utils/Routine.php
+			path: src/Utils/Query.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getParameter\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -1866,9 +1861,9 @@ parameters:
 			path: src/Utils/Routine.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getReturnType\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Utils/Table.php
+			path: src/Utils/Routine.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -1876,9 +1871,24 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
-			message: "#^If condition is always true\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Table.php
+
+		-
+			message: "#^Negated boolean expression is always false\\.$#"
+			count: 1
+			path: src/Utils/Table.php
+
+		-
+			message: "#^Access to property \\$count on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			count: 2
+			path: src/Utils/Tokens.php
+
+		-
+			message: "#^Access to property \\$tokens on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			count: 5
+			path: src/Utils/Tokens.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:match\\(\\) has parameter \\$pattern with no value type specified in iterable type array\\.$#"
@@ -1896,12 +1906,7 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Parameter \\$list of method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has invalid typehint type PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:getTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\|string given\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) should return PhpMyAdmin\\\\SqlParser\\\\TokensList but returns PhpMyAdmin\\\\SqlParser\\\\TokensList\\|string\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -1911,17 +1916,12 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Access to property \\$count on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
-			count: 2
+			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:getTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\|string given\\.$#"
+			count: 1
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Access to property \\$tokens on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
-			count: 5
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) should return PhpMyAdmin\\\\SqlParser\\\\TokensList but returns PhpMyAdmin\\\\SqlParser\\\\TokensList\\|string\\.$#"
+			message: "#^Parameter \\$list of method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has invalid typehint type PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -1941,12 +1941,12 @@ parameters:
 			path: tests/Builder/CreateStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\DeleteStatementTest\\:\\:testBuilderSingleTable\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\DeleteStatementTest\\:\\:testBuilderMultiTable\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/DeleteStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\DeleteStatementTest\\:\\:testBuilderMultiTable\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\DeleteStatementTest\\:\\:testBuilderSingleTable\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/DeleteStatementTest.php
 
@@ -1986,11 +1986,6 @@ parameters:
 			path: tests/Builder/ReplaceStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\ReplaceStatementTest\\:\\:testBuilderSet\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/ReplaceStatementTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\ReplaceStatementTest\\:\\:testBuilderSelect\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/ReplaceStatementTest.php
@@ -2001,12 +1996,12 @@ parameters:
 			path: tests/Builder/ReplaceStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilder\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\ReplaceStatementTest\\:\\:testBuilderSet\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Builder/SelectStatementTest.php
+			path: tests/Builder/ReplaceStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderUnion\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilder\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/SelectStatementTest.php
 
@@ -2016,17 +2011,7 @@ parameters:
 			path: tests/Builder/SelectStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasOrder\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/SelectStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasOrderMultiple\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/SelectStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasOrderMultipleFunctions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasGroupByCase\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/SelectStatementTest.php
 
@@ -2041,22 +2026,27 @@ parameters:
 			path: tests/Builder/SelectStatementTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasOrder\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Builder/SelectStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasOrderCase\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/SelectStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasGroupByCase\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasOrderMultiple\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Builder/SelectStatementTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderAliasOrderMultipleFunctions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/SelectStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderEndOptions\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Builder/SelectStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderIntoOptions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/SelectStatementTest.php
 
@@ -2071,7 +2061,17 @@ parameters:
 			path: tests/Builder/SelectStatementTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderIntoOptions\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Builder/SelectStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderSurroundedByParanthesisWithLimit\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Builder/SelectStatementTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\SelectStatementTest\\:\\:testBuilderUnion\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Builder/SelectStatementTest.php
 
@@ -2106,12 +2106,12 @@ parameters:
 			path: tests/Builder/TruncateStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\Array2dTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\Array2dTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/Array2dTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\Array2dTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\Array2dTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/Array2dTest.php
 
@@ -2146,21 +2146,6 @@ parameters:
 			path: tests/Components/Array2dTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:testBuildRaw\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/ArrayObjTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:testBuildValues\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/ArrayObjTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:testParseType\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/ArrayObjTest.php
-
-		-
 			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 2
 			path: tests/Components/ArrayObjTest.php
@@ -2171,14 +2156,34 @@ parameters:
 			path: tests/Components/ArrayObjTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Components/ArrayObjTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:testBuildRaw\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/ArrayObjTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:testBuildValues\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/ArrayObjTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/ArrayObjTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:testParseType\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/ArrayObjTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\CaseExpressionTest\\:\\:testBuildWithIncompleteCaseExpression\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/CaseExpressionTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\CaseExpressionTest\\:\\:testParseBuild\\(\\) has no return typehint specified\\.$#"
@@ -2221,17 +2226,12 @@ parameters:
 			path: tests/Components/CaseExpressionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\CaseExpressionTest\\:\\:testBuildWithIncompleteCaseExpression\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/CaseExpressionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ComponentTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ComponentTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/ComponentTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ComponentTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ComponentTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/ComponentTest.php
 
@@ -2246,22 +2246,22 @@ parameters:
 			path: tests/Components/ConditionTest.php
 
 		-
-			message: "#^Cannot access offset 1 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot access offset 2 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$fields\\.$#"
 			count: 3
 			path: tests/Components/CreateDefinitionTest.php
 
 		-
 			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Cannot access offset 1 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Cannot access offset 2 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: tests/Components/CreateDefinitionTest.php
 
@@ -2276,23 +2276,8 @@ parameters:
 			path: tests/Components/ExpressionArrayTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/ExpressionTest.php
-
-		-
 			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
-			path: tests/Components/ExpressionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:testParse2\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/ExpressionTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:testParseErr\\(\\) has no return typehint specified\\.$#"
-			count: 1
 			path: tests/Components/ExpressionTest.php
 
 		-
@@ -2302,6 +2287,21 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/ExpressionTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/ExpressionTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:testParse2\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/ExpressionTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ExpressionTest\\:\\:testParseErr\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/ExpressionTest.php
 
@@ -2321,17 +2321,7 @@ parameters:
 			path: tests/Components/GroupKeywordTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\IntoKeywordTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/IntoKeywordTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\IntoKeywordTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/IntoKeywordTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\IntoKeywordTest\\:\\:testBuildValues\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/IntoKeywordTest.php
 
@@ -2341,12 +2331,22 @@ parameters:
 			path: tests/Components/IntoKeywordTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\IntoKeywordTest\\:\\:testBuildValues\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/IntoKeywordTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\IntoKeywordTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/IntoKeywordTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\IntoKeywordTest\\:\\:testParseErr1\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/IntoKeywordTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\JoinKeywordTest\\:\\:testParseIncomplete\\(\\) has no return typehint specified\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj will always evaluate to false\\.$#"
 			count: 1
 			path: tests/Components/JoinKeywordTest.php
 
@@ -2356,7 +2356,12 @@ parameters:
 			path: tests/Components/JoinKeywordTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj will always evaluate to false\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\JoinKeywordTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/JoinKeywordTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\JoinKeywordTest\\:\\:testParseIncomplete\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/JoinKeywordTest.php
 
@@ -2366,9 +2371,9 @@ parameters:
 			path: tests/Components/JoinKeywordTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\JoinKeywordTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with string will always evaluate to false\\.$#"
 			count: 1
-			path: tests/Components/JoinKeywordTest.php
+			path: tests/Components/KeyTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\KeyTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
@@ -2376,12 +2381,7 @@ parameters:
 			path: tests/Components/KeyTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with string will always evaluate to false\\.$#"
-			count: 1
-			path: tests/Components/KeyTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LimitTest\\:\\:testBuildWithoutOffset\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LimitTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Components/LimitTest.php
 
@@ -2391,14 +2391,24 @@ parameters:
 			path: tests/Components/LimitTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LimitTest\\:\\:testBuildWithoutOffset\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/LimitTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LimitTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/LimitTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LimitTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LockExpressionTest\\:\\:parseErrProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: tests/Components/LimitTest.php
+			path: tests/Components/LockExpressionTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LockExpressionTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/LockExpressionTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LockExpressionTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
@@ -2416,14 +2426,19 @@ parameters:
 			path: tests/Components/LockExpressionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LockExpressionTest\\:\\:parseErrProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\OptionsArrayTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Components/LockExpressionTest.php
+			path: tests/Components/OptionsArrayTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LockExpressionTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\OptionsArrayTest\\:\\:testHas\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Components/LockExpressionTest.php
+			path: tests/Components/OptionsArrayTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\OptionsArrayTest\\:\\:testMerge\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Components/OptionsArrayTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\OptionsArrayTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
@@ -2436,22 +2451,7 @@ parameters:
 			path: tests/Components/OptionsArrayTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\OptionsArrayTest\\:\\:testHas\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/OptionsArrayTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\OptionsArrayTest\\:\\:testRemove\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/OptionsArrayTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\OptionsArrayTest\\:\\:testMerge\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Components/OptionsArrayTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\OptionsArrayTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/OptionsArrayTest.php
 
@@ -2471,13 +2471,13 @@ parameters:
 			path: tests/Components/ParameterDefinitionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\PartitionDefinitionTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
-			count: 1
+			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\.$#"
+			count: 2
 			path: tests/Components/PartitionDefinitionTest.php
 
 		-
-			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\.$#"
-			count: 2
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\PartitionDefinitionTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
+			count: 1
 			path: tests/Components/PartitionDefinitionTest.php
 
 		-
@@ -2486,12 +2486,12 @@ parameters:
 			path: tests/Components/PartitionDefinitionTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ReferenceTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ReferenceTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/ReferenceTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ReferenceTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ReferenceTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Components/ReferenceTest.php
 
@@ -2506,22 +2506,7 @@ parameters:
 			path: tests/Components/RenameOperationTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoad\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoadClosest\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:contextLoadingProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoadAll\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/ContextTest.php
 
@@ -2531,17 +2516,22 @@ parameters:
 			path: tests/Lexer/ContextTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsKeyword\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoad\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Lexer/IsMethodsTest.php
+			path: tests/Lexer/ContextTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsOperator\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoadAll\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Lexer/IsMethodsTest.php
+			path: tests/Lexer/ContextTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsWhitespace\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:testLoadClosest\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Lexer/ContextTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsBool\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/IsMethodsTest.php
 
@@ -2551,12 +2541,17 @@ parameters:
 			path: tests/Lexer/IsMethodsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsBool\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsKeyword\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/IsMethodsTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsNumber\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Lexer/IsMethodsTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsOperator\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/IsMethodsTest.php
 
@@ -2571,14 +2566,14 @@ parameters:
 			path: tests/Lexer/IsMethodsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testisSeparator\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testIsWhitespace\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/IsMethodsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:testLex\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\IsMethodsTest\\:\\:testisSeparator\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Lexer/LexerTest.php
+			path: tests/Lexer/IsMethodsTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:lexProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2586,17 +2581,17 @@ parameters:
 			path: tests/Lexer/LexerTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokenTest\\:\\:testExtractKeyword\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:testLex\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Lexer/TokenTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokenTest\\:\\:testExtractWhitespace\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Lexer/TokenTest.php
+			path: tests/Lexer/LexerTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokenTest\\:\\:testExtractBool\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Lexer/TokenTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokenTest\\:\\:testExtractKeyword\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/TokenTest.php
 
@@ -2616,17 +2611,32 @@ parameters:
 			path: tests/Lexer/TokenTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokenTest\\:\\:testExtractWhitespace\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Lexer/TokenTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokenTest\\:\\:testInlineToken\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/TokenTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokensListTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
+			message: "#^Cannot assign new offset to PhpMyAdmin\\\\SqlParser\\\\TokensList\\.$#"
 			count: 1
 			path: tests/Lexer/TokensListTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokensListTest\\:\\:testAdd\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Lexer/TokensListTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokensListTest\\:\\:testArrayAccess\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Lexer/TokensListTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokensListTest\\:\\:testBuild\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Lexer/TokensListTest.php
 
@@ -2646,14 +2656,9 @@ parameters:
 			path: tests/Lexer/TokensListTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\TokensListTest\\:\\:testArrayAccess\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\BugsTest\\:\\:bugProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: tests/Lexer/TokensListTest.php
-
-		-
-			message: "#^Cannot assign new offset to PhpMyAdmin\\\\SqlParser\\\\TokensList\\.$#"
-			count: 1
-			path: tests/Lexer/TokensListTest.php
+			path: tests/Misc/BugsTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\BugsTest\\:\\:testBug\\(\\) has no return typehint specified\\.$#"
@@ -2661,17 +2666,12 @@ parameters:
 			path: tests/Misc/BugsTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\BugsTest\\:\\:bugProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Misc/BugsTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\ParameterTest\\:\\:testParameter\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\ParameterTest\\:\\:parameterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Misc/ParameterTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\ParameterTest\\:\\:parameterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\ParameterTest\\:\\:testParameter\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Misc/ParameterTest.php
 
@@ -2681,19 +2681,14 @@ parameters:
 			path: tests/Misc/UtfStringTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\AlterStatementTest\\:\\:testAlter\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Parser/AlterStatementTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\AlterStatementTest\\:\\:alterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/AlterStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CallStatementTest\\:\\:testCall\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\AlterStatementTest\\:\\:testAlter\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/CallStatementTest.php
+			path: tests/Parser/AlterStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CallStatementTest\\:\\:callProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2701,9 +2696,9 @@ parameters:
 			path: tests/Parser/CallStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CreateStatementTest\\:\\:testCreate\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CallStatementTest\\:\\:testCall\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/CreateStatementTest.php
+			path: tests/Parser/CallStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CreateStatementTest\\:\\:createProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2711,9 +2706,9 @@ parameters:
 			path: tests/Parser/CreateStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DeleteStatementTest\\:\\:testDelete\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CreateStatementTest\\:\\:testCreate\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/DeleteStatementTest.php
+			path: tests/Parser/CreateStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DeleteStatementTest\\:\\:deleteProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2721,9 +2716,9 @@ parameters:
 			path: tests/Parser/DeleteStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DropStatementTest\\:\\:testDrop\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DeleteStatementTest\\:\\:testDelete\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/DropStatementTest.php
+			path: tests/Parser/DeleteStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DropStatementTest\\:\\:dropProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2731,9 +2726,9 @@ parameters:
 			path: tests/Parser/DropStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ExplainStatementTest\\:\\:testExplain\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DropStatementTest\\:\\:testDrop\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/ExplainStatementTest.php
+			path: tests/Parser/DropStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ExplainStatementTest\\:\\:explainProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2741,9 +2736,9 @@ parameters:
 			path: tests/Parser/ExplainStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\InsertStatementTest\\:\\:testInsert\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ExplainStatementTest\\:\\:testExplain\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/InsertStatementTest.php
+			path: tests/Parser/ExplainStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\InsertStatementTest\\:\\:insertProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2751,7 +2746,12 @@ parameters:
 			path: tests/Parser/InsertStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LoadStatementTest\\:\\:testLoadOptions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\InsertStatementTest\\:\\:testInsert\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Parser/InsertStatementTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LoadStatementTest\\:\\:loadProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/LoadStatementTest.php
 
@@ -2761,14 +2761,9 @@ parameters:
 			path: tests/Parser/LoadStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LoadStatementTest\\:\\:loadProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LoadStatementTest\\:\\:testLoadOptions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Parser/LoadStatementTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LockStatementTest\\:\\:testLock\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Parser/LockStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LockStatementTest\\:\\:lockProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2776,22 +2771,12 @@ parameters:
 			path: tests/Parser/LockStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LockStatementTest\\:\\:testLock\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/ParserTest.php
+			path: tests/Parser/LockStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Parser/ParserTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:testUnrecognizedStatement\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Parser/ParserTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:testUnrecognizedKeyword\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Parser/ParserTest.php
 
@@ -2806,9 +2791,19 @@ parameters:
 			path: tests/Parser/ParserTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\PurgeStatementTest\\:\\:testPurge\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:testParse\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/PurgeStatementTest.php
+			path: tests/Parser/ParserTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:testUnrecognizedKeyword\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Parser/ParserTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ParserTest\\:\\:testUnrecognizedStatement\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Parser/ParserTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\PurgeStatementTest\\:\\:purgeProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2816,9 +2811,9 @@ parameters:
 			path: tests/Parser/PurgeStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RenameStatementTest\\:\\:testRename\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\PurgeStatementTest\\:\\:testPurge\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/RenameStatementTest.php
+			path: tests/Parser/PurgeStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RenameStatementTest\\:\\:renameProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2826,9 +2821,9 @@ parameters:
 			path: tests/Parser/RenameStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ReplaceStatementTest\\:\\:testReplace\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RenameStatementTest\\:\\:testRename\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/ReplaceStatementTest.php
+			path: tests/Parser/RenameStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ReplaceStatementTest\\:\\:replaceProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2836,9 +2831,9 @@ parameters:
 			path: tests/Parser/ReplaceStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RestoreStatementTest\\:\\:testRestore\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ReplaceStatementTest\\:\\:testReplace\\(\\) has no return typehint specified\\.$#"
 			count: 1
-			path: tests/Parser/RestoreStatementTest.php
+			path: tests/Parser/ReplaceStatementTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RestoreStatementTest\\:\\:restoreProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
@@ -2846,7 +2841,12 @@ parameters:
 			path: tests/Parser/RestoreStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SelectStatementTest\\:\\:testSelectOptions\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\RestoreStatementTest\\:\\:testRestore\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Parser/RestoreStatementTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SelectStatementTest\\:\\:selectProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/SelectStatementTest.php
 
@@ -2856,17 +2856,17 @@ parameters:
 			path: tests/Parser/SelectStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SelectStatementTest\\:\\:selectProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SelectStatementTest\\:\\:testSelectOptions\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Parser/SelectStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SetStatementTest\\:\\:testSet\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SetStatementTest\\:\\:setProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/SetStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SetStatementTest\\:\\:setProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SetStatementTest\\:\\:testSet\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Parser/SetStatementTest.php
 
@@ -2891,11 +2891,6 @@ parameters:
 			path: tests/Parser/UpdateStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getErrorsAsArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/TestCase.php
-
-		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\LexerException\\|PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\ParserException\\:\\:\\$ch\\.$#"
 			count: 1
 			path: tests/TestCase.php
@@ -2916,7 +2911,7 @@ parameters:
 			path: tests/TestCase.php
 
 		-
-			message: "#^Parameter \\#1 \\$variable_representation of function unserialize expects string, string\\|false given\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getErrorsAsArray\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/TestCase.php
 
@@ -2929,6 +2924,21 @@ parameters:
 			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/TestCase.php
+
+		-
+			message: "#^Parameter \\#1 \\$variable_representation of function unserialize expects string, string\\|false given\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Cannot access offset int on array\\<int, string\\>\\|false\\.$#"
+			count: 1
+			path: tests/Utils/BufferedQueryTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:extractProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/BufferedQueryTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:testExtract\\(\\) has no return typehint specified\\.$#"
@@ -2946,24 +2956,39 @@ parameters:
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
-
-		-
 			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
-			message: "#^Cannot access offset int on array\\<int, string\\>\\|false\\.$#"
+			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:extractProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:highlightParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: tests/Utils/BufferedQueryTest.php
+			path: tests/Utils/CLITest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:highlightParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/CLITest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:lintParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/CLITest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:lintParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/CLITest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:stdinParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/CLITest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:testGetopt\\(\\) has no return typehint specified\\.$#"
@@ -2976,27 +3001,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:highlightParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:testRunHighlightStdIn\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:highlightParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:testRunLintFromStdIn\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:lintParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3006,7 +3011,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:lintParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:testRunLintFromStdIn\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3016,17 +3021,7 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:tokenizeParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:testRunTokenizeStdIn\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/CLITest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:tokenizeParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
@@ -3036,14 +3031,14 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:stdinParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:tokenizeParamsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/CLITest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\ErrorTest\\:\\:testGet\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\CLITest\\:\\:tokenizeParamsStdInProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
-			path: tests/Utils/ErrorTest.php
+			path: tests/Utils/CLITest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\ErrorTest\\:\\:testFormat\\(\\) has no return typehint specified\\.$#"
@@ -3051,7 +3046,12 @@ parameters:
 			path: tests/Utils/ErrorTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:testMergeFormats\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\ErrorTest\\:\\:testGet\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Utils/ErrorTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:formatQueriesProviders\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/FormatterTest.php
 
@@ -3071,9 +3071,14 @@ parameters:
 			path: tests/Utils/FormatterTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:formatQueriesProviders\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:testMergeFormats\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Utils/FormatterTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\MiscTest\\:\\:getAliasesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/MiscTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\MiscTest\\:\\:testGetAliases\\(\\) has no return typehint specified\\.$#"
@@ -3091,27 +3096,7 @@ parameters:
 			path: tests/Utils/MiscTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\MiscTest\\:\\:getAliasesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/MiscTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetFlags\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/QueryTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:getFlagsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/QueryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetAll\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/QueryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetTables\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Utils/QueryTest.php
 
@@ -3121,7 +3106,27 @@ parameters:
 			path: tests/Utils/QueryTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetAll\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetClause\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetFirstStatement\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetFlags\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetTables\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Utils/QueryTest.php
 
@@ -3136,12 +3141,12 @@ parameters:
 			path: tests/Utils/QueryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testReplaceNonExistingPart\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testReplaceClauses\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Utils/QueryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testReplaceClauses\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testReplaceNonExistingPart\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Utils/QueryTest.php
 
@@ -3156,17 +3161,12 @@ parameters:
 			path: tests/Utils/QueryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:testGetFirstStatement\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/QueryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:testGetReturnType\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getParameterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/RoutineTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:testGetReturnType\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getParametersProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/RoutineTest.php
 
@@ -3186,11 +3186,6 @@ parameters:
 			path: tests/Utils/RoutineTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getParameterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/RoutineTest.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:testGetParameters\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Utils/RoutineTest.php
@@ -3201,27 +3196,22 @@ parameters:
 			path: tests/Utils/RoutineTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:testGetReturnType\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Utils/RoutineTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:testGetReturnType\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/RoutineTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getParameters\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
 			count: 1
 			path: tests/Utils/RoutineTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\RoutineTest\\:\\:getParametersProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/RoutineTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:testGetForeignKeys\\(\\) has no return typehint specified\\.$#"
-			count: 1
-			path: tests/Utils/TableTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:testGetForeignKeys\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/TableTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:getFieldsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
 
@@ -3241,17 +3231,27 @@ parameters:
 			path: tests/Utils/TableTest.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:testGetForeignKeys\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: tests/Utils/TableTest.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:testGetForeignKeys\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/TableTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TableTest\\:\\:getFieldsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:testReplaceTokens\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:matchProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/TokensTest.php
 
@@ -3266,7 +3266,7 @@ parameters:
 			path: tests/Utils/TokensTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:matchProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:testReplaceTokens\\(\\) has no return typehint specified\\.$#"
 			count: 1
 			path: tests/Utils/TokensTest.php
 
