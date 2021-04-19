@@ -294,12 +294,12 @@ PHP;
         }
 
         /* Parse version to array */
-        $ver_str = $parts[2];
-        if (strlen($ver_str) % 2 === 1) {
-            $ver_str = '0' . $ver_str;
+        $versionString = $parts[2];
+        if (strlen($versionString) % 2 === 1) {
+            $versionString = '0' . $versionString;
         }
 
-        $version = array_map('intval', str_split($ver_str, 2));
+        $version = array_map('intval', str_split($versionString, 2));
         /* Remove trailing zero */
         if ($version[count($version) - 1] === 0) {
             $version = array_slice($version, 0, count($version) - 1);

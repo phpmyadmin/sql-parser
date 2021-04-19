@@ -122,7 +122,7 @@ class CaseExpressionTest extends TestCase
 
     public function testBuildWithIncompleteCaseExpression()
     {
-        $incomplete_case_expression_component = new CaseExpression();
-        $this->assertEquals('CASE END', CaseExpression::build($incomplete_case_expression_component));
+        $incompleteCaseExpressionComponent = new CaseExpression();
+        $this->assertEquals('CASE END', CaseExpression::build($incompleteCaseExpressionComponent));
     }
 }

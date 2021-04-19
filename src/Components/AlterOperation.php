@@ -265,11 +265,11 @@ class AlterOperation extends Component
 
                 $state = 2;
             } elseif ($state === 2) {
-                $array_key = '';
+                $arrayKey = '';
                 if (is_string($token->value) || is_numeric($token->value)) {
-                    $array_key = $token->value;
+                    $arrayKey = $token->value;
                 } else {
-                    $array_key = $token->token;
+                    $arrayKey = $token->token;
                 }
 
                 if ($token->type === Token::TYPE_OPERATOR) {
@@ -293,9 +293,9 @@ class AlterOperation extends Component
                             break;
                         }
                     } elseif (
-                        (array_key_exists($array_key, self::$DB_OPTIONS)
-                        || array_key_exists($array_key, self::$TABLE_OPTIONS))
-                        && ! self::checkIfColumnDefinitionKeyword($array_key)
+                        (array_key_exists($arrayKey, self::$DB_OPTIONS)
+                        || array_key_exists($arrayKey, self::$TABLE_OPTIONS))
+                        && ! self::checkIfColumnDefinitionKeyword($arrayKey)
                     ) {
                         // This alter operation has finished, which means a comma
                         // was missing before start of new alter operation
@@ -345,7 +345,7 @@ class AlterOperation extends Component
      */
     private static function checkIfColumnDefinitionKeyword($tokenValue)
     {
-        $common_options = [
+        $commonOptions = [
             'AUTO_INCREMENT',
             'COMMENT',
             'DEFAULT',
@@ -359,7 +359,7 @@ class AlterOperation extends Component
 
         // Since these options can be used for
         // both table as well as a specific column in the table
-        return in_array($tokenValue, $common_options);
+        return in_array($tokenValue, $commonOptions);
     }
 
     /**

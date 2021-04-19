@@ -118,10 +118,10 @@ class CaseExpression extends Component
                     switch ($token->keyword) {
                         case 'WHEN':
                             ++$list->idx; // Skip 'WHEN'
-                            $new_condition = Condition::parse($parser, $list);
+                            $newCondition = Condition::parse($parser, $list);
                             $type = 1;
                             $state = 1;
-                            $ret->conditions[] = $new_condition;
+                            $ret->conditions[] = $newCondition;
                             break;
                         case 'ELSE':
                             ++$list->idx; // Skip 'ELSE'
@@ -147,9 +147,9 @@ class CaseExpression extends Component
                         switch ($token->keyword) {
                             case 'WHEN':
                                 ++$list->idx; // Skip 'WHEN'
-                                $new_value = Expression::parse($parser, $list);
+                                $newValue = Expression::parse($parser, $list);
                                 $state = 2;
-                                $ret->compare_values[] = $new_value;
+                                $ret->compare_values[] = $newValue;
                                 break;
                             case 'ELSE':
                                 ++$list->idx; // Skip 'ELSE'
@@ -168,9 +168,9 @@ class CaseExpression extends Component
                 } else {
                     if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'THEN') {
                         ++$list->idx; // Skip 'THEN'
-                        $new_result = Expression::parse($parser, $list);
+                        $newResult = Expression::parse($parser, $list);
                         $state = 0;
-                        $ret->results[] = $new_result;
+                        $ret->results[] = $newResult;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
                         $parser->error('Unexpected keyword.', $token);
                         break;
@@ -180,8 +180,8 @@ class CaseExpression extends Component
                 if ($type === 0) {
                     if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'THEN') {
                         ++$list->idx; // Skip 'THEN'
-                        $new_result = Expression::parse($parser, $list);
-                        $ret->results[] = $new_result;
+                        $newResult = Expression::parse($parser, $list);
+                        $ret->results[] = $newResult;
                         $state = 1;
                     } elseif ($token->type === Token::TYPE_KEYWORD) {
                         $parser->error('Unexpected keyword.', $token);
@@ -275,17 +275,17 @@ class CaseExpression extends Component
         if (isset($component->value)) {
             // Syntax type 0
             $ret .= $component->value . ' ';
-            $val_cnt = count($component->compare_values);
-            $res_cnt = count($component->results);
-            for ($i = 0; $i < $val_cnt && $i < $res_cnt; ++$i) {
+            $valuesCount = count($component->compare_values);
+            $resultsCount = count($component->results);
+            for ($i = 0; $i < $valuesCount && $i < $resultsCount; ++$i) {
                 $ret .= 'WHEN ' . $component->compare_values[$i] . ' ';
                 $ret .= 'THEN ' . $component->results[$i] . ' ';
             }
         } else {
             // Syntax type 1
-            $val_cnt = count($component->conditions);
-            $res_cnt = count($component->results);
-            for ($i = 0; $i < $val_cnt && $i < $res_cnt; ++$i) {
+            $valuesCount = count($component->conditions);
+            $resultsCount = count($component->results);
+            for ($i = 0; $i < $valuesCount && $i < $resultsCount; ++$i) {
                 $ret .= 'WHEN ' . Condition::build($component->conditions[$i]) . ' ';
                 $ret .= 'THEN ' . $component->results[$i] . ' ';
             }

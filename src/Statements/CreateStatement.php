@@ -643,10 +643,10 @@ class CreateStatement extends Statement
         } elseif ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
             $this->parameters = ParameterDefinition::parse($parser, $list);
             if ($this->options->has('FUNCTION')) {
-                $prev_token = $token;
+                $prevToken = $token;
                 $token = $list->getNextOfType(Token::TYPE_KEYWORD);
                 if ($token === null || $token->keyword !== 'RETURNS') {
-                    $parser->error('A "RETURNS" keyword was expected.', $token ?? $prev_token);
+                    $parser->error('A "RETURNS" keyword was expected.', $token ?? $prevToken);
                 } else {
                     ++$list->idx;
                     $this->return = DataType::parse($parser, $list);

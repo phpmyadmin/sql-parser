@@ -111,27 +111,27 @@ class IntoKeyword extends Component
     public $lines_options;
 
     /**
-     * @param string            $type           type of destination (may be OUTFILE)
-     * @param string|Expression $dest           actual destination
-     * @param array             $columns        column list of destination
-     * @param array             $values         selected fields
-     * @param OptionsArray      $fields_options options for FIELDS/COLUMNS keyword
-     * @param bool              $fields_keyword options for OPTIONS keyword
+     * @param string            $type          type of destination (may be OUTFILE)
+     * @param string|Expression $dest          actual destination
+     * @param array             $columns       column list of destination
+     * @param array             $values        selected fields
+     * @param OptionsArray      $fieldsOptions options for FIELDS/COLUMNS keyword
+     * @param bool              $fieldsKeyword options for OPTIONS keyword
      */
     public function __construct(
         $type = null,
         $dest = null,
         $columns = null,
         $values = null,
-        $fields_options = null,
-        $fields_keyword = null
+        $fieldsOptions = null,
+        $fieldsKeyword = null
     ) {
         $this->type = $type;
         $this->dest = $dest;
         $this->columns = $columns;
         $this->values = $values;
-        $this->fields_options = $fields_options;
-        $this->fields_keyword = $fields_keyword;
+        $this->fields_options = $fieldsOptions;
+        $this->fields_keyword = $fieldsKeyword;
     }
 
     /**
@@ -283,15 +283,15 @@ class IntoKeyword extends Component
 
         $ret = 'OUTFILE "' . $component->dest . '"';
 
-        $fields_options_str = OptionsArray::build($component->fields_options);
-        if (trim($fields_options_str) !== '') {
+        $fieldsOptionsString = OptionsArray::build($component->fields_options);
+        if (trim($fieldsOptionsString) !== '') {
             $ret .= $component->fields_keyword ? ' FIELDS' : ' COLUMNS';
-            $ret .= ' ' . $fields_options_str;
+            $ret .= ' ' . $fieldsOptionsString;
         }
 
-        $lines_options_str = OptionsArray::build($component->lines_options, ['expr' => true]);
-        if (trim($lines_options_str) !== '') {
-            $ret .= ' LINES ' . $lines_options_str;
+        $linesOptionsString = OptionsArray::build($component->lines_options, ['expr' => true]);
+        if (trim($linesOptionsString) !== '') {
+            $ret .= ' LINES ' . $linesOptionsString;
         }
 
         return $ret;

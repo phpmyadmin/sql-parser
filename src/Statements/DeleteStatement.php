@@ -365,10 +365,10 @@ class DeleteStatement extends Statement
         }
 
         if ($state >= 2) {
-            foreach ($this->from as $from_expr) {
-                $from_expr->database = $from_expr->table;
-                $from_expr->table = $from_expr->column;
-                $from_expr->column = null;
+            foreach ($this->from as $fromExpr) {
+                $fromExpr->database = $fromExpr->table;
+                $fromExpr->table = $fromExpr->column;
+                $fromExpr->column = null;
             }
         }
 
