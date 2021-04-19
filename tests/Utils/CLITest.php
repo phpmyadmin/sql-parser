@@ -47,7 +47,7 @@ class CLITest extends TestCase
      *
      * We do mock it for other tests to return values we want.
      */
-    public function testGetopt()
+    public function testGetopt(): void
     {
         $cli = new CLI();
         $this->assertEquals(
@@ -63,7 +63,7 @@ class CLITest extends TestCase
      *
      * @dataProvider highlightParamsProvider
      */
-    public function testRunHighlight($getopt, $output, $result)
+    public function testRunHighlight($getopt, $output, $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
@@ -137,7 +137,7 @@ class CLITest extends TestCase
      *
      * @dataProvider highlightParamsStdInProvider
      */
-    public function testRunHighlightStdIn($input, $getopt, $output, $result)
+    public function testRunHighlightStdIn($input, $getopt, $output, $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);
@@ -204,7 +204,7 @@ class CLITest extends TestCase
      *
      * @dataProvider lintParamsStdInProvider
      */
-    public function testRunLintFromStdIn($input, $getopt, $output, $result)
+    public function testRunLintFromStdIn($input, $getopt, $output, $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);
@@ -267,7 +267,7 @@ class CLITest extends TestCase
      *
      * @dataProvider lintParamsProvider
      */
-    public function testRunLint($getopt, $output, $result)
+    public function testRunLint($getopt, $output, $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
@@ -332,7 +332,7 @@ class CLITest extends TestCase
      *
      * @dataProvider tokenizeParamsProvider
      */
-    public function testRunTokenize($getopt, $output, $result)
+    public function testRunTokenize($getopt, $output, $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
@@ -386,7 +386,7 @@ class CLITest extends TestCase
      *
      * @dataProvider tokenizeParamsStdInProvider
      */
-    public function testRunTokenizeStdIn($input, $getopt, $output, $result)
+    public function testRunTokenizeStdIn($input, $getopt, $output, $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);
@@ -434,7 +434,7 @@ class CLITest extends TestCase
     /**
      * @dataProvider stdinParamsProvider
      */
-    public function testStdinPipe(string $cmd, int $result)
+    public function testStdinPipe(string $cmd, int $result): void
     {
         exec($cmd, $out, $ret);
         $this->assertSame($result, $ret);

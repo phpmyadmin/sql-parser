@@ -17,7 +17,7 @@ class FormatterTest extends TestCase
      *
      * @dataProvider mergeFormatsProvider
      */
-    public function testMergeFormats($default, $overriding, $expected)
+    public function testMergeFormats($default, $overriding, $expected): void
     {
         $formatter = $this->getMockBuilder(Formatter::class)
             ->disableOriginalConstructor()
@@ -243,7 +243,7 @@ class FormatterTest extends TestCase
      *
      * @dataProvider formatQueriesProviders
      */
-    public function testFormat($query, $text, $cli, $html, array $options = [])
+    public function testFormat($query, $text, $cli, $html, array $options = []): void
     {
         // Test TEXT format
         $this->assertEquals(

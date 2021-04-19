@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class CallStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         $query = 'CALL foo()';
 

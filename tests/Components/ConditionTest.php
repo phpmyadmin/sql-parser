@@ -10,13 +10,13 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ConditionTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
         $component = Condition::parse(new Parser(), $this->getTokensList('/* id = */ id = 10'));
         $this->assertEquals($component[0]->expr, 'id = 10');
     }
 
-    public function testParseBetween()
+    public function testParseBetween(): void
     {
         $component = Condition::parse(
             new Parser(),

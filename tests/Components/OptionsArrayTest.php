@@ -10,7 +10,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class OptionsArrayTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
         $component = OptionsArray::parse(
             new Parser(),
@@ -39,7 +39,7 @@ class OptionsArrayTest extends TestCase
         );
     }
 
-    public function testParseExpr()
+    public function testParseExpr(): void
     {
         $component = OptionsArray::parse(
             new Parser(),
@@ -60,7 +60,7 @@ class OptionsArrayTest extends TestCase
         $this->assertEquals('8', $component->has('RESULT'));
     }
 
-    public function testHas()
+    public function testHas(): void
     {
         $component = OptionsArray::parse(
             new Parser(),
@@ -80,7 +80,7 @@ class OptionsArrayTest extends TestCase
         $this->assertFalse($component->has('D'));
     }
 
-    public function testRemove()
+    public function testRemove(): void
     {
         /* Assertion 1 */
         $component = new OptionsArray(['a', 'b', 'c']);
@@ -106,14 +106,14 @@ class OptionsArrayTest extends TestCase
         $this->assertFalse($component->has('B'));
     }
 
-    public function testMerge()
+    public function testMerge(): void
     {
         $component = new OptionsArray(['a']);
         $component->merge(['b', 'c']);
         $this->assertEquals($component->options, ['a', 'b', 'c']);
     }
 
-    public function testBuild()
+    public function testBuild(): void
     {
         $component = new OptionsArray(
             [

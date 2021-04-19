@@ -13,7 +13,7 @@ class RestoreStatementTest extends TestCase
      *
      * @dataProvider restoreProvider
      */
-    public function testRestore($test)
+    public function testRestore($test): void
     {
         $this->runParserTest($test);
     }

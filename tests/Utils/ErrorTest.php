@@ -11,7 +11,7 @@ use PhpMyAdmin\SqlParser\Utils\Error;
 
 class ErrorTest extends TestCase
 {
-    public function testGet()
+    public function testGet(): void
     {
         $lexer = new Lexer('SELECT * FROM db..tbl }');
         $parser = new Parser($lexer->list);
@@ -34,7 +34,7 @@ class ErrorTest extends TestCase
         );
     }
 
-    public function testFormat()
+    public function testFormat(): void
     {
         $this->assertEquals(
             ['#1: error msg (near "token" at position 100)'],

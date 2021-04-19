@@ -19,7 +19,7 @@ class ParserTest extends TestCase
      *
      * @dataProvider parseProvider
      */
-    public function testParse($test)
+    public function testParse($test): void
     {
         $this->runParserTest($test);
     }
@@ -33,7 +33,7 @@ class ParserTest extends TestCase
         ];
     }
 
-    public function testUnrecognizedStatement()
+    public function testUnrecognizedStatement(): void
     {
         $parser = new Parser('SELECT 1; FROM');
         $this->assertEquals(
@@ -42,7 +42,7 @@ class ParserTest extends TestCase
         );
     }
 
-    public function testUnrecognizedKeyword()
+    public function testUnrecognizedKeyword(): void
     {
         $parser = new Parser('SELECT 1 FROM foo PARTITION(bar, baz) AS');
         $this->assertEquals(
@@ -55,7 +55,7 @@ class ParserTest extends TestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
-    public function testError()
+    public function testError(): void
     {
         $parser = new Parser(new TokensList());
 
@@ -71,7 +71,7 @@ class ParserTest extends TestCase
         );
     }
 
-    public function testErrorStrict()
+    public function testErrorStrict(): void
     {
         $this->expectExceptionCode(3);
         $this->expectExceptionMessage('strict error');

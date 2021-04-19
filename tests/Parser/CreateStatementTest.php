@@ -13,7 +13,7 @@ class CreateStatementTest extends TestCase
      *
      * @dataProvider createProvider
      */
-    public function testCreate($test)
+    public function testCreate($test): void
     {
         $this->runParserTest($test);
     }

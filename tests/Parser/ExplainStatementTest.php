@@ -13,7 +13,7 @@ class ExplainStatementTest extends TestCase
      *
      * @dataProvider explainProvider
      */
-    public function testExplain($test)
+    public function testExplain($test): void
     {
         $this->runParserTest($test);
     }

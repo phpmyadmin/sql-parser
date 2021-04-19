@@ -13,7 +13,7 @@ class AlterStatementTest extends TestCase
      *
      * @dataProvider alterProvider
      */
-    public function testAlter($test)
+    public function testAlter($test): void
     {
         $this->runParserTest($test);
     }

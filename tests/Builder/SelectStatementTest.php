@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class SelectStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         $query = 'SELECT * FROM t1 LEFT JOIN (t2, t3, t4) '
             . 'ON (t2.a=t1.a AND t3.b=t1.b AND t4.c=t1.c)';
@@ -24,7 +24,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderUnion()
+    public function testBuilderUnion(): void
     {
         $parser = new Parser('SELECT 1 UNION SELECT 2');
         $stmt = $parser->statements[0];
@@ -35,7 +35,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderAlias()
+    public function testBuilderAlias(): void
     {
         $parser = new Parser(
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
@@ -54,7 +54,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderAliasOrder()
+    public function testBuilderAliasOrder(): void
     {
         $parser = new Parser(
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
@@ -73,7 +73,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderAliasOrderMultiple()
+    public function testBuilderAliasOrderMultiple(): void
     {
         $parser = new Parser(
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
@@ -92,7 +92,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderAliasOrderMultipleFunctions()
+    public function testBuilderAliasOrderMultipleFunctions(): void
     {
         $parser = new Parser(
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
@@ -111,7 +111,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderAliasGroupByMultipleFunctions()
+    public function testBuilderAliasGroupByMultipleFunctions(): void
     {
         $parser = new Parser(
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
@@ -130,7 +130,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderAliasGroupByMultipleFunctionsOrderRemoved()
+    public function testBuilderAliasGroupByMultipleFunctionsOrderRemoved(): void
     {
         $parser = new Parser(
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
@@ -152,7 +152,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderAliasOrderCase()
+    public function testBuilderAliasOrderCase(): void
     {
         $parser = new Parser(
             'SELECT * FROM `world_borders` ORDER BY CASE '
@@ -171,7 +171,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderAliasGroupByCase()
+    public function testBuilderAliasGroupByCase(): void
     {
         $parser = new Parser(
             'SELECT * FROM `world_borders` GROUP BY CASE '
@@ -190,7 +190,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderEndOptions()
+    public function testBuilderEndOptions(): void
     {
         /* Assertion 1 */
         $query = 'SELECT pid, name2 FROM tablename WHERE pid = 20 FOR UPDATE';
@@ -213,7 +213,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderIntoOptions()
+    public function testBuilderIntoOptions(): void
     {
         /* Assertion 1 */
         $query = 'SELECT a, b, a+b INTO OUTFILE "/tmp/result.txt"'
@@ -229,7 +229,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderGroupBy()
+    public function testBuilderGroupBy(): void
     {
         $query = 'SELECT COUNT(CustomerID), Country FROM Customers GROUP BY Country';
         $parser = new Parser($query);
@@ -241,7 +241,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderIndexHint()
+    public function testBuilderIndexHint(): void
     {
         $query = 'SELECT * FROM address FORCE INDEX (idx_fk_city_id) IGNORE KEY FOR GROUP BY (a, b,c) WHERE city_id<0';
         $parser = new Parser($query);
@@ -253,7 +253,7 @@ class SelectStatementTest extends TestCase
         );
     }
 
-    public function testBuilderSurroundedByParanthesisWithLimit()
+    public function testBuilderSurroundedByParanthesisWithLimit(): void
     {
         $query = '(SELECT first_name FROM `actor` LIMIT 1, 2)';
         $parser = new Parser($query);

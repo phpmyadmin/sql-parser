@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class InsertStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         /* Assertion 1 */
         $parser = new Parser('INSERT INTO tbl(`col1`, `col2`, `col3`) VALUES (1, "str", 3.14)');

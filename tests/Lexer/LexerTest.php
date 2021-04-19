@@ -51,7 +51,7 @@ class LexerTest extends TestCase
     /**
      * @dataProvider lexProvider
      */
-    public function testLex(string $test)
+    public function testLex(string $test): void
     {
         $this->runParserTest($test);
     }

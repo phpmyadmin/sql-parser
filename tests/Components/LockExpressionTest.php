@@ -10,7 +10,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class LockExpressionTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
         $component = LockExpression::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL'));
         $this->assertNotNull($component->table);
@@ -19,7 +19,7 @@ class LockExpressionTest extends TestCase
         $this->assertEquals($component->type, 'READ LOCAL');
     }
 
-    public function testParse2()
+    public function testParse2(): void
     {
         $component = LockExpression::parse(new Parser(), $this->getTokensList('table1 LOW_PRIORITY WRITE'));
         $this->assertNotNull($component->table);
@@ -33,7 +33,7 @@ class LockExpressionTest extends TestCase
      *
      * @dataProvider parseErrProvider
      */
-    public function testParseErr($expr, $error)
+    public function testParseErr($expr, $error): void
     {
         $parser = new Parser();
         LockExpression::parse($parser, $this->getTokensList($expr));
@@ -59,7 +59,7 @@ class LockExpressionTest extends TestCase
         ];
     }
 
-    public function testBuild()
+    public function testBuild(): void
     {
         $component = [
             LockExpression::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL')),

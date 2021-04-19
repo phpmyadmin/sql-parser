@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class SetStatementTest extends TestCase
 {
-    public function testBuilderView()
+    public function testBuilderView(): void
     {
         /* Assertion 1 */
         $query = 'SET CHARACTER SET \'utf8\'';

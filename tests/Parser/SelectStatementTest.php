@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class SelectStatementTest extends TestCase
 {
-    public function testSelectOptions()
+    public function testSelectOptions(): void
     {
         $data = $this->getData('parser/parseSelect');
         $parser = new Parser($data['query']);
@@ -22,7 +22,7 @@ class SelectStatementTest extends TestCase
      *
      * @dataProvider selectProvider
      */
-    public function testSelect($test)
+    public function testSelect($test): void
     {
         $this->runParserTest($test);
     }

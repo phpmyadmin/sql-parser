@@ -10,13 +10,13 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ExpressionTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
         $component = Expression::parse(new Parser(), $this->getTokensList('IF(film_id > 0, film_id, film_id)'));
         $this->assertEquals($component->expr, 'IF(film_id > 0, film_id, film_id)');
     }
 
-    public function testParse2()
+    public function testParse2(): void
     {
         $component = Expression::parse(new Parser(), $this->getTokensList('col`test`'));
         $this->assertEquals($component->expr, 'col');
@@ -28,7 +28,7 @@ class ExpressionTest extends TestCase
      *
      * @dataProvider parseErrProvider
      */
-    public function testParseErr($expr, $error)
+    public function testParseErr($expr, $error): void
     {
         $parser = new Parser();
         Expression::parse($parser, $this->getTokensList($expr));
@@ -64,7 +64,7 @@ class ExpressionTest extends TestCase
         ];
     }
 
-    public function testBuild()
+    public function testBuild(): void
     {
         $component = [
             new Expression('1 + 2', 'three'),

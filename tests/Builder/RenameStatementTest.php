@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class RenameStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         $query = 'RENAME TABLE old_table TO new_table';
         $parser = new Parser($query);

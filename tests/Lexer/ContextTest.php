@@ -12,7 +12,7 @@ use function class_exists;
 
 class ContextTest extends TestCase
 {
-    public function testLoad()
+    public function testLoad(): void
     {
         // Default context is 5.7.0.
         $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
@@ -31,7 +31,7 @@ class ContextTest extends TestCase
      *
      * @dataProvider contextLoadingProvider
      */
-    public function testLoadClosest(string $context, ?string $expected)
+    public function testLoadClosest(string $context, ?string $expected): void
     {
         $this->assertEquals($expected, Context::loadClosest($context));
         if ($expected !== null) {
@@ -80,7 +80,7 @@ class ContextTest extends TestCase
     /**
      * @dataProvider contextNamesProvider
      */
-    public function testLoadAll(string $context)
+    public function testLoadAll(string $context): void
     {
         Context::load($context);
         $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\Context' . $context, Context::$loadedContext);

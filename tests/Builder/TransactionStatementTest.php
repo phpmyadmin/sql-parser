@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class TransactionStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         $query = 'START TRANSACTION;' .
             'SELECT @A:=SUM(salary) FROM table1 WHERE type=1;' .

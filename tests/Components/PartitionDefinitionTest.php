@@ -10,7 +10,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class PartitionDefinitionTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
         $component = PartitionDefinition::parse(
             new Parser(),
@@ -22,7 +22,7 @@ class PartitionDefinitionTest extends TestCase
         $this->assertEquals('(1990)', $component->expr->expr);
     }
 
-    public function testParseNameWithUnderscore()
+    public function testParseNameWithUnderscore(): void
     {
         $component = PartitionDefinition::parse(
             new Parser(),

@@ -10,13 +10,13 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class FunctionCallTest extends TestCase
 {
-    public function testBuildArray()
+    public function testBuildArray(): void
     {
         $component = new FunctionCall('func', ['a', 'b']);
         $this->assertEquals('func(a, b)', FunctionCall::build($component));
     }
 
-    public function testBuildArrayObj()
+    public function testBuildArrayObj(): void
     {
         $component = new FunctionCall('func', new ArrayObj(['a', 'b']));
         $this->assertEquals('func(a, b)', FunctionCall::build($component));

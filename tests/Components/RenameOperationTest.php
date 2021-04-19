@@ -10,7 +10,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class RenameOperationTest extends TestCase
 {
-    public function testBuild()
+    public function testBuild(): void
     {
         $component = RenameOperation::parse(new Parser(), $this->getTokensList('a TO b, c TO d'));
         $this->assertEquals(RenameOperation::build($component), 'a TO b, c TO d');

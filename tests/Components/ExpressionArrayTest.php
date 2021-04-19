@@ -10,7 +10,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ExpressionArrayTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
         $component = ExpressionArray::parse(
             new Parser(),
@@ -20,7 +20,7 @@ class ExpressionArrayTest extends TestCase
         $this->assertEquals([], $component);
     }
 
-    public function testParse2()
+    public function testParse2(): void
     {
         $component = ExpressionArray::parse(
             new Parser(),

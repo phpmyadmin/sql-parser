@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class LockStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         /* Assertion 1 */
         $query = 'LOCK TABLES table1 AS `t1` READ LOCAL';

@@ -10,7 +10,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class KeyTest extends TestCase
 {
-    public function testParse()
+    public function testParse(): void
     {
         $component = Key::parse(
             new Parser(),

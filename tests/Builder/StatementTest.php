@@ -13,7 +13,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class StatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         $stmt = new SelectStatement();
 

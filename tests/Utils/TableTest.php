@@ -15,7 +15,7 @@ class TableTest extends TestCase
      *
      * @dataProvider getForeignKeysProvider
      */
-    public function testGetForeignKeys($query, array $expected)
+    public function testGetForeignKeys($query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals($expected, Table::getForeignKeys($parser->statements[0]));
@@ -120,7 +120,7 @@ class TableTest extends TestCase
      *
      * @dataProvider getFieldsProvider
      */
-    public function testGetFields($query, array $expected)
+    public function testGetFields($query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals($expected, Table::getFields($parser->statements[0]));

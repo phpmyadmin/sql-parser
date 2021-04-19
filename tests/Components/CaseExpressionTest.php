@@ -10,7 +10,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class CaseExpressionTest extends TestCase
 {
-    public function testParseBuild()
+    public function testParseBuild(): void
     {
         $caseExprQuery = 'case 1 when 1 then "Some" else "Other" end';
         $component = CaseExpression::parse(
@@ -23,7 +23,7 @@ class CaseExpressionTest extends TestCase
         );
     }
 
-    public function testParseBuild2()
+    public function testParseBuild2(): void
     {
         $caseExprQuery = 'case when 1=1 then "India" else "Other" end';
         $component = CaseExpression::parse(
@@ -36,7 +36,7 @@ class CaseExpressionTest extends TestCase
         );
     }
 
-    public function testParseBuild3()
+    public function testParseBuild3(): void
     {
         $caseExprQuery = 'case 1 when 1 then "Some" '
             . 'when 2 then "SomeOther" else "Other" end';
@@ -50,7 +50,7 @@ class CaseExpressionTest extends TestCase
         );
     }
 
-    public function testParseBuild4()
+    public function testParseBuild4(): void
     {
         $caseExprQuery = 'case 1 when 1 then "Some" '
             . 'when 2 then "SomeOther" end';
@@ -64,7 +64,7 @@ class CaseExpressionTest extends TestCase
         );
     }
 
-    public function testParseBuild5()
+    public function testParseBuild5(): void
     {
         $caseExprQuery = 'case when 1=1 then "Some" '
             . 'when 1=2 then "SomeOther" else "Other" end';
@@ -78,7 +78,7 @@ class CaseExpressionTest extends TestCase
         );
     }
 
-    public function testParseBuild6()
+    public function testParseBuild6(): void
     {
         $caseExprQuery = 'case when 1=1 then "Some" '
             . 'when 1=2 then "SomeOther" end';
@@ -92,7 +92,7 @@ class CaseExpressionTest extends TestCase
         );
     }
 
-    public function testParseBuild7()
+    public function testParseBuild7(): void
     {
         $caseExprQuery = 'case when 1=1 then "Some" '
             . 'when 1=2 then "SomeOther" end AS foo';
@@ -106,7 +106,7 @@ class CaseExpressionTest extends TestCase
         );
     }
 
-    public function testParseBuild8()
+    public function testParseBuild8(): void
     {
         $caseExprQuery = 'case when 1=1 then "Some" '
             . 'when 1=2 then "SomeOther" end foo';
@@ -120,7 +120,7 @@ class CaseExpressionTest extends TestCase
         );
     }
 
-    public function testBuildWithIncompleteCaseExpression()
+    public function testBuildWithIncompleteCaseExpression(): void
     {
         $incompleteCaseExpressionComponent = new CaseExpression();
         $this->assertEquals('CASE END', CaseExpression::build($incompleteCaseExpressionComponent));

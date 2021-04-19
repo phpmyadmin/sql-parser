@@ -13,7 +13,7 @@ class BugsTest extends TestCase
      *
      * @dataProvider bugProvider
      */
-    public function testBug($test)
+    public function testBug($test): void
     {
         $this->runParserTest($test);
     }

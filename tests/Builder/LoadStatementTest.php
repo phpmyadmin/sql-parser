@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class LoadStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         /* Assertion 1 */
         $query = 'LOAD DATA CONCURRENT INFILE '

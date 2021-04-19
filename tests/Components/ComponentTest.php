@@ -16,14 +16,14 @@ class ComponentTest extends TestCase
      * @runInSeparateProcess
      * @preserveGlobalState disabled
      */
-    public function testParse()
+    public function testParse(): void
     {
         $this->expectExceptionMessage('Not implemented yet.');
         $this->expectException(Throwable::class);
         Component::parse(new Parser(), new TokensList());
     }
 
-    public function testBuild()
+    public function testBuild(): void
     {
         $this->expectExceptionMessage('Not implemented yet.');
         $this->expectException(Throwable::class);

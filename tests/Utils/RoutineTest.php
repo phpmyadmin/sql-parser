@@ -15,7 +15,7 @@ class RoutineTest extends TestCase
      *
      * @dataProvider getReturnTypeProvider
      */
-    public function testGetReturnType($def, array $expected)
+    public function testGetReturnType($def, array $expected): void
     {
         $this->assertEquals($expected, Routine::getReturnType($def));
     }
@@ -111,7 +111,7 @@ class RoutineTest extends TestCase
      *
      * @dataProvider getParameterProvider
      */
-    public function testGetParameter($def, array $expected)
+    public function testGetParameter($def, array $expected): void
     {
         $this->assertEquals($expected, Routine::getParameter($def));
     }
@@ -207,7 +207,7 @@ class RoutineTest extends TestCase
      *
      * @dataProvider getParametersProvider
      */
-    public function testGetParameters($query, array $expected)
+    public function testGetParameters($query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals($expected, Routine::getParameters($parser->statements[0]));

@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class TruncateStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         $query = 'TRUNCATE TABLE mytable;';
 
@@ -19,7 +19,7 @@ class TruncateStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
     }
 
-    public function testBuilderDbtable()
+    public function testBuilderDbtable(): void
     {
         $query = 'TRUNCATE TABLE mydb.mytable;';
 
@@ -29,7 +29,7 @@ class TruncateStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
     }
 
-    public function testBuilderDbtableBackQuotes()
+    public function testBuilderDbtableBackQuotes(): void
     {
         $query = 'TRUNCATE TABLE `mydb`.`mytable`;';
 

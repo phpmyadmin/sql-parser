@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class AlterStatementTest extends TestCase
 {
-    public function testBuilder()
+    public function testBuilder(): void
     {
         $query = 'ALTER TABLE `actor` ' .
             'ADD PRIMARY KEY (`actor_id`), ' .

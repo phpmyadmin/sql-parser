@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ExplainStatementTest extends TestCase
 {
-    public function testBuilderView()
+    public function testBuilderView(): void
     {
         $query = 'EXPLAIN SELECT * FROM test;';
 

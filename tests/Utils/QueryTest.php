@@ -18,7 +18,7 @@ class QueryTest extends TestCase
      *
      * @dataProvider getFlagsProvider
      */
-    public function testGetFlags($query, $expected)
+    public function testGetFlags($query, $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals(
@@ -274,7 +274,7 @@ class QueryTest extends TestCase
         ];
     }
 
-    public function testGetAll()
+    public function testGetAll(): void
     {
         $this->assertEquals(
             [
@@ -400,7 +400,7 @@ class QueryTest extends TestCase
      *
      * @dataProvider getTablesProvider
      */
-    public function testGetTables($query, $expected)
+    public function testGetTables($query, $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals(
@@ -461,7 +461,7 @@ class QueryTest extends TestCase
         ];
     }
 
-    public function testGetClause()
+    public function testGetClause(): void
     {
         /* Assertion 1 */
         $parser = new Parser(
@@ -567,7 +567,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testReplaceClause()
+    public function testReplaceClause(): void
     {
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10;');
         $this->assertEquals(
@@ -595,7 +595,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testReplaceClauseOnlyKeyword()
+    public function testReplaceClauseOnlyKeyword(): void
     {
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10');
         $this->assertEquals(
@@ -610,7 +610,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testReplaceNonExistingPart()
+    public function testReplaceNonExistingPart(): void
     {
         $parser = new Parser('ALTER TABLE `sale_mast` OPTIMIZE PARTITION p3');
         $this->assertEquals(
@@ -624,7 +624,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testReplaceClauses()
+    public function testReplaceClauses(): void
     {
         $this->assertEquals('', Query::replaceClauses(null, null, []));
 
@@ -678,7 +678,7 @@ class QueryTest extends TestCase
         );
     }
 
-    public function testGetFirstStatement()
+    public function testGetFirstStatement(): void
     {
         $query = 'USE saki';
         $delimiter = null;

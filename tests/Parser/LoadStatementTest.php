@@ -9,7 +9,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class LoadStatementTest extends TestCase
 {
-    public function testLoadOptions()
+    public function testLoadOptions(): void
     {
         $data = $this->getData('parser/parseLoad1');
         $parser = new Parser($data['query']);
@@ -22,7 +22,7 @@ class LoadStatementTest extends TestCase
      *
      * @dataProvider loadProvider
      */
-    public function testLoad($test)
+    public function testLoad($test): void
     {
         $this->runParserTest($test);
     }

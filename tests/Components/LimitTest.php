@@ -9,13 +9,13 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class LimitTest extends TestCase
 {
-    public function testBuildWithoutOffset()
+    public function testBuildWithoutOffset(): void
     {
         $component = new Limit(1);
         $this->assertEquals(Limit::build($component), '0, 1');
     }
 
-    public function testBuildWithOffset()
+    public function testBuildWithOffset(): void
     {
         $component = new Limit(1, 2);
         $this->assertEquals(Limit::build($component), '2, 1');
@@ -26,7 +26,7 @@ class LimitTest extends TestCase
      *
      * @dataProvider parseProvider
      */
-    public function testParse($test)
+    public function testParse($test): void
     {
         $this->runParserTest($test);
     }

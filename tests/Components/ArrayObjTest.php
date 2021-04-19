@@ -11,19 +11,19 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ArrayObjTest extends TestCase
 {
-    public function testBuildRaw()
+    public function testBuildRaw(): void
     {
         $component = new ArrayObj(['a', 'b'], []);
         $this->assertEquals('(a, b)', ArrayObj::build($component));
     }
 
-    public function testBuildValues()
+    public function testBuildValues(): void
     {
         $component = new ArrayObj([], ['a', 'b']);
         $this->assertEquals('(a, b)', ArrayObj::build($component));
     }
 
-    public function testParseType()
+    public function testParseType(): void
     {
         $components = ArrayObj::parse(
             new Parser(),
@@ -44,7 +44,7 @@ class ArrayObjTest extends TestCase
      *
      * @dataProvider parseProvider
      */
-    public function testParse($test)
+    public function testParse($test): void
     {
         $this->runParserTest($test);
     }
