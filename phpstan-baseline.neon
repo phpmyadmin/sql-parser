@@ -716,11 +716,6 @@ parameters:
 			path: src/Components/LockExpression.php
 
 		-
-			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/OptionsArray.php
@@ -1521,6 +1516,11 @@ parameters:
 			path: src/Statements/UpdateStatement.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\WithStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Statements/WithStatement.php
+
+		-
 			message: "#^Class PhpMyAdmin\\\\SqlParser\\\\TokensList implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
 			count: 1
 			path: src/TokensList.php
@@ -2129,6 +2129,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\UpdateStatementTest\\:\\:updateProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/UpdateStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword, stdClass given\\.$#"
+			count: 1
+			path: tests/Parser/WithStatementTest.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\LexerException\\|PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\ParserException\\:\\:\\$ch\\.$#"

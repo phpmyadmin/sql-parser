@@ -50,11 +50,7 @@ class TokensList implements ArrayAccess
         }
 
         $this->tokens = $tokens;
-        if ($count !== -1) {
-            return;
-        }
-
-        $this->count = count($tokens);
+        $this->count = $count === -1 ? count($tokens) : $count;
     }
 
     /**

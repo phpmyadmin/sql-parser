@@ -220,8 +220,11 @@ class OptionsArray extends Component
                     $list,
                     empty($lastOption[2]) ? [] : $lastOption[2]
                 );
-                $ret->options[$lastOptionId]['value']
-                    = $ret->options[$lastOptionId]['expr']->expr;
+                if ($ret->options[$lastOptionId]['expr'] !== null) {
+                    $ret->options[$lastOptionId]['value']
+                        = $ret->options[$lastOptionId]['expr']->expr;
+                }
+
                 $lastOption = null;
                 $state = 0;
             } else {

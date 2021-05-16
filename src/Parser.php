@@ -73,6 +73,7 @@ class Parser extends Core
         'REPLACE' => 'PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement',
         'SELECT' => 'PhpMyAdmin\\SqlParser\\Statements\\SelectStatement',
         'UPDATE' => 'PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement',
+        'WITH' => 'PhpMyAdmin\\SqlParser\\Statements\\WithStatement',
 
         // Prepared Statements.
         // https://dev.mysql.com/doc/refman/5.7/en/sql-syntax-prepared-statements.html
