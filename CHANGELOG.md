@@ -1,6 +1,8 @@
 # Change Log
 
-## [5.4.3] - YYYY-MM-DD
+## [5.5.0] - YYYY-MM-DD
+
+* Add WITH support (#165, #331)
 
 ## [5.4.2] - 2021-02-05
 
