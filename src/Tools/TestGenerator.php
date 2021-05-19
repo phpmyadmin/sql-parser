@@ -8,19 +8,25 @@ use Exception;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use Zumba\JsonSerializer\JsonSerializer;
 
 use function file_exists;
 use function file_get_contents;
 use function file_put_contents;
 use function in_array;
 use function is_dir;
+use function json_decode;
+use function json_encode;
 use function mkdir;
 use function print_r;
 use function scandir;
-use function serialize;
 use function sprintf;
 use function strpos;
 use function substr;
+
+use const JSON_PRESERVE_ZERO_FRACTION;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_UNICODE;
 
 /**
  * Used for test generation.
@@ -148,9 +154,14 @@ class TestGenerator
 
         // unset mode, reset to default every time, to be sure
         Context::setMode();
-
+        $serializer = new JsonSerializer();
         // Writing test's data.
-        file_put_contents($output, serialize($test));
+        $encoded = $serializer->serialize($test);
+        $encoded = json_encode(
+            json_decode($encoded),
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION
+        );
+        file_put_contents($output, $encoded);
 
         // Dumping test's data in human readable format too (if required).
         if (empty($debug)) {

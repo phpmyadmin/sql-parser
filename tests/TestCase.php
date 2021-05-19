@@ -14,10 +14,10 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use Zumba\JsonSerializer\JsonSerializer;
 
 use function file_get_contents;
 use function strpos;
-use function unserialize;
 
 /**
  * Implements useful methods for testing.
@@ -87,12 +87,8 @@ abstract class TestCase extends BaseTestCase
      */
     public function getData($name)
     {
-        /*
-         * The unrestricted unserialize() is needed here as we do have
-         * serialized objects in the tests. There should be no security risk as
-         * the test data comes with the repository.
-         */
-        $data = unserialize(file_get_contents('tests/data/' . $name . '.out'));
+        $serializer = new JsonSerializer();
+        $data = $serializer->unserialize((string) file_get_contents('tests/data/' . $name . '.out'));
         $data['query'] = file_get_contents('tests/data/' . $name . '.in');
 
         return $data;
