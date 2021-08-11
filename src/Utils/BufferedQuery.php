@@ -192,7 +192,7 @@ class BufferedQuery
              * be ignored.
              */
             if ((($this->status & static::STATUS_COMMENT) === 0) && ($this->query[$i] === '\\')) {
-                $this->current .= $this->query[$i] . $this->query[++$i];
+                $this->current .= $this->query[$i] . ($i + 1 < $len ? $this->query[++$i] : '');
                 continue;
             }
 
