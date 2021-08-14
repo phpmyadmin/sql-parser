@@ -306,6 +306,22 @@ EOT
             'SELECT id, first_name, FROMzz employee WHERE id = 1 ',
             $stmt->build()
         );
+
+        $parser = new Parser(
+            'CREATE OR REPLACE VIEW myView (vid, vfirstname) AS ' .
+            'SELECT id, first_name, FROMzz employee WHERE id = 1 ' .
+            'UNION ' .
+            'SELECT id, first_name, FROMzz employee WHERE id = 2 '
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE OR REPLACE VIEW myView (vid, vfirstname) AS  ' .
+            'SELECT id, first_name, FROMzz employee WHERE id = 1 ' .
+            'UNION ' .
+            'SELECT id, first_name, FROMzz employee WHERE id = 2  ',
+            $stmt->build()
+        );
     }
 
     public function testBuilderTrigger(): void

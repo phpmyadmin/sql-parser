@@ -55,6 +55,7 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateViewWithoutQuotes'],
             ['parser/parseCreateViewWithQuotes'],
             ['parser/parseCreateViewWithWrongSyntax'],
+            ['parser/parseCreateViewWithUnion'],
         ];
     }
 }

@@ -438,7 +438,7 @@ class CreateStatement extends Statement
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
-                . $fields . ' AS ' . ($this->select ? $this->select->build() : TokensList::build($this->body)) . ' '
+                . $fields . ' AS ' . ($this->select ? $this->select->build() : '') . (! empty($this->body) ? TokensList::build($this->body) : '') . ' '
                 . OptionsArray::build($this->entityOptions);
         } elseif ($this->options->has('TRIGGER')) {
             return 'CREATE '
@@ -677,15 +677,16 @@ class CreateStatement extends Statement
             // Parsing the SELECT expression with and without the `AS` keyword
             if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'SELECT') {
                 $this->select = new SelectStatement($parser, $list);
-            } elseif (
-                $token->type === Token::TYPE_KEYWORD
-                && $token->keyword === 'AS'
-                && $list->tokens[$nextidx]->type === Token::TYPE_KEYWORD
-                && $list->tokens[$nextidx]->value === 'SELECT'
-            ) {
-                $list->idx = $nextidx;
-                $this->select = new SelectStatement($parser, $list);
             } else {
+                if (
+                    $token->type === Token::TYPE_KEYWORD
+                    && $token->keyword === 'AS'
+                    && $list->tokens[$nextidx]->type === Token::TYPE_KEYWORD
+                    && $list->tokens[$nextidx]->value === 'SELECT'
+                ) {
+                    $list->idx = $nextidx;
+                    $this->select = new SelectStatement($parser, $list);
+                } 
                 for (; $list->idx < $list->count; ++$list->idx) {
                     $token = $list->tokens[$list->idx];
                     if ($token->type === Token::TYPE_DELIMITER) {
