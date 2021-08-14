@@ -4,6 +4,7 @@
 
 * Add WITH support (#165, #331)
 * Fixed BufferedQuery when it has an odd number of backslashes in the end (#340)
+* Fixed the issue that ignored the body tokens when creating views with union (#343)
 
 ## [5.4.2] - 2021-02-05
 
@@ -71,6 +72,7 @@
 ## [4.7.3] - YYYY-MM-DD
 
 - Fixed BufferedQuery when it has an odd number of backslashes in the end (#340)
+- Fixed the issue that ignored the body tokens when creating views with union (#343)
 
 ## [4.7.2] - 2021-02-05
 

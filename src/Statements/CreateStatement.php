@@ -438,7 +438,8 @@ class CreateStatement extends Statement
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
-                . $fields . ' AS ' . ($this->select ? $this->select->build() : '') . (! empty($this->body) ? TokensList::build($this->body) : '') . ' '
+                . $fields . ' AS ' . ($this->select ? $this->select->build() : '')
+                . (! empty($this->body) ? TokensList::build($this->body) : '') . ' '
                 . OptionsArray::build($this->entityOptions);
         } elseif ($this->options->has('TRIGGER')) {
             return 'CREATE '
@@ -686,7 +687,8 @@ class CreateStatement extends Statement
                 ) {
                     $list->idx = $nextidx;
                     $this->select = new SelectStatement($parser, $list);
-                } 
+                }
+
                 for (; $list->idx < $list->count; ++$list->idx) {
                     $token = $list->tokens[$list->idx];
                     if ($token->type === Token::TYPE_DELIMITER) {
