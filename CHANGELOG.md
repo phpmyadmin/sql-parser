@@ -2,6 +2,8 @@
 
 ## [4.7.3] - YYYY-MM-DD
 
+- Fixed BufferedQuery when it has an odd number of backslashes in the end (#340)
+
 ## [4.7.2] - 2021-02-05
 
 - Added check for quoted symbol to avoid parser error in case of keyword (#317)
