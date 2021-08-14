@@ -626,7 +626,7 @@ parameters:
 			path: src/Components/Key.php
 
 		-
-			message: "#^Binary operation \"\\.\\=\" between array\\|string and string results in an error\\.$#"
+			message: "#^Binary operation \"\\.\\=\" between array\\|string and non\\-empty\\-string results in an error\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
@@ -747,6 +747,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/OptionsArray.php
+
+		-
+			message: "#^Right side of && is always true\\.$#"
 			count: 1
 			path: src/Components/OptionsArray.php
 
@@ -2021,6 +2026,11 @@ parameters:
 			path: tests/Lexer/LexerTest.php
 
 		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 2 and PhpMyAdmin\\\\SqlParser\\\\TokensList will always evaluate to false\\.$#"
+			count: 1
+			path: tests/Lexer/TokensListTest.php
+
+		-
 			message: "#^Cannot assign new offset to PhpMyAdmin\\\\SqlParser\\\\TokensList\\.$#"
 			count: 1
 			path: tests/Lexer/TokensListTest.php
@@ -2034,6 +2044,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\ParameterTest\\:\\:parameterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Misc/ParameterTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 112 and PhpMyAdmin\\\\SqlParser\\\\UtfString will always evaluate to false\\.$#"
+			count: 1
+			path: tests/Misc/UtfStringTest.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:utf8StringsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
