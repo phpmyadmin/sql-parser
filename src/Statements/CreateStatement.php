@@ -709,7 +709,7 @@ class CreateStatement extends Statement
                 ) {
                     $list->idx = $nextidx;
                     $this->select = new SelectStatement($parser, $list);
-                } 
+                }
                 for (; $list->idx < $list->count; ++$list->idx) {
                     $token = $list->tokens[$list->idx];
                     if ($token->type === Token::TYPE_DELIMITER) {
