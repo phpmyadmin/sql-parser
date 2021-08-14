@@ -114,6 +114,18 @@ class BufferedQueryTest extends TestCase
             ),
 
             array(
+                "SELECT \\",
+                8,
+                array(
+                    'parse_delimiter' => false,
+                    'add_delimiter' => false,
+                ),
+                array(
+                    "SELECT \\",
+                ),
+            ),
+
+            array(
                 "CREATE TABLE `test` (\n" .
                 "  `txt` varchar(10)\n" .
                 ");\n" .
