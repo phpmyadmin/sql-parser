@@ -30,4 +30,25 @@ class ExpressionArrayTest extends TestCase
         $this->assertCount(1, $component);
         $this->assertEquals('(expr)', $component[0]->expr);
     }
+
+    public function testParseWithCommentsNoOptions()
+    {
+        $component = ExpressionArray::parse(
+            new Parser(),
+            $this->getTokensList('(expr) -- comment ?')
+        );
+        $this->assertCount(1, $component);
+        $this->assertEquals('(expr)', $component[0]->expr);
+    }
+
+    public function testParseWithCommentsAndOptions()
+    {
+        $component = ExpressionArray::parse(
+            new Parser(),
+            $this->getTokensList('(expr -- comment ?)'),
+            ['parenthesesDelimited' => true]
+        );
+        $this->assertCount(1, $component);
+        $this->assertEquals('(expr', $component[0]->expr);
+    }
 }
