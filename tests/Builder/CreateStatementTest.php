@@ -41,10 +41,7 @@ class CreateStatementTest extends TestCase
         );
 
         // CREATE SCHEMA ...
-        $parser = new Parser(
-            'CREATE SCHEMA `mydb` ' .
-            'DEFAULT CHARACTER SET = utf8 DEFAULT COLLATE = utf8_general_ci'
-        );
+        $parser = new Parser('CREATE SCHEMA `mydb` DEFAULT CHARACTER SET = utf8 DEFAULT COLLATE = utf8_general_ci');
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
