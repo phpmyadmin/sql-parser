@@ -695,28 +695,23 @@ class CreateStatement extends Statement
                 $list->getNext();
             }
 
-            // Parsing the SELECT expression with and without the `AS` keyword
-            if ($token->type === Token::TYPE_KEYWORD
-                && $token->keyword === 'SELECT'
+            // Parsing the SELECT expression if the view started with it.
+            if (
+                $token->type === Token::TYPE_KEYWORD
+                && $token->keyword === 'AS'
+                && $list->tokens[$nextidx]->type === Token::TYPE_KEYWORD
+                && $list->tokens[$nextidx]->value === 'SELECT'
             ) {
+                $list->idx = $nextidx;
                 $this->select = new SelectStatement($parser, $list);
-            } else {
-                if (
-                    $token->type === Token::TYPE_KEYWORD
-                    && $token->keyword === 'AS'
-                    && $list->tokens[$nextidx]->type === Token::TYPE_KEYWORD
-                    && $list->tokens[$nextidx]->value === 'SELECT'
-                ) {
-                    $list->idx = $nextidx;
-                    $this->select = new SelectStatement($parser, $list);
-                } 
-                for (; $list->idx < $list->count; ++$list->idx) {
-                    $token = $list->tokens[$list->idx];
-                    if ($token->type === Token::TYPE_DELIMITER) {
-                        break;
-                    }
-                    $this->body[] = $token;
+            } 
+            // Parsing all other tokens
+            for (; $list->idx < $list->count; ++$list->idx) {
+                $token = $list->tokens[$list->idx];
+                if ($token->type === Token::TYPE_DELIMITER) {
+                    break;
                 }
+                $this->body[] = $token;
             }
         } elseif ($this->options->has('TRIGGER')) {
             // Parsing the time and the event.
