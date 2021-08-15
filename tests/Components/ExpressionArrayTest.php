@@ -31,7 +31,7 @@ class ExpressionArrayTest extends TestCase
         $this->assertEquals('(expr)', $component[0]->expr);
     }
 
-    public function testParseWithCommentsNoOptions()
+    public function testParseWithCommentsNoOptions(): void
     {
         $component = ExpressionArray::parse(
             new Parser(),
@@ -41,7 +41,7 @@ class ExpressionArrayTest extends TestCase
         $this->assertEquals('(expr)', $component[0]->expr);
     }
 
-    public function testParseWithCommentsAndOptions()
+    public function testParseWithCommentsAndOptions(): void
     {
         $component = ExpressionArray::parse(
             new Parser(),
