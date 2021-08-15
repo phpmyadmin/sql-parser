@@ -328,6 +328,70 @@ EOT
         );
     }
 
+    public function testBuilderViewComplex()
+    {
+        $parser = new Parser(
+            'CREATE VIEW withclause AS' . "\n"
+            . "\n"
+            . 'WITH cte AS (' . "\n"
+                . 'SELECT p.name, p.shape' . "\n"
+                . 'FROM gis_all as p' . "\n"
+            . ')' . "\n"
+            . "\n"
+            . 'SELECT cte.*' . "\n"
+            . 'FROM cte' . "\n"
+            . 'CROSS JOIN gis_all;'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE VIEW withclause  AS ' . "\n"
+            . "\n"
+            . 'WITH cte AS (' . "\n"
+                . 'SELECT p.name, p.shape' . "\n"
+                . 'FROM gis_all as p' . "\n"
+            . ')' . "\n"
+            . "\n"
+            . 'SELECT cte.*' . "\n"
+            . 'FROM cte' . "\n"
+            . 'CROSS JOIN gis_all ',
+            $stmt->build()
+        );
+        $parser = new Parser(
+            'CREATE VIEW withclause2 AS' . "\n"
+            . "\n"
+            . 'WITH cte AS (' . "\n"
+                . "\t" . 'SELECT p.name, p.shape' . "\n"
+                . "\t" . 'FROM gis_all as p' . "\n"
+            . '), cte2 AS (' . "\n"
+                . "\t" . 'SELECT p.name as n2, p.shape as sh2' . "\n"
+                . "\t" . 'FROM gis_all as p' . "\n"
+            . ')' . "\n"
+            . "\n"
+            . 'SELECT cte.*,cte2.*' . "\n"
+            . 'FROM cte,cte2' . "\n"
+            . 'CROSS JOIN gis_all;'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE VIEW withclause2  AS ' . "\n"
+            . "\n"
+            . 'WITH cte AS (' . "\n"
+                . "\t" . 'SELECT p.name, p.shape' . "\n"
+                . "\t" . 'FROM gis_all as p' . "\n"
+            . '), cte2 AS (' . "\n"
+                . "\t" . 'SELECT p.name as n2, p.shape as sh2' . "\n"
+                . "\t" . 'FROM gis_all as p' . "\n"
+            . ')' . "\n"
+            . "\n"
+            . 'SELECT cte.*,cte2.*' . "\n"
+            . 'FROM cte,cte2' . "\n"
+            . 'CROSS JOIN gis_all ',
+            $stmt->build()
+        );
+    }
+
     public function testBuilderTrigger()
     {
         $stmt = new CreateStatement();
