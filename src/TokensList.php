@@ -153,6 +153,7 @@ class TokensList implements ArrayAccess
      * @param int   $offset the offset to be set
      * @param Token $value  the token to be saved
      */
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if ($offset === null) {
@@ -169,6 +170,7 @@ class TokensList implements ArrayAccess
      *
      * @return Token
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $offset < $this->count ? $this->tokens[$offset] : null;
@@ -181,6 +183,7 @@ class TokensList implements ArrayAccess
      *
      * @return bool
      */
+    #[ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return $offset < $this->count;
@@ -191,6 +194,7 @@ class TokensList implements ArrayAccess
      *
      * @param int $offset the offset to be unset
      */
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->tokens[$offset]);

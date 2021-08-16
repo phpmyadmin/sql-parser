@@ -91,6 +91,7 @@ class UtfString implements ArrayAccess
      *
      * @return bool
      */
+    #[ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return ($offset >= 0) && ($offset < $this->charLen);
@@ -103,6 +104,7 @@ class UtfString implements ArrayAccess
      *
      * @return string|null
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         if (($offset < 0) || ($offset >= $this->charLen)) {
@@ -146,6 +148,7 @@ class UtfString implements ArrayAccess
      *
      * @throws Exception not implemented.
      */
+    #[ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         throw new Exception('Not implemented.');
@@ -158,6 +161,7 @@ class UtfString implements ArrayAccess
      *
      * @throws Exception not implemented.
      */
+    #[ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         throw new Exception('Not implemented.');
