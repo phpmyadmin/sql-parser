@@ -528,9 +528,11 @@
                             "ALTER": 1,
                             "ANALYZE": 1,
                             "CHANGE": 1,
+                            "CHARSET": 1,
                             "CHECK": 1,
                             "COALESCE": 1,
                             "CONVERT": 1,
+                            "DEFAULT CHARSET": 1,
                             "DISABLE": 1,
                             "DISCARD": 1,
                             "DROP": 1,
@@ -559,38 +561,19 @@
                             "PRIMARY KEY": 2,
                             "SPATIAL": 2,
                             "TABLESPACE": 2,
-                            "INDEX": 2
+                            "INDEX": 2,
+                            "CHARACTER SET": 3
                         },
                         "VIEW_OPTIONS": {
                             "AS": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "1": "CHARSET"
+                            }
                         },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "ALLOWED_KEYWORDS": {
-                                "AS": 1,
-                                "DUAL": 1,
-                                "NULL": 1,
-                                "REGEXP": 1,
-                                "CASE": 1,
-                                "DIV": 1,
-                                "AND": 1,
-                                "OR": 1,
-                                "XOR": 1,
-                                "NOT": 1,
-                                "MOD": 1
-                            },
-                            "database": null,
-                            "table": null,
-                            "column": "CHARSET",
-                            "expr": "CHARSET",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
+                        "field": null,
                         "unknown": [
                             {
                                 "@type": "@9"
@@ -632,14 +615,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@11"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

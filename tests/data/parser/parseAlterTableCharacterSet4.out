@@ -564,9 +564,11 @@
                             "ALTER": 1,
                             "ANALYZE": 1,
                             "CHANGE": 1,
+                            "CHARSET": 1,
                             "CHECK": 1,
                             "COALESCE": 1,
                             "CONVERT": 1,
+                            "DEFAULT CHARSET": 1,
                             "DISABLE": 1,
                             "DISCARD": 1,
                             "DROP": 1,
@@ -595,7 +597,8 @@
                             "PRIMARY KEY": 2,
                             "SPATIAL": 2,
                             "TABLESPACE": 2,
-                            "INDEX": 2
+                            "INDEX": 2,
+                            "CHARACTER SET": 3
                         },
                         "VIEW_OPTIONS": {
                             "AS": 1
@@ -604,21 +607,34 @@
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "1": "CONVERT",
-                                "2": "TO"
+                                "2": "TO",
+                                "3": "CHARACTER SET"
                             }
                         },
-                        "field": null,
-                        "unknown": [
-                            {
-                                "@type": "@12"
+                        "field": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "ALLOWED_KEYWORDS": {
+                                "AS": 1,
+                                "DUAL": 1,
+                                "NULL": 1,
+                                "REGEXP": 1,
+                                "CASE": 1,
+                                "DIV": 1,
+                                "AND": 1,
+                                "OR": 1,
+                                "XOR": 1,
+                                "NOT": 1,
+                                "MOD": 1
                             },
-                            {
-                                "@type": "@13"
-                            },
-                            {
-                                "@type": "@14"
-                            }
-                        ]
+                            "database": null,
+                            "table": null,
+                            "column": "charset_name",
+                            "expr": "charset_name",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
