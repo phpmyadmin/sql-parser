@@ -90,9 +90,11 @@ class AlterOperation extends Component
         'ALTER' => 1,
         'ANALYZE' => 1,
         'CHANGE' => 1,
+        'CHARSET' => 1,
         'CHECK' => 1,
         'COALESCE' => 1,
         'CONVERT' => 1,
+        'DEFAULT CHARSET' => 1,
         'DISABLE' => 1,
         'DISCARD' => 1,
         'DROP' => 1,
@@ -122,7 +124,9 @@ class AlterOperation extends Component
         'PRIMARY KEY' => 2,
         'SPATIAL' => 2,
         'TABLESPACE' => 2,
-        'INDEX' => 2
+        'INDEX' => 2,
+
+        'CHARACTER SET' => 3,
     );
 
     /**
@@ -290,8 +294,8 @@ class AlterOperation extends Component
                         $nextToken = $list->getNext();
 
                         if ($token->value === 'CHARACTER SET'){
-                        // Reverting the changes we made in the beginning
-                        $list->idx = $currentTokenID;
+                            // Reverting the changes we made in the beginning
+                            $list->idx = $currentTokenID;
                         } else if ($token->value === 'SET' && $nextToken->value === '('){
                             // To avoid adding the tokens between the SET() parentheses to the unknown tokens
                             $list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, ')');
