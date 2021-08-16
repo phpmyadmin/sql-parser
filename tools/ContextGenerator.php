@@ -13,6 +13,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
  *
  *     php ContextGenerator.php data data
  *
+ * Example to add a new context using the previous version as a copy:
+ * - cp ./tools/contexts/_functionsMariaDb100300.txt ./tools/contexts/_functionsMariaDb100400.txt
+ * - cp ./tools/contexts/MariaDb100300.txt ./tools/contexts/MariaDb100600.txt
+ * - add the documentation link to ./src/Tools/ContextGenerator.php
+ * - run the script: php ./tools/ContextGenerator.php ./tools/contexts/ ./src/Contexts
+ *
  * Input data must be in the `data` folder.
  * The output will be generated in the same `data` folder.
  */
