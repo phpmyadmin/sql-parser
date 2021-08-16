@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use ArrayAccess;
+use ReturnTypeWillChange;
 
 use function count;
 use function is_array;

@@ -16,6 +16,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use ArrayAccess;
 use Exception;
+use ReturnTypeWillChange;
 
 use function mb_check_encoding;
 use function mb_strlen;
