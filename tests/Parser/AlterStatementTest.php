@@ -39,6 +39,13 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterErr3'],
             ['parser/parseAlterErr4'],
             ['parser/parseAlterWithInvisible'],
+            ['parser/parseAlterTableCharacterSet1'],
+            ['parser/parseAlterTableCharacterSet2'],
+            ['parser/parseAlterTableCharacterSet3'],
+            ['parser/parseAlterTableCharacterSet4'],
+            ['parser/parseAlterTableCharacterSet5'],
+            ['parser/parseAlterTableCharacterSet6'],
+            ['parser/parseAlterTableCharacterSet7'],
         ];
     }
 }
