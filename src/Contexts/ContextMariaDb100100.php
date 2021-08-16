@@ -26,7 +26,8 @@ class ContextMariaDb100100 extends Context
      *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
      *      Token::FLAG_KEYWORD_FUNCTION
      *
-     * @var array
+     * @var array<string,int>
+     * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
     public static $KEYWORDS = [
         'AT' => 1, 'DO' => 1, 'IO' => 1, 'NO' => 1, 'XA' => 1,

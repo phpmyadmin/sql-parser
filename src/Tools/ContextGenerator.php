@@ -108,7 +108,8 @@ class %2$s extends Context
      *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
      *      Token::FLAG_KEYWORD_FUNCTION
      *
-     * @var array
+     * @var array<string,int>
+     * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
     public static $KEYWORDS = [
 %4$s    ];
