@@ -293,13 +293,13 @@ class AlterOperation extends Component
                         $list->getNext();
                         $nextToken = $list->getNext();
 
-                        if ($token->value === 'CHARACTER SET'){
+                        if ($token->value === 'CHARACTER SET') {
                             // Reverting the changes we made in the beginning
                             $list->idx = $currentTokenID;
-                        } else if ($token->value === 'SET' && $nextToken->value === '('){
+                        } else if ($token->value === 'SET' && $nextToken !== null && $nextToken->value === '(') {
                             // To avoid adding the tokens between the SET() parentheses to the unknown tokens
                             $list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, ')');
-                        } else if ($token->value === 'SET' && $nextToken->value === 'DEFAULT'){
+                        } else if ($token->value === 'SET' && $nextToken !== null && $nextToken->value === 'DEFAULT') {
                             // to avoid adding the `DEFAULT` token to the unknown tokens.
                             ++$list->idx;
                         } else {
