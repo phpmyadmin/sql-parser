@@ -19,10 +19,6 @@ jobs:
                 os: [ubuntu-latest]
                 experimental: [false]
                 composer-options: ['']
-                include:
-                  # Non official support but still try to run tests against the code
-                  - { php-version: '8.0', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
-                  - { php-version: '8.1', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
         steps:
             - uses: actions/checkout@v2
             - name: Use php ${{ matrix.php-version }}
