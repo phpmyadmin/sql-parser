@@ -5,12 +5,9 @@ dist: trusty
 php:
   - hhvm-3.12
   - hhvm-3.24
-  - nightly
 
 matrix:
-  fast_finish: true
-  allow_failures:
-    - php: nightly
+  fast_finish: false
 
 install:
   - composer install
