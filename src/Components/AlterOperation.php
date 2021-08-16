@@ -287,16 +287,11 @@ class AlterOperation extends Component
                         // therefore, the first getNext call will start with the current $idx which's $token,
                         // will return it and increase $idx by 1, which's not guaranteed to be non-comment
                         // and non-space, that's why we're calling getNext again.
-                        // In order to get back to the original value of idx, we kept it in $currentID
 
-                        $currentTokenID = $list->idx;
                         $list->getNext();
                         $nextToken = $list->getNext();
 
-                        if ($token->value === 'CHARACTER SET') {
-                            // Reverting the changes we made in the beginning
-                            $list->idx = $currentTokenID;
-                        } elseif ($token->value === 'SET' && $nextToken !== null && $nextToken->value === '(') {
+                        if ($token->value === 'SET' && $nextToken !== null && $nextToken->value === '(') {
                             // To avoid adding the tokens between the SET() parentheses to the unknown tokens
                             $list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, ')');
                         } elseif ($token->value === 'SET' && $nextToken !== null && $nextToken->value === 'DEFAULT') {
