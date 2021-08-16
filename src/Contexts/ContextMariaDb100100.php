@@ -13,7 +13,7 @@ use PhpMyAdmin\SqlParser\Token;
  * This class was auto-generated from tools/contexts/*.txt.
  * Use tools/run_generators.sh for update.
  *
- * @see https://mariadb.com/kb/en/the-mariadb-library/reserved-words/
+ * @see https://mariadb.com/kb/en/reserved-words/
  */
 class ContextMariaDb100100 extends Context
 {
