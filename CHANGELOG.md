@@ -7,6 +7,7 @@
 * Fixed the issue that ignored the body tokens when creating views with union (#343)
 * Fixed parser errors on "ALTER TABLE" statements to add columns with SET type (#168)
 * Fixed PHP 8.1 fatal errors on classes that "implements ArrayAccess"
+* Add new contexts for MariaDB 10.4, 10.5, 10.6 (#328)
 
 ## [5.4.2] - 2021-02-05
 
