@@ -441,6 +441,131 @@ EOT
         );
     }
 
+    public function testBuilderCreateFunction()
+    {
+        $parser = new Parser(
+            'CREATE DEFINER=`root`@`localhost`'
+            . ' FUNCTION `inventory_in_stock`(`p_inventory_id` INT) RETURNS tinyint(1)'
+            . ' READS SQL DATA' . "\n"
+            . 'BEGIN' . "\n"
+            . '    DECLARE v_rentals INT;' . "\n"
+            . '    DECLARE v_out     INT;' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    SELECT COUNT(*) INTO v_rentals' . "\n"
+            . '    FROM rental' . "\n"
+            . '    WHERE inventory_id = p_inventory_id;' . "\n"
+            . "\n"
+            . '    IF v_rentals = 0 THEN' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . "\n"
+            . '    SELECT COUNT(rental_id) INTO v_out' . "\n"
+            . '    FROM inventory LEFT JOIN rental USING(inventory_id)' . "\n"
+            . '    WHERE inventory.inventory_id = p_inventory_id' . "\n"
+            . '    AND rental.return_date IS NULL;' . "\n"
+            . "\n"
+            . '    IF v_out > 0 THEN' . "\n"
+            . '      RETURN FALSE;' . "\n"
+            . '    ELSE' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . 'END'
+        );
+
+        /** @var CreateStatement */
+        $stmt = $parser->statements[0];
+
+        $this->assertSame(
+            'CREATE DEFINER=`root`@`localhost`'
+            . ' FUNCTION `inventory_in_stock` (`p_inventory_id` INT) RETURNS TINYINT(1)'
+            . ' READS SQL DATA' . "\n"
+            . 'BEGIN' . "\n"
+            . '    DECLARE v_rentals INT;' . "\n"
+            . '    DECLARE v_out     INT;' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    SELECT COUNT(*) INTO v_rentals' . "\n"
+            . '    FROM rental' . "\n"
+            . '    WHERE inventory_id = p_inventory_id;' . "\n"
+            . "\n"
+            . '    IF v_rentals = 0 THEN' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . "\n"
+            . '    SELECT COUNT(rental_id) INTO v_out' . "\n"
+            . '    FROM inventory LEFT JOIN rental USING(inventory_id)' . "\n"
+            . '    WHERE inventory.inventory_id = p_inventory_id' . "\n"
+            . '    AND rental.return_date IS NULL;' . "\n"
+            . "\n"
+            . '    IF v_out > 0 THEN' . "\n"
+            . '      RETURN FALSE;' . "\n"
+            . '    ELSE' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . 'END',
+            $stmt->build()
+        );
+
+        $this->assertTrue($stmt->entityOptions->isEmpty());
+        $this->assertFalse($stmt->options->isEmpty());
+
+        $this->assertSame(
+            'DEFINER=`root`@`localhost` FUNCTION',
+            $stmt->options->__toString()
+        );
+
+        $this->assertSame(
+            '`inventory_in_stock`',
+            $stmt->name->__toString()
+        );
+
+        $this->assertSame(
+            '(`p_inventory_id` INT)',
+            ParameterDefinition::build($stmt->parameters)
+        );
+
+        $this->assertSame(
+            '',
+            $stmt->entityOptions->__toString()
+        );
+
+        $this->assertSame(
+            'READS SQL DATA' . "\n"
+            . 'BEGIN' . "\n"
+            . '    DECLARE v_rentals INT;' . "\n"
+            . '    DECLARE v_out     INT;' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    SELECT COUNT(*) INTO v_rentals' . "\n"
+            . '    FROM rental' . "\n"
+            . '    WHERE inventory_id = p_inventory_id;' . "\n"
+            . "\n"
+            . '    IF v_rentals = 0 THEN' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . "\n"
+            . '    SELECT COUNT(rental_id) INTO v_out' . "\n"
+            . '    FROM inventory LEFT JOIN rental USING(inventory_id)' . "\n"
+            . '    WHERE inventory.inventory_id = p_inventory_id' . "\n"
+            . '    AND rental.return_date IS NULL;' . "\n"
+            . "\n"
+            . '    IF v_out > 0 THEN' . "\n"
+            . '      RETURN FALSE;' . "\n"
+            . '    ELSE' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . 'END',
+            TokensList::build($stmt->body)
+        );
+    }
+
     public function testBuilderTrigger()
     {
         $stmt = new CreateStatement();
