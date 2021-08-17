@@ -447,6 +447,7 @@ EOT
             'CREATE DEFINER=`root`@`localhost`'
             . ' FUNCTION `inventory_in_stock`(`p_inventory_id` INT) RETURNS tinyint(1)'
             . ' READS SQL DATA' . "\n"
+            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
             . 'BEGIN' . "\n"
             . '    DECLARE v_rentals INT;' . "\n"
             . '    DECLARE v_out     INT;' . "\n"
@@ -482,6 +483,7 @@ EOT
             'CREATE DEFINER=`root`@`localhost`'
             . ' FUNCTION `inventory_in_stock` (`p_inventory_id` INT) RETURNS TINYINT(1)'
             . ' READS SQL DATA' . "\n"
+            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
             . 'BEGIN' . "\n"
             . '    DECLARE v_rentals INT;' . "\n"
             . '    DECLARE v_out     INT;' . "\n"
@@ -536,6 +538,7 @@ EOT
 
         $this->assertSame(
             'READS SQL DATA' . "\n"
+            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
             . 'BEGIN' . "\n"
             . '    DECLARE v_rentals INT;' . "\n"
             . '    DECLARE v_out     INT;' . "\n"
