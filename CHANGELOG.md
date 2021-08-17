@@ -5,6 +5,7 @@
 - Fixed BufferedQuery when it has an odd number of backslashes in the end (#340)
 - Fixed the issue that ignored the body tokens when creating views with union (#343)
 - Fixed parser errors on "ALTER TABLE" statements to add columns with SET type (#168)
+- Fixed parser errors for "ALTER USER" with options (#342)
 
 ## [4.7.2] - 2021-02-05
 
