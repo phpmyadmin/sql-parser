@@ -130,6 +130,46 @@ class AlterOperation extends Component
     );
 
     /**
+     * All user options.
+     *
+     * @var array
+     */
+    public static $USER_OPTIONS = array(
+        'ATTRIBUTE' => array(
+            1,
+            'var'
+        ),
+        'COMMENT' => array(
+            1,
+            'var'
+        ),
+        'REQUIRE' => array(
+            1,
+            'var'
+        ),
+        'BY' => array(
+            2,
+            'expr'
+        ),
+        'PASSWORD' => array(
+            2,
+            'var'
+        ),
+        'WITH' => array(
+            2,
+            'var'
+        ),
+
+        'ACCOUNT' => 1,
+        'DEFAULT' => 1,
+
+        'LOCK' => 2,
+        'UNLOCK' => 2,  
+        
+        'IDENTIFIED' => 3,
+    );
+
+    /**
      * All view options.
      *
      * @var array
