@@ -47,6 +47,7 @@ class CreateStatement extends Statement
             4,
             'expr=',
         ),
+        // Used in `CREATE VIEW`
         'SQL SECURITY' => array(
             5,
             'var',
