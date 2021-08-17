@@ -26,6 +26,7 @@ class CreateStatementTest extends TestCase
             array('parser/parseCreateFunctionErr2'),
             array('parser/parseCreateFunctionErr3'),
             array('parser/parseCreateProcedure'),
+            array('parser/parseCreateProcedure1'),
             array('parser/parseCreateProcedure2'),
             array('parser/parseCreateSchema'),
             array('parser/parseCreateSchemaErr'),
