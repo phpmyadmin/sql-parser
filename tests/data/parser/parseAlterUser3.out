@@ -504,9 +504,9 @@
                         "MOD": 1
                     },
                     "database": null,
-                    "table": "USER",
+                    "table": "testosama",
                     "column": null,
-                    "expr": "USER",
+                    "expr": "'testosama'",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -609,48 +609,61 @@
                             "INDEX": 2,
                             "CHARACTER SET": 3
                         },
+                        "USER_OPTIONS": {
+                            "ATTRIBUTE": [
+                                1,
+                                "var"
+                            ],
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "REQUIRE": [
+                                1,
+                                "var"
+                            ],
+                            "BY": [
+                                2,
+                                "expr"
+                            ],
+                            "PASSWORD": [
+                                2,
+                                "var"
+                            ],
+                            "WITH": [
+                                2,
+                                "var"
+                            ],
+                            "ACCOUNT": 1,
+                            "DEFAULT": 1,
+                            "LOCK": 2,
+                            "UNLOCK": 2,
+                            "IDENTIFIED": 3
+                        },
                         "VIEW_OPTIONS": {
                             "AS": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "1": {
+                                    "name": "REQUIRE",
+                                    "equals": false,
+                                    "expr": "SSL",
+                                    "value": "SSL"
+                                },
+                                "2": {
+                                    "name": "WITH",
+                                    "equals": false,
+                                    "expr": "MAX_CONNECTIONS_PER_HOUR",
+                                    "value": "MAX_CONNECTIONS_PER_HOUR"
+                                }
+                            }
                         },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "ALLOWED_KEYWORDS": {
-                                "AS": 1,
-                                "DUAL": 1,
-                                "NULL": 1,
-                                "REGEXP": 1,
-                                "CASE": 1,
-                                "DIV": 1,
-                                "AND": 1,
-                                "OR": 1,
-                                "XOR": 1,
-                                "NOT": 1,
-                                "MOD": 1
-                            },
-                            "database": null,
-                            "table": null,
-                            "column": "testosama",
-                            "expr": "'testosama'",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
+                        "field": null,
                         "unknown": [
                             {
-                                "@type": "@8"
-                            },
-                            {
-                                "@type": "@9"
-                            },
-                            {
-                                "@type": "@10"
-                            },
-                            {
-                                "@type": "@11"
+                                "@type": "@16"
                             }
                         ]
                     }
@@ -666,13 +679,16 @@
                     "SERVER": 3,
                     "TABLE": 3,
                     "TABLESPACE": 3,
+                    "USER": 3,
                     "VIEW": 3
                 },
                 "CLAUSES": [],
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "3": "USER"
+                    }
                 },
                 "first": 0,
                 "last": 15
@@ -684,21 +700,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "A new statement was found, but no delimiter between it and the previous one.",
-                {
-                    "@type": "@12"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@15"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

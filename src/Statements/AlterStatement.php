@@ -53,6 +53,7 @@ class AlterStatement extends Statement
         'SERVER' => 3,
         'TABLE' => 3,
         'TABLESPACE' => 3,
+        'USER' => 3,
         'VIEW' => 3,
     ];
 
@@ -116,6 +117,8 @@ class AlterStatement extends Statement
                     $options = AlterOperation::$TABLE_OPTIONS;
                 } elseif ($this->options->has('VIEW')) {
                     $options = AlterOperation::$VIEW_OPTIONS;
+                } elseif ($this->options->has('USER')) {
+                    $options = AlterOperation::$USER_OPTIONS;
                 }
 
                 $this->altered[] = AlterOperation::parse($parser, $list, $options);

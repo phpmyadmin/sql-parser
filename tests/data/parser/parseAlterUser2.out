@@ -450,9 +450,9 @@
                         "MOD": 1
                     },
                     "database": null,
-                    "table": "USER",
+                    "table": "user@localhost",
                     "column": null,
-                    "expr": "USER",
+                    "expr": "'user'@'localhost'",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -555,44 +555,49 @@
                             "INDEX": 2,
                             "CHARACTER SET": 3
                         },
+                        "USER_OPTIONS": {
+                            "ATTRIBUTE": [
+                                1,
+                                "var"
+                            ],
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "REQUIRE": [
+                                1,
+                                "var"
+                            ],
+                            "BY": [
+                                2,
+                                "expr"
+                            ],
+                            "PASSWORD": [
+                                2,
+                                "var"
+                            ],
+                            "WITH": [
+                                2,
+                                "var"
+                            ],
+                            "ACCOUNT": 1,
+                            "DEFAULT": 1,
+                            "LOCK": 2,
+                            "UNLOCK": 2,
+                            "IDENTIFIED": 3
+                        },
                         "VIEW_OPTIONS": {
                             "AS": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "ALLOWED_KEYWORDS": {
-                                "AS": 1,
-                                "DUAL": 1,
-                                "NULL": 1,
-                                "REGEXP": 1,
-                                "CASE": 1,
-                                "DIV": 1,
-                                "AND": 1,
-                                "OR": 1,
-                                "XOR": 1,
-                                "NOT": 1,
-                                "MOD": 1
-                            },
-                            "database": null,
-                            "table": null,
-                            "column": "user@localhost",
-                            "expr": "'user'@'localhost'",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "unknown": [
-                            {
-                                "@type": "@8"
-                            },
-                            {
-                                "@type": "@9"
+                            "options": {
+                                "1": "ACCOUNT",
+                                "2": "LOCK"
                             }
-                        ]
+                        },
+                        "field": null,
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
@@ -606,16 +611,19 @@
                     "SERVER": 3,
                     "TABLE": 3,
                     "TABLESPACE": 3,
+                    "USER": 3,
                     "VIEW": 3
                 },
                 "CLAUSES": [],
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "3": "USER"
+                    }
                 },
                 "first": 0,
-                "last": 10
+                "last": 9
             }
         ],
         "brackets": 0,
@@ -624,21 +632,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "A new statement was found, but no delimiter between it and the previous one.",
-                {
-                    "@type": "@10"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@12"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

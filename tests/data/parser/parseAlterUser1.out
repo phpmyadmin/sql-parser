@@ -450,9 +450,9 @@
                         "MOD": 1
                     },
                     "database": null,
-                    "table": "USER",
+                    "table": "trevor",
                     "column": null,
-                    "expr": "USER",
+                    "expr": "trevor",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -555,47 +555,53 @@
                             "INDEX": 2,
                             "CHARACTER SET": 3
                         },
+                        "USER_OPTIONS": {
+                            "ATTRIBUTE": [
+                                1,
+                                "var"
+                            ],
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "REQUIRE": [
+                                1,
+                                "var"
+                            ],
+                            "BY": [
+                                2,
+                                "expr"
+                            ],
+                            "PASSWORD": [
+                                2,
+                                "var"
+                            ],
+                            "WITH": [
+                                2,
+                                "var"
+                            ],
+                            "ACCOUNT": 1,
+                            "DEFAULT": 1,
+                            "LOCK": 2,
+                            "UNLOCK": 2,
+                            "IDENTIFIED": 3
+                        },
                         "VIEW_OPTIONS": {
                             "AS": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "ALLOWED_KEYWORDS": {
-                                "AS": 1,
-                                "DUAL": 1,
-                                "NULL": 1,
-                                "REGEXP": 1,
-                                "CASE": 1,
-                                "DIV": 1,
-                                "AND": 1,
-                                "OR": 1,
-                                "XOR": 1,
-                                "NOT": 1,
-                                "MOD": 1
-                            },
-                            "database": null,
-                            "table": null,
-                            "column": "trevor",
-                            "expr": "trevor",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "unknown": [
-                            {
-                                "@type": "@8"
-                            },
-                            {
-                                "@type": "@9"
-                            },
-                            {
-                                "@type": "@10"
+                            "options": {
+                                "1": {
+                                    "name": "REQUIRE",
+                                    "equals": false,
+                                    "expr": "NONE",
+                                    "value": "NONE"
+                                }
                             }
-                        ]
+                        },
+                        "field": null,
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
@@ -609,13 +615,16 @@
                     "SERVER": 3,
                     "TABLE": 3,
                     "TABLESPACE": 3,
+                    "USER": 3,
                     "VIEW": 3
                 },
                 "CLAUSES": [],
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "3": "USER"
+                    }
                 },
                 "first": 0,
                 "last": 9
@@ -627,14 +636,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@11"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

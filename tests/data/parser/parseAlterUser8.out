@@ -1,5 +1,5 @@
 {
-    "query": "ALTER TABLE `actor` ADD `last_update2` SET ('value1','value2','value3') NOT NULL AFTER last_update",
+    "query": "ALTER USER 'user' COMMENT ''",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "PARSER_METHODS": [
@@ -15,9 +15,9 @@
             "parseLabel",
             "parseUnknown"
         ],
-        "str": "ALTER TABLE `actor` ADD `last_update2` SET ('value1','value2','value3') NOT NULL AFTER last_update",
-        "len": 98,
-        "last": 98,
+        "str": "ALTER USER 'user' COMMENT ''",
+        "len": 28,
+        "last": 28,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -41,11 +41,11 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "TABLE",
-                    "value": "TABLE",
-                    "keyword": "TABLE",
+                    "token": "USER",
+                    "value": "USER",
+                    "keyword": "USER",
                     "type": 1,
-                    "flags": 3,
+                    "flags": 33,
                     "position": 6
                 },
                 {
@@ -55,34 +55,34 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
+                    "position": 10
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "'user'",
+                    "value": "user",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
                     "position": 11
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`actor`",
-                    "value": "actor",
-                    "keyword": null,
-                    "type": 8,
-                    "flags": 2,
-                    "position": 12
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 19
+                    "position": 17
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "ADD",
-                    "value": "ADD",
-                    "keyword": "ADD",
+                    "token": "COMMENT",
+                    "value": "COMMENT",
+                    "keyword": "COMMENT",
                     "type": 1,
-                    "flags": 3,
-                    "position": 20
+                    "flags": 1,
+                    "position": 18
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -91,160 +91,16 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 23
+                    "position": 25
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`last_update2`",
-                    "value": "last_update2",
-                    "keyword": null,
-                    "type": 8,
-                    "flags": 2,
-                    "position": 24
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 38
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SET",
-                    "value": "SET",
-                    "keyword": "SET",
-                    "type": 1,
-                    "flags": 11,
-                    "position": 39
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 42
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "(",
-                    "value": "(",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 43
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'value1'",
-                    "value": "value1",
+                    "token": "''",
+                    "value": "",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
-                    "position": 44
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ",",
-                    "value": ",",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 52
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'value2'",
-                    "value": "value2",
-                    "keyword": null,
-                    "type": 7,
-                    "flags": 1,
-                    "position": 53
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ",",
-                    "value": ",",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 61
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'value3'",
-                    "value": "value3",
-                    "keyword": null,
-                    "type": 7,
-                    "flags": 1,
-                    "position": 62
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ")",
-                    "value": ")",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 70
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 71
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "NOT NULL",
-                    "value": "NOT NULL",
-                    "keyword": "NOT NULL",
-                    "type": 1,
-                    "flags": 7,
-                    "position": 72
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 80
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "AFTER",
-                    "value": "AFTER",
-                    "keyword": "AFTER",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 81
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 86
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "last_update",
-                    "value": "last_update",
-                    "keyword": null,
-                    "type": 0,
-                    "flags": 0,
-                    "position": 87
+                    "position": 26
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -256,8 +112,8 @@
                     "position": null
                 }
             ],
-            "count": 26,
-            "idx": 26
+            "count": 10,
+            "idx": 10
         },
         "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
@@ -585,9 +441,9 @@
                         "MOD": 1
                     },
                     "database": null,
-                    "table": "actor",
+                    "table": "user",
                     "column": null,
-                    "expr": "`actor`",
+                    "expr": "'user'",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -727,52 +583,16 @@
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
-                                "1": "ADD"
+                                "1": {
+                                    "name": "COMMENT",
+                                    "equals": false,
+                                    "expr": "''",
+                                    "value": ""
+                                }
                             }
                         },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "ALLOWED_KEYWORDS": {
-                                "AS": 1,
-                                "DUAL": 1,
-                                "NULL": 1,
-                                "REGEXP": 1,
-                                "CASE": 1,
-                                "DIV": 1,
-                                "AND": 1,
-                                "OR": 1,
-                                "XOR": 1,
-                                "NOT": 1,
-                                "MOD": 1
-                            },
-                            "database": null,
-                            "table": null,
-                            "column": "last_update2",
-                            "expr": "`last_update2`",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "unknown": [
-                            {
-                                "@type": "@12"
-                            },
-                            {
-                                "@type": "@22"
-                            },
-                            {
-                                "@type": "@23"
-                            },
-                            {
-                                "@type": "@24"
-                            },
-                            {
-                                "@type": "@25"
-                            },
-                            {
-                                "@type": "@26"
-                            }
-                        ]
+                        "field": null,
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
@@ -794,11 +614,11 @@
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
-                        "3": "TABLE"
+                        "3": "USER"
                     }
                 },
                 "first": 0,
-                "last": 25
+                "last": 9
             }
         ],
         "brackets": 0,

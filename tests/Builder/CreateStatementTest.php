@@ -9,9 +9,11 @@ use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\TokensList;
 
 class CreateStatementTest extends TestCase
 {
@@ -385,6 +387,181 @@ EOT
             . 'FROM cte,cte2' . "\n"
             . 'CROSS JOIN gis_all ',
             $stmt->build()
+        );
+    }
+
+    public function testBuilderCreateProcedure(): void
+    {
+        $parser = new Parser(
+            'CREATE DEFINER=`root`@`%`'
+            . ' PROCEDURE `test2`(IN `_var` INT) NOT DETERMINISTIC NO SQL'
+            . ' SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var'
+        );
+
+        /** @var CreateStatement $stmt */
+        $stmt = $parser->statements[0];
+
+        $this->assertSame(
+            'CREATE DEFINER=`root`@`%`'
+            . ' PROCEDURE `test2` (IN `_var` INT)  NOT DETERMINISTIC NO SQL'
+            . ' SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var',
+            $stmt->build()
+        );
+
+        $this->assertTrue($stmt->entityOptions->isEmpty());
+        $this->assertFalse($stmt->options->isEmpty());
+
+        $this->assertSame(
+            'DEFINER=`root`@`%` PROCEDURE',
+            $stmt->options->__toString()
+        );
+
+        $this->assertSame(
+            '`test2`',
+            $stmt->name->__toString()
+        );
+
+        $this->assertSame(
+            '(IN `_var` INT)',
+            ParameterDefinition::build($stmt->parameters)
+        );
+
+        $this->assertSame(
+            '',
+            $stmt->entityOptions->__toString()
+        );
+
+        $this->assertSame(
+            'NOT DETERMINISTIC NO SQL SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var',
+            TokensList::build($stmt->body)
+        );
+    }
+
+    public function testBuilderCreateFunction(): void
+    {
+        $parser = new Parser(
+            'CREATE DEFINER=`root`@`localhost`'
+            . ' FUNCTION `inventory_in_stock`(`p_inventory_id` INT) RETURNS tinyint(1)'
+            . ' READS SQL DATA' . "\n"
+            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
+            . 'BEGIN' . "\n"
+            . '    DECLARE v_rentals INT;' . "\n"
+            . '    DECLARE v_out     INT;' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    SELECT COUNT(*) INTO v_rentals' . "\n"
+            . '    FROM rental' . "\n"
+            . '    WHERE inventory_id = p_inventory_id;' . "\n"
+            . "\n"
+            . '    IF v_rentals = 0 THEN' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . "\n"
+            . '    SELECT COUNT(rental_id) INTO v_out' . "\n"
+            . '    FROM inventory LEFT JOIN rental USING(inventory_id)' . "\n"
+            . '    WHERE inventory.inventory_id = p_inventory_id' . "\n"
+            . '    AND rental.return_date IS NULL;' . "\n"
+            . "\n"
+            . '    IF v_out > 0 THEN' . "\n"
+            . '      RETURN FALSE;' . "\n"
+            . '    ELSE' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . 'END'
+        );
+
+        /** @var CreateStatement $stmt */
+        $stmt = $parser->statements[0];
+
+        $this->assertSame(
+            'CREATE DEFINER=`root`@`localhost`'
+            . ' FUNCTION `inventory_in_stock` (`p_inventory_id` INT) RETURNS TINYINT(1)'
+            . ' READS SQL DATA' . "\n"
+            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
+            . 'BEGIN' . "\n"
+            . '    DECLARE v_rentals INT;' . "\n"
+            . '    DECLARE v_out     INT;' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    SELECT COUNT(*) INTO v_rentals' . "\n"
+            . '    FROM rental' . "\n"
+            . '    WHERE inventory_id = p_inventory_id;' . "\n"
+            . "\n"
+            . '    IF v_rentals = 0 THEN' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . "\n"
+            . '    SELECT COUNT(rental_id) INTO v_out' . "\n"
+            . '    FROM inventory LEFT JOIN rental USING(inventory_id)' . "\n"
+            . '    WHERE inventory.inventory_id = p_inventory_id' . "\n"
+            . '    AND rental.return_date IS NULL;' . "\n"
+            . "\n"
+            . '    IF v_out > 0 THEN' . "\n"
+            . '      RETURN FALSE;' . "\n"
+            . '    ELSE' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . 'END',
+            $stmt->build()
+        );
+
+        $this->assertTrue($stmt->entityOptions->isEmpty());
+        $this->assertFalse($stmt->options->isEmpty());
+
+        $this->assertSame(
+            'DEFINER=`root`@`localhost` FUNCTION',
+            $stmt->options->__toString()
+        );
+
+        $this->assertSame(
+            '`inventory_in_stock`',
+            $stmt->name->__toString()
+        );
+
+        $this->assertSame(
+            '(`p_inventory_id` INT)',
+            ParameterDefinition::build($stmt->parameters)
+        );
+
+        $this->assertSame(
+            '',
+            $stmt->entityOptions->__toString()
+        );
+
+        $this->assertSame(
+            'READS SQL DATA' . "\n"
+            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
+            . 'BEGIN' . "\n"
+            . '    DECLARE v_rentals INT;' . "\n"
+            . '    DECLARE v_out     INT;' . "\n"
+            . "\n"
+            . '    ' . "\n"
+            . '    ' . "\n"
+            . "\n"
+            . '    SELECT COUNT(*) INTO v_rentals' . "\n"
+            . '    FROM rental' . "\n"
+            . '    WHERE inventory_id = p_inventory_id;' . "\n"
+            . "\n"
+            . '    IF v_rentals = 0 THEN' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . "\n"
+            . '    SELECT COUNT(rental_id) INTO v_out' . "\n"
+            . '    FROM inventory LEFT JOIN rental USING(inventory_id)' . "\n"
+            . '    WHERE inventory.inventory_id = p_inventory_id' . "\n"
+            . '    AND rental.return_date IS NULL;' . "\n"
+            . "\n"
+            . '    IF v_out > 0 THEN' . "\n"
+            . '      RETURN FALSE;' . "\n"
+            . '    ELSE' . "\n"
+            . '      RETURN TRUE;' . "\n"
+            . '    END IF;' . "\n"
+            . 'END',
+            TokensList::build($stmt->body)
         );
     }
 
