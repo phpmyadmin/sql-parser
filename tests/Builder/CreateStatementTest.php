@@ -412,9 +412,8 @@ EOT
             $stmt->build()
         );
 
-        $this->assertTrue($stmt->entityOptions->isEmpty());
+        $this->assertFalse($stmt->entityOptions->isEmpty());
         $this->assertFalse($stmt->options->isEmpty());
-
         $this->assertSame(
             'DEFINER=`root`@`%` PROCEDURE',
             $stmt->options->__toString()
@@ -431,12 +430,12 @@ EOT
         );
 
         $this->assertSame(
-            '',
+            'NOT DETERMINISTIC NO SQL SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER',
             $stmt->entityOptions->__toString()
         );
 
         $this->assertSame(
-            'NOT DETERMINISTIC NO SQL SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var',
+            'SELECT _var',
             TokensList::build($stmt->body)
         );
     }
@@ -446,9 +445,9 @@ EOT
         $parser = new Parser(
             'CREATE DEFINER=`root`@`localhost`'
             . ' FUNCTION `inventory_in_stock`(`p_inventory_id` INT) RETURNS tinyint(1)'
-            . ' READS SQL DATA' . "\n"
-            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
-            . 'BEGIN' . "\n"
+            . ' READS SQL DATA'
+            . ' COMMENT \'My best function written by a friend\'\'s friend\''
+            . ' BEGIN' . "\n"
             . '    DECLARE v_rentals INT;' . "\n"
             . '    DECLARE v_out     INT;' . "\n"
             . "\n"
@@ -482,9 +481,9 @@ EOT
         $this->assertSame(
             'CREATE DEFINER=`root`@`localhost`'
             . ' FUNCTION `inventory_in_stock` (`p_inventory_id` INT) RETURNS TINYINT(1)'
-            . ' READS SQL DATA' . "\n"
-            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
-            . 'BEGIN' . "\n"
+            . ' READS SQL DATA'
+            . ' COMMENT \'My best function written by a friend\'\'s friend\''
+            . ' BEGIN' . "\n"
             . '    DECLARE v_rentals INT;' . "\n"
             . '    DECLARE v_out     INT;' . "\n"
             . "\n"
@@ -513,7 +512,7 @@ EOT
             $stmt->build()
         );
 
-        $this->assertTrue($stmt->entityOptions->isEmpty());
+        $this->assertFalse($stmt->entityOptions->isEmpty());
         $this->assertFalse($stmt->options->isEmpty());
 
         $this->assertSame(
@@ -532,14 +531,12 @@ EOT
         );
 
         $this->assertSame(
-            '',
+            'READS SQL DATA COMMENT \'My best function written by a friend\'\'s friend\'',
             $stmt->entityOptions->__toString()
         );
 
         $this->assertSame(
-            'READS SQL DATA' . "\n"
-            . ' COMMENT \'My best function written by a friend\'\'s friend' . "\n"
-            . 'BEGIN' . "\n"
+            'BEGIN' . "\n"
             . '    DECLARE v_rentals INT;' . "\n"
             . '    DECLARE v_out     INT;' . "\n"
             . "\n"
@@ -600,7 +597,7 @@ EOT
 
         $this->assertEquals(
             'CREATE FUNCTION test (IN `i` INT) RETURNS VARCHAR ' .
-            'BEGIN ' .
+            ' BEGIN ' .
             'DECLARE name VARCHAR DEFAULT ""; ' .
             'SELECT name INTO name FROM employees WHERE id = i; ' .
             'RETURN name; ' .
