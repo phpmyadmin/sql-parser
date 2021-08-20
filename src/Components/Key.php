@@ -203,7 +203,11 @@ class Key extends Component
 
         $columns = array();
         foreach ($component->columns as $column) {
-            $tmp = Context::escape($column['name']);
+            $tmp = '';
+            if (isset($column['name'])) {
+                $tmp .= Context::escape($column['name']);
+            }
+
             if (isset($column['length'])) {
                 $tmp .= '(' . $column['length'] . ')';
             }
