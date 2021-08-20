@@ -811,21 +811,49 @@
                     ]
                 },
                 "FUNC_OPTIONS": {
-                    "COMMENT": [
-                        1,
+                    "NOT": [
+                        2,
+                        "var"
+                    ],
+                    "FUNCTION": [
+                        3,
                         "var="
                     ],
-                    "LANGUAGE SQL": 2,
-                    "DETERMINISTIC": 3,
-                    "NOT DETERMINISTIC": 3,
-                    "CONTAINS SQL": 4,
-                    "NO SQL": 4,
-                    "READS SQL DATA": 4,
-                    "MODIFIES SQL DATA": 4,
-                    "SQL SECURITY DEFINER": [
-                        5,
+                    "PROCEDURE": [
+                        3,
+                        "var="
+                    ],
+                    "CONTAINS": [
+                        4,
+                        "expr"
+                    ],
+                    "NO": [
+                        4,
                         "var"
-                    ]
+                    ],
+                    "READS": [
+                        4,
+                        "var"
+                    ],
+                    "MODIFIES": [
+                        4,
+                        "expr"
+                    ],
+                    "SQL SECURITY": [
+                        6,
+                        "var"
+                    ],
+                    "LANGUAGE": [
+                        7,
+                        "var"
+                    ],
+                    "COMMENT": [
+                        8,
+                        "var"
+                    ],
+                    "CREATE": 1,
+                    "DETERMINISTIC": 2,
+                    "DATA": 5
                 },
                 "TRIGGER_OPTIONS": {
                     "BEFORE": 1,

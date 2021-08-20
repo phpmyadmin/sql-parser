@@ -1,5 +1,5 @@
 {
-    "query": "CREATE DEFINER=`root`@`%` PROCEDURE `test2`(IN `_var` INT) NOT DETERMINISTIC NO SQL SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var",
+    "query": "CREATE DEFINER=`root`@`%` PROCEDURE `test2`(IN `_var` INT) NOT DETERMINISTIC NO SQL SQL SECURITY INVOKER SELECT _var",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "PARSER_METHODS": [
@@ -15,9 +15,9 @@
             "parseLabel",
             "parseUnknown"
         ],
-        "str": "CREATE DEFINER=`root`@`%` PROCEDURE `test2`(IN `_var` INT) NOT DETERMINISTIC NO SQL SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var",
-        "len": 144,
-        "last": 144,
+        "str": "CREATE DEFINER=`root`@`%` PROCEDURE `test2`(IN `_var` INT) NOT DETERMINISTIC NO SQL SQL SECURITY INVOKER SELECT _var",
+        "len": 116,
+        "last": 116,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -284,30 +284,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "NO",
-                    "value": "NO",
-                    "keyword": "NO",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 105
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 107
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SQL",
-                    "value": "SQL",
-                    "keyword": "SQL",
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
                     "type": 1,
                     "flags": 3,
-                    "position": 108
+                    "position": 105
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -320,66 +302,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SQL SECURITY",
-                    "value": "SQL SECURITY",
-                    "keyword": "SQL SECURITY",
-                    "type": 1,
-                    "flags": 7,
-                    "position": 112
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 124
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "INVOKER",
-                    "value": "INVOKER",
-                    "keyword": "INVOKER",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 125
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 132
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SELECT",
-                    "value": "SELECT",
-                    "keyword": "SELECT",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 133
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 139
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "_var",
                     "value": "_var",
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 140
+                    "position": 112
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -391,8 +319,8 @@
                     "position": null
                 }
             ],
-            "count": 41,
-            "idx": 42
+            "count": 33,
+            "idx": 34
         },
         "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
@@ -865,21 +793,49 @@
                     ]
                 },
                 "FUNC_OPTIONS": {
-                    "COMMENT": [
-                        1,
+                    "NOT": [
+                        2,
+                        "var"
+                    ],
+                    "FUNCTION": [
+                        3,
                         "var="
                     ],
-                    "LANGUAGE SQL": 2,
-                    "DETERMINISTIC": 3,
-                    "NOT DETERMINISTIC": 3,
-                    "CONTAINS SQL": 4,
-                    "NO SQL": 4,
-                    "READS SQL DATA": 4,
-                    "MODIFIES SQL DATA": 4,
-                    "SQL SECURITY DEFINER": [
-                        5,
+                    "PROCEDURE": [
+                        3,
+                        "var="
+                    ],
+                    "CONTAINS": [
+                        4,
+                        "expr"
+                    ],
+                    "NO": [
+                        4,
                         "var"
-                    ]
+                    ],
+                    "READS": [
+                        4,
+                        "var"
+                    ],
+                    "MODIFIES": [
+                        4,
+                        "expr"
+                    ],
+                    "SQL SECURITY": [
+                        6,
+                        "var"
+                    ],
+                    "LANGUAGE": [
+                        7,
+                        "var"
+                    ],
+                    "COMMENT": [
+                        8,
+                        "var"
+                    ],
+                    "CREATE": 1,
+                    "DETERMINISTIC": 2,
+                    "DATA": 5
                 },
                 "TRIGGER_OPTIONS": {
                     "BEFORE": 1,
@@ -913,7 +869,26 @@
                 },
                 "entityOptions": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "2": {
+                            "name": "NOT",
+                            "equals": false,
+                            "expr": "DETERMINISTIC",
+                            "value": "DETERMINISTIC"
+                        },
+                        "4": {
+                            "name": "NO",
+                            "equals": false,
+                            "expr": "SQL",
+                            "value": "SQL"
+                        },
+                        "6": {
+                            "name": "SQL SECURITY",
+                            "equals": false,
+                            "expr": "INVOKER",
+                            "value": "INVOKER"
+                        }
+                    }
                 },
                 "fields": null,
                 "select": null,
@@ -960,42 +935,6 @@
                 ],
                 "body": [
                     {
-                        "@type": "@19"
-                    },
-                    {
-                        "@type": "@20"
-                    },
-                    {
-                        "@type": "@21"
-                    },
-                    {
-                        "@type": "@22"
-                    },
-                    {
-                        "@type": "@23"
-                    },
-                    {
-                        "@type": "@24"
-                    },
-                    {
-                        "@type": "@25"
-                    },
-                    {
-                        "@type": "@26"
-                    },
-                    {
-                        "@type": "@27"
-                    },
-                    {
-                        "@type": "@28"
-                    },
-                    {
-                        "@type": "@29"
-                    },
-                    {
-                        "@type": "@30"
-                    },
-                    {
                         "@type": "@31"
                     },
                     {
@@ -1006,30 +945,6 @@
                     },
                     {
                         "@type": "@34"
-                    },
-                    {
-                        "@type": "@35"
-                    },
-                    {
-                        "@type": "@36"
-                    },
-                    {
-                        "@type": "@37"
-                    },
-                    {
-                        "@type": "@38"
-                    },
-                    {
-                        "@type": "@39"
-                    },
-                    {
-                        "@type": "@40"
-                    },
-                    {
-                        "@type": "@41"
-                    },
-                    {
-                        "@type": "@42"
                     }
                 ],
                 "CLAUSES": [],
@@ -1069,7 +984,7 @@
                     }
                 },
                 "first": 0,
-                "last": 41
+                "last": 33
             }
         ],
         "brackets": 0,
