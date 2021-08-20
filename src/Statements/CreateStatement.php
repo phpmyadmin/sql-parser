@@ -219,21 +219,50 @@ class CreateStatement extends Statement
      * @var array
      */
     public static $FUNC_OPTIONS = array(
-        'COMMENT' => array(
-            1,
+        'NOT' =>  array(
+            2,
+            'var',
+        ),
+        'FUNCTION' =>  array(
+            3,
             'var=',
         ),
-        'LANGUAGE SQL' => 2,
-        'DETERMINISTIC' => 3,
-        'NOT DETERMINISTIC' => 3,
-        'CONTAINS SQL' => 4,
-        'NO SQL' => 4,
-        'READS SQL DATA' => 4,
-        'MODIFIES SQL DATA' => 4,
-        'SQL SECURITY DEFINER' => array(
-            5,
+        'PROCEDURE' =>  array(
+            3,
+            'var=',
+        ),
+        'CONTAINS' =>  array(
+            4,
+            'expr',
+        ),
+        'NO' =>  array(
+            4,
             'var',
-        )
+        ),
+        'READS' =>  array(
+            4,
+            'var',
+        ),
+        'MODIFIES' =>  array(
+            4,
+            'expr',
+        ),
+        'SQL SECURITY' =>  array(
+            6,
+            'var',
+        ),
+        'LANGUAGE' =>  array(
+            7,
+            'var',
+        ),
+        'COMMENT' =>  array(
+            8,
+            'var',
+        ),
+
+        'CREATE' => 1,
+        'DETERMINISTIC' => 2,
+        'DATA' =>  5,
     );
 
     /**
@@ -451,7 +480,8 @@ class CreateStatement extends Statement
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
                 . ParameterDefinition::build($this->parameters) . ' '
-                . $tmp . ' ' . TokensList::build($this->body);
+                . $tmp . ' ' .  OptionsArray::build($this->entityOptions) . ' '
+                . TokensList::build($this->body);
         }
 
         return 'CREATE '
