@@ -402,7 +402,7 @@ EOT
             . ' SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var'
         );
 
-        /** @var CreateStatement */
+        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
 
         $this->assertSame(
@@ -475,7 +475,7 @@ EOT
             . 'END'
         );
 
-        /** @var CreateStatement */
+        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
 
         $this->assertSame(
@@ -614,6 +614,76 @@ EOT
         $this->assertEquals(
             'CREATE TABLE new_tbl SELECT * FROM orig_tbl',
             $parser->statements[0]->build()
+        );
+    }
+
+    public function testBuildCreateTableComplexIndexes()
+    {
+        $parser = new Parser(
+            <<<'SQL'
+CREATE TABLE `page_rebuild_control` (
+    `proc_row_number` int DEFAULT NULL,
+    `place_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `place_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `place_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `waterway_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `cache_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `place_active` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `alias_type` int NOT NULL DEFAULT '0',
+    `status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `time_taken` float DEFAULT NULL,
+    PRIMARY KEY (`place_id`,`place_type`) USING BTREE,
+    KEY `place_type_idx` (`place_type`(10)),
+    KEY `cached_time_idx` (`cache_updated`),
+    KEY `active_idx` (`place_active`),
+    KEY `status_idx` (`status`),
+    KEY `waterway_idx` (`waterway_id`),
+    KEY `time_taken_idx` (`time_taken`),
+    KEY `alias_type_idx` (`alias_type`),
+    KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))) COMMENT 'foo\'s',
+    KEY `updated_tz_ind` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')))
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+SQL
+        );
+
+        /** @var CreateStatement $stmt */
+        $stmt = $parser->statements[0];
+
+        $tableBody = <<<'SQL'
+(
+  `proc_row_number` int DEFAULT NULL,
+  `place_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `place_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `place_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `waterway_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cache_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `place_active` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias_type` int NOT NULL DEFAULT '0',
+  `status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time_taken` float DEFAULT NULL,
+  PRIMARY KEY (`place_id`,`place_type`) USING BTREE,
+  KEY `place_type_idx` (`place_type`(10)),
+  KEY `cached_time_idx` (`cache_updated`),
+  KEY `active_idx` (`place_active`),
+  KEY `status_idx` (`status`),
+  KEY `waterway_idx` (`waterway_id`),
+  KEY `time_taken_idx` (`time_taken`),
+  KEY `alias_type_idx` (`alias_type`),
+  KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))) COMMENT 'foo\'s',
+  KEY `updated_tz_ind` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')))
+)
+SQL;
+
+        $this->assertEquals(
+            $tableBody,
+            CreateDefinition::build($stmt->fields)
+        );
+
+        $this->assertEquals(
+            'CREATE TABLE `page_rebuild_control` '
+            . $tableBody
+            . ' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci',
+            $stmt->build()
         );
     }
 }

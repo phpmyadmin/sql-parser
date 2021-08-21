@@ -43,7 +43,7 @@ class Key extends Component
         ),
         'COMMENT' => array(
             4,
-            'var=',
+            'var',
         )
     );
 
@@ -67,6 +67,13 @@ class Key extends Component
      * @var string
      */
     public $type;
+
+    /**
+     * The expression if it is not using a name.
+     *
+     * @var Expression|null
+     */
+    public $expr = null;
 
     /**
      * The options of this key.
@@ -118,12 +125,16 @@ class Key extends Component
          *
          * Below are the states of the parser.
          *
-         *      0 ----------------------[ type ]-----------------------> 1
+         *      0 ---------------------[ type ]---------------------------> 1
          *
-         *      1 ----------------------[ name ]-----------------------> 1
-         *      1 ---------------------[ columns ]---------------------> 2
+         *      1 ---------------------[ name ]---------------------------> 1
+         *      1 ---------------------[ columns ]------------------------> 2
+         *      1 ---------------------[ expression ]---------------------> 5
          *
-         *      2 ---------------------[ options ]---------------------> 3
+         *      2 ---------------------[ column length ]------------------> 3
+         *      3 ---------------------[ column length ]------------------> 2
+         *      2 ---------------------[ options ]------------------------> 4
+         *      5 ---------------------[ expression ]---------------------> 4
          *
          * @var int
          */
@@ -152,7 +163,15 @@ class Key extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $state = 2;
+                    // Switch to expression mode
+                    if (
+                        isset($list->tokens[$list->idx + 1])
+                        && $list->tokens[$list->idx + 1]->value === '('
+                    ) {
+                        $state = 5;
+                    } else {
+                        $state = 2;
+                    }
                 } else {
                     $ret->name = $token->value;
                 }
@@ -180,6 +199,16 @@ class Key extends Component
                 $ret->options = OptionsArray::parse($parser, $list, static::$KEY_OPTIONS);
                 ++$list->idx;
                 break;
+            } elseif ($state === 5) {
+                $ret->expr = Expression::parse(
+                    $parser,
+                    $list,
+                    array(
+                        'parenthesesDelimited' => true
+                    )
+                );
+                ++$list->idx;// skip end parenthese
+                $state = 4;// go back to state 4 to fetch options
             }
         }
 
@@ -199,6 +228,10 @@ class Key extends Component
         $ret = $component->type . ' ';
         if (! empty($component->name)) {
             $ret .= Context::escape($component->name) . ' ';
+        }
+
+        if ($component->expr !== null) {
+            return $ret . '(' . $component->expr . ')' . ' ' . $component->options;
         }
 
         $columns = array();
