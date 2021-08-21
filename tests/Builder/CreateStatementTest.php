@@ -617,6 +617,51 @@ EOT
         );
     }
 
+    public function testBuildCreateTableSortedIndex()
+    {
+        $parser = new Parser(
+            <<<'SQL'
+CREATE TABLE `entries` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `fk_ug_id` int(11) DEFAULT NULL,
+    `amount` decimal(10,2) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `entries__ug` (`fk_ug_id` DESC),
+    KEY `entries__ug2` (`fk_ug_id` ASC),
+    KEY `33` (`id` ASC, `fk_ug_id` DESC)
+) /*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB AUTO_INCREMENT=4465 DEFAULT CHARSET=utf8
+SQL
+        );
+
+        /** @var CreateStatement $stmt */
+        $stmt = $parser->statements[0];
+
+        $tableBody = <<<'SQL'
+(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_ug_id` int(11) DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `entries__ug` (`fk_ug_id` DESC),
+  KEY `entries__ug2` (`fk_ug_id` ASC),
+  KEY `33` (`id` ASC,`fk_ug_id` DESC)
+)
+SQL;
+
+        $this->assertEquals(
+            $tableBody,
+            CreateDefinition::build($stmt->fields)
+        );
+
+        $this->assertEquals(
+            'CREATE TABLE `entries` '
+            . $tableBody
+            . ' ENGINE=InnoDB AUTO_INCREMENT=4465 DEFAULT CHARSET=utf8 TABLESPACE `innodb_system`',
+            $stmt->build()
+        );
+
+    }
+
     public function testBuildCreateTableComplexIndexes()
     {
         $parser = new Parser(
