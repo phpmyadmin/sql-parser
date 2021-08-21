@@ -8,6 +8,7 @@
 - Fixed parser errors for "ALTER USER" with options (#342)
 - Fixed handling of the procedures and functions's options where part of the body (#339)
 - Fix PHP notice "Undefined index: name in src/Components/Key.php#206" for table keys using functions (#347)
+- Fix MySQL 8.0 table structure KEY expression not recognized (#347)
 
 ## [4.7.2] - 2021-02-05
 
