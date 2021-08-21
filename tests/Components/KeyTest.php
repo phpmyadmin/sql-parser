@@ -20,7 +20,7 @@ class KeyTest extends TestCase
         $this->assertNull($component->options);
         $this->assertNull($component->name);
         $this->assertNull($component->expr);
-        $this->assertSame([], $component->columns);
+        $this->assertSame(array(), $component->columns);
     }
 
     public function testParseKeyWithoutOptions()
@@ -33,11 +33,11 @@ class KeyTest extends TestCase
         $this->assertEquals('alias_type_idx', $component->name);
         $this->assertEquals(new OptionsArray(), $component->options);
         $this->assertNull($component->expr);
-        $this->assertSame([
-            [
+        $this->assertSame(array(
+            array(
                 'name' => 'alias_type',
-            ]
-        ], $component->columns);
+            )
+        ), $component->columns);
     }
 
     public function testParseKeyWithLengthWithoutOptions()
@@ -50,12 +50,12 @@ class KeyTest extends TestCase
         $this->assertEquals('alias_type_idx', $component->name);
         $this->assertEquals(new OptionsArray(), $component->options);
         $this->assertNull($component->expr);
-        $this->assertSame([
-            [
+        $this->assertSame(array(
+            array(
                 'name' => 'alias_type',
                 'length' => 10,
-            ]
-        ], $component->columns);
+            )
+        ), $component->columns);
     }
 
     public function testParseKeyWithLengthWithOptions()
@@ -67,22 +67,22 @@ class KeyTest extends TestCase
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('alias_type_idx', $component->name);
         $this->assertEquals(new OptionsArray(
-            [
-                4 => [
+            array(
+                4 => array(
                     'name' => 'COMMENT',
                     'equals' => false,
                     'expr' => '\'my comment\'',
                     'value' => 'my comment',
-                ]
-            ]
+                )
+            )
         ), $component->options);
         $this->assertNull($component->expr);
-        $this->assertSame([
-            [
+        $this->assertSame(array(
+            array(
                 'name' => 'alias_type',
                 'length' => 10,
-            ]
-        ], $component->columns);
+            )
+        ), $component->columns);
     }
 
     public function testParseKeyExpressionWithoutOptions()
@@ -104,7 +104,7 @@ class KeyTest extends TestCase
             $expr,
             $component->expr
         );
-        $this->assertSame([], $component->columns);
+        $this->assertSame(array(), $component->columns);
     }
 
     public function testParseKeyExpressionWithOptions()
@@ -118,14 +118,14 @@ class KeyTest extends TestCase
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('updated_tz_ind2', $component->name);
         $this->assertEquals(new OptionsArray(
-            [
-                4 => [
+            array(
+                4 => array(
                     'name' => 'COMMENT',
                     'equals' => false,
                     'expr' => '\'my comment\'',
                     'value' => 'my comment',
-                ]
-            ]
+                )
+            )
         ), $component->options);
         $expr = new Expression(
             '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))'
@@ -135,6 +135,6 @@ class KeyTest extends TestCase
             $expr,
             $component->expr
         );
-        $this->assertSame([], $component->columns);
+        $this->assertSame(array(), $component->columns);
     }
 }
