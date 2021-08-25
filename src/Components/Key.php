@@ -55,9 +55,10 @@ class Key extends Component
     public $name;
 
     /**
-     * Columns.
+     * The key columns
      *
-     * @var array
+     * @var array[]
+     * @phpstan-var array{name?: string, length?: int, order?: string}[]
      */
     public $columns;
 
@@ -116,7 +117,7 @@ class Key extends Component
         /**
          * Last parsed column.
          *
-         * @var array
+         * @var array<string,mixed>
          */
         $lastColumn = array();
 
@@ -186,6 +187,16 @@ class Key extends Component
                             $lastColumn = array();
                         }
                     }
+                } elseif (
+                    (
+                        $token->type === Token::TYPE_KEYWORD
+                    )
+                    &&
+                    (
+                        ($token->keyword === 'ASC') || ($token->keyword === 'DESC')
+                    )
+                ) {
+                    $lastColumn['order'] = $token->keyword;
                 } else {
                     $lastColumn['name'] = $token->value;
                 }
@@ -244,6 +255,11 @@ class Key extends Component
             if (isset($column['length'])) {
                 $tmp .= '(' . $column['length'] . ')';
             }
+
+            if (isset($column['order'])) {
+                $tmp .= ' ' . $column['order'];
+            }
+
             $columns[] = $tmp;
         }
 
