@@ -77,6 +77,24 @@ class KeyTest extends TestCase
         ), $component->columns);
     }
 
+    public function testParseKeyWithoutOptionsWithOrderLowercase()
+    {
+        $component = Key::parse(
+            new Parser(),
+            $this->getTokensList('KEY `alias_type_idx` (`alias_type` desc),')
+        );
+        $this->assertEquals('KEY', $component->type);
+        $this->assertEquals('alias_type_idx', $component->name);
+        $this->assertEquals(new OptionsArray(), $component->options);
+        $this->assertNull($component->expr);
+        $this->assertSame(array(
+            array(
+                'name' => 'alias_type',
+                'order' => 'DESC',
+            )
+        ), $component->columns);
+    }
+
     public function testParseKeyWithoutOptionsWithOrder()
     {
         $component = Key::parse(
