@@ -610,4 +610,143 @@ EOT
             $parser->statements[0]->build()
         );
     }
+
+    public function testBuildCreateTableSortedIndex()
+    {
+        $parser = new Parser(
+            <<<'SQL'
+CREATE TABLE `entries` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `fk_ug_id` int(11) DEFAULT NULL,
+    `amount` decimal(10,2) DEFAULT NULL,
+    PRIMARY KEY (`id`),
+    KEY `entries__ug` (`fk_ug_id` DESC),
+    KEY `entries__ug2` (`fk_ug_id` ASC),
+    KEY `33` (`id` ASC, `fk_ug_id` DESC)
+) /*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB AUTO_INCREMENT=4465 DEFAULT CHARSET=utf8
+SQL
+        );
+
+        /** @var CreateStatement $stmt */
+        $stmt = $parser->statements[0];
+
+        $tableBody = <<<'SQL'
+(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_ug_id` int(11) DEFAULT NULL,
+  `amount` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `entries__ug` (`fk_ug_id` DESC),
+  KEY `entries__ug2` (`fk_ug_id` ASC),
+  KEY `33` (`id` ASC,`fk_ug_id` DESC)
+)
+SQL;
+
+        $this->assertEquals(
+            $tableBody,
+            CreateDefinition::build($stmt->fields)
+        );
+
+        $this->assertEquals(
+            'CREATE TABLE `entries` '
+            . $tableBody
+            . ' ENGINE=InnoDB AUTO_INCREMENT=4465 DEFAULT CHARSET=utf8 TABLESPACE `innodb_system`',
+            $stmt->build()
+        );
+    }
+
+    public function testBuildCreateTableComplexIndexes()
+    {
+        $parser = new Parser(
+            <<<'SQL'
+CREATE TABLE `page_rebuild_control` (
+    `proc_row_number` int DEFAULT NULL,
+    `place_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `place_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `place_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `waterway_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `cache_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `place_active` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+    `alias_type` int NOT NULL DEFAULT '0',
+    `status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+    `time_taken` float DEFAULT NULL,
+    PRIMARY KEY (`place_id`,`place_type`) USING BTREE,
+    KEY `place_type_idx` (`place_type`(10)),
+    KEY `cached_time_idx` (`cache_updated`),
+    KEY `active_idx` (`place_active`),
+    KEY `status_idx` (`status`),
+    KEY `waterway_idx` (`waterway_id`),
+    KEY `time_taken_idx` (`time_taken`),
+    KEY `updated_tz_ind3` (
+        -- my expression
+		(convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))
+    ) COMMENT 'foo\'s',
+    KEY `updated_tz_ind_two_indexes_commented` (
+		-- first expression
+		(
+			convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')
+		)
+		,
+		-- second expression
+		(
+			convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR')
+		)
+	)
+	-- and now some options
+	COMMENT 'haha, this is a complex and indented case',
+    KEY `alias_type_idx` (`alias_type`),
+    KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))) COMMENT 'foo\'s',
+    KEY `updated_tz_ind_two_indexes` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')), (convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR'))) COMMENT 'bar\'s',
+    KEY `updated_tz_ind` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')))
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+SQL
+        );
+
+        /** @var CreateStatement $stmt */
+        $stmt = $parser->statements[0];
+
+        $tableBody = <<<'SQL'
+(
+  `proc_row_number` int DEFAULT NULL,
+  `place_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `place_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `place_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `waterway_id` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cache_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `place_active` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alias_type` int NOT NULL DEFAULT '0',
+  `status` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time_taken` float DEFAULT NULL,
+  PRIMARY KEY (`place_id`,`place_type`) USING BTREE,
+  KEY `place_type_idx` (`place_type`(10)),
+  KEY `cached_time_idx` (`cache_updated`),
+  KEY `active_idx` (`place_active`),
+  KEY `status_idx` (`status`),
+  KEY `waterway_idx` (`waterway_id`),
+  KEY `time_taken_idx` (`time_taken`),
+  KEY `updated_tz_ind3` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))) COMMENT 'foo\'s',
+  KEY `updated_tz_ind_two_indexes_commented` ((
+			convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')
+		), (
+			convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR')
+		)) COMMENT 'haha, this is a complex and indented case',
+  KEY `alias_type_idx` (`alias_type`),
+  KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))) COMMENT 'foo\'s',
+  KEY `updated_tz_ind_two_indexes` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')), (convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR'))) COMMENT 'bar\'s',
+  KEY `updated_tz_ind` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')))
+)
+SQL;
+
+        $this->assertEquals(
+            $tableBody,
+            CreateDefinition::build($stmt->fields)
+        );
+
+        $this->assertEquals(
+            'CREATE TABLE `page_rebuild_control` '
+            . $tableBody
+            . ' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci',
+            $stmt->build()
+        );
+    }
 }
