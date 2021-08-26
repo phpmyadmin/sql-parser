@@ -31,7 +31,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyWithoutOptions()
+    public function testParseKeyWithoutOptions(): void
     {
         $component = Key::parse(
             new Parser(),
@@ -48,7 +48,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyWithLengthWithoutOptions()
+    public function testParseKeyWithLengthWithoutOptions(): void
     {
         $component = Key::parse(
             new Parser(),
@@ -65,7 +65,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyWithLengthWithoutOptionsWithOrder()
+    public function testParseKeyWithLengthWithoutOptionsWithOrder(): void
     {
         $component = Key::parse(
             new Parser(),
@@ -82,7 +82,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyWithoutOptionsWithOrderLowercase()
+    public function testParseKeyWithoutOptionsWithOrderLowercase(): void
     {
         $component = Key::parse(
             new Parser(),
@@ -99,7 +99,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyWithoutOptionsWithOrder()
+    public function testParseKeyWithoutOptionsWithOrder(): void
     {
         $component = Key::parse(
             new Parser(),
@@ -116,7 +116,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyWithLengthWithOptions()
+    public function testParseKeyWithLengthWithOptions(): void
     {
         $component = Key::parse(
             new Parser(),
@@ -142,7 +142,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyExpressionWithoutOptions()
+    public function testParseKeyExpressionWithoutOptions(): void
     {
         $component = Key::parse(
             new Parser(),
@@ -163,7 +163,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyExpressionWithOptions()
+    public function testParseKeyExpressionWithOptions(): void
     {
         $component = Key::parse(
             new Parser(),
@@ -197,7 +197,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyExpressionWithOptionsError()
+    public function testParseKeyExpressionWithOptionsError(): void
     {
         $parser = new Parser();
         $component = Key::parse(
@@ -231,7 +231,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyOneExpressionWithOptions()
+    public function testParseKeyOneExpressionWithOptions(): void
     {
         $parser = new Parser();
         $component = Key::parse(
@@ -273,7 +273,7 @@ class KeyTest extends TestCase
         );
     }
 
-    public function testParseKeyMultipleExpressionsWithOptions()
+    public function testParseKeyMultipleExpressionsWithOptions(): void
     {
         $parser = new Parser();
         $component = Key::parse(

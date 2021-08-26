@@ -611,7 +611,7 @@ EOT
         );
     }
 
-    public function testBuildCreateTableSortedIndex()
+    public function testBuildCreateTableSortedIndex(): void
     {
         $parser = new Parser(
             <<<'SQL'
@@ -655,7 +655,7 @@ SQL;
         );
     }
 
-    public function testBuildCreateTableComplexIndexes()
+    public function testBuildCreateTableComplexIndexes(): void
     {
         // phpcs:disable Generic.Files.LineLength.TooLong
         $parser = new Parser(
