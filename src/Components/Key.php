@@ -77,9 +77,9 @@ class Key extends Component
     public $expr = null;
 
     /**
-     * The options of this key.
+     * The options of this key or null if none where found.
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $options;
 

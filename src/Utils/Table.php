@@ -39,6 +39,10 @@ class Table
 
             $columns = [];
             foreach ($field->key->columns as $column) {
+                if (! isset($column['name'])) {
+                    continue;
+                }
+
                 $columns[] = $column['name'];
             }
 
