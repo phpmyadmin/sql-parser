@@ -203,7 +203,8 @@ class KeyTest extends TestCase
         $component = Key::parse(
             $parser,
             $this->getTokensList(
-                'KEY `updated_tz_ind2` (()convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))) COMMENT \'my comment\','
+                'KEY `updated_tz_ind2` (()convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')))'
+                . ' COMMENT \'my comment\','
             )
         );
         $this->assertEquals('KEY', $component->type);
