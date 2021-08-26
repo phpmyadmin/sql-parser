@@ -23,6 +23,10 @@ class KeyTest extends TestCase
         $this->assertNull($component->name);
         $this->assertNull($component->expr);
         $this->assertSame(array(), $component->columns);
+        $this->assertSame(
+            '()',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyWithoutOptions()
@@ -40,6 +44,10 @@ class KeyTest extends TestCase
                 'name' => 'alias_type',
             )
         ), $component->columns);
+        $this->assertSame(
+            'KEY `alias_type_idx` (`alias_type`)',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyWithLengthWithoutOptions()
@@ -58,6 +66,10 @@ class KeyTest extends TestCase
                 'length' => 10,
             )
         ), $component->columns);
+        $this->assertSame(
+            'KEY `alias_type_idx` (`alias_type`(10))',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyWithLengthWithoutOptionsWithOrder()
@@ -77,6 +89,10 @@ class KeyTest extends TestCase
                 'order' => 'ASC',
             )
         ), $component->columns);
+        $this->assertSame(
+            'KEY `alias_type_idx` (`alias_type`(10) ASC)',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyWithoutOptionsWithOrderLowercase()
@@ -95,6 +111,10 @@ class KeyTest extends TestCase
                 'order' => 'DESC',
             )
         ), $component->columns);
+        $this->assertSame(
+            'KEY `alias_type_idx` (`alias_type` DESC)',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyWithoutOptionsWithOrder()
@@ -113,6 +133,10 @@ class KeyTest extends TestCase
                 'order' => 'DESC',
             )
         ), $component->columns);
+        $this->assertSame(
+            'KEY `alias_type_idx` (`alias_type` DESC)',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyWithLengthWithOptions()
@@ -140,6 +164,10 @@ class KeyTest extends TestCase
                 'length' => 10,
             )
         ), $component->columns);
+        $this->assertSame(
+            'KEY `alias_type_idx` (`alias_type`(10)) COMMENT \'my comment\'',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyExpressionWithoutOptions()
@@ -162,6 +190,10 @@ class KeyTest extends TestCase
             $component->expr
         );
         $this->assertSame(array(), $component->columns);
+        $this->assertSame(
+            'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))) ',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyExpressionWithOptions()
@@ -169,7 +201,9 @@ class KeyTest extends TestCase
         $component = Key::parse(
             new Parser(),
             $this->getTokensList(
-                'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))) COMMENT \'my comment\','
+                'KEY `updated_tz_ind2`'
+                . ' ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')))'
+                . ' COMMENT \'my comment\','
             )
         );
         $this->assertEquals('KEY', $component->type);
@@ -193,6 +227,12 @@ class KeyTest extends TestCase
             $component->expr
         );
         $this->assertSame(array(), $component->columns);
+        $this->assertSame(
+            'KEY `updated_tz_ind2`'
+            . ' ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')))'
+            . ' COMMENT \'my comment\'',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyExpressionWithOptionsError()
@@ -232,6 +272,10 @@ class KeyTest extends TestCase
             $component->expr
         );
         $this->assertSame(array(), $component->columns);
+        $this->assertSame(
+            'KEY `updated_tz_ind2` (()(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')) ',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyOneExpressionWithOptions()
@@ -271,6 +315,12 @@ class KeyTest extends TestCase
             $component->expr
         );
         $this->assertSame(array(), $component->columns);
+        $this->assertSame(
+            'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')),'
+            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\'))'
+            . ') COMMENT \'my comment\'',
+            Key::build($component)
+        );
     }
 
     public function testParseKeyMultipleExpressionsWithOptions()
@@ -312,5 +362,12 @@ class KeyTest extends TestCase
         );
         $this->assertSame(array(), $component->columns);
         $this->assertSame(array(), $parser->errors);
+        $this->assertSame(
+            'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')),'
+            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\')),'
+            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'RU\'))'
+            . ') COMMENT \'my comment\'',
+            Key::build($component)
+        );
     }
 }
