@@ -631,7 +631,7 @@ parameters:
 			path: src/Components/Key.php
 
 		-
-			message: "#^Binary operation \"\\.\\=\" between array\\|string and non\\-empty\\-string results in an error\\.$#"
+			message: "#^Binary operation \"\\.\\=\" between '' and array\\|string results in an error\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
@@ -651,27 +651,12 @@ parameters:
 			path: src/Components/Key.php
 
 		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$KEY_OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
@@ -1886,6 +1871,11 @@ parameters:
 			path: tests/Builder/CreateStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj given\\.$#"
+			count: 2
+			path: tests/Builder/CreateStatementTest.php
+
+		-
 			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 2
 			path: tests/Components/ArrayObjTest.php
@@ -1942,7 +1932,7 @@ parameters:
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with string will always evaluate to false\\.$#"
-			count: 1
+			count: 2
 			path: tests/Components/KeyTest.php
 
 		-
