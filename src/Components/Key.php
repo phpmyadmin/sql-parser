@@ -70,9 +70,9 @@ class Key extends Component
     public $type;
 
     /**
-     * The expression if it is not using a name.
+     * The expression if the Key is not using column names
      *
-     * @var Expression|null
+     * @var string|null
      */
     public $expr = null;
 
