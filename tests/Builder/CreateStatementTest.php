@@ -664,6 +664,7 @@ SQL;
 
     public function testBuildCreateTableComplexIndexes()
     {
+        // phpcs:disable Generic.Files.LineLength.TooLong
         $parser = new Parser(
             <<<'SQL'
 CREATE TABLE `page_rebuild_control` (
@@ -708,10 +709,12 @@ CREATE TABLE `page_rebuild_control` (
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL
         );
+        // phpcs:enable
 
         /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
 
+        // phpcs:disable Generic.Files.LineLength.TooLong
         $tableBody = <<<'SQL'
 (
   `proc_row_number` int DEFAULT NULL,
@@ -743,6 +746,7 @@ SQL
   KEY `updated_tz_ind` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')))
 )
 SQL;
+        // phpcs:enable
 
         $this->assertEquals(
             $tableBody,
