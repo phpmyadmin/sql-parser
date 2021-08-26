@@ -164,11 +164,15 @@ class Key extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    // Switch to expression mode
+                    $positionBeforeSearch = $list->idx;
+                    $list->idx++;// Ignore the current token "(" or the search condition will always be true
+                    $nextToken = $list->getNext();
+                    $list->idx = $positionBeforeSearch;// Restore the position
+
                     if (
-                        isset($list->tokens[$list->idx + 1])
-                        && $list->tokens[$list->idx + 1]->value === '('
+                        $nextToken !== null && $nextToken->value === '('
                     ) {
+                        // Switch to expression mode
                         $state = 5;
                     } else {
                         $state = 2;
@@ -211,15 +215,37 @@ class Key extends Component
                 ++$list->idx;
                 break;
             } elseif ($state === 5) {
-                $ret->expr = Expression::parse(
-                    $parser,
-                    $list,
-                    array(
-                        'parenthesesDelimited' => true
-                    )
-                );
-                ++$list->idx;// skip end parenthese
-                $state = 4;// go back to state 4 to fetch options
+                if ($token->type === Token::TYPE_OPERATOR) {
+                    // This got back to here and we reached the end of the expression
+                    if ($token->value === ')') {
+                        $state = 4;// go back to state 4 to fetch options
+                        continue;
+                    }
+                    // The expression is not finished, adding a separator for the next expression
+                    if ($token->value === ',') {
+                        $ret->expr .= ', ';
+                        continue;
+                    }
+                    // Start of the expression
+                    if ($token->value === '(') {
+                        // This is the first expression, set to empty
+                        if ($ret->expr === null) {
+                            $ret->expr = '';
+                        }
+
+                        $ret->expr .= Expression::parse(
+                            $parser,
+                            $list,
+                            array(
+                                'parenthesesDelimited' => true
+                            )
+                        );
+                        continue;
+                    }
+                    // Another unexpected operator was found
+                }
+                // Something else than an operator was found
+                $parser->error('Unexpected token.', $token);
             }
         }
 

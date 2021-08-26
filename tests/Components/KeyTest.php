@@ -5,8 +5,10 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Token;
 
 class KeyTest extends TestCase
 {
@@ -191,5 +193,124 @@ class KeyTest extends TestCase
             $component->expr
         );
         $this->assertSame(array(), $component->columns);
+    }
+
+    public function testParseKeyExpressionWithOptionsError()
+    {
+        $parser = new Parser();
+        $component = Key::parse(
+            $parser,
+            $this->getTokensList(
+                'KEY `updated_tz_ind2` (()convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))) COMMENT \'my comment\','
+            )
+        );
+        $this->assertEquals('KEY', $component->type);
+        $this->assertEquals('updated_tz_ind2', $component->name);
+        $this->assertEquals(new OptionsArray(
+            array(
+            )
+        ), $component->options);
+        $t = new Token(
+            'convert_tz',
+            Token::TYPE_KEYWORD,
+            33
+        );
+        $t->position = 25;
+
+        $this->assertEquals(array(
+            new ParserException(
+                'Unexpected token.',
+                $t
+            )
+        ), $parser->errors);
+        $expr = new Expression(
+            '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))'
+        );
+        $expr->function = 'convert_tz';
+        $this->assertEquals(
+            '()(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')',
+            $component->expr
+        );
+        $this->assertSame(array(), $component->columns);
+    }
+
+    public function testParseKeyOneExpressionWithOptions()
+    {
+        $parser = new Parser();
+        $component = Key::parse(
+            $parser,
+            $this->getTokensList(
+                'KEY `updated_tz_ind2`'
+                . ' ('
+                . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')), '
+                . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\'))'
+                . ')'
+                . ' COMMENT \'my comment\','
+            )
+        );
+        $this->assertEquals('KEY', $component->type);
+        $this->assertEquals('updated_tz_ind2', $component->name);
+        $this->assertEquals(new OptionsArray(
+            array(
+                4 => array(
+                    'name' => 'COMMENT',
+                    'equals' => false,
+                    'expr' => '\'my comment\'',
+                    'value' => 'my comment',
+                )
+            )
+        ), $component->options);
+        $this->assertSame(array(), $parser->errors);
+        $expr = new Expression(
+            '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')),'
+            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\'))'
+        );
+        $expr->function = 'convert_tz';
+        $this->assertEquals(
+            $expr,
+            $component->expr
+        );
+        $this->assertSame(array(), $component->columns);
+    }
+
+    public function testParseKeyMultipleExpressionsWithOptions()
+    {
+        $parser = new Parser();
+        $component = Key::parse(
+            $parser,
+            $this->getTokensList(
+                'KEY `updated_tz_ind2`'
+                . ' ('
+                . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')), '
+                . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\')), '
+                . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'RU\'))'
+                . ')'
+                . ' COMMENT \'my comment\','
+            )
+        );
+        $this->assertEquals('KEY', $component->type);
+        $this->assertEquals('updated_tz_ind2', $component->name);
+        $this->assertEquals(new OptionsArray(
+            array(
+                4 => array(
+                    'name' => 'COMMENT',
+                    'equals' => false,
+                    'expr' => '\'my comment\'',
+                    'value' => 'my comment',
+                )
+            )
+        ), $component->options);
+        $expr = new Expression(
+            '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')),'
+            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\')),'
+            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'RU\'))'
+        );
+        $expr->function = 'convert_tz';
+        $this->assertEquals(
+            $expr,
+            $component->expr
+        );
+        $this->assertSame(array(), $component->columns);
+        $this->assertSame(array(), $parser->errors);
     }
 }

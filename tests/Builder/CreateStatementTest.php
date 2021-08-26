@@ -684,8 +684,26 @@ CREATE TABLE `page_rebuild_control` (
     KEY `status_idx` (`status`),
     KEY `waterway_idx` (`waterway_id`),
     KEY `time_taken_idx` (`time_taken`),
+    KEY `updated_tz_ind3` (
+        -- my expression
+		(convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))
+    ) COMMENT 'foo\'s',
+    KEY `updated_tz_ind_two_indexes_commented` (
+		-- first expression
+		(
+			convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')
+		)
+		,
+		-- second expression
+		(
+			convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR')
+		)
+	)
+	-- and now some options
+	COMMENT 'haha, this is a complex and indented case',
     KEY `alias_type_idx` (`alias_type`),
     KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))) COMMENT 'foo\'s',
+    KEY `updated_tz_ind_two_indexes` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')), (convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR'))) COMMENT 'bar\'s',
     KEY `updated_tz_ind` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')))
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 SQL
@@ -713,8 +731,15 @@ SQL
   KEY `status_idx` (`status`),
   KEY `waterway_idx` (`waterway_id`),
   KEY `time_taken_idx` (`time_taken`),
+  KEY `updated_tz_ind3` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))) COMMENT 'foo\'s',
+  KEY `updated_tz_ind_two_indexes_commented` ((
+			convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')
+		), (
+			convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR')
+		)) COMMENT 'haha, this is a complex and indented case',
   KEY `alias_type_idx` (`alias_type`),
   KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB'))) COMMENT 'foo\'s',
+  KEY `updated_tz_ind_two_indexes` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')), (convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR'))) COMMENT 'bar\'s',
   KEY `updated_tz_ind` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')))
 )
 SQL;
