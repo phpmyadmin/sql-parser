@@ -10,6 +10,9 @@
 * Add new contexts for MariaDB 10.4, 10.5, 10.6 (#328)
 * Fixed parser errors for "ALTER USER" with options (#342)
 * Fixed handling of the procedures and functions's options where part of the body (#339)
+* Fix PHP notice "Undefined index: name in src/Components/Key.php#206" for table keys using expressions (#347)
+* Added support for MySQL 8.0 table structure KEY expressions (#347)
+* Added support for KEY order (ASC/DESC) (#296)
 
 ## [5.4.2] - 2021-02-05
 
