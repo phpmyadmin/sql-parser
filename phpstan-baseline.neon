@@ -2131,7 +2131,7 @@ parameters:
 			path: tests/TestCase.php
 
 		-
-			message: "#^Cannot access offset int on array\\<int, string\\>\\|false\\.$#"
+			message: "#^Cannot access offset int on \\(array\\<int, string\\>&nonEmpty\\)\\|false\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
 
