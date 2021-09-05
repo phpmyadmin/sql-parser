@@ -8,7 +8,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use ArrayAccess;
-use ReturnTypeWillChange;
 
 use function count;
 use function is_array;
@@ -154,7 +153,7 @@ class TokensList implements ArrayAccess
      * @param int   $offset the offset to be set
      * @param Token $value  the token to be saved
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if ($offset === null) {
@@ -171,7 +170,7 @@ class TokensList implements ArrayAccess
      *
      * @return Token
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $offset < $this->count ? $this->tokens[$offset] : null;
@@ -184,7 +183,7 @@ class TokensList implements ArrayAccess
      *
      * @return bool
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return $offset < $this->count;
@@ -195,7 +194,7 @@ class TokensList implements ArrayAccess
      *
      * @param int $offset the offset to be unset
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->tokens[$offset]);
