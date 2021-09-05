@@ -27,6 +27,7 @@
         "symfony/polyfill-php80": "^1.16"
     },
     "require-dev": {
+        "phpbench/phpbench": "^1.1",
         "phpmyadmin/coding-standard": "^3.0",
         "phpmyadmin/motranslator": "^4.0 || ^5.0",
         "phpstan/extension-installer": "^1.1",
@@ -66,6 +67,7 @@
         "phpstan": "@php phpstan analyse",
         "psalm": "@php psalm --no-diff",
         "phpunit": "@php phpunit --color=always",
+        "phpbench": "@php phpbench run tests/benchmarks --report=aggregate --progress=dots",
         "test": [
             "@phpcs",
             "@phpstan",
