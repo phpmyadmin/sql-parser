@@ -28,9 +28,10 @@ jobs:
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
-                  # phar and json is used by composer
+                  # phar, json and curl are used by composer
                   # json is used by testing code
-                  extensions: none, mbstring, phar, json
+                  # tokenizer is used by phpcs
+                  extensions: none, mbstring, phar, json, tokenizer
                   coverage: xdebug
             - name: Get Composer Cache Directory
               id: composer-cache
