@@ -30,8 +30,9 @@ jobs:
                   php-version: ${{ matrix.php-version }}
                   # phar, json and curl are used by composer
                   # json is used by testing code
-                  # tokenizer is used by phpcs
-                  extensions: none, mbstring, phar, json, tokenizer
+                  # dom, json, mbstring, libxml, xml, xmlwriter are used by phpunit
+                  # tokenizer, xmlwriter and simplexml are used by phpcs
+                  extensions: none, mbstring, phar, json, curl, tokenizer, xml, xmlwriter, simplexml, libxml, dom
                   coverage: xdebug
             - name: Get Composer Cache Directory
               id: composer-cache
