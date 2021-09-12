@@ -21,7 +21,7 @@ jobs:
                 composer-options: ['']
                 include:
                   - { php-version: '8.1', experimental: false, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
-                  #- { php-version: '8.2', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
+                  - { php-version: 'nightly', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
         steps:
             - uses: actions/checkout@v2
             - name: Use php ${{ matrix.php-version }}
