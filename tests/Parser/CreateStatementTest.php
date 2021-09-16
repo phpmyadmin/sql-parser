@@ -49,6 +49,8 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateTableLike'],
             ['parser/parseCreateTableSpatial'],
             ['parser/parseCreateTableTimestampWithPrecision'],
+            ['parser/parseCreateTableEnforcedCheck'],
+            ['parser/parseCreateTableNotEnforcedCheck'],
             ['parser/parseCreateTableWithInvisibleKey'],
             ['parser/parseCreateTrigger'],
             ['parser/parseCreateUser'],
