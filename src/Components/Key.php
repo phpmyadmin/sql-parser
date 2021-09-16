@@ -45,25 +45,25 @@ class Key extends Component
             4,
             'var',
         ),
-        'INVISIBLE' => 1,
-        'VISIBLE' => 1,
-        'ENGINE_ATTRIBUTE' => array(
-            3,
-            'var=',
-        ),
-        'SECONDARY_ENGINE_ATTRIBUTE' => array(
-            4,
-            'var=',
-        ),
-
         // MariaDB options
-
         'CLUSTERING' => array(
             4,
             'var=',
         ),
-        'IGNORED' => 1,
-        'NOT IGNORED' => 1,
+        'ENGINE_ATTRIBUTE' => array(
+            5,
+            'var=',
+        ),
+        'SECONDARY_ENGINE_ATTRIBUTE' => array(
+            5,
+            'var=',
+        ),
+        // MariaDB & MySQL options
+        'VISIBLE' => 6,
+        'INVISIBLE' => 6,
+        // MariaDB options
+        'IGNORED' => 10,
+        'NOT IGNORED' => 10,
     );
 
     /**

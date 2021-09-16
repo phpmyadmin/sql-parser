@@ -101,18 +101,17 @@ class KeyTest extends TestCase
         $this->assertEquals('alias_type_idx', $component->name);
         $this->assertEquals(new OptionsArray(
             array(
-                1 => 'VISIBLE',
+                1 => array(
+                    'name' => 'KEY_BLOCK_SIZE',
+                    'equals' => true,
+                    'expr' => '1',
+                    'value' => '1',
+                ),
                 2 => array(
                     'name' => 'USING',
                     'equals' => false,
                     'expr' => 'BTREE',
                     'value' => 'BTREE',
-                ),
-                3 => array(
-                    'name' => 'ENGINE_ATTRIBUTE',
-                    'equals' => true,
-                    'expr' => '\'foo\'',
-                    'value' => 'foo',
                 ),
                 4 => array(
                     'name' => 'COMMENT',
@@ -120,14 +119,15 @@ class KeyTest extends TestCase
                     'expr' => '\'my comment\'',
                     'value' => 'my comment',
                 ),
-                12 => array(
-                    'name' => 'KEY_BLOCK_SIZE',
+                5 => array(
+                    'name' => 'ENGINE_ATTRIBUTE',
                     'equals' => true,
-                    'expr' => '1',
-                    'value' => '1',
+                    'expr' => '\'foo\'',
+                    'value' => 'foo',
                 ),
-                13 => 'INVISIBLE',
-                14 => array(
+                6 => 'VISIBLE',
+                12 => 'INVISIBLE',
+                13 => array(
                     'name' => 'SECONDARY_ENGINE_ATTRIBUTE',
                     'equals' => true,
                     'expr' => '\'bar\'',
