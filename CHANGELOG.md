@@ -11,6 +11,7 @@
 - Fix MySQL 8.0 table structure KEY expression not recognized (#347)
 - Fix KEY order (ASC/DESC) not part of the KEY definition (#296)
 - Fix missing KEY options for MySQL and MariaDB (#348)
+- Fix validation error when using ENFORCED option (#341)
 
 ## [4.7.2] - 2021-02-05
 
