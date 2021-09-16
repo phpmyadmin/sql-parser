@@ -170,6 +170,65 @@ class KeyTest extends TestCase
         );
     }
 
+    public function testParseKeyWithLengthWithAllOptions()
+    {
+        $component = Key::parse(
+            new Parser(),
+            $this->getTokensList(
+                // This is not a vary plausible example but it runs
+                // Only ENGINE_ATTRIBUTE gives a not supported error but is still a valid syntax
+                'KEY `alias_type_idx` (`alias_type`(10))'
+                . ' COMMENT \'my comment\' VISIBLE KEY_BLOCK_SIZE=1'
+                . ' INVISIBLE ENGINE_ATTRIBUTE \'foo\' SECONDARY_ENGINE_ATTRIBUTE=\'bar\' USING BTREE,'
+            )
+        );
+        $this->assertEquals('KEY', $component->type);
+        $this->assertEquals('alias_type_idx', $component->name);
+        $this->assertEquals(new OptionsArray(
+            array(
+                1 => array(
+                    'name' => 'KEY_BLOCK_SIZE',
+                    'equals' => true,
+                    'expr' => '1',
+                    'value' => '1',
+                ),
+                2 => array(
+                    'name' => 'USING',
+                    'equals' => false,
+                    'expr' => 'BTREE',
+                    'value' => 'BTREE',
+                ),
+                4 => array(
+                    'name' => 'COMMENT',
+                    'equals' => false,
+                    'expr' => '\'my comment\'',
+                    'value' => 'my comment',
+                ),
+                5 => array(
+                    'name' => 'ENGINE_ATTRIBUTE',
+                    'equals' => true,
+                    'expr' => '\'foo\'',
+                    'value' => 'foo',
+                ),
+                6 => 'VISIBLE',
+                12 => 'INVISIBLE',
+                13 => array(
+                    'name' => 'SECONDARY_ENGINE_ATTRIBUTE',
+                    'equals' => true,
+                    'expr' => '\'bar\'',
+                    'value' => 'bar',
+                ),
+            )
+        ), $component->options);
+        $this->assertNull($component->expr);
+        $this->assertSame(array(
+            array(
+                'name' => 'alias_type',
+                'length' => 10,
+            )
+        ), $component->columns);
+    }
+
     public function testParseKeyExpressionWithoutOptions()
     {
         $component = Key::parse(

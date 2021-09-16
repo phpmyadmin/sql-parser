@@ -1,4 +1,1 @@
-CREATE DATABASE IF NOT EXISTS cbt_triggers;
-USE cbt_triggers;
-DROP TABLE IF EXISTS employees_check;
 CREATE TABLE IF NOT EXISTS employees_check (FirstName varchar(30) CHECK (FirstName REGEXP '^T' AND FirstName REGEXP 'r$') ENFORCED);
