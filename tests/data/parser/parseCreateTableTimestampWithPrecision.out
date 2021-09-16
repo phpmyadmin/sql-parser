@@ -1408,7 +1408,7 @@
                             "KEY_OPTIONS": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
-                                    "var"
+                                    "var="
                                 ],
                                 "USING": [
                                     2,
@@ -1420,8 +1420,24 @@
                                 ],
                                 "COMMENT": [
                                     4,
+                                    "var"
+                                ],
+                                "CLUSTERING": [
+                                    4,
                                     "var="
-                                ]
+                                ],
+                                "ENGINE_ATTRIBUTE": [
+                                    5,
+                                    "var="
+                                ],
+                                "SECONDARY_ENGINE_ATTRIBUTE": [
+                                    5,
+                                    "var="
+                                ],
+                                "VISIBLE": 6,
+                                "INVISIBLE": 6,
+                                "IGNORED": 10,
+                                "NOT IGNORED": 10
                             },
                             "name": null,
                             "columns": [
@@ -1430,6 +1446,7 @@
                                 }
                             ],
                             "type": "PRIMARY KEY",
+                            "expr": null,
                             "options": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                 "options": []
