@@ -14,6 +14,7 @@
 * Added support for MySQL 8.0 table structure KEY expressions (#347)
 * Added support for KEY order (ASC/DESC) (#296)
 * Added missing KEY options for MySQL and MariaDB (#348)
+* Added support for ENFORCED and NOT ENFORCED on table create queries (#341)
 
 ## [5.4.2] - 2021-02-05
 
