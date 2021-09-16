@@ -13,6 +13,7 @@
 * Fix PHP notice "Undefined index: name in src/Components/Key.php#206" for table keys using expressions (#347)
 * Added support for MySQL 8.0 table structure KEY expressions (#347)
 * Added support for KEY order (ASC/DESC) (#296)
+* Added missing KEY options for MySQL and MariaDB (#348)
 
 ## [5.4.2] - 2021-02-05
 
@@ -87,6 +88,7 @@
 - Fix PHP notice "Undefined index: name in src/Components/Key.php#206" for table keys using functions (#347)
 - Fix MySQL 8.0 table structure KEY expression not recognized (#347)
 - Fix KEY order (ASC/DESC) not part of the KEY definition (#296)
+- Fix missing KEY options for MySQL and MariaDB (#348)
 
 ## [4.7.2] - 2021-02-05
 

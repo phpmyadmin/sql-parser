@@ -31,7 +31,7 @@ class Key extends Component
     public static $KEY_OPTIONS = [
         'KEY_BLOCK_SIZE' => [
             1,
-            'var',
+            'var=',
         ],
         'USING' => [
             2,
@@ -45,6 +45,25 @@ class Key extends Component
             4,
             'var',
         ],
+        // MariaDB options
+        'CLUSTERING' => [
+            4,
+            'var=',
+        ],
+        'ENGINE_ATTRIBUTE' => [
+            5,
+            'var=',
+        ],
+        'SECONDARY_ENGINE_ATTRIBUTE' => [
+            5,
+            'var=',
+        ],
+        // MariaDB & MySQL options
+        'VISIBLE' => 6,
+        'INVISIBLE' => 6,
+        // MariaDB options
+        'IGNORED' => 10,
+        'NOT IGNORED' => 10,
     ];
 
     /**
