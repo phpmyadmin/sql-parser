@@ -10,7 +10,7 @@ on:
 
 jobs:
     test-php:
-        name: Test on php ${{ matrix.php-version }} and ${{ matrix.os }}
+        name: Test on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
         runs-on: ${{ matrix.os }}
         continue-on-error: ${{ matrix.experimental }}
         strategy:
@@ -24,7 +24,7 @@ jobs:
                   - { php-version: 'nightly', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
         steps:
             - uses: actions/checkout@v2
-            - name: Use php ${{ matrix.php-version }}
+            - name: Use PHP ${{ matrix.php-version }}
               uses: shivammathur/setup-php@v2
               with:
                   php-version: ${{ matrix.php-version }}
@@ -32,7 +32,8 @@ jobs:
                   # json is used by testing code
                   # dom, json, mbstring, libxml, xml, xmlwriter are used by phpunit
                   # tokenizer, xmlwriter and simplexml are used by phpcs
-                  extensions: none, mbstring, phar, json, curl, tokenizer, xml, xmlwriter, simplexml, libxml, dom
+                  # ctype is used by Psalm
+                  extensions: none, mbstring, phar, json, curl, tokenizer, xml, xmlwriter, simplexml, libxml, dom, ctype
                   coverage: xdebug
             - name: Get Composer Cache Directory
               id: composer-cache
