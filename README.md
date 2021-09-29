@@ -11,6 +11,7 @@ A validating SQL lexer and parser with a focus on MySQL dialect.
 [![Translation status](https://hosted.weblate.org/widgets/phpmyadmin/-/svg-badge.svg)](https://hosted.weblate.org/engage/phpmyadmin/?utm_source=widget)
 [![Packagist](https://img.shields.io/packagist/dt/phpmyadmin/sql-parser.svg)](https://packagist.org/packages/phpmyadmin/sql-parser)
 [![Open Source Helpers](https://www.codetriage.com/phpmyadmin/sql-parser/badges/users.svg)](https://www.codetriage.com/phpmyadmin/sql-parser)
+[![Type coverage](https://shepherd.dev/github/phpmyadmin/sql-parser/coverage.svg)](https://shepherd.dev/github/phpmyadmin/sql-parser)
 
 ## Installation
 

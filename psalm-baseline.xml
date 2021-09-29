@@ -1,0 +1,2582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
+  <file src="src/Component.php">
+    <MixedReturnStatement occurrences="1">
+      <code>static::build($this)</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/Components/AlterOperation.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$component-&gt;field !== ''</code>
+    </DocblockTypeContradiction>
+    <InvalidScalarArgument occurrences="1">
+      <code>$arrayKey</code>
+    </InvalidScalarArgument>
+    <MixedArgument occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx]</code>
+    </MixedArgument>
+    <MixedArrayOffset occurrences="1">
+      <code>Parser::$STATEMENT_PARSERS[$token-&gt;value]</code>
+    </MixedArrayOffset>
+    <MixedPropertyFetch occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx]-&gt;type</code>
+    </MixedPropertyFetch>
+    <MixedPropertyTypeCoercion occurrences="2">
+      <code>$ret-&gt;unknown</code>
+      <code>$unknown</code>
+    </MixedPropertyTypeCoercion>
+    <MixedStringOffsetAssignment occurrences="1">
+      <code>$ret-&gt;unknown[]</code>
+    </MixedStringOffsetAssignment>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyAssignmentValue occurrences="3">
+      <code>$field</code>
+      <code>$options</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>isset($component-&gt;field)</code>
+      <code>isset($component-&gt;field) &amp;&amp; ($component-&gt;field !== '')</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+    <UnusedVariable occurrences="1">
+      <code>$arrayKey</code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Components/Array2d.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$ret</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>ArrayObj[]</code>
+    </InvalidReturnType>
+    <MixedArgument occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx]</code>
+    </MixedArgument>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidPropertyFetch occurrences="1">
+      <code>$arr-&gt;values</code>
+    </PossiblyInvalidPropertyFetch>
+  </file>
+  <file src="src/Components/ArrayObj.php">
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$component-&gt;raw</code>
+      <code>$component-&gt;values</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="1">
+      <code>$ret[]</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1"/>
+    <MixedOperand occurrences="1">
+      <code>$token-&gt;value</code>
+    </MixedOperand>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$ret</code>
+      <code>ArrayObj|Component[]</code>
+    </MixedReturnTypeCoercion>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidPropertyAssignment occurrences="4">
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+    </PossiblyInvalidPropertyAssignment>
+    <PossiblyInvalidPropertyFetch occurrences="4">
+      <code>$ret-&gt;raw</code>
+      <code>$ret-&gt;raw</code>
+      <code>$ret-&gt;values</code>
+      <code>$ret-&gt;values</code>
+    </PossiblyInvalidPropertyFetch>
+    <UndefinedMethod occurrences="1">
+      <code>$ret</code>
+    </UndefinedMethod>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/CaseExpression.php">
+    <InvalidOperand occurrences="1">
+      <code>! $token-&gt;flags</code>
+    </InvalidOperand>
+    <MixedArgument occurrences="6">
+      <code>$component-&gt;conditions[$i]</code>
+      <code>$list-&gt;tokens[$list-&gt;idx - 1]</code>
+      <code>$list-&gt;tokens[$list-&gt;idx - 1]</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$ret-&gt;alias</code>
+      <code>$token</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="6">
+      <code>$component-&gt;compare_values[$i]</code>
+      <code>$component-&gt;results[$i]</code>
+      <code>$component-&gt;results[$i]</code>
+      <code>$token-&gt;flags</code>
+      <code>$token-&gt;flags</code>
+      <code>$token-&gt;value</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="6">
+      <code>$token-&gt;flags</code>
+      <code>$token-&gt;flags</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;value</code>
+      <code>$token-&gt;value</code>
+    </MixedPropertyFetch>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>Context::escape($component-&gt;alias)</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="3">
+      <code>Expression::parse($parser, $list)</code>
+      <code>Expression::parse($parser, $list)</code>
+      <code>Expression::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$alias</code>
+      <code>$else_result</code>
+      <code>$value</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>isset($component-&gt;else_result)</code>
+      <code>isset($component-&gt;value)</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/Condition.php">
+    <MixedArgument occurrences="1">
+      <code>$token-&gt;value</code>
+    </MixedArgument>
+    <MixedArrayOffset occurrences="1">
+      <code>static::$ALLOWED_KEYWORDS[$token-&gt;value]</code>
+    </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="1">
+      <code>static::$ALLOWED_KEYWORDS[$token-&gt;value]</code>
+    </MixedArrayTypeCoercion>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedPropertyFetch occurrences="1">
+      <code>$component-&gt;expr</code>
+    </MixedPropertyFetch>
+    <MixedReturnStatement occurrences="1">
+      <code>$component-&gt;expr</code>
+    </MixedReturnStatement>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_array($component)</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="3">
+      <code>new static($token-&gt;value)</code>
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/CreateDefinition.php">
+    <MixedArgument occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx - 1]</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$expr-&gt;name</code>
+      <code>$expr-&gt;name</code>
+    </MixedAssignment>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>Context::escape($component-&gt;name)</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="4">
+      <code>$name</code>
+      <code>$options</code>
+      <code>$references</code>
+      <code>DataType::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>$isConstraint</code>
+      <code>$key</code>
+      <code>$references</code>
+      <code>$type</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>! empty($expr-&gt;type)</code>
+      <code>! empty($expr-&gt;type)</code>
+      <code>isset($component-&gt;name)</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="2">
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/DataType.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$component-&gt;parameters</code>
+    </MixedArgumentTypeCoercion>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidPropertyFetch occurrences="2">
+      <code>$parameters-&gt;raw</code>
+      <code>$parameters-&gt;values</code>
+    </PossiblyInvalidPropertyFetch>
+    <PossiblyNullPropertyAssignmentValue occurrences="2">
+      <code>$name</code>
+      <code>$options</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/Expression.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$prev[0] === null</code>
+    </DocblockTypeContradiction>
+    <InvalidArgument occurrences="1">
+      <code>$options['breakOnParentheses']</code>
+    </InvalidArgument>
+    <MixedArgument occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx - 1]</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>Context::escape($fields)</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayOffset occurrences="2">
+      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+      <code>self::$ALLOWED_KEYWORDS[$token-&gt;keyword]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="6">
+      <code>$field</code>
+      <code>$options['field']</code>
+      <code>$ret-&gt;alias</code>
+      <code>$ret-&gt;alias</code>
+      <code>$ret-&gt;alias</code>
+      <code>$ret-&gt;subquery</code>
+    </MixedAssignment>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <ParadoxicalCondition occurrences="1">
+      <code>empty($options['field'])</code>
+    </ParadoxicalCondition>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>Context::escape($component-&gt;alias)</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="7">
+      <code>$alias</code>
+      <code>$column</code>
+      <code>$database</code>
+      <code>$database</code>
+      <code>$table</code>
+      <code>$table</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>$column</code>
+      <code>$database</code>
+      <code>$subquery</code>
+      <code>$table</code>
+    </PropertyNotSetInConstructor>
+    <RedundantCastGivenDocblockType occurrences="2">
+      <code>(string) $ret-&gt;expr</code>
+      <code>(string) $ret-&gt;expr</code>
+    </RedundantCastGivenDocblockType>
+    <RedundantConditionGivenDocblockType occurrences="8">
+      <code>$component-&gt;expr !== '' &amp;&amp; $component-&gt;expr !== null</code>
+      <code>$component-&gt;expr !== null</code>
+      <code>$isExpr</code>
+      <code>$prev[1] !== null</code>
+      <code>empty($ret-&gt;function) &amp;&amp; ($prev[1] !== null)</code>
+      <code>isset($component-&gt;column)</code>
+      <code>isset($component-&gt;database)</code>
+      <code>isset($component-&gt;table)</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/ExpressionArray.php">
+    <InvalidReturnStatement occurrences="1">
+      <code>$ret</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>Expression[]</code>
+    </InvalidReturnType>
+    <MixedArgument occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx]</code>
+    </MixedArgument>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <RedundantCondition occurrences="1">
+      <code>is_array($ret)</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Components/FunctionCall.php">
+    <MixedAssignment occurrences="1">
+      <code>$ret-&gt;name</code>
+    </MixedAssignment>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>ArrayObj::parse($parser, $list)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$name</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$parameters</code>
+    </PropertyNotSetInConstructor>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/GroupKeyword.php">
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyAssignmentValue occurrences="2">
+      <code>$expr</code>
+      <code>Expression::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <UnsafeInstantiation occurrences="2">
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/IndexHint.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$component-&gt;indexes</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$expr-&gt;type</code>
+      <code>$expr-&gt;type</code>
+    </MixedAssignment>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyAssignmentValue occurrences="3">
+      <code>$for</code>
+      <code>$indexOrKey</code>
+      <code>$type</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$component-&gt;for !== null</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="3">
+      <code>new static()</code>
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/IntoKeyword.php">
+    <MixedArgument occurrences="2">
+      <code>$token-&gt;value</code>
+      <code>$token-&gt;value</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$component-&gt;columns</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="1">
+      <code>$ret-&gt;dest</code>
+    </MixedAssignment>
+    <MixedPropertyTypeCoercion occurrences="1">
+      <code>$values</code>
+    </MixedPropertyTypeCoercion>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidPropertyFetch occurrences="1">
+      <code>ArrayObj::parse($parser, $list)-&gt;values</code>
+    </PossiblyInvalidPropertyFetch>
+    <PossiblyNullPropertyAssignmentValue occurrences="6">
+      <code>$columns</code>
+      <code>$dest</code>
+      <code>$fieldsKeyword</code>
+      <code>$fieldsOptions</code>
+      <code>$type</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$lines_options</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>isset($component-&gt;values)</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/JoinKeyword.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>''</code>
+    </DocblockTypeContradiction>
+    <MixedArrayOffset occurrences="4">
+      <code>static::$JOINS[$token-&gt;keyword]</code>
+      <code>static::$JOINS[$token-&gt;keyword]</code>
+      <code>static::$JOINS[$token-&gt;keyword]</code>
+      <code>static::$JOINS[$token-&gt;keyword]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="2">
+      <code>$expr-&gt;type</code>
+      <code>$expr-&gt;type</code>
+    </MixedAssignment>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyFalseOperand occurrences="1">
+      <code>array_search($c-&gt;type, static::$JOINS)</code>
+    </PossiblyFalseOperand>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>ArrayObj::parse($parser, $list)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullPropertyAssignmentValue occurrences="5">
+      <code>$expr</code>
+      <code>$on</code>
+      <code>$type</code>
+      <code>$using</code>
+      <code>Expression::parse($parser, $list, ['field' =&gt; 'table'])</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <UnsafeInstantiation occurrences="4">
+      <code>new static()</code>
+      <code>new static()</code>
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+    <UnusedVariable occurrences="3">
+      <code>$state</code>
+      <code>$state</code>
+      <code>$state</code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Components/Key.php">
+    <MixedAssignment occurrences="4">
+      <code>$lastColumn['length']</code>
+      <code>$lastColumn['name']</code>
+      <code>$ret-&gt;name</code>
+      <code>$ret-&gt;type</code>
+    </MixedAssignment>
+    <MixedPropertyTypeCoercion occurrences="1">
+      <code>$columns</code>
+    </MixedPropertyTypeCoercion>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidOperand occurrences="2">
+      <code>Context::escape($column['name'])</code>
+      <code>Context::escape($component-&gt;name)</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullOperand occurrences="4">
+      <code>$component-&gt;options</code>
+      <code>$component-&gt;options</code>
+      <code>$ret-&gt;expr</code>
+      <code>Expression::parse($parser, $list, ['parenthesesDelimited' =&gt; true])</code>
+    </PossiblyNullOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="2">
+      <code>$name</code>
+      <code>$type</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyTypeCoercion occurrences="1">
+      <code>$ret-&gt;columns</code>
+    </PropertyTypeCoercion>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/Limit.php">
+    <MixedArgument occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx - 1]</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$ret-&gt;offset</code>
+      <code>$ret-&gt;rowCount</code>
+    </MixedAssignment>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/LockExpression.php">
+    <MissingConstructor occurrences="2">
+      <code>$table</code>
+      <code>$type</code>
+    </MissingConstructor>
+    <MixedOperand occurrences="2">
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+    </MixedOperand>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>Expression::parse($parser, $list, ['parseField' =&gt; 'table'])</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/OptionsArray.php">
+    <MissingReturnType occurrences="1">
+      <code>merge</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="8">
+      <code>$list-&gt;tokens[$list-&gt;idx - 1]</code>
+      <code>$option</code>
+      <code>$option</code>
+      <code>$option['name']</code>
+      <code>$option['name']</code>
+      <code>$ret-&gt;options[$lastOptionId]['name']</code>
+      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$options</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="6">
+      <code>$lastOption[1]</code>
+      <code>$lastOption[1]</code>
+      <code>$lastOption[2]</code>
+      <code>$ret-&gt;options[$lastOptionId]['expr']</code>
+      <code>$ret-&gt;options[$lastOptionId]['name']</code>
+      <code>$ret-&gt;options[$lastOptionId]['value']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="5">
+      <code>$ret-&gt;options[$lastOptionId]['equals']</code>
+      <code>$ret-&gt;options[$lastOptionId]['expr']</code>
+      <code>$ret-&gt;options[$lastOptionId]['expr']</code>
+      <code>$ret-&gt;options[$lastOptionId]['value']</code>
+      <code>$ret-&gt;options[$lastOptionId]['value']</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="10">
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+    </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="2">
+      <code>$ret-&gt;options[$lastOptionId]</code>
+      <code>$ret-&gt;options[$lastOptionId]</code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment occurrences="6">
+      <code>$lastOption</code>
+      <code>$lastOptionId</code>
+      <code>$option</code>
+      <code>$option</code>
+      <code>$option</code>
+      <code>$options[]</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="4">
+      <code>! empty($option['expr']) ? $option['expr'] : $option['value']</code>
+      <code>$option['name']</code>
+      <code>$ret-&gt;options[$lastOptionId]['expr']</code>
+      <code>$ret-&gt;options[$lastOptionId]['value']</code>
+    </MixedOperand>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullArgument occurrences="1">
+      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="2">
+      <code>$lastOption[1]</code>
+      <code>$lastOption[2]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyFetch occurrences="1">
+      <code>$ret-&gt;options[$lastOptionId]['expr']-&gt;expr</code>
+    </PossiblyNullPropertyFetch>
+    <RedundantCondition occurrences="1">
+      <code>! empty($option['equals']) &amp;&amp; $option['equals']</code>
+    </RedundantCondition>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$options instanceof self</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/OrderKeyword.php">
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyAssignmentValue occurrences="2">
+      <code>$expr</code>
+      <code>Expression::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <UnsafeInstantiation occurrences="2">
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/ParameterDefinition.php">
+    <MixedArgument occurrences="1">
+      <code>$component-&gt;name</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$expr-&gt;name</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="2">
+      <code>$component-&gt;inOut</code>
+      <code>$component-&gt;type</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="3">
+      <code>$component-&gt;inOut</code>
+      <code>$component-&gt;name</code>
+      <code>$component-&gt;type</code>
+    </MixedPropertyFetch>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>Context::escape($component-&gt;name)</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="4">
+      <code>$inOut</code>
+      <code>$name</code>
+      <code>$type</code>
+      <code>DataType::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>is_array($component)</code>
+      <code>isset($expr-&gt;name)</code>
+    </RedundantConditionGivenDocblockType>
+    <UnsafeInstantiation occurrences="2">
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/PartitionDefinition.php">
+    <MissingConstructor occurrences="6">
+      <code>$expr</code>
+      <code>$isSubpartition</code>
+      <code>$name</code>
+      <code>$options</code>
+      <code>$subpartitions</code>
+      <code>$type</code>
+    </MissingConstructor>
+    <MixedAssignment occurrences="4">
+      <code>$nextToken</code>
+      <code>$nextToken</code>
+      <code>$ret-&gt;name</code>
+      <code>$ret-&gt;type</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$ret-&gt;name</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="4">
+      <code>$nextToken-&gt;type</code>
+      <code>$nextToken-&gt;type</code>
+      <code>$nextToken-&gt;value</code>
+      <code>$nextToken-&gt;value</code>
+    </MixedPropertyFetch>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyAssignmentValue occurrences="1"/>
+    <PropertyTypeCoercion occurrences="1"/>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+    <UnusedVariable occurrences="1">
+      <code>$idx</code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Components/Reference.php">
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>Context::escape($component-&gt;columns)</code>
+    </MixedArgumentTypeCoercion>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyInvalidPropertyFetch occurrences="1">
+      <code>ArrayObj::parse($parser, $list)-&gt;values</code>
+    </PossiblyInvalidPropertyFetch>
+    <PossiblyNullPropertyAssignmentValue occurrences="3">
+      <code>$options</code>
+      <code>$table</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <UnsafeInstantiation occurrences="1">
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/RenameOperation.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>is_array($component)</code>
+    </DocblockTypeContradiction>
+    <MixedArgument occurrences="2">
+      <code>$component</code>
+      <code>$list-&gt;tokens[$list-&gt;idx - 1]</code>
+    </MixedArgument>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyAssignmentValue occurrences="4">
+      <code>$new</code>
+      <code>$old</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <UnsafeInstantiation occurrences="2">
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/SetOperation.php">
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <RedundantCondition occurrences="1">
+      <code>$token-&gt;value === ','</code>
+    </RedundantCondition>
+    <UnsafeInstantiation occurrences="2">
+      <code>new static()</code>
+      <code>new static()</code>
+    </UnsafeInstantiation>
+  </file>
+  <file src="src/Components/UnionKeyword.php">
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+  </file>
+  <file src="src/Components/WithKeyword.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>$component instanceof WithKeyword</code>
+      <code>isset($component-&gt;statement)</code>
+    </DocblockTypeContradiction>
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$component</code>
+    </MoreSpecificImplementedParamType>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$statement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Context.php">
+    <InvalidPropertyFetch occurrences="1">
+      <code>$context::$KEYWORDS</code>
+    </InvalidPropertyFetch>
+    <MissingReturnType occurrences="2">
+      <code>load</code>
+      <code>setMode</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$value</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="3">
+      <code>$value</code>
+      <code>self::$KEYWORDS</code>
+      <code>static::$MODE</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="2">
+      <code>int|null</code>
+      <code>int|null</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="2">
+      <code>constant('static::SQL_MODE_' . $m)</code>
+      <code>static::$KEYWORDS[$str]</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="2">
+      <code>static::$KEYWORDS[$str]</code>
+      <code>static::$OPERATORS[$str]</code>
+    </MixedReturnStatement>
+  </file>
+  <file src="src/Contexts/ContextMariaDb100000.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMariaDb100100.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMariaDb100200.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMariaDb100300.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMariaDb100400.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMariaDb100500.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMariaDb100600.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMySql50000.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMySql50100.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMySql50500.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMySql50600.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMySql50700.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Contexts/ContextMySql80000.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$KEYWORDS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Core.php">
+    <MissingReturnType occurrences="1">
+      <code>error</code>
+    </MissingReturnType>
+  </file>
+  <file src="src/Exceptions/ParserException.php">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$token</code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="src/Lexer.php">
+    <LoopInvalidation occurrences="3">
+      <code>$this</code>
+      <code>$this</code>
+      <code>$this</code>
+    </LoopInvalidation>
+    <MissingReturnType occurrences="3">
+      <code>error</code>
+      <code>lex</code>
+      <code>setDelimiter</code>
+    </MissingReturnType>
+    <MixedArrayAccess occurrences="42">
+      <code>$this-&gt;str[$this-&gt;last + 1]</code>
+      <code>$this-&gt;str[$this-&gt;last + 1]</code>
+      <code>$this-&gt;str[$this-&gt;last++]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="3">
+      <code>$lastToken</code>
+      <code>$method</code>
+      <code>$token</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="8">
+      <code>$lastToken-&gt;flags</code>
+      <code>$lastToken-&gt;token</code>
+      <code>$lastToken-&gt;value</code>
+      <code>$this-&gt;str[$this-&gt;last++]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$token-&gt;flags</code>
+      <code>$token-&gt;value</code>
+    </MixedOperand>
+    <MixedPropertyAssignment occurrences="8">
+      <code>$lastToken</code>
+      <code>$lastToken</code>
+      <code>$lastToken</code>
+      <code>$lastToken</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+    </MixedPropertyAssignment>
+    <MixedPropertyFetch occurrences="14">
+      <code>$lastToken-&gt;flags</code>
+      <code>$lastToken-&gt;token</code>
+      <code>$lastToken-&gt;type</code>
+      <code>$lastToken-&gt;type</code>
+      <code>$lastToken-&gt;value</code>
+      <code>$lastToken-&gt;value</code>
+      <code>$token-&gt;flags</code>
+      <code>$token-&gt;token</code>
+      <code>$token-&gt;token</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;value</code>
+      <code>$token-&gt;value</code>
+    </MixedPropertyFetch>
+    <NullArgument occurrences="1">
+      <code>null</code>
+    </NullArgument>
+    <ParamNameMismatch occurrences="1">
+      <code>$msg</code>
+    </ParamNameMismatch>
+    <PossiblyNullArgument occurrences="16">
+      <code>$flags</code>
+      <code>$this-&gt;str[$this-&gt;last + 1]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="23">
+      <code>$this-&gt;delimiter</code>
+      <code>$this-&gt;str[$this-&gt;last++]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[$this-&gt;last]</code>
+      <code>$this-&gt;str[++$this-&gt;last]</code>
+      <code>$this-&gt;str[++$this-&gt;last]</code>
+      <code>$this-&gt;str[++$this-&gt;last]</code>
+      <code>$this-&gt;str[++$this-&gt;last]</code>
+    </PossiblyNullOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <UnnecessaryVarAnnotation occurrences="3">
+      <code>int</code>
+      <code>int</code>
+      <code>int</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="src/Parser.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>$lastStatement-&gt;union</code>
+    </InvalidPropertyAssignmentValue>
+    <InvalidStringClass occurrences="1">
+      <code>new $class($this, $this-&gt;list)</code>
+    </InvalidStringClass>
+    <MissingReturnType occurrences="2">
+      <code>error</code>
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedArrayOffset occurrences="1">
+      <code>static::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+    </MixedArrayOffset>
+    <ParamNameMismatch occurrences="1">
+      <code>$msg</code>
+    </ParamNameMismatch>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$list</code>
+    </PropertyNotSetInConstructor>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>TokensList</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="src/Statement.php">
+    <MissingReturnType occurrences="3">
+      <code>after</code>
+      <code>before</code>
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="2">
+      <code>$options</code>
+      <code>$token</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="4">
+      <code>$clauseType</code>
+      <code>$clauseType</code>
+      <code>$clauseType</code>
+      <code>$clauseType</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="7">
+      <code>$clause[0]</code>
+      <code>$clause[1]</code>
+      <code>Parser::$KEYWORD_PARSERS[$name]['class']</code>
+      <code>Parser::$KEYWORD_PARSERS[$name]['field']</code>
+      <code>Parser::$KEYWORD_PARSERS[$tokenValue]['class']</code>
+      <code>Parser::$KEYWORD_PARSERS[$tokenValue]['field']</code>
+      <code>Parser::$KEYWORD_PARSERS[$tokenValue]['options']</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="8">
+      <code>$parsedClauses[$token-&gt;value]</code>
+      <code>$parsedClauses[$token-&gt;value]</code>
+      <code>Parser::$KEYWORD_PARSERS[$token-&gt;value]</code>
+      <code>Parser::$KEYWORD_PARSERS[$tokenValue]</code>
+      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+      <code>Parser::$STATEMENT_PARSERS[$token-&gt;value]</code>
+      <code>static::$CLAUSES[$token-&gt;value]</code>
+      <code>static::$OPTIONS[$token-&gt;value]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="6">
+      <code>$class</code>
+      <code>$clause</code>
+      <code>$field</code>
+      <code>$options</code>
+      <code>$token</code>
+      <code>$tokenValue</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>$class::parse($parser, $list, $options)</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="1">
+      <code>$class::build($this-&gt;$field)</code>
+    </MixedOperand>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$options</code>
+    </PropertyNotSetInConstructor>
+    <TypeDoesNotContainType occurrences="1">
+      <code>count($clauses) === 0</code>
+    </TypeDoesNotContainType>
+    <UnnecessaryVarAnnotation occurrences="2">
+      <code>array</code>
+      <code>bool</code>
+    </UnnecessaryVarAnnotation>
+    <UnusedForeachValue occurrences="1">
+      <code>$index</code>
+    </UnusedForeachValue>
+  </file>
+  <file src="src/Statements/AlterStatement.php">
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <PossiblyNullPropertyAssignmentValue occurrences="1"/>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$table</code>
+      <code>AlterStatement</code>
+      <code>AlterStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/AnalyzeStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$tables</code>
+      <code>AnalyzeStatement</code>
+      <code>AnalyzeStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/BackupStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>BackupStatement</code>
+      <code>BackupStatement</code>
+      <code>BackupStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/CallStatement.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>''</code>
+    </DocblockTypeContradiction>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$this-&gt;call-&gt;parameters-&gt;raw</code>
+    </MixedArgumentTypeCoercion>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$call</code>
+      <code>CallStatement</code>
+      <code>CallStatement</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$this-&gt;call-&gt;parameters</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Statements/CheckStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>CheckStatement</code>
+      <code>CheckStatement</code>
+      <code>CheckStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/ChecksumStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>ChecksumStatement</code>
+      <code>ChecksumStatement</code>
+      <code>ChecksumStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/CreateStatement.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>$this-&gt;name === ''</code>
+      <code>$this-&gt;name === ''</code>
+    </DocblockTypeContradiction>
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="4">
+      <code>$list-&gt;tokens[$list-&gt;idx]</code>
+      <code>$list-&gt;tokens[$list-&gt;idx]</code>
+      <code>$list-&gt;tokens[$list-&gt;idx]</code>
+      <code>$this-&gt;$field</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="6">
+      <code>$this-&gt;partitionsNum</code>
+      <code>$this-&gt;subpartitionsNum</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$this-&gt;$field</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="7">
+      <code>$list-&gt;tokens[$nextidx]-&gt;type</code>
+      <code>$list-&gt;tokens[$nextidx]-&gt;type</code>
+      <code>$list-&gt;tokens[$nextidx]-&gt;type</code>
+      <code>$list-&gt;tokens[$nextidx]-&gt;value</code>
+      <code>$list-&gt;tokens[$nextidx]-&gt;value</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;type</code>
+    </MixedPropertyFetch>
+    <MixedPropertyTypeCoercion occurrences="4">
+      <code>$this-&gt;body</code>
+      <code>$this-&gt;body</code>
+      <code>$this-&gt;body</code>
+      <code>$this-&gt;body</code>
+    </MixedPropertyTypeCoercion>
+    <MixedStringOffsetAssignment occurrences="4">
+      <code>$this-&gt;body[]</code>
+      <code>$this-&gt;body[]</code>
+      <code>$this-&gt;body[]</code>
+      <code>$this-&gt;body[]</code>
+    </MixedStringOffsetAssignment>
+    <PossiblyInvalidOperand occurrences="2">
+      <code>$brackets</code>
+      <code>$brackets</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullPropertyAssignmentValue occurrences="4">
+      <code>DataType::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullPropertyFetch occurrences="2">
+      <code>$token-&gt;value</code>
+      <code>$token-&gt;value</code>
+    </PossiblyNullPropertyFetch>
+    <PropertyNotSetInConstructor occurrences="14">
+      <code>$entityOptions</code>
+      <code>$fields</code>
+      <code>$like</code>
+      <code>$name</code>
+      <code>$parameters</code>
+      <code>$partitionBy</code>
+      <code>$partitions</code>
+      <code>$partitionsNum</code>
+      <code>$return</code>
+      <code>$subpartitionBy</code>
+      <code>$subpartitionsNum</code>
+      <code>$table</code>
+      <code>CreateStatement</code>
+      <code>CreateStatement</code>
+    </PropertyNotSetInConstructor>
+    <PropertyTypeCoercion occurrences="2">
+      <code>ArrayObj::parse($parser, $list)</code>
+    </PropertyTypeCoercion>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$this-&gt;fields instanceof ArrayObj</code>
+      <code>$this-&gt;like !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Statements/DeleteStatement.php">
+    <InvalidArgument occurrences="1">
+      <code>$this-&gt;order</code>
+    </InvalidArgument>
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$token-&gt;keyword</code>
+    </MixedArgument>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="10">
+      <code>$columns</code>
+      <code>$from</code>
+      <code>$join</code>
+      <code>$limit</code>
+      <code>$order</code>
+      <code>$partition</code>
+      <code>$using</code>
+      <code>$where</code>
+      <code>DeleteStatement</code>
+      <code>DeleteStatement</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="7">
+      <code>$this-&gt;columns !== null</code>
+      <code>$this-&gt;from !== null</code>
+      <code>$this-&gt;join !== null</code>
+      <code>$this-&gt;limit !== null</code>
+      <code>$this-&gt;order !== null</code>
+      <code>$this-&gt;using !== null</code>
+      <code>$this-&gt;where !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Statements/DropStatement.php">
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>$fields</code>
+      <code>$table</code>
+      <code>DropStatement</code>
+      <code>DropStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/ExplainStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>ExplainStatement</code>
+      <code>ExplainStatement</code>
+      <code>ExplainStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/InsertStatement.php">
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>$into</code>
+      <code>$onDuplicateSet</code>
+      <code>$select</code>
+      <code>$set</code>
+      <code>InsertStatement</code>
+      <code>InsertStatement</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>$this-&gt;onDuplicateSet !== null</code>
+      <code>$this-&gt;select !== null</code>
+      <code>$this-&gt;set !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Statements/LoadStatement.php">
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$token-&gt;value</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="1">
+      <code>$token</code>
+    </MixedAssignment>
+    <MixedPropertyFetch occurrences="6">
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;value</code>
+    </MixedPropertyFetch>
+    <PossiblyInvalidPropertyAssignmentValue occurrences="1">
+      <code>ArrayObj::parse($parser, $list)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullPropertyAssignmentValue occurrences="5">
+      <code>$nextToken-&gt;token</code>
+      <code>Expression::parse($parser, $list)</code>
+      <code>Expression::parse($parser, $list)</code>
+      <code>Expression::parse($parser, $list, ['parseField' =&gt; 'table'])</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullPropertyFetch occurrences="3">
+      <code>$nextToken-&gt;keyword</code>
+      <code>$nextToken-&gt;token</code>
+      <code>$nextToken-&gt;type</code>
+    </PossiblyNullPropertyFetch>
+    <PropertyNotSetInConstructor occurrences="14">
+      <code>$charset_name</code>
+      <code>$col_name_or_user_var</code>
+      <code>$fields_keyword</code>
+      <code>$fields_options</code>
+      <code>$file_name</code>
+      <code>$ignore_number</code>
+      <code>$lines_options</code>
+      <code>$lines_rows</code>
+      <code>$partition</code>
+      <code>$replace_ignore</code>
+      <code>$set</code>
+      <code>$table</code>
+      <code>LoadStatement</code>
+      <code>LoadStatement</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="8">
+      <code>$this-&gt;charset_name !== null</code>
+      <code>$this-&gt;col_name_or_user_var !== null</code>
+      <code>$this-&gt;fields_keyword !== null</code>
+      <code>$this-&gt;ignore_number !== null</code>
+      <code>$this-&gt;lines_options !== null</code>
+      <code>$this-&gt;partition !== null</code>
+      <code>$this-&gt;replace_ignore !== null</code>
+      <code>$this-&gt;set !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Statements/LockStatement.php">
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedPropertyFetch occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx]-&gt;value</code>
+    </MixedPropertyFetch>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>LockStatement</code>
+      <code>LockStatement</code>
+      <code>LockStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/MaintenanceStatement.php">
+    <MissingReturnType occurrences="1">
+      <code>after</code>
+    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$tables</code>
+      <code>MaintenanceStatement</code>
+      <code>MaintenanceStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/NotImplementedStatement.php">
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedPropertyFetch occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx]-&gt;type</code>
+    </MixedPropertyFetch>
+    <MixedPropertyTypeCoercion occurrences="1">
+      <code>$this-&gt;unknown</code>
+    </MixedPropertyTypeCoercion>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>NotImplementedStatement</code>
+      <code>NotImplementedStatement</code>
+      <code>NotImplementedStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/OptimizeStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$tables</code>
+      <code>OptimizeStatement</code>
+      <code>OptimizeStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/PurgeStatement.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>''</code>
+    </DocblockTypeContradiction>
+    <ImplicitToStringCast occurrences="1">
+      <code>Expression::parse($parser, $list, [])</code>
+    </ImplicitToStringCast>
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="2">
+      <code>$this-&gt;end_option</code>
+      <code>$this-&gt;log_type</code>
+    </MixedAssignment>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>Expression::parse($parser, $list, [])</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>$end_expr</code>
+      <code>$end_option</code>
+      <code>$log_type</code>
+      <code>PurgeStatement</code>
+      <code>PurgeStatement</code>
+      <code>PurgeStatement</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$this-&gt;end_option !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Statements/RenameStatement.php">
+    <InvalidArgument occurrences="1">
+      <code>$this-&gt;renames</code>
+    </InvalidArgument>
+    <MissingReturnType occurrences="1">
+      <code>before</code>
+    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$renames</code>
+      <code>RenameStatement</code>
+      <code>RenameStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/RepairStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>RepairStatement</code>
+      <code>RepairStatement</code>
+      <code>RepairStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/ReplaceStatement.php">
+    <InvalidArgument occurrences="2">
+      <code>$this-&gt;values</code>
+      <code>$this-&gt;values</code>
+    </InvalidArgument>
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>Array2d::parse($parser, $list)</code>
+    </InvalidPropertyAssignmentValue>
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="6">
+      <code>$into</code>
+      <code>$select</code>
+      <code>$set</code>
+      <code>$values</code>
+      <code>ReplaceStatement</code>
+      <code>ReplaceStatement</code>
+    </PropertyNotSetInConstructor>
+    <RedundantConditionGivenDocblockType occurrences="3">
+      <code>$this-&gt;select !== null</code>
+      <code>$this-&gt;set !== null</code>
+      <code>$this-&gt;values !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Statements/RestoreStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>RestoreStatement</code>
+      <code>RestoreStatement</code>
+      <code>RestoreStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/SelectStatement.php">
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$END_OPTIONS</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="13">
+      <code>$end_options</code>
+      <code>$group</code>
+      <code>$having</code>
+      <code>$index_hints</code>
+      <code>$into</code>
+      <code>$join</code>
+      <code>$limit</code>
+      <code>$order</code>
+      <code>$partition</code>
+      <code>$procedure</code>
+      <code>$where</code>
+      <code>SelectStatement</code>
+      <code>SelectStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/SetStatement.php">
+    <InvalidArgument occurrences="1">
+      <code>$this-&gt;options</code>
+    </InvalidArgument>
+    <NonInvariantDocblockPropertyType occurrences="1">
+      <code>$options</code>
+    </NonInvariantDocblockPropertyType>
+    <PropertyNotSetInConstructor occurrences="4">
+      <code>$end_options</code>
+      <code>$options</code>
+      <code>$set</code>
+      <code>SetStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/ShowStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>ShowStatement</code>
+      <code>ShowStatement</code>
+      <code>ShowStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/TransactionStatement.php">
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <PropertyNotSetInConstructor occurrences="5">
+      <code>$end</code>
+      <code>$statements</code>
+      <code>$type</code>
+      <code>TransactionStatement</code>
+      <code>TransactionStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/TruncateStatement.php">
+    <PropertyNotSetInConstructor occurrences="3">
+      <code>$table</code>
+      <code>TruncateStatement</code>
+      <code>TruncateStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/UpdateStatement.php">
+    <PropertyNotSetInConstructor occurrences="7">
+      <code>$limit</code>
+      <code>$order</code>
+      <code>$set</code>
+      <code>$tables</code>
+      <code>$where</code>
+      <code>UpdateStatement</code>
+      <code>UpdateStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Statements/WithStatement.php">
+    <MissingReturnType occurrences="1">
+      <code>parse</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="2">
+      <code>$token</code>
+      <code>$wither</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="2">
+      <code>$token</code>
+      <code>$wither</code>
+    </MixedAssignment>
+    <MixedPropertyFetch occurrences="1">
+      <code>$token-&gt;value</code>
+    </MixedPropertyFetch>
+    <PossiblyNullArrayOffset occurrences="2">
+      <code>$this-&gt;withers</code>
+      <code>$this-&gt;withers</code>
+    </PossiblyNullArrayOffset>
+    <PropertyNotSetInConstructor occurrences="2">
+      <code>WithStatement</code>
+      <code>WithStatement</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/Token.php">
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$position</code>
+    </PropertyNotSetInConstructor>
+  </file>
+  <file src="src/TokensList.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>$offset === null</code>
+    </DocblockTypeContradiction>
+    <MissingReturnType occurrences="1">
+      <code>add</code>
+    </MissingReturnType>
+    <MixedAssignment occurrences="1">
+      <code>$tok</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="4">
+      <code>Token</code>
+      <code>Token|null</code>
+      <code>Token|null</code>
+      <code>Token|null</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>$tok-&gt;token</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="5">
+      <code>$this-&gt;tokens[$this-&gt;idx]-&gt;type</code>
+      <code>$this-&gt;tokens[$this-&gt;idx]-&gt;type</code>
+      <code>$this-&gt;tokens[$this-&gt;idx]-&gt;type</code>
+      <code>$this-&gt;tokens[$this-&gt;idx]-&gt;value</code>
+      <code>$tok-&gt;token</code>
+    </MixedPropertyFetch>
+    <MixedReturnStatement occurrences="4">
+      <code>$offset &lt; $this-&gt;count ? $this-&gt;tokens[$offset] : null</code>
+      <code>$this-&gt;tokens[$this-&gt;idx++]</code>
+      <code>$this-&gt;tokens[$this-&gt;idx++]</code>
+      <code>$this-&gt;tokens[$this-&gt;idx++]</code>
+    </MixedReturnStatement>
+    <NullableReturnStatement occurrences="1">
+      <code>$offset &lt; $this-&gt;count ? $this-&gt;tokens[$offset] : null</code>
+    </NullableReturnStatement>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>is_array($list)</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Tools/ContextGenerator.php">
+    <MissingReturnType occurrences="2">
+      <code>build</code>
+      <code>buildAll</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="9">
+      <code>$options['class']</code>
+      <code>$options['keywords']</code>
+      <code>$options['keywords']</code>
+      <code>$options['link']</code>
+      <code>$options['name']</code>
+      <code>$word</code>
+      <code>$words</code>
+      <code>$wordsByLen</code>
+      <code>($line - $spaces) / ($len + 9)</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$label</code>
+      <code>$label</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayOffset occurrences="4">
+      <code>$ret[$type]</code>
+      <code>$ret[$type]</code>
+      <code>$ret[$type]</code>
+      <code>$ret[$type]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="13">
+      <code>$flags</code>
+      <code>$len</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$types[$value]</code>
+      <code>$types[$value]</code>
+      <code>$word</code>
+      <code>$words</code>
+      <code>$wordsByLen</code>
+      <code>$wordsByLen</code>
+      <code>$wordsByType</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="5">
+      <code>$flags</code>
+      <code>$len</code>
+      <code>$type</code>
+      <code>$type</code>
+      <code>$types[$value]</code>
+    </MixedOperand>
+    <RedundantCondition occurrences="2">
+      <code>++$i !== $count</code>
+      <code>++$i !== $count</code>
+    </RedundantCondition>
+    <UnnecessaryVarAnnotation occurrences="2">
+      <code>string</code>
+      <code>string</code>
+    </UnnecessaryVarAnnotation>
+    <UnusedFunctionCall occurrences="1">
+      <code>sprintf</code>
+    </UnusedFunctionCall>
+  </file>
+  <file src="src/Tools/TestGenerator.php">
+    <MissingReturnType occurrences="2">
+      <code>build</code>
+      <code>buildAll</code>
+    </MissingReturnType>
+    <MixedOperand occurrences="1">
+      <code>$debug</code>
+    </MixedOperand>
+    <PossiblyNullArgument occurrences="2">
+      <code>$debugFile</code>
+      <code>$debugFile</code>
+    </PossiblyNullArgument>
+    <UndefinedPropertyFetch occurrences="3">
+      <code>$err-&gt;ch</code>
+      <code>$err-&gt;pos</code>
+      <code>$err-&gt;token</code>
+    </UndefinedPropertyFetch>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>Lexer</code>
+    </UnnecessaryVarAnnotation>
+    <UnusedFunctionCall occurrences="2">
+      <code>sprintf</code>
+      <code>sprintf</code>
+    </UnusedFunctionCall>
+  </file>
+  <file src="src/Translator.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>self::$loader === null</code>
+    </DocblockTypeContradiction>
+    <MissingReturnType occurrences="1">
+      <code>load</code>
+    </MissingReturnType>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>self::$translator !== null</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Utils/BufferedQuery.php">
+    <MissingReturnType occurrences="1">
+      <code>setDelimiter</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$this-&gt;options['delimiter']</code>
+    </MixedArgument>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$status</code>
+    </PropertyNotSetInConstructor>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>int</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="src/Utils/CLI.php">
+    <InvalidNullableReturnType occurrences="1">
+      <code>string|false</code>
+    </InvalidNullableReturnType>
+    <InvalidReturnStatement occurrences="1">
+      <code>getopt($opt, $long)</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string[]|false[]|false</code>
+    </InvalidReturnType>
+    <MixedArgument occurrences="6">
+      <code>$params['c']</code>
+      <code>$params['q']</code>
+      <code>$params['q']</code>
+      <code>$params['q']</code>
+      <code>$token-&gt;flags</code>
+      <code>$token-&gt;type</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="2">
+      <code>$idx</code>
+      <code>$output</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="5">
+      <code>$params['c']</code>
+      <code>$params['f']</code>
+      <code>$params['q']</code>
+      <code>$params['q']</code>
+      <code>$params['q']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="3">
+      <code>$params['q']</code>
+      <code>$params['q']</code>
+      <code>$params['q']</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="4">
+      <code>$params</code>
+      <code>$params</code>
+      <code>$params</code>
+      <code>$token</code>
+    </MixedAssignment>
+    <MixedPropertyFetch occurrences="4">
+      <code>$token-&gt;flags</code>
+      <code>$token-&gt;token</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;value</code>
+    </MixedPropertyFetch>
+    <NullableReturnStatement occurrences="1">
+      <code>$stdin</code>
+    </NullableReturnStatement>
+    <PossiblyFalseArgument occurrences="2">
+      <code>$params</code>
+      <code>$params</code>
+    </PossiblyFalseArgument>
+  </file>
+  <file src="src/Utils/Error.php">
+    <MixedArgument occurrences="3">
+      <code>$err[0]</code>
+      <code>$err[1]</code>
+      <code>$err[3]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="4">
+      <code>$err[0]</code>
+      <code>$err[1]</code>
+      <code>$err[2]</code>
+      <code>$err[3]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="2">
+      <code>$err</code>
+      <code>$obj</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Utils/Formatter.php">
+    <MixedArgument occurrences="8">
+      <code>$options['formats']</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$text</code>
+      <code>$this-&gt;options['indentation']</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="12">
+      <code>$format['cli']</code>
+      <code>$format['cli']</code>
+      <code>$format['cli']</code>
+      <code>$format['flags']</code>
+      <code>$format['flags']</code>
+      <code>$format['function']</code>
+      <code>$format['html']</code>
+      <code>$format['type']</code>
+      <code>$new['flags']</code>
+      <code>$new['type']</code>
+      <code>$original['flags']</code>
+      <code>$original['type']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="2">
+      <code>$newFormats[$j][$name]</code>
+      <code>$newFormats[$j][$name]</code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset occurrences="9">
+      <code>JoinKeyword::$JOINS[$list-&gt;tokens[$list-&gt;idx - 2]-&gt;value]</code>
+      <code>JoinKeyword::$JOINS[$list-&gt;tokens[$list-&gt;idx - 4]-&gt;value]</code>
+      <code>JoinKeyword::$JOINS[$list-&gt;tokens[$list-&gt;idx - 6]-&gt;value]</code>
+      <code>JoinKeyword::$JOINS[$prev-&gt;value]</code>
+      <code>Parser::$KEYWORD_PARSERS[$token-&gt;keyword]</code>
+      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+      <code>self::$INLINE_CLAUSES[$lastClause]</code>
+      <code>self::$INLINE_CLAUSES[$lastClause]</code>
+      <code>self::$SHORT_CLAUSES[$lastClause]</code>
+    </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="3">
+      <code>self::$INLINE_CLAUSES[$lastClause]</code>
+      <code>self::$INLINE_CLAUSES[$lastClause]</code>
+      <code>self::$SHORT_CLAUSES[$lastClause]</code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment occurrences="23">
+      <code>$blocksIndentation[]</code>
+      <code>$blocksIndentation[]</code>
+      <code>$blocksLineEndings[]</code>
+      <code>$format</code>
+      <code>$formats[$i]</code>
+      <code>$formats[]</code>
+      <code>$func</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$lastClause</code>
+      <code>$lineEnded</code>
+      <code>$new</code>
+      <code>$new</code>
+      <code>$new</code>
+      <code>$next</code>
+      <code>$options['parts_newline']</code>
+      <code>$original</code>
+      <code>$prev</code>
+      <code>$text</code>
+    </MixedAssignment>
+    <MixedFunctionCall occurrences="1">
+      <code>$func($text)</code>
+    </MixedFunctionCall>
+    <MixedInferredReturnType occurrences="1">
+      <code>string</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="10">
+      <code>$format['cli']</code>
+      <code>$format['flags']</code>
+      <code>$format['html']</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$indent</code>
+      <code>$options['parts_newline']</code>
+      <code>$this-&gt;options['line_ending']</code>
+      <code>array_pop($blocksLineEndings)</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="7">
+      <code>$list-&gt;tokens[$idx]-&gt;type</code>
+      <code>$list-&gt;tokens[$idx]-&gt;value</code>
+      <code>$list-&gt;tokens[$idx]-&gt;value</code>
+      <code>$list-&gt;tokens[$list-&gt;idx - 2]-&gt;value</code>
+      <code>$list-&gt;tokens[$list-&gt;idx - 4]-&gt;value</code>
+      <code>$list-&gt;tokens[$list-&gt;idx - 6]-&gt;value</code>
+      <code>$next-&gt;type</code>
+    </MixedPropertyFetch>
+    <MixedReturnStatement occurrences="1">
+      <code>$text</code>
+    </MixedReturnStatement>
+    <RedundantCondition occurrences="1">
+      <code>$curr-&gt;type === Token::TYPE_KEYWORD</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Utils/Misc.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>! ($statement instanceof SelectStatement)</code>
+      <code>! isset($expr-&gt;column, $expr-&gt;alias)</code>
+      <code>! isset($expr-&gt;table)</code>
+    </DocblockTypeContradiction>
+    <RedundantConditionGivenDocblockType occurrences="4">
+      <code>isset($expr-&gt;alias)</code>
+      <code>isset($expr-&gt;database)</code>
+      <code>isset($expr-&gt;database)</code>
+      <code>isset($expr-&gt;table)</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Utils/Query.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>! isset($expr-&gt;table)</code>
+      <code>! isset($expr-&gt;table, $expr-&gt;alias)</code>
+      <code>null</code>
+    </DocblockTypeContradiction>
+    <InvalidOperand occurrences="2">
+      <code>$i</code>
+      <code>$i</code>
+    </InvalidOperand>
+    <MixedArgument occurrences="6">
+      <code>$clause[0]</code>
+      <code>$ops[$count - 1][0]</code>
+      <code>$ops[$i + 1][0]</code>
+      <code>$ops[0][0]</code>
+      <code>$ops[0][0]</code>
+      <code>$ops[0][1]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="7">
+      <code>$clause[0]</code>
+      <code>$clause[1]</code>
+      <code>$ops[$count - 1][0]</code>
+      <code>$ops[$i + 1][0]</code>
+      <code>$ops[0][0]</code>
+      <code>$ops[0][0]</code>
+      <code>$ops[0][1]</code>
+    </MixedArrayAccess>
+    <MixedArrayOffset occurrences="2">
+      <code>$clauses[$token-&gt;keyword]</code>
+      <code>$clauses[$token-&gt;keyword]</code>
+    </MixedArrayOffset>
+    <MixedAssignment occurrences="8">
+      <code>$clause</code>
+      <code>$currIdx</code>
+      <code>$delimiter</code>
+      <code>$firstClauseIdx</code>
+      <code>$lastClauseIdx</code>
+      <code>$token</code>
+      <code>$token</code>
+      <code>$token</code>
+    </MixedAssignment>
+    <MixedOperand occurrences="6">
+      <code>$clause[1]</code>
+      <code>$clauses[$type]</code>
+      <code>$clauses[$type]</code>
+      <code>$list-&gt;tokens[$list-&gt;idx]-&gt;token</code>
+      <code>$token-&gt;token</code>
+      <code>$token-&gt;token</code>
+    </MixedOperand>
+    <MixedPropertyFetch occurrences="13">
+      <code>$list-&gt;tokens[$list-&gt;idx]-&gt;token</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;token</code>
+      <code>$token-&gt;token</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;value</code>
+      <code>$token-&gt;value</code>
+    </MixedPropertyFetch>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$expr</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset occurrences="1">
+      <code>$ops[$i + 1]</code>
+    </PossiblyInvalidArrayOffset>
+    <PossiblyInvalidPropertyAssignment occurrences="2">
+      <code>$expr</code>
+      <code>$expr</code>
+    </PossiblyInvalidPropertyAssignment>
+    <PossiblyInvalidPropertyFetch occurrences="1">
+      <code>$expr-&gt;table</code>
+    </PossiblyInvalidPropertyFetch>
+    <PossiblyNullPropertyAssignmentValue occurrences="2">
+      <code>null</code>
+      <code>null</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullPropertyFetch occurrences="1">
+      <code>$lexer-&gt;list-&gt;getNextOfType(Token::TYPE_KEYWORD)-&gt;keyword</code>
+    </PossiblyNullPropertyFetch>
+    <RedundantConditionGivenDocblockType occurrences="4">
+      <code>$expr-&gt;database</code>
+      <code>isset($expr-&gt;database)</code>
+      <code>isset($expr-&gt;database)</code>
+      <code>isset($expr-&gt;table)</code>
+    </RedundantConditionGivenDocblockType>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>Lexer</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="src/Utils/Routine.php">
+    <MixedArgumentTypeCoercion occurrences="6">
+      <code>$options</code>
+      <code>$options</code>
+      <code>$param-&gt;type-&gt;parameters</code>
+      <code>$param-&gt;type-&gt;parameters</code>
+      <code>$retval['opts'][$idx]</code>
+      <code>$type-&gt;parameters</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="3">
+      <code>$opt['value']</code>
+      <code>$opt['value']</code>
+      <code>$opt['value']</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="6">
+      <code>$opt</code>
+      <code>$opt</code>
+      <code>$opt</code>
+      <code>$options[]</code>
+      <code>$options[]</code>
+      <code>$retval['opts'][$idx][]</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Utils/Table.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>$field-&gt;options</code>
+      <code>empty($field-&gt;type)</code>
+    </DocblockTypeContradiction>
+    <MixedArgument occurrences="2">
+      <code>$opt</code>
+      <code>$opt</code>
+    </MixedArgument>
+    <MixedAssignment occurrences="7">
+      <code>$opt</code>
+      <code>$opt</code>
+      <code>$option</code>
+      <code>$option</code>
+      <code>$option</code>
+      <code>$ret[$field-&gt;name]['default_value']</code>
+      <code>$ret[$field-&gt;name]['expr']</code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Utils/Tokens.php">
+    <MixedArgument occurrences="1">
+      <code>$pattern['value_str']</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>TokensList</code>
+    </MixedInferredReturnType>
+    <MixedOperand occurrences="1">
+      <code>$pattern['flags']</code>
+    </MixedOperand>
+    <UndefinedDocblockClass occurrences="1">
+      <code>TokensList|string|UtfString</code>
+    </UndefinedDocblockClass>
+  </file>
+  <file src="tests/Builder/CreateStatementTest.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$stmt-&gt;fields</code>
+      <code>$stmt-&gt;fields</code>
+    </PossiblyInvalidArgument>
+  </file>
+  <file src="tests/Components/ArrayObjTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <UndefinedMethod occurrences="2">
+      <code>$components</code>
+      <code>$components</code>
+    </UndefinedMethod>
+  </file>
+  <file src="tests/Components/CreateDefinitionTest.php">
+    <MixedArgument occurrences="6">
+      <code>$parser-&gt;statements[0]-&gt;fields[0]</code>
+      <code>$parser-&gt;statements[0]-&gt;fields[1]</code>
+      <code>$parser-&gt;statements[0]-&gt;fields[2]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[2]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[5]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[6]</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="3">
+      <code>$parser-&gt;statements[1]-&gt;fields[2]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[5]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[6]</code>
+    </MixedArrayAccess>
+    <UndefinedMethod occurrences="3">
+      <code>$parser-&gt;statements[0]-&gt;fields</code>
+      <code>$parser-&gt;statements[0]-&gt;fields</code>
+      <code>$parser-&gt;statements[0]-&gt;fields</code>
+    </UndefinedMethod>
+    <UndefinedPropertyFetch occurrences="1">
+      <code>$parser-&gt;statements[1]-&gt;fields</code>
+    </UndefinedPropertyFetch>
+  </file>
+  <file src="tests/Components/ExpressionTest.php">
+    <MixedArgument occurrences="1">
+      <code>$expr</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$errors[0][0]</code>
+    </MixedArrayAccess>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <PossiblyNullPropertyFetch occurrences="2">
+      <code>$component-&gt;expr</code>
+      <code>$component-&gt;expr</code>
+    </PossiblyNullPropertyFetch>
+  </file>
+  <file src="tests/Components/JoinKeywordTest.php">
+    <DocblockTypeContradiction occurrences="3">
+      <code>assertNull</code>
+      <code>assertNull</code>
+      <code>assertNull</code>
+    </DocblockTypeContradiction>
+  </file>
+  <file src="tests/Components/KeyTest.php">
+    <DocblockTypeContradiction occurrences="2">
+      <code>assertNull</code>
+      <code>assertNull</code>
+    </DocblockTypeContradiction>
+  </file>
+  <file src="tests/Components/LimitTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Components/LockExpressionTest.php">
+    <MixedArgument occurrences="1">
+      <code>$expr</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$errors[0][0]</code>
+    </MixedArrayAccess>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>assertNotNull</code>
+      <code>assertNotNull</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="tests/Components/PartitionDefinitionTest.php">
+    <PossiblyInvalidPropertyFetch occurrences="2">
+      <code>$component-&gt;expr-&gt;expr</code>
+      <code>$component-&gt;expr-&gt;expr</code>
+    </PossiblyInvalidPropertyFetch>
+  </file>
+  <file src="tests/Components/RenameOperationTest.php">
+    <InvalidArgument occurrences="1">
+      <code>$component</code>
+    </InvalidArgument>
+  </file>
+  <file src="tests/Lexer/ContextTest.php">
+    <MixedInferredReturnType occurrences="2">
+      <code>array</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Lexer/LexerTest.php">
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Lexer/TokensListTest.php">
+    <NullArgument occurrences="1">
+      <code>$list</code>
+    </NullArgument>
+  </file>
+  <file src="tests/Misc/BugsTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Misc/ParameterTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Misc/UtfStringTest.php">
+    <MixedArgument occurrences="1">
+      <code>$text</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/AlterStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/CallStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/CreateStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/DeleteStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/DropStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/ExplainStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/InsertStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/LoadStatementTest.php">
+    <MixedArgument occurrences="2">
+      <code>$data['query']</code>
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/LockStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/ParserTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/PurgeStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/RenameStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/ReplaceStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/RestoreStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/SelectStatementTest.php">
+    <MixedArgument occurrences="2">
+      <code>$data['query']</code>
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/SetStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/TransactionStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/UpdateStatementTest.php">
+    <MixedArgument occurrences="1">
+      <code>$test</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Parser/WithStatementTest.php">
+    <InvalidArgument occurrences="1">
+      <code>new stdClass()</code>
+    </InvalidArgument>
+    <MixedArrayAccess occurrences="1">
+      <code>$parserErrors[0][0]</code>
+    </MixedArrayAccess>
+  </file>
+  <file src="tests/TestCase.php">
+    <MissingReturnType occurrences="1">
+      <code>runParserTest</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="1">
+      <code>$data['query']</code>
+    </MixedArgument>
+    <MixedArrayAccess occurrences="2">
+      <code>$data['errors']['lexer']</code>
+      <code>$data['errors']['parser']</code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment occurrences="1">
+      <code>$data['query']</code>
+    </MixedArrayAssignment>
+    <MixedAssignment occurrences="1">
+      <code>$data</code>
+    </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <MixedReturnStatement occurrences="1">
+      <code>$data</code>
+    </MixedReturnStatement>
+    <UndefinedPropertyFetch occurrences="3">
+      <code>$err-&gt;ch</code>
+      <code>$err-&gt;pos</code>
+      <code>$err-&gt;token</code>
+    </UndefinedPropertyFetch>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>array</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="tests/Utils/BufferedQueryTest.php">
+    <MissingReturnType occurrences="1">
+      <code>testExtract</code>
+    </MissingReturnType>
+    <MixedArgument occurrences="2">
+      <code>$chunkSize</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <PossiblyFalseArgument occurrences="1">
+      <code>$chunks</code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArrayAccess occurrences="1">
+      <code>$chunks[$i++]</code>
+    </PossiblyInvalidArrayAccess>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>BufferedQuery</code>
+    </UnnecessaryVarAnnotation>
+  </file>
+  <file src="tests/Utils/CLITest.php">
+    <MixedArgument occurrences="6">
+      <code>$output</code>
+      <code>$output</code>
+      <code>$output</code>
+      <code>$output</code>
+      <code>$output</code>
+      <code>$output</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="7">
+      <code>array</code>
+      <code>array</code>
+      <code>array</code>
+      <code>array</code>
+      <code>array</code>
+      <code>array</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Utils/FormatterTest.php">
+    <MixedArgument occurrences="3">
+      <code>$query</code>
+      <code>$query</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="2">
+      <code>array</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Utils/MiscTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$statement</code>
+    </ArgumentTypeCoercion>
+    <MixedArgument occurrences="2">
+      <code>$db</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="1">
+      <code>array</code>
+    </MixedInferredReturnType>
+    <PossiblyNullArgument occurrences="1">
+      <code>$statement</code>
+    </PossiblyNullArgument>
+  </file>
+  <file src="tests/Utils/QueryTest.php">
+    <MixedArgument occurrences="10">
+      <code>$delimiter</code>
+      <code>$delimiter</code>
+      <code>$delimiter</code>
+      <code>$delimiter</code>
+      <code>$query</code>
+      <code>$query</code>
+      <code>$query</code>
+      <code>$query</code>
+      <code>$query</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="2">
+      <code>array</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+    <NullArgument occurrences="2">
+      <code>null</code>
+      <code>null</code>
+    </NullArgument>
+    <UnusedVariable occurrences="3">
+      <code>$delimiter</code>
+      <code>$delimiter</code>
+      <code>$query</code>
+    </UnusedVariable>
+  </file>
+  <file src="tests/Utils/RoutineTest.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$parser-&gt;statements[0]</code>
+    </ArgumentTypeCoercion>
+    <MixedArgument occurrences="3">
+      <code>$def</code>
+      <code>$def</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="3">
+      <code>array</code>
+      <code>array</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Utils/TableTest.php">
+    <ArgumentTypeCoercion occurrences="2">
+      <code>$parser-&gt;statements[0]</code>
+      <code>$parser-&gt;statements[0]</code>
+    </ArgumentTypeCoercion>
+    <MixedArgument occurrences="2">
+      <code>$query</code>
+      <code>$query</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="2">
+      <code>array</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tests/Utils/TokensTest.php">
+    <MixedArgument occurrences="5">
+      <code>$find</code>
+      <code>$list</code>
+      <code>$pattern</code>
+      <code>$replace</code>
+      <code>$token</code>
+    </MixedArgument>
+    <MixedInferredReturnType occurrences="2">
+      <code>array</code>
+      <code>array</code>
+    </MixedInferredReturnType>
+  </file>
+  <file src="tools/doctum-config.php">
+    <UndefinedClass occurrences="1">
+      <code>Finder</code>
+    </UndefinedClass>
+  </file>
+</files>

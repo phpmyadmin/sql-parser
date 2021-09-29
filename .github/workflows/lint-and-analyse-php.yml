@@ -32,19 +32,33 @@ jobs:
 
     analyse-php:
         runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            php-version: ["7.1"]
         steps:
             - uses: actions/checkout@v2
-            - name: Use php 7.1
+            - name: Use PHP ${{ matrix.php-version }}
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: 7.1
+                  php-version: ${{ matrix.php-version }}
                   tools: composer:v2
-            - name: Cache module
+
+            - name: Get Composer cache directory
+              id: composer-cache
+              run: |
+                echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            - name: Cache dependencies
               uses: actions/cache@v2
               with:
-                  path: ~/.composer/cache/
-                  key: composer-cache
+                path: ${{ steps.composer-cache.outputs.dir }}
+                key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
+                restore-keys: |
+                  composer-${{ runner.os }}-${{ matrix.php-version }}-
+
             - name: Install dependencies
               run: composer install
-            - name: Analyse files
+            - name: Analyse files with PHPStan
               run: ./vendor/bin/phpstan analyse
+            - name: Analyse files with Psalm
+              run: ./vendor/bin/psalm --shepherd
