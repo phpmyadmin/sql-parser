@@ -21,7 +21,7 @@ class CLITest extends TestCase
      */
     private function getCLI($getopt)
     {
-        $cli = $this->getMockBuilder(CLI::class)->setMethods(['getopt'])->getMock();
+        $cli = $this->createPartialMock(CLI::class, ['getopt']);
         $cli->method('getopt')->willReturn($getopt);
 
         return $cli;
@@ -35,7 +35,7 @@ class CLITest extends TestCase
      */
     private function getCLIStdIn($input, $getopt)
     {
-        $cli = $this->getMockBuilder(CLI::class)->setMethods(['getopt', 'readStdin'])->getMock();
+        $cli = $this->createPartialMock(CLI::class, ['getopt', 'readStdin']);
         $cli->method('getopt')->willReturn($getopt);
         $cli->method('readStdin')->willReturn($input);
 

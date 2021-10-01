@@ -19,10 +19,7 @@ class FormatterTest extends TestCase
      */
     public function testMergeFormats($default, $overriding, $expected): void
     {
-        $formatter = $this->getMockBuilder(Formatter::class)
-            ->disableOriginalConstructor()
-            ->setMethods(['getDefaultOptions', 'getDefaultFormats'])
-            ->getMock();
+        $formatter = $this->createPartialMock(Formatter::class, ['getDefaultOptions', 'getDefaultFormats']);
 
         $formatter->expects($this->once())
             ->method('getDefaultOptions')
