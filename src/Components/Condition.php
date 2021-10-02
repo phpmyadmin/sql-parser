@@ -58,6 +58,7 @@ class Condition extends Component
         'OR' => 1,
         'REGEXP' => 1,
         'RLIKE' => 1,
+        'SOUNDS' => 1,
         'XOR' => 1,
     ];
 
