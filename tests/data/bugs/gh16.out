@@ -1702,21 +1702,49 @@
                     ]
                 },
                 "FUNC_OPTIONS": {
-                    "COMMENT": [
-                        1,
+                    "NOT": [
+                        2,
+                        "var"
+                    ],
+                    "FUNCTION": [
+                        3,
                         "var="
                     ],
-                    "LANGUAGE SQL": 2,
-                    "DETERMINISTIC": 3,
-                    "NOT DETERMINISTIC": 3,
-                    "CONTAINS SQL": 4,
-                    "NO SQL": 4,
-                    "READS SQL DATA": 4,
-                    "MODIFIES SQL DATA": 4,
-                    "SQL SECURITY DEFINER": [
-                        5,
+                    "PROCEDURE": [
+                        3,
+                        "var="
+                    ],
+                    "CONTAINS": [
+                        4,
+                        "expr"
+                    ],
+                    "NO": [
+                        4,
                         "var"
-                    ]
+                    ],
+                    "READS": [
+                        4,
+                        "var"
+                    ],
+                    "MODIFIES": [
+                        4,
+                        "expr"
+                    ],
+                    "SQL SECURITY": [
+                        6,
+                        "var"
+                    ],
+                    "LANGUAGE": [
+                        7,
+                        "var"
+                    ],
+                    "COMMENT": [
+                        8,
+                        "var"
+                    ],
+                    "CREATE": 1,
+                    "DETERMINISTIC": 2,
+                    "DATA": 5
                 },
                 "TRIGGER_OPTIONS": {
                     "BEFORE": 1,
@@ -1822,7 +1850,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": "id",
                         "isConstraint": null,
@@ -1919,7 +1949,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": "section_value",
                         "isConstraint": null,
@@ -2044,7 +2076,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": "value",
                         "isConstraint": null,
@@ -2169,7 +2203,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": "order_value",
                         "isConstraint": null,
@@ -2294,7 +2330,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": "name",
                         "isConstraint": null,
@@ -2419,7 +2457,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": "hidden",
                         "isConstraint": null,
@@ -2544,7 +2584,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": null,
                         "isConstraint": null,
@@ -2554,7 +2596,7 @@
                             "KEY_OPTIONS": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
-                                    "var"
+                                    "var="
                                 ],
                                 "USING": [
                                     2,
@@ -2566,8 +2608,24 @@
                                 ],
                                 "COMMENT": [
                                     4,
+                                    "var"
+                                ],
+                                "CLUSTERING": [
+                                    4,
                                     "var="
-                                ]
+                                ],
+                                "ENGINE_ATTRIBUTE": [
+                                    5,
+                                    "var="
+                                ],
+                                "SECONDARY_ENGINE_ATTRIBUTE": [
+                                    5,
+                                    "var="
+                                ],
+                                "VISIBLE": 6,
+                                "INVISIBLE": 6,
+                                "IGNORED": 10,
+                                "NOT IGNORED": 10
                             },
                             "name": null,
                             "columns": [
@@ -2576,6 +2634,7 @@
                                 }
                             ],
                             "type": "PRIMARY KEY",
+                            "expr": null,
                             "options": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                 "options": []
@@ -2640,7 +2699,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": null,
                         "isConstraint": null,
@@ -2650,7 +2711,7 @@
                             "KEY_OPTIONS": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
-                                    "var"
+                                    "var="
                                 ],
                                 "USING": [
                                     2,
@@ -2662,8 +2723,24 @@
                                 ],
                                 "COMMENT": [
                                     4,
+                                    "var"
+                                ],
+                                "CLUSTERING": [
+                                    4,
                                     "var="
-                                ]
+                                ],
+                                "ENGINE_ATTRIBUTE": [
+                                    5,
+                                    "var="
+                                ],
+                                "SECONDARY_ENGINE_ATTRIBUTE": [
+                                    5,
+                                    "var="
+                                ],
+                                "VISIBLE": 6,
+                                "INVISIBLE": 6,
+                                "IGNORED": 10,
+                                "NOT IGNORED": 10
                             },
                             "name": "jos_section_value_value_aro",
                             "columns": [
@@ -2677,6 +2754,7 @@
                                 }
                             ],
                             "type": "UNIQUE KEY",
+                            "expr": null,
                             "options": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                 "options": {
@@ -2748,7 +2826,9 @@
                                     "parenthesesDelimited": true
                                 }
                             ],
-                            "INVISIBLE": 13
+                            "INVISIBLE": 13,
+                            "ENFORCED": 14,
+                            "NOT": 15
                         },
                         "name": null,
                         "isConstraint": null,
@@ -2758,7 +2838,7 @@
                             "KEY_OPTIONS": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
-                                    "var"
+                                    "var="
                                 ],
                                 "USING": [
                                     2,
@@ -2770,8 +2850,24 @@
                                 ],
                                 "COMMENT": [
                                     4,
+                                    "var"
+                                ],
+                                "CLUSTERING": [
+                                    4,
                                     "var="
-                                ]
+                                ],
+                                "ENGINE_ATTRIBUTE": [
+                                    5,
+                                    "var="
+                                ],
+                                "SECONDARY_ENGINE_ATTRIBUTE": [
+                                    5,
+                                    "var="
+                                ],
+                                "VISIBLE": 6,
+                                "INVISIBLE": 6,
+                                "IGNORED": 10,
+                                "NOT IGNORED": 10
                             },
                             "name": "jos_gacl_hidden_aro",
                             "columns": [
@@ -2780,6 +2876,7 @@
                                 }
                             ],
                             "type": "KEY",
+                            "expr": null,
                             "options": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                 "options": []
