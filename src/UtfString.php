@@ -74,7 +74,7 @@ class UtfString implements ArrayAccess
      *
      * Source: https://www.freecodecamp.org/news/ascii-table-hex-to-ascii-value-character-code-chart-2/
      *
-     * @var array<int,int>
+     * @var array<int|string,int>
      */
     protected static $asciiMap = [
         "\0" => 0, // (00000000) NUL Null
