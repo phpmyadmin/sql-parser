@@ -43,6 +43,8 @@ class Expression extends Component
         'XOR' => 1,
         'NOT' => 1,
         'MOD' => 1,
+
+        'OVER' => 2,
     ];
 
     /**
