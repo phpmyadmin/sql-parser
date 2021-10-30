@@ -150,6 +150,13 @@ class TestGenerator
             Context::setMode('ANSI_QUOTES');
         }
 
+        $mariaDbPos = strpos($input, '_mariadb_');
+        if ($mariaDbPos !== false) {// Keep in sync with TestCase.php
+            // set context
+            $mariaDbVersion = (int) substr($input, $mariaDbPos + 9, 6);
+            Context::load('MariaDb' . $mariaDbVersion);
+        }
+
         $test = static::generate($query, $type);
 
         // unset mode, reset to default every time, to be sure

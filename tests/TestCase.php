@@ -18,6 +18,7 @@ use Zumba\JsonSerializer\JsonSerializer;
 
 use function file_get_contents;
 use function strpos;
+use function substr;
 
 /**
  * Implements useful methods for testing.
@@ -111,6 +112,13 @@ abstract class TestCase extends BaseTestCase
         if (strpos($name, '/ansi/') !== false) {
             // set mode if appropriate
             Context::setMode('ANSI_QUOTES');
+        }
+
+        $mariaDbPos = strpos($name, '_mariadb_');
+        if ($mariaDbPos !== false) {// Keep in sync with TestGenerator.php
+            // set context
+            $mariaDbVersion = (int) substr($name, $mariaDbPos + 9, 6);
+            Context::load('MariaDb' . $mariaDbVersion);
         }
 
         // Lexer.
