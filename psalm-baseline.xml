@@ -244,8 +244,9 @@
     </UnsafeInstantiation>
   </file>
   <file src="src/Components/Expression.php">
-    <DocblockTypeContradiction occurrences="1">
+    <DocblockTypeContradiction occurrences="2">
       <code>$prev[0] === null</code>
+      <code>empty($options['field'])</code>
     </DocblockTypeContradiction>
     <InvalidArgument occurrences="1">
       <code>$options['breakOnParentheses']</code>
@@ -293,7 +294,8 @@
       <code>(string) $ret-&gt;expr</code>
       <code>(string) $ret-&gt;expr</code>
     </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="8">
+    <RedundantConditionGivenDocblockType occurrences="9">
+      <code>! $isExpr</code>
       <code>$component-&gt;expr !== '' &amp;&amp; $component-&gt;expr !== null</code>
       <code>$component-&gt;expr !== null</code>
       <code>$isExpr</code>
@@ -603,8 +605,9 @@
     <PossiblyNullPropertyFetch occurrences="1">
       <code>$ret-&gt;options[$lastOptionId]['expr']-&gt;expr</code>
     </PossiblyNullPropertyFetch>
-    <RedundantCondition occurrences="1">
+    <RedundantCondition occurrences="2">
       <code>! empty($option['equals']) &amp;&amp; $option['equals']</code>
+      <code>$option['equals']</code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$options instanceof self</code>
@@ -884,7 +887,11 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Lexer.php">
-    <LoopInvalidation occurrences="3"/>
+    <LoopInvalidation occurrences="3">
+      <code>$this-&gt;last</code>
+      <code>$this-&gt;last</code>
+      <code>$this-&gt;last</code>
+    </LoopInvalidation>
     <MissingReturnType occurrences="3">
       <code>error</code>
       <code>lex</code>
@@ -945,7 +952,6 @@
       <code>$lastToken-&gt;value</code>
       <code>$this-&gt;str[$this-&gt;last++]</code>
       <code>$this-&gt;str[$this-&gt;last]</code>
-      <code>$this-&gt;str[$this-&gt;last]</code>
       <code>$token-&gt;flags</code>
       <code>$token-&gt;value</code>
     </MixedOperand>
@@ -999,7 +1005,7 @@
       <code>$token</code>
       <code>$token</code>
     </PossiblyNullArgument>
-    <PossiblyNullOperand occurrences="23">
+    <PossiblyNullOperand occurrences="24">
       <code>$this-&gt;delimiter</code>
       <code>$this-&gt;str[$this-&gt;last++]</code>
       <code>$this-&gt;str[$this-&gt;last]</code>
@@ -1023,10 +1029,14 @@
       <code>$this-&gt;str[++$this-&gt;last]</code>
       <code>$this-&gt;str[++$this-&gt;last]</code>
       <code>$this-&gt;str[++$this-&gt;last]</code>
+      <code>$this-&gt;str[++$this-&gt;last]</code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition occurrences="1">
+      <code>USE_UTF_STRINGS</code>
+    </RedundantCondition>
     <UnnecessaryVarAnnotation occurrences="3">
       <code>int</code>
       <code>int</code>
@@ -1061,6 +1071,9 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Statement.php">
+    <DocblockTypeContradiction occurrences="1">
+      <code>count($clauses) === 0</code>
+    </DocblockTypeContradiction>
     <MissingReturnType occurrences="3">
       <code>after</code>
       <code>before</code>
@@ -1160,7 +1173,8 @@
       <code>CallStatement</code>
       <code>CallStatement</code>
     </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="1">
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>$this-&gt;call-&gt;parameters</code>
       <code>$this-&gt;call-&gt;parameters</code>
     </RedundantConditionGivenDocblockType>
   </file>
@@ -2068,7 +2082,8 @@
     </MixedAssignment>
   </file>
   <file src="src/Utils/Table.php">
-    <DocblockTypeContradiction occurrences="2">
+    <DocblockTypeContradiction occurrences="3">
+      <code>! $field-&gt;options</code>
       <code>$field-&gt;options</code>
       <code>empty($field-&gt;type)</code>
     </DocblockTypeContradiction>
