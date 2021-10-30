@@ -16,6 +16,7 @@
 * Added missing KEY options for MySQL and MariaDB (#348)
 * Added support for ENFORCED and NOT ENFORCED on table create queries (#341)
 * Performance improvement to use less the "ord()" function (#352)
+* Added support for OVER() with an alias (AS) (#197)
 
 ## [5.4.2] - 2021-02-05
 
