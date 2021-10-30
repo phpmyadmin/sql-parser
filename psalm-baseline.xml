@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
+<files psalm-version="4.11.2@6fba5eb554f9507b72932f9c75533d8af593688d">
   <file src="src/Component.php">
     <MixedReturnStatement occurrences="1">
       <code>static::build($this)</code>
@@ -271,9 +271,6 @@
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <ParadoxicalCondition occurrences="1">
-      <code>empty($options['field'])</code>
-    </ParadoxicalCondition>
     <PossiblyInvalidOperand occurrences="1">
       <code>Context::escape($component-&gt;alias)</code>
     </PossiblyInvalidOperand>
@@ -887,11 +884,7 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Lexer.php">
-    <LoopInvalidation occurrences="3">
-      <code>$this</code>
-      <code>$this</code>
-      <code>$this</code>
-    </LoopInvalidation>
+    <LoopInvalidation occurrences="3"/>
     <MissingReturnType occurrences="3">
       <code>error</code>
       <code>lex</code>
@@ -946,7 +939,7 @@
       <code>$method</code>
       <code>$token</code>
     </MixedAssignment>
-    <MixedOperand occurrences="8">
+    <MixedOperand occurrences="7">
       <code>$lastToken-&gt;flags</code>
       <code>$lastToken-&gt;token</code>
       <code>$lastToken-&gt;value</code>
