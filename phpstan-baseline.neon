@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:__toString\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Component.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Component.php
@@ -63,6 +68,11 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
 			path: src/Components/AlterOperation.php
 
 		-
@@ -181,12 +191,22 @@ parameters:
 			path: src/Components/CaseExpression.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$else_result \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Components/CaseExpression.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$results type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$value \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Components/CaseExpression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$value \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
@@ -251,7 +271,22 @@ parameters:
 			path: src/Components/CreateDefinition.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$key \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\) in empty\\(\\) is not falsy\\.$#"
+			count: 3
+			path: src/Components/CreateDefinition.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			count: 2
+			path: src/Components/CreateDefinition.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/CreateDefinition.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Components/CreateDefinition.php
 
@@ -266,8 +301,18 @@ parameters:
 			path: src/Components/CreateDefinition.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$references \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Components/CreateDefinition.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
 			count: 1
+			path: src/Components/CreateDefinition.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) in empty\\(\\) is not falsy\\.$#"
+			count: 3
 			path: src/Components/CreateDefinition.php
 
 		-
@@ -282,6 +327,11 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Components/DataType.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Components/DataType.php
 
@@ -356,6 +406,11 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept mixed\\.$#"
+			count: 3
+			path: src/Components/Expression.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept string\\|null\\.$#"
 			count: 2
 			path: src/Components/Expression.php
@@ -371,7 +426,17 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
@@ -381,7 +446,17 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$subquery \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
@@ -426,6 +501,11 @@ parameters:
 			path: src/Components/FunctionCall.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/FunctionCall.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/Components/FunctionCall.php
@@ -452,6 +532,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
+			path: src/Components/GroupKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
 			count: 2
 			path: src/Components/GroupKeyword.php
 
@@ -526,6 +611,11 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
+			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/Components/IntoKeyword.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$FIELDS_OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
@@ -556,6 +646,11 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$fields_keyword \\(bool\\) does not accept bool\\|null\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
@@ -572,6 +667,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$values \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept array\\|null\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$values \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
@@ -621,9 +721,19 @@ parameters:
 			path: src/Components/JoinKeyword.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Components/JoinKeyword.php
+
+		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 4
 			path: src/Components/JoinKeyword.php
+
+		-
+			message: "#^Array \\(array\\<array\\{name\\?\\: string, length\\?\\: int, order\\?\\: string\\}\\>\\) does not accept non\\-empty\\-array\\<string, mixed\\>\\.$#"
+			count: 1
+			path: src/Components/Key.php
 
 		-
 			message: "#^Binary operation \"\\.\" between array\\|string and ' ' results in an error\\.$#"
@@ -656,7 +766,17 @@ parameters:
 			path: src/Components/Key.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/Key.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
@@ -677,6 +797,16 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Limit.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$offset \\(int\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/Limit.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$rowCount \\(int\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/Limit.php
 
@@ -716,7 +846,7 @@ parameters:
 			path: src/Components/OptionsArray.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:merge\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:merge\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Components/OptionsArray.php
 
@@ -766,6 +896,11 @@ parameters:
 			path: src/Components/OrderKeyword.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
+			count: 2
+			path: src/Components/OrderKeyword.php
+
+		-
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 2
 			path: src/Components/OrderKeyword.php
@@ -786,7 +921,17 @@ parameters:
 			path: src/Components/ParameterDefinition.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/ParameterDefinition.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/ParameterDefinition.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
 
@@ -826,7 +971,22 @@ parameters:
 			path: src/Components/PartitionDefinition.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/PartitionDefinition.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Components/PartitionDefinition.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$subpartitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Components/PartitionDefinition.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
 
@@ -906,7 +1066,17 @@ parameters:
 			path: src/Components/RenameOperation.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Components/RenameOperation.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
+			path: src/Components/RenameOperation.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
 			count: 2
 			path: src/Components/RenameOperation.php
 
@@ -936,6 +1106,11 @@ parameters:
 			path: src/Components/UnionKeyword.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword\\:\\:\\$statement \\(PhpMyAdmin\\\\SqlParser\\\\Parser\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Components/WithKeyword.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) has parameter \\$str with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Context.php
@@ -946,12 +1121,12 @@ parameters:
 			path: src/Context.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:load\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:load\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Context.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:setMode\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:setMode\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Context.php
 
@@ -966,7 +1141,7 @@ parameters:
 			path: src/Context.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Core\\:\\:error\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Core\\:\\:error\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Core.php
 
@@ -976,17 +1151,17 @@ parameters:
 			path: src/Exceptions/ParserException.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:error\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:error\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Lexer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:lex\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:lex\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Lexer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:setDelimiter\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:setDelimiter\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Lexer.php
 
@@ -1021,12 +1196,12 @@ parameters:
 			path: src/Parser.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:error\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:error\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Parser.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Parser.php
 
@@ -1051,12 +1226,12 @@ parameters:
 			path: src/Parser.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:after\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:after\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:before\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:before\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -1066,7 +1241,7 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -1096,7 +1271,7 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/AlterStatement.php
 
@@ -1146,7 +1321,7 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -1191,12 +1366,27 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitionsNum \\(int\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$return \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -1211,12 +1401,17 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
 		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\> given\\.$#"
+			count: 1
+			path: src/Statements/DeleteStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, mixed given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
@@ -1246,7 +1441,7 @@ parameters:
 			path: src/Statements/DropStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\InsertStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\InsertStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/InsertStatement.php
 
@@ -1271,7 +1466,7 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
@@ -1316,17 +1511,17 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LockStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LockStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/LockStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\MaintenanceStatement\\:\\:after\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\MaintenanceStatement\\:\\:after\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/MaintenanceStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\NotImplementedStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\NotImplementedStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/NotImplementedStatement.php
 
@@ -1336,7 +1531,7 @@ parameters:
 			path: src/Statements/OptimizeStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
@@ -1351,7 +1546,17 @@ parameters:
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\RenameStatement\\:\\:before\\(\\) has no return typehint specified\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_option \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Statements/PurgeStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$log_type \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Statements/PurgeStatement.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\RenameStatement\\:\\:before\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/RenameStatement.php
 
@@ -1366,7 +1571,7 @@ parameters:
 			path: src/Statements/RepairStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
@@ -1411,6 +1616,11 @@ parameters:
 			path: src/Statements/SelectStatement.php
 
 		-
+			message: "#^PHPDoc type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\> of property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$options is not covariant with PHPDoc type PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray of overridden property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$options\\.$#"
+			count: 1
+			path: src/Statements/SetStatement.php
+
+		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\> given\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
@@ -1436,7 +1646,7 @@ parameters:
 			path: src/Statements/ShowStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Statements/TransactionStatement.php
 
@@ -1461,7 +1671,12 @@ parameters:
 			path: src/Statements/UpdateStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\WithStatement\\:\\:parse\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\WithStatement\\:\\:parse\\(\\) has no return type specified\\.$#"
+			count: 1
+			path: src/Statements/WithStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Statements/WithStatement.php
 
@@ -1476,7 +1691,7 @@ parameters:
 			path: src/TokensList.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\TokensList\\:\\:add\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\TokensList\\:\\:add\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/TokensList.php
 
@@ -1501,12 +1716,12 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:build\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:build\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:buildAll\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:buildAll\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
@@ -1576,12 +1791,12 @@ parameters:
 			path: src/Tools/TestGenerator.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\TestGenerator\\:\\:build\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\TestGenerator\\:\\:build\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\TestGenerator\\:\\:buildAll\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\TestGenerator\\:\\:buildAll\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
 
@@ -1611,7 +1826,7 @@ parameters:
 			path: src/Tools/TestGenerator.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Translator\\:\\:load\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Translator\\:\\:load\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Translator.php
 
@@ -1626,7 +1841,7 @@ parameters:
 			path: src/Utils/BufferedQuery.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\BufferedQuery\\:\\:setDelimiter\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\BufferedQuery\\:\\:setDelimiter\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: src/Utils/BufferedQuery.php
 
@@ -1636,6 +1851,31 @@ parameters:
 			path: src/Utils/BufferedQuery.php
 
 		-
+			message: "#^Cannot access offset 'a' on mixed\\.$#"
+			count: 3
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Cannot access offset 'c' on mixed\\.$#"
+			count: 2
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Cannot access offset 'f' on mixed\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Cannot access offset 'h' on mixed\\.$#"
+			count: 3
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Cannot access offset 'q' on mixed\\.$#"
+			count: 12
+			path: src/Utils/CLI.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:getopt\\(\\) has parameter \\$long with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/CLI.php
@@ -1643,6 +1883,21 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:readStdin\\(\\) should return string\\|false but returns string\\|false\\|null\\.$#"
 			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Parameter \\#1 \\$context of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:load\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Parameter \\#1 \\$query of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of class PhpMyAdmin\\\\SqlParser\\\\Lexer constructor expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, mixed given\\.$#"
+			count: 2
 			path: src/Utils/CLI.php
 
 		-
@@ -1664,6 +1919,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Error\\:\\:get\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Error.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
@@ -1736,6 +1996,26 @@ parameters:
 			path: src/Utils/Misc.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 2
+			path: src/Utils/Misc.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Utils/Misc.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 2
+			path: src/Utils/Misc.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 2
+			path: src/Utils/Misc.php
+
+		-
 			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
 			count: 1
 			path: src/Utils/Query.php
@@ -1786,7 +2066,37 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 2
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$expr \\(string\\) does not accept null\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 3
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$into \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$procedure \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
@@ -1821,6 +2131,26 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
+			count: 2
+			path: src/Utils/Table.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$key \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Utils/Table.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$references \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Utils/Table.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Utils/Table.php
+
+		-
 			message: "#^Access to property \\$count on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
 			count: 2
 			path: src/Utils/Tokens.php
@@ -1828,6 +2158,11 @@ parameters:
 		-
 			message: "#^Access to property \\$tokens on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
 			count: 5
+			path: src/Utils/Tokens.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
 			path: src/Utils/Tokens.php
 
 		-
@@ -1861,7 +2196,7 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Parameter \\$list of method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has invalid typehint type PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			message: "#^Parameter \\$list of method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has invalid type PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -1887,6 +2222,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Components/ArrayObjTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Components/ArrayObjTest.php
 
@@ -1921,6 +2261,11 @@ parameters:
 			path: tests/Components/ExpressionTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getTokensList\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Components/ExpressionTest.php
+
+		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\) with PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj will always evaluate to false\\.$#"
 			count: 1
 			path: tests/Components/JoinKeywordTest.php
@@ -1941,9 +2286,24 @@ parameters:
 			path: tests/Components/LimitTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Components/LimitTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\LockExpressionTest\\:\\:parseErrProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Components/LockExpressionTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$query of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getTokensList\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Components/LockExpressionTest.php
+
+		-
+			message: "#^Cannot cast mixed to string\\.$#"
+			count: 1
+			path: tests/Components/OptionsArrayTest.php
 
 		-
 			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\.$#"
@@ -1981,12 +2341,27 @@ parameters:
 			path: tests/Lexer/TokensListTest.php
 
 		-
+			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
+			count: 1
+			path: tests/Lexer/TokensListTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\BugsTest\\:\\:bugProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Misc/BugsTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Misc/BugsTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\ParameterTest\\:\\:parameterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Misc/ParameterTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Misc/ParameterTest.php
 
@@ -2001,7 +2376,17 @@ parameters:
 			path: tests/Misc/UtfStringTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of class PhpMyAdmin\\\\SqlParser\\\\UtfString constructor expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Misc/UtfStringTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\AlterStatementTest\\:\\:alterProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/AlterStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/AlterStatementTest.php
 
@@ -2011,7 +2396,17 @@ parameters:
 			path: tests/Parser/CallStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/CallStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\CreateStatementTest\\:\\:createProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/CreateStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/CreateStatementTest.php
 
@@ -2021,7 +2416,17 @@ parameters:
 			path: tests/Parser/DeleteStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/DeleteStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\DropStatementTest\\:\\:dropProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/DropStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/DropStatementTest.php
 
@@ -2031,7 +2436,17 @@ parameters:
 			path: tests/Parser/ExplainStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/ExplainStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\InsertStatementTest\\:\\:insertProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/InsertStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/InsertStatementTest.php
 
@@ -2041,7 +2456,17 @@ parameters:
 			path: tests/Parser/LoadStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/LoadStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\LockStatementTest\\:\\:lockProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/LockStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/LockStatementTest.php
 
@@ -2051,7 +2476,17 @@ parameters:
 			path: tests/Parser/ParserTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/ParserTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\PurgeStatementTest\\:\\:purgeProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/PurgeStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/PurgeStatementTest.php
 
@@ -2061,7 +2496,17 @@ parameters:
 			path: tests/Parser/RenameStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/RenameStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\ReplaceStatementTest\\:\\:replaceProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/ReplaceStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/ReplaceStatementTest.php
 
@@ -2071,7 +2516,17 @@ parameters:
 			path: tests/Parser/RestoreStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/RestoreStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\SelectStatementTest\\:\\:selectProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/SelectStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/SelectStatementTest.php
 
@@ -2081,12 +2536,27 @@ parameters:
 			path: tests/Parser/SetStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/SetStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\TransactionStatementTest\\:\\:transactionProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Parser/TransactionStatementTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Parser/TransactionStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Parser\\\\UpdateStatementTest\\:\\:updateProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Parser/UpdateStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Parser/UpdateStatementTest.php
 
@@ -2111,7 +2581,17 @@ parameters:
 			path: tests/TestCase.php
 
 		-
+			message: "#^Cannot access offset 'query' on mixed\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getData\\(\\) should return array but returns mixed\\.$#"
 			count: 1
 			path: tests/TestCase.php
 
@@ -2121,7 +2601,7 @@ parameters:
 			path: tests/TestCase.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: tests/TestCase.php
 
@@ -2131,7 +2611,7 @@ parameters:
 			path: tests/TestCase.php
 
 		-
-			message: "#^Cannot access offset int on \\(array\\<int, string\\>&nonEmpty\\)\\|false\\.$#"
+			message: "#^Cannot access offset int on non\\-empty\\-array\\<int, string\\>\\|false\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
 
@@ -2141,7 +2621,7 @@ parameters:
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:testExtract\\(\\) has no return typehint specified\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:testExtract\\(\\) has no return type specified\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
 
@@ -2161,7 +2641,17 @@ parameters:
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of function str_split expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/BufferedQueryTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
+			count: 1
+			path: tests/Utils/BufferedQueryTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$split_length of function str_split expects int\\<1, max\\>, mixed given\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
 
@@ -2201,6 +2691,11 @@ parameters:
 			path: tests/Utils/CLITest.php
 
 		-
+			message: "#^Parameter \\#1 \\$expectedString of method PHPUnit\\\\Framework\\\\TestCase\\:\\:expectOutputString\\(\\) expects string, mixed given\\.$#"
+			count: 6
+			path: tests/Utils/CLITest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:formatQueriesProviders\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/FormatterTest.php
@@ -2216,6 +2711,11 @@ parameters:
 			path: tests/Utils/FormatterTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$query of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) expects string, mixed given\\.$#"
+			count: 3
+			path: tests/Utils/FormatterTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\MiscTest\\:\\:getAliasesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/MiscTest.php
@@ -2226,7 +2726,17 @@ parameters:
 			path: tests/Utils/MiscTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/MiscTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement, PhpMyAdmin\\\\SqlParser\\\\Statement\\|null given\\.$#"
+			count: 1
+			path: tests/Utils/MiscTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$database of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Utils/MiscTest.php
 
@@ -2238,6 +2748,11 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:getTablesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
+			count: 2
 			path: tests/Utils/QueryTest.php
 
 		-
@@ -2281,6 +2796,21 @@ parameters:
 			path: tests/Utils/RoutineTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/RoutineTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$param of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getParameter\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/RoutineTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$param of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getReturnType\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/RoutineTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getParameters\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
 			count: 1
 			path: tests/Utils/RoutineTest.php
@@ -2306,6 +2836,11 @@ parameters:
 			path: tests/Utils/TableTest.php
 
 		-
+			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
+			count: 2
+			path: tests/Utils/TableTest.php
+
+		-
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
@@ -2322,6 +2857,31 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\TokensTest\\:\\:replaceTokensProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: tests/Utils/TokensTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\|string, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/TokensTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$token of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:match\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Token, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/TokensTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$find of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/TokensTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$pattern of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:match\\(\\) expects array, mixed given\\.$#"
+			count: 1
+			path: tests/Utils/TokensTest.php
+
+		-
+			message: "#^Parameter \\#3 \\$replace of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: tests/Utils/TokensTest.php
 
