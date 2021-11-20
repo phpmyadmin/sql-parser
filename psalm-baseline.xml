@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.11.2@6fba5eb554f9507b72932f9c75533d8af593688d">
+<files psalm-version="4.12.0@e42bc4a23f67acba28a23bb09c348e2ff38a1d87">
   <file src="src/Component.php">
     <MixedReturnStatement occurrences="1">
       <code>static::build($this)</code>
@@ -758,8 +758,7 @@
     </MoreSpecificImplementedParamType>
   </file>
   <file src="src/Components/WithKeyword.php">
-    <DocblockTypeContradiction occurrences="2">
-      <code>$component instanceof WithKeyword</code>
+    <DocblockTypeContradiction occurrences="1">
       <code>isset($component-&gt;statement)</code>
     </DocblockTypeContradiction>
     <MoreSpecificImplementedParamType occurrences="1">
@@ -1738,11 +1737,6 @@
       <code>$debugFile</code>
       <code>$debugFile</code>
     </PossiblyNullArgument>
-    <UndefinedPropertyFetch occurrences="3">
-      <code>$err-&gt;ch</code>
-      <code>$err-&gt;pos</code>
-      <code>$err-&gt;token</code>
-    </UndefinedPropertyFetch>
     <UnnecessaryVarAnnotation occurrences="1">
       <code>Lexer</code>
     </UnnecessaryVarAnnotation>
@@ -2102,18 +2096,53 @@
     </MixedAssignment>
   </file>
   <file src="src/Utils/Tokens.php">
-    <MixedArgument occurrences="1">
+    <InvalidReturnStatement occurrences="1"/>
+    <InvalidReturnType occurrences="1">
+      <code>TokensList</code>
+    </InvalidReturnType>
+    <MixedArgument occurrences="3">
+      <code>$find[$k]</code>
+      <code>$list-&gt;tokens[$j]</code>
       <code>$pattern['value_str']</code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>TokensList</code>
-    </MixedInferredReturnType>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$newList</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="5">
+      <code>$list-&gt;tokens[$i]</code>
+      <code>$list-&gt;tokens[$i]</code>
+      <code>$list-&gt;tokens[$i]</code>
+      <code>$list-&gt;tokens[$j]</code>
+      <code>$list-&gt;tokens[$j]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="4">
+      <code>$newList[]</code>
+      <code>$newList[]</code>
+      <code>$newList[]</code>
+      <code>$token</code>
+    </MixedAssignment>
     <MixedOperand occurrences="1">
       <code>$pattern['flags']</code>
     </MixedOperand>
-    <UndefinedDocblockClass occurrences="1">
-      <code>TokensList|string|UtfString</code>
-    </UndefinedDocblockClass>
+    <MixedPropertyFetch occurrences="2">
+      <code>$list-&gt;tokens[$i]-&gt;type</code>
+      <code>$list-&gt;tokens[$j]-&gt;type</code>
+    </MixedPropertyFetch>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$list</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidPropertyFetch occurrences="2">
+      <code>$list-&gt;count</code>
+      <code>$list-&gt;tokens</code>
+    </PossiblyInvalidPropertyFetch>
+    <UndefinedPropertyFetch occurrences="2">
+      <code>$list-&gt;count</code>
+      <code>$list-&gt;tokens</code>
+    </UndefinedPropertyFetch>
+    <UnnecessaryVarAnnotation occurrences="2">
+      <code>bool</code>
+      <code>int</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="tests/Builder/CreateStatementTest.php">
     <MixedInferredReturnType occurrences="1">
@@ -2145,19 +2174,14 @@
       <code>$parser-&gt;statements[1]-&gt;fields[5]</code>
       <code>$parser-&gt;statements[1]-&gt;fields[6]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="3">
-      <code>$parser-&gt;statements[1]-&gt;fields[2]</code>
-      <code>$parser-&gt;statements[1]-&gt;fields[5]</code>
-      <code>$parser-&gt;statements[1]-&gt;fields[6]</code>
-    </MixedArrayAccess>
-    <UndefinedMethod occurrences="3">
+    <UndefinedMethod occurrences="6">
       <code>$parser-&gt;statements[0]-&gt;fields</code>
       <code>$parser-&gt;statements[0]-&gt;fields</code>
       <code>$parser-&gt;statements[0]-&gt;fields</code>
-    </UndefinedMethod>
-    <UndefinedPropertyFetch occurrences="1">
       <code>$parser-&gt;statements[1]-&gt;fields</code>
-    </UndefinedPropertyFetch>
+      <code>$parser-&gt;statements[1]-&gt;fields</code>
+      <code>$parser-&gt;statements[1]-&gt;fields</code>
+    </UndefinedMethod>
   </file>
   <file src="tests/Components/ExpressionTest.php">
     <MixedArgument occurrences="1">

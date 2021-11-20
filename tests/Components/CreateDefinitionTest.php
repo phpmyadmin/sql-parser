@@ -119,6 +119,7 @@ class CreateDefinitionTest extends TestCase
             . ''
             . 'ALTER TABLE `searches` ADD `admins_only` BOOLEAN NOT NULL DEFAULT FALSE AFTER `show_separators`;'
         );
+        $this->assertInstanceOf(CreateStatement::class, $parser->statements[1]);
         $this->assertEquals(
             '`public_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL',
             CreateDefinition::build($parser->statements[1]->fields[2])

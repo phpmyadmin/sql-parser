@@ -6,6 +6,8 @@ namespace PhpMyAdmin\SqlParser\Tools;
 
 use Exception;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Exceptions\LexerException;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use Zumba\JsonSerializer\JsonSerializer;
@@ -79,6 +81,7 @@ class TestGenerator
 
         // Extracting lexer's errors.
         if (! empty($lexer->errors)) {
+            /** @var LexerException $err */
             foreach ($lexer->errors as $err) {
                 $lexerErrors[] = [
                     $err->getMessage(),
@@ -93,6 +96,7 @@ class TestGenerator
 
         // Extracting parser's errors.
         if (! empty($parser->errors)) {
+            /** @var ParserException $err */
             foreach ($parser->errors as $err) {
                 $parserErrors[] = [
                     $err->getMessage(),

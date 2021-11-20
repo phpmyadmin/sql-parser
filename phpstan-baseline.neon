@@ -1766,21 +1766,6 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Access to an undefined property Exception\\:\\:\\$ch\\.$#"
-			count: 1
-			path: src/Tools/TestGenerator.php
-
-		-
-			message: "#^Access to an undefined property Exception\\:\\:\\$pos\\.$#"
-			count: 1
-			path: src/Tools/TestGenerator.php
-
-		-
-			message: "#^Access to an undefined property Exception\\:\\:\\$token\\.$#"
-			count: 1
-			path: src/Tools/TestGenerator.php
-
-		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
@@ -2151,12 +2136,12 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
-			message: "#^Access to property \\$count on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			message: "#^Cannot access property \\$count on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\.$#"
 			count: 2
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Access to property \\$tokens on an unknown class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			message: "#^Cannot access property \\$tokens on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\.$#"
 			count: 5
 			path: src/Utils/Tokens.php
 
@@ -2191,12 +2176,7 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:getTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\|string given\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Parameter \\$list of method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has invalid type PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\.$#"
+			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:getTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string given\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -2231,11 +2211,6 @@ parameters:
 			path: tests/Components/ArrayObjTest.php
 
 		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$fields\\.$#"
-			count: 3
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
 			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: tests/Components/CreateDefinitionTest.php
@@ -2247,6 +2222,16 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 2 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 2
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Cannot access offset 5 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Cannot access offset 6 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: tests/Components/CreateDefinitionTest.php
 
@@ -2337,11 +2322,6 @@ parameters:
 
 		-
 			message: "#^Cannot assign new offset to PhpMyAdmin\\\\SqlParser\\\\TokensList\\.$#"
-			count: 1
-			path: tests/Lexer/TokensListTest.php
-
-		-
-			message: "#^Missing call to parent\\:\\:setUp\\(\\) method\\.$#"
 			count: 1
 			path: tests/Lexer/TokensListTest.php
 
@@ -2861,7 +2841,7 @@ parameters:
 			path: tests/Utils/TokensTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\Utils\\\\UtfString\\|string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, mixed given\\.$#"
 			count: 1
 			path: tests/Utils/TokensTest.php
 

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\SqlParser\Utils;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\UtfString;
 
 use function count;
 use function strcasecmp;
