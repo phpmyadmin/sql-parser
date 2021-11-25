@@ -24,6 +24,8 @@ use function strtoupper;
 
 /**
  * Parses a list of options.
+ *
+ * @final
  */
 class OptionsArray extends Component
 {

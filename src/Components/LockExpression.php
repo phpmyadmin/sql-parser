@@ -17,6 +17,8 @@ use function is_array;
 
 /**
  * Parses a reference to a LOCK expression.
+ *
+ * @final
  */
 class LockExpression extends Component
 {

@@ -22,6 +22,8 @@ use function substr;
 
 /**
  * Parses a list of expressions delimited by a comma.
+ *
+ * @final
  */
 class ExpressionArray extends Component
 {

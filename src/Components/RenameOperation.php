@@ -17,6 +17,8 @@ use function is_array;
 
 /**
  * `RENAME TABLE` keyword parser.
+ *
+ * @final
  */
 class RenameOperation extends Component
 {

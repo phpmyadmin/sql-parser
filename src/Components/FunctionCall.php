@@ -16,6 +16,8 @@ use function is_array;
 
 /**
  * Parses a function call.
+ *
+ * @final
  */
 class FunctionCall extends Component
 {

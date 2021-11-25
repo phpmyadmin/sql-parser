@@ -20,6 +20,8 @@ use function trim;
  * Parses the definition of a key.
  *
  * Used for parsing `CREATE TABLE` statement.
+ *
+ * @final
  */
 class Key extends Component
 {

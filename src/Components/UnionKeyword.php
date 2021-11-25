@@ -13,6 +13,8 @@ use function implode;
 
 /**
  * `UNION` keyword builder.
+ *
+ * @final
  */
 class UnionKeyword extends Component
 {

@@ -18,6 +18,8 @@ use function sprintf;
 
 /**
  * `VALUES` keyword parser.
+ *
+ * @final
  */
 class Array2d extends Component
 {

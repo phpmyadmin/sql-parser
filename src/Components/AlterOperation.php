@@ -19,6 +19,8 @@ use function is_string;
 
 /**
  * Parses an alter operation.
+ *
+ * @final
  */
 class AlterOperation extends Component
 {

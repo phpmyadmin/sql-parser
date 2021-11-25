@@ -18,6 +18,8 @@ use function trim;
 
 /**
  * `REFERENCES` keyword parser.
+ *
+ * @final
  */
 class Reference extends Component
 {
