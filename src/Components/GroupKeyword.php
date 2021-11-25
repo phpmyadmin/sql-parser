@@ -18,6 +18,8 @@ use function trim;
 
 /**
  * `GROUP BY` keyword parser.
+ *
+ * @final
  */
 class GroupKeyword extends Component
 {

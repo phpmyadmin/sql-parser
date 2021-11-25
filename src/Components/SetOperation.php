@@ -18,6 +18,8 @@ use function trim;
 
 /**
  * `SET` keyword parser.
+ *
+ * @final
  */
 class SetOperation extends Component
 {

@@ -22,6 +22,8 @@ use function trim;
  * Parses the create definition of a partition.
  *
  * Used for parsing `CREATE TABLE` statement.
+ *
+ * @final
  */
 class PartitionDefinition extends Component
 {

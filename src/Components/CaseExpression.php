@@ -17,6 +17,8 @@ use function count;
 
 /**
  * Parses a reference to a CASE expression.
+ *
+ * @final
  */
 class CaseExpression extends Component
 {

@@ -14,6 +14,8 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `LIMIT` keyword parser.
+ *
+ * @final
  */
 class Limit extends Component
 {

@@ -19,6 +19,8 @@ use function trim;
 
 /**
  * Parses a data type.
+ *
+ * @final
  */
 class DataType extends Component
 {

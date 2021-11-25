@@ -81,11 +81,6 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
 			count: 2
 			path: src/Components/AlterOperation.php
@@ -109,21 +104,6 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\> but returns array\\<int, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
 			count: 1
 			path: src/Components/Array2d.php
-
-		-
-			message: "#^Cannot access an offset on array\\<int, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Cannot access property \\$raw on array\\<int, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 2
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Cannot access property \\$values on array\\<int, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 2
-			path: src/Components/ArrayObj.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:__construct\\(\\) has parameter \\$raw with no value type specified in iterable type array\\.$#"
@@ -152,11 +132,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:\\$values type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: src/Components/ArrayObj.php
 
@@ -211,17 +186,17 @@ parameters:
 			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Condition.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Condition.php
+
+		-
+			message: "#^Parameter \\#1 \\$expr of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition constructor expects string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Components/Condition.php
 
@@ -243,11 +218,6 @@ parameters:
 		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
-			path: src/Components/Condition.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 3
 			path: src/Components/Condition.php
 
 		-
@@ -316,11 +286,6 @@ parameters:
 			path: src/Components/CreateDefinition.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 2
-			path: src/Components/CreateDefinition.php
-
-		-
 			message: "#^Cannot access property \\$raw on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/DataType.php
@@ -367,11 +332,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/DataType.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: src/Components/DataType.php
 
@@ -466,11 +426,6 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/ExpressionArray.php
@@ -516,11 +471,6 @@ parameters:
 			path: src/Components/FunctionCall.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/GroupKeyword.php
@@ -537,11 +487,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
-			count: 2
-			path: src/Components/GroupKeyword.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 2
 			path: src/Components/GroupKeyword.php
 
@@ -578,11 +523,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
-			path: src/Components/IndexHint.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 3
 			path: src/Components/IndexHint.php
 
 		-
@@ -676,11 +616,6 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/JoinKeyword.php
@@ -723,11 +658,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 4
 			path: src/Components/JoinKeyword.php
 
 		-
@@ -786,11 +716,6 @@ parameters:
 			path: src/Components/Key.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Limit.php
@@ -811,11 +736,6 @@ parameters:
 			path: src/Components/Limit.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/Limit.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
@@ -827,11 +747,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/LockExpression.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
 
@@ -876,11 +791,6 @@ parameters:
 			path: src/Components/OptionsArray.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/OrderKeyword.php
@@ -897,11 +807,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
-			count: 2
-			path: src/Components/OrderKeyword.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 2
 			path: src/Components/OrderKeyword.php
 
@@ -946,11 +851,6 @@ parameters:
 			path: src/Components/ParameterDefinition.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 2
-			path: src/Components/ParameterDefinition.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
@@ -987,11 +887,6 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/PartitionDefinition.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
 
@@ -1041,11 +936,6 @@ parameters:
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
 			message: "#^Call to function is_array\\(\\) with PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation will always evaluate to false\\.$#"
 			count: 1
 			path: src/Components/RenameOperation.php
@@ -1081,11 +971,6 @@ parameters:
 			path: src/Components/RenameOperation.php
 
 		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 2
-			path: src/Components/RenameOperation.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/SetOperation.php
@@ -1093,11 +978,6 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
-			path: src/Components/SetOperation.php
-
-		-
-			message: "#^Unsafe usage of new static\\(\\)\\.$#"
-			count: 2
 			path: src/Components/SetOperation.php
 
 		-

@@ -17,6 +17,8 @@ use function implode;
 
 /**
  * `JOIN` keyword parser.
+ *
+ * @final
  */
 class JoinKeyword extends Component
 {

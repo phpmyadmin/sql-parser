@@ -23,6 +23,8 @@ use function trim;
  * Parses the create definition of a column or a key.
  *
  * Used for parsing `CREATE TABLE` statement.
+ *
+ * @final
  */
 class CreateDefinition extends Component
 {

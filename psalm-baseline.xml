@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.12.0@e42bc4a23f67acba28a23bb09c348e2ff38a1d87">
+<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
   <file src="src/Component.php">
     <MixedReturnStatement occurrences="1">
       <code>static::build($this)</code>
@@ -39,9 +39,6 @@
       <code>isset($component-&gt;field)</code>
       <code>isset($component-&gt;field) &amp;&amp; ($component-&gt;field !== '')</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
     <UnusedVariable occurrences="1">
       <code>$arrayKey</code>
     </UnusedVariable>
@@ -97,9 +94,6 @@
     <UndefinedMethod occurrences="1">
       <code>$ret</code>
     </UndefinedMethod>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/CaseExpression.php">
     <InvalidOperand occurrences="1">
@@ -153,9 +147,6 @@
       <code>isset($component-&gt;else_result)</code>
       <code>isset($component-&gt;value)</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/Condition.php">
     <MixedArgument occurrences="1">
@@ -182,11 +173,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>is_array($component)</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="3">
-      <code>new static($token-&gt;value)</code>
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/CreateDefinition.php">
     <MixedArgument occurrences="1">
@@ -219,10 +205,6 @@
       <code>! empty($expr-&gt;type)</code>
       <code>isset($component-&gt;name)</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="2">
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/DataType.php">
     <MixedArgumentTypeCoercion occurrences="1">
@@ -239,9 +221,6 @@
       <code>$name</code>
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/Expression.php">
     <DocblockTypeContradiction occurrences="2">
@@ -305,9 +284,6 @@
       <code>isset($component-&gt;database)</code>
       <code>isset($component-&gt;table)</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/ExpressionArray.php">
     <InvalidReturnStatement occurrences="1">
@@ -342,9 +318,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$parameters</code>
     </PropertyNotSetInConstructor>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/GroupKeyword.php">
     <MoreSpecificImplementedParamType occurrences="1">
@@ -354,10 +327,6 @@
       <code>$expr</code>
       <code>Expression::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
-    <UnsafeInstantiation occurrences="2">
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/IndexHint.php">
     <MixedArgumentTypeCoercion occurrences="1">
@@ -378,11 +347,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$component-&gt;for !== null</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="3">
-      <code>new static()</code>
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/IntoKeyword.php">
     <MixedArgument occurrences="2">
@@ -417,9 +381,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>isset($component-&gt;values)</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/JoinKeyword.php">
     <DocblockTypeContradiction occurrences="1">
@@ -451,12 +412,6 @@
       <code>$using</code>
       <code>Expression::parse($parser, $list, ['field' =&gt; 'table'])</code>
     </PossiblyNullPropertyAssignmentValue>
-    <UnsafeInstantiation occurrences="4">
-      <code>new static()</code>
-      <code>new static()</code>
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
     <UnusedVariable occurrences="3">
       <code>$state</code>
       <code>$state</code>
@@ -493,9 +448,6 @@
     <PropertyTypeCoercion occurrences="1">
       <code>$ret-&gt;columns</code>
     </PropertyTypeCoercion>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/Limit.php">
     <MixedArgument occurrences="1">
@@ -508,9 +460,6 @@
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor occurrences="2">
@@ -527,9 +476,6 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>Expression::parse($parser, $list, ['parseField' =&gt; 'table'])</code>
     </PossiblyNullPropertyAssignmentValue>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/OptionsArray.php">
     <MissingReturnType occurrences="1">
@@ -612,9 +558,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>$options instanceof self</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/OrderKeyword.php">
     <MoreSpecificImplementedParamType occurrences="1">
@@ -624,10 +567,6 @@
       <code>$expr</code>
       <code>Expression::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
-    <UnsafeInstantiation occurrences="2">
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/ParameterDefinition.php">
     <MixedArgument occurrences="1">
@@ -661,10 +600,6 @@
       <code>is_array($component)</code>
       <code>isset($expr-&gt;name)</code>
     </RedundantConditionGivenDocblockType>
-    <UnsafeInstantiation occurrences="2">
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/PartitionDefinition.php">
     <MissingConstructor occurrences="6">
@@ -695,9 +630,6 @@
     </MoreSpecificImplementedParamType>
     <PossiblyNullPropertyAssignmentValue occurrences="1"/>
     <PropertyTypeCoercion occurrences="1"/>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
     <UnusedVariable occurrences="1">
       <code>$idx</code>
     </UnusedVariable>
@@ -716,9 +648,6 @@
       <code>$options</code>
       <code>$table</code>
     </PossiblyNullPropertyAssignmentValue>
-    <UnsafeInstantiation occurrences="1">
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/RenameOperation.php">
     <DocblockTypeContradiction occurrences="1">
@@ -735,10 +664,6 @@
       <code>$new</code>
       <code>$old</code>
     </PossiblyNullPropertyAssignmentValue>
-    <UnsafeInstantiation occurrences="2">
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/SetOperation.php">
     <MoreSpecificImplementedParamType occurrences="1">
@@ -747,10 +672,6 @@
     <RedundantCondition occurrences="1">
       <code>$token-&gt;value === ','</code>
     </RedundantCondition>
-    <UnsafeInstantiation occurrences="2">
-      <code>new static()</code>
-      <code>new static()</code>
-    </UnsafeInstantiation>
   </file>
   <file src="src/Components/UnionKeyword.php">
     <MoreSpecificImplementedParamType occurrences="1">

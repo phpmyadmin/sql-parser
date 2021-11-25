@@ -17,6 +17,8 @@ use function is_array;
 
 /**
  * Parses an Index hint.
+ *
+ * @final
  */
 class IndexHint extends Component
 {

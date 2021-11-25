@@ -17,6 +17,8 @@ use function is_array;
 
 /**
  * `ORDER BY` keyword parser.
+ *
+ * @final
  */
 class OrderKeyword extends Component
 {

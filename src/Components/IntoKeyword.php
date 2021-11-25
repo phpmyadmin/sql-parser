@@ -17,6 +17,8 @@ use function trim;
 
 /**
  * `INTO` keyword parser.
+ *
+ * @final
  */
 class IntoKeyword extends Component
 {

@@ -19,6 +19,8 @@ use function trim;
 
 /**
  * Parses an array.
+ *
+ * @final
  */
 class ArrayObj extends Component
 {

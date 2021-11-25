@@ -19,6 +19,8 @@ use function trim;
 
 /**
  * The definition of a parameter of a function or procedure.
+ *
+ * @final
  */
 class ParameterDefinition extends Component
 {

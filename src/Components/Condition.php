@@ -19,6 +19,8 @@ use function trim;
 
 /**
  * `WHERE` keyword parser.
+ *
+ * @final
  */
 class Condition extends Component
 {
