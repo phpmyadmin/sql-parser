@@ -12,6 +12,32 @@ use stdClass;
 
 class WithStatementTest extends TestCase
 {
+    /**
+     * @param mixed $test
+     *
+     * @dataProvider parseWith
+     */
+    public function testParse($test): void
+    {
+        $this->runParserTest($test);
+    }
+
+    public function parseWith(): array
+    {
+        return [
+            ['parser/parseWithStatement'],
+            ['parser/parseWithStatement1'],
+            ['parser/parseWithStatement2'],
+            ['parser/parseWithStatement3'],
+            ['parser/parseWithStatementErr'],
+            ['parser/parseWithStatementErr1'],
+            ['parser/parseWithStatementErr2'],
+            ['parser/parseWithStatementErr3'],
+            ['parser/parseWithStatementErr4'],
+            ['parser/parseWithStatementErr5'],
+        ];
+    }
+
     public function testWith(): void
     {
         $sql = <<<SQL

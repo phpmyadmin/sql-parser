@@ -313,7 +313,7 @@ class CreateStatement extends Statement
     /**
      * If `CREATE TABLE WITH`.
      * If `CREATE TABLE AS WITH`.
-     * If `CREATE VIEW AS ` WITH`.
+     * If `CREATE VIEW AS WITH`.
      *
      * Used by `CREATE TABLE`, `CREATE VIEW`
      *

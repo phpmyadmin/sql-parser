@@ -1,5 +1,5 @@
 {
-    "query": "INSERT INTO table_name WITH cte (col1) AS ( SELECT 1 ) SELECT col1 FROM cte ON DUPLICATE KEY UPDATE col_name = 3",
+    "query": "CREATE table table_name WITH cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 ) NO",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "PARSER_METHODS": [
@@ -15,19 +15,19 @@
             "parseLabel",
             "parseUnknown"
         ],
-        "str": "INSERT INTO table_name WITH cte (col1) AS ( SELECT 1 ) SELECT col1 FROM cte ON DUPLICATE KEY UPDATE col_name = 3",
-        "len": 112,
-        "last": 112,
+        "str": "CREATE table table_name WITH cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 ) NO",
+        "len": 77,
+        "last": 77,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "INSERT",
-                    "value": "INSERT",
-                    "keyword": "INSERT",
+                    "token": "CREATE",
+                    "value": "CREATE",
+                    "keyword": "CREATE",
                     "type": 1,
-                    "flags": 35,
+                    "flags": 3,
                     "position": 0
                 },
                 {
@@ -41,9 +41,9 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "INTO",
-                    "value": "INTO",
-                    "keyword": "INTO",
+                    "token": "table",
+                    "value": "TABLE",
+                    "keyword": "TABLE",
                     "type": 1,
                     "flags": 3,
                     "position": 7
@@ -55,7 +55,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 11
+                    "position": 12
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -64,7 +64,7 @@
                     "keyword": "TABLE_NAME",
                     "type": 1,
                     "flags": 1,
-                    "position": 12
+                    "position": 13
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -73,7 +73,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 22
+                    "position": 23
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -82,7 +82,7 @@
                     "keyword": "WITH",
                     "type": 1,
                     "flags": 3,
-                    "position": 23
+                    "position": 24
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -91,7 +91,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 27
+                    "position": 28
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -100,7 +100,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 28
+                    "position": 29
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -109,7 +109,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 31
+                    "position": 32
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -118,7 +118,7 @@
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
-                    "position": 32
+                    "position": 33
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -127,7 +127,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 33
+                    "position": 34
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -136,7 +136,7 @@
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
-                    "position": 37
+                    "position": 38
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -145,7 +145,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 38
+                    "position": 39
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -154,7 +154,7 @@
                     "keyword": "AS",
                     "type": 1,
                     "flags": 3,
-                    "position": 39
+                    "position": 40
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -163,7 +163,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 41
+                    "position": 42
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -172,7 +172,7 @@
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
-                    "position": 42
+                    "position": 43
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -181,7 +181,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 43
+                    "position": 44
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -190,7 +190,7 @@
                     "keyword": "SELECT",
                     "type": 1,
                     "flags": 3,
-                    "position": 44
+                    "position": 45
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -199,7 +199,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 50
+                    "position": 51
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -208,25 +208,25 @@
                     "keyword": null,
                     "type": 6,
                     "flags": 0,
-                    "position": 51
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
                     "position": 52
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ")",
-                    "value": ")",
+                    "token": " ",
+                    "value": " ",
                     "keyword": null,
-                    "type": 2,
-                    "flags": 16,
+                    "type": 3,
+                    "flags": 0,
                     "position": 53
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "UNION ALL",
+                    "value": "UNION ALL",
+                    "keyword": "UNION ALL",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 54
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -235,7 +235,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 54
+                    "position": 63
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -244,7 +244,7 @@
                     "keyword": "SELECT",
                     "type": 1,
                     "flags": 3,
-                    "position": 55
+                    "position": 64
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -253,160 +253,34 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 61
+                    "position": 70
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "col1",
-                    "value": "col1",
+                    "token": "2",
+                    "value": 2,
                     "keyword": null,
-                    "type": 0,
-                    "flags": 0,
-                    "position": 62
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 66
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "FROM",
-                    "value": "FROM",
-                    "keyword": "FROM",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 67
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
+                    "type": 6,
                     "flags": 0,
                     "position": 71
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "cte",
-                    "value": "cte",
+                    "token": " ",
+                    "value": " ",
                     "keyword": null,
-                    "type": 0,
+                    "type": 3,
                     "flags": 0,
                     "position": 72
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 75
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "ON",
-                    "value": "ON",
-                    "keyword": "ON",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 76
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 78
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "DUPLICATE",
-                    "value": "DUPLICATE",
-                    "keyword": "DUPLICATE",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 79
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 88
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "KEY",
-                    "value": "KEY",
-                    "keyword": "KEY",
-                    "type": 1,
-                    "flags": 19,
-                    "position": 89
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 92
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "UPDATE",
-                    "value": "UPDATE",
-                    "keyword": "UPDATE",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 93
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 99
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "col_name",
-                    "value": "col_name",
-                    "keyword": null,
-                    "type": 0,
-                    "flags": 0,
-                    "position": 100
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 108
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "=",
-                    "value": "=",
+                    "token": ")",
+                    "value": ")",
                     "keyword": null,
                     "type": 2,
-                    "flags": 2,
-                    "position": 109
+                    "flags": 16,
+                    "position": 73
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -415,16 +289,16 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 110
+                    "position": 74
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "3",
-                    "value": 3,
-                    "keyword": null,
-                    "type": 6,
-                    "flags": 0,
-                    "position": 111
+                    "token": "NO",
+                    "value": "NO",
+                    "keyword": "NO",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 75
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -436,8 +310,8 @@
                     "position": null
                 }
             ],
-            "count": 46,
-            "idx": 46
+            "count": 32,
+            "idx": 33
         },
         "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
@@ -748,74 +622,246 @@
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
                 "OPTIONS": {
-                    "LOW_PRIORITY": 1,
-                    "DELAYED": 2,
-                    "HIGH_PRIORITY": 3,
-                    "IGNORE": 4
+                    "TEMPORARY": 1,
+                    "OR REPLACE": 2,
+                    "ALGORITHM": [
+                        3,
+                        "var="
+                    ],
+                    "DEFINER": [
+                        4,
+                        "expr="
+                    ],
+                    "SQL SECURITY": [
+                        5,
+                        "var"
+                    ],
+                    "DATABASE": 6,
+                    "EVENT": 6,
+                    "FUNCTION": 6,
+                    "INDEX": 6,
+                    "UNIQUE INDEX": 6,
+                    "FULLTEXT INDEX": 6,
+                    "SPATIAL INDEX": 6,
+                    "PROCEDURE": 6,
+                    "SERVER": 6,
+                    "TABLE": 6,
+                    "TABLESPACE": 6,
+                    "TRIGGER": 6,
+                    "USER": 6,
+                    "VIEW": 6,
+                    "SCHEMA": 6,
+                    "IF NOT EXISTS": 7
                 },
-                "into": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
-                    "FIELDS_OPTIONS": {
-                        "TERMINATED BY": [
-                            1,
-                            "expr"
-                        ],
-                        "OPTIONALLY": 2,
-                        "ENCLOSED BY": [
-                            3,
-                            "expr"
-                        ],
-                        "ESCAPED BY": [
-                            4,
-                            "expr"
-                        ]
-                    },
-                    "LINES_OPTIONS": {
-                        "STARTING BY": [
-                            1,
-                            "expr"
-                        ],
-                        "TERMINATED BY": [
-                            2,
-                            "expr"
-                        ]
-                    },
-                    "type": null,
-                    "dest": {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "ALLOWED_KEYWORDS": {
-                            "AS": 1,
-                            "DUAL": 1,
-                            "NULL": 1,
-                            "REGEXP": 1,
-                            "CASE": 1,
-                            "DIV": 1,
-                            "AND": 1,
-                            "OR": 1,
-                            "XOR": 1,
-                            "NOT": 1,
-                            "MOD": 1,
-                            "OVER": 2
-                        },
-                        "database": null,
-                        "table": "table_name",
-                        "column": null,
-                        "expr": "table_name",
-                        "alias": null,
-                        "function": null,
-                        "subquery": null
-                    },
-                    "columns": null,
-                    "values": null,
-                    "fields_options": null,
-                    "fields_keyword": null,
-                    "lines_options": null
+                "DB_OPTIONS": {
+                    "CHARACTER SET": [
+                        1,
+                        "var="
+                    ],
+                    "CHARSET": [
+                        1,
+                        "var="
+                    ],
+                    "DEFAULT CHARACTER SET": [
+                        1,
+                        "var="
+                    ],
+                    "DEFAULT CHARSET": [
+                        1,
+                        "var="
+                    ],
+                    "DEFAULT COLLATE": [
+                        2,
+                        "var="
+                    ],
+                    "COLLATE": [
+                        2,
+                        "var="
+                    ]
                 },
-                "values": null,
-                "set": null,
-                "select": {
+                "TABLE_OPTIONS": {
+                    "ENGINE": [
+                        1,
+                        "var="
+                    ],
+                    "AUTO_INCREMENT": [
+                        2,
+                        "var="
+                    ],
+                    "AVG_ROW_LENGTH": [
+                        3,
+                        "var"
+                    ],
+                    "CHARACTER SET": [
+                        4,
+                        "var="
+                    ],
+                    "CHARSET": [
+                        4,
+                        "var="
+                    ],
+                    "DEFAULT CHARACTER SET": [
+                        4,
+                        "var="
+                    ],
+                    "DEFAULT CHARSET": [
+                        4,
+                        "var="
+                    ],
+                    "CHECKSUM": [
+                        5,
+                        "var"
+                    ],
+                    "DEFAULT COLLATE": [
+                        6,
+                        "var="
+                    ],
+                    "COLLATE": [
+                        6,
+                        "var="
+                    ],
+                    "COMMENT": [
+                        7,
+                        "var="
+                    ],
+                    "CONNECTION": [
+                        8,
+                        "var"
+                    ],
+                    "DATA DIRECTORY": [
+                        9,
+                        "var"
+                    ],
+                    "DELAY_KEY_WRITE": [
+                        10,
+                        "var"
+                    ],
+                    "INDEX DIRECTORY": [
+                        11,
+                        "var"
+                    ],
+                    "INSERT_METHOD": [
+                        12,
+                        "var"
+                    ],
+                    "KEY_BLOCK_SIZE": [
+                        13,
+                        "var"
+                    ],
+                    "MAX_ROWS": [
+                        14,
+                        "var"
+                    ],
+                    "MIN_ROWS": [
+                        15,
+                        "var"
+                    ],
+                    "PACK_KEYS": [
+                        16,
+                        "var"
+                    ],
+                    "PASSWORD": [
+                        17,
+                        "var"
+                    ],
+                    "ROW_FORMAT": [
+                        18,
+                        "var"
+                    ],
+                    "TABLESPACE": [
+                        19,
+                        "var"
+                    ],
+                    "STORAGE": [
+                        20,
+                        "var"
+                    ],
+                    "UNION": [
+                        21,
+                        "var"
+                    ]
+                },
+                "FUNC_OPTIONS": {
+                    "NOT": [
+                        2,
+                        "var"
+                    ],
+                    "FUNCTION": [
+                        3,
+                        "var="
+                    ],
+                    "PROCEDURE": [
+                        3,
+                        "var="
+                    ],
+                    "CONTAINS": [
+                        4,
+                        "expr"
+                    ],
+                    "NO": [
+                        4,
+                        "var"
+                    ],
+                    "READS": [
+                        4,
+                        "var"
+                    ],
+                    "MODIFIES": [
+                        4,
+                        "expr"
+                    ],
+                    "SQL SECURITY": [
+                        6,
+                        "var"
+                    ],
+                    "LANGUAGE": [
+                        7,
+                        "var"
+                    ],
+                    "COMMENT": [
+                        8,
+                        "var"
+                    ],
+                    "CREATE": 1,
+                    "DETERMINISTIC": 2,
+                    "DATA": 5
+                },
+                "TRIGGER_OPTIONS": {
+                    "BEFORE": 1,
+                    "AFTER": 1,
+                    "INSERT": 2,
+                    "UPDATE": 2,
+                    "DELETE": 2
+                },
+                "name": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                    "ALLOWED_KEYWORDS": {
+                        "AS": 1,
+                        "DUAL": 1,
+                        "NULL": 1,
+                        "REGEXP": 1,
+                        "CASE": 1,
+                        "DIV": 1,
+                        "AND": 1,
+                        "OR": 1,
+                        "XOR": 1,
+                        "NOT": 1,
+                        "MOD": 1,
+                        "OVER": 2
+                    },
+                    "database": null,
+                    "table": "table_name",
+                    "column": null,
+                    "expr": "table_name",
+                    "alias": null,
+                    "function": null,
+                    "subquery": null
+                },
+                "entityOptions": null,
+                "fields": null,
+                "with": {
                     "@type": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
                     "OPTIONS": {
                         "RECURSIVE": 1
@@ -1164,10 +1210,28 @@
                                         },
                                         {
                                             "@type": "@23"
+                                        },
+                                        {
+                                            "@type": "@24"
+                                        },
+                                        {
+                                            "@type": "@25"
+                                        },
+                                        {
+                                            "@type": "@26"
+                                        },
+                                        {
+                                            "@type": "@27"
+                                        },
+                                        {
+                                            "@type": "@28"
+                                        },
+                                        {
+                                            "@type": "@29"
                                         }
                                     ],
-                                    "count": 5,
-                                    "idx": 5
+                                    "count": 11,
+                                    "idx": 11
                                 },
                                 "statements": [
                                     {
@@ -1356,14 +1420,213 @@
                                         "procedure": null,
                                         "into": null,
                                         "join": null,
-                                        "union": [],
+                                        "union": [
+                                            [
+                                                "UNION ALL",
+                                                {
+                                                    "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
+                                                    "OPTIONS": {
+                                                        "ALL": 1,
+                                                        "DISTINCT": 1,
+                                                        "DISTINCTROW": 1,
+                                                        "HIGH_PRIORITY": 2,
+                                                        "MAX_STATEMENT_TIME": [
+                                                            3,
+                                                            "var="
+                                                        ],
+                                                        "STRAIGHT_JOIN": 4,
+                                                        "SQL_SMALL_RESULT": 5,
+                                                        "SQL_BIG_RESULT": 6,
+                                                        "SQL_BUFFER_RESULT": 7,
+                                                        "SQL_CACHE": 8,
+                                                        "SQL_NO_CACHE": 8,
+                                                        "SQL_CALC_FOUND_ROWS": 9
+                                                    },
+                                                    "END_OPTIONS": {
+                                                        "FOR UPDATE": 1,
+                                                        "LOCK IN SHARE MODE": 1
+                                                    },
+                                                    "CLAUSES": {
+                                                        "SELECT": [
+                                                            "SELECT",
+                                                            2
+                                                        ],
+                                                        "_OPTIONS": [
+                                                            "_OPTIONS",
+                                                            1
+                                                        ],
+                                                        "_SELECT": [
+                                                            "SELECT",
+                                                            1
+                                                        ],
+                                                        "INTO": [
+                                                            "INTO",
+                                                            3
+                                                        ],
+                                                        "FROM": [
+                                                            "FROM",
+                                                            3
+                                                        ],
+                                                        "FORCE": [
+                                                            "FORCE",
+                                                            1
+                                                        ],
+                                                        "USE": [
+                                                            "USE",
+                                                            1
+                                                        ],
+                                                        "IGNORE": [
+                                                            "IGNORE",
+                                                            3
+                                                        ],
+                                                        "PARTITION": [
+                                                            "PARTITION",
+                                                            3
+                                                        ],
+                                                        "JOIN": [
+                                                            "JOIN",
+                                                            1
+                                                        ],
+                                                        "FULL JOIN": [
+                                                            "FULL JOIN",
+                                                            1
+                                                        ],
+                                                        "INNER JOIN": [
+                                                            "INNER JOIN",
+                                                            1
+                                                        ],
+                                                        "LEFT JOIN": [
+                                                            "LEFT JOIN",
+                                                            1
+                                                        ],
+                                                        "LEFT OUTER JOIN": [
+                                                            "LEFT OUTER JOIN",
+                                                            1
+                                                        ],
+                                                        "RIGHT JOIN": [
+                                                            "RIGHT JOIN",
+                                                            1
+                                                        ],
+                                                        "RIGHT OUTER JOIN": [
+                                                            "RIGHT OUTER JOIN",
+                                                            1
+                                                        ],
+                                                        "NATURAL JOIN": [
+                                                            "NATURAL JOIN",
+                                                            1
+                                                        ],
+                                                        "NATURAL LEFT JOIN": [
+                                                            "NATURAL LEFT JOIN",
+                                                            1
+                                                        ],
+                                                        "NATURAL RIGHT JOIN": [
+                                                            "NATURAL RIGHT JOIN",
+                                                            1
+                                                        ],
+                                                        "NATURAL LEFT OUTER JOIN": [
+                                                            "NATURAL LEFT OUTER JOIN",
+                                                            1
+                                                        ],
+                                                        "NATURAL RIGHT OUTER JOIN": [
+                                                            "NATURAL RIGHT JOIN",
+                                                            1
+                                                        ],
+                                                        "WHERE": [
+                                                            "WHERE",
+                                                            3
+                                                        ],
+                                                        "GROUP BY": [
+                                                            "GROUP BY",
+                                                            3
+                                                        ],
+                                                        "HAVING": [
+                                                            "HAVING",
+                                                            3
+                                                        ],
+                                                        "ORDER BY": [
+                                                            "ORDER BY",
+                                                            3
+                                                        ],
+                                                        "LIMIT": [
+                                                            "LIMIT",
+                                                            3
+                                                        ],
+                                                        "PROCEDURE": [
+                                                            "PROCEDURE",
+                                                            3
+                                                        ],
+                                                        "UNION": [
+                                                            "UNION",
+                                                            1
+                                                        ],
+                                                        "EXCEPT": [
+                                                            "EXCEPT",
+                                                            1
+                                                        ],
+                                                        "INTERSECT": [
+                                                            "INTERSECT",
+                                                            1
+                                                        ],
+                                                        "_END_OPTIONS": [
+                                                            "_END_OPTIONS",
+                                                            1
+                                                        ]
+                                                    },
+                                                    "expr": [
+                                                        {
+                                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                            "ALLOWED_KEYWORDS": {
+                                                                "AS": 1,
+                                                                "DUAL": 1,
+                                                                "NULL": 1,
+                                                                "REGEXP": 1,
+                                                                "CASE": 1,
+                                                                "DIV": 1,
+                                                                "AND": 1,
+                                                                "OR": 1,
+                                                                "XOR": 1,
+                                                                "NOT": 1,
+                                                                "MOD": 1,
+                                                                "OVER": 2
+                                                            },
+                                                            "database": null,
+                                                            "table": null,
+                                                            "column": null,
+                                                            "expr": "2",
+                                                            "alias": null,
+                                                            "function": null,
+                                                            "subquery": null
+                                                        }
+                                                    ],
+                                                    "from": [],
+                                                    "index_hints": null,
+                                                    "partition": null,
+                                                    "where": null,
+                                                    "group": null,
+                                                    "having": null,
+                                                    "order": [],
+                                                    "limit": null,
+                                                    "procedure": null,
+                                                    "into": null,
+                                                    "join": null,
+                                                    "union": [],
+                                                    "end_options": null,
+                                                    "options": {
+                                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                                        "options": []
+                                                    },
+                                                    "first": 5,
+                                                    "last": 10
+                                                }
+                                            ]
+                                        ],
                                         "end_options": null,
                                         "options": {
                                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                             "options": []
                                         },
                                         "first": 0,
-                                        "last": 4
+                                        "last": 10
                                     }
                                 ],
                                 "brackets": 0,
@@ -1380,21 +1643,27 @@
                     "first": null,
                     "last": null
                 },
-                "onDuplicateSet": [
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                        "column": "col_name",
-                        "value": "3"
-                    }
-                ],
+                "select": null,
+                "like": null,
+                "partitionBy": null,
+                "partitionsNum": null,
+                "subpartitionBy": null,
+                "subpartitionsNum": null,
+                "partitions": null,
+                "table": null,
+                "return": null,
+                "parameters": null,
+                "body": [],
                 "CLAUSES": [],
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "6": "TABLE"
+                    }
                 },
                 "first": 0,
-                "last": 44
+                "last": 29
             }
         ],
         "brackets": 0,
@@ -1403,6 +1672,28 @@
     },
     "errors": {
         "lexer": [],
-        "parser": []
+        "parser": [
+            [
+                "An expression was expected.",
+                {
+                    "@type": "@32"
+                },
+                0
+            ],
+            [
+                "Unexpected end of WITH CTE.",
+                {
+                    "@type": "@32"
+                },
+                0
+            ],
+            [
+                "Unrecognized statement type.",
+                {
+                    "@type": "@32"
+                },
+                0
+            ]
+        ]
     }
 }

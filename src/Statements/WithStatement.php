@@ -138,6 +138,11 @@ final class WithStatement extends Statement
                     break;
                 }
 
+                if ($token->value !== 'SELECT') {
+                    $parser->error('Unexpected keyword', $token);
+                    break;
+                }
+
                 ++$list->idx;
                 $subList = $this->getSubTokenList($list);
                 if ($subList instanceof ParserException) {
