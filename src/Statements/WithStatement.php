@@ -66,25 +66,33 @@ final class WithStatement extends Statement
      */
     public function parse(Parser $parser, TokensList $list)
     {
-        ++$list->idx; // Skipping `WITH`.
-
-        // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
-        ++$list->idx;
-
         /**
          * The state of the parser.
          *
          * Below are the states of the parser.
          *
          *      0 ---------------- [ name ] -----------------> 1
-         *      1 -------------- [( columns )] AS ----------------> 2
-         *      2 ------------------ [ , ] --------------------> 0
+         *
+         *      1 ------------------ [ ( ] ------------------> 2
+         *
+         *      2 ------------------ [ AS ] -----------------> 3
+         *
+         *      3 ------------------ [ ( ] ------------------> 4
+         *
+         *      4 ------------------ [ , ] ------------------> 1
+         *
+         *      4 ----- [ SELECT/UPDATE/DELETE/INSERT ] -----> 5
          *
          * @var int
          */
         $state = 0;
         $wither = null;
+
+        ++$list->idx; // Skipping `WITH`.
+
+        // parse any options if provided
+        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        ++$list->idx;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -99,55 +107,124 @@ final class WithStatement extends Statement
                 continue;
             }
 
-            if ($token->type === Token::TYPE_NONE) {
-                $wither = $token->value;
-                $this->withers[$wither] = new WithKeyword($wither);
-                $state = 1;
-                continue;
-            }
-
-            if ($state === 1) {
-                if ($token->value === '(') {
-                    $this->withers[$wither]->columns = Array2d::parse($parser, $list);
-                    continue;
+            if ($state === 0) {
+                if ($token->type === Token::TYPE_NONE) {
+                    $wither = $token->value;
+                    $this->withers[$wither] = new WithKeyword($wither);
+                    $state = 1;
+                } else {
+                    $parser->error('The name of the CTE was expected.', $token);
                 }
-
-                if ($token->keyword === 'AS') {
-                    ++$list->idx;
+            } elseif ($state === 1) {
+                if ($token->type === Token::TYPE_OPERATOR && $token->value === '(') {
+                    $this->withers[$wither]->columns = Array2d::parse($parser, $list);
                     $state = 2;
-                    continue;
+                } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'AS') {
+                    $state = 3;
+                } else {
+                    $parser->error('Unexpected token.', $token);
+                    break;
                 }
             } elseif ($state === 2) {
-                if ($token->value === '(') {
-                    ++$list->idx;
-                    $subList = $this->getSubTokenList($list);
-                    if ($subList instanceof ParserException) {
-                        $parser->errors[] = $subList;
-                        continue;
-                    }
+                if (! ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'AS')) {
+                    $parser->error('AS keyword was expected.', $token);
+                    break;
+                }
 
-                    $subParser = new Parser($subList);
+                $state = 3;
+            } elseif ($state === 3) {
+                if ($token->value !== '(') {
+                    $parser->error('Subquery of the CTE was expected.', $token);
+                    break;
+                }
 
-                    if (count($subParser->errors)) {
-                        foreach ($subParser->errors as $error) {
-                            $parser->errors[] = $error;
-                        }
-                    }
-
-                    $this->withers[$wither]->statement = $subParser;
+                ++$list->idx;
+                $subList = $this->getSubTokenList($list);
+                if ($subList instanceof ParserException) {
+                    $parser->errors[] = $subList;
                     continue;
                 }
 
-                // There's another WITH expression to parse, go back to state=0
+                $subParser = new Parser($subList);
+
+                if (count($subParser->errors)) {
+                    foreach ($subParser->errors as $error) {
+                        $parser->errors[] = $error;
+                    }
+                }
+
+                $this->withers[$wither]->statement = $subParser;
+
+                $state = 4;
+            } elseif ($state === 4) {
                 if ($token->value === ',') {
-                    $list->idx++;
+                    // There's another WITH expression to parse, go back to state=0
                     $state = 0;
                     continue;
                 }
 
-                // No more WITH expressions, we're done with this statement
+                if (
+                    $token->type === Token::TYPE_KEYWORD && (
+                    $token->value === 'SELECT'
+                    || $token->value === 'INSERT'
+                    || $token->value === 'UPDATE'
+                    || $token->value === 'DELETE'
+                    )
+                ) {
+                    $state = 5;
+                    --$list->idx;
+                    continue;
+                }
+
+                $parser->error('An expression was expected.', $token);
+                break;
+            } elseif ($state === 5) {
+                /**
+                 * We need to parse all of the remaining tokens becuase mostly, they are only the CTE expression
+                 * which's mostly is SELECT, or INSERT, UPDATE, or delete statement.
+                 * e.g: INSERT .. ( SELECT 1 ) SELECT col1 FROM cte ON DUPLICATE KEY UPDATE col_name = 3.
+                 * The issue is that, `ON DUPLICATE KEY UPDATE col_name = 3` is related to the main INSERT query
+                 * not the cte expression (SELECT col1 FROM cte) we need to determine the end of the expression
+                 * to parse `ON DUPLICATE KEY UPDATE` from the InsertStatement parser instead.
+                 */
+
+                // Index of the last parsed token by default would be the last token in the $list, because we're
+                // assuming that all remaining tokens at state 4, are related to the expression.
+                $idxOfLastParsedToken = $list->count - 1;
+                // Index before search to be able to restore the index.
+                $idxBeforeSearch = $list->idx;
+                // Length of expression tokens is null by default, in order for the $subList to start
+                // from $list->idx to the end of the $list.
+                $lengthOfExpressionTokens = null;
+
+                if ($list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ON')) {
+                    // (-1) because getNextOfTypeAndValue returned ON and increased the index.
+                    $idxOfOn = $list->idx - 1;
+                    // Index of the last parsed token will be the token before the ON Keyword, therefore $idxOfOn - 1.
+                    $idxOfLastParsedToken = $idxOfOn - 1;
+                    // The length of the expression tokens would be the position of
+                    $lengthOfExpressionTokens = $idxOfOn - $idxBeforeSearch;
+                }
+
+                // Restore the index
+                $list->idx = $idxBeforeSearch;
+
+                $subList = new TokensList(array_slice($list->tokens, $list->idx, $lengthOfExpressionTokens));
+                $subParser = new Parser($subList);
+                if (count($subParser->errors)) {
+                    foreach ($subParser->errors as $error) {
+                        $parser->errors[] = $error;
+                    }
+                }
+
+                $list->idx = $idxOfLastParsedToken;
                 break;
             }
+        }
+
+        // 5 is the only valid end state
+        if ($state !== 5) {
+            $parser->error('Unexpected end of WITH CTE.', $token);
         }
 
         --$list->idx;

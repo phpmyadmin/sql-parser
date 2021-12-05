@@ -210,6 +210,8 @@ class InsertStatement extends Statement
                     $this->set = SetOperation::parse($parser, $list);
                 } elseif ($token->keyword === 'SELECT') {
                     $this->select = new SelectStatement($parser, $list);
+                } elseif ($token->keyword === 'WITH') {
+                    $this->select = new WithStatement($parser, $list);
                 } else {
                     $parser->error('Unexpected keyword.', $token);
                     break;

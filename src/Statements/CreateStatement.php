@@ -311,6 +311,17 @@ class CreateStatement extends Statement
     public $fields;
 
     /**
+     * If `CREATE TABLE WITH`.
+     * If `CREATE TABLE AS WITH`.
+     * If `CREATE VIEW AS ` WITH`.
+     *
+     * Used by `CREATE TABLE`, `CREATE VIEW`
+     *
+     * @var WithStatement|null
+     */
+    public $with;
+
+    /**
      * If `CREATE TABLE ... SELECT`.
      * If `CREATE VIEW AS ` ... SELECT`.
      *
@@ -465,10 +476,17 @@ class CreateStatement extends Statement
                 . OptionsArray::build($this->entityOptions)
                 . $partition;
         } elseif ($this->options->has('VIEW')) {
+            $builtStatement = '';
+            if ($this->select) {
+                $builtStatement = $this->select->build();
+            } elseif ($this->with) {
+                $builtStatement = $this->with->build();
+            }
+
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
-                . $fields . ' AS ' . ($this->select ? $this->select->build() : '')
+                . $fields . ' AS ' . $builtStatement
                 . (! empty($this->body) ? TokensList::build($this->body) : '') . ' '
                 . OptionsArray::build($this->entityOptions);
         } elseif ($this->options->has('TRIGGER')) {
@@ -546,14 +564,22 @@ class CreateStatement extends Statement
             if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SELECT')) {
                 /* CREATE TABLE ... SELECT */
                 $this->select = new SelectStatement($parser, $list);
+            } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'WITH')) {
+                /* CREATE TABLE WITH */
+                $this->with = new WithStatement($parser, $list);
             } elseif (
                 ($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'AS')
                 && ($list->tokens[$nextidx]->type === Token::TYPE_KEYWORD)
-                && ($list->tokens[$nextidx]->value === 'SELECT')
             ) {
-                /* CREATE TABLE ... AS SELECT */
-                $list->idx = $nextidx;
-                $this->select = new SelectStatement($parser, $list);
+                if ($list->tokens[$nextidx]->value === 'SELECT') {
+                    /* CREATE TABLE ... AS SELECT */
+                    $list->idx = $nextidx;
+                    $this->select = new SelectStatement($parser, $list);
+                } elseif ($list->tokens[$nextidx]->value === 'SELECT') {
+                    /* CREATE TABLE WITH */
+                    $list->idx = $nextidx;
+                    $this->select = new WithStatement($parser, $list);
+                }
             } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'LIKE') {
                 /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
                 $list->idx = $nextidx;
@@ -711,10 +737,14 @@ class CreateStatement extends Statement
                 $token->type === Token::TYPE_KEYWORD
                 && $token->keyword === 'AS'
                 && $list->tokens[$nextidx]->type === Token::TYPE_KEYWORD
-                && $list->tokens[$nextidx]->value === 'SELECT'
             ) {
-                $list->idx = $nextidx;
-                $this->select = new SelectStatement($parser, $list);
+                if ($list->tokens[$nextidx]->value === 'SELECT') {
+                    $list->idx = $nextidx;
+                    $this->select = new SelectStatement($parser, $list);
+                } elseif ($list->tokens[$nextidx]->value === 'WITH') {
+                    ++$list->idx;
+                    $this->with = new WithStatement($parser, $list);
+                }
             }
 
             // Parsing all other tokens

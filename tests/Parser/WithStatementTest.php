@@ -30,7 +30,7 @@ SQL;
         $parser = new Parser($lexer->list);
         $parserErrors = $this->getErrorsAsArray($parser);
         $this->assertCount(0, $parserErrors);
-        $this->assertCount(2, $parser->statements);
+        $this->assertCount(1, $parser->statements);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<SQL
@@ -38,7 +38,6 @@ WITH categories(identifier, name, parent_id) AS (SELECT c.identifier, c.name, c.
 SQL;
         // phpcs:enable
         $this->assertEquals($expected, $parser->statements[0]->build());
-        $this->assertEquals('SELECT * FROM categories', $parser->statements[1]->build());
     }
 
     public function testWithHasErrors(): void
