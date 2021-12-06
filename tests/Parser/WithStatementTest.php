@@ -40,6 +40,8 @@ class WithStatementTest extends TestCase
             ['parser/parseWithStatementErr4'],
             ['parser/parseWithStatementErr5'],
             ['parser/parseWithStatementErr6'],
+            ['parser/parseWithStatementErr7'],
+            ['parser/parseWithStatementErr8'],
         ];
     }
 
