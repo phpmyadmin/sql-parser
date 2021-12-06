@@ -218,7 +218,9 @@ final class WithStatement extends Statement
                     $idxOfOn = $list->idx - 1;
                     // Index of the last parsed token will be the token before the ON Keyword, therefore $idxOfOn - 1.
                     $idxOfLastParsedToken = $idxOfOn - 1;
-                    // The length of the expression tokens would be the position of
+                    // The length of the expression tokens would be the difference
+                    // between the first unrelated token `ON` and the idx
+                    // before skipping the CTE tokens.
                     $lengthOfExpressionTokens = $idxOfOn - $idxBeforeSearch;
                 }
 
