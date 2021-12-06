@@ -240,7 +240,14 @@ final class WithStatement extends Statement
 
         // 5 is the only valid end state
         if ($state !== 5) {
-            $parser->error('Unexpected end of WITH CTE.', $list->tokens[$list->idx]);
+             /**
+             * Token parsed at this moment.
+             *
+             * @var Token
+             */
+            $token = $list->tokens[$list->idx];
+
+            $parser->error('Unexpected end of the WITH CTE.', $token);
         }
 
         --$list->idx;
