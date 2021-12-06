@@ -1031,7 +1031,8 @@
                 },
                 "values": null,
                 "set": null,
-                "select": {
+                "select": null,
+                "with": {
                     "@type": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
                     "OPTIONS": {
                         "RECURSIVE": 1
@@ -1173,6 +1174,7 @@
                 ],
                 "set": null,
                 "select": null,
+                "with": null,
                 "onDuplicateSet": null,
                 "CLAUSES": [],
                 "END_OPTIONS": [],
@@ -1412,7 +1414,7 @@
         "lexer": [],
         "parser": [
             [
-                "Unexpected keyword",
+                "Subquery of the CTE was expected.",
                 {
                     "@type": "@18"
                 },

@@ -108,13 +108,14 @@ final class WithStatement extends Statement
             }
 
             if ($state === 0) {
-                if ($token->type === Token::TYPE_NONE) {
-                    $wither = $token->value;
-                    $this->withers[$wither] = new WithKeyword($wither);
-                    $state = 1;
-                } else {
+                if ($token->type !== Token::TYPE_NONE) {
                     $parser->error('The name of the CTE was expected.', $token);
+                    break;
                 }
+
+                $wither = $token->value;
+                $this->withers[$wither] = new WithKeyword($wither);
+                $state = 1;
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_OPERATOR && $token->value === '(') {
                     $this->withers[$wither]->columns = Array2d::parse($parser, $list);
@@ -133,21 +134,29 @@ final class WithStatement extends Statement
 
                 $state = 3;
             } elseif ($state === 3) {
-                if ($token->value !== '(') {
+                $idxBeforeGetNext = $list->idx;
+
+                // We want to get the next non-comment and non-space token after $token
+                // therefore, the first getNext call will start with the current $idx which's $token,
+                // will return it and increase $idx by 1, which's not guaranteed to be non-comment
+                // and non-space, that's why we're calling getNext again.
+                $list->getNext();
+                $nextKeyword = $list->getNext();
+
+                if (! ($token->value === '(' && ($nextKeyword && $nextKeyword->value === 'SELECT'))) {
                     $parser->error('Subquery of the CTE was expected.', $token);
+                    $list->idx = $idxBeforeGetNext;
                     break;
                 }
 
-                if ($token->value !== 'SELECT') {
-                    $parser->error('Unexpected keyword', $token);
-                    break;
-                }
+                // Restore the index
+                $list->idx = $idxBeforeGetNext;
 
                 ++$list->idx;
                 $subList = $this->getSubTokenList($list);
                 if ($subList instanceof ParserException) {
                     $parser->errors[] = $subList;
-                    continue;
+                    break;
                 }
 
                 $subParser = new Parser($subList);
@@ -156,6 +165,8 @@ final class WithStatement extends Statement
                     foreach ($subParser->errors as $error) {
                         $parser->errors[] = $error;
                     }
+
+                    break;
                 }
 
                 $this->withers[$wither]->statement = $subParser;
@@ -229,7 +240,7 @@ final class WithStatement extends Statement
 
         // 5 is the only valid end state
         if ($state !== 5) {
-            $parser->error('Unexpected end of WITH CTE.', $token);
+            $parser->error('Unexpected end of WITH CTE.', $list->tokens[$list->idx]);
         }
 
         --$list->idx;

@@ -13,15 +13,16 @@ use stdClass;
 class WithStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider parseWith
      */
-    public function testParse($test): void
+    public function testParse(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return array<int,array<int, string>>
+     */
     public function parseWith(): array
     {
         return [
@@ -35,6 +36,7 @@ class WithStatementTest extends TestCase
             ['parser/parseWithStatementErr3'],
             ['parser/parseWithStatementErr4'],
             ['parser/parseWithStatementErr5'],
+            ['parser/parseWithStatementErr6'],
         ];
     }
 
@@ -81,7 +83,7 @@ SQL;
         $this->assertCount(0, $lexerErrors);
         $parser = new Parser($lexer->list);
         $parserErrors = $this->getErrorsAsArray($parser);
-        $this->assertCount(2, $parserErrors);
+        $this->assertCount(4, $parserErrors);
     }
 
     public function testWithEmbedParenthesis(): void

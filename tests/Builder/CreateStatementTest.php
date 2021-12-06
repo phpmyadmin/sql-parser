@@ -164,6 +164,20 @@ class CreateStatementTest extends TestCase
             ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
         $parser = new Parser($query);
         $this->assertEquals($query, $parser->statements[0]->build());
+
+        /* Assertion 5 */
+        $parser = new Parser(
+            'CREATE table table_name WITH' .
+            ' cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 )' .
+            ' SELECT col1 FROM cte'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE TABLE table_name WITH' .
+            ' cte(col1) AS (SELECT 1 UNION ALL SELECT 2)',
+            $stmt->build()
+        );
     }
 
     public function testBuilderPartitions(): void
