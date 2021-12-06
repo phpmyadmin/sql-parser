@@ -33,6 +33,7 @@ class WithStatementTest extends TestCase
             ['parser/parseWithStatement4'],
             ['parser/parseWithStatement5'],
             ['parser/parseWithStatement6'],
+            ['parser/parseWithStatement7'],
             ['parser/parseWithStatementErr'],
             ['parser/parseWithStatementErr1'],
             ['parser/parseWithStatementErr2'],

@@ -216,12 +216,22 @@ final class WithStatement extends Statement
                 if ($list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ON')) {
                     // (-1) because getNextOfTypeAndValue returned ON and increased the index.
                     $idxOfOn = $list->idx - 1;
-                    // Index of the last parsed token will be the token before the ON Keyword, therefore $idxOfOn - 1.
-                    $idxOfLastParsedToken = $idxOfOn - 1;
-                    // The length of the expression tokens would be the difference
-                    // between the first unrelated token `ON` and the idx
-                    // before skipping the CTE tokens.
-                    $lengthOfExpressionTokens = $idxOfOn - $idxBeforeSearch;
+                    // We want to make sure that it's `ON DUPLICATE KEY UPDATE`
+                    $dubplicateToken = $list->getNext();
+                    $keyToken = $list->getNext();
+                    $updateToken = $list->getNext();
+                    if (
+                        $dubplicateToken && $dubplicateToken->keyword === 'DUPLICATE'
+                        && ($keyToken && $keyToken->keyword === 'KEY')
+                        && ($updateToken && $updateToken->keyword === 'UPDATE')
+                    ) {
+                        // Index of the last parsed token will be the token before the ON Keyword
+                        $idxOfLastParsedToken = $idxOfOn - 1;
+                        // The length of the expression tokens would be the difference
+                        // between the first unrelated token `ON` and the idx
+                        // before skipping the CTE tokens.
+                        $lengthOfExpressionTokens = $idxOfOn - $idxBeforeSearch;
+                    }
                 }
 
                 // Restore the index
