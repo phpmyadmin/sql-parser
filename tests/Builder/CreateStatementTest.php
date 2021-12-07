@@ -175,7 +175,8 @@ class CreateStatementTest extends TestCase
 
         $this->assertEquals(
             'CREATE TABLE table_name WITH' .
-            ' cte(col1) AS (SELECT 1 UNION ALL SELECT 2)',
+            ' cte(col1) AS (SELECT 1 UNION ALL SELECT 2)' .
+            ' SELECT col1 FROM cte',
             $stmt->build()
         );
     }
@@ -370,9 +371,12 @@ EOT
         $this->assertEquals(
             'CREATE VIEW withclause  AS '
             . 'WITH cte AS ('
-                . 'SELECT p.name, p.shape'
-                . ' FROM gis_all AS `p`'
-            . ') ',
+                . 'SELECT p.name, p.shape '
+                . 'FROM gis_all AS `p`'
+            . ') '
+            . 'SELECT cte.* '
+            . 'FROM cte '
+            . 'CROSS JOIN gis_all ',
             $stmt->build()
         );
         $parser = new Parser(
@@ -400,7 +404,10 @@ EOT
             . '), cte2 AS ('
                 . 'SELECT p.name AS `n2`, p.shape AS `sh2`'
                 . ' FROM gis_all AS `p`'
-            . ') ',
+            . ')'
+            . ' SELECT cte.*, cte2.* '
+            . 'FROM cte, cte2'
+            . ' CROSS JOIN gis_all ',
             $stmt->build()
         );
     }

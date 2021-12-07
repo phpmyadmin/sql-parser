@@ -68,7 +68,7 @@ SQL;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<SQL
-WITH categories(identifier, name, parent_id) AS (SELECT c.identifier, c.name, c.parent_id FROM category AS `c` WHERE c.identifier = 'a' UNION ALL SELECT c.identifier, c.name, c.parent_id FROM categories, category AS `c` WHERE c.identifier = categories.parent_id), foo AS (SELECT * FROM test)
+WITH categories(identifier, name, parent_id) AS (SELECT c.identifier, c.name, c.parent_id FROM category AS `c` WHERE c.identifier = 'a' UNION ALL SELECT c.identifier, c.name, c.parent_id FROM categories, category AS `c` WHERE c.identifier = categories.parent_id), foo AS (SELECT * FROM test) SELECT * FROM categories
 SQL;
         // phpcs:enable
         $this->assertEquals($expected, $parser->statements[0]->build());
@@ -110,7 +110,7 @@ SQL;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<SQL
-WITH categories AS (SELECT * FROM (SELECT * FROM foo))
+WITH categories AS (SELECT * FROM (SELECT * FROM foo)) SELECT * FROM categories
 SQL;
         // phpcs:enable
         $this->assertEquals($expected, $parser->statements[0]->build());

@@ -61,6 +61,13 @@ final class WithStatement extends Statement
     public $withers = [];
 
     /**
+     * holds the CTE parser.
+     *
+     * @var Parser
+     */
+    public $cteStatementParser;
+
+    /**
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      */
@@ -243,7 +250,11 @@ final class WithStatement extends Statement
                     foreach ($subParser->errors as $error) {
                         $parser->errors[] = $error;
                     }
+
+                    break;
                 }
+
+                $this->cteStatementParser = $subParser;
 
                 $list->idx = $idxOfLastParsedToken;
                 break;
@@ -275,6 +286,12 @@ final class WithStatement extends Statement
         foreach ($this->withers as $wither) {
             $str .= $str === 'WITH ' ? '' : ', ';
             $str .= WithKeyword::build($wither);
+        }
+
+        $str .= ' ';
+
+        foreach ($this->cteStatementParser->statements as $statement) {
+            $str .= $statement->build();
         }
 
         return $str;
