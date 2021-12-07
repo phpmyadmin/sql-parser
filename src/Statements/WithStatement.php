@@ -63,7 +63,7 @@ final class WithStatement extends Statement
     /**
      * holds the CTE parser.
      *
-     * @var Parser
+     * @var Parser|null
      */
     public $cteStatementParser;
 
@@ -290,8 +290,10 @@ final class WithStatement extends Statement
 
         $str .= ' ';
 
-        foreach ($this->cteStatementParser->statements as $statement) {
-            $str .= $statement->build();
+        if ($this->cteStatementParser) {
+            foreach ($this->cteStatementParser->statements as $statement) {
+                    $str .= $statement->build();
+            }
         }
 
         return $str;
