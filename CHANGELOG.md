@@ -1,6 +1,6 @@
 # Change Log
 
-## [5.5.0] - YYYY-MM-DD
+## [5.5.0] - 2021-12-08
 
 * Add WITH support (#165, #331)
 * Fixed BufferedQuery when it has an odd number of backslashes in the end (#340)
