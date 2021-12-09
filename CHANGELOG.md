@@ -1,5 +1,7 @@
 # Change Log
 
+## [4.7.4] - YYYY-MM-DD
+
 ## [4.7.3] - 2021-12-08
 
 - Fixed BufferedQuery when it has an odd number of backslashes in the end (#340)
