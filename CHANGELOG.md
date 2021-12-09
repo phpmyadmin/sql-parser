@@ -1,6 +1,6 @@
 # Change Log
 
-## [4.7.3] - YYYY-MM-DD
+## [4.7.3] - 2021-12-08
 
 - Fixed BufferedQuery when it has an odd number of backslashes in the end (#340)
 - Fixed the issue that ignored the body tokens when creating views with union (#343)
