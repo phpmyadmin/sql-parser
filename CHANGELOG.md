@@ -1,5 +1,7 @@
 # Change Log
 
+## [5.6.0] - YYYY-MM-DD
+
 ## [5.5.0] - 2021-12-08
 
 * Add WITH support (#165, #331)
@@ -80,6 +82,8 @@
 * Fix for PHP warnings with an incomplete CASE expression (#241)
 * Fix for error message with multiple CALL statements (#223)
 * Recognize the question mark character as a parameter (#242)
+
+## [4.7.4] - YYYY-MM-DD
 
 ## [4.7.3] - 2021-12-08
 
