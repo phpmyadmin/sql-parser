@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.13.1@5cf660f63b548ccd4a56f62d916ee4d6028e01a3">
+<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
   <file src="src/Component.php">
     <MixedReturnStatement occurrences="1">
       <code>static::build($this)</code>
@@ -478,9 +478,6 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/OptionsArray.php">
-    <MissingReturnType occurrences="1">
-      <code>merge</code>
-    </MissingReturnType>
     <MixedArgument occurrences="8">
       <code>$list-&gt;tokens[$list-&gt;idx - 1]</code>
       <code>$option</code>
@@ -693,10 +690,6 @@
     <InvalidPropertyFetch occurrences="1">
       <code>$context::$KEYWORDS</code>
     </InvalidPropertyFetch>
-    <MissingReturnType occurrences="2">
-      <code>load</code>
-      <code>setMode</code>
-    </MissingReturnType>
     <MixedArgument occurrences="1">
       <code>$value</code>
     </MixedArgument>
@@ -796,11 +789,6 @@
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
-  <file src="src/Core.php">
-    <MissingReturnType occurrences="1">
-      <code>error</code>
-    </MissingReturnType>
-  </file>
   <file src="src/Exceptions/ParserException.php">
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>$token</code>
@@ -812,11 +800,6 @@
       <code>$this-&gt;last</code>
       <code>$this-&gt;last</code>
     </LoopInvalidation>
-    <MissingReturnType occurrences="3">
-      <code>error</code>
-      <code>lex</code>
-      <code>setDelimiter</code>
-    </MissingReturnType>
     <MixedArrayAccess occurrences="42">
       <code>$this-&gt;str[$this-&gt;last + 1]</code>
       <code>$this-&gt;str[$this-&gt;last + 1]</code>
@@ -970,10 +953,6 @@
     <InvalidStringClass occurrences="1">
       <code>new $class($this, $this-&gt;list)</code>
     </InvalidStringClass>
-    <MissingReturnType occurrences="2">
-      <code>error</code>
-      <code>parse</code>
-    </MissingReturnType>
     <MixedArrayOffset occurrences="1">
       <code>static::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
     </MixedArrayOffset>
@@ -994,11 +973,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>count($clauses) === 0</code>
     </DocblockTypeContradiction>
-    <MissingReturnType occurrences="3">
-      <code>after</code>
-      <code>before</code>
-      <code>parse</code>
-    </MissingReturnType>
     <MixedArgument occurrences="2">
       <code>$options</code>
       <code>$token</code>
@@ -1057,9 +1031,6 @@
     </UnusedForeachValue>
   </file>
   <file src="src/Statements/AlterStatement.php">
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <PossiblyNullPropertyAssignmentValue occurrences="1"/>
     <PropertyNotSetInConstructor occurrences="3">
       <code>$table</code>
@@ -1117,9 +1088,6 @@
       <code>$this-&gt;name === ''</code>
       <code>$this-&gt;name === ''</code>
     </DocblockTypeContradiction>
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <MixedArgument occurrences="4">
       <code>$list-&gt;tokens[$list-&gt;idx]</code>
       <code>$list-&gt;tokens[$list-&gt;idx]</code>
@@ -1197,9 +1165,6 @@
     <InvalidArgument occurrences="1">
       <code>$this-&gt;order</code>
     </InvalidArgument>
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <MixedArgument occurrences="1">
       <code>$token-&gt;keyword</code>
     </MixedArgument>
@@ -1244,9 +1209,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/InsertStatement.php">
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <PropertyNotSetInConstructor occurrences="6">
       <code>$into</code>
       <code>$onDuplicateSet</code>
@@ -1262,9 +1224,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Statements/LoadStatement.php">
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <MixedArgument occurrences="1">
       <code>$token-&gt;value</code>
     </MixedArgument>
@@ -1321,9 +1280,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Statements/LockStatement.php">
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <MixedPropertyFetch occurrences="1">
       <code>$list-&gt;tokens[$list-&gt;idx]-&gt;value</code>
     </MixedPropertyFetch>
@@ -1334,9 +1290,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/MaintenanceStatement.php">
-    <MissingReturnType occurrences="1">
-      <code>after</code>
-    </MissingReturnType>
     <PropertyNotSetInConstructor occurrences="3">
       <code>$tables</code>
       <code>MaintenanceStatement</code>
@@ -1344,9 +1297,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/NotImplementedStatement.php">
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <MixedPropertyFetch occurrences="1">
       <code>$list-&gt;tokens[$list-&gt;idx]-&gt;type</code>
     </MixedPropertyFetch>
@@ -1373,9 +1323,6 @@
     <ImplicitToStringCast occurrences="1">
       <code>Expression::parse($parser, $list, [])</code>
     </ImplicitToStringCast>
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <MixedAssignment occurrences="2">
       <code>$this-&gt;end_option</code>
       <code>$this-&gt;log_type</code>
@@ -1399,9 +1346,6 @@
     <InvalidArgument occurrences="1">
       <code>$this-&gt;renames</code>
     </InvalidArgument>
-    <MissingReturnType occurrences="1">
-      <code>before</code>
-    </MissingReturnType>
     <PropertyNotSetInConstructor occurrences="3">
       <code>$renames</code>
       <code>RenameStatement</code>
@@ -1423,9 +1367,6 @@
     <InvalidPropertyAssignmentValue occurrences="1">
       <code>Array2d::parse($parser, $list)</code>
     </InvalidPropertyAssignmentValue>
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <PropertyNotSetInConstructor occurrences="6">
       <code>$into</code>
       <code>$select</code>
@@ -1489,9 +1430,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/TransactionStatement.php">
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <PropertyNotSetInConstructor occurrences="5">
       <code>$end</code>
       <code>$statements</code>
@@ -1519,9 +1457,6 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/WithStatement.php">
-    <MissingReturnType occurrences="1">
-      <code>parse</code>
-    </MissingReturnType>
     <MixedArgument occurrences="2">
       <code>$token</code>
       <code>$wither</code>
@@ -1551,9 +1486,6 @@
     <DocblockTypeContradiction occurrences="1">
       <code>$offset === null</code>
     </DocblockTypeContradiction>
-    <MissingReturnType occurrences="1">
-      <code>add</code>
-    </MissingReturnType>
     <MixedAssignment occurrences="1">
       <code>$tok</code>
     </MixedAssignment>
@@ -1587,10 +1519,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Tools/ContextGenerator.php">
-    <MissingReturnType occurrences="2">
-      <code>build</code>
-      <code>buildAll</code>
-    </MissingReturnType>
     <MixedArgument occurrences="9">
       <code>$options['class']</code>
       <code>$options['keywords']</code>
@@ -1647,10 +1575,6 @@
     </UnusedFunctionCall>
   </file>
   <file src="src/Tools/TestGenerator.php">
-    <MissingReturnType occurrences="2">
-      <code>build</code>
-      <code>buildAll</code>
-    </MissingReturnType>
     <MixedOperand occurrences="1">
       <code>$debug</code>
     </MixedOperand>
@@ -1670,17 +1594,11 @@
     <DocblockTypeContradiction occurrences="1">
       <code>self::$loader === null</code>
     </DocblockTypeContradiction>
-    <MissingReturnType occurrences="1">
-      <code>load</code>
-    </MissingReturnType>
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>self::$translator !== null</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Utils/BufferedQuery.php">
-    <MissingReturnType occurrences="1">
-      <code>setDelimiter</code>
-    </MissingReturnType>
     <MixedArgument occurrences="1">
       <code>$this-&gt;options['delimiter']</code>
     </MixedArgument>
@@ -2361,9 +2279,6 @@
     </MixedArrayAccess>
   </file>
   <file src="tests/TestCase.php">
-    <MissingReturnType occurrences="1">
-      <code>runParserTest</code>
-    </MissingReturnType>
     <MixedArgument occurrences="1">
       <code>$data['query']</code>
     </MixedArgument>
@@ -2393,9 +2308,6 @@
     </UnnecessaryVarAnnotation>
   </file>
   <file src="tests/Utils/BufferedQueryTest.php">
-    <MissingReturnType occurrences="1">
-      <code>testExtract</code>
-    </MissingReturnType>
     <MixedArgument occurrences="2">
       <code>$chunkSize</code>
       <code>$query</code>

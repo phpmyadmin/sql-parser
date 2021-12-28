@@ -2,6 +2,8 @@
 
 ## [5.6.0] - YYYY-MM-DD
 
+* Add missing return types annotations
+
 ## [5.5.0] - 2021-12-08
 
 * Add WITH support (#165, #331)

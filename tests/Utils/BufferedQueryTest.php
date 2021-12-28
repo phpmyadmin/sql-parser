@@ -23,7 +23,7 @@ class BufferedQueryTest extends TestCase
         $chunkSize,
         array $options,
         array $expected
-    ) {
+    ): void {
         $chunks = str_split($query, $chunkSize);
         $count = count($chunks);
 

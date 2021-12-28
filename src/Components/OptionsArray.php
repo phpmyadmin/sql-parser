@@ -364,6 +364,8 @@ class OptionsArray extends Component
      * replaced.
      *
      * @param array|OptionsArray $options the options to be merged
+     *
+     * @return void
      */
     public function merge($options)
     {

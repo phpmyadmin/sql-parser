@@ -29,6 +29,8 @@ class Translator
 
     /**
      * Loads translator.
+     *
+     * @return void
      */
     public static function load()
     {

@@ -100,7 +100,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @param string $name the name of the test
      */
-    public function runParserTest($name)
+    public function runParserTest($name): void
     {
         /**
          * Test's data.

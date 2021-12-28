@@ -84,6 +84,8 @@ class TokensList implements ArrayAccess
      * Adds a new token.
      *
      * @param Token $token token to be added in list
+     *
+     * @return void
      */
     public function add(Token $token)
     {

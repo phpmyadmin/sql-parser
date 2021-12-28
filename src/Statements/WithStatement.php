@@ -63,6 +63,8 @@ final class WithStatement extends Statement
     /**
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
+     *
+     * @return void
      */
     public function parse(Parser $parser, TokensList $list)
     {

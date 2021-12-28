@@ -125,6 +125,8 @@ class BufferedQuery
      * Used to update the length of it too.
      *
      * @param string $delimiter
+     *
+     * @return void
      */
     public function setDelimiter($delimiter)
     {

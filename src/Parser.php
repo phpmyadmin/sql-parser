@@ -381,6 +381,8 @@ class Parser extends Core
     /**
      * Builds the parse trees.
      *
+     * @return void
+     *
      * @throws ParserException
      */
     public function parse()
@@ -595,6 +597,8 @@ class Parser extends Core
      * @param string $msg   the error message
      * @param Token  $token the token that produced the error
      * @param int    $code  the code of the error
+     *
+     * @return void
      *
      * @throws ParserException throws the exception, if strict mode is enabled.
      */

@@ -195,6 +195,8 @@ class Lexer extends Core
      * Sets the delimiter.
      *
      * @param string $delimiter the new delimiter
+     *
+     * @return void
      */
     public function setDelimiter($delimiter)
     {
@@ -204,6 +206,8 @@ class Lexer extends Core
 
     /**
      * Parses the string and extracts lexemes.
+     *
+     * @return void
      */
     public function lex()
     {
@@ -389,6 +393,8 @@ class Lexer extends Core
      * @param string $str  the character that produced the error
      * @param int    $pos  the position of the character
      * @param int    $code the code of the error
+     *
+     * @return void
      *
      * @throws LexerException throws the exception, if strict mode is enabled.
      */

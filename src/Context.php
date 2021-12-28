@@ -490,8 +490,9 @@ abstract class Context
      *
      * Contexts may be used by accessing the context directly.
      *
-     * @param string $context name of the context or full class name that
-     *                        defines the context
+     * @param string $context name of the context or full class name that defines the context
+     *
+     * @return void
      *
      * @throws LoaderException if the specified context doesn't exist.
      */
@@ -567,6 +568,8 @@ abstract class Context
      * Sets the SQL mode.
      *
      * @param string $mode The list of modes. If empty, the mode is reset.
+     *
+     * @return void
      */
     public static function setMode($mode = '')
     {

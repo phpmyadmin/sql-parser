@@ -129,6 +129,8 @@ class TestGenerator
      * @param string $output the output file
      * @param string $debug  the debug file
      * @param bool   $ansi   activate quotes ANSI mode
+     *
+     * @return void
      */
     public static function build($type, $input, $output, $debug = null, $ansi = false)
     {
@@ -188,6 +190,8 @@ class TestGenerator
      * @param string     $input  the input directory
      * @param string     $output the output directory
      * @param mixed|null $debug
+     *
+     * @return void
      */
     public static function buildAll($input, $output, $debug = null)
     {
