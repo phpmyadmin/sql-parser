@@ -259,6 +259,8 @@ class UtfString implements ArrayAccess
      * @param int    $offset the offset to be set
      * @param string $value  the value to be set
      *
+     * @return void
+     *
      * @throws Exception not implemented.
      */
     #[\ReturnTypeWillChange]
@@ -271,6 +273,8 @@ class UtfString implements ArrayAccess
      * Unsets an index.
      *
      * @param int $offset the value to be unset
+     *
+     * @return void
      *
      * @throws Exception not implemented.
      */

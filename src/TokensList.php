@@ -154,6 +154,8 @@ class TokensList implements ArrayAccess
      *
      * @param int   $offset the offset to be set
      * @param Token $value  the token to be saved
+     *
+     * @return void
      */
     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
@@ -195,6 +197,8 @@ class TokensList implements ArrayAccess
      * Unsets the value of an offset.
      *
      * @param int $offset the offset to be unset
+     *
+     * @return void
      */
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
