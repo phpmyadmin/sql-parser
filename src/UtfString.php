@@ -25,6 +25,8 @@ use function ord;
  * Implements array-like access for UTF-8 strings.
  *
  * In this library, this class should be used to parse UTF-8 queries.
+ *
+ * @implements ArrayAccess<int, string>
  */
 class UtfString implements ArrayAccess
 {
