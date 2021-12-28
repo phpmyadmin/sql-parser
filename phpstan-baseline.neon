@@ -82,7 +82,7 @@ parameters:
 
 		-
 			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
-			count: 2
+			count: 3
 			path: src/Components/AlterOperation.php
 
 		-
@@ -147,6 +147,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/CaseExpression.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
@@ -1061,13 +1066,18 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:getClauses\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statement.php
 
 		-
 			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 4
+			count: 3
 			path: src/Statement.php
 
 		-
@@ -1211,6 +1221,11 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
+			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
+			count: 4
+			path: src/Statements/CreateStatement.php
+
+		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\> given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
@@ -1262,6 +1277,11 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseFileOptions\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
@@ -1436,26 +1456,6 @@ parameters:
 			path: src/Statements/WithStatement.php
 
 		-
-			message: "#^Class PhpMyAdmin\\\\SqlParser\\\\TokensList implements generic interface ArrayAccess but does not specify its types\\: TKey, TValue$#"
-			count: 1
-			path: src/TokensList.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\TokensList\\:\\:__construct\\(\\) has parameter \\$tokens with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/TokensList.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\TokensList\\:\\:\\$tokens type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/TokensList.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between int and null will always evaluate to false\\.$#"
-			count: 1
-			path: src/TokensList.php
-
-		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
@@ -1627,7 +1627,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
+			count: 2
 			path: src/Utils/Formatter.php
 
 		-
@@ -1856,16 +1856,6 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
-			message: "#^Cannot access property \\$count on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\.$#"
-			count: 2
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Cannot access property \\$tokens on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\.$#"
-			count: 5
-			path: src/Utils/Tokens.php
-
-		-
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
@@ -1887,16 +1877,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) should return PhpMyAdmin\\\\SqlParser\\\\TokensList but returns PhpMyAdmin\\\\SqlParser\\\\TokensList\\|string\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:getTokens\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string given\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -2037,11 +2017,6 @@ parameters:
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 2 and PhpMyAdmin\\\\SqlParser\\\\TokensList will always evaluate to false\\.$#"
-			count: 1
-			path: tests/Lexer/TokensListTest.php
-
-		-
-			message: "#^Cannot assign new offset to PhpMyAdmin\\\\SqlParser\\\\TokensList\\.$#"
 			count: 1
 			path: tests/Lexer/TokensListTest.php
 
@@ -2297,11 +2272,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getErrorsAsArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/TestCase.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/TestCase.php
 

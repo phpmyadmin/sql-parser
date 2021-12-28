@@ -388,8 +388,6 @@ class Formatter
         for ($list->idx = 0; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             *
-             * @var Token
              */
             $curr = $list->tokens[$list->idx];
             if ($list->idx + 1 < $list->count) {

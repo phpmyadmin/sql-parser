@@ -129,8 +129,6 @@ abstract class Statement
 
         /**
          * Statement's clauses.
-         *
-         * @var array
          */
         $clauses = $this->getClauses();
 
@@ -223,16 +221,12 @@ abstract class Statement
          * Whether options were parsed or not.
          * For statements that do not have any options this is set to `true` by
          * default.
-         *
-         * @var bool
          */
         $parsedOptions = empty(static::$OPTIONS);
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             *
-             * @var Token
              */
             $token = $list->tokens[$list->idx];
 

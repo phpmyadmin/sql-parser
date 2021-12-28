@@ -427,8 +427,6 @@ class Lexer extends Core
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         *
-         * @var int
          */
         $iEnd = $this->last;
 
@@ -491,8 +489,6 @@ class Lexer extends Core
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         *
-         * @var int
          */
         $iEnd = $this->last;
         for ($j = 1; $j < Context::LABEL_MAX_LENGTH && $this->last < $this->len; ++$j, ++$this->last) {
@@ -539,8 +535,6 @@ class Lexer extends Core
 
         /**
          * The value of `$this->last` where `$token` ends in `$this->str`.
-         *
-         * @var int
          */
         $iEnd = $this->last;
 

@@ -47,8 +47,6 @@ class TestGenerator
     {
         /**
          * Lexer used for tokenizing the query.
-         *
-         * @var Lexer
          */
         $lexer = new Lexer($query);
 

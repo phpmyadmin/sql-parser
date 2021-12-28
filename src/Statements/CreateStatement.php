@@ -531,8 +531,6 @@ class CreateStatement extends Statement
 
         /**
          * Token parsed at this moment.
-         *
-         * @var Token
          */
         $token = $list->tokens[$list->idx];
         $nextidx = $list->idx + 1;
@@ -602,8 +600,6 @@ class CreateStatement extends Statement
                 for (; $list->idx < $list->count; ++$list->idx) {
                     /**
                      * Token parsed at this moment.
-                     *
-                     * @var Token
                      */
                     $token = $list->tokens[$list->idx];
 

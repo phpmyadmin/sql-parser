@@ -104,8 +104,6 @@ abstract class TestCase extends BaseTestCase
     {
         /**
          * Test's data.
-         *
-         * @var array
          */
         $data = $this->getData($name);
 

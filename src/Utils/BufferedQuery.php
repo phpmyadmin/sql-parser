@@ -180,8 +180,6 @@ class BufferedQuery
          *
          * Those extra characters are required only if there is more data
          * expected (the end of the buffer was not reached).
-         *
-         * @var int
          */
         $loopLen = $end ? $len : $len - 16;
 

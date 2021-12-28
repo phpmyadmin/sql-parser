@@ -36,8 +36,6 @@ class BufferedQueryTest extends TestCase
 
         /**
          * The `BufferedQuery` instance used for extraction.
-         *
-         * @var BufferedQuery
          */
         $bq = new BufferedQuery('', $options);
 

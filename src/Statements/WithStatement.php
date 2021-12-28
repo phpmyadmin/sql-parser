@@ -91,8 +91,6 @@ final class WithStatement extends Statement
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
-             *
-             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
@@ -178,7 +176,6 @@ final class WithStatement extends Statement
     private function getSubTokenList(TokensList $list)
     {
         $idx = $list->idx;
-        /** @var Token $token */
         $token = $list->tokens[$list->idx];
         $openParenthesis = 0;
 

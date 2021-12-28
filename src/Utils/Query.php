@@ -581,8 +581,6 @@ class Query
 
         /**
          * Lexer used for lexing the clause.
-         *
-         * @var Lexer
          */
         $lexer = new Lexer($clause);
 

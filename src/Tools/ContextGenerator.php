@@ -336,8 +336,6 @@ PHP;
 
         /**
          * The name of the file that contains the context.
-         *
-         * @var string
          */
         $file = basename($input);
 
@@ -357,8 +355,6 @@ PHP;
 
         /**
          * The formatted name of this context.
-         *
-         * @var string
          */
         $formattedName = static::formatName($name);
 

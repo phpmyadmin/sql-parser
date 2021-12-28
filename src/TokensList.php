@@ -15,13 +15,15 @@ use function is_string;
 
 /**
  * A structure representing a list of tokens.
+ *
+ * @implements ArrayAccess<int, Token>
  */
 class TokensList implements ArrayAccess
 {
     /**
      * The array of tokens.
      *
-     * @var array
+     * @var Token[]
      */
     public $tokens = [];
 
@@ -40,8 +42,8 @@ class TokensList implements ArrayAccess
     public $idx = 0;
 
     /**
-     * @param array $tokens the initial array of tokens
-     * @param int   $count  the count of tokens in the initial array
+     * @param Token[] $tokens the initial array of tokens
+     * @param int     $count  the count of tokens in the initial array
      */
     public function __construct(array $tokens = [], $count = -1)
     {
@@ -152,8 +154,8 @@ class TokensList implements ArrayAccess
     /**
      * Sets an value inside the container.
      *
-     * @param int   $offset the offset to be set
-     * @param Token $value  the token to be saved
+     * @param int|null $offset the offset to be set
+     * @param Token    $value  the token to be saved
      *
      * @return void
      */
@@ -172,7 +174,7 @@ class TokensList implements ArrayAccess
      *
      * @param int $offset the offset to be returned
      *
-     * @return Token
+     * @return Token|null
      */
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
