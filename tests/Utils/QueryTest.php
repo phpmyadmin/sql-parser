@@ -626,9 +626,8 @@ class QueryTest extends TestCase
 
     public function testReplaceClauses(): void
     {
-        $this->assertEquals('', Query::replaceClauses(null, null, []));
-
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10;');
+        $this->assertSame('', Query::replaceClauses($parser->statements[0], $parser->list, []));
         $this->assertEquals(
             'SELECT *, (SELECT 1) FROM film WHERE film_id > 0 LIMIT 0, 10',
             Query::replaceClauses(
