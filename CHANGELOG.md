@@ -3,6 +3,7 @@
 ## [5.6.0] - YYYY-MM-DD
 
 * Add missing return types annotations
+* Improve the WITH statements parser (#363)
 
 ## [5.5.0] - 2021-12-08
 

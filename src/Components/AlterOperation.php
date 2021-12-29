@@ -309,7 +309,6 @@ class AlterOperation extends Component
 
                 $state = 2;
             } elseif ($state === 2) {
-                $arrayKey = '';
                 if (is_string($token->value) || is_numeric($token->value)) {
                     $arrayKey = $token->value;
                 } else {

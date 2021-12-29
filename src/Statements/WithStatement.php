@@ -265,8 +265,6 @@ final class WithStatement extends Statement
         if ($state !== 5) {
              /**
              * Token parsed at this moment.
-             *
-             * @var Token
              */
             $token = $list->tokens[$list->idx];
 
