@@ -12,6 +12,40 @@ use stdClass;
 
 class WithStatementTest extends TestCase
 {
+    /**
+     * @dataProvider parseWith
+     */
+    public function testParse(string $test): void
+    {
+        $this->runParserTest($test);
+    }
+
+    /**
+     * @return array<int,array<int, string>>
+     */
+    public function parseWith(): array
+    {
+        return [
+            ['parser/parseWithStatement'],
+            ['parser/parseWithStatement1'],
+            ['parser/parseWithStatement2'],
+            ['parser/parseWithStatement3'],
+            ['parser/parseWithStatement4'],
+            ['parser/parseWithStatement5'],
+            ['parser/parseWithStatement6'],
+            ['parser/parseWithStatement7'],
+            ['parser/parseWithStatementErr'],
+            ['parser/parseWithStatementErr1'],
+            ['parser/parseWithStatementErr2'],
+            ['parser/parseWithStatementErr3'],
+            ['parser/parseWithStatementErr4'],
+            ['parser/parseWithStatementErr5'],
+            ['parser/parseWithStatementErr6'],
+            ['parser/parseWithStatementErr7'],
+            ['parser/parseWithStatementErr8'],
+        ];
+    }
+
     public function testWith(): void
     {
         $sql = <<<SQL
@@ -30,15 +64,14 @@ SQL;
         $parser = new Parser($lexer->list);
         $parserErrors = $this->getErrorsAsArray($parser);
         $this->assertCount(0, $parserErrors);
-        $this->assertCount(2, $parser->statements);
+        $this->assertCount(1, $parser->statements);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<SQL
-WITH categories(identifier, name, parent_id) AS (SELECT c.identifier, c.name, c.parent_id FROM category AS `c` WHERE c.identifier = 'a' UNION ALL SELECT c.identifier, c.name, c.parent_id FROM categories, category AS `c` WHERE c.identifier = categories.parent_id), foo AS (SELECT * FROM test)
+WITH categories(identifier, name, parent_id) AS (SELECT c.identifier, c.name, c.parent_id FROM category AS `c` WHERE c.identifier = 'a' UNION ALL SELECT c.identifier, c.name, c.parent_id FROM categories, category AS `c` WHERE c.identifier = categories.parent_id), foo AS (SELECT * FROM test) SELECT * FROM categories
 SQL;
         // phpcs:enable
         $this->assertEquals($expected, $parser->statements[0]->build());
-        $this->assertEquals('SELECT * FROM categories', $parser->statements[1]->build());
     }
 
     public function testWithHasErrors(): void
@@ -56,7 +89,7 @@ SQL;
         $this->assertCount(0, $lexerErrors);
         $parser = new Parser($lexer->list);
         $parserErrors = $this->getErrorsAsArray($parser);
-        $this->assertCount(2, $parserErrors);
+        $this->assertCount(4, $parserErrors);
     }
 
     public function testWithEmbedParenthesis(): void
@@ -77,7 +110,7 @@ SQL;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<SQL
-WITH categories AS (SELECT * FROM (SELECT * FROM foo))
+WITH categories AS (SELECT * FROM (SELECT * FROM foo)) SELECT * FROM categories
 SQL;
         // phpcs:enable
         $this->assertEquals($expected, $parser->statements[0]->build());

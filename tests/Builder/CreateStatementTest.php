@@ -164,6 +164,21 @@ class CreateStatementTest extends TestCase
             ') ENGINE=InnoDB DEFAULT CHARSET=latin1';
         $parser = new Parser($query);
         $this->assertEquals($query, $parser->statements[0]->build());
+
+        /* Assertion 5 */
+        $parser = new Parser(
+            'CREATE table table_name WITH' .
+            ' cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 )' .
+            ' SELECT col1 FROM cte'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE TABLE table_name WITH' .
+            ' cte(col1) AS (SELECT 1 UNION ALL SELECT 2)' .
+            ' SELECT col1 FROM cte',
+            $stmt->build()
+        );
     }
 
     public function testBuilderPartitions(): void
@@ -343,15 +358,13 @@ EOT
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'CREATE VIEW withclause  AS ' . "\n"
-            . "\n"
-            . 'WITH cte AS (' . "\n"
-                . 'SELECT p.name, p.shape' . "\n"
-                . 'FROM gis_all as p' . "\n"
-            . ')' . "\n"
-            . "\n"
-            . 'SELECT cte.*' . "\n"
-            . 'FROM cte' . "\n"
+            'CREATE VIEW withclause  AS '
+            . 'WITH cte AS ('
+                . 'SELECT p.name, p.shape '
+                . 'FROM gis_all AS `p`'
+            . ') '
+            . 'SELECT cte.* '
+            . 'FROM cte '
             . 'CROSS JOIN gis_all ',
             $stmt->build()
         );
@@ -373,19 +386,17 @@ EOT
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'CREATE VIEW withclause2  AS ' . "\n"
-            . "\n"
-            . 'WITH cte AS (' . "\n"
-                . "\t" . 'SELECT p.name, p.shape' . "\n"
-                . "\t" . 'FROM gis_all as p' . "\n"
-            . '), cte2 AS (' . "\n"
-                . "\t" . 'SELECT p.name as n2, p.shape as sh2' . "\n"
-                . "\t" . 'FROM gis_all as p' . "\n"
-            . ')' . "\n"
-            . "\n"
-            . 'SELECT cte.*,cte2.*' . "\n"
-            . 'FROM cte,cte2' . "\n"
-            . 'CROSS JOIN gis_all ',
+            'CREATE VIEW withclause2  AS '
+            . 'WITH cte AS ('
+                . 'SELECT p.name, p.shape'
+                . ' FROM gis_all AS `p`'
+            . '), cte2 AS ('
+                . 'SELECT p.name AS `n2`, p.shape AS `sh2`'
+                . ' FROM gis_all AS `p`'
+            . ')'
+            . ' SELECT cte.*, cte2.* '
+            . 'FROM cte, cte2'
+            . ' CROSS JOIN gis_all ',
             $stmt->build()
         );
     }

@@ -99,6 +99,14 @@ class InsertStatement extends Statement
     public $select;
 
     /**
+     * If WITH CTE is present
+     * holds the WithStatement.
+     *
+     * @var WithStatement|null
+     */
+    public $with;
+
+    /**
      * If ON DUPLICATE KEY UPDATE clause is present
      * holds the SetOperation.
      *
@@ -208,6 +216,8 @@ class InsertStatement extends Statement
                     $this->set = SetOperation::parse($parser, $list);
                 } elseif ($token->keyword === 'SELECT') {
                     $this->select = new SelectStatement($parser, $list);
+                } elseif ($token->keyword === 'WITH') {
+                    $this->with = new WithStatement($parser, $list);
                 } else {
                     $parser->error('Unexpected keyword.', $token);
                     break;
