@@ -16,6 +16,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use ArrayAccess;
 use Exception;
+use Stringable;
 
 use function mb_check_encoding;
 use function mb_strlen;
@@ -28,7 +29,7 @@ use function ord;
  *
  * @implements ArrayAccess<int, string>
  */
-class UtfString implements ArrayAccess
+class UtfString implements ArrayAccess, Stringable
 {
     /**
      * The raw, multi-byte string.

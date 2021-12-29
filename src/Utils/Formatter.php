@@ -19,9 +19,9 @@ use function end;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strlen;
+use function str_contains;
 use function str_repeat;
 use function str_replace;
-use function strpos;
 use function strtoupper;
 
 use const ENT_NOQUOTES;
@@ -399,7 +399,7 @@ class Formatter
             if ($curr->type === Token::TYPE_WHITESPACE) {
                 // Keep linebreaks before and after comments
                 if (
-                    strpos($curr->token, "\n") !== false && (
+                    str_contains($curr->token, "\n") && (
                         ($prev !== null && $prev->type === Token::TYPE_COMMENT) ||
                         ($next !== null && $next->type === Token::TYPE_COMMENT)
                     )

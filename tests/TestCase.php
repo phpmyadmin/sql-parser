@@ -17,6 +17,7 @@ use PHPUnit\Framework\TestCase as BaseTestCase;
 use Zumba\JsonSerializer\JsonSerializer;
 
 use function file_get_contents;
+use function str_contains;
 use function strpos;
 use function substr;
 
@@ -107,7 +108,7 @@ abstract class TestCase extends BaseTestCase
          */
         $data = $this->getData($name);
 
-        if (strpos($name, '/ansi/') !== false) {
+        if (str_contains($name, '/ansi/')) {
             // set mode if appropriate
             Context::setMode('ANSI_QUOTES');
         }

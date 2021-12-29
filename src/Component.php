@@ -13,12 +13,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use Exception;
+use Stringable;
 
 /**
  * A component (of a statement) is a part of a statement that is common to
  * multiple query types.
  */
-abstract class Component
+abstract class Component implements Stringable
 {
     /**
      * Parses the tokens contained in the given list in the context of the given

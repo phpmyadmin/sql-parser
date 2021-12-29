@@ -18,6 +18,7 @@ use function defined;
 use function in_array;
 use function mb_strlen;
 use function sprintf;
+use function str_ends_with;
 use function strlen;
 use function substr;
 
@@ -1014,7 +1015,7 @@ class Lexer extends Core
             $token .= $this->str[$this->last];
 
             // Test if end of token equals the current delimiter. If so, remove it from the token.
-            if (substr($token, -$this->delimiterLen) === $this->delimiter) {
+            if (str_ends_with($token, $this->delimiter)) {
                 $token = substr($token, 0, -$this->delimiterLen);
                 $this->last -= $this->delimiterLen - 1;
                 break;

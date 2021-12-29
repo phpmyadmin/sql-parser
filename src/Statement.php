@@ -12,6 +12,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Components\FunctionCall;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use Stringable;
 
 use function array_flip;
 use function array_keys;
@@ -23,7 +24,7 @@ use function trim;
 /**
  * Abstract statement definition.
  */
-abstract class Statement
+abstract class Statement implements Stringable
 {
     /**
      * Options for this statement.
