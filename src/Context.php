@@ -19,8 +19,8 @@ use function intval;
 use function is_array;
 use function is_numeric;
 use function str_replace;
+use function str_starts_with;
 use function strlen;
-use function strncmp;
 use function strtoupper;
 use function substr;
 
@@ -553,11 +553,11 @@ abstract class Context
         }
 
         /* Fallback to loading at least matching engine */
-        if (strncmp($context, 'MariaDb', 7) === 0) {
+        if (str_starts_with($context, 'MariaDb')) {
             return static::loadClosest('MariaDb100300');
         }
 
-        if (strncmp($context, 'MySql', 5) === 0) {
+        if (str_starts_with($context, 'MySql')) {
             return static::loadClosest('MySql50700');
         }
 

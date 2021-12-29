@@ -23,6 +23,8 @@ use function mkdir;
 use function print_r;
 use function scandir;
 use function sprintf;
+use function str_contains;
+use function str_ends_with;
 use function strpos;
 use function substr;
 
@@ -219,7 +221,7 @@ class TestGenerator
 
                 // Generating tests recursively.
                 static::buildAll($inputFile, $outputFile, $debugFile);
-            } elseif (substr($inputFile, -3) === '.in') {
+            } elseif (str_ends_with($inputFile, '.in')) {
                 // Generating file names by replacing `.in` with `.out` and
                 // `.debug`.
                 $outputFile = substr($outputFile, 0, -3) . '.out';
@@ -231,11 +233,11 @@ class TestGenerator
                 if (! file_exists($outputFile)) {
                     sprintf("Building test for %s...\n", $inputFile);
                     static::build(
-                        strpos($inputFile, 'lex') !== false ? 'lexer' : 'parser',
+                        str_contains($inputFile, 'lex') ? 'lexer' : 'parser',
                         $inputFile,
                         $outputFile,
                         $debugFile,
-                        strpos($inputFile, 'ansi') !== false
+                        str_contains($inputFile, 'ansi')
                     );
                 } else {
                     sprintf("Test for %s already built!\n", $inputFile);
