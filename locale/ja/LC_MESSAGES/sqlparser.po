@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-29 16:13-0300\n"
-"PO-Revision-Date: 2021-02-12 17:50+0000\n"
+"PO-Revision-Date: 2021-12-31 01:53+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/sql-"
-"parser/ja/>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.5-dev\n"
+"X-Generator: Weblate 4.10.1\n"
 
 #: src/Component.php:42 src/Component.php:62
 msgid "Not implemented yet."
@@ -62,7 +62,7 @@ msgstr "左括弧が必要です。"
 #: src/Statements/LockStatement.php:88 src/Statements/ReplaceStatement.php:151
 #: src/Statements/ReplaceStatement.php:180
 msgid "Unexpected keyword."
-msgstr "予期しないキーワード。"
+msgstr "予期しないキーワードです。"
 
 #: src/Components/CaseExpression.php:195
 msgid "Unexpected end of CASE expression"
@@ -175,7 +175,7 @@ msgstr "式がありません。"
 
 #: src/Lexer.php:251
 msgid "Unexpected character."
-msgstr "予期しない文字。"
+msgstr "予期しない文字です。"
 
 #: src/Lexer.php:290
 msgid "Expected whitespace(s) before delimiter."
@@ -200,7 +200,7 @@ msgstr "ここで文を始めることができません。"
 
 #: src/Parser.php:476
 msgid "Unrecognized statement type."
-msgstr "認識されないステートメント形式。"
+msgstr "認識されないステートメント形式です。"
 
 #: src/Parser.php:563
 msgid "No transaction was previously started."
@@ -220,7 +220,7 @@ msgstr "ステートメントの末尾にキーワードがあります。"
 
 #: src/Statement.php:543
 msgid "Unexpected ordering of clauses."
-msgstr "予期しない節の順序。"
+msgstr "予期しない節の順序です。"
 
 #: src/Statements/CreateStatement.php:552
 msgid "The name of the entity was expected."
@@ -228,7 +228,7 @@ msgstr "エンティティの名前が予想されていました。"
 
 #: src/Statements/CreateStatement.php:601
 msgid "A table name was expected."
-msgstr "テーブル名があるべきです。"
+msgstr "テーブル名が必要です。"
 
 #: src/Statements/CreateStatement.php:606
 msgid "At least one column definition was expected."
@@ -236,7 +236,7 @@ msgstr "少なくとも 1 つのカラム定義が必要です。"
 
 #: src/Statements/CreateStatement.php:710
 msgid "A \"RETURNS\" keyword was expected."
-msgstr "キーワード \"RETURNS\" があるべきです。"
+msgstr "キーワード \"RETURNS\" が必要です。"
 
 #: src/Statements/DeleteStatement.php:330
 msgid "This type of clause is not valid in Multi-table queries."
@@ -251,28 +251,20 @@ msgid "Unexpected keyword"
 msgstr "予期しないキーワード"
 
 #: src/Statements/WithStatement.php:119
-#, fuzzy
-#| msgid "The name of the entity was expected."
 msgid "The name of the CTE was expected."
-msgstr "エンティティの名前が予想されていました。"
+msgstr "CTE の名前が必要です。"
 
 #: src/Statements/WithStatement.php:138
-#, fuzzy
-#| msgid "A \"RETURNS\" keyword was expected."
 msgid "AS keyword was expected."
-msgstr "キーワード \"RETURNS\" があるべきです。"
+msgstr "キーワード AS が必要です。"
 
 #: src/Statements/WithStatement.php:154
-#, fuzzy
-#| msgid "The name of the entity was expected."
 msgid "Subquery of the CTE was expected."
-msgstr "エンティティの名前が予想されていました。"
+msgstr "CTE のサブクエリが必要です。"
 
 #: src/Statements/WithStatement.php:271
-#, fuzzy
-#| msgid "Unexpected end of LOCK statement."
 msgid "Unexpected end of the WITH CTE."
-msgstr "LOCK ステートメントが予期せず終了しました。"
+msgstr "WITH CTE が予期せず終了しました。"
 
 #~ msgid "error #1"
 #~ msgstr "エラー #1"
