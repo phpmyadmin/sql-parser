@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class RenameStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider renameProvider
      */
-    public function testRename($test): void
+    public function testRename(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function renameProvider(): array
     {
         return [

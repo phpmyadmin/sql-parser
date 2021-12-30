@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class PurgeStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider purgeProvider
      */
-    public function testPurge($test): void
+    public function testPurge(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function purgeProvider(): array
     {
         return [

@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class DeleteStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider deleteProvider
      */
-    public function testDelete($test): void
+    public function testDelete(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function deleteProvider(): array
     {
         return [

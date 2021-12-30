@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class RestoreStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider restoreProvider
      */
-    public function testRestore($test): void
+    public function testRestore(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function restoreProvider(): array
     {
         return [

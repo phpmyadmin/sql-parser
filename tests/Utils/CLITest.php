@@ -15,7 +15,7 @@ use const PHP_BINARY;
 class CLITest extends TestCase
 {
     /**
-     * @param mixed $getopt
+     * @param array<string, bool|string>|false $getopt
      *
      * @return CLI
      */
@@ -28,12 +28,11 @@ class CLITest extends TestCase
     }
 
     /**
-     * @param mixed $input
-     * @param mixed $getopt
+     * @param array<string, bool|string>|false $getopt
      *
      * @return CLI
      */
-    private function getCLIStdIn($input, $getopt)
+    private function getCLIStdIn(string $input, $getopt)
     {
         $cli = $this->createPartialMock(CLI::class, ['getopt', 'readStdin']);
         $cli->method('getopt')->willReturn($getopt);
@@ -57,19 +56,21 @@ class CLITest extends TestCase
     }
 
     /**
-     * @param mixed $getopt
-     * @param mixed $output
-     * @param mixed $result
+     * @param array<string, bool|string>|false $getopt
      *
      * @dataProvider highlightParamsProvider
      */
-    public function testRunHighlight($getopt, $output, $result): void
+    public function testRunHighlight($getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
         $this->assertEquals($result, $cli->runHighlight());
     }
 
+    /**
+     * @return array<int, array<int, int|string|array<string, bool|string>|false>>
+     * @psalm-return list<array{(array<string, bool|string>|false), string, int}>
+     */
     public function highlightParamsProvider(): array
     {
         return [
@@ -130,20 +131,21 @@ class CLITest extends TestCase
     }
 
     /**
-     * @param mixed $input
-     * @param mixed $getopt
-     * @param mixed $output
-     * @param mixed $result
+     * @param array<string, bool|string>|false $getopt
      *
      * @dataProvider highlightParamsStdInProvider
      */
-    public function testRunHighlightStdIn($input, $getopt, $output, $result): void
+    public function testRunHighlightStdIn(string $input, $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);
         $this->assertEquals($result, $cli->runHighlight());
     }
 
+    /**
+     * @return array<int, array<int, int|string|array<string, bool|string>|false>>
+     * @psalm-return list<array{string, (array<string, bool|string>|false), string, int}>
+     */
     public function highlightParamsStdInProvider(): array
     {
         return [
@@ -197,20 +199,21 @@ class CLITest extends TestCase
     }
 
     /**
-     * @param mixed $input
-     * @param mixed $getopt
-     * @param mixed $output
-     * @param mixed $result
+     * @param array<string, bool|string>|false $getopt
      *
      * @dataProvider lintParamsStdInProvider
      */
-    public function testRunLintFromStdIn($input, $getopt, $output, $result): void
+    public function testRunLintFromStdIn(string $input, $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);
         $this->assertEquals($result, $cli->runLint());
     }
 
+    /**
+     * @return array<int, array<int, int|string|array<string, bool|string>|false>>
+     * @psalm-return list<array{string, (array<string, bool|string>|false), string, int}>
+     */
     public function lintParamsStdInProvider(): array
     {
         return [
@@ -261,19 +264,21 @@ class CLITest extends TestCase
     }
 
     /**
-     * @param mixed $getopt
-     * @param mixed $output
-     * @param mixed $result
+     * @param array<string, bool|string>|false $getopt
      *
      * @dataProvider lintParamsProvider
      */
-    public function testRunLint($getopt, $output, $result): void
+    public function testRunLint($getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
         $this->assertEquals($result, $cli->runLint());
     }
 
+    /**
+     * @return array<int, array<int, int|string|array<string, bool|string>|false>>
+     * @psalm-return list<array{(array<string, bool|string>|false), string, int}>
+     */
     public function lintParamsProvider(): array
     {
         return [
@@ -326,19 +331,21 @@ class CLITest extends TestCase
     }
 
     /**
-     * @param mixed $getopt
-     * @param mixed $output
-     * @param mixed $result
+     * @param array<string, bool|string>|false $getopt
      *
      * @dataProvider tokenizeParamsProvider
      */
-    public function testRunTokenize($getopt, $output, $result): void
+    public function testRunTokenize($getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
         $this->assertEquals($result, $cli->runTokenize());
     }
 
+    /**
+     * @return array<int, array<int, int|string|array<string, bool|string>|false>>
+     * @psalm-return list<array{(array<string, bool|string>|false), string, int}>
+     */
     public function tokenizeParamsProvider(): array
     {
         $result = "[TOKEN 0]\nType = 1\nFlags = 3\nValue = 'SELECT'\nToken = 'SELECT'\n\n"
@@ -379,20 +386,21 @@ class CLITest extends TestCase
     }
 
     /**
-     * @param mixed $input
-     * @param mixed $getopt
-     * @param mixed $output
-     * @param mixed $result
+     * @param array<string, bool|string>|false $getopt
      *
      * @dataProvider tokenizeParamsStdInProvider
      */
-    public function testRunTokenizeStdIn($input, $getopt, $output, $result): void
+    public function testRunTokenizeStdIn(string $input, $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);
         $this->assertEquals($result, $cli->runTokenize());
     }
 
+    /**
+     * @return array<int, array<int, int|string|array<string, bool|string>|false>>
+     * @psalm-return list<array{string, (array<string, bool|string>|false), string, int}>
+     */
     public function tokenizeParamsStdInProvider(): array
     {
         $result = "[TOKEN 0]\nType = 1\nFlags = 3\nValue = 'SELECT'\nToken = 'SELECT'\n\n"
@@ -440,6 +448,10 @@ class CLITest extends TestCase
         $this->assertSame($result, $ret);
     }
 
+    /**
+     * @return array<int, array<int, int|string>>
+     * @psalm-return list<array{string, int}>
+     */
     public function stdinParamsProvider(): array
     {
         $binPath = PHP_BINARY . ' ' . dirname(__DIR__, 2) . '/bin/';

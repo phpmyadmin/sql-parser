@@ -11,18 +11,20 @@ use PhpMyAdmin\SqlParser\Utils\Tokens;
 class TokensTest extends TestCase
 {
     /**
-     * @param mixed $list
-     * @param mixed $find
-     * @param mixed $replace
-     * @param mixed $expected
+     * @param array<string, string>[] $find
+     * @param Token[]                 $replace
      *
      * @dataProvider replaceTokensProvider
      */
-    public function testReplaceTokens($list, $find, $replace, $expected): void
+    public function testReplaceTokens(string $list, array $find, array $replace, string $expected): void
     {
         $this->assertEquals($expected, Tokens::replaceTokens($list, $find, $replace));
     }
 
+    /**
+     * @return array<int, array<int, string|array<string, string>[]|Token[]>>
+     * @psalm-return list<array{string, list<array<string, string>>, Token[], string}>
+     */
     public function replaceTokensProvider(): array
     {
         return [
@@ -42,17 +44,19 @@ class TokensTest extends TestCase
     }
 
     /**
-     * @param mixed $token
-     * @param mixed $pattern
-     * @param mixed $expected
+     * @param array<string, int|string> $pattern
      *
      * @dataProvider matchProvider
      */
-    public function testMatch($token, $pattern, $expected): void
+    public function testMatch(Token $token, array $pattern, bool $expected): void
     {
-        $this->assertEquals($expected, Tokens::match($token, $pattern));
+        $this->assertSame($expected, Tokens::match($token, $pattern));
     }
 
+    /**
+     * @return array<int, array<int, Token|bool|array<string, int|string>>>
+     * @psalm-return list<array{Token, array<string, (int|string)>, bool}>
+     */
     public function matchProvider(): array
     {
         return [

@@ -18,15 +18,16 @@ class SelectStatementTest extends TestCase
     }
 
     /**
-     * @param mixed $test
-     *
      * @dataProvider selectProvider
      */
-    public function testSelect($test): void
+    public function testSelect(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function selectProvider(): array
     {
         return [

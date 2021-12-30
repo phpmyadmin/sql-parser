@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class LockStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider lockProvider
      */
-    public function testLock($test): void
+    public function testLock(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function lockProvider(): array
     {
         return [

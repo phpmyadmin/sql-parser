@@ -11,15 +11,19 @@ use PhpMyAdmin\SqlParser\Utils\Routine;
 class RoutineTest extends TestCase
 {
     /**
-     * @param mixed $def
+     * @param string[] $expected
      *
      * @dataProvider getReturnTypeProvider
      */
-    public function testGetReturnType($def, array $expected): void
+    public function testGetReturnType(string $def, array $expected): void
     {
         $this->assertEquals($expected, Routine::getReturnType($def));
     }
 
+    /**
+     * @return array<int, array<int, string|array<int, string>>>
+     * @psalm-return list<array{string, string[]}>
+     */
     public function getReturnTypeProvider(): array
     {
         return [
@@ -107,15 +111,19 @@ class RoutineTest extends TestCase
     }
 
     /**
-     * @param mixed $def
+     * @param string[] $expected
      *
      * @dataProvider getParameterProvider
      */
-    public function testGetParameter($def, array $expected): void
+    public function testGetParameter(string $def, array $expected): void
     {
         $this->assertEquals($expected, Routine::getParameter($def));
     }
 
+    /**
+     * @return array<int, array<int, string|array<int, string>>>
+     * @psalm-return list<array{string, string[]}>
+     */
     public function getParameterProvider(): array
     {
         return [
@@ -203,16 +211,37 @@ class RoutineTest extends TestCase
     }
 
     /**
-     * @param mixed $query
+     * @param array<string, int|string[]|string[][]> $expected
+     * @psalm-param array{
+     *   num: int,
+     *   dir: string[],
+     *   name: string[],
+     *   type: string[],
+     *   length: string[],
+     *   length_arr: string[][],
+     *   opts: string[]
+     * } $expected
      *
      * @dataProvider getParametersProvider
      */
-    public function testGetParameters($query, array $expected): void
+    public function testGetParameters(string $query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals($expected, Routine::getParameters($parser->statements[0]));
     }
 
+    /**
+     * @return array<int, array<int, string|array<string, int|string[]|string[][]>>>
+     * @psalm-return list<array{string, array{
+     *   num: int,
+     *   dir: string[],
+     *   name: string[],
+     *   type: string[],
+     *   length: string[],
+     *   length_arr: string[][],
+     *   opts: string[]
+     * }}>
+     */
     public function getParametersProvider(): array
     {
         return [

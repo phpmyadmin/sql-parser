@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class BugsTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider bugProvider
      */
-    public function testBug($test): void
+    public function testBug(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function bugProvider(): array
     {
         return [

@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class AlterStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider alterProvider
      */
-    public function testAlter($test): void
+    public function testAlter(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function alterProvider(): array
     {
         return [

@@ -11,12 +11,15 @@ use PhpMyAdmin\SqlParser\Utils\Misc;
 class MiscTest extends TestCase
 {
     /**
-     * @param mixed $query
-     * @param mixed $db
+     * @param mixed[] $expected
+     * @psalm-param array<string, array{
+     *   alias: (string|null),
+     *   tables: array<string, array{alias: (string|null), columns: array<string, string>}>
+     * }> $expected
      *
      * @dataProvider getAliasesProvider
      */
-    public function testGetAliases($query, $db, array $expected): void
+    public function testGetAliases(string $query, ?string $db, array $expected): void
     {
         $parser = new Parser($query);
         $statement = empty($parser->statements[0]) ?
@@ -24,6 +27,13 @@ class MiscTest extends TestCase
         $this->assertEquals($expected, Misc::getAliases($statement, $db));
     }
 
+    /**
+     * @return array<int, array<int, string|mixed[]|null>>
+     * @psalm-return list<array{string, (string|null), array<string, array{
+     *   alias: (string|null),
+     *   tables: array<string, array{alias: (string|null), columns: array<string, string>}>
+     * }>}>
+     */
     public function getAliasesProvider(): array
     {
         return [

@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class CallStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider callProvider
      */
-    public function testCall($test): void
+    public function testCall(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function callProvider(): array
     {
         return [

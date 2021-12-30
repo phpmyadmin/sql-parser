@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class InsertStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider insertProvider
      */
-    public function testInsert($test): void
+    public function testInsert(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function insertProvider(): array
     {
         return [

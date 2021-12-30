@@ -18,15 +18,16 @@ class LoadStatementTest extends TestCase
     }
 
     /**
-     * @param mixed $test
-     *
      * @dataProvider loadProvider
      */
-    public function testLoad($test): void
+    public function testLoad(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function loadProvider(): array
     {
         return [

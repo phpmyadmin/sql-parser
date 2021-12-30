@@ -21,7 +21,7 @@ class WithStatementTest extends TestCase
     }
 
     /**
-     * @return array<int,array<int, string>>
+     * @return string[][]
      */
     public function parseWith(): array
     {

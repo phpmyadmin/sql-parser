@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class DropStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider dropProvider
      */
-    public function testDrop($test): void
+    public function testDrop(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function dropProvider(): array
     {
         return [

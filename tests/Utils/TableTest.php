@@ -11,16 +11,37 @@ use PhpMyAdmin\SqlParser\Utils\Table;
 class TableTest extends TestCase
 {
     /**
-     * @param mixed $query
+     * @param array<string, string|string[]|null>[] $expected
+     * @psalm-param list<array{
+     *   constraint: string,
+     *   index_list: string[],
+     *   ref_db_name: null,
+     *   ref_table_name: string,
+     *   ref_index_list: string[],
+     *   on_update: string,
+     *   on_delete?: string
+     * }> $expected
      *
      * @dataProvider getForeignKeysProvider
      */
-    public function testGetForeignKeys($query, array $expected): void
+    public function testGetForeignKeys(string $query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals($expected, Table::getForeignKeys($parser->statements[0]));
     }
 
+    /**
+     * @return array<int, array<int, string|array<string, string|string[]|null>[]>>
+     * @psalm-return list<array{string, list<array{
+     *   constraint: string,
+     *   index_list: string[],
+     *   ref_db_name: null,
+     *   ref_table_name: string,
+     *   ref_index_list: string[],
+     *   on_update: string,
+     *   on_delete?: string
+     * }>}>
+     */
     public function getForeignKeysProvider(): array
     {
         return [
@@ -116,16 +137,35 @@ class TableTest extends TestCase
     }
 
     /**
-     * @param mixed $query
+     * @param array<string, array<string, bool|string>> $expected
+     * @psalm-param array<string, array{
+     *   type: string,
+     *   timestamp_not_null: bool,
+     *   default_value?: string,
+     *   default_current_timestamp?: bool,
+     *   on_update_current_timestamp?: bool,
+     *   expr?: string
+     * }> $expected
      *
      * @dataProvider getFieldsProvider
      */
-    public function testGetFields($query, array $expected): void
+    public function testGetFields(string $query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals($expected, Table::getFields($parser->statements[0]));
     }
 
+    /**
+     * @return array<int, array<int, string|array<string, array<string, bool|string>>>>
+     * @psalm-return list<array{string, array<string, array{
+     *   type: string,
+     *   timestamp_not_null: bool,
+     *   default_value?: string,
+     *   default_current_timestamp?: bool,
+     *   on_update_current_timestamp?: bool,
+     *   expr?: string
+     * }>}>
+     */
     public function getFieldsProvider(): array
     {
         return [

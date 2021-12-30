@@ -28,12 +28,9 @@ class LockExpressionTest extends TestCase
     }
 
     /**
-     * @param mixed $expr
-     * @param mixed $error
-     *
      * @dataProvider parseErrProvider
      */
-    public function testParseErr($expr, $error): void
+    public function testParseErr(string $expr, string $error): void
     {
         $parser = new Parser();
         LockExpression::parse($parser, $this->getTokensList($expr));
@@ -41,6 +38,9 @@ class LockExpressionTest extends TestCase
         $this->assertEquals($errors[0][0], $error);
     }
 
+    /**
+     * @return string[][]
+     */
     public function parseErrProvider(): array
     {
         return [

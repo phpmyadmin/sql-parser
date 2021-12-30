@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class ReplaceStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider replaceProvider
      */
-    public function testReplace($test): void
+    public function testReplace(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function replaceProvider(): array
     {
         return [

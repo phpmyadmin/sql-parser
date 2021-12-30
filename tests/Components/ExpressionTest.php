@@ -23,12 +23,9 @@ class ExpressionTest extends TestCase
     }
 
     /**
-     * @param mixed $expr
-     * @param mixed $error
-     *
      * @dataProvider parseErrProvider
      */
-    public function testParseErr($expr, $error): void
+    public function testParseErr(string $expr, string $error): void
     {
         $parser = new Parser();
         Expression::parse($parser, $this->getTokensList($expr));
@@ -36,6 +33,9 @@ class ExpressionTest extends TestCase
         $this->assertEquals($errors[0][0], $error);
     }
 
+    /**
+     * @return string[][]
+     */
     public function parseErrProvider(): array
     {
         return [

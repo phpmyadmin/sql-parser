@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use Zumba\JsonSerializer\JsonSerializer;
@@ -85,13 +86,41 @@ abstract class TestCase extends BaseTestCase
      *
      * @param string $name the name of the test
      *
-     * @return array
+     * @return array<string, string|Lexer|Parser|array<string, array<int, int|string|Token>[]>|null>
+     * @psalm-return array{
+     *   query: string,
+     *   lexer: Lexer,
+     *   parser: Parser|null,
+     *   errors: array{lexer: list<array{string, string, int, int}>, parser: list<array{string, Token, int}>}
+     * }
      */
-    public function getData($name)
+    public function getData($name): array
     {
+        $serializedData = file_get_contents('tests/data/' . $name . '.out');
+        $this->assertIsString($serializedData);
+
         $serializer = new JsonSerializer();
-        $data = $serializer->unserialize((string) file_get_contents('tests/data/' . $name . '.out'));
+        $data = $serializer->unserialize($serializedData);
+
+        $this->assertIsArray($data);
+        $this->assertArrayHasKey('query', $data);
+        $this->assertArrayHasKey('lexer', $data);
+        $this->assertArrayHasKey('parser', $data);
+        $this->assertArrayHasKey('errors', $data);
+        $this->assertIsString($data['query']);
+        $this->assertInstanceOf(Lexer::class, $data['lexer']);
+        if ($data['parser'] !== null) {
+            $this->assertInstanceOf(Parser::class, $data['parser']);
+        }
+
+        $this->assertIsArray($data['errors']);
+        $this->assertArrayHasKey('lexer', $data['errors']);
+        $this->assertArrayHasKey('parser', $data['errors']);
+        $this->assertIsArray($data['errors']['lexer']);
+        $this->assertIsArray($data['errors']['parser']);
+
         $data['query'] = file_get_contents('tests/data/' . $name . '.in');
+        $this->assertIsString($data['query']);
 
         return $data;
     }

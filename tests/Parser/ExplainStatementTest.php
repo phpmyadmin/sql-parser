@@ -9,15 +9,16 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 class ExplainStatementTest extends TestCase
 {
     /**
-     * @param mixed $test
-     *
      * @dataProvider explainProvider
      */
-    public function testExplain($test): void
+    public function testExplain(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function explainProvider(): array
     {
         return [
