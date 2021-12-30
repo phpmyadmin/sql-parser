@@ -155,7 +155,7 @@ class DeleteStatement extends Statement
     /**
      * Conditions used for limiting the size of the result set.
      *
-     * @var Limit
+     * @var Limit|null
      */
     public $limit;
 

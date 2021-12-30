@@ -905,9 +905,6 @@
     <ParamNameMismatch occurrences="1">
       <code>$msg</code>
     </ParamNameMismatch>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
     <PropertyNotSetInConstructor occurrences="1">
       <code>$list</code>
     </PropertyNotSetInConstructor>
@@ -1083,11 +1080,10 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="10">
+    <PropertyNotSetInConstructor occurrences="9">
       <code>$columns</code>
       <code>$from</code>
       <code>$join</code>
-      <code>$limit</code>
       <code>$order</code>
       <code>$partition</code>
       <code>$using</code>
@@ -1095,11 +1091,10 @@
       <code>DeleteStatement</code>
       <code>DeleteStatement</code>
     </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="7">
+    <RedundantConditionGivenDocblockType occurrences="6">
       <code>$this-&gt;columns !== null</code>
       <code>$this-&gt;from !== null</code>
       <code>$this-&gt;join !== null</code>
-      <code>$this-&gt;limit !== null</code>
       <code>$this-&gt;order !== null</code>
       <code>$this-&gt;using !== null</code>
       <code>$this-&gt;where !== null</code>
@@ -1284,17 +1279,15 @@
     <NonInvariantDocblockPropertyType occurrences="1">
       <code>$END_OPTIONS</code>
     </NonInvariantDocblockPropertyType>
-    <PropertyNotSetInConstructor occurrences="13">
+    <PropertyNotSetInConstructor occurrences="11">
       <code>$end_options</code>
       <code>$group</code>
       <code>$having</code>
       <code>$index_hints</code>
       <code>$into</code>
       <code>$join</code>
-      <code>$limit</code>
       <code>$order</code>
       <code>$partition</code>
-      <code>$procedure</code>
       <code>$where</code>
       <code>SelectStatement</code>
       <code>SelectStatement</code>
@@ -1338,8 +1331,7 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/UpdateStatement.php">
-    <PropertyNotSetInConstructor occurrences="7">
-      <code>$limit</code>
+    <PropertyNotSetInConstructor occurrences="6">
       <code>$order</code>
       <code>$set</code>
       <code>$tables</code>
@@ -2161,20 +2153,18 @@
     </PossiblyNullArgument>
   </file>
   <file src="tests/Utils/QueryTest.php">
-    <MixedArgument occurrences="10">
+    <MixedArgument occurrences="9">
       <code>$delimiter</code>
       <code>$delimiter</code>
       <code>$delimiter</code>
       <code>$delimiter</code>
-      <code>$query</code>
       <code>$query</code>
       <code>$query</code>
       <code>$query</code>
       <code>$query</code>
       <code>$query</code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="2">
-      <code>array</code>
+    <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
     <UnusedVariable occurrences="3">

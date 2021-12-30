@@ -10,23 +10,27 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 
 use function array_merge;
 
+/**
+ * @psalm-import-type QueryFlagsType from Query
+ */
 class QueryTest extends TestCase
 {
     /**
-     * @param mixed $query
-     * @param mixed $expected
+     * @param array<string, bool|string> $expected
+     * @psalm-param QueryFlagsType $expected
      *
      * @dataProvider getFlagsProvider
      */
-    public function testGetFlags($query, $expected): void
+    public function testGetFlags(string $query, array $expected): void
     {
         $parser = new Parser($query);
-        $this->assertEquals(
-            $expected,
-            Query::getFlags($parser->statements[0])
-        );
+        $this->assertEquals($expected, Query::getFlags($parser->statements[0]));
     }
 
+    /**
+     * @return array<int, array<int, string|array<string, bool|string>>>
+     * @psalm-return list<array{non-empty-string, QueryFlagsType}>
+     */
     public function getFlagsProvider(): array
     {
         return [

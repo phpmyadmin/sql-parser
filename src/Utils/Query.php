@@ -43,6 +43,36 @@ use function trim;
 
 /**
  * Statement utilities.
+ *
+ * @psalm-type QueryFlagsType = array{
+ *   distinct?: bool,
+ *   drop_database?: bool,
+ *   group?: bool,
+ *   having?: bool,
+ *   is_affected?: bool,
+ *   is_analyse?: bool,
+ *   is_count?: bool,
+ *   is_delete?: bool,
+ *   is_explain?: bool,
+ *   is_export?: bool,
+ *   is_func?: bool,
+ *   is_group?: bool,
+ *   is_insert?: bool,
+ *   is_maint?: bool,
+ *   is_procedure?: bool,
+ *   is_replace?: bool,
+ *   is_select?: bool,
+ *   is_show?: bool,
+ *   is_subquery?: bool,
+ *   join?: bool,
+ *   limit?: bool,
+ *   offset?: bool,
+ *   order?: bool,
+ *   querytype: ('ALTER'|'ANALYZE'|'CALL'|'CHECK'|'CHECKSUM'|'CREATE'|'DELETE'|'DROP'|'EXPLAIN'|'INSERT'|'LOAD'|'OPTIMIZE'|'REPAIR'|'REPLACE'|'SELECT'|'SET'|'SHOW'|'UPDATE'|false),
+ *   reload?: bool,
+ *   select_from?: bool,
+ *   union?: bool
+ * }
  */
 class Query
 {
@@ -62,7 +92,38 @@ class Query
         'BIT_AND',
     ];
 
-    /** @var array<string,false> */
+    /**
+     * @var array<string, false>
+     * @psalm-var array{
+     *   distinct: false,
+     *   drop_database: false,
+     *   group: false,
+     *   having: false,
+     *   is_affected: false,
+     *   is_analyse: false,
+     *   is_count: false,
+     *   is_delete: false,
+     *   is_explain: false,
+     *   is_export: false,
+     *   is_func: false,
+     *   is_group: false,
+     *   is_insert: false,
+     *   is_maint: false,
+     *   is_procedure: false,
+     *   is_replace: false,
+     *   is_select: false,
+     *   is_show: false,
+     *   is_subquery: false,
+     *   join: false,
+     *   limit: false,
+     *   offset: false,
+     *   order: false,
+     *   querytype: false,
+     *   reload: false,
+     *   select_from: false,
+     *   union: false
+     * }
+     */
     public static $ALLFLAGS = [
         /*
          * select ... DISTINCT ...
@@ -222,10 +283,12 @@ class Query
     /**
      * Gets an array with flags select statement has.
      *
-     * @param SelectStatement $statement the statement to be processed
-     * @param array           $flags     flags set so far
+     * @param SelectStatement            $statement the statement to be processed
+     * @param array<string, bool|string> $flags     flags set so far
+     * @psalm-param QueryFlagsType $flags
      *
-     * @return array
+     * @return array<string, bool|string>
+     * @psalm-return QueryFlagsType
      */
     private static function getFlagsSelect($statement, $flags)
     {
@@ -300,7 +363,8 @@ class Query
      * @param Statement|null $statement the statement to be processed
      * @param bool           $all       if `false`, false values will not be included
      *
-     * @return array
+     * @return array<string, bool|string>
+     * @psalm-return QueryFlagsType
      */
     public static function getFlags($statement, $all = false)
     {
