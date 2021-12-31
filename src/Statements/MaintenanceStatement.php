@@ -25,7 +25,7 @@ class MaintenanceStatement extends Statement
     /**
      * Tables maintained.
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $tables;
 

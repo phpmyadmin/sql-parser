@@ -33,7 +33,7 @@ class OptimizeStatement extends Statement
     /**
      * Optimized tables.
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $tables;
 }

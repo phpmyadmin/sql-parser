@@ -237,42 +237,42 @@ class SelectStatement extends Statement
     /**
      * Index hints
      *
-     * @var IndexHint[]
+     * @var IndexHint[]|null
      */
     public $index_hints;
 
     /**
      * Partitions used as source for this statement.
      *
-     * @var ArrayObj
+     * @var ArrayObj|null
      */
     public $partition;
 
     /**
      * Conditions used for filtering each row of the result set.
      *
-     * @var Condition[]
+     * @var Condition[]|null
      */
     public $where;
 
     /**
      * Conditions used for grouping the result set.
      *
-     * @var GroupKeyword[]
+     * @var GroupKeyword[]|null
      */
     public $group;
 
     /**
      * Conditions used for filtering the result set.
      *
-     * @var Condition[]
+     * @var Condition[]|null
      */
     public $having;
 
     /**
      * Specifies the order of the rows in the result set.
      *
-     * @var OrderKeyword[]
+     * @var OrderKeyword[]|null
      */
     public $order;
 
@@ -293,14 +293,14 @@ class SelectStatement extends Statement
     /**
      * Destination of this result set.
      *
-     * @var IntoKeyword
+     * @var IntoKeyword|null
      */
     public $into;
 
     /**
      * Joins.
      *
-     * @var JoinKeyword[]
+     * @var JoinKeyword[]|null
      */
     public $join;
 
@@ -316,7 +316,7 @@ class SelectStatement extends Statement
      *
      * @see static::$END_OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $end_options;
 

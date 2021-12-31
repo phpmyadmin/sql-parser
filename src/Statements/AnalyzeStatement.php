@@ -33,7 +33,7 @@ class AnalyzeStatement extends Statement
     /**
      * Analyzed tables.
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $tables;
 }

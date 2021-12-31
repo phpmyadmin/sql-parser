@@ -70,7 +70,7 @@ class BufferedQuery
     /**
      * The current status of the parser.
      *
-     * @var int
+     * @var int|null
      */
     public $status;
 

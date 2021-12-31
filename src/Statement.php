@@ -69,27 +69,27 @@ abstract class Statement implements Stringable
      *
      * @see static::$OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $options;
 
     /**
      * The index of the first token used in this statement.
      *
-     * @var int
+     * @var int|null
      */
     public $first;
 
     /**
      * The index of the last token used in this statement.
      *
-     * @var int
+     * @var int|null
      */
     public $last;
 
     /**
-     * @param Parser     $parser the instance that requests parsing
-     * @param TokensList $list   the list of tokens to be parsed
+     * @param Parser|null     $parser the instance that requests parsing
+     * @param TokensList|null $list   the list of tokens to be parsed
      */
     public function __construct(?Parser $parser = null, ?TokensList $list = null)
     {

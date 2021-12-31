@@ -283,7 +283,7 @@ class CreateStatement extends Statement
      *
      * Used by all `CREATE` statements.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $name;
 
@@ -296,7 +296,7 @@ class CreateStatement extends Statement
      * @see static::$FUNC_OPTIONS
      * @see static::$TRIGGER_OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $entityOptions;
 
@@ -306,7 +306,7 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE TABLE` and `CREATE VIEW`.
      *
-     * @var CreateDefinition[]|ArrayObj
+     * @var CreateDefinition[]|ArrayObj|null
      */
     public $fields;
 
@@ -336,42 +336,42 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE TABLE`
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $like;
 
     /**
      * Expression used for partitioning.
      *
-     * @var string
+     * @var string|null
      */
     public $partitionBy;
 
     /**
      * The number of partitions.
      *
-     * @var int
+     * @var int|null
      */
     public $partitionsNum;
 
     /**
      * Expression used for subpartitioning.
      *
-     * @var string
+     * @var string|null
      */
     public $subpartitionBy;
 
     /**
      * The number of subpartitions.
      *
-     * @var int
+     * @var int|null
      */
     public $subpartitionsNum;
 
     /**
      * The partition of the new table.
      *
-     * @var PartitionDefinition[]
+     * @var PartitionDefinition[]|null
      */
     public $partitions;
 
@@ -380,7 +380,7 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE TRIGGER`.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $table;
 
@@ -389,7 +389,7 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE FUNCTION`.
      *
-     * @var DataType
+     * @var DataType|null
      */
     public $return;
 
@@ -398,7 +398,7 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE FUNCTION` and `CREATE PROCEDURE`.
      *
-     * @var ParameterDefinition[]
+     * @var ParameterDefinition[]|null
      */
     public $parameters;
 

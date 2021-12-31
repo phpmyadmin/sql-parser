@@ -25,14 +25,14 @@ class AlterStatement extends Statement
     /**
      * Table affected.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $table;
 
     /**
      * Column affected by this statement.
      *
-     * @var AlterOperation[]
+     * @var AlterOperation[]|null
      */
     public $altered = [];
 

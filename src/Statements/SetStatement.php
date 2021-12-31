@@ -80,7 +80,7 @@ class SetStatement extends Statement
     /**
      * Options used in current statement.
      *
-     * @var OptionsArray[]
+     * @var OptionsArray[]|null
      */
     public $options;
 
@@ -89,14 +89,14 @@ class SetStatement extends Statement
      *
      * @see static::$END_OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $end_options;
 
     /**
      * The updated values.
      *
-     * @var SetOperation[]
+     * @var SetOperation[]|null
      */
     public $set;
 

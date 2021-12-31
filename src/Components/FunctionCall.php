@@ -24,20 +24,20 @@ class FunctionCall extends Component
     /**
      * The name of this function.
      *
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * The list of parameters.
      *
-     * @var ArrayObj
+     * @var ArrayObj|null
      */
     public $parameters;
 
     /**
-     * @param string         $name       the name of the function to be called
-     * @param array|ArrayObj $parameters the parameters of this function
+     * @param string|null         $name       the name of the function to be called
+     * @param array|ArrayObj|null $parameters the parameters of this function
      */
     public function __construct($name = null, $parameters = null)
     {

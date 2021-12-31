@@ -27,21 +27,21 @@ class PurgeStatement extends Statement
     /**
      * The type of logs
      *
-     * @var String
+     * @var string|null
      */
     public $log_type;
 
     /**
      * The end option of this query.
      *
-     * @var String
+     * @var string|null
      */
     public $end_option;
 
     /**
      * The end expr of this query.
      *
-     * @var String
+     * @var string|null
      */
     public $end_expr;
 

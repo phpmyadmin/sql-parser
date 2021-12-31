@@ -101,20 +101,6 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>Context::escape($component-&gt;alias)</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="3">
-      <code>Expression::parse($parser, $list)</code>
-      <code>Expression::parse($parser, $list)</code>
-      <code>Expression::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$alias</code>
-      <code>$else_result</code>
-      <code>$value</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>isset($component-&gt;else_result)</code>
-      <code>isset($component-&gt;value)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/Condition.php">
     <MixedArgument occurrences="1">
@@ -153,23 +139,9 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>Context::escape($component-&gt;name)</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="4">
-      <code>$name</code>
-      <code>$options</code>
-      <code>$references</code>
-      <code>DataType::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>$isConstraint</code>
-      <code>$key</code>
-      <code>$references</code>
-      <code>$type</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="3">
-      <code>! empty($expr-&gt;type)</code>
-      <code>! empty($expr-&gt;type)</code>
-      <code>isset($component-&gt;name)</code>
-    </RedundantConditionGivenDocblockType>
+    <PossiblyNullOperand occurrences="1">
+      <code>$component-&gt;options</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Components/DataType.php">
     <MixedArgumentTypeCoercion occurrences="1">
@@ -202,6 +174,10 @@
       <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
       <code>self::$ALLOWED_KEYWORDS[$token-&gt;keyword]</code>
     </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="2">
+      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+      <code>self::$ALLOWED_KEYWORDS[$token-&gt;keyword]</code>
+    </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="6">
       <code>$field</code>
       <code>$options['field']</code>
@@ -216,35 +192,19 @@
     <PossiblyInvalidOperand occurrences="1">
       <code>Context::escape($component-&gt;alias)</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="7">
-      <code>$alias</code>
-      <code>$column</code>
-      <code>$database</code>
-      <code>$database</code>
-      <code>$table</code>
-      <code>$table</code>
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>$column</code>
-      <code>$database</code>
-      <code>$subquery</code>
-      <code>$table</code>
-    </PropertyNotSetInConstructor>
-    <RedundantCastGivenDocblockType occurrences="2">
-      <code>(string) $ret-&gt;expr</code>
-      <code>(string) $ret-&gt;expr</code>
-    </RedundantCastGivenDocblockType>
-    <RedundantConditionGivenDocblockType occurrences="9">
+    <PossiblyNullOperand occurrences="6">
+      <code>$ret-&gt;expr</code>
+      <code>$ret-&gt;expr</code>
+      <code>$ret-&gt;expr</code>
+      <code>$ret-&gt;expr</code>
+      <code>$ret-&gt;expr</code>
+      <code>$ret-&gt;expr</code>
+    </PossiblyNullOperand>
+    <RedundantConditionGivenDocblockType occurrences="4">
       <code>! $isExpr</code>
-      <code>$component-&gt;expr !== '' &amp;&amp; $component-&gt;expr !== null</code>
-      <code>$component-&gt;expr !== null</code>
       <code>$isExpr</code>
       <code>$prev[1] !== null</code>
       <code>empty($ret-&gt;function) &amp;&amp; ($prev[1] !== null)</code>
-      <code>isset($component-&gt;column)</code>
-      <code>isset($component-&gt;database)</code>
-      <code>isset($component-&gt;table)</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/ExpressionArray.php">
@@ -257,6 +217,9 @@
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
+    <PossiblyNullArgument occurrences="1">
+      <code>$expr</code>
+    </PossiblyNullArgument>
     <RedundantCondition occurrences="1">
       <code>is_array($ret)</code>
     </RedundantCondition>
@@ -271,12 +234,10 @@
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>ArrayObj::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>$name</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$parameters</code>
-    </PropertyNotSetInConstructor>
+    <PossiblyNullOperand occurrences="2">
+      <code>$component-&gt;name</code>
+      <code>$component-&gt;parameters</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Components/GroupKeyword.php">
     <MoreSpecificImplementedParamType occurrences="1">
@@ -327,19 +288,13 @@
     <PossiblyInvalidPropertyFetch occurrences="1">
       <code>ArrayObj::parse($parser, $list)-&gt;values</code>
     </PossiblyInvalidPropertyFetch>
-    <PossiblyNullPropertyAssignmentValue occurrences="6">
-      <code>$columns</code>
-      <code>$dest</code>
-      <code>$fieldsKeyword</code>
-      <code>$fieldsOptions</code>
-      <code>$type</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$lines_options</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>isset($component-&gt;values)</code>
-    </RedundantConditionGivenDocblockType>
+    <PossiblyNullArgument occurrences="2">
+      <code>$component-&gt;fields_options</code>
+      <code>$component-&gt;lines_options</code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand occurrences="1">
+      <code>$component-&gt;dest</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Components/JoinKeyword.php">
     <DocblockTypeContradiction occurrences="1">
@@ -351,6 +306,12 @@
       <code>static::$JOINS[$token-&gt;keyword]</code>
       <code>static::$JOINS[$token-&gt;keyword]</code>
     </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="4">
+      <code>static::$JOINS[$token-&gt;keyword]</code>
+      <code>static::$JOINS[$token-&gt;keyword]</code>
+      <code>static::$JOINS[$token-&gt;keyword]</code>
+      <code>static::$JOINS[$token-&gt;keyword]</code>
+    </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="2">
       <code>$expr-&gt;type</code>
       <code>$expr-&gt;type</code>
@@ -364,6 +325,10 @@
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>ArrayObj::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullArrayOffset occurrences="2">
+      <code>static::$JOINS</code>
+      <code>static::$JOINS</code>
+    </PossiblyNullArrayOffset>
     <PossiblyNullPropertyAssignmentValue occurrences="5">
       <code>$expr</code>
       <code>$on</code>
@@ -612,6 +577,9 @@
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$tmp-&gt;expr</code>
+    </PossiblyNullPropertyAssignmentValue>
     <RedundantCondition occurrences="1">
       <code>$token-&gt;value === ','</code>
     </RedundantCondition>
@@ -622,15 +590,9 @@
     </MoreSpecificImplementedParamType>
   </file>
   <file src="src/Components/WithKeyword.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>isset($component-&gt;statement)</code>
-    </DocblockTypeContradiction>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$statement</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/Context.php">
     <InvalidPropertyFetch occurrences="1">
@@ -902,12 +864,44 @@
     <MixedArrayOffset occurrences="1">
       <code>static::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
     </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="1">
+      <code>static::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+    </MixedArrayTypeCoercion>
     <ParamNameMismatch occurrences="1">
       <code>$msg</code>
     </ParamNameMismatch>
-    <PropertyNotSetInConstructor occurrences="1">
+    <PossiblyNullArgument occurrences="4">
       <code>$list</code>
-    </PropertyNotSetInConstructor>
+      <code>$list</code>
+      <code>$list</code>
+      <code>$token-&gt;token</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="1">
+      <code>$list-&gt;tokens[$list-&gt;idx]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$list-&gt;tokens</code>
+    </PossiblyNullArrayOffset>
+    <PossiblyNullOperand occurrences="2">
+      <code>$list-&gt;idx</code>
+      <code>$prevLastIdx</code>
+    </PossiblyNullOperand>
+    <PossiblyNullPropertyAssignment occurrences="1">
+      <code>$list</code>
+    </PossiblyNullPropertyAssignment>
+    <PossiblyNullPropertyFetch occurrences="7">
+      <code>$list-&gt;count</code>
+      <code>$list-&gt;idx</code>
+      <code>$list-&gt;tokens</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;token</code>
+      <code>$token-&gt;type</code>
+      <code>$token-&gt;value</code>
+    </PossiblyNullPropertyFetch>
+    <PossiblyNullReference occurrences="2">
+      <code>getNextOfType</code>
+      <code>getNextOfType</code>
+    </PossiblyNullReference>
   </file>
   <file src="src/Statement.php">
     <DocblockTypeContradiction occurrences="1">
@@ -941,6 +935,10 @@
       <code>static::$CLAUSES[$token-&gt;value]</code>
       <code>static::$OPTIONS[$token-&gt;value]</code>
     </MixedArrayOffset>
+    <MixedArrayTypeCoercion occurrences="2">
+      <code>Parser::$KEYWORD_PARSERS[$tokenValue]</code>
+      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+    </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="5">
       <code>$class</code>
       <code>$clause</code>
@@ -957,9 +955,6 @@
     <PossiblyNullPropertyFetch occurrences="1">
       <code>$list-&gt;offsetGet($list-&gt;idx)-&gt;type</code>
     </PossiblyNullPropertyFetch>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$options</code>
-    </PropertyNotSetInConstructor>
     <TypeDoesNotContainType occurrences="1">
       <code>count($clauses) === 0</code>
     </TypeDoesNotContainType>
@@ -968,57 +963,35 @@
     </UnusedForeachValue>
   </file>
   <file src="src/Statements/AlterStatement.php">
-    <PossiblyNullPropertyAssignmentValue occurrences="1"/>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$table</code>
-      <code>AlterStatement</code>
-      <code>AlterStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/AnalyzeStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$tables</code>
-      <code>AnalyzeStatement</code>
-      <code>AnalyzeStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/BackupStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>BackupStatement</code>
-      <code>BackupStatement</code>
-      <code>BackupStatement</code>
-    </PropertyNotSetInConstructor>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$tmp</code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment occurrences="2">
+      <code>$altered</code>
+      <code>$tmp[]</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>$altered::build($altered)</code>
+    </MixedMethodCall>
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;options</code>
+      <code>$this-&gt;table</code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator occurrences="1">
+      <code>$this-&gt;altered</code>
+    </PossiblyNullIterator>
   </file>
   <file src="src/Statements/CallStatement.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>''</code>
-    </DocblockTypeContradiction>
     <MixedArgumentTypeCoercion occurrences="1">
       <code>$this-&gt;call-&gt;parameters-&gt;raw</code>
     </MixedArgumentTypeCoercion>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$call</code>
-      <code>CallStatement</code>
-      <code>CallStatement</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="2">
+    <PossiblyNullOperand occurrences="1">
+      <code>$this-&gt;call-&gt;name</code>
+    </PossiblyNullOperand>
+    <PossiblyNullPropertyFetch occurrences="2">
+      <code>$this-&gt;call-&gt;name</code>
       <code>$this-&gt;call-&gt;parameters</code>
-      <code>$this-&gt;call-&gt;parameters</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Statements/CheckStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>CheckStatement</code>
-      <code>CheckStatement</code>
-      <code>CheckStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/ChecksumStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>ChecksumStatement</code>
-      <code>ChecksumStatement</code>
-      <code>ChecksumStatement</code>
-    </PropertyNotSetInConstructor>
+    </PossiblyNullPropertyFetch>
   </file>
   <file src="src/Statements/CreateStatement.php">
     <DocblockTypeContradiction occurrences="2">
@@ -1039,35 +1012,38 @@
       <code>$brackets</code>
       <code>$brackets</code>
     </PossiblyInvalidOperand>
-    <PossiblyNullPropertyAssignmentValue occurrences="4">
-      <code>DataType::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullArgument occurrences="18">
+      <code>$this-&gt;entityOptions</code>
+      <code>$this-&gt;entityOptions</code>
+      <code>$this-&gt;entityOptions</code>
+      <code>$this-&gt;entityOptions</code>
+      <code>$this-&gt;entityOptions</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;name</code>
+      <code>$this-&gt;options</code>
+      <code>$this-&gt;parameters</code>
+      <code>$this-&gt;return</code>
+      <code>$this-&gt;table</code>
+    </PossiblyNullArgument>
     <PossiblyNullPropertyFetch occurrences="2">
       <code>$token-&gt;value</code>
       <code>$token-&gt;value</code>
     </PossiblyNullPropertyFetch>
-    <PropertyNotSetInConstructor occurrences="14">
-      <code>$entityOptions</code>
-      <code>$fields</code>
-      <code>$like</code>
-      <code>$name</code>
-      <code>$parameters</code>
-      <code>$partitionBy</code>
-      <code>$partitions</code>
-      <code>$partitionsNum</code>
-      <code>$return</code>
-      <code>$subpartitionBy</code>
-      <code>$subpartitionsNum</code>
-      <code>$table</code>
-      <code>CreateStatement</code>
-      <code>CreateStatement</code>
-    </PropertyNotSetInConstructor>
+    <PossiblyNullReference occurrences="1">
+      <code>has</code>
+    </PossiblyNullReference>
     <PropertyTypeCoercion occurrences="2">
       <code>ArrayObj::parse($parser, $list)</code>
     </PropertyTypeCoercion>
-    <RedundantConditionGivenDocblockType occurrences="2">
+    <RedundantConditionGivenDocblockType occurrences="1">
       <code>$this-&gt;fields instanceof ArrayObj</code>
-      <code>$this-&gt;like !== null</code>
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Statements/DeleteStatement.php">
@@ -1077,58 +1053,31 @@
     <MixedArgument occurrences="1">
       <code>$token-&gt;keyword</code>
     </MixedArgument>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="9">
-      <code>$columns</code>
-      <code>$from</code>
-      <code>$join</code>
-      <code>$order</code>
-      <code>$partition</code>
-      <code>$using</code>
-      <code>$where</code>
-      <code>DeleteStatement</code>
-      <code>DeleteStatement</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="6">
-      <code>$this-&gt;columns !== null</code>
-      <code>$this-&gt;from !== null</code>
-      <code>$this-&gt;join !== null</code>
-      <code>$this-&gt;order !== null</code>
-      <code>$this-&gt;using !== null</code>
-      <code>$this-&gt;where !== null</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Statements/DropStatement.php">
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>$fields</code>
-      <code>$table</code>
-      <code>DropStatement</code>
-      <code>DropStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/ExplainStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>ExplainStatement</code>
-      <code>ExplainStatement</code>
-      <code>ExplainStatement</code>
-    </PropertyNotSetInConstructor>
+    <MixedAssignment occurrences="1">
+      <code>$fromExpr</code>
+    </MixedAssignment>
+    <MixedPropertyAssignment occurrences="3">
+      <code>$fromExpr</code>
+      <code>$fromExpr</code>
+      <code>$fromExpr</code>
+    </MixedPropertyAssignment>
+    <MixedPropertyFetch occurrences="2">
+      <code>$fromExpr-&gt;column</code>
+      <code>$fromExpr-&gt;table</code>
+    </MixedPropertyFetch>
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;options</code>
+      <code>$token-&gt;keyword</code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator occurrences="1">
+      <code>$this-&gt;from</code>
+    </PossiblyNullIterator>
   </file>
   <file src="src/Statements/InsertStatement.php">
-    <PropertyNotSetInConstructor occurrences="6">
-      <code>$into</code>
-      <code>$onDuplicateSet</code>
-      <code>$select</code>
-      <code>$set</code>
-      <code>InsertStatement</code>
-      <code>InsertStatement</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="3">
-      <code>$this-&gt;onDuplicateSet !== null</code>
-      <code>$this-&gt;select !== null</code>
-      <code>$this-&gt;set !== null</code>
-    </RedundantConditionGivenDocblockType>
+    <PossiblyNullOperand occurrences="2">
+      <code>$this-&gt;into</code>
+      <code>$this-&gt;options</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Statements/LoadStatement.php">
     <MixedArgument occurrences="1">
@@ -1137,76 +1086,25 @@
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>ArrayObj::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullPropertyAssignmentValue occurrences="5">
-      <code>$nextToken-&gt;token</code>
-      <code>Expression::parse($parser, $list)</code>
-      <code>Expression::parse($parser, $list)</code>
-      <code>Expression::parse($parser, $list, ['parseField' =&gt; 'table'])</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullOperand occurrences="5">
+      <code>$this-&gt;fields_options</code>
+      <code>$this-&gt;file_name</code>
+      <code>$this-&gt;lines_rows</code>
+      <code>$this-&gt;options</code>
+      <code>$this-&gt;table</code>
+    </PossiblyNullOperand>
     <PossiblyNullPropertyFetch occurrences="3">
       <code>$nextToken-&gt;keyword</code>
       <code>$nextToken-&gt;token</code>
       <code>$nextToken-&gt;type</code>
     </PossiblyNullPropertyFetch>
-    <PropertyNotSetInConstructor occurrences="14">
-      <code>$charset_name</code>
-      <code>$col_name_or_user_var</code>
-      <code>$fields_keyword</code>
-      <code>$fields_options</code>
-      <code>$file_name</code>
-      <code>$ignore_number</code>
-      <code>$lines_options</code>
-      <code>$lines_rows</code>
-      <code>$partition</code>
-      <code>$replace_ignore</code>
-      <code>$set</code>
-      <code>$table</code>
-      <code>LoadStatement</code>
-      <code>LoadStatement</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="8">
-      <code>$this-&gt;charset_name !== null</code>
-      <code>$this-&gt;col_name_or_user_var !== null</code>
-      <code>$this-&gt;fields_keyword !== null</code>
-      <code>$this-&gt;ignore_number !== null</code>
-      <code>$this-&gt;lines_options !== null</code>
-      <code>$this-&gt;partition !== null</code>
-      <code>$this-&gt;replace_ignore !== null</code>
-      <code>$this-&gt;set !== null</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Statements/LockStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>LockStatement</code>
-      <code>LockStatement</code>
-      <code>LockStatement</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/MaintenanceStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$tables</code>
-      <code>MaintenanceStatement</code>
-      <code>MaintenanceStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/NotImplementedStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>NotImplementedStatement</code>
-      <code>NotImplementedStatement</code>
-      <code>NotImplementedStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/OptimizeStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$tables</code>
-      <code>OptimizeStatement</code>
-      <code>OptimizeStatement</code>
-    </PropertyNotSetInConstructor>
+    <PossiblyNullReference occurrences="1">
+      <code>merge</code>
+    </PossiblyNullReference>
   </file>
   <file src="src/Statements/PurgeStatement.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>''</code>
-    </DocblockTypeContradiction>
     <ImplicitToStringCast occurrences="1">
       <code>Expression::parse($parser, $list, [])</code>
     </ImplicitToStringCast>
@@ -1214,37 +1112,15 @@
       <code>$this-&gt;end_option</code>
       <code>$this-&gt;log_type</code>
     </MixedAssignment>
-    <PossiblyNullPropertyAssignmentValue occurrences="1">
-      <code>Expression::parse($parser, $list, [])</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="6">
-      <code>$end_expr</code>
-      <code>$end_option</code>
-      <code>$log_type</code>
-      <code>PurgeStatement</code>
-      <code>PurgeStatement</code>
-      <code>PurgeStatement</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="1">
-      <code>$this-&gt;end_option !== null</code>
-    </RedundantConditionGivenDocblockType>
+    <PossiblyNullOperand occurrences="2">
+      <code>$this-&gt;end_expr</code>
+      <code>$this-&gt;log_type</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Statements/RenameStatement.php">
     <InvalidArgument occurrences="1">
       <code>$this-&gt;renames</code>
     </InvalidArgument>
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$renames</code>
-      <code>RenameStatement</code>
-      <code>RenameStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/RepairStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>RepairStatement</code>
-      <code>RepairStatement</code>
-      <code>RepairStatement</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/ReplaceStatement.php">
     <InvalidArgument occurrences="2">
@@ -1254,44 +1130,15 @@
     <InvalidPropertyAssignmentValue occurrences="1">
       <code>Array2d::parse($parser, $list)</code>
     </InvalidPropertyAssignmentValue>
-    <PropertyNotSetInConstructor occurrences="6">
-      <code>$into</code>
-      <code>$select</code>
-      <code>$set</code>
-      <code>$values</code>
-      <code>ReplaceStatement</code>
-      <code>ReplaceStatement</code>
-    </PropertyNotSetInConstructor>
-    <RedundantConditionGivenDocblockType occurrences="3">
-      <code>$this-&gt;select !== null</code>
-      <code>$this-&gt;set !== null</code>
-      <code>$this-&gt;values !== null</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Statements/RestoreStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>RestoreStatement</code>
-      <code>RestoreStatement</code>
-      <code>RestoreStatement</code>
-    </PropertyNotSetInConstructor>
+    <PossiblyNullOperand occurrences="2">
+      <code>$this-&gt;into</code>
+      <code>$this-&gt;options</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Statements/SelectStatement.php">
     <NonInvariantDocblockPropertyType occurrences="1">
       <code>$END_OPTIONS</code>
     </NonInvariantDocblockPropertyType>
-    <PropertyNotSetInConstructor occurrences="11">
-      <code>$end_options</code>
-      <code>$group</code>
-      <code>$having</code>
-      <code>$index_hints</code>
-      <code>$into</code>
-      <code>$join</code>
-      <code>$order</code>
-      <code>$partition</code>
-      <code>$where</code>
-      <code>SelectStatement</code>
-      <code>SelectStatement</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/Statements/SetStatement.php">
     <InvalidArgument occurrences="1">
@@ -1300,45 +1147,36 @@
     <NonInvariantDocblockPropertyType occurrences="1">
       <code>$options</code>
     </NonInvariantDocblockPropertyType>
-    <PropertyNotSetInConstructor occurrences="4">
-      <code>$end_options</code>
-      <code>$options</code>
-      <code>$set</code>
-      <code>SetStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/ShowStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>ShowStatement</code>
-      <code>ShowStatement</code>
-      <code>ShowStatement</code>
-    </PropertyNotSetInConstructor>
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;end_options</code>
+      <code>$this-&gt;set</code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Statements/TransactionStatement.php">
-    <PropertyNotSetInConstructor occurrences="5">
-      <code>$end</code>
-      <code>$statements</code>
-      <code>$type</code>
-      <code>TransactionStatement</code>
-      <code>TransactionStatement</code>
-    </PropertyNotSetInConstructor>
+    <MixedAssignment occurrences="1">
+      <code>$statement</code>
+    </MixedAssignment>
+    <MixedMethodCall occurrences="1">
+      <code>build</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="1">
+      <code>$statement-&gt;build()</code>
+    </MixedOperand>
+    <PossiblyNullArgument occurrences="1">
+      <code>$this-&gt;options</code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator occurrences="1">
+      <code>$this-&gt;statements</code>
+    </PossiblyNullIterator>
+    <PossiblyNullReference occurrences="2">
+      <code>build</code>
+      <code>has</code>
+    </PossiblyNullReference>
   </file>
   <file src="src/Statements/TruncateStatement.php">
-    <PropertyNotSetInConstructor occurrences="3">
-      <code>$table</code>
-      <code>TruncateStatement</code>
-      <code>TruncateStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Statements/UpdateStatement.php">
-    <PropertyNotSetInConstructor occurrences="6">
-      <code>$order</code>
-      <code>$set</code>
-      <code>$tables</code>
-      <code>$where</code>
-      <code>UpdateStatement</code>
-      <code>UpdateStatement</code>
-    </PropertyNotSetInConstructor>
+    <PossiblyNullOperand occurrences="1">
+      <code>$this-&gt;table</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Statements/WithStatement.php">
     <MixedArgument occurrences="1">
@@ -1351,15 +1189,6 @@
       <code>$this-&gt;withers</code>
       <code>$this-&gt;withers</code>
     </PossiblyNullArrayOffset>
-    <PropertyNotSetInConstructor occurrences="2">
-      <code>WithStatement</code>
-      <code>WithStatement</code>
-    </PropertyNotSetInConstructor>
-  </file>
-  <file src="src/Token.php">
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$position</code>
-    </PropertyNotSetInConstructor>
   </file>
   <file src="src/TokensList.php">
     <RedundantConditionGivenDocblockType occurrences="1">
@@ -1443,9 +1272,9 @@
     <MixedArgument occurrences="1">
       <code>$this-&gt;options['delimiter']</code>
     </MixedArgument>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>$status</code>
-    </PropertyNotSetInConstructor>
+    <PossiblyNullOperand occurrences="1">
+      <code>$this-&gt;status</code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Utils/CLI.php">
     <InvalidNullableReturnType occurrences="1">
@@ -1549,7 +1378,9 @@
       <code>self::$INLINE_CLAUSES[$lastClause]</code>
       <code>self::$SHORT_CLAUSES[$lastClause]</code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion occurrences="3">
+    <MixedArrayTypeCoercion occurrences="5">
+      <code>Parser::$KEYWORD_PARSERS[$token-&gt;keyword]</code>
+      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
       <code>self::$INLINE_CLAUSES[$lastClause]</code>
       <code>self::$INLINE_CLAUSES[$lastClause]</code>
       <code>self::$SHORT_CLAUSES[$lastClause]</code>
@@ -1604,30 +1435,24 @@
     </RedundantCondition>
   </file>
   <file src="src/Utils/Misc.php">
-    <DocblockTypeContradiction occurrences="3">
+    <DocblockTypeContradiction occurrences="1">
       <code>! ($statement instanceof SelectStatement)</code>
-      <code>! isset($expr-&gt;column, $expr-&gt;alias)</code>
-      <code>! isset($expr-&gt;table)</code>
     </DocblockTypeContradiction>
-    <RedundantConditionGivenDocblockType occurrences="4">
-      <code>isset($expr-&gt;alias)</code>
-      <code>isset($expr-&gt;database)</code>
-      <code>isset($expr-&gt;database)</code>
-      <code>isset($expr-&gt;table)</code>
-    </RedundantConditionGivenDocblockType>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$tables[$thisDb]</code>
+    </PossiblyNullArrayOffset>
   </file>
   <file src="src/Utils/Query.php">
-    <DocblockTypeContradiction occurrences="3">
-      <code>! isset($expr-&gt;table)</code>
-      <code>! isset($expr-&gt;table, $expr-&gt;alias)</code>
-      <code>null</code>
-    </DocblockTypeContradiction>
+    <InvalidNullableReturnType occurrences="1">
+      <code>int</code>
+    </InvalidNullableReturnType>
     <InvalidOperand occurrences="2">
       <code>$i</code>
       <code>$i</code>
     </InvalidOperand>
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="7">
       <code>$clause[0]</code>
+      <code>$expr</code>
       <code>$ops[$count - 1][0]</code>
       <code>$ops[$i + 1][0]</code>
       <code>$ops[0][0]</code>
@@ -1647,43 +1472,59 @@
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="4">
+    <MixedArrayTypeCoercion occurrences="2">
+      <code>$clauses[$token-&gt;keyword]</code>
+      <code>$clauses[$token-&gt;keyword]</code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment occurrences="7">
       <code>$clause</code>
       <code>$currIdx</code>
+      <code>$expr</code>
+      <code>$expressions[]</code>
       <code>$firstClauseIdx</code>
       <code>$lastClauseIdx</code>
+      <code>$rename</code>
     </MixedAssignment>
     <MixedOperand occurrences="3">
       <code>$clause[1]</code>
       <code>$clauses[$type]</code>
       <code>$clauses[$type]</code>
     </MixedOperand>
-    <PossiblyInvalidArgument occurrences="1">
+    <MixedPropertyAssignment occurrences="2">
       <code>$expr</code>
-    </PossiblyInvalidArgument>
+      <code>$expr</code>
+    </MixedPropertyAssignment>
+    <MixedPropertyFetch occurrences="2">
+      <code>$expr-&gt;table</code>
+      <code>$rename-&gt;old</code>
+    </MixedPropertyFetch>
+    <NullableReturnStatement occurrences="1">
+      <code>$i</code>
+    </NullableReturnStatement>
     <PossiblyInvalidArrayOffset occurrences="1">
       <code>$ops[$i + 1]</code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyInvalidPropertyAssignment occurrences="2">
-      <code>$expr</code>
-      <code>$expr</code>
-    </PossiblyInvalidPropertyAssignment>
-    <PossiblyInvalidPropertyFetch occurrences="1">
-      <code>$expr-&gt;table</code>
-    </PossiblyInvalidPropertyFetch>
-    <PossiblyNullPropertyAssignmentValue occurrences="2">
-      <code>null</code>
-      <code>null</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PossiblyNullPropertyFetch occurrences="1">
+    <PossiblyNullArrayOffset occurrences="2">
+      <code>$list-&gt;tokens</code>
+      <code>$list-&gt;tokens</code>
+    </PossiblyNullArrayOffset>
+    <PossiblyNullIterator occurrences="2">
+      <code>$expressions</code>
+      <code>$statement-&gt;renames</code>
+    </PossiblyNullIterator>
+    <PossiblyNullOperand occurrences="2">
+      <code>$i</code>
+      <code>$i</code>
+    </PossiblyNullOperand>
+    <PossiblyNullPropertyFetch occurrences="2">
       <code>$lexer-&gt;list-&gt;getNextOfType(Token::TYPE_KEYWORD)-&gt;keyword</code>
+      <code>$statement-&gt;into-&gt;dest</code>
     </PossiblyNullPropertyFetch>
-    <RedundantConditionGivenDocblockType occurrences="4">
-      <code>$expr-&gt;database</code>
-      <code>isset($expr-&gt;database)</code>
-      <code>isset($expr-&gt;database)</code>
-      <code>isset($expr-&gt;table)</code>
-    </RedundantConditionGivenDocblockType>
+    <PossiblyNullReference occurrences="3">
+      <code>has</code>
+      <code>has</code>
+      <code>has</code>
+    </PossiblyNullReference>
   </file>
   <file src="src/Utils/Routine.php">
     <MixedArgumentTypeCoercion occurrences="6">
@@ -1709,11 +1550,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Utils/Table.php">
-    <DocblockTypeContradiction occurrences="3">
-      <code>! $field-&gt;options</code>
-      <code>$field-&gt;options</code>
-      <code>empty($field-&gt;type)</code>
-    </DocblockTypeContradiction>
     <MixedArgument occurrences="2">
       <code>$opt</code>
       <code>$opt</code>
@@ -1727,6 +1563,13 @@
       <code>$ret[$field-&gt;name]['default_value']</code>
       <code>$ret[$field-&gt;name]['expr']</code>
     </MixedAssignment>
+    <PossiblyNullArrayOffset occurrences="1">
+      <code>$ret</code>
+    </PossiblyNullArrayOffset>
+    <PossiblyNullReference occurrences="2">
+      <code>has</code>
+      <code>has</code>
+    </PossiblyNullReference>
   </file>
   <file src="src/Utils/Tokens.php">
     <InvalidReturnStatement occurrences="1">
@@ -1784,6 +1627,18 @@
       <code>$stmt-&gt;fields</code>
       <code>$stmt-&gt;fields</code>
     </PossiblyInvalidArgument>
+    <PossiblyNullArgument occurrences="2">
+      <code>$stmt-&gt;parameters</code>
+      <code>$stmt-&gt;parameters</code>
+    </PossiblyNullArgument>
+    <PossiblyNullReference occurrences="6">
+      <code>__toString</code>
+      <code>__toString</code>
+      <code>isEmpty</code>
+      <code>isEmpty</code>
+      <code>isEmpty</code>
+      <code>isEmpty</code>
+    </PossiblyNullReference>
   </file>
   <file src="tests/Components/ArrayObjTest.php">
     <MixedArgument occurrences="1">
@@ -1806,6 +1661,36 @@
       <code>$parser-&gt;statements[1]-&gt;fields[5]</code>
       <code>$parser-&gt;statements[1]-&gt;fields[6]</code>
     </MixedArgument>
+    <PossiblyNullArgument occurrences="6">
+      <code>$parser-&gt;statements[0]-&gt;fields[0]</code>
+      <code>$parser-&gt;statements[0]-&gt;fields[1]</code>
+      <code>$parser-&gt;statements[0]-&gt;fields[2]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[2]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[5]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[6]</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess occurrences="6">
+      <code>$parser-&gt;statements[0]-&gt;fields[0]</code>
+      <code>$parser-&gt;statements[0]-&gt;fields[1]</code>
+      <code>$parser-&gt;statements[0]-&gt;fields[2]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[2]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[5]</code>
+      <code>$parser-&gt;statements[1]-&gt;fields[6]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyFetch occurrences="3">
+      <code>$component[0]-&gt;type-&gt;name</code>
+      <code>$component[1]-&gt;key-&gt;name</code>
+      <code>$component[1]-&gt;key-&gt;type</code>
+    </PossiblyNullPropertyFetch>
+    <PossiblyNullReference occurrences="7">
+      <code>$parser-&gt;statements[0]-&gt;fields</code>
+      <code>$parser-&gt;statements[0]-&gt;fields</code>
+      <code>$parser-&gt;statements[0]-&gt;fields</code>
+      <code>$parser-&gt;statements[1]-&gt;fields</code>
+      <code>$parser-&gt;statements[1]-&gt;fields</code>
+      <code>$parser-&gt;statements[1]-&gt;fields</code>
+      <code>has</code>
+    </PossiblyNullReference>
     <UndefinedMethod occurrences="6">
       <code>$parser-&gt;statements[0]-&gt;fields</code>
       <code>$parser-&gt;statements[0]-&gt;fields</code>
@@ -1876,6 +1761,16 @@
       <code>array</code>
     </MixedInferredReturnType>
   </file>
+  <file src="tests/Parser/LoadStatementTest.php">
+    <PossiblyNullReference occurrences="1">
+      <code>has</code>
+    </PossiblyNullReference>
+  </file>
+  <file src="tests/Parser/SelectStatementTest.php">
+    <PossiblyNullReference occurrences="1">
+      <code>has</code>
+    </PossiblyNullReference>
+  </file>
   <file src="tests/Parser/WithStatementTest.php">
     <InvalidArgument occurrences="1">
       <code>new stdClass()</code>
@@ -1945,6 +1840,24 @@
     <MixedInferredReturnType occurrences="1">
       <code>array</code>
     </MixedInferredReturnType>
+    <PossiblyNullArgument occurrences="16">
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+    </PossiblyNullArgument>
     <UnusedVariable occurrences="3">
       <code>$delimiter</code>
       <code>$delimiter</code>

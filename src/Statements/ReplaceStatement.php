@@ -56,14 +56,14 @@ class ReplaceStatement extends Statement
     /**
      * Tables used as target for this statement.
      *
-     * @var IntoKeyword
+     * @var IntoKeyword|null
      */
     public $into;
 
     /**
      * Values to be replaced.
      *
-     * @var Array2d
+     * @var Array2d|null
      */
     public $values;
 
@@ -71,7 +71,7 @@ class ReplaceStatement extends Statement
      * If SET clause is present
      * holds the SetOperation.
      *
-     * @var SetOperation[]
+     * @var SetOperation[]|null
      */
     public $set;
 
@@ -79,7 +79,7 @@ class ReplaceStatement extends Statement
      * If SELECT clause is present
      * holds the SelectStatement.
      *
-     * @var SelectStatement
+     * @var SelectStatement|null
      */
     public $select;
 

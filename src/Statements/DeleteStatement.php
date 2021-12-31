@@ -106,49 +106,49 @@ class DeleteStatement extends Statement
     /**
      * Table(s) used as sources for this statement.
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $from;
 
     /**
      * Joins.
      *
-     * @var JoinKeyword[]
+     * @var JoinKeyword[]|null
      */
     public $join;
 
     /**
      * Tables used as sources for this statement.
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $using;
 
     /**
      * Columns used in this statement.
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $columns;
 
     /**
      * Partitions used as source for this statement.
      *
-     * @var ArrayObj
+     * @var ArrayObj|null
      */
     public $partition;
 
     /**
      * Conditions used for filtering each row of the result set.
      *
-     * @var Condition[]
+     * @var Condition[]|null
      */
     public $where;
 
     /**
      * Specifies the order of the rows in the result set.
      *
-     * @var OrderKeyword[]
+     * @var OrderKeyword[]|null
      */
     public $order;
 

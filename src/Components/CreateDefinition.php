@@ -110,51 +110,51 @@ class CreateDefinition extends Component
     /**
      * The name of the new column.
      *
-     * @var string
+     * @var string|null
      */
     public $name;
 
     /**
      * Whether this field is a constraint or not.
      *
-     * @var bool
+     * @var bool|null
      */
     public $isConstraint;
 
     /**
      * The data type of thew new column.
      *
-     * @var DataType
+     * @var DataType|null
      */
     public $type;
 
     /**
      * The key.
      *
-     * @var Key
+     * @var Key|null
      */
     public $key;
 
     /**
      * The table that is referenced.
      *
-     * @var Reference
+     * @var Reference|null
      */
     public $references;
 
     /**
      * The options of this field.
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $options;
 
     /**
-     * @param string       $name         the name of the field
-     * @param OptionsArray $options      the options of this field
-     * @param DataType|Key $type         the data type of this field or the key
-     * @param bool         $isConstraint whether this field is a constraint or not
-     * @param Reference    $references   references
+     * @param string|null       $name         the name of the field
+     * @param OptionsArray|null $options      the options of this field
+     * @param DataType|Key|null $type         the data type of this field or the key
+     * @param bool              $isConstraint whether this field is a constraint or not
+     * @param Reference|null    $references   references
      */
     public function __construct(
         $name = null,

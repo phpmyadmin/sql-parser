@@ -95,28 +95,28 @@ class LoadStatement extends Statement
     /**
      * File name being used to load data.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $file_name;
 
     /**
      * Table used as destination for this statement.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $table;
 
     /**
      * Partitions used as source for this statement.
      *
-     * @var ArrayObj
+     * @var ArrayObj|null
      */
     public $partition;
 
     /**
      * Character set used in this statement.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $charset_name;
 
@@ -125,14 +125,14 @@ class LoadStatement extends Statement
      *
      * @see static::$FIELDS_OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $fields_options;
 
     /**
      * Whether to use `FIELDS` or `COLUMNS` while building.
      *
-     * @var string
+     * @var string|null
      */
     public $fields_keyword;
 
@@ -141,42 +141,42 @@ class LoadStatement extends Statement
      *
      * @see static::$LINES_OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $lines_options;
 
     /**
      * Column names or user variables.
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $col_name_or_user_var;
 
     /**
      * SET clause's updated values(optional).
      *
-     * @var SetOperation[]
+     * @var SetOperation[]|null
      */
     public $set;
 
     /**
      * Ignore 'number' LINES/ROWS.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $ignore_number;
 
     /**
      * REPLACE/IGNORE Keyword.
      *
-     * @var string
+     * @var string|null
      */
     public $replace_ignore;
 
     /**
      * LINES/ROWS Keyword.
      *
-     * @var string
+     * @var string|null
      */
     public $lines_rows;
 

@@ -25,7 +25,7 @@ class CaseExpression extends Component
     /**
      * The value to be compared.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $value;
 
@@ -53,14 +53,14 @@ class CaseExpression extends Component
     /**
      * The result in ELSE section of expr.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $else_result;
 
     /**
      * The alias of this CASE statement.
      *
-     * @var string
+     * @var string|null
      */
     public $alias;
 

@@ -52,35 +52,35 @@ class Expression extends Component
     /**
      * The name of this database.
      *
-     * @var string
+     * @var string|null
      */
     public $database;
 
     /**
      * The name of this table.
      *
-     * @var string
+     * @var string|null
      */
     public $table;
 
     /**
      * The name of the column.
      *
-     * @var string
+     * @var string|null
      */
     public $column;
 
     /**
      * The sub-expression.
      *
-     * @var string
+     * @var string|null
      */
     public $expr = '';
 
     /**
      * The alias of this expression.
      *
-     * @var string
+     * @var string|null
      */
     public $alias;
 
@@ -94,7 +94,7 @@ class Expression extends Component
     /**
      * The type of subquery.
      *
-     * @var string
+     * @var string|null
      */
     public $subquery;
 
@@ -108,12 +108,10 @@ class Expression extends Component
      * If the database, table or column name is not required, pass an empty
      * string.
      *
-     * @param string $database The name of the database or the the expression.
-     *                         the the expression.
-     * @param string $table    The name of the table or the alias of the expression.
-     *                         the alias of the expression.
-     * @param string $column   the name of the column
-     * @param string $alias    the name of the alias
+     * @param string|null $database The name of the database or the expression.
+     * @param string|null $table    The name of the table or the alias of the expression.
+     * @param string|null $column   the name of the column
+     * @param string|null $alias    the name of the alias
      */
     public function __construct($database = null, $table = null, $column = null, $alias = null)
     {

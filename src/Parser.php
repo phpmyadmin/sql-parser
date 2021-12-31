@@ -338,7 +338,7 @@ class Parser extends Core
     /**
      * The list of tokens that are parsed.
      *
-     * @var TokensList
+     * @var TokensList|null
      */
     public $list;
 
@@ -357,8 +357,8 @@ class Parser extends Core
     public $brackets = 0;
 
     /**
-     * @param string|UtfString|TokensList $list   the list of tokens to be parsed
-     * @param bool                        $strict whether strict mode should be enabled or not
+     * @param string|UtfString|TokensList|null $list   the list of tokens to be parsed
+     * @param bool                             $strict whether strict mode should be enabled or not
      */
     public function __construct($list = null, $strict = false)
     {

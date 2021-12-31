@@ -24,7 +24,7 @@ final class WithKeyword extends Component
     /** @var ArrayObj[] */
     public $columns = [];
 
-    /** @var Parser */
+    /** @var Parser|null */
     public $statement;
 
     public function __construct(string $name)

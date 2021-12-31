@@ -62,28 +62,28 @@ class IntoKeyword extends Component
     /**
      * Type of target (OUTFILE or SYMBOL).
      *
-     * @var string
+     * @var string|null
      */
     public $type;
 
     /**
      * The destination, which can be a table or a file.
      *
-     * @var string|Expression
+     * @var string|Expression|null
      */
     public $dest;
 
     /**
      * The name of the columns.
      *
-     * @var array
+     * @var array|null
      */
     public $columns;
 
     /**
      * The values to be selected into (SELECT .. INTO @var1).
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $values;
 
@@ -92,14 +92,14 @@ class IntoKeyword extends Component
      *
      * @see static::$FIELDS_OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $fields_options;
 
     /**
      * Whether to use `FIELDS` or `COLUMNS` while building.
      *
-     * @var bool
+     * @var bool|null
      */
     public $fields_keyword;
 
@@ -108,17 +108,17 @@ class IntoKeyword extends Component
      *
      * @see static::$LINES_OPTIONS
      *
-     * @var OptionsArray
+     * @var OptionsArray|null
      */
     public $lines_options;
 
     /**
-     * @param string            $type          type of destination (may be OUTFILE)
-     * @param string|Expression $dest          actual destination
-     * @param array             $columns       column list of destination
-     * @param array             $values        selected fields
-     * @param OptionsArray      $fieldsOptions options for FIELDS/COLUMNS keyword
-     * @param bool              $fieldsKeyword options for OPTIONS keyword
+     * @param string|null            $type          type of destination (may be OUTFILE)
+     * @param string|Expression|null $dest          actual destination
+     * @param array|null             $columns       column list of destination
+     * @param array|null             $values        selected fields
+     * @param OptionsArray|null      $fieldsOptions options for FIELDS/COLUMNS keyword
+     * @param bool|null              $fieldsKeyword options for OPTIONS keyword
      */
     public function __construct(
         $type = null,

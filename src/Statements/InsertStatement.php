@@ -71,7 +71,7 @@ class InsertStatement extends Statement
     /**
      * Tables used as target for this statement.
      *
-     * @var IntoKeyword
+     * @var IntoKeyword|null
      */
     public $into;
 
@@ -86,7 +86,7 @@ class InsertStatement extends Statement
      * If SET clause is present
      * holds the SetOperation.
      *
-     * @var SetOperation[]
+     * @var SetOperation[]|null
      */
     public $set;
 
@@ -94,7 +94,7 @@ class InsertStatement extends Statement
      * If SELECT clause is present
      * holds the SelectStatement.
      *
-     * @var SelectStatement
+     * @var SelectStatement|null
      */
     public $select;
 
@@ -110,7 +110,7 @@ class InsertStatement extends Statement
      * If ON DUPLICATE KEY UPDATE clause is present
      * holds the SetOperation.
      *
-     * @var SetOperation[]
+     * @var SetOperation[]|null
      */
     public $onDuplicateSet;
 

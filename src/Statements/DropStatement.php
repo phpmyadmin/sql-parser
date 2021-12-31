@@ -70,14 +70,14 @@ class DropStatement extends Statement
     /**
      * Dropped elements.
      *
-     * @var Expression[]
+     * @var Expression[]|null
      */
     public $fields;
 
     /**
      * Table of the dropped index.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $table;
 }

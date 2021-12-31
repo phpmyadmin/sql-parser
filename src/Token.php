@@ -168,7 +168,7 @@ class Token
     /**
      * The keyword value this token contains, always uppercase.
      *
-     * @var mixed
+     * @var mixed|string|null
      */
     public $keyword;
 
@@ -192,7 +192,7 @@ class Token
      * The position is counted in chars, not bytes, so you should
      * use mb_* functions to properly handle utf-8 multibyte chars.
      *
-     * @var int
+     * @var int|null
      */
     public $position;
 

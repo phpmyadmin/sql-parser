@@ -151,7 +151,7 @@ parameters:
 			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
@@ -166,27 +166,7 @@ parameters:
 			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$else_result \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: src/Components/CaseExpression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$else_result \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$results type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$value \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$value \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in isset\\(\\) is not nullable\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
@@ -246,48 +226,8 @@ parameters:
 			path: src/Components/CreateDefinition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$key \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\) in empty\\(\\) is not falsy\\.$#"
-			count: 3
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 2
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$references \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\|null\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$references \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) in empty\\(\\) is not falsy\\.$#"
-			count: 3
 			path: src/Components/CreateDefinition.php
 
 		-
@@ -371,57 +311,12 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 3
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept string\\|null\\.$#"
-			count: 2
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) does not accept null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$expr \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$subquery \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$subquery \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
@@ -446,6 +341,21 @@ parameters:
 			path: src/Components/ExpressionArray.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Components/ExpressionArray.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function substr expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Components/ExpressionArray.php
+
+		-
+			message: "#^Parameter \\#2 \\$subject of function preg_match expects string, string\\|null given\\.$#"
+			count: 1
+			path: src/Components/ExpressionArray.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/FunctionCall.php
@@ -461,17 +371,12 @@ parameters:
 			path: src/Components/FunctionCall.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/FunctionCall.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/FunctionCall.php
 
@@ -556,6 +461,11 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
+			count: 2
+			path: src/Components/IntoKeyword.php
+
+		-
 			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: src/Components/IntoKeyword.php
@@ -571,52 +481,12 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$columns \\(array\\) does not accept array\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$fields_keyword \\(bool\\) does not accept bool\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$fields_options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$values \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept array\\|null\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$values \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) in isset\\(\\) is not nullable\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
@@ -981,14 +851,14 @@ parameters:
 			path: src/Components/SetOperation.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:\\$value \\(string\\) does not accept string\\|null\\.$#"
+			count: 1
+			path: src/Components/SetOperation.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/UnionKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword\\:\\:\\$statement \\(PhpMyAdmin\\\\SqlParser\\\\Parser\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Components/WithKeyword.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) has parameter \\$str with no value type specified in iterable type array\\.$#"
@@ -1046,8 +916,33 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Cannot access property \\$count on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: "#^Cannot access property \\$idx on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
+			count: 7
+			path: src/Parser.php
+
+		-
+			message: "#^Cannot access property \\$tokens on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: "#^Cannot call method getNextOfType\\(\\) on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
+			count: 2
+			path: src/Parser.php
+
+		-
 			message: "#^Parameter \\#1 \\$msg \\(string\\) of method PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:error\\(\\) should be compatible with parameter \\$error \\(Exception\\) of method PhpMyAdmin\\\\SqlParser\\\\Core\\:\\:error\\(\\)$#"
 			count: 1
+			path: src/Parser.php
+
+		-
+			message: "#^Parameter \\#2 \\$list of method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:validateClauseOrder\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
+			count: 3
 			path: src/Parser.php
 
 		-
@@ -1096,12 +991,22 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Statements/AlterStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null given\\.$#"
+			count: 1
+			path: src/Statements/AlterStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
+			count: 1
+			path: src/Statements/AlterStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/AlterStatement.php
 
@@ -1116,8 +1021,13 @@ parameters:
 			path: src/Statements/BackupStatement.php
 
 		-
-			message: "#^Ternary operator condition is always true\\.$#"
+			message: "#^Cannot access property \\$name on PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\|null\\.$#"
 			count: 1
+			path: src/Statements/CallStatement.php
+
+		-
+			message: "#^Cannot access property \\$parameters on PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\|null\\.$#"
+			count: 2
 			path: src/Statements/CallStatement.php
 
 		-
@@ -1138,6 +1048,31 @@ parameters:
 		-
 			message: "#^Cannot assign new offset to array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\.$#"
 			count: 4
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 8
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType, PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null given\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null given\\.$#"
+			count: 10
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
+			count: 14
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
+			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
@@ -1166,47 +1101,22 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$fields \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$fields \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$like \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitionsNum \\(int\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitionsNum \\(int\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$return \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -1221,17 +1131,22 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Statements/DeleteStatement.php
+
+		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\> given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) does not accept null\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, mixed given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
@@ -1296,29 +1211,14 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$charset_name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$partition \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$file_name \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Cannot call method merge\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$ignore_number \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$partition \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
+			path: src/Statements/MaintenanceStatement.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\OptimizeStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
@@ -1331,22 +1231,22 @@ parameters:
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_expr \\(string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_expr \\(string\\|null\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_option \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_option \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$log_type \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$log_type \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/RenameStatement.php
 
@@ -1371,7 +1271,7 @@ parameters:
 			path: src/Statements/ReplaceStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$values \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$values \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
@@ -1396,12 +1296,22 @@ parameters:
 			path: src/Statements/SelectStatement.php
 
 		-
-			message: "#^PHPDoc type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\> of property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$options is not covariant with PHPDoc type PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray of overridden property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$options\\.$#"
+			message: "#^PHPDoc type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\>\\|null of property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$options is not covariant with PHPDoc type PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null of overridden property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$options\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
+			count: 1
+			path: src/Statements/SetStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\>\\|null given\\.$#"
+			count: 1
+			path: src/Statements/SetStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
@@ -1424,6 +1334,26 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ShowStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/ShowStatement.php
+
+		-
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Statement\\>\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Statements/TransactionStatement.php
+
+		-
+			message: "#^Cannot call method build\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\|null\\.$#"
+			count: 1
+			path: src/Statements/TransactionStatement.php
+
+		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 4
+			path: src/Statements/TransactionStatement.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
+			count: 1
+			path: src/Statements/TransactionStatement.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
@@ -1691,24 +1621,29 @@ parameters:
 			path: src/Utils/Misc.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 2
-			path: src/Utils/Misc.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$column \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			message: "#^Access to an undefined property object\\:\\:\\$alias\\.$#"
 			count: 1
-			path: src/Utils/Misc.php
+			path: src/Utils/Query.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 2
-			path: src/Utils/Misc.php
+			message: "#^Access to an undefined property object\\:\\:\\$expr\\.$#"
+			count: 1
+			path: src/Utils/Query.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 2
-			path: src/Utils/Misc.php
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Cannot access property \\$dest on PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\|null\\.$#"
+			count: 1
+			path: src/Utils/Query.php
 
 		-
 			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
@@ -1716,7 +1651,17 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 4
+			path: src/Utils/Query.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getAll\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClauseStartOffset\\(\\) should return int but returns int\\|null\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
@@ -1741,37 +1686,7 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) does not accept null\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 2
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$database \\(string\\) on left side of \\?\\? is not nullable\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$expr \\(string\\) does not accept null\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$table \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 3
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$into \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\) in empty\\(\\) is not falsy\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, object given\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
@@ -1791,6 +1706,11 @@ parameters:
 			path: src/Utils/Routine.php
 
 		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 2
+			path: src/Utils/Table.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Table.php
@@ -1801,28 +1721,8 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
-			message: "#^Negated boolean expression is always false\\.$#"
-			count: 1
-			path: src/Utils/Table.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
 			count: 2
-			path: src/Utils/Table.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$key \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
-			path: src/Utils/Table.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$references \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
-			path: src/Utils/Table.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
 			path: src/Utils/Table.php
 
 		-
@@ -1851,12 +1751,32 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
+			message: "#^Cannot call method __toString\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Cannot call method __toString\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 4
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Cannot call method isEmpty\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 4
+			path: tests/Builder/CreateStatementTest.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:partitionQueriesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Builder/CreateStatementTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null given\\.$#"
+			count: 2
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
 			count: 2
 			path: tests/Builder/CreateStatementTest.php
 
@@ -1881,28 +1801,48 @@ parameters:
 			path: tests/Components/ArrayObjTest.php
 
 		-
-			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
 			count: 1
 			path: tests/Components/CreateDefinitionTest.php
 
 		-
-			message: "#^Cannot access offset 1 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Cannot access offset 1 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
 			count: 1
 			path: tests/Components/CreateDefinitionTest.php
 
 		-
-			message: "#^Cannot access offset 2 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Cannot access offset 2 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
 			count: 2
 			path: tests/Components/CreateDefinitionTest.php
 
 		-
-			message: "#^Cannot access offset 5 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Cannot access offset 5 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
 			count: 1
 			path: tests/Components/CreateDefinitionTest.php
 
 		-
-			message: "#^Cannot access offset 6 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Cannot access offset 6 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
 			count: 1
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Cannot access property \\$name on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
+			count: 1
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Cannot access property \\$name on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\|null\\.$#"
+			count: 1
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\|null\\.$#"
+			count: 1
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 2
 			path: tests/Components/CreateDefinitionTest.php
 
 		-
@@ -1974,6 +1914,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$str of class PhpMyAdmin\\\\SqlParser\\\\UtfString constructor expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Misc/UtfStringTest.php
+
+		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: tests/Parser/LoadStatementTest.php
+
+		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: tests/Parser/SelectStatementTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword, stdClass given\\.$#"
@@ -2078,6 +2028,21 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
 			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
+			count: 9
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
+			count: 4
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClauses\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
+			count: 3
 			path: tests/Utils/QueryTest.php
 
 		-

@@ -24,7 +24,7 @@ class RenameStatement extends Statement
     /**
      * The old and new names of the tables.
      *
-     * @var RenameOperation[]
+     * @var RenameOperation[]|null
      */
     public $renames;
 

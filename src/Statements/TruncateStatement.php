@@ -25,7 +25,7 @@ class TruncateStatement extends Statement
     /**
      * The name of the truncated table.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $table;
 
