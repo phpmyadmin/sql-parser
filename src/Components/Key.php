@@ -23,7 +23,7 @@ use function trim;
  *
  * @final
  */
-class Key extends Component
+class Key implements Component
 {
     /**
      * All key options.
@@ -304,5 +304,10 @@ class Key extends Component
         $ret .= '(' . implode(',', $columns) . ') ' . $component->options;
 
         return trim($ret);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

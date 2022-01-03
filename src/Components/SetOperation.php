@@ -21,7 +21,7 @@ use function trim;
  *
  * @final
  */
-class SetOperation extends Component
+class SetOperation implements Component
 {
     /**
      * The name of the column that is being updated.
@@ -157,5 +157,10 @@ class SetOperation extends Component
         }
 
         return $component->column . ' = ' . $component->value;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

@@ -21,7 +21,7 @@ use function trim;
  *
  * @final
  */
-class GroupKeyword extends Component
+class GroupKeyword implements Component
 {
     /** @var mixed */
     public $type;
@@ -129,5 +129,10 @@ class GroupKeyword extends Component
         }
 
         return trim((string) $component->expr);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
-  <file src="src/Component.php">
-    <MixedReturnStatement occurrences="1">
-      <code>static::build($this)</code>
-    </MixedReturnStatement>
-  </file>
+<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
   <file src="src/Components/AlterOperation.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$component-&gt;field !== ''</code>
@@ -31,6 +26,9 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/Array2d.php">
+    <InvalidArgument occurrences="1">
+      <code>$this</code>
+    </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
       <code>$ret</code>
     </InvalidReturnStatement>
@@ -103,6 +101,9 @@
     </PossiblyInvalidOperand>
   </file>
   <file src="src/Components/Condition.php">
+    <InvalidArgument occurrences="1">
+      <code>$this</code>
+    </InvalidArgument>
     <MixedArgument occurrences="1">
       <code>$token-&gt;value</code>
     </MixedArgument>
@@ -208,6 +209,9 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/ExpressionArray.php">
+    <InvalidArgument occurrences="1">
+      <code>$this</code>
+    </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
       <code>$ret</code>
     </InvalidReturnStatement>
@@ -300,6 +304,9 @@
     <DocblockTypeContradiction occurrences="1">
       <code>''</code>
     </DocblockTypeContradiction>
+    <InvalidArgument occurrences="1">
+      <code>$this</code>
+    </InvalidArgument>
     <MixedArrayOffset occurrences="4">
       <code>static::$JOINS[$token-&gt;keyword]</code>
       <code>static::$JOINS[$token-&gt;keyword]</code>
@@ -486,6 +493,9 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/ParameterDefinition.php">
+    <InvalidArgument occurrences="1">
+      <code>$this</code>
+    </InvalidArgument>
     <MixedArgument occurrences="1">
       <code>$component-&gt;name</code>
     </MixedArgument>
@@ -585,6 +595,9 @@
     </RedundantCondition>
   </file>
   <file src="src/Components/UnionKeyword.php">
+    <InvalidArgument occurrences="1">
+      <code>$this</code>
+    </InvalidArgument>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>

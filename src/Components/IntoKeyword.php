@@ -20,7 +20,7 @@ use function trim;
  *
  * @final
  */
-class IntoKeyword extends Component
+class IntoKeyword implements Component
 {
     /**
      * FIELDS/COLUMNS Options for `SELECT...INTO` statements.
@@ -295,5 +295,10 @@ class IntoKeyword extends Component
         }
 
         return $ret;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

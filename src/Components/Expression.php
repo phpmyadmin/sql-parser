@@ -26,7 +26,7 @@ use function trim;
  *
  * @final
  */
-class Expression extends Component
+class Expression implements Component
 {
     /**
      * List of allowed reserved keywords in expressions.
@@ -465,5 +465,10 @@ class Expression extends Component
         }
 
         return $ret;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

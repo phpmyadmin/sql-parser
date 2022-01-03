@@ -17,7 +17,7 @@ use PhpMyAdmin\SqlParser\TokensList;
  *
  * @final
  */
-class Limit extends Component
+class Limit implements Component
 {
     /**
      * The number of rows skipped.
@@ -122,5 +122,10 @@ class Limit extends Component
     public static function build($component, array $options = [])
     {
         return $component->offset . ', ' . $component->rowCount;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

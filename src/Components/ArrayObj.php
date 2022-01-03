@@ -22,7 +22,7 @@ use function trim;
  *
  * @final
  */
-class ArrayObj extends Component
+class ArrayObj implements Component
 {
     /**
      * The array that contains the unprocessed value of each token.
@@ -180,5 +180,10 @@ class ArrayObj extends Component
         }
 
         return '(' . implode(', ', $component->values) . ')';
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

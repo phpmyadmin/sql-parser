@@ -22,7 +22,7 @@ use function is_string;
  *
  * @final
  */
-class AlterOperation extends Component
+class AlterOperation implements Component
 {
     /**
      * All database options.
@@ -428,5 +428,10 @@ class AlterOperation extends Component
     private static function checkIfTokenQuotedSymbol($token)
     {
         return $token->type === Token::TYPE_SYMBOL && $token->flags === Token::FLAG_SYMBOL_BACKTICK;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

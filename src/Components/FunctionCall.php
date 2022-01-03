@@ -19,7 +19,7 @@ use function is_array;
  *
  * @final
  */
-class FunctionCall extends Component
+class FunctionCall implements Component
 {
     /**
      * The name of this function.
@@ -113,5 +113,10 @@ class FunctionCall extends Component
     public static function build($component, array $options = [])
     {
         return $component->name . $component->parameters;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

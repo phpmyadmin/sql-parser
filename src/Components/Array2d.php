@@ -21,7 +21,7 @@ use function sprintf;
  *
  * @final
  */
-class Array2d extends Component
+class Array2d implements Component
 {
     /**
      * @param Parser     $parser  the parser that serves as context
@@ -125,5 +125,10 @@ class Array2d extends Component
     public static function build($component, array $options = [])
     {
         return ArrayObj::build($component);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

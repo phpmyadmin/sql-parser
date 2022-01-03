@@ -22,7 +22,7 @@ use function trim;
  *
  * @final
  */
-class DataType extends Component
+class DataType implements Component
 {
     /**
      * All data type options.
@@ -173,5 +173,10 @@ class DataType extends Component
         }
 
         return trim($name . $parameters . ' ' . $component->options);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

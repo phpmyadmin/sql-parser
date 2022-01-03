@@ -22,7 +22,7 @@ use function trim;
  *
  * @final
  */
-class Condition extends Component
+class Condition implements Component
 {
     /**
      * Logical operators that can be used to delimit expressions.
@@ -238,5 +238,10 @@ class Condition extends Component
         }
 
         return $component->expr;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

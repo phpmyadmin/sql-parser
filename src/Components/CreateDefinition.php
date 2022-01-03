@@ -26,7 +26,7 @@ use function trim;
  *
  * @final
  */
-class CreateDefinition extends Component
+class CreateDefinition implements Component
 {
     /**
      * All field options.
@@ -357,5 +357,10 @@ class CreateDefinition extends Component
         $tmp .= $component->options;
 
         return trim($tmp);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

@@ -20,7 +20,7 @@ use function implode;
  *
  * @final
  */
-class JoinKeyword extends Component
+class JoinKeyword implements Component
 {
     /**
      * Types of join.
@@ -220,5 +220,10 @@ class JoinKeyword extends Component
         }
 
         return implode(' ', $ret);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

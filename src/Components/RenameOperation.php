@@ -20,7 +20,7 @@ use function is_array;
  *
  * @final
  */
-class RenameOperation extends Component
+class RenameOperation implements Component
 {
     /**
      * The old table name.
@@ -166,5 +166,10 @@ class RenameOperation extends Component
         }
 
         return $component->old . ' TO ' . $component->new;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

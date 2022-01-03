@@ -20,7 +20,7 @@ use function is_array;
  *
  * @final
  */
-class OrderKeyword extends Component
+class OrderKeyword implements Component
 {
     /**
      * The expression that is used for ordering.
@@ -134,5 +134,10 @@ class OrderKeyword extends Component
         }
 
         return $component->expr . ' ' . $component->type;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

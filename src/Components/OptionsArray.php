@@ -27,7 +27,7 @@ use function strtoupper;
  *
  * @final
  */
-class OptionsArray extends Component
+class OptionsArray implements Component
 {
     /**
      * ArrayObj of selected options.
@@ -382,5 +382,10 @@ class OptionsArray extends Component
     public function isEmpty()
     {
         return empty($this->options);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

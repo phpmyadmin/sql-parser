@@ -20,7 +20,7 @@ use function count;
  *
  * @final
  */
-class CaseExpression extends Component
+class CaseExpression implements Component
 {
     /**
      * The value to be compared.
@@ -302,5 +302,10 @@ class CaseExpression extends Component
         }
 
         return $ret;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }
