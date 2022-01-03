@@ -17,10 +17,8 @@ use function trim;
 
 /**
  * `INTO` keyword parser.
- *
- * @final
  */
-class IntoKeyword implements Component
+final class IntoKeyword implements Component
 {
     /**
      * FIELDS/COLUMNS Options for `SELECT...INTO` statements.

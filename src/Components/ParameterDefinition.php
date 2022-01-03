@@ -19,10 +19,8 @@ use function trim;
 
 /**
  * The definition of a parameter of a function or procedure.
- *
- * @final
  */
-class ParameterDefinition implements Component
+final class ParameterDefinition implements Component
 {
     /**
      * The name of the new column.

@@ -17,10 +17,8 @@ use function is_array;
 
 /**
  * Parses a reference to a LOCK expression.
- *
- * @final
  */
-class LockExpression implements Component
+final class LockExpression implements Component
 {
     /**
      * The table to be locked.

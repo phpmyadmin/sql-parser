@@ -17,10 +17,8 @@ use function count;
 
 /**
  * Parses a reference to a CASE expression.
- *
- * @final
  */
-class CaseExpression implements Component
+final class CaseExpression implements Component
 {
     /**
      * The value to be compared.

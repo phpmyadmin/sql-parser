@@ -19,10 +19,8 @@ use function trim;
 
 /**
  * Parses a data type.
- *
- * @final
  */
-class DataType implements Component
+final class DataType implements Component
 {
     /**
      * All data type options.

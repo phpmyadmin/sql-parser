@@ -18,10 +18,8 @@ use function sprintf;
 
 /**
  * `VALUES` keyword parser.
- *
- * @final
  */
-class Array2d implements Component
+final class Array2d implements Component
 {
     /**
      * @param Parser     $parser  the parser that serves as context

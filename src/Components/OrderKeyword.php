@@ -17,10 +17,8 @@ use function is_array;
 
 /**
  * `ORDER BY` keyword parser.
- *
- * @final
  */
-class OrderKeyword implements Component
+final class OrderKeyword implements Component
 {
     /**
      * The expression that is used for ordering.

@@ -24,10 +24,8 @@ use function strtoupper;
 
 /**
  * Parses a list of options.
- *
- * @final
  */
-class OptionsArray implements Component
+final class OptionsArray implements Component
 {
     /**
      * ArrayObj of selected options.

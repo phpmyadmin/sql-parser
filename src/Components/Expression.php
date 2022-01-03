@@ -23,10 +23,8 @@ use function trim;
 /**
  * Parses a reference to an expression (column, table or database name, function
  * call, mathematical expression, etc.).
- *
- * @final
  */
-class Expression implements Component
+final class Expression implements Component
 {
     /**
      * List of allowed reserved keywords in expressions.

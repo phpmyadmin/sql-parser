@@ -22,10 +22,8 @@ use function substr;
 
 /**
  * Parses a list of expressions delimited by a comma.
- *
- * @final
  */
-class ExpressionArray implements Component
+final class ExpressionArray implements Component
 {
     /**
      * @param Parser     $parser  the parser that serves as context

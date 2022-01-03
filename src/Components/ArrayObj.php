@@ -19,10 +19,8 @@ use function trim;
 
 /**
  * Parses an array.
- *
- * @final
  */
-class ArrayObj implements Component
+final class ArrayObj implements Component
 {
     /**
      * The array that contains the unprocessed value of each token.

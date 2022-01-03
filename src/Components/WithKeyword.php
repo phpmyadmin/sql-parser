@@ -15,8 +15,6 @@ use RuntimeException;
 
 /**
  * `WITH` keyword builder.
- *
- * @final
  */
 final class WithKeyword implements Component
 {

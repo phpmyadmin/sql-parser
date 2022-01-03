@@ -17,10 +17,8 @@ use function implode;
 
 /**
  * `UNION` keyword builder.
- *
- * @final
  */
-class UnionKeyword implements Component
+final class UnionKeyword implements Component
 {
     /**
      * Parses the tokens contained in the given list in the context of the given parser.

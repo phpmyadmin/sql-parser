@@ -17,10 +17,8 @@ use function is_array;
 
 /**
  * Parses an Index hint.
- *
- * @final
  */
-class IndexHint implements Component
+final class IndexHint implements Component
 {
     /**
      * The type of hint (USE/FORCE/IGNORE)

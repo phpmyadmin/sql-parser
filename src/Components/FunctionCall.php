@@ -16,10 +16,8 @@ use function is_array;
 
 /**
  * Parses a function call.
- *
- * @final
  */
-class FunctionCall implements Component
+final class FunctionCall implements Component
 {
     /**
      * The name of this function.

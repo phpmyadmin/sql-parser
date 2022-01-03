@@ -17,10 +17,8 @@ use function implode;
 
 /**
  * `JOIN` keyword parser.
- *
- * @final
  */
-class JoinKeyword implements Component
+final class JoinKeyword implements Component
 {
     /**
      * Types of join.

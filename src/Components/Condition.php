@@ -19,10 +19,8 @@ use function trim;
 
 /**
  * `WHERE` keyword parser.
- *
- * @final
  */
-class Condition implements Component
+final class Condition implements Component
 {
     /**
      * Logical operators that can be used to delimit expressions.

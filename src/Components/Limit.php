@@ -14,10 +14,8 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `LIMIT` keyword parser.
- *
- * @final
  */
-class Limit implements Component
+final class Limit implements Component
 {
     /**
      * The number of rows skipped.

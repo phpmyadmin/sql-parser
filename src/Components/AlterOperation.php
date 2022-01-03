@@ -19,10 +19,8 @@ use function is_string;
 
 /**
  * Parses an alter operation.
- *
- * @final
  */
-class AlterOperation implements Component
+final class AlterOperation implements Component
 {
     /**
      * All database options.

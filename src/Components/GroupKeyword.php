@@ -18,10 +18,8 @@ use function trim;
 
 /**
  * `GROUP BY` keyword parser.
- *
- * @final
  */
-class GroupKeyword implements Component
+final class GroupKeyword implements Component
 {
     /** @var mixed */
     public $type;

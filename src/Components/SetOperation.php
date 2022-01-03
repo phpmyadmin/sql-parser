@@ -18,10 +18,8 @@ use function trim;
 
 /**
  * `SET` keyword parser.
- *
- * @final
  */
-class SetOperation implements Component
+final class SetOperation implements Component
 {
     /**
      * The name of the column that is being updated.
