@@ -54,7 +54,12 @@
             "PhpMyAdmin\\SqlParser\\Tests\\": "tests"
         }
     },
-    "config":{
-        "sort-packages": true
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
+        }
     }
 }
