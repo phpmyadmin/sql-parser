@@ -22,7 +22,7 @@ use function trim;
  *
  * @final
  */
-class ParameterDefinition extends Component
+class ParameterDefinition implements Component
 {
     /**
      * The name of the new column.
@@ -167,5 +167,10 @@ class ParameterDefinition extends Component
         return trim(
             $tmp . Context::escape($component->name) . ' ' . $component->type
         );
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

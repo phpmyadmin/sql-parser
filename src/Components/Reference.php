@@ -21,7 +21,7 @@ use function trim;
  *
  * @final
  */
-class Reference extends Component
+class Reference implements Component
 {
     /**
      * All references options.
@@ -156,5 +156,10 @@ class Reference extends Component
             . ' (' . implode(', ', Context::escape($component->columns)) . ') '
             . $component->options
         );
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

@@ -25,7 +25,7 @@ use function substr;
  *
  * @final
  */
-class ExpressionArray extends Component
+class ExpressionArray implements Component
 {
     /**
      * @param Parser     $parser  the parser that serves as context
@@ -138,5 +138,10 @@ class ExpressionArray extends Component
         }
 
         return implode(', ', $ret);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

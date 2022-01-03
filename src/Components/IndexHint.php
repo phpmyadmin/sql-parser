@@ -20,7 +20,7 @@ use function is_array;
  *
  * @final
  */
-class IndexHint extends Component
+class IndexHint implements Component
 {
     /**
      * The type of hint (USE/FORCE/IGNORE)
@@ -206,5 +206,10 @@ class IndexHint extends Component
         }
 
         return $ret . ExpressionArray::build($component->indexes);
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

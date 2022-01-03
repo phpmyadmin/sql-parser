@@ -25,7 +25,7 @@ use function trim;
  *
  * @final
  */
-class PartitionDefinition extends Component
+class PartitionDefinition implements Component
 {
     /**
      * All field options.
@@ -253,5 +253,10 @@ class PartitionDefinition extends Component
             . (! empty($component->options) && ! empty($component->type) ? '' : ' ')
             . $component->options . $subpartitions
         );
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

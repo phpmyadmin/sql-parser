@@ -20,7 +20,7 @@ use function is_array;
  *
  * @final
  */
-class LockExpression extends Component
+class LockExpression implements Component
 {
     /**
      * The table to be locked.
@@ -205,5 +205,10 @@ class LockExpression extends Component
         }
 
         return $lockType;
+    }
+
+    public function __toString(): string
+    {
+        return static::build($this);
     }
 }

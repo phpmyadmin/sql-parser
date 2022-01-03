@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:__toString\\(\\) should return string but returns mixed\\.$#"
-			count: 1
-			path: src/Component.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Component.php
@@ -106,6 +101,11 @@ parameters:
 			path: src/Components/Array2d.php
 
 		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\) given\\.$#"
+			count: 1
+			path: src/Components/Array2d.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:__construct\\(\\) has parameter \\$raw with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/ArrayObj.php
@@ -177,6 +177,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/Condition.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\) given\\.$#"
 			count: 1
 			path: src/Components/Condition.php
 
@@ -341,6 +346,11 @@ parameters:
 			path: src/Components/ExpressionArray.php
 
 		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\) given\\.$#"
+			count: 1
+			path: src/Components/ExpressionArray.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Components/ExpressionArray.php
@@ -497,6 +507,11 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/JoinKeyword.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\) given\\.$#"
 			count: 1
 			path: src/Components/JoinKeyword.php
 
@@ -691,6 +706,11 @@ parameters:
 			path: src/Components/ParameterDefinition.php
 
 		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\) given\\.$#"
+			count: 1
+			path: src/Components/ParameterDefinition.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$inOut \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
@@ -859,6 +879,21 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/UnionKeyword.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/UnionKeyword.php
+
+		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\:\\:build\\(\\) expects array\\<array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\>\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\) given\\.$#"
+			count: 1
+			path: src/Components/UnionKeyword.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword\\:\\:parse\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/WithKeyword.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) has parameter \\$str with no value type specified in iterable type array\\.$#"
