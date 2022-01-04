@@ -171,6 +171,8 @@ class Lexer extends Core
      */
     public function __construct($str, $strict = false, $delimiter = null)
     {
+        parent::__construct();
+
         // `strlen` is used instead of `mb_strlen` because the lexer needs to
         // parse each byte of the input.
         $len = $str instanceof UtfString ? $str->length() : strlen($str);
