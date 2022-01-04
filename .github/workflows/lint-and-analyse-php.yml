@@ -7,16 +7,17 @@ on:
     branches:
       - master
       - QA
+      - 6.0.x
 
 jobs:
     lint-php:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - name: Use php 7.1
+            - name: Use php 7.2
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: 7.1
+                  php-version: 7.2
                   tools: composer:v2
             - name: Validate composer.json and composer.lock
               run: composer validate
@@ -34,7 +35,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
           matrix:
-            php-version: ["7.1"]
+            php-version: ["7.2"]
         steps:
             - uses: actions/checkout@v2
             - name: Use PHP ${{ matrix.php-version }}
