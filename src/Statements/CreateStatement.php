@@ -32,7 +32,7 @@ class CreateStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         // CREATE TABLE
         'TEMPORARY' => 1,
 
@@ -78,7 +78,7 @@ class CreateStatement extends Statement
      *
      * @var array
      */
-    public static $DB_OPTIONS = [
+    public static $databaseOptions = [
         'CHARACTER SET' => [
             1,
             'var=',
@@ -110,7 +110,7 @@ class CreateStatement extends Statement
      *
      * @var array
      */
-    public static $TABLE_OPTIONS = [
+    public static $tableOptions = [
         'ENGINE' => [
             1,
             'var=',
@@ -218,7 +218,7 @@ class CreateStatement extends Statement
      *
      * @var array
      */
-    public static $FUNC_OPTIONS = [
+    public static $functionOptions = [
         'NOT' => [
             2,
             'var',
@@ -270,7 +270,7 @@ class CreateStatement extends Statement
      *
      * @var array
      */
-    public static $TRIGGER_OPTIONS = [
+    public static $triggerOptions = [
         'BEFORE' => 1,
         'AFTER' => 1,
         'INSERT' => 2,
@@ -292,9 +292,9 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE TABLE`, `CREATE FUNCTION` and `CREATE PROCEDURE`.
      *
-     * @see static::$TABLE_OPTIONS
-     * @see static::$FUNC_OPTIONS
-     * @see static::$TRIGGER_OPTIONS
+     * @see CreateStatement::$tableOptions
+     * @see CreateStatement::$functionOptions
+     * @see CreateStatement::$triggerOptions
      *
      * @var OptionsArray|null
      */
@@ -532,7 +532,7 @@ class CreateStatement extends Statement
         ++$list->idx; // Skipping `CREATE`.
 
         // Parsing options.
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
         ++$list->idx; // Skipping last option.
 
         $isDatabase = $this->options->has('DATABASE') || $this->options->has('SCHEMA');
@@ -564,7 +564,7 @@ class CreateStatement extends Statement
         }
 
         if ($isDatabase) {
-            $this->entityOptions = OptionsArray::parse($parser, $list, static::$DB_OPTIONS);
+            $this->entityOptions = OptionsArray::parse($parser, $list, static::$databaseOptions);
         } elseif ($this->options->has('TABLE')) {
             if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SELECT')) {
                 /* CREATE TABLE ... SELECT */
@@ -608,7 +608,7 @@ class CreateStatement extends Statement
 
                 ++$list->idx;
 
-                $this->entityOptions = OptionsArray::parse($parser, $list, static::$TABLE_OPTIONS);
+                $this->entityOptions = OptionsArray::parse($parser, $list, static::$tableOptions);
 
                 /**
                  * The field that is being filled (`partitionBy` or
@@ -716,7 +716,7 @@ class CreateStatement extends Statement
 
             ++$list->idx;
 
-            $this->entityOptions = OptionsArray::parse($parser, $list, static::$FUNC_OPTIONS);
+            $this->entityOptions = OptionsArray::parse($parser, $list, static::$functionOptions);
             ++$list->idx;
 
             for (; $list->idx < $list->count; ++$list->idx) {
@@ -761,7 +761,7 @@ class CreateStatement extends Statement
             }
         } elseif ($this->options->has('TRIGGER')) {
             // Parsing the time and the event.
-            $this->entityOptions = OptionsArray::parse($parser, $list, static::$TRIGGER_OPTIONS);
+            $this->entityOptions = OptionsArray::parse($parser, $list, static::$triggerOptions);
             ++$list->idx;
 
             $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ON');

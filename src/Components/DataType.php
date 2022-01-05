@@ -27,7 +27,7 @@ final class DataType implements Component
      *
      * @var array
      */
-    public static $DATA_TYPE_OPTIONS = [
+    public static $dataTypeOptions = [
         'BINARY' => 1,
         'CHARACTER SET' => [
             2,
@@ -139,7 +139,7 @@ final class DataType implements Component
                         $parameters->raw : $parameters->values;
                 }
 
-                $ret->options = OptionsArray::parse($parser, $list, static::$DATA_TYPE_OPTIONS);
+                $ret->options = OptionsArray::parse($parser, $list, static::$dataTypeOptions);
                 ++$list->idx;
                 break;
             }

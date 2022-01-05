@@ -27,7 +27,7 @@ final class AlterOperation implements Component
      *
      * @var array
      */
-    public static $DB_OPTIONS = [
+    public static $databaseOptions = [
         'CHARACTER SET' => [
             1,
             'var',
@@ -63,7 +63,7 @@ final class AlterOperation implements Component
      *
      * @var array
      */
-    public static $TABLE_OPTIONS = [
+    public static $tableOptions = [
         'ENGINE' => [
             1,
             'var=',
@@ -136,7 +136,7 @@ final class AlterOperation implements Component
      *
      * @var array
      */
-    public static $USER_OPTIONS = [
+    public static $userOptions = [
         'ATTRIBUTE' => [
             1,
             'var',
@@ -176,7 +176,7 @@ final class AlterOperation implements Component
      *
      * @var array
      */
-    public static $VIEW_OPTIONS = ['AS' => 1];
+    public static $viewOptions = ['AS' => 1];
 
     /**
      * Options of this operation.
@@ -322,7 +322,7 @@ final class AlterOperation implements Component
                         break;
                     }
                 } elseif (! self::checkIfTokenQuotedSymbol($token)) {
-                    if (! empty(Parser::$STATEMENT_PARSERS[$token->value])) {
+                    if (! empty(Parser::$statementParsers[$token->value])) {
                         // We want to get the next non-comment and non-space token after $token
                         // therefore, the first getNext call will start with the current $idx which's $token,
                         // will return it and increase $idx by 1, which's not guaranteed to be non-comment
@@ -347,8 +347,8 @@ final class AlterOperation implements Component
                             break;
                         }
                     } elseif (
-                        (array_key_exists($arrayKey, self::$DB_OPTIONS)
-                        || array_key_exists($arrayKey, self::$TABLE_OPTIONS))
+                        (array_key_exists($arrayKey, self::$databaseOptions)
+                        || array_key_exists($arrayKey, self::$tableOptions))
                         && ! self::checkIfColumnDefinitionKeyword($arrayKey)
                     ) {
                         // This alter operation has finished, which means a comma

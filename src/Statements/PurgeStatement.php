@@ -29,29 +29,29 @@ class PurgeStatement extends Statement
      *
      * @var string|null
      */
-    public $log_type;
+    public $logType;
 
     /**
      * The end option of this query.
      *
      * @var string|null
      */
-    public $end_option;
+    public $endOption;
 
     /**
      * The end expr of this query.
      *
      * @var string|null
      */
-    public $end_expr;
+    public $endExpr;
 
     /**
      * @return string
      */
     public function build()
     {
-        $ret = 'PURGE ' . $this->log_type . ' LOGS '
-            . ($this->end_option !== null ? ($this->end_option . ' ' . $this->end_expr) : '');
+        $ret = 'PURGE ' . $this->logType . ' LOGS '
+            . ($this->endOption !== null ? ($this->endOption . ' ' . $this->endExpr) : '');
 
         return trim($ret);
     }
@@ -91,7 +91,7 @@ class PurgeStatement extends Statement
             switch ($state) {
                 case 0:
                     // parse `{ BINARY | MASTER }`
-                    $this->log_type = self::parseExpectedKeyword($parser, $token, ['BINARY', 'MASTER']);
+                    $this->logType = self::parseExpectedKeyword($parser, $token, ['BINARY', 'MASTER']);
                     break;
                 case 1:
                     // parse `LOGS`
@@ -99,11 +99,11 @@ class PurgeStatement extends Statement
                     break;
                 case 2:
                     // parse `{ TO | BEFORE }`
-                    $this->end_option = self::parseExpectedKeyword($parser, $token, ['TO', 'BEFORE']);
+                    $this->endOption = self::parseExpectedKeyword($parser, $token, ['TO', 'BEFORE']);
                     break;
                 case 3:
                     // parse `expr`
-                    $this->end_expr = Expression::parse($parser, $list, []);
+                    $this->endExpr = Expression::parse($parser, $list, []);
                     break;
                 default:
                     $parser->error('Unexpected token.', $token);

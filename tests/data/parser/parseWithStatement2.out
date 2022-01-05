@@ -2,7 +2,7 @@
     "query": "INSERT INTO table_name WITH cte (col1) AS ( SELECT 1 ) SELECT col1 FROM cte ON DUPLICATE KEY UPDATE col_name = 3",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -439,7 +439,7 @@
             "count": 46,
             "idx": 46
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -447,7 +447,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -492,7 +492,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -501,7 +501,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -749,7 +749,7 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "LOW_PRIORITY": 1,
                     "DELAYED": 2,
                     "HIGH_PRIORITY": 3,
@@ -757,7 +757,7 @@
                 },
                 "into": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
-                    "FIELDS_OPTIONS": {
+                    "statementFieldsOptions": {
                         "TERMINATED BY": [
                             1,
                             "expr"
@@ -772,7 +772,7 @@
                             "expr"
                         ]
                     },
-                    "LINES_OPTIONS": {
+                    "statementLinesOptions": {
                         "STARTING BY": [
                             1,
                             "expr"
@@ -785,7 +785,7 @@
                     "type": null,
                     "dest": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "ALLOWED_KEYWORDS": {
+                        "allowedKeywords": {
                             "AS": 1,
                             "DUAL": 1,
                             "NULL": 1,
@@ -809,19 +809,19 @@
                     },
                     "columns": null,
                     "values": null,
-                    "fields_options": null,
-                    "fields_keyword": null,
-                    "lines_options": null
+                    "fieldsOptions": null,
+                    "fieldsKeyword": null,
+                    "linesOptions": null
                 },
                 "values": null,
                 "set": null,
                 "select": null,
                 "with": {
                     "@type": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
-                    "OPTIONS": {
+                    "statementOptions": {
                         "RECURSIVE": 1
                     },
-                    "CLAUSES": {
+                    "clauses": {
                         "WITH": [
                             "WITH",
                             2
@@ -852,7 +852,7 @@
                             ],
                             "statement": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Parser",
-                                "STATEMENT_PARSERS": {
+                                "statementParsers": {
                                     "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
                                     "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
                                     "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -897,7 +897,7 @@
                                     "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
                                     "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
                                 },
-                                "KEYWORD_PARSERS": {
+                                "keywordParsers": {
                                     "PARTITION BY": [],
                                     "SUBPARTITION BY": [],
                                     "_OPTIONS": {
@@ -906,7 +906,7 @@
                                     },
                                     "_END_OPTIONS": {
                                         "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                        "field": "end_options"
+                                        "field": "endOptions"
                                     },
                                     "INTERSECT": {
                                         "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -1173,7 +1173,7 @@
                                 "statements": [
                                     {
                                         "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                                        "OPTIONS": {
+                                        "statementOptions": {
                                             "ALL": 1,
                                             "DISTINCT": 1,
                                             "DISTINCTROW": 1,
@@ -1190,11 +1190,11 @@
                                             "SQL_NO_CACHE": 8,
                                             "SQL_CALC_FOUND_ROWS": 9
                                         },
-                                        "END_OPTIONS": {
+                                        "statementEndOptions": {
                                             "FOR UPDATE": 1,
                                             "LOCK IN SHARE MODE": 1
                                         },
-                                        "CLAUSES": {
+                                        "clauses": {
                                             "SELECT": [
                                                 "SELECT",
                                                 2
@@ -1323,7 +1323,7 @@
                                         "expr": [
                                             {
                                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                "ALLOWED_KEYWORDS": {
+                                                "allowedKeywords": {
                                                     "AS": 1,
                                                     "DUAL": 1,
                                                     "NULL": 1,
@@ -1347,7 +1347,7 @@
                                             }
                                         ],
                                         "from": [],
-                                        "index_hints": null,
+                                        "indexHints": null,
                                         "partition": null,
                                         "where": null,
                                         "group": null,
@@ -1358,7 +1358,7 @@
                                         "into": null,
                                         "join": null,
                                         "union": [],
-                                        "end_options": null,
+                                        "endOptions": null,
                                         "options": {
                                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                             "options": []
@@ -1375,7 +1375,7 @@
                     },
                     "cteStatementParser": {
                         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-                        "STATEMENT_PARSERS": {
+                        "statementParsers": {
                             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
                             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
                             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -1420,7 +1420,7 @@
                             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
                             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
                         },
-                        "KEYWORD_PARSERS": {
+                        "keywordParsers": {
                             "PARTITION BY": [],
                             "SUBPARTITION BY": [],
                             "_OPTIONS": {
@@ -1429,7 +1429,7 @@
                             },
                             "_END_OPTIONS": {
                                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                "field": "end_options"
+                                "field": "endOptions"
                             },
                             "INTERSECT": {
                                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -1705,7 +1705,7 @@
                         "statements": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                                "OPTIONS": {
+                                "statementOptions": {
                                     "ALL": 1,
                                     "DISTINCT": 1,
                                     "DISTINCTROW": 1,
@@ -1722,11 +1722,11 @@
                                     "SQL_NO_CACHE": 8,
                                     "SQL_CALC_FOUND_ROWS": 9
                                 },
-                                "END_OPTIONS": {
+                                "statementEndOptions": {
                                     "FOR UPDATE": 1,
                                     "LOCK IN SHARE MODE": 1
                                 },
-                                "CLAUSES": {
+                                "clauses": {
                                     "SELECT": [
                                         "SELECT",
                                         2
@@ -1855,7 +1855,7 @@
                                 "expr": [
                                     {
                                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "ALLOWED_KEYWORDS": {
+                                        "allowedKeywords": {
                                             "AS": 1,
                                             "DUAL": 1,
                                             "NULL": 1,
@@ -1881,7 +1881,7 @@
                                 "from": [
                                     {
                                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "ALLOWED_KEYWORDS": {
+                                        "allowedKeywords": {
                                             "AS": 1,
                                             "DUAL": 1,
                                             "NULL": 1,
@@ -1904,7 +1904,7 @@
                                         "subquery": null
                                     }
                                 ],
-                                "index_hints": null,
+                                "indexHints": null,
                                 "partition": null,
                                 "where": null,
                                 "group": null,
@@ -1915,7 +1915,7 @@
                                 "into": null,
                                 "join": null,
                                 "union": [],
-                                "end_options": null,
+                                "endOptions": null,
                                 "options": {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": []
@@ -1928,7 +1928,7 @@
                         "strict": false,
                         "errors": []
                     },
-                    "END_OPTIONS": [],
+                    "statementEndOptions": [],
                     "options": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                         "options": []
@@ -1943,8 +1943,8 @@
                         "value": "3"
                     }
                 ],
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []

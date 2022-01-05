@@ -2,7 +2,7 @@
     "query": "UPDATE foo SET bar =  WHERE baz = 0\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -196,7 +196,7 @@
             "count": 19,
             "idx": 19
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -204,7 +204,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -249,7 +249,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -258,7 +258,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -506,11 +506,11 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "LOW_PRIORITY": 1,
                     "IGNORE": 2
                 },
-                "CLAUSES": {
+                "clauses": {
                     "UPDATE": [
                         "UPDATE",
                         2
@@ -543,7 +543,7 @@
                 "tables": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "ALLOWED_KEYWORDS": {
+                        "allowedKeywords": {
                             "AS": 1,
                             "DUAL": 1,
                             "NULL": 1,
@@ -570,14 +570,14 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "DELIMITERS": [
+                        "delimiters": [
                             "&&",
                             "||",
                             "AND",
                             "OR",
                             "XOR"
                         ],
-                        "ALLOWED_KEYWORDS": {
+                        "allowedKeywords": {
                             "ALL": 1,
                             "AND": 1,
                             "BETWEEN": 1,
@@ -607,7 +607,7 @@
                 ],
                 "order": null,
                 "limit": null,
-                "END_OPTIONS": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []

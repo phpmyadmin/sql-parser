@@ -55,7 +55,7 @@ class SelectStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'ALL' => 1,
         'DISTINCT' => 1,
         'DISTINCTROW' => 1,
@@ -74,7 +74,7 @@ class SelectStatement extends Statement
     ];
 
     /** @var array<string,int> */
-    public static $END_OPTIONS = [
+    public static $statementEndOptions = [
         'FOR UPDATE' => 1,
         'LOCK IN SHARE MODE' => 1,
     ];
@@ -82,11 +82,11 @@ class SelectStatement extends Statement
     /**
      * The clauses of this statement, in order.
      *
-     * @see Statement::$CLAUSES
+     * @see Statement::$clauses
      *
      * @var array
      */
-    public static $CLAUSES = [
+    public static $clauses = [
         'SELECT' => [
             'SELECT',
             2,
@@ -239,7 +239,7 @@ class SelectStatement extends Statement
      *
      * @var IndexHint[]|null
      */
-    public $index_hints;
+    public $indexHints;
 
     /**
      * Partitions used as source for this statement.
@@ -314,11 +314,11 @@ class SelectStatement extends Statement
     /**
      * The end options of this query.
      *
-     * @see static::$END_OPTIONS
+     * @see SelectStatement::$statementEndOptions
      *
      * @var OptionsArray|null
      */
-    public $end_options;
+    public $endOptions;
 
     /**
      * Gets the clauses of this statement.
@@ -331,7 +331,7 @@ class SelectStatement extends Statement
         // The `ORDER BY` and `LIMIT` clauses should be at the end of the
         // statement.
         if (! empty($this->union)) {
-            $clauses = static::$CLAUSES;
+            $clauses = static::$clauses;
             unset($clauses['ORDER BY'], $clauses['LIMIT']);
             $clauses['ORDER BY'] = [
                 'ORDER BY',
@@ -345,6 +345,6 @@ class SelectStatement extends Statement
             return $clauses;
         }
 
-        return static::$CLAUSES;
+        return static::$clauses;
     }
 }

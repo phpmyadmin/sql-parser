@@ -2,7 +2,7 @@
     "query": "INSERT INTO `champs` (`id`,`val`) VALUES (412,'Thresh')\nON DUPLICATE KEY UPDATE `id`=412,`val`='Thresh'",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -349,7 +349,7 @@
             "count": 36,
             "idx": 36
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -357,7 +357,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -402,7 +402,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -411,7 +411,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -659,7 +659,7 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "LOW_PRIORITY": 1,
                     "DELAYED": 2,
                     "HIGH_PRIORITY": 3,
@@ -667,7 +667,7 @@
                 },
                 "into": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
-                    "FIELDS_OPTIONS": {
+                    "statementFieldsOptions": {
                         "TERMINATED BY": [
                             1,
                             "expr"
@@ -682,7 +682,7 @@
                             "expr"
                         ]
                     },
-                    "LINES_OPTIONS": {
+                    "statementLinesOptions": {
                         "STARTING BY": [
                             1,
                             "expr"
@@ -695,7 +695,7 @@
                     "type": null,
                     "dest": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "ALLOWED_KEYWORDS": {
+                        "allowedKeywords": {
                             "AS": 1,
                             "DUAL": 1,
                             "NULL": 1,
@@ -722,9 +722,9 @@
                         "val"
                     ],
                     "values": null,
-                    "fields_options": null,
-                    "fields_keyword": null,
-                    "lines_options": null
+                    "fieldsOptions": null,
+                    "fieldsKeyword": null,
+                    "linesOptions": null
                 },
                 "values": [
                     {
@@ -754,8 +754,8 @@
                         "value": "'Thresh'"
                     }
                 ],
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []

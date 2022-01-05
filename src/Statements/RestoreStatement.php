@@ -19,7 +19,7 @@ class RestoreStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'TABLE' => 1,
 
         'FROM' => [

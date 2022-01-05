@@ -20,7 +20,7 @@ class DropStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'DATABASE' => 1,
         'EVENT' => 1,
         'FUNCTION' => 1,
@@ -42,11 +42,11 @@ class DropStatement extends Statement
     /**
      * The clauses of this statement, in order.
      *
-     * @see Statement::$CLAUSES
+     * @see Statement::$clauses
      *
      * @var array
      */
-    public static $CLAUSES = [
+    public static $clauses = [
         'DROP' => [
             'DROP',
             2,

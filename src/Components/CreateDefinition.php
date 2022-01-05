@@ -31,7 +31,7 @@ final class CreateDefinition implements Component
      *
      * @var array
      */
-    public static $FIELD_OPTIONS = [
+    public static $fieldOptions = [
         // Tells the `OptionsArray` to not sort the options.
         // See the note below.
         '_UNSORTED' => true,
@@ -270,7 +270,7 @@ final class CreateDefinition implements Component
                 $expr->type = DataType::parse($parser, $list);
                 $state = 3;
             } elseif ($state === 3) {
-                $expr->options = OptionsArray::parse($parser, $list, static::$FIELD_OPTIONS);
+                $expr->options = OptionsArray::parse($parser, $list, static::$fieldOptions);
                 $state = 4;
             } elseif ($state === 4) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'REFERENCES') {

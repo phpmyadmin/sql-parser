@@ -2,7 +2,7 @@
     "query": "SELECT 12, 34, 5.67, 0x89, -10, --11, +12, .15, 0xFFa, 0xfFA, 0XFfA, -0xFFa, -0xfFA, -0XFfA, 1e-10, 1e10, .5e10, b'10';\n-- invalid number\nSELECT 12ex10, b'15';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -628,7 +628,7 @@
             "count": 67,
             "idx": 0
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

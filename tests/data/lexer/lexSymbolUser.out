@@ -2,7 +2,7 @@
     "query": "CREATE USER 'user'@'hostname' IDENTIFIED BY 'password';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -142,7 +142,7 @@
             "count": 13,
             "idx": 0
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

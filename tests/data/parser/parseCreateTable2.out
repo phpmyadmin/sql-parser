@@ -2,7 +2,7 @@
     "query": "CREATE TABLE `payment` (\n  `payment_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,\n  `customer_id` smallint(5) unsigned NOT NULL,\n  `staff_id` tinyint(3) unsigned NOT NULL,\n  `rental_id` int(11) DEFAULT NULL,\n  `amount` decimal(5,2) NOT NULL,\n  `payment_date` datetime NOT NULL,\n  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`payment_id`),\n  KEY `idx_fk_staff_id` (`staff_id`),\n  KEY `idx_fk_customer_id` (`customer_id`),\n  KEY `fk_payment_rental` (`rental_id`),\n  CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE,\n  CONSTRAINT `fk_payment_rental` FOREIGN KEY (`rental_id`) REFERENCES `rental` (`rental_id`) ON DELETE SET NULL ON UPDATE CASCADE,\n  CONSTRAINT `fk_payment_staff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE\n) ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -1933,7 +1933,7 @@
             "count": 212,
             "idx": 212
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -1941,7 +1941,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -1986,7 +1986,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -1995,7 +1995,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -2243,7 +2243,7 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "TEMPORARY": 1,
                     "OR REPLACE": 2,
                     "ALGORITHM": [
@@ -2275,7 +2275,7 @@
                     "SCHEMA": 6,
                     "IF NOT EXISTS": 7
                 },
-                "DB_OPTIONS": {
+                "databaseOptions": {
                     "CHARACTER SET": [
                         1,
                         "var="
@@ -2301,7 +2301,7 @@
                         "var="
                     ]
                 },
-                "TABLE_OPTIONS": {
+                "tableOptions": {
                     "ENGINE": [
                         1,
                         "var="
@@ -2403,7 +2403,7 @@
                         "var"
                     ]
                 },
-                "FUNC_OPTIONS": {
+                "functionOptions": {
                     "NOT": [
                         2,
                         "var"
@@ -2448,7 +2448,7 @@
                     "DETERMINISTIC": 2,
                     "DATA": 5
                 },
-                "TRIGGER_OPTIONS": {
+                "triggerOptions": {
                     "BEFORE": 1,
                     "AFTER": 1,
                     "INSERT": 2,
@@ -2457,7 +2457,7 @@
                 },
                 "name": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -2505,7 +2505,7 @@
                 "fields": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -2567,7 +2567,7 @@
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "DATA_TYPE_OPTIONS": {
+                            "dataTypeOptions": {
                                 "BINARY": 1,
                                 "CHARACTER SET": [
                                     2,
@@ -2607,7 +2607,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -2669,7 +2669,7 @@
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "DATA_TYPE_OPTIONS": {
+                            "dataTypeOptions": {
                                 "BINARY": 1,
                                 "CHARACTER SET": [
                                     2,
@@ -2708,7 +2708,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -2770,7 +2770,7 @@
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "DATA_TYPE_OPTIONS": {
+                            "dataTypeOptions": {
                                 "BINARY": 1,
                                 "CHARACTER SET": [
                                     2,
@@ -2809,7 +2809,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -2871,7 +2871,7 @@
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "DATA_TYPE_OPTIONS": {
+                            "dataTypeOptions": {
                                 "BINARY": 1,
                                 "CHARACTER SET": [
                                     2,
@@ -2907,7 +2907,7 @@
                                     "equals": false,
                                     "expr": {
                                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "ALLOWED_KEYWORDS": {
+                                        "allowedKeywords": {
                                             "AS": 1,
                                             "DUAL": 1,
                                             "NULL": 1,
@@ -2936,7 +2936,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -2998,7 +2998,7 @@
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "DATA_TYPE_OPTIONS": {
+                            "dataTypeOptions": {
                                 "BINARY": 1,
                                 "CHARACTER SET": [
                                     2,
@@ -3036,7 +3036,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -3098,7 +3098,7 @@
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "DATA_TYPE_OPTIONS": {
+                            "dataTypeOptions": {
                                 "BINARY": 1,
                                 "CHARACTER SET": [
                                     2,
@@ -3133,7 +3133,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -3195,7 +3195,7 @@
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "DATA_TYPE_OPTIONS": {
+                            "dataTypeOptions": {
                                 "BINARY": 1,
                                 "CHARACTER SET": [
                                     2,
@@ -3230,7 +3230,7 @@
                                     "equals": false,
                                     "expr": {
                                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "ALLOWED_KEYWORDS": {
+                                        "allowedKeywords": {
                                             "AS": 1,
                                             "DUAL": 1,
                                             "NULL": 1,
@@ -3259,7 +3259,7 @@
                                     "equals": false,
                                     "expr": {
                                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "ALLOWED_KEYWORDS": {
+                                        "allowedKeywords": {
                                             "AS": 1,
                                             "DUAL": 1,
                                             "NULL": 1,
@@ -3288,7 +3288,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -3351,7 +3351,7 @@
                         "type": null,
                         "key": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Key",
-                            "KEY_OPTIONS": {
+                            "keyOptions": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
                                     "var="
@@ -3403,7 +3403,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -3466,7 +3466,7 @@
                         "type": null,
                         "key": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Key",
-                            "KEY_OPTIONS": {
+                            "keyOptions": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
                                     "var="
@@ -3518,7 +3518,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -3581,7 +3581,7 @@
                         "type": null,
                         "key": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Key",
-                            "KEY_OPTIONS": {
+                            "keyOptions": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
                                     "var="
@@ -3633,7 +3633,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -3696,7 +3696,7 @@
                         "type": null,
                         "key": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Key",
-                            "KEY_OPTIONS": {
+                            "keyOptions": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
                                     "var="
@@ -3748,7 +3748,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -3811,7 +3811,7 @@
                         "type": null,
                         "key": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Key",
-                            "KEY_OPTIONS": {
+                            "keyOptions": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
                                     "var="
@@ -3860,7 +3860,7 @@
                         },
                         "references": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Reference",
-                            "REFERENCES_OPTIONS": {
+                            "referencesOptions": {
                                 "MATCH": [
                                     1,
                                     "var"
@@ -3876,7 +3876,7 @@
                             },
                             "table": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                "ALLOWED_KEYWORDS": {
+                                "allowedKeywords": {
                                     "AS": 1,
                                     "DUAL": 1,
                                     "NULL": 1,
@@ -3917,7 +3917,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -3980,7 +3980,7 @@
                         "type": null,
                         "key": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Key",
-                            "KEY_OPTIONS": {
+                            "keyOptions": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
                                     "var="
@@ -4029,7 +4029,7 @@
                         },
                         "references": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Reference",
-                            "REFERENCES_OPTIONS": {
+                            "referencesOptions": {
                                 "MATCH": [
                                     1,
                                     "var"
@@ -4045,7 +4045,7 @@
                             },
                             "table": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                "ALLOWED_KEYWORDS": {
+                                "allowedKeywords": {
                                     "AS": 1,
                                     "DUAL": 1,
                                     "NULL": 1,
@@ -4092,7 +4092,7 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -4155,7 +4155,7 @@
                         "type": null,
                         "key": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Key",
-                            "KEY_OPTIONS": {
+                            "keyOptions": {
                                 "KEY_BLOCK_SIZE": [
                                     1,
                                     "var="
@@ -4204,7 +4204,7 @@
                         },
                         "references": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Reference",
-                            "REFERENCES_OPTIONS": {
+                            "referencesOptions": {
                                 "MATCH": [
                                     1,
                                     "var"
@@ -4220,7 +4220,7 @@
                             },
                             "table": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                "ALLOWED_KEYWORDS": {
+                                "allowedKeywords": {
                                     "AS": 1,
                                     "DUAL": 1,
                                     "NULL": 1,
@@ -4272,8 +4272,8 @@
                 "return": null,
                 "parameters": null,
                 "body": [],
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {

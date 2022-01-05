@@ -2,7 +2,7 @@
     "query": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase 1 when 1 then \"Some\" else \"Other\" end AS FROM a;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -493,7 +493,7 @@
             "count": 52,
             "idx": 52
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -501,7 +501,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -546,7 +546,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -555,7 +555,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -803,7 +803,7 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "ALL": 1,
                     "DISTINCT": 1,
                     "DISTINCTROW": 1,
@@ -820,11 +820,11 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "END_OPTIONS": {
+                "statementEndOptions": {
                     "FOR UPDATE": 1,
                     "LOCK IN SHARE MODE": 1
                 },
-                "CLAUSES": {
+                "clauses": {
                     "SELECT": [
                         "SELECT",
                         2
@@ -953,7 +953,7 @@
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "ALLOWED_KEYWORDS": {
+                        "allowedKeywords": {
                             "AS": 1,
                             "DUAL": 1,
                             "NULL": 1,
@@ -979,7 +979,7 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CaseExpression",
                         "value": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "ALLOWED_KEYWORDS": {
+                            "allowedKeywords": {
                                 "AS": 1,
                                 "DUAL": 1,
                                 "NULL": 1,
@@ -1005,7 +1005,7 @@
                         "results": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                "ALLOWED_KEYWORDS": {
+                                "allowedKeywords": {
                                     "AS": 1,
                                     "DUAL": 1,
                                     "NULL": 1,
@@ -1028,10 +1028,10 @@
                                 "subquery": null
                             }
                         ],
-                        "compare_values": [
+                        "compareValues": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                "ALLOWED_KEYWORDS": {
+                                "allowedKeywords": {
                                     "AS": 1,
                                     "DUAL": 1,
                                     "NULL": 1,
@@ -1054,9 +1054,9 @@
                                 "subquery": null
                             }
                         ],
-                        "else_result": {
+                        "elseResult": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "ALLOWED_KEYWORDS": {
+                            "allowedKeywords": {
                                 "AS": 1,
                                 "DUAL": 1,
                                 "NULL": 1,
@@ -1085,7 +1085,7 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "ALLOWED_KEYWORDS": {
+                        "allowedKeywords": {
                             "AS": 1,
                             "DUAL": 1,
                             "NULL": 1,
@@ -1108,7 +1108,7 @@
                         "subquery": null
                     }
                 ],
-                "index_hints": null,
+                "indexHints": null,
                 "partition": null,
                 "where": null,
                 "group": null,
@@ -1119,7 +1119,7 @@
                 "into": null,
                 "join": null,
                 "union": [],
-                "end_options": null,
+                "endOptions": null,
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []

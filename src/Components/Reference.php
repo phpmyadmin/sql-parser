@@ -26,7 +26,7 @@ final class Reference implements Component
      *
      * @var array
      */
-    public static $REFERENCES_OPTIONS = [
+    public static $referencesOptions = [
         'MATCH' => [
             1,
             'var',
@@ -130,7 +130,7 @@ final class Reference implements Component
                 $ret->columns = ArrayObj::parse($parser, $list)->values;
                 $state = 2;
             } elseif ($state === 2) {
-                $ret->options = OptionsArray::parse($parser, $list, static::$REFERENCES_OPTIONS);
+                $ret->options = OptionsArray::parse($parser, $list, static::$referencesOptions);
                 ++$list->idx;
                 break;
             }

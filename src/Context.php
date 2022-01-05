@@ -31,23 +31,18 @@ abstract class Context
 {
     /**
      * The maximum length of a keyword.
-     *
-     * @see static::$TOKEN_KEYWORD
      */
     public const KEYWORD_MAX_LENGTH = 30;
 
     /**
      * The maximum length of a label.
      *
-     * @see static::$TOKEN_LABEL
      * Ref: https://dev.mysql.com/doc/refman/5.7/en/statement-labels.html
      */
     public const LABEL_MAX_LENGTH = 16;
 
     /**
      * The maximum length of an operator.
-     *
-     * @see static::$TOKEN_OPERATOR
      */
     public const OPERATOR_MAX_LENGTH = 4;
 
@@ -89,14 +84,14 @@ abstract class Context
      *
      * @var array
      */
-    public static $KEYWORDS = [];
+    public static $keywords = [];
 
     /**
      * List of operators and their flags.
      *
      * @var array
      */
-    public static $OPERATORS = [
+    public static $operators = [
         // Some operators (*, =) may have ambiguous flags, because they depend on
         // the context they are being used in.
         // For example: 1. SELECT * FROM table; # SQL specific (wildcard)
@@ -149,7 +144,7 @@ abstract class Context
      *
      * @var int
      */
-    public static $MODE = 0;
+    public static $mode = 0;
 
     /*
      * Server SQL Modes
@@ -277,12 +272,12 @@ abstract class Context
     {
         $str = strtoupper($str);
 
-        if (isset(static::$KEYWORDS[$str])) {
-            if ($isReserved && ! (static::$KEYWORDS[$str] & Token::FLAG_KEYWORD_RESERVED)) {
+        if (isset(static::$keywords[$str])) {
+            if ($isReserved && ! (static::$keywords[$str] & Token::FLAG_KEYWORD_RESERVED)) {
                 return null;
             }
 
-            return static::$KEYWORDS[$str];
+            return static::$keywords[$str];
         }
 
         return null;
@@ -300,11 +295,11 @@ abstract class Context
      */
     public static function isOperator($str)
     {
-        if (! isset(static::$OPERATORS[$str])) {
+        if (! isset(static::$operators[$str])) {
             return null;
         }
 
-        return static::$OPERATORS[$str];
+        return static::$operators[$str];
     }
 
     // -------------------------------------------------------------------------
@@ -512,7 +507,7 @@ abstract class Context
         }
 
         self::$loadedContext = $context;
-        self::$KEYWORDS = $context::$KEYWORDS;
+        self::$keywords = $context::$keywords;
     }
 
     /**
@@ -573,14 +568,14 @@ abstract class Context
      */
     public static function setMode($mode = '')
     {
-        static::$MODE = 0;
+        static::$mode = 0;
         if (empty($mode)) {
             return;
         }
 
         $mode = explode(',', $mode);
         foreach ($mode as $m) {
-            static::$MODE |= constant('static::SQL_MODE_' . $m);
+            static::$mode |= constant('static::SQL_MODE_' . $m);
         }
     }
 
@@ -602,11 +597,11 @@ abstract class Context
             return $str;
         }
 
-        if ((static::$MODE & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
+        if ((static::$mode & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
             return $str;
         }
 
-        if (static::$MODE & self::SQL_MODE_ANSI_QUOTES) {
+        if (static::$mode & self::SQL_MODE_ANSI_QUOTES) {
             $quote = '"';
         }
 
@@ -636,6 +631,6 @@ abstract class Context
             return false;
         }
 
-        return (self::$MODE & $flag) === $flag;
+        return (self::$mode & $flag) === $flag;
     }
 }

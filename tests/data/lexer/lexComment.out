@@ -2,7 +2,7 @@
     "query": "# comment\nSELECT \/*!50000 STRAIGHT_JOIN *\/ col1 FROM table1, table2 \/* select query *\/\n-- comment\n-- comment 2",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -250,7 +250,7 @@
             "count": 25,
             "idx": 0
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

@@ -25,7 +25,7 @@ final class IntoKeyword implements Component
      *
      * @var array
      */
-    public static $FIELDS_OPTIONS = [
+    public static $statementFieldsOptions = [
         'TERMINATED BY' => [
             1,
             'expr',
@@ -46,7 +46,7 @@ final class IntoKeyword implements Component
      *
      * @var array
      */
-    public static $LINES_OPTIONS = [
+    public static $statementLinesOptions = [
         'STARTING BY' => [
             1,
             'expr',
@@ -88,27 +88,27 @@ final class IntoKeyword implements Component
     /**
      * Options for FIELDS/COLUMNS keyword.
      *
-     * @see static::$FIELDS_OPTIONS
+     * @see IntoKeyword::$statementFieldsOptions
      *
      * @var OptionsArray|null
      */
-    public $fields_options;
+    public $fieldsOptions;
 
     /**
      * Whether to use `FIELDS` or `COLUMNS` while building.
      *
      * @var bool|null
      */
-    public $fields_keyword;
+    public $fieldsKeyword;
 
     /**
      * Options for OPTIONS keyword.
      *
-     * @see static::$LINES_OPTIONS
+     * @see IntoKeyword::$statementLinesOptions
      *
      * @var OptionsArray|null
      */
-    public $lines_options;
+    public $linesOptions;
 
     /**
      * @param string|null            $type          type of destination (may be OUTFILE)
@@ -130,8 +130,8 @@ final class IntoKeyword implements Component
         $this->dest = $dest;
         $this->columns = $columns;
         $this->values = $values;
-        $this->fields_options = $fieldsOptions;
-        $this->fields_keyword = $fieldsKeyword;
+        $this->fieldsOptions = $fieldsOptions;
+        $this->fieldsKeyword = $fieldsKeyword;
     }
 
     /**
@@ -252,12 +252,12 @@ final class IntoKeyword implements Component
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
             // parse field options
-            $this->fields_options = OptionsArray::parse($parser, $list, static::$FIELDS_OPTIONS);
+            $this->fieldsOptions = OptionsArray::parse($parser, $list, static::$statementFieldsOptions);
 
-            $this->fields_keyword = ($keyword === 'FIELDS');
+            $this->fieldsKeyword = ($keyword === 'FIELDS');
         } else {
             // parse line options
-            $this->lines_options = OptionsArray::parse($parser, $list, static::$LINES_OPTIONS);
+            $this->linesOptions = OptionsArray::parse($parser, $list, static::$statementLinesOptions);
         }
     }
 
@@ -281,13 +281,13 @@ final class IntoKeyword implements Component
 
         $ret = 'OUTFILE "' . $component->dest . '"';
 
-        $fieldsOptionsString = OptionsArray::build($component->fields_options);
+        $fieldsOptionsString = OptionsArray::build($component->fieldsOptions);
         if (trim($fieldsOptionsString) !== '') {
-            $ret .= $component->fields_keyword ? ' FIELDS' : ' COLUMNS';
+            $ret .= $component->fieldsKeyword ? ' FIELDS' : ' COLUMNS';
             $ret .= ' ' . $fieldsOptionsString;
         }
 
-        $linesOptionsString = OptionsArray::build($component->lines_options, ['expr' => true]);
+        $linesOptionsString = OptionsArray::build($component->linesOptions, ['expr' => true]);
         if (trim($linesOptionsString) !== '') {
             $ret .= ' LINES ' . $linesOptionsString;
         }

@@ -17,7 +17,7 @@ class ShowStatement extends NotImplementedStatement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'CREATE' => 1,
         'AUTHORS' => 2,
         'BINARY' => 2,

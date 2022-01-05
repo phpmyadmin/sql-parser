@@ -81,7 +81,7 @@ class Query
      *
      * @var string[]
      */
-    public static $FUNCTIONS = [
+    public static $functions = [
         'SUM',
         'AVG',
         'STD',
@@ -124,7 +124,7 @@ class Query
      *   union: false
      * }
      */
-    public static $ALLFLAGS = [
+    public static $allFlags = [
         /*
          * select ... DISTINCT ...
          */
@@ -322,7 +322,7 @@ class Query
             if (! empty($expr->function)) {
                 if ($expr->function === 'COUNT') {
                     $flags['is_count'] = true;
-                } elseif (in_array($expr->function, static::$FUNCTIONS)) {
+                } elseif (in_array($expr->function, static::$functions)) {
                     $flags['is_func'] = true;
                 }
             }
@@ -370,7 +370,7 @@ class Query
     {
         $flags = ['querytype' => false];
         if ($all) {
-            $flags = self::$ALLFLAGS;
+            $flags = self::$allFlags;
         }
 
         if ($statement instanceof AlterStatement) {

@@ -2,7 +2,7 @@
     "query": "SELECT * FROM\nSELECT *FROM\nSELECT a.* FROM\nSELECT a.*,b.* FROM\nSELECT a.*, b.* FROM\nSELECT a.*, \/* with a comment *\/ b.* FROM\nSELECT a.*,\/* with a comment *\/b.* FROM\nSELECT a.* \/* comment *\/ FROM\n-- SELECT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)\nSELECT DISTINCT * FROM\nSELECT DISTINCT *FROM\nSELECT DISTINCT a.* FROM\nSELECT DISTINCT a.*,b.* FROM\nSELECT DISTINCT a.*, b.* FROM\nSELECT DISTINCT a.*, \/* with a comment *\/ b.* FROM\nSELECT DISTINCT a.*,\/* with a comment *\/b.* FROM\nSELECT DISTINCT a.* \/* comment *\/ FROM\n-- SELECT DISTINCT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)\nSELECT `*` FROM table_name\nSELECT `*`.* FROM table_name AS `*`\nSELECT COUNT(*) FROM table_name\nSELECT COUNT( * ) FROM table_name\nSELECT COUNT( * \/* comment with *,USING,FROM *\/) FROM table_name\nSELECT COUNT(`*`) FROM table_name\nSELECT 1 FROM table_name WHERE LABEL LIKE '%*%'\nDELETE a.* USING\nDELETE a.*, b.* USING\nDELETE a.* ,b.* USING\nDELETE a.* , b.* USING\nDELETE a.* \/* comment *\/ USING\nDELETE a.* \/* comment *\/, b.* \/*comment*\/ USING\nDELETE a.* \/* comment *\/ ,b.* \/*comment*\/ USING\nDELETE a.* \/* comment *\/ , b.* \/*comment*\/ USING\n\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -3463,7 +3463,7 @@
             "count": 382,
             "idx": 0
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

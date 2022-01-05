@@ -19,7 +19,7 @@ class BackupStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'TABLE' => 1,
 
         'NO_WRITE_TO_BINLOG' => 2,

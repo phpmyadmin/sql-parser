@@ -46,14 +46,14 @@ final class CaseExpression implements Component
      *
      * @var array
      */
-    public $compare_values = [];
+    public $compareValues = [];
 
     /**
      * The result in ELSE section of expr.
      *
      * @var Expression|null
      */
-    public $else_result;
+    public $elseResult;
 
     /**
      * The alias of this CASE statement.
@@ -123,7 +123,7 @@ final class CaseExpression implements Component
                             break;
                         case 'ELSE':
                             ++$list->idx; // Skip 'ELSE'
-                            $ret->else_result = Expression::parse($parser, $list);
+                            $ret->elseResult = Expression::parse($parser, $list);
                             $state = 0; // last clause of CASE expression
                             break;
                         case 'END':
@@ -147,11 +147,11 @@ final class CaseExpression implements Component
                                 ++$list->idx; // Skip 'WHEN'
                                 $newValue = Expression::parse($parser, $list);
                                 $state = 2;
-                                $ret->compare_values[] = $newValue;
+                                $ret->compareValues[] = $newValue;
                                 break;
                             case 'ELSE':
                                 ++$list->idx; // Skip 'ELSE'
-                                $ret->else_result = Expression::parse($parser, $list);
+                                $ret->elseResult = Expression::parse($parser, $list);
                                 $state = 0; // last clause of CASE expression
                                 break;
                             case 'END':
@@ -273,10 +273,10 @@ final class CaseExpression implements Component
         if (isset($component->value)) {
             // Syntax type 0
             $ret .= $component->value . ' ';
-            $valuesCount = count($component->compare_values);
+            $valuesCount = count($component->compareValues);
             $resultsCount = count($component->results);
             for ($i = 0; $i < $valuesCount && $i < $resultsCount; ++$i) {
-                $ret .= 'WHEN ' . $component->compare_values[$i] . ' ';
+                $ret .= 'WHEN ' . $component->compareValues[$i] . ' ';
                 $ret .= 'THEN ' . $component->results[$i] . ' ';
             }
         } else {
@@ -289,8 +289,8 @@ final class CaseExpression implements Component
             }
         }
 
-        if (isset($component->else_result)) {
-            $ret .= 'ELSE ' . $component->else_result . ' ';
+        if (isset($component->elseResult)) {
+            $ret .= 'ELSE ' . $component->elseResult . ' ';
         }
 
         $ret .= 'END';

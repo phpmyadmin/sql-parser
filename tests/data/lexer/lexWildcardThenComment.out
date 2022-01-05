@@ -2,7 +2,7 @@
     "query": "SELECT *\/* comment *\/\n\nSELECT \/* comment *\/*\n\nSELECT 2*\/* comment *\/3\n\nSELECT 2\/* comment *\/*3\n\nSELECT *\/*\ncomment\non\nmultiple\nlines\n*\/FROM\n\nDELETE foo.*\/* foo *\/ USING\n\nDELETE foo.*\/* foo *\/,bar.*\/*bar*\/ USING\n\nSELECT `*`\/*with comment*\/ AS star_field\n\nSELECT `*`,*\/*with comment*\/\n\nDELETE a.*\/*multi\nline \/* with C open tag\ncomment inside *\/ USING\n\nSELECT 2*\/* operator *\/3 + 3\/* operator *\/*2,\/* start wildcard *\/*\/* end wildcard *\/\n\nSELECT `*`\/*a*\/*\/*b*\/`*`\n\n-- invalid queries\n\/* SELECT *\/*",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -1006,7 +1006,7 @@
             "count": 109,
             "idx": 0
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

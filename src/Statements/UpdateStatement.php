@@ -36,7 +36,7 @@ class UpdateStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'LOW_PRIORITY' => 1,
         'IGNORE' => 2,
     ];
@@ -44,11 +44,11 @@ class UpdateStatement extends Statement
     /**
      * The clauses of this statement, in order.
      *
-     * @see Statement::$CLAUSES
+     * @see Statement::$clauses
      *
      * @var array
      */
-    public static $CLAUSES = [
+    public static $clauses = [
         'UPDATE' => [
             'UPDATE',
             2,

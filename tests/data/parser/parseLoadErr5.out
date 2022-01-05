@@ -2,7 +2,7 @@
     "query": "LOAD DATA INFILE '\/tmp\/test.txt' IGNORE\nINTO TABLE test\n@a = 1;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -214,7 +214,7 @@
             "count": 21,
             "idx": 21
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -222,7 +222,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -267,7 +267,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -276,7 +276,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -524,12 +524,12 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\LoadStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "LOW_PRIORITY": 1,
                     "CONCURRENT": 1,
                     "LOCAL": 2
                 },
-                "FIELDS_OPTIONS": {
+                "statementFieldsOptions": {
                     "TERMINATED BY": [
                         1,
                         "expr"
@@ -544,7 +544,7 @@
                         "expr"
                     ]
                 },
-                "LINES_OPTIONS": {
+                "statementLinesOptions": {
                     "STARTING BY": [
                         1,
                         "expr"
@@ -554,9 +554,9 @@
                         "expr"
                     ]
                 },
-                "file_name": {
+                "fileName": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -581,7 +581,7 @@
                 },
                 "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -604,17 +604,17 @@
                     "subquery": null
                 },
                 "partition": null,
-                "charset_name": null,
-                "fields_options": null,
-                "fields_keyword": null,
-                "lines_options": null,
-                "col_name_or_user_var": null,
+                "charsetName": null,
+                "fieldsOptions": null,
+                "fieldsKeyword": null,
+                "linesOptions": null,
+                "columnNamesOrUserVariables": null,
                 "set": null,
-                "ignore_number": null,
-                "replace_ignore": "IGNORE",
-                "lines_rows": null,
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "ignoreNumber": null,
+                "replaceIgnore": "IGNORE",
+                "linesRows": null,
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []

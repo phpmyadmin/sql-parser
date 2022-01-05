@@ -54,7 +54,7 @@ class DeleteStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'LOW_PRIORITY' => 1,
         'QUICK' => 2,
         'IGNORE' => 3,
@@ -63,11 +63,11 @@ class DeleteStatement extends Statement
     /**
      * The clauses of this statement, in order.
      *
-     * @see Statement::$CLAUSES
+     * @see Statement::$clauses
      *
      * @var array
      */
-    public static $CLAUSES = [
+    public static $clauses = [
         'DELETE' => [
             'DELETE',
             2,
@@ -206,7 +206,7 @@ class DeleteStatement extends Statement
         ++$list->idx; // Skipping `DELETE`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         /**

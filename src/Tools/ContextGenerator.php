@@ -42,7 +42,7 @@ class ContextGenerator
      *
      * @var array
      */
-    public static $LABELS_FLAGS = [
+    public static $labelsFlags = [
         '(R)' => 2, // reserved
         '(D)' => 8, // data type
         '(K)' => 16, // keyword
@@ -54,7 +54,7 @@ class ContextGenerator
      *
      * @var array
      */
-    public static $LINKS = [
+    public static $links = [
         'MySql50000' => 'https://dev.mysql.com/doc/refman/5.0/en/keywords.html',
         'MySql50100' => 'https://dev.mysql.com/doc/refman/5.1/en/keywords.html',
         'MySql50500' => 'https://dev.mysql.com/doc/refman/5.5/en/keywords.html',
@@ -111,7 +111,7 @@ class %2$s extends Context
      * @var array<string,int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
-    public static $KEYWORDS = [
+    public static $keywords = [
 %4$s    ];
 }
 
@@ -158,7 +158,7 @@ PHP;
             $value = trim($words[$i]);
 
             // Reserved, data types, keys, functions, etc. keywords.
-            foreach (static::$LABELS_FLAGS as $label => $flags) {
+            foreach (static::$labelsFlags as $label => $flags) {
                 if (strstr($value, $label) === false) {
                     continue;
                 }
@@ -364,7 +364,7 @@ PHP;
                 [
                     'name' => $formattedName,
                     'class' => $class,
-                    'link' => static::$LINKS[$name],
+                    'link' => static::$links[$name],
                     'keywords' => static::readWords(
                         [
                             $directory . '_common.txt',

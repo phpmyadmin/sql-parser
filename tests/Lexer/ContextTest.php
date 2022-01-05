@@ -16,14 +16,14 @@ class ContextTest extends TestCase
     {
         // Default context is 5.7.0.
         $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
-        $this->assertArrayHasKey('STORED', Context::$KEYWORDS);
-        $this->assertArrayNotHasKey('AUTHORS', Context::$KEYWORDS);
+        $this->assertArrayHasKey('STORED', Context::$keywords);
+        $this->assertArrayNotHasKey('AUTHORS', Context::$keywords);
 
         // Restoring context.
         Context::load('');
         $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$defaultContext);
-        $this->assertArrayHasKey('STORED', Context::$KEYWORDS);
-        $this->assertArrayNotHasKey('AUTHORS', Context::$KEYWORDS);
+        $this->assertArrayHasKey('STORED', Context::$keywords);
+        $this->assertArrayNotHasKey('AUTHORS', Context::$keywords);
     }
 
     /**
@@ -119,12 +119,12 @@ class ContextTest extends TestCase
         Context::setMode('REAL_AS_FLOAT,ANSI_QUOTES,IGNORE_SPACE');
         $this->assertEquals(
             Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ANSI_QUOTES | Context::SQL_MODE_IGNORE_SPACE,
-            Context::$MODE
+            Context::$mode
         );
         Context::setMode('TRADITIONAL');
-        $this->assertEquals(Context::SQL_MODE_TRADITIONAL, Context::$MODE);
+        $this->assertEquals(Context::SQL_MODE_TRADITIONAL, Context::$mode);
         Context::setMode();
-        $this->assertEquals(0, Context::$MODE);
+        $this->assertEquals(0, Context::$mode);
     }
 
     public function testEscape(): void
