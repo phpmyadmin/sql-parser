@@ -8,7 +8,7 @@
       <code>$arrayKey</code>
     </InvalidScalarArgument>
     <MixedArrayOffset occurrences="1">
-      <code>Parser::$STATEMENT_PARSERS[$token-&gt;value]</code>
+      <code>Parser::$statementParsers[$token-&gt;value]</code>
     </MixedArrayOffset>
     <MixedPropertyTypeCoercion occurrences="1">
       <code>$unknown</code>
@@ -88,7 +88,7 @@
       <code>$ret-&gt;alias</code>
     </MixedAssignment>
     <MixedOperand occurrences="4">
-      <code>$component-&gt;compare_values[$i]</code>
+      <code>$component-&gt;compareValues[$i]</code>
       <code>$component-&gt;results[$i]</code>
       <code>$component-&gt;results[$i]</code>
       <code>$token-&gt;value</code>
@@ -108,10 +108,10 @@
       <code>$token-&gt;value</code>
     </MixedArgument>
     <MixedArrayOffset occurrences="1">
-      <code>static::$ALLOWED_KEYWORDS[$token-&gt;value]</code>
+      <code>static::$allowedKeywords[$token-&gt;value]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion occurrences="1">
-      <code>static::$ALLOWED_KEYWORDS[$token-&gt;value]</code>
+      <code>static::$allowedKeywords[$token-&gt;value]</code>
     </MixedArrayTypeCoercion>
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
@@ -172,12 +172,12 @@
       <code>Context::escape($fields)</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="2">
-      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
-      <code>self::$ALLOWED_KEYWORDS[$token-&gt;keyword]</code>
+      <code>Parser::$statementParsers[$token-&gt;keyword]</code>
+      <code>self::$allowedKeywords[$token-&gt;keyword]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion occurrences="2">
-      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
-      <code>self::$ALLOWED_KEYWORDS[$token-&gt;keyword]</code>
+      <code>Parser::$statementParsers[$token-&gt;keyword]</code>
+      <code>self::$allowedKeywords[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="6">
       <code>$field</code>
@@ -293,8 +293,8 @@
       <code>ArrayObj::parse($parser, $list)-&gt;values</code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullArgument occurrences="2">
-      <code>$component-&gt;fields_options</code>
-      <code>$component-&gt;lines_options</code>
+      <code>$component-&gt;fieldsOptions</code>
+      <code>$component-&gt;linesOptions</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="1">
       <code>$component-&gt;dest</code>
@@ -308,16 +308,16 @@
       <code>$this</code>
     </InvalidArgument>
     <MixedArrayOffset occurrences="4">
-      <code>static::$JOINS[$token-&gt;keyword]</code>
-      <code>static::$JOINS[$token-&gt;keyword]</code>
-      <code>static::$JOINS[$token-&gt;keyword]</code>
-      <code>static::$JOINS[$token-&gt;keyword]</code>
+      <code>static::$joins[$token-&gt;keyword]</code>
+      <code>static::$joins[$token-&gt;keyword]</code>
+      <code>static::$joins[$token-&gt;keyword]</code>
+      <code>static::$joins[$token-&gt;keyword]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion occurrences="4">
-      <code>static::$JOINS[$token-&gt;keyword]</code>
-      <code>static::$JOINS[$token-&gt;keyword]</code>
-      <code>static::$JOINS[$token-&gt;keyword]</code>
-      <code>static::$JOINS[$token-&gt;keyword]</code>
+      <code>static::$joins[$token-&gt;keyword]</code>
+      <code>static::$joins[$token-&gt;keyword]</code>
+      <code>static::$joins[$token-&gt;keyword]</code>
+      <code>static::$joins[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="2">
       <code>$expr-&gt;type</code>
@@ -327,14 +327,14 @@
       <code>$component</code>
     </MoreSpecificImplementedParamType>
     <PossiblyFalseOperand occurrences="1">
-      <code>array_search($c-&gt;type, static::$JOINS)</code>
+      <code>array_search($c-&gt;type, static::$joins)</code>
     </PossiblyFalseOperand>
     <PossiblyInvalidPropertyAssignmentValue occurrences="1">
       <code>ArrayObj::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArrayOffset occurrences="2">
-      <code>static::$JOINS</code>
-      <code>static::$JOINS</code>
+      <code>static::$joins</code>
+      <code>static::$joins</code>
     </PossiblyNullArrayOffset>
     <PossiblyNullPropertyAssignmentValue occurrences="5">
       <code>$expr</code>
@@ -609,15 +609,15 @@
   </file>
   <file src="src/Context.php">
     <InvalidPropertyFetch occurrences="1">
-      <code>$context::$KEYWORDS</code>
+      <code>$context::$keywords</code>
     </InvalidPropertyFetch>
     <MixedArgument occurrences="1">
       <code>$value</code>
     </MixedArgument>
     <MixedAssignment occurrences="3">
       <code>$value</code>
-      <code>self::$KEYWORDS</code>
-      <code>static::$MODE</code>
+      <code>self::$keywords</code>
+      <code>static::$mode</code>
     </MixedAssignment>
     <MixedInferredReturnType occurrences="2">
       <code>int|null</code>
@@ -625,88 +625,88 @@
     </MixedInferredReturnType>
     <MixedOperand occurrences="2">
       <code>constant('static::SQL_MODE_' . $m)</code>
-      <code>static::$KEYWORDS[$str]</code>
+      <code>static::$keywords[$str]</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="2">
-      <code>static::$KEYWORDS[$str]</code>
-      <code>static::$OPERATORS[$str]</code>
+      <code>static::$keywords[$str]</code>
+      <code>static::$operators[$str]</code>
     </MixedReturnStatement>
   </file>
   <file src="src/Contexts/ContextMariaDb100000.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100100.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100200.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100300.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100400.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100500.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100600.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50000.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50100.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50500.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50600.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50700.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql80000.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$KEYWORDS</code>
+      <code>$keywords</code>
     </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
@@ -875,10 +875,10 @@
       <code>new $class($this, $this-&gt;list)</code>
     </InvalidStringClass>
     <MixedArrayOffset occurrences="1">
-      <code>static::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+      <code>static::$statementParsers[$token-&gt;keyword]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion occurrences="1">
-      <code>static::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+      <code>static::$statementParsers[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
     <ParamNameMismatch occurrences="1">
       <code>$msg</code>
@@ -932,25 +932,25 @@
     <MixedArrayAccess occurrences="7">
       <code>$clause[0]</code>
       <code>$clause[1]</code>
-      <code>Parser::$KEYWORD_PARSERS[$name]['class']</code>
-      <code>Parser::$KEYWORD_PARSERS[$name]['field']</code>
-      <code>Parser::$KEYWORD_PARSERS[$tokenValue]['class']</code>
-      <code>Parser::$KEYWORD_PARSERS[$tokenValue]['field']</code>
-      <code>Parser::$KEYWORD_PARSERS[$tokenValue]['options']</code>
+      <code>Parser::$keywordParsers[$name]['class']</code>
+      <code>Parser::$keywordParsers[$name]['field']</code>
+      <code>Parser::$keywordParsers[$tokenValue]['class']</code>
+      <code>Parser::$keywordParsers[$tokenValue]['field']</code>
+      <code>Parser::$keywordParsers[$tokenValue]['options']</code>
     </MixedArrayAccess>
     <MixedArrayOffset occurrences="8">
       <code>$parsedClauses[$token-&gt;value]</code>
       <code>$parsedClauses[$token-&gt;value]</code>
-      <code>Parser::$KEYWORD_PARSERS[$token-&gt;value]</code>
-      <code>Parser::$KEYWORD_PARSERS[$tokenValue]</code>
-      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
-      <code>Parser::$STATEMENT_PARSERS[$token-&gt;value]</code>
-      <code>static::$CLAUSES[$token-&gt;value]</code>
-      <code>static::$OPTIONS[$token-&gt;value]</code>
+      <code>Parser::$keywordParsers[$token-&gt;value]</code>
+      <code>Parser::$keywordParsers[$tokenValue]</code>
+      <code>Parser::$statementParsers[$token-&gt;keyword]</code>
+      <code>Parser::$statementParsers[$token-&gt;value]</code>
+      <code>static::$clauses[$token-&gt;value]</code>
+      <code>static::$statementOptions[$token-&gt;value]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion occurrences="2">
-      <code>Parser::$KEYWORD_PARSERS[$tokenValue]</code>
-      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
+      <code>Parser::$keywordParsers[$tokenValue]</code>
+      <code>Parser::$statementParsers[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="5">
       <code>$class</code>
@@ -1100,9 +1100,9 @@
       <code>ArrayObj::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullOperand occurrences="5">
-      <code>$this-&gt;fields_options</code>
-      <code>$this-&gt;file_name</code>
-      <code>$this-&gt;lines_rows</code>
+      <code>$this-&gt;fieldsOptions</code>
+      <code>$this-&gt;fileName</code>
+      <code>$this-&gt;linesRows</code>
       <code>$this-&gt;options</code>
       <code>$this-&gt;table</code>
     </PossiblyNullOperand>
@@ -1122,12 +1122,12 @@
       <code>Expression::parse($parser, $list, [])</code>
     </ImplicitToStringCast>
     <MixedAssignment occurrences="2">
-      <code>$this-&gt;end_option</code>
-      <code>$this-&gt;log_type</code>
+      <code>$this-&gt;endOption</code>
+      <code>$this-&gt;logType</code>
     </MixedAssignment>
     <PossiblyNullOperand occurrences="2">
-      <code>$this-&gt;end_expr</code>
-      <code>$this-&gt;log_type</code>
+      <code>$this-&gt;endExpr</code>
+      <code>$this-&gt;logType</code>
     </PossiblyNullOperand>
   </file>
   <file src="src/Statements/RenameStatement.php">
@@ -1150,7 +1150,7 @@
   </file>
   <file src="src/Statements/SelectStatement.php">
     <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$END_OPTIONS</code>
+      <code>$statementEndOptions</code>
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="src/Statements/SetStatement.php">
@@ -1161,7 +1161,7 @@
       <code>$options</code>
     </NonInvariantDocblockPropertyType>
     <PossiblyNullArgument occurrences="2">
-      <code>$this-&gt;end_options</code>
+      <code>$this-&gt;endOptions</code>
       <code>$this-&gt;set</code>
     </PossiblyNullArgument>
   </file>
@@ -1374,22 +1374,22 @@
       <code>$newFormats[$j][$name]</code>
     </MixedArrayAssignment>
     <MixedArrayOffset occurrences="9">
-      <code>JoinKeyword::$JOINS[$list-&gt;tokens[$list-&gt;idx - 2]-&gt;value]</code>
-      <code>JoinKeyword::$JOINS[$list-&gt;tokens[$list-&gt;idx - 4]-&gt;value]</code>
-      <code>JoinKeyword::$JOINS[$list-&gt;tokens[$list-&gt;idx - 6]-&gt;value]</code>
-      <code>JoinKeyword::$JOINS[$prev-&gt;value]</code>
-      <code>Parser::$KEYWORD_PARSERS[$token-&gt;keyword]</code>
-      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
-      <code>self::$INLINE_CLAUSES[$lastClause]</code>
-      <code>self::$INLINE_CLAUSES[$lastClause]</code>
-      <code>self::$SHORT_CLAUSES[$lastClause]</code>
+      <code>JoinKeyword::$joins[$list-&gt;tokens[$list-&gt;idx - 2]-&gt;value]</code>
+      <code>JoinKeyword::$joins[$list-&gt;tokens[$list-&gt;idx - 4]-&gt;value]</code>
+      <code>JoinKeyword::$joins[$list-&gt;tokens[$list-&gt;idx - 6]-&gt;value]</code>
+      <code>JoinKeyword::$joins[$prev-&gt;value]</code>
+      <code>Parser::$keywordParsers[$token-&gt;keyword]</code>
+      <code>Parser::$statementParsers[$token-&gt;keyword]</code>
+      <code>self::$inlineClauses[$lastClause]</code>
+      <code>self::$inlineClauses[$lastClause]</code>
+      <code>self::$shortClauses[$lastClause]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion occurrences="5">
-      <code>Parser::$KEYWORD_PARSERS[$token-&gt;keyword]</code>
-      <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
-      <code>self::$INLINE_CLAUSES[$lastClause]</code>
-      <code>self::$INLINE_CLAUSES[$lastClause]</code>
-      <code>self::$SHORT_CLAUSES[$lastClause]</code>
+      <code>Parser::$keywordParsers[$token-&gt;keyword]</code>
+      <code>Parser::$statementParsers[$token-&gt;keyword]</code>
+      <code>self::$inlineClauses[$lastClause]</code>
+      <code>self::$inlineClauses[$lastClause]</code>
+      <code>self::$shortClauses[$lastClause]</code>
     </MixedArrayTypeCoercion>
     <MixedAssignment occurrences="22">
       <code>$blocksIndentation[]</code>

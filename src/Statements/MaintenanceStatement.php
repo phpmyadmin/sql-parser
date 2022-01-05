@@ -44,7 +44,7 @@ class MaintenanceStatement extends Statement
     {
         // [some options] is going to be parsed first.
         //
-        // There is a parser specified in `Parser::$KEYWORD_PARSERS`
+        // There is a parser specified in `Parser::$keywordParsers`
         // which parses the name of the tables.
         //
         // Finally, we parse here [some more options] and that's all.
@@ -53,7 +53,7 @@ class MaintenanceStatement extends Statement
             OptionsArray::parse(
                 $parser,
                 $list,
-                static::$OPTIONS
+                static::$statementOptions
             )
         );
     }

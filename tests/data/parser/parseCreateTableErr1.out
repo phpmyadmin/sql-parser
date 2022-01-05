@@ -2,7 +2,7 @@
     "query": "CREATE TABLE IF NOT EXISTS users (\n    `id` UNKNOWN\n) ENGINE=InnoDB;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -214,7 +214,7 @@
             "count": 21,
             "idx": 21
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -222,7 +222,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -267,7 +267,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -276,7 +276,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -524,7 +524,7 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "TEMPORARY": 1,
                     "OR REPLACE": 2,
                     "ALGORITHM": [
@@ -556,7 +556,7 @@
                     "SCHEMA": 6,
                     "IF NOT EXISTS": 7
                 },
-                "DB_OPTIONS": {
+                "databaseOptions": {
                     "CHARACTER SET": [
                         1,
                         "var="
@@ -582,7 +582,7 @@
                         "var="
                     ]
                 },
-                "TABLE_OPTIONS": {
+                "tableOptions": {
                     "ENGINE": [
                         1,
                         "var="
@@ -684,7 +684,7 @@
                         "var"
                     ]
                 },
-                "FUNC_OPTIONS": {
+                "functionOptions": {
                     "NOT": [
                         2,
                         "var"
@@ -729,7 +729,7 @@
                     "DETERMINISTIC": 2,
                     "DATA": 5
                 },
-                "TRIGGER_OPTIONS": {
+                "triggerOptions": {
                     "BEFORE": 1,
                     "AFTER": 1,
                     "INSERT": 2,
@@ -738,7 +738,7 @@
                 },
                 "name": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -774,7 +774,7 @@
                 "fields": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "FIELD_OPTIONS": {
+                        "fieldOptions": {
                             "_UNSORTED": true,
                             "NOT NULL": 1,
                             "NULL": 1,
@@ -836,7 +836,7 @@
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "DATA_TYPE_OPTIONS": {
+                            "dataTypeOptions": {
                                 "BINARY": 1,
                                 "CHARACTER SET": [
                                     2,
@@ -880,8 +880,8 @@
                 "return": null,
                 "parameters": null,
                 "body": [],
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {

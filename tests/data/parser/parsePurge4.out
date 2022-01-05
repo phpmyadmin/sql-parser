@@ -2,7 +2,7 @@
     "query": "PURGE MASTER LOGS TO 'mysql-bin.010';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -124,7 +124,7 @@
             "count": 11,
             "idx": 11
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -132,7 +132,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -177,7 +177,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -186,7 +186,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -434,11 +434,11 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\PurgeStatement",
-                "log_type": "MASTER",
-                "end_option": "TO",
-                "end_expr": {
+                "logType": "MASTER",
+                "endOption": "TO",
+                "endExpr": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -460,9 +460,9 @@
                     "function": null,
                     "subquery": null
                 },
-                "OPTIONS": [],
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "statementOptions": [],
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": null,
                 "first": 0,
                 "last": 9

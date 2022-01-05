@@ -28,7 +28,7 @@ final class Key implements Component
      *
      * @var array
      */
-    public static $KEY_OPTIONS = [
+    public static $keyOptions = [
         'KEY_BLOCK_SIZE' => [
             1,
             'var=',
@@ -224,7 +224,7 @@ final class Key implements Component
                     $lastColumn['length'] = $token->value;
                 }
             } elseif ($state === 4) {
-                $ret->options = OptionsArray::parse($parser, $list, static::$KEY_OPTIONS);
+                $ret->options = OptionsArray::parse($parser, $list, static::$keyOptions);
                 ++$list->idx;
                 break;
             } elseif ($state === 5) {

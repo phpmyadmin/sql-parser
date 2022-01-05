@@ -2,7 +2,7 @@
     "query": "ALTER TABLE `api_tab_user` CHANGE `rank_id` `rank_id` INT(4) NOT NULL DEFAULT '4';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -241,7 +241,7 @@
             "count": 24,
             "idx": 24
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -249,7 +249,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -294,7 +294,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -303,7 +303,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -553,7 +553,7 @@
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
                 "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -578,7 +578,7 @@
                 "altered": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "DB_OPTIONS": {
+                        "databaseOptions": {
                             "CHARACTER SET": [
                                 1,
                                 "var"
@@ -608,7 +608,7 @@
                                 "var"
                             ]
                         },
-                        "TABLE_OPTIONS": {
+                        "tableOptions": {
                             "ENGINE": [
                                 1,
                                 "var="
@@ -673,7 +673,7 @@
                             "INDEX": 2,
                             "CHARACTER SET": 3
                         },
-                        "USER_OPTIONS": {
+                        "userOptions": {
                             "ATTRIBUTE": [
                                 1,
                                 "var"
@@ -704,7 +704,7 @@
                             "UNLOCK": 2,
                             "IDENTIFIED": 3
                         },
-                        "VIEW_OPTIONS": {
+                        "viewOptions": {
                             "AS": 1
                         },
                         "options": {
@@ -715,7 +715,7 @@
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "ALLOWED_KEYWORDS": {
+                            "allowedKeywords": {
                                 "AS": 1,
                                 "DUAL": 1,
                                 "NULL": 1,
@@ -777,7 +777,7 @@
                         ]
                     }
                 ],
-                "OPTIONS": {
+                "statementOptions": {
                     "ONLINE": 1,
                     "OFFLINE": 1,
                     "IGNORE": 2,
@@ -791,8 +791,8 @@
                     "USER": 3,
                     "VIEW": 3
                 },
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {

@@ -27,7 +27,7 @@ final class Condition implements Component
      *
      * @var array
      */
-    public static $DELIMITERS = [
+    public static $delimiters = [
         '&&',
         '||',
         'AND',
@@ -40,7 +40,7 @@ final class Condition implements Component
      *
      * @var array
      */
-    public static $ALLOWED_KEYWORDS = [
+    public static $allowedKeywords = [
         'ALL' => 1,
         'AND' => 1,
         'BETWEEN' => 1,
@@ -146,7 +146,7 @@ final class Condition implements Component
             }
 
             // Conditions are delimited by logical operators.
-            if (in_array($token->value, static::$DELIMITERS, true)) {
+            if (in_array($token->value, static::$delimiters, true)) {
                 if ($betweenBefore && ($token->value === 'AND')) {
                     // The syntax of keyword `BETWEEN` is hard-coded.
                     $betweenBefore = false;
@@ -177,7 +177,7 @@ final class Condition implements Component
                     $betweenBefore = true;
                 }
 
-                if (($brackets === 0) && empty(static::$ALLOWED_KEYWORDS[$token->value])) {
+                if (($brackets === 0) && empty(static::$allowedKeywords[$token->value])) {
                     break;
                 }
             }

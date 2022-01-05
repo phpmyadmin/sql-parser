@@ -35,7 +35,7 @@ class Core
 
     public function __construct()
     {
-        if (Context::$KEYWORDS !== []) {
+        if (Context::$keywords !== []) {
             return;
         }
 

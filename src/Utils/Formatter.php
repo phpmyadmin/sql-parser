@@ -57,7 +57,7 @@ class Formatter
      *
      * @var array
      */
-    public static $SHORT_CLAUSES = [
+    public static $shortClauses = [
         'CREATE' => true,
         'INSERT' => true,
     ];
@@ -69,7 +69,7 @@ class Formatter
      *
      * @var array
      */
-    public static $INLINE_CLAUSES = [
+    public static $inlineClauses = [
         'CREATE' => true,
         'INTO' => true,
         'LIMIT' => true,
@@ -428,7 +428,7 @@ class Formatter
                 if (
                     $this->options['parts_newline']
                     && ! $formattedOptions
-                    && empty(self::$INLINE_CLAUSES[$lastClause])
+                    && empty(self::$inlineClauses[$lastClause])
                     && (
                         $curr->type !== Token::TYPE_KEYWORD
                         || (
@@ -448,7 +448,7 @@ class Formatter
                 if ($isClause) {
                     if (
                         ($isClause === 2 || $this->options['clause_newline'])
-                        && empty(self::$SHORT_CLAUSES[$lastClause])
+                        && empty(self::$shortClauses[$lastClause])
                     ) {
                         $lineEnded = true;
                         if ($this->options['parts_newline'] && $indent > 0) {
@@ -459,11 +459,11 @@ class Formatter
 
                 // Inline JOINs
                 if (
-                    ($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::$JOINS[$prev->value]))
+                    ($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::$joins[$prev->value]))
                     || (in_array($curr->value, ['ON', 'USING'], true)
-                        && isset(JoinKeyword::$JOINS[$list->tokens[$list->idx - 2]->value]))
-                    || isset($list->tokens[$list->idx - 4], JoinKeyword::$JOINS[$list->tokens[$list->idx - 4]->value])
-                    || isset($list->tokens[$list->idx - 6], JoinKeyword::$JOINS[$list->tokens[$list->idx - 6]->value])
+                        && isset(JoinKeyword::$joins[$list->tokens[$list->idx - 2]->value]))
+                    || isset($list->tokens[$list->idx - 4], JoinKeyword::$joins[$list->tokens[$list->idx - 4]->value])
+                    || isset($list->tokens[$list->idx - 6], JoinKeyword::$joins[$list->tokens[$list->idx - 6]->value])
                 ) {
                     $lineEnded = false;
                 }
@@ -486,7 +486,7 @@ class Formatter
                     if (
                         end($blocksLineEndings) === true
                         || (
-                            empty(self::$INLINE_CLAUSES[$lastClause])
+                            empty(self::$inlineClauses[$lastClause])
                             && ! $shortGroup
                             && $this->options['parts_newline']
                         )
@@ -762,13 +762,13 @@ class Formatter
     public static function isClause($token)
     {
         if (
-            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$STATEMENT_PARSERS[$token->keyword]))
+            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$statementParsers[$token->keyword]))
             || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
         }
 
-        if ($token->type === Token::TYPE_KEYWORD && isset(Parser::$KEYWORD_PARSERS[$token->keyword])) {
+        if ($token->type === Token::TYPE_KEYWORD && isset(Parser::$keywordParsers[$token->keyword])) {
             return 1;
         }
 

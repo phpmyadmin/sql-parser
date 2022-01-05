@@ -61,7 +61,7 @@ class InsertStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'LOW_PRIORITY' => 1,
         'DELAYED' => 2,
         'HIGH_PRIORITY' => 3,
@@ -146,7 +146,7 @@ class InsertStatement extends Statement
         ++$list->idx; // Skipping `INSERT`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         /**

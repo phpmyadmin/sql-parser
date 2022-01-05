@@ -2,7 +2,7 @@
     "query": "INSERT INTO `a` (`value`) SET `value` = '123'",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -187,7 +187,7 @@
             "count": 18,
             "idx": 18
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -195,7 +195,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -240,7 +240,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -249,7 +249,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -497,7 +497,7 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "LOW_PRIORITY": 1,
                     "DELAYED": 2,
                     "HIGH_PRIORITY": 3,
@@ -505,7 +505,7 @@
                 },
                 "into": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
-                    "FIELDS_OPTIONS": {
+                    "statementFieldsOptions": {
                         "TERMINATED BY": [
                             1,
                             "expr"
@@ -520,7 +520,7 @@
                             "expr"
                         ]
                     },
-                    "LINES_OPTIONS": {
+                    "statementLinesOptions": {
                         "STARTING BY": [
                             1,
                             "expr"
@@ -533,7 +533,7 @@
                     "type": null,
                     "dest": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "ALLOWED_KEYWORDS": {
+                        "allowedKeywords": {
                             "AS": 1,
                             "DUAL": 1,
                             "NULL": 1,
@@ -559,9 +559,9 @@
                         "value"
                     ],
                     "values": null,
-                    "fields_options": null,
-                    "fields_keyword": null,
-                    "lines_options": null
+                    "fieldsOptions": null,
+                    "fieldsKeyword": null,
+                    "linesOptions": null
                 },
                 "values": null,
                 "set": [
@@ -574,8 +574,8 @@
                 "select": null,
                 "with": null,
                 "onDuplicateSet": null,
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []

@@ -27,7 +27,7 @@ class Parser extends Core
      *
      * @var array
      */
-    public static $STATEMENT_PARSERS = [
+    public static $statementParsers = [
         // MySQL Utility Statements
         'DESCRIBE' => 'PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement',
         'DESC' => 'PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement',
@@ -101,7 +101,7 @@ class Parser extends Core
      *
      * @var array
      */
-    public static $KEYWORD_PARSERS = [
+    public static $keywordParsers = [
         // This is not a proper keyword and was added here to help the
         // formatter.
         'PARTITION BY' => [],
@@ -115,7 +115,7 @@ class Parser extends Core
         ],
         '_END_OPTIONS' => [
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\OptionsArray',
-            'field' => 'end_options',
+            'field' => 'endOptions',
         ],
 
         'INTERSECT' => [
@@ -470,8 +470,8 @@ class Parser extends Core
             }
 
             // Checking if it is a known statement that can be parsed.
-            if (empty(static::$STATEMENT_PARSERS[$token->keyword])) {
-                if (! isset(static::$STATEMENT_PARSERS[$token->keyword])) {
+            if (empty(static::$statementParsers[$token->keyword])) {
+                if (! isset(static::$statementParsers[$token->keyword])) {
                     // A statement is considered recognized if the parser
                     // is aware that it is a statement, but it does not have
                     // a parser for it yet.
@@ -489,7 +489,7 @@ class Parser extends Core
              *
              * @var string
              */
-            $class = static::$STATEMENT_PARSERS[$token->keyword];
+            $class = static::$statementParsers[$token->keyword];
 
             /**
              * Processed statement.

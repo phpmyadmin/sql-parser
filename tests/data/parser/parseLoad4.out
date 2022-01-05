@@ -2,7 +2,7 @@
     "query": "LOAD DATA INFILE '\/tmp\/test.txt' IGNORE\nINTO TABLE test\nCHARACTER SET 'utf8'\nCOLUMNS TERMINATED BY ','\nLINES TERMINATED BY ';'\nIGNORE 1 LINES\n(col1, col2)\nSET @a = 1;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -493,7 +493,7 @@
             "count": 52,
             "idx": 52
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -501,7 +501,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -546,7 +546,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -555,7 +555,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -803,12 +803,12 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\LoadStatement",
-                "OPTIONS": {
+                "statementOptions": {
                     "LOW_PRIORITY": 1,
                     "CONCURRENT": 1,
                     "LOCAL": 2
                 },
-                "FIELDS_OPTIONS": {
+                "statementFieldsOptions": {
                     "TERMINATED BY": [
                         1,
                         "expr"
@@ -823,7 +823,7 @@
                         "expr"
                     ]
                 },
-                "LINES_OPTIONS": {
+                "statementLinesOptions": {
                     "STARTING BY": [
                         1,
                         "expr"
@@ -833,9 +833,9 @@
                         "expr"
                     ]
                 },
-                "file_name": {
+                "fileName": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -860,7 +860,7 @@
                 },
                 "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -883,9 +883,9 @@
                     "subquery": null
                 },
                 "partition": null,
-                "charset_name": {
+                "charsetName": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -907,7 +907,7 @@
                     "function": null,
                     "subquery": null
                 },
-                "fields_options": {
+                "fieldsOptions": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "1": {
@@ -915,7 +915,7 @@
                             "equals": false,
                             "expr": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                "ALLOWED_KEYWORDS": {
+                                "allowedKeywords": {
                                     "AS": 1,
                                     "DUAL": 1,
                                     "NULL": 1,
@@ -941,8 +941,8 @@
                         }
                     }
                 },
-                "fields_keyword": "COLUMNS",
-                "lines_options": {
+                "fieldsKeyword": "COLUMNS",
+                "linesOptions": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "2": {
@@ -950,7 +950,7 @@
                             "equals": false,
                             "expr": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                "ALLOWED_KEYWORDS": {
+                                "allowedKeywords": {
                                     "AS": 1,
                                     "DUAL": 1,
                                     "NULL": 1,
@@ -976,10 +976,10 @@
                         }
                     }
                 },
-                "col_name_or_user_var": [
+                "columnNamesOrUserVariables": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "ALLOWED_KEYWORDS": {
+                        "allowedKeywords": {
                             "AS": 1,
                             "DUAL": 1,
                             "NULL": 1,
@@ -1009,9 +1009,9 @@
                         "value": "1"
                     }
                 ],
-                "ignore_number": {
+                "ignoreNumber": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "ALLOWED_KEYWORDS": {
+                    "allowedKeywords": {
                         "AS": 1,
                         "DUAL": 1,
                         "NULL": 1,
@@ -1033,10 +1033,10 @@
                     "function": null,
                     "subquery": null
                 },
-                "replace_ignore": "IGNORE",
-                "lines_rows": "LINES",
-                "CLAUSES": [],
-                "END_OPTIONS": [],
+                "replaceIgnore": "IGNORE",
+                "linesRows": "LINES",
+                "clauses": [],
+                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []

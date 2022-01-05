@@ -41,7 +41,7 @@ class AlterStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'ONLINE' => 1,
         'OFFLINE' => 1,
         'IGNORE' => 2,
@@ -64,7 +64,7 @@ class AlterStatement extends Statement
     public function parse(Parser $parser, TokensList $list)
     {
         ++$list->idx; // Skipping `ALTER`.
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         // Parsing affected table.
@@ -110,13 +110,13 @@ class AlterStatement extends Statement
             if ($state === 0) {
                 $options = [];
                 if ($this->options->has('DATABASE')) {
-                    $options = AlterOperation::$DB_OPTIONS;
+                    $options = AlterOperation::$databaseOptions;
                 } elseif ($this->options->has('TABLE')) {
-                    $options = AlterOperation::$TABLE_OPTIONS;
+                    $options = AlterOperation::$tableOptions;
                 } elseif ($this->options->has('VIEW')) {
-                    $options = AlterOperation::$VIEW_OPTIONS;
+                    $options = AlterOperation::$viewOptions;
                 } elseif ($this->options->has('USER')) {
-                    $options = AlterOperation::$USER_OPTIONS;
+                    $options = AlterOperation::$userOptions;
                 }
 
                 $this->altered[] = AlterOperation::parse($parser, $list, $options);

@@ -45,7 +45,7 @@ abstract class Statement implements Stringable
      *
      * @var array
      */
-    public static $OPTIONS = [];
+    public static $statementOptions = [];
 
     /**
      * The clauses of this statement, in order.
@@ -59,15 +59,15 @@ abstract class Statement implements Stringable
      *
      * @var array
      */
-    public static $CLAUSES = [];
+    public static $clauses = [];
 
     /** @var array */
-    public static $END_OPTIONS = [];
+    public static $statementEndOptions = [];
 
     /**
      * The options of this query.
      *
-     * @see static::$OPTIONS
+     * @see Statement::$statementOptions
      *
      * @var OptionsArray|null
      */
@@ -144,7 +144,7 @@ abstract class Statement implements Stringable
             /**
              * The type of the clause.
              *
-             * @see self::$CLAUSES
+             * @see Statement::$clauses
              *
              * @var int
              */
@@ -155,7 +155,7 @@ abstract class Statement implements Stringable
              *
              * @var Component
              */
-            $class = Parser::$KEYWORD_PARSERS[$name]['class'];
+            $class = Parser::$keywordParsers[$name]['class'];
 
             /**
              * The name of the field that is used as source for the builder.
@@ -163,7 +163,7 @@ abstract class Statement implements Stringable
              *
              * @var string
              */
-            $field = Parser::$KEYWORD_PARSERS[$name]['field'];
+            $field = Parser::$keywordParsers[$name]['field'];
 
             // The field is empty, there is nothing to be built.
             if (empty($this->$field)) {
@@ -223,7 +223,7 @@ abstract class Statement implements Stringable
          * For statements that do not have any options this is set to `true` by
          * default.
          */
-        $parsedOptions = empty(static::$OPTIONS);
+        $parsedOptions = empty(static::$statementOptions);
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -313,10 +313,7 @@ abstract class Statement implements Stringable
             $options = [];
 
             // Looking for duplicated clauses.
-            if (
-                ! empty(Parser::$KEYWORD_PARSERS[$token->value])
-                || ! empty(Parser::$STATEMENT_PARSERS[$token->value])
-            ) {
+            if (! empty(Parser::$keywordParsers[$token->value]) || ! empty(Parser::$statementParsers[$token->value])) {
                 if (! empty($parsedClauses[$token->value])) {
                     $parser->error('This type of clause was previously parsed.', $token);
                     break;
@@ -330,19 +327,19 @@ abstract class Statement implements Stringable
             // but it might be the beginning of a statement of truncate,
             // so let the value use the keyword field for truncate type.
             $tokenValue = in_array($token->keyword, ['TRUNCATE']) ? $token->keyword : $token->value;
-            if (! empty(Parser::$KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
-                $class = Parser::$KEYWORD_PARSERS[$tokenValue]['class'];
-                $field = Parser::$KEYWORD_PARSERS[$tokenValue]['field'];
-                if (! empty(Parser::$KEYWORD_PARSERS[$tokenValue]['options'])) {
-                    $options = Parser::$KEYWORD_PARSERS[$tokenValue]['options'];
+            if (! empty(Parser::$keywordParsers[$tokenValue]) && $list->idx < $list->count) {
+                $class = Parser::$keywordParsers[$tokenValue]['class'];
+                $field = Parser::$keywordParsers[$tokenValue]['field'];
+                if (! empty(Parser::$keywordParsers[$tokenValue]['options'])) {
+                    $options = Parser::$keywordParsers[$tokenValue]['options'];
                 }
             }
 
             // Checking if this is the beginning of the statement.
-            if (! empty(Parser::$STATEMENT_PARSERS[$token->keyword])) {
+            if (! empty(Parser::$statementParsers[$token->keyword])) {
                 if (
-                    ! empty(static::$CLAUSES) // Undefined for some statements.
-                    && empty(static::$CLAUSES[$token->value])
+                    ! empty(static::$clauses) // Undefined for some statements.
+                    && empty(static::$clauses[$token->value])
                 ) {
                     // Some keywords (e.g. `SET`) may be the beginning of a
                     // statement and a clause.
@@ -357,12 +354,12 @@ abstract class Statement implements Stringable
                 }
 
                 if (! $parsedOptions) {
-                    if (empty(static::$OPTIONS[$token->value])) {
+                    if (empty(static::$statementOptions[$token->value])) {
                         // Skipping keyword because if it is not a option.
                         ++$list->idx;
                     }
 
-                    $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+                    $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
@@ -372,16 +369,16 @@ abstract class Statement implements Stringable
                         || $token->value === 'LOCK IN SHARE MODE')
                 ) {
                     // Handle special end options in Select statement
-                    // See Statements\SelectStatement::$END_OPTIONS
-                    $this->end_options = OptionsArray::parse($parser, $list, static::$END_OPTIONS);
+                    // See Statements\SelectStatement::$statementEndOptions
+                    $this->endOptions = OptionsArray::parse($parser, $list, static::$statementEndOptions);
                 } elseif (
                     $this instanceof Statements\SetStatement
                     && ($token->value === 'COLLATE'
                         || $token->value === 'DEFAULT')
                 ) {
                     // Handle special end options in SET statement
-                    // See Statements\SetStatement::$END_OPTIONS
-                    $this->end_options = OptionsArray::parse($parser, $list, static::$END_OPTIONS);
+                    // See Statements\SetStatement::$statementEndOptions
+                    $this->endOptions = OptionsArray::parse($parser, $list, static::$statementEndOptions);
                 } else {
                     // There is no parser for this keyword and isn't the beginning
                     // of a statement (so no options) either.
@@ -451,7 +448,7 @@ abstract class Statement implements Stringable
      */
     public function getClauses()
     {
-        return static::$CLAUSES;
+        return static::$clauses;
     }
 
     /**

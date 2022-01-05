@@ -2,7 +2,7 @@
     "query": "SET NAMES 'utf8' COLLATE 'utf8_general_ci'",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
+        "parserMethods": [
             "parseDelimiter",
             "parseWhitespace",
             "parseNumber",
@@ -115,7 +115,7 @@
             "count": 10,
             "idx": 10
         },
-        "DEFAULT_DELIMITER": ";",
+        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -123,7 +123,7 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "STATEMENT_PARSERS": {
+        "statementParsers": {
             "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
             "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
@@ -168,7 +168,7 @@
             "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
             "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
         },
-        "KEYWORD_PARSERS": {
+        "keywordParsers": {
             "PARTITION BY": [],
             "SUBPARTITION BY": [],
             "_OPTIONS": {
@@ -177,7 +177,7 @@
             },
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "end_options"
+                "field": "endOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -425,7 +425,7 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                "CLAUSES": {
+                "clauses": {
                     "SET": [
                         "SET",
                         3
@@ -435,7 +435,7 @@
                         1
                     ]
                 },
-                "OPTIONS": {
+                "statementOptions": {
                     "CHARSET": [
                         3,
                         "var"
@@ -461,7 +461,7 @@
                     "@@PERSIST": 3,
                     "@@PERSIST_ONLY": 3
                 },
-                "END_OPTIONS": {
+                "statementEndOptions": {
                     "COLLATE": [
                         1,
                         "var"
@@ -479,7 +479,7 @@
                         }
                     }
                 },
-                "end_options": {
+                "endOptions": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "1": {

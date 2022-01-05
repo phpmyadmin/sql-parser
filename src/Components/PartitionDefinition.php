@@ -30,7 +30,7 @@ final class PartitionDefinition implements Component
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $partitionOptions = [
         'STORAGE ENGINE' => [
             1,
             'var',
@@ -206,7 +206,7 @@ final class PartitionDefinition implements Component
 
                 $state = 5;
             } elseif ($state === 5) {
-                $ret->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+                $ret->options = OptionsArray::parse($parser, $list, static::$partitionOptions);
                 $state = 6;
             } elseif ($state === 6) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {

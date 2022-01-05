@@ -49,7 +49,7 @@ class LoadStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'LOW_PRIORITY' => 1,
         'CONCURRENT' => 1,
         'LOCAL' => 2,
@@ -60,7 +60,7 @@ class LoadStatement extends Statement
      *
      * @var array
      */
-    public static $FIELDS_OPTIONS = [
+    public static $statementFieldsOptions = [
         'TERMINATED BY' => [
             1,
             'expr',
@@ -81,7 +81,7 @@ class LoadStatement extends Statement
      *
      * @var array
      */
-    public static $LINES_OPTIONS = [
+    public static $statementLinesOptions = [
         'STARTING BY' => [
             1,
             'expr',
@@ -97,7 +97,7 @@ class LoadStatement extends Statement
      *
      * @var Expression|null
      */
-    public $file_name;
+    public $fileName;
 
     /**
      * Table used as destination for this statement.
@@ -118,39 +118,39 @@ class LoadStatement extends Statement
      *
      * @var Expression|null
      */
-    public $charset_name;
+    public $charsetName;
 
     /**
      * Options for FIELDS/COLUMNS keyword.
      *
-     * @see static::$FIELDS_OPTIONS
+     * @see LoadStatement::$statementFieldsOptions
      *
      * @var OptionsArray|null
      */
-    public $fields_options;
+    public $fieldsOptions;
 
     /**
      * Whether to use `FIELDS` or `COLUMNS` while building.
      *
      * @var string|null
      */
-    public $fields_keyword;
+    public $fieldsKeyword;
 
     /**
      * Options for OPTIONS keyword.
      *
-     * @see static::$LINES_OPTIONS
+     * @see LoadStatement::$statementLinesOptions
      *
      * @var OptionsArray|null
      */
-    public $lines_options;
+    public $linesOptions;
 
     /**
      * Column names or user variables.
      *
      * @var Expression[]|null
      */
-    public $col_name_or_user_var;
+    public $columnNamesOrUserVariables;
 
     /**
      * SET clause's updated values(optional).
@@ -164,21 +164,21 @@ class LoadStatement extends Statement
      *
      * @var Expression|null
      */
-    public $ignore_number;
+    public $ignoreNumber;
 
     /**
      * REPLACE/IGNORE Keyword.
      *
      * @var string|null
      */
-    public $replace_ignore;
+    public $replaceIgnore;
 
     /**
      * LINES/ROWS Keyword.
      *
      * @var string|null
      */
-    public $lines_rows;
+    public $linesRows;
 
     /**
      * @return string
@@ -186,10 +186,10 @@ class LoadStatement extends Statement
     public function build()
     {
         $ret = 'LOAD DATA ' . $this->options
-            . ' INFILE ' . $this->file_name;
+            . ' INFILE ' . $this->fileName;
 
-        if ($this->replace_ignore !== null) {
-            $ret .= ' ' . trim($this->replace_ignore);
+        if ($this->replaceIgnore !== null) {
+            $ret .= ' ' . trim($this->replaceIgnore);
         }
 
         $ret .= ' INTO TABLE ' . $this->table;
@@ -198,24 +198,24 @@ class LoadStatement extends Statement
             $ret .= ' PARTITION ' . ArrayObj::build($this->partition);
         }
 
-        if ($this->charset_name !== null) {
-            $ret .= ' CHARACTER SET ' . $this->charset_name;
+        if ($this->charsetName !== null) {
+            $ret .= ' CHARACTER SET ' . $this->charsetName;
         }
 
-        if ($this->fields_keyword !== null) {
-            $ret .= ' ' . $this->fields_keyword . ' ' . $this->fields_options;
+        if ($this->fieldsKeyword !== null) {
+            $ret .= ' ' . $this->fieldsKeyword . ' ' . $this->fieldsOptions;
         }
 
-        if ($this->lines_options !== null && strlen((string) $this->lines_options) > 0) {
-            $ret .= ' LINES ' . $this->lines_options;
+        if ($this->linesOptions !== null && strlen((string) $this->linesOptions) > 0) {
+            $ret .= ' LINES ' . $this->linesOptions;
         }
 
-        if ($this->ignore_number !== null) {
-            $ret .= ' IGNORE ' . $this->ignore_number . ' ' . $this->lines_rows;
+        if ($this->ignoreNumber !== null) {
+            $ret .= ' IGNORE ' . $this->ignoreNumber . ' ' . $this->linesRows;
         }
 
-        if ($this->col_name_or_user_var !== null && count($this->col_name_or_user_var) > 0) {
-            $ret .= ' ' . ExpressionArray::build($this->col_name_or_user_var);
+        if ($this->columnNamesOrUserVariables !== null && count($this->columnNamesOrUserVariables) > 0) {
+            $ret .= ' ' . ExpressionArray::build($this->columnNamesOrUserVariables);
         }
 
         if ($this->set !== null && count($this->set) > 0) {
@@ -234,7 +234,7 @@ class LoadStatement extends Statement
         ++$list->idx; // Skipping `LOAD DATA`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         /**
@@ -272,7 +272,7 @@ class LoadStatement extends Statement
                 }
 
                 ++$list->idx;
-                $this->file_name = Expression::parse(
+                $this->fileName = Expression::parse(
                     $parser,
                     $list,
                     ['parseField' => 'file']
@@ -281,7 +281,7 @@ class LoadStatement extends Statement
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_KEYWORD) {
                     if ($token->keyword === 'REPLACE' || $token->keyword === 'IGNORE') {
-                        $this->replace_ignore = trim($token->keyword);
+                        $this->replaceIgnore = trim($token->keyword);
                     } elseif ($token->keyword === 'INTO') {
                         $state = 2;
                     }
@@ -303,7 +303,7 @@ class LoadStatement extends Statement
                         break;
                     }
                 } elseif ($token->type === Token::TYPE_OPERATOR && $token->token === '(') {
-                    $this->col_name_or_user_var
+                    $this->columnNamesOrUserVariables
                         = ExpressionArray::parse($parser, $list);
                     $state = 7;
                 } else {
@@ -327,12 +327,12 @@ class LoadStatement extends Statement
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
             // parse field options
-            $this->fields_options = OptionsArray::parse($parser, $list, static::$FIELDS_OPTIONS);
+            $this->fieldsOptions = OptionsArray::parse($parser, $list, static::$statementFieldsOptions);
 
-            $this->fields_keyword = $keyword;
+            $this->fieldsKeyword = $keyword;
         } else {
             // parse line options
-            $this->lines_options = OptionsArray::parse($parser, $list, static::$LINES_OPTIONS);
+            $this->linesOptions = OptionsArray::parse($parser, $list, static::$statementLinesOptions);
         }
     }
 
@@ -360,7 +360,7 @@ class LoadStatement extends Statement
             case 4:
                 if ($token->keyword === 'CHARACTER SET') {
                     ++$list->idx;
-                    $this->charset_name = Expression::parse($parser, $list);
+                    $this->charsetName = Expression::parse($parser, $list);
 
                     return 5;
                 }
@@ -378,7 +378,7 @@ class LoadStatement extends Statement
                 if ($token->keyword === 'IGNORE') {
                     ++$list->idx;
 
-                    $this->ignore_number = Expression::parse($parser, $list);
+                    $this->ignoreNumber = Expression::parse($parser, $list);
                     $nextToken = $list->getNextOfType(Token::TYPE_KEYWORD);
 
                     if (
@@ -386,7 +386,7 @@ class LoadStatement extends Statement
                         && (($nextToken->keyword === 'LINES')
                         || ($nextToken->keyword === 'ROWS'))
                     ) {
-                        $this->lines_rows = $nextToken->token;
+                        $this->linesRows = $nextToken->token;
                     }
 
                     return 7;

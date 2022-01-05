@@ -19,7 +19,7 @@ class ChecksumStatement extends MaintenanceStatement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'TABLE' => 1,
 
         'QUICK' => 2,

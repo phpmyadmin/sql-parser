@@ -53,7 +53,7 @@ class TransactionStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'START TRANSACTION' => 1,
         'BEGIN' => 1,
         'COMMIT' => 1,

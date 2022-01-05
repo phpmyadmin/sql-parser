@@ -48,7 +48,7 @@ class ReplaceStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'LOW_PRIORITY' => 1,
         'DELAYED' => 1,
     ];
@@ -113,7 +113,7 @@ class ReplaceStatement extends Statement
         ++$list->idx; // Skipping `REPLACE`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
 
         ++$list->idx;
 

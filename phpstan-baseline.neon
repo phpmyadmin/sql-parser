@@ -41,22 +41,7 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$DB_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$TABLE_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$USER_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$VIEW_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$databaseOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/AlterOperation.php
 
@@ -72,6 +57,21 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$tableOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$userOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$viewOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/AlterOperation.php
 
@@ -156,7 +156,7 @@ parameters:
 			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$compare_values type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$compareValues type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
@@ -191,12 +191,12 @@ parameters:
 			path: src/Components/Condition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$ALLOWED_KEYWORDS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$allowedKeywords type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Condition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$DELIMITERS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\:\\:\\$delimiters type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Condition.php
 
@@ -226,7 +226,7 @@ parameters:
 			path: src/Components/CreateDefinition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$FIELD_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$fieldOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/CreateDefinition.php
 
@@ -266,7 +266,7 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$DATA_TYPE_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$dataTypeOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/DataType.php
 
@@ -311,13 +311,13 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$ALLOWED_KEYWORDS type has no value type specified in iterable type array\\.$#"
-			count: 1
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
+			count: 3
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 3
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$allowedKeywords type has no value type specified in iterable type array\\.$#"
+			count: 1
 			path: src/Components/Expression.php
 
 		-
@@ -481,22 +481,22 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$FIELDS_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$LINES_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$statementFieldsOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$statementLinesOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
@@ -516,13 +516,13 @@ parameters:
 			path: src/Components/JoinKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$JOINS type has no value type specified in iterable type array\\.$#"
-			count: 1
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
 			path: src/Components/JoinKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$joins type has no value type specified in iterable type array\\.$#"
+			count: 1
 			path: src/Components/JoinKeyword.php
 
 		-
@@ -581,7 +581,7 @@ parameters:
 			path: src/Components/Key.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$KEY_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$keyOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
@@ -751,11 +751,6 @@ parameters:
 			path: src/Components/PartitionDefinition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/PartitionDefinition.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
@@ -767,6 +762,11 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Components/PartitionDefinition.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$partitionOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
 
@@ -806,17 +806,17 @@ parameters:
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$REFERENCES_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Reference.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Components/Reference.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$referencesOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/Reference.php
 
@@ -906,12 +906,12 @@ parameters:
 			path: src/Context.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$KEYWORDS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$keywords type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Context.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$OPERATORS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$operators type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Context.php
 
@@ -936,12 +936,12 @@ parameters:
 			path: src/Lexer.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$PARSER_METHODS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$delimiter \\(string\\) does not accept null\\.$#"
 			count: 1
 			path: src/Lexer.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$delimiter \\(string\\) does not accept null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:\\$parserMethods type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Lexer.php
 
@@ -981,12 +981,12 @@ parameters:
 			path: src/Parser.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$KEYWORD_PARSERS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$keywordParsers type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Parser.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$STATEMENT_PARSERS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$statementParsers type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Parser.php
 
@@ -1006,17 +1006,17 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$clauses type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$END_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$statementEndOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -1041,17 +1041,17 @@ parameters:
 			path: src/Statements/AlterStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AlterStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/AlterStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AnalyzeStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\AnalyzeStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/AnalyzeStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\BackupStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\BackupStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/BackupStatement.php
 
@@ -1066,12 +1066,12 @@ parameters:
 			path: src/Statements/CallStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CheckStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CheckStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/CheckStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ChecksumStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ChecksumStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/ChecksumStatement.php
 
@@ -1111,32 +1111,17 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$DB_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$FUNC_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$TABLE_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$TRIGGER_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$databaseOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$fields \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$functionOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -1151,7 +1136,22 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\|null\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$tableOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$triggerOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -1186,27 +1186,27 @@ parameters:
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$clauses type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DeleteStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DropStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DropStatement\\:\\:\\$clauses type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/DropStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DropStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\DropStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/DropStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\InsertStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\InsertStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/InsertStatement.php
 
@@ -1231,22 +1231,22 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$FIELDS_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$LINES_OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/LoadStatement.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$partition \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$statementFieldsOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$statementLinesOptions type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
@@ -1256,7 +1256,7 @@ parameters:
 			path: src/Statements/MaintenanceStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\OptimizeStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\OptimizeStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/OptimizeStatement.php
 
@@ -1266,17 +1266,17 @@ parameters:
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_expr \\(string\\|null\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$endExpr \\(string\\|null\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_option \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$endOption \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$log_type \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$logType \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
 
@@ -1286,7 +1286,7 @@ parameters:
 			path: src/Statements/RenameStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\RepairStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\RepairStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/RepairStatement.php
 
@@ -1301,7 +1301,7 @@ parameters:
 			path: src/Statements/ReplaceStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
@@ -1311,7 +1311,7 @@ parameters:
 			path: src/Statements/ReplaceStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\RestoreStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\RestoreStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/RestoreStatement.php
 
@@ -1321,12 +1321,12 @@ parameters:
 			path: src/Statements/SelectStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$clauses type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SelectStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SelectStatement.php
 
@@ -1351,22 +1351,22 @@ parameters:
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$clauses type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$END_OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$statementEndOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ShowStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ShowStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/ShowStatement.php
 
@@ -1391,22 +1391,22 @@ parameters:
 			path: src/Statements/TransactionStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/TransactionStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TruncateStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TruncateStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/TruncateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$clauses type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/UpdateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$OPTIONS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\UpdateStatement\\:\\:\\$statementOptions type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Statements/UpdateStatement.php
 
@@ -1451,12 +1451,12 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:\\$LABELS_FLAGS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:\\$labelsFlags type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:\\$LINKS type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Tools\\\\ContextGenerator\\:\\:\\$links type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
@@ -1626,17 +1626,17 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$INLINE_CLAUSES type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Formatter.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$SHORT_CLAUSES type has no value type specified in iterable type array\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$inlineClauses type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:\\$shortClauses type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
 

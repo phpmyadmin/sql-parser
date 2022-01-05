@@ -32,16 +32,16 @@ final class WithStatement extends Statement
      *
      * @var mixed[]
      */
-    public static $OPTIONS = ['RECURSIVE' => 1];
+    public static $statementOptions = ['RECURSIVE' => 1];
 
     /**
      * The clauses of this statement, in order.
      *
-     * @see Statement::$CLAUSES
+     * @see Statement::$clauses
      *
      * @var mixed[]
      */
-    public static $CLAUSES = [
+    public static $clauses = [
         'WITH' => [
             'WITH',
             2,
@@ -100,7 +100,7 @@ final class WithStatement extends Statement
         ++$list->idx; // Skipping `WITH`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         for (; $list->idx < $list->count; ++$list->idx) {

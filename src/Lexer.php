@@ -52,7 +52,7 @@ class Lexer extends Core
      *
      * @var array
      */
-    public static $PARSER_METHODS = [
+    public static $parserMethods = [
         // It is best to put the parsers in order of their complexity
         // (ascending) and their occurrence rate (descending).
         //
@@ -125,7 +125,7 @@ class Lexer extends Core
      *
      * @var string
      */
-    public static $DEFAULT_DELIMITER = ';';
+    public static $defaultDelimiter = ';';
 
     /**
      * Statements delimiter.
@@ -189,7 +189,7 @@ class Lexer extends Core
         $this->strict = $strict;
 
         // Setting the delimiter.
-        $this->setDelimiter(! empty($delimiter) ? $delimiter : static::$DEFAULT_DELIMITER);
+        $this->setDelimiter(! empty($delimiter) ? $delimiter : static::$defaultDelimiter);
 
         $this->lex();
     }
@@ -240,7 +240,7 @@ class Lexer extends Core
              */
             $token = null;
 
-            foreach (static::$PARSER_METHODS as $method) {
+            foreach (static::$parserMethods as $method) {
                 $token = $this->$method();
 
                 if ($token) {

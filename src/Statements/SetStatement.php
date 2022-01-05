@@ -21,11 +21,11 @@ class SetStatement extends Statement
     /**
      * The clauses of this statement, in order.
      *
-     * @see Statement::$CLAUSES
+     * @see Statement::$clauses
      *
      * @var array
      */
-    public static $CLAUSES = [
+    public static $clauses = [
         'SET' => [
             'SET',
             3,
@@ -41,7 +41,7 @@ class SetStatement extends Statement
      *
      * @var array
      */
-    public static $OPTIONS = [
+    public static $statementOptions = [
         'CHARSET' => [
             3,
             'var',
@@ -69,7 +69,7 @@ class SetStatement extends Statement
     ];
 
     /** @var array */
-    public static $END_OPTIONS = [
+    public static $statementEndOptions = [
         'COLLATE' => [
             1,
             'var',
@@ -87,11 +87,11 @@ class SetStatement extends Statement
     /**
      * The end options of this query.
      *
-     * @see static::$END_OPTIONS
+     * @see SetStatement::$statementEndOptions
      *
      * @var OptionsArray|null
      */
-    public $end_options;
+    public $endOptions;
 
     /**
      * The updated values.
@@ -107,7 +107,7 @@ class SetStatement extends Statement
     {
         $ret = 'SET ' . OptionsArray::build($this->options)
             . ' ' . SetOperation::build($this->set)
-            . ' ' . OptionsArray::build($this->end_options);
+            . ' ' . OptionsArray::build($this->endOptions);
 
         return trim($ret);
     }
