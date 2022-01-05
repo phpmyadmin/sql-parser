@@ -7,6 +7,7 @@ on:
     branches:
       - master
       - QA
+      - 6.0.x
 
 jobs:
     test-php:
@@ -15,7 +16,7 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         strategy:
             matrix:
-                php-version: ["7.1", "7.2", "7.3", "7.4", "8.0"]
+                php-version: ["7.2", "7.3", "7.4", "8.0"]
                 os: [ubuntu-latest]
                 experimental: [false]
                 composer-options: ['']
@@ -48,9 +49,6 @@ jobs:
                   ${{ runner.os }}-composer-
             - name: Install dependencies
               run: composer install --no-interaction ${{ matrix.composer-options }}
-            - name: Install motranslator
-              if: ${{ matrix.php-version == '7.1' }}
-              run: composer require phpmyadmin/motranslator:^3.0
             - name: Run php tests
               run: ./vendor/bin/phpunit
             - name: Send coverage
