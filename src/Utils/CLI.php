@@ -27,6 +27,11 @@ use const STDIN;
  */
 class CLI
 {
+    public function __construct()
+    {
+        Context::load();
+    }
+
     /**
      * @param string[]|false[] $params
      * @param string[]         $longopts

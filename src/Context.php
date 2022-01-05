@@ -639,6 +639,3 @@ abstract class Context
         return (self::$MODE & $flag) === $flag;
     }
 }
-
-// Initializing the default context.
-Context::load();

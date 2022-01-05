@@ -362,6 +362,8 @@ class Parser extends Core
      */
     public function __construct($list = null, $strict = false)
     {
+        parent::__construct();
+
         if (is_string($list) || ($list instanceof UtfString)) {
             $lexer = new Lexer($list, $strict);
             $this->list = $lexer->list;

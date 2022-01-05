@@ -33,6 +33,15 @@ class Core
      */
     public $errors = [];
 
+    public function __construct()
+    {
+        if (Context::$KEYWORDS !== []) {
+            return;
+        }
+
+        Context::load();
+    }
+
     /**
      * Creates a new error log.
      *
