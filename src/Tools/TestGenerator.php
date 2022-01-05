@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\UtfString;
 use Zumba\JsonSerializer\JsonSerializer;
 
 use function file_exists;
@@ -25,6 +26,7 @@ use function scandir;
 use function sprintf;
 use function str_contains;
 use function str_ends_with;
+use function str_replace;
 use function strpos;
 use function substr;
 
@@ -170,6 +172,16 @@ class TestGenerator
         $serializer = new JsonSerializer();
         // Writing test's data.
         $encoded = $serializer->serialize($test);
+
+        /**
+         * Can not decode null char in keys.
+         *
+         * @see UtfString::$asciiMap
+         */
+        if (str_contains($encoded, '"asciiMap":{"\u0000":0,"')) {
+            $encoded = str_replace('"asciiMap":{"\u0000":0,"', '"asciiMap":{"', $encoded);
+        }
+
         $encoded = json_encode(
             json_decode($encoded),
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION
@@ -231,7 +243,7 @@ class TestGenerator
 
                 // Building the test.
                 if (! file_exists($outputFile)) {
-                    sprintf("Building test for %s...\n", $inputFile);
+                    echo sprintf("Building test for %s...\n", $inputFile);
                     static::build(
                         str_contains($inputFile, 'lex') ? 'lexer' : 'parser',
                         $inputFile,
@@ -240,7 +252,7 @@ class TestGenerator
                         str_contains($inputFile, 'ansi')
                     );
                 } else {
-                    sprintf("Test for %s already built!\n", $inputFile);
+                    echo sprintf("Test for %s already built!\n", $inputFile);
                 }
             }
         }

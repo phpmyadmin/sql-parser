@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use PhpMyAdmin\SqlParser\Tools\ContextGenerator;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
  * Test generator.
