@@ -243,7 +243,7 @@ class TestGenerator
 
                 // Building the test.
                 if (! file_exists($outputFile)) {
-                    sprintf("Building test for %s...\n", $inputFile);
+                    echo sprintf("Building test for %s...\n", $inputFile);
                     static::build(
                         str_contains($inputFile, 'lex') ? 'lexer' : 'parser',
                         $inputFile,
@@ -252,7 +252,7 @@ class TestGenerator
                         str_contains($inputFile, 'ansi')
                     );
                 } else {
-                    sprintf("Test for %s already built!\n", $inputFile);
+                    echo sprintf("Test for %s already built!\n", $inputFile);
                 }
             }
         }

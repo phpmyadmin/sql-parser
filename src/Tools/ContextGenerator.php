@@ -396,7 +396,7 @@ PHP;
             }
 
             // Building the context.
-            sprintf("Building context for %s...\n", $file);
+            echo sprintf("Building context for %s...\n", $file);
             static::build($input . '/' . $file, $output);
         }
     }

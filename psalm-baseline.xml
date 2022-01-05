@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.16.1@aa7e400908833b10c0333861f86cd48c510b60eb">
+<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
   <file src="src/Component.php">
     <MixedReturnStatement occurrences="1">
       <code>static::build($this)</code>
@@ -1243,9 +1243,6 @@
       <code>++$i !== $count</code>
       <code>++$i !== $count</code>
     </RedundantCondition>
-    <UnusedFunctionCall occurrences="1">
-      <code>sprintf</code>
-    </UnusedFunctionCall>
   </file>
   <file src="src/Tools/TestGenerator.php">
     <MixedOperand occurrences="1">
@@ -1255,10 +1252,6 @@
       <code>$debugFile</code>
       <code>$debugFile</code>
     </PossiblyNullArgument>
-    <UnusedFunctionCall occurrences="2">
-      <code>sprintf</code>
-      <code>sprintf</code>
-    </UnusedFunctionCall>
   </file>
   <file src="src/Translator.php">
     <DocblockTypeContradiction occurrences="1">
