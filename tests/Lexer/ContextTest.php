@@ -43,6 +43,10 @@ class ContextTest extends TestCase
         Context::load('');
     }
 
+    /**
+     * @return array<string, array<int, string|null>>
+     * @psalm-return array<string, array{string, (string|null)}>
+     */
     public function contextLoadingProvider(): array
     {
         return [
@@ -89,6 +93,9 @@ class ContextTest extends TestCase
         Context::load('');
     }
 
+    /**
+     * @return string[][]
+     */
     public function contextNamesProvider(): array
     {
         return [

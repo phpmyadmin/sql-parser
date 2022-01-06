@@ -57,25 +57,26 @@ abstract class TestCase extends BaseTestCase
      *
      * @param Lexer|Parser $obj object containing the errors
      *
-     * @return array
+     * @return array<int, array<int, Token|string|int>>
+     * @psalm-return (
+     *     $obj is Lexer
+     *     ? list<array{string, string, int, int}>
+     *     : list<array{string, Token, int}>
+     * )
      */
     public function getErrorsAsArray($obj)
     {
         $ret = [];
-        /** @var LexerException|ParserException $err */
-        foreach ($obj->errors as $err) {
-            $ret[] = $obj instanceof Lexer
-                ? [
-                    $err->getMessage(),
-                    $err->ch,
-                    $err->pos,
-                    $err->getCode(),
-                ]
-                : [
-                    $err->getMessage(),
-                    $err->token,
-                    $err->getCode(),
-                ];
+        if ($obj instanceof Lexer) {
+            /** @var LexerException $err */
+            foreach ($obj->errors as $err) {
+                $ret[] = [$err->getMessage(), $err->ch, $err->pos, (int) $err->getCode()];
+            }
+        } elseif ($obj instanceof Parser) {
+            /** @var ParserException $err */
+            foreach ($obj->errors as $err) {
+                $ret[] = [$err->getMessage(), $err->token, (int) $err->getCode()];
+            }
         }
 
         return $ret;

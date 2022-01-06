@@ -1613,9 +1613,6 @@
     </UndefinedPropertyFetch>
   </file>
   <file src="tests/Builder/CreateStatementTest.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
     <PossiblyInvalidArgument occurrences="2">
       <code>$stmt-&gt;fields</code>
       <code>$stmt-&gt;fields</code>
@@ -1634,12 +1631,6 @@
     </PossiblyNullReference>
   </file>
   <file src="tests/Components/ArrayObjTest.php">
-    <MixedArgument occurrences="1">
-      <code>$test</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
     <UndefinedMethod occurrences="2">
       <code>$components</code>
       <code>$components</code>
@@ -1694,9 +1685,6 @@
     </UndefinedMethod>
   </file>
   <file src="tests/Components/ExpressionTest.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$errors[0][0]</code>
-    </MixedArrayAccess>
     <PossiblyNullPropertyFetch occurrences="2">
       <code>$component-&gt;expr</code>
       <code>$component-&gt;expr</code>
@@ -1716,9 +1704,6 @@
     </DocblockTypeContradiction>
   </file>
   <file src="tests/Components/LockExpressionTest.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$errors[0][0]</code>
-    </MixedArrayAccess>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>assertNotNull</code>
       <code>assertNotNull</code>
@@ -1735,25 +1720,6 @@
       <code>$component</code>
     </InvalidArgument>
   </file>
-  <file src="tests/Lexer/ContextTest.php">
-    <MixedInferredReturnType occurrences="2">
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="tests/Lexer/LexerTest.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="tests/Misc/UtfStringTest.php">
-    <MixedArgument occurrences="1">
-      <code>$text</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="tests/Parser/LoadStatementTest.php">
     <PossiblyNullReference occurrences="1">
       <code>has</code>
@@ -1768,46 +1734,12 @@
     <InvalidArgument occurrences="1">
       <code>new stdClass()</code>
     </InvalidArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$parserErrors[0][0]</code>
-    </MixedArrayAccess>
   </file>
   <file src="tests/TestCase.php">
     <LessSpecificReturnStatement occurrences="1">
       <code>$data</code>
     </LessSpecificReturnStatement>
     <MoreSpecificReturnType occurrences="1"/>
-    <UndefinedPropertyFetch occurrences="3">
-      <code>$err-&gt;ch</code>
-      <code>$err-&gt;pos</code>
-      <code>$err-&gt;token</code>
-    </UndefinedPropertyFetch>
-  </file>
-  <file src="tests/Utils/BufferedQueryTest.php">
-    <MixedArgument occurrences="2">
-      <code>$chunkSize</code>
-      <code>$query</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <PossiblyFalseArgument occurrences="1">
-      <code>$chunks</code>
-    </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$chunks[$i++]</code>
-    </PossiblyInvalidArrayAccess>
-  </file>
-  <file src="tests/Utils/FormatterTest.php">
-    <MixedArgument occurrences="3">
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="2">
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="tests/Utils/MiscTest.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -1819,20 +1751,16 @@
     </PossiblyNullArgument>
   </file>
   <file src="tests/Utils/QueryTest.php">
-    <MixedArgument occurrences="9">
+    <MixedArgument occurrences="8">
       <code>$delimiter</code>
       <code>$delimiter</code>
       <code>$delimiter</code>
       <code>$delimiter</code>
-      <code>$query</code>
       <code>$query</code>
       <code>$query</code>
       <code>$query</code>
       <code>$query</code>
     </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
     <PossiblyNullArgument occurrences="16">
       <code>$parser-&gt;list</code>
       <code>$parser-&gt;list</code>

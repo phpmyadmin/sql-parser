@@ -13,14 +13,15 @@ use function str_split;
 class BufferedQueryTest extends TestCase
 {
     /**
-     * @param mixed $query
-     * @param mixed $chunkSize
+     * @param array<string, bool> $options
+     * @param string[]            $expected
+     * @psalm-param positive-int $chunkSize
      *
      * @dataProvider extractProvider
      */
     public function testExtract(
-        $query,
-        $chunkSize,
+        string $query,
+        int $chunkSize,
         array $options,
         array $expected
     ): void {
@@ -59,6 +60,10 @@ class BufferedQueryTest extends TestCase
         $this->assertEquals($expected, $statements);
     }
 
+    /**
+     * @return array<int, array<int, int|string|string[]|bool[]>>
+     * @psalm-return list<array{string, positive-int, array{parse_delimiter: bool, add_delimiter: bool}, string[]}>
+     */
     public function extractProvider(): array
     {
         $query =

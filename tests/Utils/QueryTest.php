@@ -399,12 +399,11 @@ class QueryTest extends TestCase
     }
 
     /**
-     * @param mixed $query
-     * @param mixed $expected
+     * @param string[] $expected
      *
      * @dataProvider getTablesProvider
      */
-    public function testGetTables($query, $expected): void
+    public function testGetTables(string $query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals(
@@ -413,6 +412,10 @@ class QueryTest extends TestCase
         );
     }
 
+    /**
+     * @return array<int, array<int, string|string[]>>
+     * @psalm-return list<array{string, string[]}>
+     */
     public function getTablesProvider(): array
     {
         return [

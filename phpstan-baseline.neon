@@ -1756,11 +1756,6 @@ parameters:
 			path: tests/Builder/CreateStatementTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Builder\\\\CreateStatementTest\\:\\:partitionQueriesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Builder/CreateStatementTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null given\\.$#"
 			count: 2
 			path: tests/Builder/CreateStatementTest.php
@@ -1778,16 +1773,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 1 on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 2
-			path: tests/Components/ArrayObjTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Components\\\\ArrayObjTest\\:\\:parseProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Components/ArrayObjTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$name of method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:runParserTest\\(\\) expects string, mixed given\\.$#"
-			count: 1
 			path: tests/Components/ArrayObjTest.php
 
 		-
@@ -1871,37 +1856,12 @@ parameters:
 			path: tests/Components/RenameOperationTest.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:contextLoadingProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\ContextTest\\:\\:contextNamesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Lexer/ContextTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Lexer\\\\LexerTest\\:\\:lexProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Lexer/LexerTest.php
-
-		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 2 and PhpMyAdmin\\\\SqlParser\\\\TokensList will always evaluate to false\\.$#"
 			count: 1
 			path: tests/Lexer/TokensListTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 112 and PhpMyAdmin\\\\SqlParser\\\\UtfString will always evaluate to false\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Misc\\\\UtfStringTest\\:\\:utf8StringsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of class PhpMyAdmin\\\\SqlParser\\\\UtfString constructor expects string, mixed given\\.$#"
 			count: 1
 			path: tests/Misc/UtfStringTest.php
 
@@ -1921,42 +1881,7 @@ parameters:
 			path: tests/Parser/WithStatementTest.php
 
 		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\LexerException\\|PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\ParserException\\:\\:\\$ch\\.$#"
-			count: 1
-			path: tests/TestCase.php
-
-		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\LexerException\\|PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\ParserException\\:\\:\\$pos\\.$#"
-			count: 1
-			path: tests/TestCase.php
-
-		-
-			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\LexerException\\|PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\ParserException\\:\\:\\$token\\.$#"
-			count: 1
-			path: tests/TestCase.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getErrorsAsArray\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/TestCase.php
-
-		-
 			message: "#^Cannot access offset int on non\\-empty\\-array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:extractProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:testExtract\\(\\) has parameter \\$expected with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\BufferedQueryTest\\:\\:testExtract\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
 
@@ -1966,39 +1891,9 @@ parameters:
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$str of function str_split expects string, mixed given\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$split_length of function str_split expects int\\<1, max\\>, mixed given\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:formatQueriesProviders\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/FormatterTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:mergeFormatsProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/FormatterTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\FormatterTest\\:\\:testFormat\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/FormatterTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) expects string, mixed given\\.$#"
-			count: 3
-			path: tests/Utils/FormatterTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement, PhpMyAdmin\\\\SqlParser\\\\Statement\\|null given\\.$#"
@@ -2009,16 +1904,6 @@ parameters:
 			message: "#^Parameter \\#2 \\$database of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: tests/Utils/MiscTest.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\Utils\\\\QueryTest\\:\\:getTablesProvider\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/QueryTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$list of class PhpMyAdmin\\\\SqlParser\\\\Parser constructor expects PhpMyAdmin\\\\SqlParser\\\\TokensList\\|PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: tests/Utils/QueryTest.php
 
 		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
