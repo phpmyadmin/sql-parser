@@ -698,7 +698,7 @@ class CreateStatement extends Statement
                             $this->partitions = ArrayObj::parse(
                                 $parser,
                                 $list,
-                                ['type' => 'PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition']
+                                ['type' => PartitionDefinition::class]
                             );
                         }
 

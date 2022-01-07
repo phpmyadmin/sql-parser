@@ -571,17 +571,17 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^Offset 'class' does not exist on array\\{class\\?\\: string, field\\?\\: non\\-empty\\-string, options\\?\\: array\\<string, string\\>\\}\\.$#"
+			message: "#^Offset 'class' does not exist on array\\{class\\?\\: class\\-string\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>, field\\?\\: non\\-empty\\-string, options\\?\\: array\\<string, string\\>\\}\\.$#"
 			count: 1
 			path: src/Statement.php
 
 		-
-			message: "#^Offset 'field' does not exist on array\\{class\\?\\: string, field\\?\\: non\\-empty\\-string, options\\?\\: array\\<string, string\\>\\}\\.$#"
+			message: "#^Offset 'field' does not exist on array\\{class\\?\\: class\\-string\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>, field\\?\\: non\\-empty\\-string, options\\?\\: array\\<string, string\\>\\}\\.$#"
 			count: 1
 			path: src/Statement.php
 
 		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\SqlParser\\\\Component\\|string and null will always evaluate to false\\.$#"
+			message: "#^Strict comparison using \\=\\=\\= between class\\-string\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Component and null will always evaluate to false\\.$#"
 			count: 1
 			path: src/Statement.php
 
