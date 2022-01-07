@@ -47,7 +47,8 @@ class LoadStatement extends Statement
     /**
      * Options for `LOAD` statements and their slot ID.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementOptions = [
         'LOW_PRIORITY' => 1,
@@ -58,7 +59,8 @@ class LoadStatement extends Statement
     /**
      * FIELDS/COLUMNS Options for `LOAD DATA...INFILE` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementFieldsOptions = [
         'TERMINATED BY' => [
@@ -79,7 +81,8 @@ class LoadStatement extends Statement
     /**
      * LINES Options for `LOAD DATA...INFILE` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementLinesOptions = [
         'STARTING BY' => [

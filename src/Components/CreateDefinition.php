@@ -29,7 +29,12 @@ final class CreateDefinition implements Component
     /**
      * All field options.
      *
-     * @var array
+     * @var array<string, bool|int|array<int, int|string|array<string, bool>>>
+     * @psalm-var array<string, (bool|positive-int|array{
+     *   0: positive-int,
+     *   1: ('var'|'var='|'expr'|'expr='),
+     *   2?: array<string, bool>
+     * })>
      */
     public static $fieldOptions = [
         // Tells the `OptionsArray` to not sort the options.
@@ -173,9 +178,9 @@ final class CreateDefinition implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return CreateDefinition[]
      */
@@ -317,7 +322,7 @@ final class CreateDefinition implements Component
 
     /**
      * @param CreateDefinition|CreateDefinition[] $component the component to be built
-     * @param array                               $options   parameters for building
+     * @param array<string, mixed>                $options   parameters for building
      *
      * @return string
      */

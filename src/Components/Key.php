@@ -26,7 +26,8 @@ final class Key implements Component
     /**
      * All key options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $keyOptions = [
         'KEY_BLOCK_SIZE' => [
@@ -76,7 +77,7 @@ final class Key implements Component
     /**
      * The key columns
      *
-     * @var array[]
+     * @var array<int, array<string, int|string>>
      * @phpstan-var array{name?: string, length?: int, order?: string}[]
      */
     public $columns;
@@ -103,10 +104,11 @@ final class Key implements Component
     public $options;
 
     /**
-     * @param string       $name    the name of the key
-     * @param array        $columns the columns covered by this key
-     * @param string       $type    the type of this key
-     * @param OptionsArray $options the options of this key
+     * @param string                                $name    the name of the key
+     * @param array<int, array<string, int|string>> $columns the columns covered by this key
+     * @param string                                $type    the type of this key
+     * @param OptionsArray                          $options the options of this key
+     * @phpstan-param array{name?: string, length?: int, order?: string}[] $columns
      */
     public function __construct(
         $name = null,
@@ -121,9 +123,9 @@ final class Key implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return Key
      */
@@ -265,8 +267,8 @@ final class Key implements Component
     }
 
     /**
-     * @param Key   $component the component to be built
-     * @param array $options   parameters for building
+     * @param Key                  $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

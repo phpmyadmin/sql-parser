@@ -228,6 +228,9 @@ class CreateStatementTest extends TestCase
         $this->assertEquals($query, $parser->statements[0]->build());
     }
 
+    /**
+     * @return string[][]
+     */
     public function partitionQueriesProvider(): array
     {
         return [

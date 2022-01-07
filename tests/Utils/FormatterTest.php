@@ -11,13 +11,16 @@ use ReflectionMethod;
 class FormatterTest extends TestCase
 {
     /**
-     * @param mixed $default
-     * @param mixed $overriding
-     * @param mixed $expected
+     * @param array<int, array<string, int|string>> $default
+     * @param array<int, array<string, int|string>> $overriding
+     * @param array<int, array<string, int|string>> $expected
+     * @psalm-param list<array{type: int, flags: int, html: string, cli: string, function?: string}> $default
+     * @psalm-param list<array{type?: int, flags?: int, html?: string, cli?: string, function?: string}> $overriding
+     * @psalm-param list<array{type: int, flags: int, html: string, cli: string, function?: string}> $expected
      *
      * @dataProvider mergeFormatsProvider
      */
-    public function testMergeFormats($default, $overriding, $expected): void
+    public function testMergeFormats(array $default, array $overriding, array $expected): void
     {
         $formatter = $this->createPartialMock(Formatter::class, ['getDefaultOptions', 'getDefaultFormats']);
 
@@ -55,6 +58,14 @@ class FormatterTest extends TestCase
         $this->assertEquals($expectedOptions, $reflectionMethod->invoke($formatter, $overridingOptions));
     }
 
+    /**
+     * @return array<string, array<string, array<int, array<string, int|string>>>>
+     * @psalm-return array<string, array{
+     *     default: list<array{type: int, flags: int, html: string, cli: string, function?: string}>,
+     *     overriding: list<array{type?: int, flags?: int, html?: string, cli?: string, function?: string}>,
+     *     expected: list<array{type: int, flags: int, html: string, cli: string, function?: string}>
+     * }>
+     */
     public function mergeFormatsProvider(): array
     {
         // [default[], overriding[], expected[]]
@@ -233,14 +244,11 @@ class FormatterTest extends TestCase
     }
 
     /**
-     * @param mixed $query
-     * @param mixed $text
-     * @param mixed $cli
-     * @param mixed $html
+     * @param array<string, bool> $options
      *
      * @dataProvider formatQueriesProviders
      */
-    public function testFormat($query, $text, $cli, $html, array $options = []): void
+    public function testFormat(string $query, string $text, string $cli, string $html, array $options = []): void
     {
         // Test TEXT format
         $this->assertEquals(
@@ -264,6 +272,16 @@ class FormatterTest extends TestCase
         );
     }
 
+    /**
+     * @return array<string, array<string, string|array<string, string|bool>>>
+     * @psalm-return array<string, array{
+     *     query: string,
+     *     text: string,
+     *     cli: string,
+     *     html: string,
+     *     options?: array<string, bool>
+     * }>
+     */
     public function formatQueriesProviders(): array
     {
         return [

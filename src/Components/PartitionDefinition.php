@@ -28,7 +28,8 @@ final class PartitionDefinition implements Component
     /**
      * All field options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $partitionOptions = [
         'STORAGE ENGINE' => [
@@ -112,9 +113,9 @@ final class PartitionDefinition implements Component
     public $options;
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return PartitionDefinition
      */
@@ -229,7 +230,7 @@ final class PartitionDefinition implements Component
 
     /**
      * @param PartitionDefinition|PartitionDefinition[] $component the component to be built
-     * @param array                                     $options   parameters for building
+     * @param array<string, mixed>                      $options   parameters for building
      *
      * @return string
      */

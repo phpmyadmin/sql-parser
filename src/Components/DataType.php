@@ -25,7 +25,8 @@ final class DataType implements Component
     /**
      * All data type options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $dataTypeOptions = [
         'BINARY' => 1,
@@ -63,7 +64,7 @@ final class DataType implements Component
      *
      * For more information, check the MySQL manual.
      *
-     * @var array
+     * @var int[]|string[]
      */
     public $parameters = [];
 
@@ -75,9 +76,9 @@ final class DataType implements Component
     public $options;
 
     /**
-     * @param string       $name       the name of this data type
-     * @param array        $parameters the parameters (size or possible values)
-     * @param OptionsArray $options    the options of this data type
+     * @param string         $name       the name of this data type
+     * @param int[]|string[] $parameters the parameters (size or possible values)
+     * @param OptionsArray   $options    the options of this data type
      */
     public function __construct(
         $name = null,
@@ -90,9 +91,9 @@ final class DataType implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return DataType|null
      */
@@ -155,8 +156,8 @@ final class DataType implements Component
     }
 
     /**
-     * @param DataType $component the component to be built
-     * @param array    $options   parameters for building
+     * @param DataType             $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

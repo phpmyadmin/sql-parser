@@ -23,8 +23,8 @@ class Tokens
     /**
      * Checks if a pattern is a match for the specified token.
      *
-     * @param Token $token   the token to be matched
-     * @param array $pattern the pattern to be matches
+     * @param Token                          $token   the token to be matched
+     * @param array<string, int|string|null> $pattern the pattern to be matches
      *
      * @return bool
      */
@@ -56,8 +56,8 @@ class Tokens
 
     /**
      * @param TokensList|string|UtfString $list
-     * @param array                       $find
-     * @param array                       $replace
+     * @param Token[]                     $find
+     * @param Token[]                     $replace
      *
      * @return TokensList
      */

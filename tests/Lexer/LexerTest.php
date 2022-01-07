@@ -56,6 +56,9 @@ class LexerTest extends TestCase
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function lexProvider(): array
     {
         return [

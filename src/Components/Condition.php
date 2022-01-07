@@ -25,7 +25,7 @@ final class Condition implements Component
     /**
      * Logical operators that can be used to delimit expressions.
      *
-     * @var array
+     * @var string[]
      */
     public static $delimiters = [
         '&&',
@@ -38,7 +38,7 @@ final class Condition implements Component
     /**
      * List of allowed reserved keywords in conditions.
      *
-     * @var array
+     * @var array<string, int>
      */
     public static $allowedKeywords = [
         'ALL' => 1,
@@ -65,7 +65,7 @@ final class Condition implements Component
     /**
      * Identifiers recognized.
      *
-     * @var array
+     * @var array<int, mixed>
      */
     public $identifiers = [];
 
@@ -92,9 +92,9 @@ final class Condition implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return Condition[]
      */
@@ -224,8 +224,8 @@ final class Condition implements Component
     }
 
     /**
-     * @param Condition[] $component the component to be built
-     * @param array       $options   parameters for building
+     * @param Condition[]          $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

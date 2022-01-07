@@ -23,7 +23,8 @@ final class IntoKeyword implements Component
     /**
      * FIELDS/COLUMNS Options for `SELECT...INTO` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementFieldsOptions = [
         'TERMINATED BY' => [
@@ -44,7 +45,8 @@ final class IntoKeyword implements Component
     /**
      * LINES Options for `SELECT...INTO` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementLinesOptions = [
         'STARTING BY' => [
@@ -74,7 +76,7 @@ final class IntoKeyword implements Component
     /**
      * The name of the columns.
      *
-     * @var array|null
+     * @var string[]|null
      */
     public $columns;
 
@@ -113,8 +115,8 @@ final class IntoKeyword implements Component
     /**
      * @param string|null            $type          type of destination (may be OUTFILE)
      * @param string|Expression|null $dest          actual destination
-     * @param array|null             $columns       column list of destination
-     * @param array|null             $values        selected fields
+     * @param string[]|null          $columns       column list of destination
+     * @param Expression[]|null      $values        selected fields
      * @param OptionsArray|null      $fieldsOptions options for FIELDS/COLUMNS keyword
      * @param bool|null              $fieldsKeyword options for OPTIONS keyword
      */
@@ -135,9 +137,9 @@ final class IntoKeyword implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return IntoKeyword
      */
@@ -262,8 +264,8 @@ final class IntoKeyword implements Component
     }
 
     /**
-     * @param IntoKeyword $component the component to be built
-     * @param array       $options   parameters for building
+     * @param IntoKeyword          $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

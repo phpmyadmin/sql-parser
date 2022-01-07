@@ -30,7 +30,8 @@ final class WithStatement extends Statement
     /**
      * Options for `WITH` statements and their slot ID.
      *
-     * @var mixed[]
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementOptions = ['RECURSIVE' => 1];
 
@@ -39,7 +40,8 @@ final class WithStatement extends Statement
      *
      * @see Statement::$clauses
      *
-     * @var mixed[]
+     * @var array<string, array<int, int|string>>
+     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
     public static $clauses = [
         'WITH' => [

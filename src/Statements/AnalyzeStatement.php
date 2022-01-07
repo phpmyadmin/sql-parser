@@ -21,7 +21,8 @@ class AnalyzeStatement extends Statement
     /**
      * Options of this statement.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementOptions = [
         'TABLE' => 1,

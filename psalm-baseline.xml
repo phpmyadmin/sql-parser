@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
+<files psalm-version="4.18.0.0">
   <file src="src/Components/AlterOperation.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$component-&gt;field !== ''</code>
@@ -10,9 +10,6 @@
     <MixedArrayOffset occurrences="1">
       <code>Parser::$statementParsers[$token-&gt;value]</code>
     </MixedArrayOffset>
-    <MixedPropertyTypeCoercion occurrences="1">
-      <code>$unknown</code>
-    </MixedPropertyTypeCoercion>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -43,10 +40,6 @@
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="src/Components/ArrayObj.php">
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$component-&gt;raw</code>
-      <code>$component-&gt;values</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="1">
       <code>$ret[]</code>
     </MixedAssignment>
@@ -81,16 +74,15 @@
     <InvalidOperand occurrences="1">
       <code>! $token-&gt;flags</code>
     </InvalidOperand>
-    <MixedArgument occurrences="1">
-      <code>$component-&gt;conditions[$i]</code>
-    </MixedArgument>
+    <InvalidPropertyAssignmentValue occurrences="3">
+      <code>$ret-&gt;compareValues</code>
+      <code>$ret-&gt;results</code>
+      <code>$ret-&gt;results</code>
+    </InvalidPropertyAssignmentValue>
     <MixedAssignment occurrences="1">
       <code>$ret-&gt;alias</code>
     </MixedAssignment>
-    <MixedOperand occurrences="4">
-      <code>$component-&gt;compareValues[$i]</code>
-      <code>$component-&gt;results[$i]</code>
-      <code>$component-&gt;results[$i]</code>
+    <MixedOperand occurrences="1">
       <code>$token-&gt;value</code>
     </MixedOperand>
     <MoreSpecificImplementedParamType occurrences="1">
@@ -104,15 +96,9 @@
     <InvalidArgument occurrences="1">
       <code>$this</code>
     </InvalidArgument>
-    <MixedArgument occurrences="1">
-      <code>$token-&gt;value</code>
-    </MixedArgument>
     <MixedArrayOffset occurrences="1">
       <code>static::$allowedKeywords[$token-&gt;value]</code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion occurrences="1">
-      <code>static::$allowedKeywords[$token-&gt;value]</code>
-    </MixedArrayTypeCoercion>
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
@@ -145,9 +131,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Components/DataType.php">
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$component-&gt;parameters</code>
-    </MixedArgumentTypeCoercion>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -168,9 +151,6 @@
     <InvalidArgument occurrences="1">
       <code>$options['breakOnParentheses']</code>
     </InvalidArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>Context::escape($fields)</code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="2">
       <code>Parser::$statementParsers[$token-&gt;keyword]</code>
       <code>self::$allowedKeywords[$token-&gt;keyword]</code>
@@ -190,6 +170,9 @@
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>Context::escape($fields)</code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidOperand occurrences="1">
       <code>Context::escape($component-&gt;alias)</code>
     </PossiblyInvalidOperand>
@@ -253,9 +236,6 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/IndexHint.php">
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$component-&gt;indexes</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="2">
       <code>$expr-&gt;type</code>
       <code>$expr-&gt;type</code>
@@ -277,15 +257,9 @@
       <code>$token-&gt;value</code>
       <code>$token-&gt;value</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$component-&gt;columns</code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment occurrences="1">
       <code>$ret-&gt;dest</code>
     </MixedAssignment>
-    <MixedPropertyTypeCoercion occurrences="1">
-      <code>$values</code>
-    </MixedPropertyTypeCoercion>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -319,10 +293,6 @@
       <code>static::$joins[$token-&gt;keyword]</code>
       <code>static::$joins[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="2">
-      <code>$expr-&gt;type</code>
-      <code>$expr-&gt;type</code>
-    </MixedAssignment>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -356,9 +326,6 @@
       <code>$ret-&gt;name</code>
       <code>$ret-&gt;type</code>
     </MixedAssignment>
-    <MixedPropertyTypeCoercion occurrences="1">
-      <code>$columns</code>
-    </MixedPropertyTypeCoercion>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -462,6 +429,16 @@
       <code>$ret-&gt;options[$lastOptionId]['expr']</code>
       <code>$ret-&gt;options[$lastOptionId]['value']</code>
     </MixedOperand>
+    <MixedPropertyTypeCoercion occurrences="8">
+      <code>$ret-&gt;options</code>
+      <code>$ret-&gt;options</code>
+      <code>$ret-&gt;options</code>
+      <code>$ret-&gt;options</code>
+      <code>$ret-&gt;options</code>
+      <code>$ret-&gt;options</code>
+      <code>$ret-&gt;options</code>
+      <code>$ret-&gt;options</code>
+    </MixedPropertyTypeCoercion>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -554,12 +531,12 @@
     </UnusedVariable>
   </file>
   <file src="src/Components/Reference.php">
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>Context::escape($component-&gt;columns)</code>
-    </MixedArgumentTypeCoercion>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>Context::escape($component-&gt;columns)</code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidPropertyFetch occurrences="1">
       <code>ArrayObj::parse($parser, $list)-&gt;values</code>
     </PossiblyInvalidPropertyFetch>
@@ -608,107 +585,70 @@
     </MoreSpecificImplementedParamType>
   </file>
   <file src="src/Context.php">
+    <InvalidPropertyAssignmentValue occurrences="1">
+      <code>[]</code>
+    </InvalidPropertyAssignmentValue>
     <InvalidPropertyFetch occurrences="1">
       <code>$context::$keywords</code>
     </InvalidPropertyFetch>
-    <MixedArgument occurrences="1">
-      <code>$value</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="3">
-      <code>$value</code>
+    <InvalidReturnStatement occurrences="1">
+      <code>$str</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType occurrences="1">
+      <code>string|string[]</code>
+    </InvalidReturnType>
+    <MixedAssignment occurrences="2">
       <code>self::$keywords</code>
       <code>static::$mode</code>
     </MixedAssignment>
-    <MixedInferredReturnType occurrences="2">
-      <code>int|null</code>
-      <code>int|null</code>
-    </MixedInferredReturnType>
-    <MixedOperand occurrences="2">
+    <MixedOperand occurrences="1">
       <code>constant('static::SQL_MODE_' . $m)</code>
-      <code>static::$keywords[$str]</code>
     </MixedOperand>
-    <MixedReturnStatement occurrences="2">
-      <code>static::$keywords[$str]</code>
-      <code>static::$operators[$str]</code>
-    </MixedReturnStatement>
   </file>
   <file src="src/Contexts/ContextMariaDb100000.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100100.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100200.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100300.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100400.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100500.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMariaDb100600.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50000.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50100.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50500.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50600.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql50700.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
   </file>
   <file src="src/Contexts/ContextMySql80000.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$keywords</code>
-    </NonInvariantDocblockPropertyType>
     <PropertyTypeCoercion occurrences="1"/>
+  </file>
+  <file src="src/Core.php">
+    <RedundantConditionGivenDocblockType occurrences="2">
+      <code>Context::$keywords !== []</code>
+      <code>Context::$keywords !== []</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Exceptions/ParserException.php">
     <PossiblyNullPropertyAssignmentValue occurrences="1">
@@ -765,9 +705,8 @@
       <code>$this-&gt;str[$this-&gt;last]</code>
       <code>$this-&gt;str[$this-&gt;last]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$lastToken</code>
-      <code>$method</code>
       <code>$token</code>
     </MixedAssignment>
     <MixedOperand occurrences="7">
@@ -917,27 +856,17 @@
     </PossiblyNullReference>
   </file>
   <file src="src/Statement.php">
-    <DocblockTypeContradiction occurrences="1">
+    <DocblockTypeContradiction occurrences="2">
+      <code>$class === null</code>
       <code>count($clauses) === 0</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="1">
-      <code>$options</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="4">
-      <code>$clauseType</code>
-      <code>$clauseType</code>
-      <code>$clauseType</code>
-      <code>$clauseType</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="7">
-      <code>$clause[0]</code>
-      <code>$clause[1]</code>
-      <code>Parser::$keywordParsers[$name]['class']</code>
-      <code>Parser::$keywordParsers[$name]['field']</code>
-      <code>Parser::$keywordParsers[$tokenValue]['class']</code>
-      <code>Parser::$keywordParsers[$tokenValue]['field']</code>
-      <code>Parser::$keywordParsers[$tokenValue]['options']</code>
-    </MixedArrayAccess>
+    <InvalidArgument occurrences="2">
+      <code>$built[$field]</code>
+      <code>$parsedClauses[$token-&gt;value]</code>
+    </InvalidArgument>
+    <InvalidStringClass occurrences="1">
+      <code>$class::parse($parser, $list, $options)</code>
+    </InvalidStringClass>
     <MixedArrayOffset occurrences="8">
       <code>$parsedClauses[$token-&gt;value]</code>
       <code>$parsedClauses[$token-&gt;value]</code>
@@ -952,22 +881,24 @@
       <code>Parser::$keywordParsers[$tokenValue]</code>
       <code>Parser::$statementParsers[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="5">
-      <code>$class</code>
-      <code>$clause</code>
-      <code>$field</code>
-      <code>$options</code>
+    <MixedAssignment occurrences="1">
       <code>$tokenValue</code>
     </MixedAssignment>
-    <MixedMethodCall occurrences="1">
-      <code>$class::parse($parser, $list, $options)</code>
-    </MixedMethodCall>
     <MixedOperand occurrences="1">
       <code>$class::build($this-&gt;$field)</code>
     </MixedOperand>
     <PossiblyNullPropertyFetch occurrences="1">
       <code>$list-&gt;offsetGet($list-&gt;idx)-&gt;type</code>
     </PossiblyNullPropertyFetch>
+    <PossiblyUndefinedArrayOffset occurrences="4">
+      <code>Parser::$keywordParsers[$name]['class']</code>
+      <code>Parser::$keywordParsers[$name]['field']</code>
+      <code>Parser::$keywordParsers[$tokenValue]['class']</code>
+      <code>Parser::$keywordParsers[$tokenValue]['field']</code>
+    </PossiblyUndefinedArrayOffset>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$class !== null</code>
+    </RedundantConditionGivenDocblockType>
     <TypeDoesNotContainType occurrences="1">
       <code>count($clauses) === 0</code>
     </TypeDoesNotContainType>
@@ -995,9 +926,6 @@
     </PossiblyNullIterator>
   </file>
   <file src="src/Statements/CallStatement.php">
-    <MixedArgumentTypeCoercion occurrences="1">
-      <code>$this-&gt;call-&gt;parameters-&gt;raw</code>
-    </MixedArgumentTypeCoercion>
     <PossiblyNullOperand occurrences="1">
       <code>$this-&gt;call-&gt;name</code>
     </PossiblyNullOperand>
@@ -1148,11 +1076,6 @@
       <code>$this-&gt;options</code>
     </PossiblyNullOperand>
   </file>
-  <file src="src/Statements/SelectStatement.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$statementEndOptions</code>
-    </NonInvariantDocblockPropertyType>
-  </file>
   <file src="src/Statements/SetStatement.php">
     <InvalidArgument occurrences="1">
       <code>$this-&gt;options</code>
@@ -1209,49 +1132,9 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Tools/ContextGenerator.php">
-    <MixedArgument occurrences="9">
-      <code>$options['class']</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$options['keywords']</code>
-      <code>$options['keywords']</code>
-      <code>$options['link']</code>
-      <code>$options['name']</code>
-      <code>$word</code>
-      <code>$words</code>
-      <code>$wordsByLen</code>
-      <code>($line - $spaces) / ($len + 9)</code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$label</code>
-      <code>$label</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayOffset occurrences="4">
-      <code>$ret[$type]</code>
-      <code>$ret[$type]</code>
-      <code>$ret[$type]</code>
-      <code>$ret[$type]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="13">
-      <code>$flags</code>
-      <code>$len</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$types[$value]</code>
-      <code>$types[$value]</code>
-      <code>$word</code>
-      <code>$words</code>
-      <code>$wordsByLen</code>
-      <code>$wordsByLen</code>
-      <code>$wordsByType</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="5">
-      <code>$flags</code>
-      <code>$len</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$types[$value]</code>
-    </MixedOperand>
+    </PossiblyNullArgument>
     <RedundantCondition occurrences="2">
       <code>++$i !== $count</code>
       <code>++$i !== $count</code>
@@ -1275,9 +1158,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Utils/BufferedQuery.php">
-    <MixedArgument occurrences="1">
-      <code>$this-&gt;options['delimiter']</code>
-    </MixedArgument>
     <PossiblyNullOperand occurrences="1">
       <code>$this-&gt;status</code>
     </PossiblyNullOperand>
@@ -1300,7 +1180,7 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$idx</code>
-      <code>$output</code>
+      <code>['type' =&gt; $params['f']]</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
       <code>$params['c']</code>
@@ -1328,34 +1208,25 @@
     </PossiblyFalseArgument>
   </file>
   <file src="src/Utils/Error.php">
-    <MixedArgument occurrences="3">
+    <PossiblyNullArgument occurrences="3">
       <code>$err[0]</code>
       <code>$err[1]</code>
       <code>$err[3]</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$err[0]</code>
-      <code>$err[1]</code>
-      <code>$err[2]</code>
-      <code>$err[3]</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
-      <code>$err</code>
-      <code>$obj</code>
-    </MixedAssignment>
+    </PossiblyNullArgument>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$obj instanceof Parser</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Utils/Formatter.php">
-    <MixedArgument occurrences="8">
-      <code>$options['formats']</code>
+    <MixedArgument occurrences="6">
       <code>$text</code>
       <code>$text</code>
       <code>$text</code>
       <code>$text</code>
       <code>$text</code>
       <code>$text</code>
-      <code>$this-&gt;options['indentation']</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="12">
+    <MixedArrayAccess occurrences="8">
       <code>$format['cli']</code>
       <code>$format['cli']</code>
       <code>$format['cli']</code>
@@ -1364,15 +1235,7 @@
       <code>$format['function']</code>
       <code>$format['html']</code>
       <code>$format['type']</code>
-      <code>$new['flags']</code>
-      <code>$new['type']</code>
-      <code>$original['flags']</code>
-      <code>$original['type']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
-      <code>$newFormats[$j][$name]</code>
-      <code>$newFormats[$j][$name]</code>
-    </MixedArrayAssignment>
     <MixedArrayOffset occurrences="9">
       <code>JoinKeyword::$joins[$list-&gt;tokens[$list-&gt;idx - 2]-&gt;value]</code>
       <code>JoinKeyword::$joins[$list-&gt;tokens[$list-&gt;idx - 4]-&gt;value]</code>
@@ -1391,27 +1254,12 @@
       <code>self::$inlineClauses[$lastClause]</code>
       <code>self::$shortClauses[$lastClause]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="22">
-      <code>$blocksIndentation[]</code>
-      <code>$blocksIndentation[]</code>
+    <MixedAssignment occurrences="7">
       <code>$blocksLineEndings[]</code>
       <code>$format</code>
-      <code>$formats[$i]</code>
-      <code>$formats[]</code>
       <code>$func</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$indent</code>
       <code>$lastClause</code>
       <code>$lineEnded</code>
-      <code>$new</code>
-      <code>$new</code>
-      <code>$new</code>
-      <code>$options['parts_newline']</code>
-      <code>$original</code>
       <code>$prev</code>
       <code>$text</code>
     </MixedAssignment>
@@ -1421,21 +1269,22 @@
     <MixedInferredReturnType occurrences="1">
       <code>string</code>
     </MixedInferredReturnType>
-    <MixedOperand occurrences="10">
+    <MixedOperand occurrences="4">
       <code>$format['cli']</code>
       <code>$format['flags']</code>
       <code>$format['html']</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$indent</code>
-      <code>$options['parts_newline']</code>
-      <code>$this-&gt;options['line_ending']</code>
       <code>array_pop($blocksLineEndings)</code>
     </MixedOperand>
     <MixedReturnStatement occurrences="1">
       <code>$text</code>
     </MixedReturnStatement>
+    <PossiblyInvalidArgument occurrences="2">
+      <code>$options['formats']</code>
+      <code>$this-&gt;options['indentation']</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidIterator occurrences="1">
+      <code>$this-&gt;options['formats']</code>
+    </PossiblyInvalidIterator>
     <RedundantCondition occurrences="1">
       <code>$curr-&gt;type === Token::TYPE_KEYWORD</code>
     </RedundantCondition>
@@ -1452,28 +1301,9 @@
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
-    <InvalidOperand occurrences="2">
-      <code>$i</code>
-      <code>$i</code>
-    </InvalidOperand>
-    <MixedArgument occurrences="7">
-      <code>$clause[0]</code>
+    <MixedArgument occurrences="1">
       <code>$expr</code>
-      <code>$ops[$count - 1][0]</code>
-      <code>$ops[$i + 1][0]</code>
-      <code>$ops[0][0]</code>
-      <code>$ops[0][0]</code>
-      <code>$ops[0][1]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="7">
-      <code>$clause[0]</code>
-      <code>$clause[1]</code>
-      <code>$ops[$count - 1][0]</code>
-      <code>$ops[$i + 1][0]</code>
-      <code>$ops[0][0]</code>
-      <code>$ops[0][0]</code>
-      <code>$ops[0][1]</code>
-    </MixedArrayAccess>
     <MixedArrayOffset occurrences="2">
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
@@ -1482,20 +1312,11 @@
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="7">
-      <code>$clause</code>
-      <code>$currIdx</code>
+    <MixedAssignment occurrences="3">
       <code>$expr</code>
       <code>$expressions[]</code>
-      <code>$firstClauseIdx</code>
-      <code>$lastClauseIdx</code>
       <code>$rename</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
-      <code>$clause[1]</code>
-      <code>$clauses[$type]</code>
-      <code>$clauses[$type]</code>
-    </MixedOperand>
     <MixedPropertyAssignment occurrences="2">
       <code>$expr</code>
       <code>$expr</code>
@@ -1507,9 +1328,6 @@
     <NullableReturnStatement occurrences="1">
       <code>$i</code>
     </NullableReturnStatement>
-    <PossiblyInvalidArrayOffset occurrences="1">
-      <code>$ops[$i + 1]</code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyNullArrayOffset occurrences="2">
       <code>$list-&gt;tokens</code>
       <code>$list-&gt;tokens</code>
@@ -1533,13 +1351,10 @@
     </PossiblyNullReference>
   </file>
   <file src="src/Utils/Routine.php">
-    <MixedArgumentTypeCoercion occurrences="6">
+    <MixedArgumentTypeCoercion occurrences="3">
       <code>$options</code>
       <code>$options</code>
-      <code>$param-&gt;type-&gt;parameters</code>
-      <code>$param-&gt;type-&gt;parameters</code>
       <code>$retval['opts'][$idx]</code>
-      <code>$type-&gt;parameters</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="3">
       <code>$opt['value']</code>
@@ -1578,16 +1393,17 @@
     </PossiblyNullReference>
   </file>
   <file src="src/Utils/Tokens.php">
+    <InvalidArgument occurrences="1">
+      <code>$find[$k]</code>
+    </InvalidArgument>
     <InvalidReturnStatement occurrences="1">
       <code>$isList ? new TokensList($newList) : TokensList::build($newList)</code>
     </InvalidReturnStatement>
     <InvalidReturnType occurrences="1">
       <code>TokensList</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="3">
-      <code>$find[$k]</code>
+    <MixedArgument occurrences="1">
       <code>$list-&gt;tokens[$j]</code>
-      <code>$pattern['value_str']</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="2">
       <code>$newList</code>
@@ -1600,22 +1416,21 @@
       <code>$list-&gt;tokens[$j]</code>
       <code>$list-&gt;tokens[$j]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="2">
       <code>$newList[]</code>
       <code>$newList[]</code>
-      <code>$newList[]</code>
-      <code>$token</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$pattern['flags']</code>
-    </MixedOperand>
     <MixedPropertyFetch occurrences="2">
       <code>$list-&gt;tokens[$i]-&gt;type</code>
       <code>$list-&gt;tokens[$j]-&gt;type</code>
     </MixedPropertyFetch>
-    <PossiblyInvalidArgument occurrences="1">
+    <PossiblyInvalidArgument occurrences="2">
       <code>$list</code>
+      <code>$pattern['value_str']</code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand occurrences="1">
+      <code>$pattern['flags']</code>
+    </PossiblyInvalidOperand>
     <PossiblyInvalidPropertyFetch occurrences="2">
       <code>$list-&gt;count</code>
       <code>$list-&gt;tokens</code>
@@ -1626,9 +1441,6 @@
     </UndefinedPropertyFetch>
   </file>
   <file src="tests/Builder/CreateStatementTest.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
     <PossiblyInvalidArgument occurrences="2">
       <code>$stmt-&gt;fields</code>
       <code>$stmt-&gt;fields</code>
@@ -1647,12 +1459,6 @@
     </PossiblyNullReference>
   </file>
   <file src="tests/Components/ArrayObjTest.php">
-    <MixedArgument occurrences="1">
-      <code>$test</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
     <UndefinedMethod occurrences="2">
       <code>$components</code>
       <code>$components</code>
@@ -1707,9 +1513,6 @@
     </UndefinedMethod>
   </file>
   <file src="tests/Components/ExpressionTest.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$errors[0][0]</code>
-    </MixedArrayAccess>
     <PossiblyNullPropertyFetch occurrences="2">
       <code>$component-&gt;expr</code>
       <code>$component-&gt;expr</code>
@@ -1729,9 +1532,6 @@
     </DocblockTypeContradiction>
   </file>
   <file src="tests/Components/LockExpressionTest.php">
-    <MixedArrayAccess occurrences="1">
-      <code>$errors[0][0]</code>
-    </MixedArrayAccess>
     <RedundantConditionGivenDocblockType occurrences="2">
       <code>assertNotNull</code>
       <code>assertNotNull</code>
@@ -1748,25 +1548,6 @@
       <code>$component</code>
     </InvalidArgument>
   </file>
-  <file src="tests/Lexer/ContextTest.php">
-    <MixedInferredReturnType occurrences="2">
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="tests/Lexer/LexerTest.php">
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
-  <file src="tests/Misc/UtfStringTest.php">
-    <MixedArgument occurrences="1">
-      <code>$text</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-  </file>
   <file src="tests/Parser/LoadStatementTest.php">
     <PossiblyNullReference occurrences="1">
       <code>has</code>
@@ -1781,46 +1562,12 @@
     <InvalidArgument occurrences="1">
       <code>new stdClass()</code>
     </InvalidArgument>
-    <MixedArrayAccess occurrences="1">
-      <code>$parserErrors[0][0]</code>
-    </MixedArrayAccess>
   </file>
   <file src="tests/TestCase.php">
     <LessSpecificReturnStatement occurrences="1">
       <code>$data</code>
     </LessSpecificReturnStatement>
     <MoreSpecificReturnType occurrences="1"/>
-    <UndefinedPropertyFetch occurrences="3">
-      <code>$err-&gt;ch</code>
-      <code>$err-&gt;pos</code>
-      <code>$err-&gt;token</code>
-    </UndefinedPropertyFetch>
-  </file>
-  <file src="tests/Utils/BufferedQueryTest.php">
-    <MixedArgument occurrences="2">
-      <code>$chunkSize</code>
-      <code>$query</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
-    <PossiblyFalseArgument occurrences="1">
-      <code>$chunks</code>
-    </PossiblyFalseArgument>
-    <PossiblyInvalidArrayAccess occurrences="1">
-      <code>$chunks[$i++]</code>
-    </PossiblyInvalidArrayAccess>
-  </file>
-  <file src="tests/Utils/FormatterTest.php">
-    <MixedArgument occurrences="3">
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="2">
-      <code>array</code>
-      <code>array</code>
-    </MixedInferredReturnType>
   </file>
   <file src="tests/Utils/MiscTest.php">
     <ArgumentTypeCoercion occurrences="1">
@@ -1832,20 +1579,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="tests/Utils/QueryTest.php">
-    <MixedArgument occurrences="9">
-      <code>$delimiter</code>
-      <code>$delimiter</code>
-      <code>$delimiter</code>
-      <code>$delimiter</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-    </MixedArgument>
-    <MixedInferredReturnType occurrences="1">
-      <code>array</code>
-    </MixedInferredReturnType>
     <PossiblyNullArgument occurrences="16">
       <code>$parser-&gt;list</code>
       <code>$parser-&gt;list</code>
@@ -1880,5 +1613,10 @@
       <code>$parser-&gt;statements[0]</code>
       <code>$parser-&gt;statements[0]</code>
     </ArgumentTypeCoercion>
+  </file>
+  <file src="tests/Utils/TokensTest.php">
+    <InvalidArgument occurrences="1">
+      <code>$find</code>
+    </InvalidArgument>
   </file>
 </files>

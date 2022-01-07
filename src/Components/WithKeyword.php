@@ -35,9 +35,9 @@ final class WithKeyword implements Component
     /**
      * Parses the tokens contained in the given list in the context of the given parser.
      *
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return mixed
      *
@@ -49,8 +49,8 @@ final class WithKeyword implements Component
     }
 
     /**
-     * @param WithKeyword $component
-     * @param mixed[]     $options
+     * @param WithKeyword          $component
+     * @param array<string, mixed> $options
      *
      * @return string
      */

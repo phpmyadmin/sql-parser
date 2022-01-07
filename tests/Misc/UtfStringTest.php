@@ -84,13 +84,9 @@ class UtfStringTest extends TestCase
     /**
      * Test access to string.
      *
-     * @param mixed $text
-     * @param mixed $pos10
-     * @param mixed $pos20
-     *
      * @dataProvider utf8StringsProvider
      */
-    public function testAccess($text, $pos10, $pos20): void
+    public function testAccess(string $text, ?string $pos10, ?string $pos20): void
     {
         $str = new UtfString($text);
         $this->assertEquals($pos10, $str->offsetGet(10));
@@ -98,6 +94,10 @@ class UtfStringTest extends TestCase
         $this->assertEquals($pos10, $str->offsetGet(10));
     }
 
+    /**
+     * @return array<string, array<int, string|null>>
+     * @psalm-return array<string, array{string, (string|null), (string|null)}>
+     */
     public function utf8StringsProvider(): array
     {
         return [

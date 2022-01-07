@@ -24,7 +24,8 @@ final class Reference implements Component
     /**
      * All references options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $referencesOptions = [
         'MATCH' => [
@@ -51,7 +52,7 @@ final class Reference implements Component
     /**
      * The referenced columns.
      *
-     * @var array
+     * @var string[]
      */
     public $columns;
 
@@ -64,7 +65,7 @@ final class Reference implements Component
 
     /**
      * @param Expression   $table   the name of the table referenced
-     * @param array        $columns the columns referenced
+     * @param string[]     $columns the columns referenced
      * @param OptionsArray $options the options
      */
     public function __construct($table = null, array $columns = [], $options = null)
@@ -75,9 +76,9 @@ final class Reference implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return Reference
      */
@@ -142,8 +143,8 @@ final class Reference implements Component
     }
 
     /**
-     * @param Reference $component the component to be built
-     * @param array     $options   parameters for building
+     * @param Reference            $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

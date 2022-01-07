@@ -52,7 +52,8 @@ class DeleteStatement extends Statement
     /**
      * Options for `DELETE` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementOptions = [
         'LOW_PRIORITY' => 1,
@@ -65,7 +66,8 @@ class DeleteStatement extends Statement
      *
      * @see Statement::$clauses
      *
-     * @var array
+     * @var array<string, array<int, int|string>>
+     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
     public static $clauses = [
         'DELETE' => [

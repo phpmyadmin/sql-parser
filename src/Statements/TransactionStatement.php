@@ -51,7 +51,8 @@ class TransactionStatement extends Statement
     /**
      * Options for this query.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementOptions = [
         'START TRANSACTION' => 1,

@@ -30,21 +30,21 @@ final class CaseExpression implements Component
     /**
      * The conditions in WHEN clauses.
      *
-     * @var array
+     * @var Condition[][]
      */
     public $conditions = [];
 
     /**
      * The results matching with the WHEN clauses.
      *
-     * @var array
+     * @var Expression[]
      */
     public $results = [];
 
     /**
      * The values to be compared against.
      *
-     * @var array
+     * @var Expression[]
      */
     public $compareValues = [];
 
@@ -74,9 +74,9 @@ final class CaseExpression implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return CaseExpression
      */
@@ -262,8 +262,8 @@ final class CaseExpression implements Component
     }
 
     /**
-     * @param CaseExpression $component the component to be built
-     * @param array          $options   parameters for building
+     * @param CaseExpression       $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

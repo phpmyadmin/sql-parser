@@ -30,7 +30,8 @@ class CreateStatement extends Statement
     /**
      * Options for `CREATE` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementOptions = [
         // CREATE TABLE
@@ -76,7 +77,8 @@ class CreateStatement extends Statement
     /**
      * All database options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $databaseOptions = [
         'CHARACTER SET' => [
@@ -108,7 +110,8 @@ class CreateStatement extends Statement
     /**
      * All table options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $tableOptions = [
         'ENGINE' => [
@@ -216,7 +219,8 @@ class CreateStatement extends Statement
     /**
      * All function options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $functionOptions = [
         'NOT' => [
@@ -268,7 +272,8 @@ class CreateStatement extends Statement
     /**
      * All trigger options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $triggerOptions = [
         'BEFORE' => 1,

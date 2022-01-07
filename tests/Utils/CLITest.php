@@ -16,10 +16,8 @@ class CLITest extends TestCase
 {
     /**
      * @param array<string, bool|string>|false $getopt
-     *
-     * @return CLI
      */
-    private function getCLI($getopt)
+    private function getCLI($getopt): CLI
     {
         $cli = $this->createPartialMock(CLI::class, ['getopt']);
         $cli->method('getopt')->willReturn($getopt);
@@ -29,10 +27,8 @@ class CLITest extends TestCase
 
     /**
      * @param array<string, bool|string>|false $getopt
-     *
-     * @return CLI
      */
-    private function getCLIStdIn(string $input, $getopt)
+    private function getCLIStdIn(string $input, $getopt): CLI
     {
         $cli = $this->createPartialMock(CLI::class, ['getopt', 'readStdin']);
         $cli->method('getopt')->willReturn($getopt);

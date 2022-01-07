@@ -43,7 +43,8 @@ abstract class Statement implements Stringable
      * Two options that can be used together must have different values for
      * indexes, else, when they will be used together, an error will occur.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementOptions = [];
 
@@ -57,11 +58,15 @@ abstract class Statement implements Stringable
      *     - 2 = 10 - add the keyword
      *     - 3 = 11 - add both the keyword and the clause
      *
-     * @var array
+     * @var array<string, array<int, int|string>>
+     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
     public static $clauses = [];
 
-    /** @var array */
+    /**
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
     public static $statementEndOptions = [];
 
     /**
@@ -123,8 +128,6 @@ abstract class Statement implements Stringable
          *
          * A clause is considered built just after fields' value
          * (`$this->field`) was used in building.
-         *
-         * @var array
          */
         $built = [];
 
@@ -210,8 +213,6 @@ abstract class Statement implements Stringable
         /**
          * Array containing all list of clauses parsed.
          * This is used to check for duplicates.
-         *
-         * @var array
          */
         $parsedClauses = [];
 
@@ -307,8 +308,6 @@ abstract class Statement implements Stringable
 
             /**
              * Parser's options.
-             *
-             * @var array
              */
             $options = [];
 
@@ -444,7 +443,8 @@ abstract class Statement implements Stringable
     /**
      * Gets the clauses of this statement.
      *
-     * @return array
+     * @return array<string, array<int, int|string>>
+     * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
      */
     public function getClauses()
     {

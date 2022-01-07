@@ -34,8 +34,8 @@ final class FunctionCall implements Component
     public $parameters;
 
     /**
-     * @param string|null         $name       the name of the function to be called
-     * @param array|ArrayObj|null $parameters the parameters of this function
+     * @param string|null            $name       the name of the function to be called
+     * @param string[]|ArrayObj|null $parameters the parameters of this function
      */
     public function __construct($name = null, $parameters = null)
     {
@@ -48,9 +48,9 @@ final class FunctionCall implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return FunctionCall
      */
@@ -103,8 +103,8 @@ final class FunctionCall implements Component
     }
 
     /**
-     * @param FunctionCall $component the component to be built
-     * @param array        $options   parameters for building
+     * @param FunctionCall         $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

@@ -125,9 +125,9 @@ class PurgeStatement extends Statement
     /**
      * Parse expected keyword (or throw relevant error)
      *
-     * @param Parser $parser           the instance that requests parsing
-     * @param Token  $token            token to be parsed
-     * @param array  $expectedKeywords array of possibly expected keywords at this point
+     * @param Parser   $parser           the instance that requests parsing
+     * @param Token    $token            token to be parsed
+     * @param string[] $expectedKeywords array of possibly expected keywords at this point
      *
      * @return mixed|null
      */

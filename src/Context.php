@@ -82,14 +82,15 @@ abstract class Context
      *
      * Elements are sorted by flags, length and keyword.
      *
-     * @var array
+     * @var array<string,int>
+     * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
     public static $keywords = [];
 
     /**
      * List of operators and their flags.
      *
-     * @var array
+     * @var array<string, int>
      */
     public static $operators = [
         // Some operators (*, =) may have ambiguous flags, because they depend on
@@ -582,10 +583,10 @@ abstract class Context
     /**
      * Escapes the symbol by adding surrounding backticks.
      *
-     * @param array|string $str   the string to be escaped
-     * @param string       $quote quote to be used when escaping
+     * @param string[]|string $str   the string to be escaped
+     * @param string          $quote quote to be used when escaping
      *
-     * @return string|array
+     * @return string|string[]
      */
     public static function escape($str, $quote = '`')
     {

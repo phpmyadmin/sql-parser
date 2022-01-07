@@ -18,7 +18,8 @@ class DropStatement extends Statement
     /**
      * Options of this statement.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $statementOptions = [
         'DATABASE' => 1,
@@ -44,7 +45,8 @@ class DropStatement extends Statement
      *
      * @see Statement::$clauses
      *
-     * @var array
+     * @var array<string, array<int, int|string>>
+     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
     public static $clauses = [
         'DROP' => [

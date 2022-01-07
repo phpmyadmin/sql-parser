@@ -35,7 +35,7 @@ class Formatter
     /**
      * The formatting options.
      *
-     * @var array
+     * @var array<string, bool|string|array<int, array<string, int|string>>>
      */
     public $options;
 
@@ -55,7 +55,7 @@ class Formatter
      *      INSERT INTO foo
      *      VALUES(0, 0, 0),(1, 1, 1)
      *
-     * @var array
+     * @var array<string, bool>
      */
     public static $shortClauses = [
         'CREATE' => true,
@@ -67,7 +67,7 @@ class Formatter
      *
      * These clauses usually are short and it's nicer to have them inline.
      *
-     * @var array
+     * @var array<string, bool>
      */
     public static $inlineClauses = [
         'CREATE' => true,
@@ -81,7 +81,7 @@ class Formatter
     ];
 
     /**
-     * @param array $options the formatting options
+     * @param array<string, bool|string|array<int, array<string, int|string>>> $options the formatting options
      */
     public function __construct(array $options = [])
     {
@@ -91,9 +91,9 @@ class Formatter
     /**
      * The specified formatting options are merged with the default values.
      *
-     * @param array $options
+     * @param array<string, bool|string|array<int, array<string, int|string>>> $options
      *
-     * @return array
+     * @return array<string, bool|string|array<int, array<string, int|string>>>
      */
     private function getMergedOptions(array $options)
     {
@@ -125,7 +125,16 @@ class Formatter
     /**
      * The default formatting options.
      *
-     * @return array
+     * @return array<string, bool|string|null>
+     * @psalm-return array{
+     *   type: ('cli'|'text'),
+     *   line_ending: null,
+     *   indentation: null,
+     *   remove_comments: false,
+     *   clause_newline: true,
+     *   parts_newline: true,
+     *   indent_parts: true
+     * }
      */
     protected function getDefaultOptions()
     {
@@ -187,7 +196,8 @@ class Formatter
      * The styles used for HTML formatting.
      * [$type, $flags, $span, $callback].
      *
-     * @return array
+     * @return array<int, array<string, int|string>>
+     * @psalm-return list<array{type: int, flags: int, html: string, cli: string, function: string}>
      */
     protected function getDefaultFormats()
     {
@@ -251,6 +261,12 @@ class Formatter
         ];
     }
 
+    /**
+     * @param array<int, array<string, int|string>> $formats
+     * @param array<int, array<string, int|string>> $newFormats
+     *
+     * @return array<int, array<string, int|string>>
+     */
     private static function mergeFormats(array $formats, array $newFormats): array
     {
         $added = [];
@@ -354,16 +370,12 @@ class Formatter
         /**
          * A stack that keeps track of the indentation level every time a new
          * block is found.
-         *
-         * @var array
          */
         $blocksIndentation = [];
 
         /**
          * A stack that keeps track of the line endings every time a new block
          * is found.
-         *
-         * @var array
          */
         $blocksLineEndings = [];
 
@@ -691,8 +703,8 @@ class Formatter
     /**
      * Formats a query.
      *
-     * @param string $query   The query to be formatted
-     * @param array  $options the formatting options
+     * @param string                                                           $query   The query to be formatted
+     * @param array<string, bool|string|array<int, array<string, int|string>>> $options the formatting options
      *
      * @return string the formatted string
      */

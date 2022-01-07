@@ -25,7 +25,8 @@ final class AlterOperation implements Component
     /**
      * All database options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $databaseOptions = [
         'CHARACTER SET' => [
@@ -61,7 +62,8 @@ final class AlterOperation implements Component
     /**
      * All table options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $tableOptions = [
         'ENGINE' => [
@@ -134,7 +136,8 @@ final class AlterOperation implements Component
     /**
      * All user options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $userOptions = [
         'ATTRIBUTE' => [
@@ -174,7 +177,8 @@ final class AlterOperation implements Component
     /**
      * All view options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $viewOptions = ['AS' => 1];
 
@@ -202,7 +206,7 @@ final class AlterOperation implements Component
     /**
      * @param OptionsArray $options options of alter operation
      * @param Expression   $field   altered field
-     * @param array        $unknown unparsed tokens found at the end of operation
+     * @param Token[]      $unknown unparsed tokens found at the end of operation
      */
     public function __construct(
         $options = null,
@@ -215,9 +219,9 @@ final class AlterOperation implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return AlterOperation
      */
@@ -372,8 +376,8 @@ final class AlterOperation implements Component
     }
 
     /**
-     * @param AlterOperation $component the component to be built
-     * @param array          $options   parameters for building
+     * @param AlterOperation       $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

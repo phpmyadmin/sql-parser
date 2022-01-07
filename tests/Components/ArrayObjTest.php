@@ -40,15 +40,16 @@ class ArrayObjTest extends TestCase
     }
 
     /**
-     * @param mixed $test
-     *
      * @dataProvider parseProvider
      */
-    public function testParse($test): void
+    public function testParse(string $test): void
     {
         $this->runParserTest($test);
     }
 
+    /**
+     * @return string[][]
+     */
     public function parseProvider(): array
     {
         return [

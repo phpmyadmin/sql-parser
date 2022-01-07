@@ -25,20 +25,20 @@ final class ArrayObj implements Component
     /**
      * The array that contains the unprocessed value of each token.
      *
-     * @var array
+     * @var string[]
      */
     public $raw = [];
 
     /**
      * The array that contains the processed value of each token.
      *
-     * @var array
+     * @var string[]
      */
     public $values = [];
 
     /**
-     * @param array $raw    the unprocessed values
-     * @param array $values the processed values
+     * @param string[] $raw    the unprocessed values
+     * @param string[] $values the processed values
      */
     public function __construct(array $raw = [], array $values = [])
     {
@@ -47,9 +47,9 @@ final class ArrayObj implements Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return ArrayObj|Component[]
      */
@@ -162,8 +162,8 @@ final class ArrayObj implements Component
     }
 
     /**
-     * @param ArrayObj|ArrayObj[] $component the component to be built
-     * @param array               $options   parameters for building
+     * @param ArrayObj|ArrayObj[]  $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */
