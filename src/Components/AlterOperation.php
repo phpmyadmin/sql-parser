@@ -221,9 +221,9 @@ class AlterOperation extends Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return AlterOperation
      */
@@ -378,8 +378,8 @@ class AlterOperation extends Component
     }
 
     /**
-     * @param AlterOperation $component the component to be built
-     * @param array          $options   parameters for building
+     * @param AlterOperation       $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

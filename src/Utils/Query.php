@@ -458,7 +458,7 @@ class Query
      *
      * @param string $query the query to be parsed
      *
-     * @return array The array returned is the one returned by
+     * @return array<string, bool|string> The array returned is the one returned by
      *               `static::getFlags()`, with the following keys added:
      *               - parser - the parser used to analyze the query;
      *               - statement - the first statement resulted from parsing;
@@ -467,6 +467,7 @@ class Query
      *               expressions, the table names are fetched from the
      *               `FROM` expressions
      *               - select_expr - selected expressions
+     * @psalm-return QueryFlagsType
      */
     public static function getAll($query)
     {
@@ -554,7 +555,7 @@ class Query
      *
      * @param Statement $statement statement to be scanned
      *
-     * @return array
+     * @return array<int, string>
      */
     public static function getTables($statement)
     {
@@ -767,9 +768,9 @@ class Query
      * Builds a query by rebuilding the statement from the tokens list supplied
      * and replaces multiple clauses.
      *
-     * @param Statement  $statement the parsed query that has to be modified
-     * @param TokensList $list      the list of tokens
-     * @param array      $ops       Clauses to be replaced. Contains multiple
+     * @param Statement                      $statement the parsed query that has to be modified
+     * @param TokensList                     $list      the list of tokens
+     * @param array<int, array<int, string>> $ops       Clauses to be replaced. Contains multiple
      *                              arrays having two values: [$old, $new].
      *                              Clauses must be sorted.
      *
@@ -821,9 +822,9 @@ class Query
      * @param string $query     the query to be analyzed
      * @param string $delimiter the delimiter to be used
      *
-     * @return array array containing the first full query, the
-     *               remaining part of the query and the last
-     *               delimiter
+     * @return array<int, string|null> array containing the first full query,
+     *                                 the remaining part of the query and the last delimiter
+     * @psalm-return array{string|null, string, string|null}
      */
     public static function getFirstStatement($query, $delimiter = null)
     {

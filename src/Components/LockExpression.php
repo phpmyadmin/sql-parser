@@ -37,9 +37,9 @@ class LockExpression extends Component
     public $type;
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return LockExpression
      */
@@ -101,7 +101,7 @@ class LockExpression extends Component
 
     /**
      * @param LockExpression|LockExpression[] $component the component to be built
-     * @param array                           $options   parameters for building
+     * @param array<string, mixed>            $options   parameters for building
      *
      * @return string
      */

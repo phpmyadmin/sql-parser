@@ -92,9 +92,9 @@ class JoinKeyword extends Component
     }
 
     /**
-     * @param Parser     $parser  the parser that serves as context
-     * @param TokensList $list    the list of tokens that are being parsed
-     * @param array      $options parameters for parsing
+     * @param Parser               $parser  the parser that serves as context
+     * @param TokensList           $list    the list of tokens that are being parsed
+     * @param array<string, mixed> $options parameters for parsing
      *
      * @return JoinKeyword[]
      */
@@ -203,8 +203,8 @@ class JoinKeyword extends Component
     }
 
     /**
-     * @param JoinKeyword[] $component the component to be built
-     * @param array         $options   parameters for building
+     * @param JoinKeyword[]        $component the component to be built
+     * @param array<string, mixed> $options   parameters for building
      *
      * @return string
      */

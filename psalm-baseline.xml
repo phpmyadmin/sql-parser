@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.17.0@6f4707aa41c9174353a6434bba3fc8840f981d9c">
+<files psalm-version="4.18.0.0">
   <file src="src/Component.php">
     <MixedReturnStatement occurrences="1">
       <code>static::build($this)</code>
@@ -852,6 +852,9 @@
     <InvalidStringClass occurrences="1">
       <code>$class::parse($parser, $list, $options)</code>
     </InvalidStringClass>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$options</code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayOffset occurrences="8">
       <code>$parsedClauses[$token-&gt;value]</code>
       <code>$parsedClauses[$token-&gt;value]</code>
@@ -1120,28 +1123,9 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Tools/ContextGenerator.php">
-    <MixedArgument occurrences="9">
-      <code>$options['class']</code>
+    <PossiblyNullArgument occurrences="1">
       <code>$options['keywords']</code>
-      <code>$options['keywords']</code>
-      <code>$options['link']</code>
-      <code>$options['name']</code>
-      <code>$word</code>
-      <code>$words</code>
-      <code>$wordsByLen</code>
-      <code>($line - $spaces) / ($len + 9)</code>
-    </MixedArgument>
-    <MixedAssignment occurrences="6">
-      <code>$len</code>
-      <code>$word</code>
-      <code>$words</code>
-      <code>$wordsByLen</code>
-      <code>$wordsByLen</code>
-      <code>$wordsByType</code>
-    </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$len</code>
-    </MixedOperand>
+    </PossiblyNullArgument>
     <RedundantCondition occurrences="2">
       <code>++$i !== $count</code>
       <code>++$i !== $count</code>
@@ -1185,9 +1169,8 @@
       <code>$params['q']</code>
       <code>$params['q']</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="3">
+    <MixedArgumentTypeCoercion occurrences="2">
       <code>$idx</code>
-      <code>$output</code>
       <code>['type' =&gt; $params['f']]</code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess occurrences="5">
@@ -1216,21 +1199,14 @@
     </PossiblyFalseArgument>
   </file>
   <file src="src/Utils/Error.php">
-    <MixedArgument occurrences="3">
+    <PossiblyNullArgument occurrences="3">
       <code>$err[0]</code>
       <code>$err[1]</code>
       <code>$err[3]</code>
-    </MixedArgument>
-    <MixedArrayAccess occurrences="4">
-      <code>$err[0]</code>
-      <code>$err[1]</code>
-      <code>$err[2]</code>
-      <code>$err[3]</code>
-    </MixedArrayAccess>
-    <MixedAssignment occurrences="2">
-      <code>$err</code>
-      <code>$obj</code>
-    </MixedAssignment>
+    </PossiblyNullArgument>
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>$obj instanceof Parser</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Utils/Formatter.php">
     <MixedArgument occurrences="6">
@@ -1328,28 +1304,9 @@
     <InvalidNullableReturnType occurrences="1">
       <code>int</code>
     </InvalidNullableReturnType>
-    <InvalidOperand occurrences="2">
-      <code>$i</code>
-      <code>$i</code>
-    </InvalidOperand>
-    <MixedArgument occurrences="7">
-      <code>$clause[0]</code>
+    <MixedArgument occurrences="1">
       <code>$expr</code>
-      <code>$ops[$count - 1][0]</code>
-      <code>$ops[$i + 1][0]</code>
-      <code>$ops[0][0]</code>
-      <code>$ops[0][0]</code>
-      <code>$ops[0][1]</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="7">
-      <code>$clause[0]</code>
-      <code>$clause[1]</code>
-      <code>$ops[$count - 1][0]</code>
-      <code>$ops[$i + 1][0]</code>
-      <code>$ops[0][0]</code>
-      <code>$ops[0][0]</code>
-      <code>$ops[0][1]</code>
-    </MixedArrayAccess>
     <MixedArrayOffset occurrences="2">
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
@@ -1358,8 +1315,7 @@
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="7">
-      <code>$clause</code>
+    <MixedAssignment occurrences="6">
       <code>$currIdx</code>
       <code>$expr</code>
       <code>$expressions[]</code>
@@ -1367,8 +1323,7 @@
       <code>$lastClauseIdx</code>
       <code>$rename</code>
     </MixedAssignment>
-    <MixedOperand occurrences="3">
-      <code>$clause[1]</code>
+    <MixedOperand occurrences="2">
       <code>$clauses[$type]</code>
       <code>$clauses[$type]</code>
     </MixedOperand>
@@ -1383,9 +1338,6 @@
     <NullableReturnStatement occurrences="1">
       <code>$i</code>
     </NullableReturnStatement>
-    <PossiblyInvalidArrayOffset occurrences="1">
-      <code>$ops[$i + 1]</code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyNullArrayOffset occurrences="2">
       <code>$list-&gt;tokens</code>
       <code>$list-&gt;tokens</code>
@@ -1640,16 +1592,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="tests/Utils/QueryTest.php">
-    <MixedArgument occurrences="8">
-      <code>$delimiter</code>
-      <code>$delimiter</code>
-      <code>$delimiter</code>
-      <code>$delimiter</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-      <code>$query</code>
-    </MixedArgument>
     <PossiblyNullArgument occurrences="16">
       <code>$parser-&gt;list</code>
       <code>$parser-&gt;list</code>

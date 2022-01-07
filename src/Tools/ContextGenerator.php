@@ -120,9 +120,9 @@ PHP;
     /**
      * Sorts an array of words.
      *
-     * @param array $arr
+     * @param array<int, array<int, array<int, string>>> $arr
      *
-     * @return array
+     * @return array<int, array<int, array<int, string>>>
      */
     public static function sortWords(array &$arr)
     {
@@ -142,7 +142,7 @@ PHP;
      *
      * @param string[] $files
      *
-     * @return array
+     * @return array<int, array<int, array<int, string>>>
      */
     public static function readWords(array $files)
     {
@@ -151,6 +151,7 @@ PHP;
             $words = array_merge($words, file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
         }
 
+        /** @var array<string, int> $types */
         $types = [];
 
         for ($i = 0, $count = count($words); $i !== $count; ++$i) {
@@ -206,9 +207,9 @@ PHP;
     /**
      * Prints an array of a words in PHP format.
      *
-     * @param array $words  the list of words to be formatted
-     * @param int   $spaces the number of spaces that starts every line
-     * @param int   $line   the length of a line
+     * @param array<int, array<int, array<int, string>>> $words  the list of words to be formatted
+     * @param int                                        $spaces the number of spaces that starts every line
+     * @param int                                        $line   the length of a line
      *
      * @return string
      */
@@ -258,7 +259,13 @@ PHP;
     /**
      * Generates a context's class.
      *
-     * @param array $options the options that are used in generating this context
+     * @param array<string, string|array<int, array<int, array<int, string>>>> $options the options for this context
+     * @psalm-param array{
+     *   name: string,
+     *   class: string,
+     *   link: string,
+     *   keywords: array<int, array<int, array<int, string>>>
+     * } $options
      *
      * @return string
      */

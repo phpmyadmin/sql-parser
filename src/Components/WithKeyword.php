@@ -33,8 +33,8 @@ final class WithKeyword extends Component
     }
 
     /**
-     * @param WithKeyword $component
-     * @param mixed[]     $options
+     * @param WithKeyword          $component
+     * @param array<string, mixed> $options
      *
      * @return string
      */

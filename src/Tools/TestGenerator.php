@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\UtfString;
 use Zumba\JsonSerializer\JsonSerializer;
 
@@ -45,7 +46,7 @@ class TestGenerator
      * @param string $query the query to be analyzed
      * @param string $type  test's type (may be `lexer` or `parser`)
      *
-     * @return array
+     * @return array<string, string|Lexer|Parser|array<string, array<int, array<int, int|string|Token>>>|null>
      */
     public static function generate($query, $type = 'parser')
     {
@@ -65,14 +66,14 @@ class TestGenerator
         /**
          * Lexer's errors.
          *
-         * @var array
+         * @var array<int, array<int, int|string>>
          */
         $lexerErrors = [];
 
         /**
          * Parser's errors.
          *
-         * @var array
+         * @var array<int, array<int, int|string|Token>>
          */
         $parserErrors = [];
 
