@@ -40,7 +40,7 @@ class ContextGenerator
     /**
      * Labels and flags that may be used when defining keywords.
      *
-     * @var array
+     * @var array<string, int>
      */
     public static $LABELS_FLAGS = [
         '(R)' => 2, // reserved
@@ -52,7 +52,7 @@ class ContextGenerator
     /**
      * Documentation links for each context.
      *
-     * @var array
+     * @var array<string, string>
      */
     public static $LINKS = [
         'MySql50000' => 'https://dev.mysql.com/doc/refman/5.0/en/keywords.html',

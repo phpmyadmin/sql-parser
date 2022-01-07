@@ -30,7 +30,8 @@ class CreateStatement extends Statement
     /**
      * Options for `CREATE` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $OPTIONS = [
         // CREATE TABLE

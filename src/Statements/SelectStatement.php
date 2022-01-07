@@ -53,7 +53,8 @@ class SelectStatement extends Statement
     /**
      * Options for `SELECT` statements and their slot ID.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $OPTIONS = [
         'ALL' => 1,
@@ -73,7 +74,10 @@ class SelectStatement extends Statement
         'SQL_CALC_FOUND_ROWS' => 9,
     ];
 
-    /** @var array<string,int> */
+    /**
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
     public static $END_OPTIONS = [
         'FOR UPDATE' => 1,
         'LOCK IN SHARE MODE' => 1,
@@ -84,7 +88,8 @@ class SelectStatement extends Statement
      *
      * @see Statement::$CLAUSES
      *
-     * @var array
+     * @var array<string, array<int, int|string>>
+     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
     public static $CLAUSES = [
         'SELECT' => [
@@ -323,7 +328,8 @@ class SelectStatement extends Statement
     /**
      * Gets the clauses of this statement.
      *
-     * @return array
+     * @return array<string, array<int, int|string>>
+     * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
      */
     public function getClauses()
     {

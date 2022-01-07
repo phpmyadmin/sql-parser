@@ -47,7 +47,8 @@ class LoadStatement extends Statement
     /**
      * Options for `LOAD` statements and their slot ID.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $OPTIONS = [
         'LOW_PRIORITY' => 1,

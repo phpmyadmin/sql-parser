@@ -752,9 +752,8 @@
       <code>$this-&gt;str[$this-&gt;last]</code>
       <code>$this-&gt;str[$this-&gt;last]</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="3">
+    <MixedAssignment occurrences="2">
       <code>$lastToken</code>
-      <code>$method</code>
       <code>$token</code>
     </MixedAssignment>
     <MixedOperand occurrences="7">
@@ -910,15 +909,7 @@
     <MixedArgument occurrences="1">
       <code>$options</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="4">
-      <code>$clauseType</code>
-      <code>$clauseType</code>
-      <code>$clauseType</code>
-      <code>$clauseType</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="7">
-      <code>$clause[0]</code>
-      <code>$clause[1]</code>
+    <MixedArrayAccess occurrences="5">
       <code>Parser::$KEYWORD_PARSERS[$name]['class']</code>
       <code>Parser::$KEYWORD_PARSERS[$name]['field']</code>
       <code>Parser::$KEYWORD_PARSERS[$tokenValue]['class']</code>
@@ -939,9 +930,8 @@
       <code>Parser::$KEYWORD_PARSERS[$tokenValue]</code>
       <code>Parser::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$class</code>
-      <code>$clause</code>
       <code>$field</code>
       <code>$options</code>
       <code>$tokenValue</code>
@@ -1135,11 +1125,6 @@
       <code>$this-&gt;options</code>
     </PossiblyNullOperand>
   </file>
-  <file src="src/Statements/SelectStatement.php">
-    <NonInvariantDocblockPropertyType occurrences="1">
-      <code>$END_OPTIONS</code>
-    </NonInvariantDocblockPropertyType>
-  </file>
   <file src="src/Statements/SetStatement.php">
     <InvalidArgument occurrences="1">
       <code>$this-&gt;options</code>
@@ -1207,37 +1192,16 @@
       <code>$wordsByLen</code>
       <code>($line - $spaces) / ($len + 9)</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="2">
-      <code>$label</code>
-      <code>$label</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayOffset occurrences="4">
-      <code>$ret[$type]</code>
-      <code>$ret[$type]</code>
-      <code>$ret[$type]</code>
-      <code>$ret[$type]</code>
-    </MixedArrayOffset>
-    <MixedAssignment occurrences="13">
-      <code>$flags</code>
+    <MixedAssignment occurrences="6">
       <code>$len</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$types[$value]</code>
-      <code>$types[$value]</code>
       <code>$word</code>
       <code>$words</code>
       <code>$wordsByLen</code>
       <code>$wordsByLen</code>
       <code>$wordsByType</code>
     </MixedAssignment>
-    <MixedOperand occurrences="5">
-      <code>$flags</code>
+    <MixedOperand occurrences="1">
       <code>$len</code>
-      <code>$type</code>
-      <code>$type</code>
-      <code>$types[$value]</code>
     </MixedOperand>
     <RedundantCondition occurrences="2">
       <code>++$i !== $count</code>

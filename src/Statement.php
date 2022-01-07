@@ -43,7 +43,8 @@ abstract class Statement implements Stringable
      * Two options that can be used together must have different values for
      * indexes, else, when they will be used together, an error will occur.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $OPTIONS = [];
 
@@ -57,11 +58,15 @@ abstract class Statement implements Stringable
      *     - 2 = 10 - add the keyword
      *     - 3 = 11 - add both the keyword and the clause
      *
-     * @var array
+     * @var array<string, array<int, int|string>>
+     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
     public static $CLAUSES = [];
 
-    /** @var array */
+    /**
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
     public static $END_OPTIONS = [];
 
     /**
@@ -447,7 +452,8 @@ abstract class Statement implements Stringable
     /**
      * Gets the clauses of this statement.
      *
-     * @return array
+     * @return array<string, array<int, int|string>>
+     * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
      */
     public function getClauses()
     {

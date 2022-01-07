@@ -50,7 +50,7 @@ class Lexer extends Core
     /**
      * A list of methods that are used in lexing the SQL query.
      *
-     * @var array
+     * @var string[]
      */
     public static $PARSER_METHODS = [
         // It is best to put the parsers in order of their complexity
