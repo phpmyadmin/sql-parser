@@ -105,10 +105,8 @@ final class FunctionCall implements Component
     /**
      * @param FunctionCall         $component the component to be built
      * @param array<string, mixed> $options   parameters for building
-     *
-     * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = []): string
     {
         return $component->name . $component->parameters;
     }

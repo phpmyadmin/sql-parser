@@ -34,8 +34,6 @@ interface Component extends Stringable
      *
      * @param mixed                $component the component to be built
      * @param array<string, mixed> $options   parameters for building
-     *
-     * @return mixed
      */
-    public static function build($component, array $options = []);
+    public static function build($component, array $options = []): string;
 }

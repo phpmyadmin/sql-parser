@@ -39,10 +39,8 @@ final class UnionKeyword implements Component
     /**
      * @param array<UnionKeyword[]> $component the component to be built
      * @param array<string, mixed>  $options   parameters for building
-     *
-     * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = []): string
     {
         $tmp = [];
         foreach ($component as $componentPart) {

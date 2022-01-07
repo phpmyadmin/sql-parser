@@ -145,10 +145,8 @@ final class SetOperation implements Component
     /**
      * @param SetOperation|SetOperation[] $component the component to be built
      * @param array<string, mixed>        $options   parameters for building
-     *
-     * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = []): string
     {
         if (is_array($component)) {
             return implode(', ', $component);

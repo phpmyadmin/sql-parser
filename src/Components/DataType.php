@@ -158,10 +158,8 @@ final class DataType implements Component
     /**
      * @param DataType             $component the component to be built
      * @param array<string, mixed> $options   parameters for building
-     *
-     * @return string
      */
-    public static function build($component, array $options = [])
+    public static function build($component, array $options = []): string
     {
         $name = empty($options['lowercase']) ?
             $component->name : strtolower($component->name);
