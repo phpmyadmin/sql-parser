@@ -31,7 +31,7 @@ class Expression extends Component
     /**
      * List of allowed reserved keywords in expressions.
      *
-     * @var array
+     * @var array<string, int>
      */
     private static $ALLOWED_KEYWORDS = [
         'AS' => 1,

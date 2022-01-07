@@ -25,7 +25,7 @@ class JoinKeyword extends Component
     /**
      * Types of join.
      *
-     * @var array
+     * @var array<string, string>
      */
     public static $JOINS = [
         'CROSS JOIN' => 'CROSS',

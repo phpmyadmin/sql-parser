@@ -31,7 +31,12 @@ class CreateDefinition extends Component
     /**
      * All field options.
      *
-     * @var array
+     * @var array<string, bool|int|array<int, int|string|array<string, bool>>>
+     * @psalm-var array<string, (bool|positive-int|array{
+     *   0: positive-int,
+     *   1: ('var'|'var='|'expr'|'expr='),
+     *   2?: array<string, bool>
+     * })>
      */
     public static $FIELD_OPTIONS = [
         // Tells the `OptionsArray` to not sort the options.

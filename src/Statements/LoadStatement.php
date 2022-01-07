@@ -59,7 +59,8 @@ class LoadStatement extends Statement
     /**
      * FIELDS/COLUMNS Options for `LOAD DATA...INFILE` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $FIELDS_OPTIONS = [
         'TERMINATED BY' => [
@@ -80,7 +81,8 @@ class LoadStatement extends Statement
     /**
      * LINES Options for `LOAD DATA...INFILE` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $LINES_OPTIONS = [
         'STARTING BY' => [

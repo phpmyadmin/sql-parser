@@ -27,7 +27,8 @@ class DataType extends Component
     /**
      * All data type options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $DATA_TYPE_OPTIONS = [
         'BINARY' => 1,

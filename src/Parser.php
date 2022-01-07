@@ -25,7 +25,7 @@ class Parser extends Core
     /**
      * Array of classes that are used in parsing the SQL statements.
      *
-     * @var array
+     * @var array<string, string>
      */
     public static $STATEMENT_PARSERS = [
         // MySQL Utility Statements
@@ -99,7 +99,8 @@ class Parser extends Core
     /**
      * Array of classes that are used in parsing SQL components.
      *
-     * @var array
+     * @var array<string, array<string, string|array<string, string>>>
+     * @psalm-var array<string, array{class?: string, field?: non-empty-string, options?: array<string, string>}>
      */
     public static $KEYWORD_PARSERS = [
         // This is not a proper keyword and was added here to help the

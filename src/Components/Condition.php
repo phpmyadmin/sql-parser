@@ -27,7 +27,7 @@ class Condition extends Component
     /**
      * Logical operators that can be used to delimit expressions.
      *
-     * @var array
+     * @var string[]
      */
     public static $DELIMITERS = [
         '&&',
@@ -40,7 +40,7 @@ class Condition extends Component
     /**
      * List of allowed reserved keywords in conditions.
      *
-     * @var array
+     * @var array<string, int>
      */
     public static $ALLOWED_KEYWORDS = [
         'ALL' => 1,
@@ -67,7 +67,7 @@ class Condition extends Component
     /**
      * Identifiers recognized.
      *
-     * @var array
+     * @var array<int, mixed>
      */
     public $identifiers = [];
 

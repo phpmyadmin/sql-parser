@@ -27,7 +27,8 @@ class AlterOperation extends Component
     /**
      * All database options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $DB_OPTIONS = [
         'CHARACTER SET' => [
@@ -63,7 +64,8 @@ class AlterOperation extends Component
     /**
      * All table options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $TABLE_OPTIONS = [
         'ENGINE' => [
@@ -136,7 +138,8 @@ class AlterOperation extends Component
     /**
      * All user options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $USER_OPTIONS = [
         'ATTRIBUTE' => [
@@ -176,7 +179,8 @@ class AlterOperation extends Component
     /**
      * All view options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $VIEW_OPTIONS = ['AS' => 1];
 

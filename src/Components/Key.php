@@ -28,7 +28,8 @@ class Key extends Component
     /**
      * All key options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $KEY_OPTIONS = [
         'KEY_BLOCK_SIZE' => [
@@ -78,7 +79,7 @@ class Key extends Component
     /**
      * The key columns
      *
-     * @var array[]
+     * @var array<int, array<string, int|string>>
      * @phpstan-var array{name?: string, length?: int, order?: string}[]
      */
     public $columns;

@@ -25,7 +25,8 @@ class IntoKeyword extends Component
     /**
      * FIELDS/COLUMNS Options for `SELECT...INTO` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $FIELDS_OPTIONS = [
         'TERMINATED BY' => [
@@ -46,7 +47,8 @@ class IntoKeyword extends Component
     /**
      * LINES Options for `SELECT...INTO` statements.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $LINES_OPTIONS = [
         'STARTING BY' => [

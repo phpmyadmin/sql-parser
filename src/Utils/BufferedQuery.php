@@ -49,7 +49,8 @@ class BufferedQuery
     /**
      * The options of this parser.
      *
-     * @var array
+     * @var array<string, bool|string>
+     * @psalm-var array{delimiter?: non-empty-string, parse_delimiter?: bool, add_delimiter?: bool}
      */
     public $options = [];
 
@@ -82,34 +83,20 @@ class BufferedQuery
     public $current = '';
 
     /**
-     * @param string $query   the query to be parsed
-     * @param array  $options the options of this parser
+     * @param string                     $query   the query to be parsed
+     * @param array<string, bool|string> $options the options of this parser
+     * @psalm-param array{delimiter?: non-empty-string, parse_delimiter?: bool, add_delimiter?: bool} $options
      */
     public function __construct($query = '', array $options = [])
     {
         // Merges specified options with defaults.
         $this->options = array_merge(
             [
-                /*
-                 * The starting delimiter.
-                 *
-                 * @var string
-                 */
+                // The starting delimiter.
                 'delimiter' => ';',
-
-                /*
-                 * Whether `DELIMITER` statements should be parsed.
-                 *
-                 * @var bool
-                 */
+                // Whether `DELIMITER` statements should be parsed.
                 'parse_delimiter' => false,
-
-                /*
-                 * Whether a delimiter should be added at the end of the
-                 * statement.
-                 *
-                 * @var bool
-                 */
+                // Whether a delimiter should be added at the end of the statement.
                 'add_delimiter' => false,
             ],
             $options

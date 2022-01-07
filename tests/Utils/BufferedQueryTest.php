@@ -15,6 +15,7 @@ class BufferedQueryTest extends TestCase
     /**
      * @param array<string, bool> $options
      * @param string[]            $expected
+     * @psalm-param array{delimiter?: non-empty-string, parse_delimiter?: bool, add_delimiter?: bool} $options
      * @psalm-param positive-int $chunkSize
      *
      * @dataProvider extractProvider

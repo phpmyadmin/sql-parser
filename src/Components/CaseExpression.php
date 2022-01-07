@@ -32,7 +32,7 @@ class CaseExpression extends Component
     /**
      * The conditions in WHEN clauses.
      *
-     * @var array
+     * @var Condition[][]
      */
     public $conditions = [];
 

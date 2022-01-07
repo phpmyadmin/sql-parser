@@ -87,14 +87,15 @@ abstract class Context
      *
      * Elements are sorted by flags, length and keyword.
      *
-     * @var array
+     * @var array<string,int>
+     * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
     public static $KEYWORDS = [];
 
     /**
      * List of operators and their flags.
      *
-     * @var array
+     * @var array<string, int>
      */
     public static $OPERATORS = [
         // Some operators (*, =) may have ambiguous flags, because they depend on

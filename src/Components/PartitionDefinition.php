@@ -30,7 +30,8 @@ class PartitionDefinition extends Component
     /**
      * All field options.
      *
-     * @var array
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $OPTIONS = [
         'STORAGE ENGINE' => [
