@@ -639,8 +639,6 @@ class Query
 
         /**
          * The clauses of this type of statement and their index.
-         *
-         * @var array
          */
         $clauses = array_flip(array_keys($statement->getClauses()));
 
@@ -658,8 +656,6 @@ class Query
 
         /**
          * The index of this clause.
-         *
-         * @var int
          */
         $clauseIdx = $clauses[$clauseType] ?? -1;
 
@@ -906,8 +902,6 @@ class Query
 
         /**
          * The clauses of this type of statement and their index.
-         *
-         * @var array
          */
         $clauses = array_flip(array_keys($statement->getClauses()));
 

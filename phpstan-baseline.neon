@@ -11,11 +11,6 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:__construct\\(\\) has parameter \\$unknown with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, float\\|int\\|string given\\.$#"
 			count: 2
 			path: src/Components/AlterOperation.php
@@ -61,27 +56,12 @@ parameters:
 			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:__construct\\(\\) has parameter \\$raw with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
+			message: "#^Array \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 3
+			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:__construct\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:\\$raw type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:\\$values type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Binary operation \"\\.\" between ' AS ' and array\\|string results in an error\\.$#"
+			message: "#^Binary operation \"\\.\" between ' AS ' and array\\<string\\>\\|string results in an error\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
 
@@ -91,22 +71,12 @@ parameters:
 			path: src/Components/CaseExpression.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$compare_values type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$results type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: src/Components/Condition.php
 
 		-
-			message: "#^Binary operation \"\\.\" between array\\|string and ' ' results in an error\\.$#"
+			message: "#^Binary operation \"\\.\" between array\\<string\\>\\|string and ' ' results in an error\\.$#"
 			count: 1
 			path: src/Components/CreateDefinition.php
 
@@ -131,11 +101,6 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/DataType.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/Components/DataType.php
@@ -146,12 +111,7 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$parameters type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/DataType.php
-
-		-
-			message: "#^Binary operation \"\\.\" between ' AS ' and array\\|string results in an error\\.$#"
+			message: "#^Binary operation \"\\.\" between ' AS ' and array\\<string\\>\\|string results in an error\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
@@ -161,7 +121,7 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\<string\\>\\|string given\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
@@ -201,11 +161,6 @@ parameters:
 			path: src/Components/ExpressionArray.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:__construct\\(\\) has parameter \\$parameters with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/FunctionCall.php
@@ -226,22 +181,12 @@ parameters:
 			path: src/Components/GroupKeyword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:__construct\\(\\) has parameter \\$indexes with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IndexHint.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$for \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/Components/IndexHint.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$indexOrKey \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/IndexHint.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$indexes type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/IndexHint.php
 
@@ -261,16 +206,6 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:__construct\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:__construct\\(\\) has parameter \\$values with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
 			count: 2
 			path: src/Components/IntoKeyword.php
@@ -278,11 +213,6 @@ parameters:
 		-
 			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) expects string, mixed given\\.$#"
 			count: 2
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
-			count: 1
 			path: src/Components/IntoKeyword.php
 
 		-
@@ -326,17 +256,12 @@ parameters:
 			path: src/Components/Key.php
 
 		-
-			message: "#^Binary operation \"\\.\" between array\\|string and ' ' results in an error\\.$#"
+			message: "#^Binary operation \"\\.\" between array\\<string\\>\\|string and ' ' results in an error\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
 		-
-			message: "#^Binary operation \"\\.\\=\" between '' and array\\|string results in an error\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:__construct\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
+			message: "#^Binary operation \"\\.\\=\" between '' and array\\<string\\>\\|string results in an error\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
@@ -376,6 +301,26 @@ parameters:
 			path: src/Components/LockExpression.php
 
 		-
+			message: "#^Cannot access offset 'equals' on mixed\\.$#"
+			count: 1
+			path: src/Components/OptionsArray.php
+
+		-
+			message: "#^Cannot access offset 'expr' on mixed\\.$#"
+			count: 4
+			path: src/Components/OptionsArray.php
+
+		-
+			message: "#^Cannot access offset 'name' on mixed\\.$#"
+			count: 1
+			path: src/Components/OptionsArray.php
+
+		-
+			message: "#^Cannot access offset 'value' on mixed\\.$#"
+			count: 2
+			path: src/Components/OptionsArray.php
+
+		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 6
 			path: src/Components/OptionsArray.php
@@ -386,27 +331,17 @@ parameters:
 			path: src/Components/OptionsArray.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:__construct\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
+			message: "#^Parameter \\#2 \\$str2 of function strcasecmp expects string, mixed given\\.$#"
+			count: 2
 			path: src/Components/OptionsArray.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:merge\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
+			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
 			count: 1
 			path: src/Components/OptionsArray.php
 
 		-
 			message: "#^Parameter \\#3 \\$options of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:parse\\(\\) expects array\\<string, mixed\\>, mixed given\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: src/Components/OptionsArray.php
 
@@ -486,17 +421,7 @@ parameters:
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:__construct\\(\\) has parameter \\$columns with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\|string given\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$columns type has no value type specified in iterable type array\\.$#"
+			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\<string\\>\\|string given\\.$#"
 			count: 1
 			path: src/Components/Reference.php
 
@@ -541,12 +466,7 @@ parameters:
 			path: src/Components/SetOperation.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) has parameter \\$str with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Context.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) return type has no value type specified in iterable type array\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) should return array\\<string\\>\\|string but returns array\\<array\\<string\\>\\|string\\>\\.$#"
 			count: 1
 			path: src/Context.php
 
@@ -628,11 +548,6 @@ parameters:
 		-
 			message: "#^Offset 'field' does not exist on array\\{class\\?\\: string, field\\?\\: non\\-empty\\-string, options\\?\\: array\\<string, string\\>\\}\\.$#"
 			count: 1
-			path: src/Statement.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 3
 			path: src/Statement.php
 
 		-
@@ -786,11 +701,6 @@ parameters:
 			path: src/Statements/MaintenanceStatement.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:parseExpectedKeyword\\(\\) has parameter \\$expectedKeywords with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Statements/PurgeStatement.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$end_expr \\(string\\|null\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Statements/PurgeStatement.php
@@ -941,11 +851,6 @@ parameters:
 			path: src/Utils/CLI.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:getopt\\(\\) has parameter \\$long with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:readStdin\\(\\) should return string\\|false but returns string\\|false\\|null\\.$#"
 			count: 1
 			path: src/Utils/CLI.php
@@ -987,11 +892,6 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
-			path: src/Utils/Formatter.php
-
-		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
 			count: 2
 			path: src/Utils/Formatter.php
 
@@ -1046,28 +946,13 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 2
-			path: src/Utils/Query.php
-
-		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, object given\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getParameter\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Routine.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Routine.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getReturnType\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
+			message: "#^Cannot access offset 'value' on mixed\\.$#"
+			count: 3
 			path: src/Utils/Routine.php
 
 		-
@@ -1076,19 +961,14 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Table.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Table.php
-
-		-
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
 			count: 2
 			path: src/Utils/Table.php
+
+		-
+			message: "#^Binary operation \"&\" between int\\|string and int results in an error\\.$#"
+			count: 1
+			path: src/Utils/Tokens.php
 
 		-
 			message: "#^Cannot cast mixed to string\\.$#"
@@ -1096,22 +976,17 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:match\\(\\) has parameter \\$pattern with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has parameter \\$find with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) has parameter \\$replace with no value type specified in iterable type array\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) should return PhpMyAdmin\\\\SqlParser\\\\TokensList but returns PhpMyAdmin\\\\SqlParser\\\\TokensList\\|string\\.$#"
+			count: 1
+			path: src/Utils/Tokens.php
+
+		-
+			message: "#^Parameter \\#1 \\$str1 of function strcasecmp expects string, int\\|string given\\.$#"
+			count: 1
+			path: src/Utils/Tokens.php
+
+		-
+			message: "#^Parameter \\#2 \\$pattern of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:match\\(\\) expects array\\<string, int\\|string\\|null\\>, PhpMyAdmin\\\\SqlParser\\\\Token given\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -1261,11 +1136,6 @@ parameters:
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
-			message: "#^PHPDoc tag @var has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
-
-		-
 			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
@@ -1309,4 +1179,9 @@ parameters:
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$find of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>, array\\<array\\<string, string\\>\\> given\\.$#"
+			count: 1
+			path: tests/Utils/TokensTest.php
 

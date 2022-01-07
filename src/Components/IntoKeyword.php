@@ -78,7 +78,7 @@ class IntoKeyword extends Component
     /**
      * The name of the columns.
      *
-     * @var array|null
+     * @var string[]|null
      */
     public $columns;
 
@@ -117,8 +117,8 @@ class IntoKeyword extends Component
     /**
      * @param string|null            $type          type of destination (may be OUTFILE)
      * @param string|Expression|null $dest          actual destination
-     * @param array|null             $columns       column list of destination
-     * @param array|null             $values        selected fields
+     * @param string[]|null          $columns       column list of destination
+     * @param Expression[]|null      $values        selected fields
      * @param OptionsArray|null      $fieldsOptions options for FIELDS/COLUMNS keyword
      * @param bool|null              $fieldsKeyword options for OPTIONS keyword
      */

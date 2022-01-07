@@ -39,14 +39,14 @@ class CaseExpression extends Component
     /**
      * The results matching with the WHEN clauses.
      *
-     * @var array
+     * @var Expression[]
      */
     public $results = [];
 
     /**
      * The values to be compared against.
      *
-     * @var array
+     * @var Expression[]
      */
     public $compare_values = [];
 

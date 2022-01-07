@@ -27,20 +27,20 @@ class ArrayObj extends Component
     /**
      * The array that contains the unprocessed value of each token.
      *
-     * @var array
+     * @var string[]
      */
     public $raw = [];
 
     /**
      * The array that contains the processed value of each token.
      *
-     * @var array
+     * @var string[]
      */
     public $values = [];
 
     /**
-     * @param array $raw    the unprocessed values
-     * @param array $values the processed values
+     * @param string[] $raw    the unprocessed values
+     * @param string[] $values the processed values
      */
     public function __construct(array $raw = [], array $values = [])
     {

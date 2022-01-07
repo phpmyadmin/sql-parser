@@ -55,8 +55,8 @@ class CLI
     }
 
     /**
-     * @param string $opt
-     * @param array  $long
+     * @param string   $opt
+     * @param string[] $long
      *
      * @return string[]|false[]|false
      */

@@ -128,8 +128,6 @@ abstract class Statement implements Stringable
          *
          * A clause is considered built just after fields' value
          * (`$this->field`) was used in building.
-         *
-         * @var array
          */
         $built = [];
 
@@ -215,8 +213,6 @@ abstract class Statement implements Stringable
         /**
          * Array containing all list of clauses parsed.
          * This is used to check for duplicates.
-         *
-         * @var array
          */
         $parsedClauses = [];
 
@@ -312,8 +308,6 @@ abstract class Statement implements Stringable
 
             /**
              * Parser's options.
-             *
-             * @var array
              */
             $options = [];
 

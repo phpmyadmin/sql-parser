@@ -66,7 +66,7 @@ class DataType extends Component
      *
      * For more information, check the MySQL manual.
      *
-     * @var array
+     * @var int[]|string[]
      */
     public $parameters = [];
 
@@ -78,9 +78,9 @@ class DataType extends Component
     public $options;
 
     /**
-     * @param string       $name       the name of this data type
-     * @param array        $parameters the parameters (size or possible values)
-     * @param OptionsArray $options    the options of this data type
+     * @param string         $name       the name of this data type
+     * @param int[]|string[] $parameters the parameters (size or possible values)
+     * @param OptionsArray   $options    the options of this data type
      */
     public function __construct(
         $name = null,

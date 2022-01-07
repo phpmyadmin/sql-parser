@@ -588,10 +588,10 @@ abstract class Context
     /**
      * Escapes the symbol by adding surrounding backticks.
      *
-     * @param array|string $str   the string to be escaped
-     * @param string       $quote quote to be used when escaping
+     * @param string[]|string $str   the string to be escaped
+     * @param string          $quote quote to be used when escaping
      *
-     * @return string|array
+     * @return string|string[]
      */
     public static function escape($str, $quote = '`')
     {

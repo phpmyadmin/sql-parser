@@ -208,7 +208,7 @@ class AlterOperation extends Component
     /**
      * @param OptionsArray $options options of alter operation
      * @param Expression   $field   altered field
-     * @param array        $unknown unparsed tokens found at the end of operation
+     * @param Token[]      $unknown unparsed tokens found at the end of operation
      */
     public function __construct(
         $options = null,

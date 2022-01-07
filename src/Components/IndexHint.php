@@ -46,15 +46,15 @@ class IndexHint extends Component
     /**
      * List of indexes in this hint
      *
-     * @var array
+     * @var Expression[]
      */
     public $indexes = [];
 
     /**
-     * @param string $type       the type of hint (USE/FORCE/IGNORE)
-     * @param string $indexOrKey What the hint is for (INDEX/KEY)
-     * @param string $for        the clause for which this hint is (JOIN/ORDER BY/GROUP BY)
-     * @param array  $indexes    List of indexes in this hint
+     * @param string       $type       the type of hint (USE/FORCE/IGNORE)
+     * @param string       $indexOrKey What the hint is for (INDEX/KEY)
+     * @param string       $for        the clause for which this hint is (JOIN/ORDER BY/GROUP BY)
+     * @param Expression[] $indexes    List of indexes in this hint
      */
     public function __construct(
         ?string $type = null,

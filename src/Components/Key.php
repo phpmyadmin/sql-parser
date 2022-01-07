@@ -106,10 +106,11 @@ class Key extends Component
     public $options;
 
     /**
-     * @param string       $name    the name of the key
-     * @param array        $columns the columns covered by this key
-     * @param string       $type    the type of this key
-     * @param OptionsArray $options the options of this key
+     * @param string                                $name    the name of the key
+     * @param array<int, array<string, int|string>> $columns the columns covered by this key
+     * @param string                                $type    the type of this key
+     * @param OptionsArray                          $options the options of this key
+     * @phpstan-param array{name?: string, length?: int, order?: string}[] $columns
      */
     public function __construct(
         $name = null,

@@ -370,16 +370,12 @@ class Formatter
         /**
          * A stack that keeps track of the indentation level every time a new
          * block is found.
-         *
-         * @var array
          */
         $blocksIndentation = [];
 
         /**
          * A stack that keeps track of the line endings every time a new block
          * is found.
-         *
-         * @var array
          */
         $blocksLineEndings = [];
 

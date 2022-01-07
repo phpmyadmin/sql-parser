@@ -54,7 +54,7 @@ class Reference extends Component
     /**
      * The referenced columns.
      *
-     * @var array
+     * @var string[]
      */
     public $columns;
 
@@ -67,7 +67,7 @@ class Reference extends Component
 
     /**
      * @param Expression   $table   the name of the table referenced
-     * @param array        $columns the columns referenced
+     * @param string[]     $columns the columns referenced
      * @param OptionsArray $options the options
      */
     public function __construct($table = null, array $columns = [], $options = null)

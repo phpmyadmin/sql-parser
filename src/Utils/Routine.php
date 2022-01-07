@@ -26,7 +26,7 @@ class Routine
      *
      * @param string $param parameter's definition
      *
-     * @return array
+     * @return string[]
      */
     public static function getReturnType($param)
     {
@@ -64,7 +64,7 @@ class Routine
      *
      * @param string $param parameter's definition
      *
-     * @return array
+     * @return string[]
      */
     public static function getParameter($param)
     {
@@ -104,7 +104,7 @@ class Routine
      *
      * @param CreateStatement $statement the statement to be processed
      *
-     * @return array
+     * @return array<string, int|array<int, mixed[]|string|null>>
      */
     public static function getParameters($statement)
     {
