@@ -1,7 +1,4 @@
 <?php
-/**
- * `SELECT` statement.
- */
 
 declare(strict_types=1);
 

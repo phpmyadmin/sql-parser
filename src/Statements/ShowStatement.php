@@ -1,7 +1,4 @@
 <?php
-/**
- * `SHOW` statement.
- */
 
 declare(strict_types=1);
 

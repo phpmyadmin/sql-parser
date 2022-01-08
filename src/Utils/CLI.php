@@ -1,7 +1,4 @@
 <?php
-/**
- * CLI interface.
- */
 
 declare(strict_types=1);
 

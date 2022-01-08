@@ -1,7 +1,4 @@
 <?php
-/**
- * `UNION` keyword builder.
- */
 
 declare(strict_types=1);
 

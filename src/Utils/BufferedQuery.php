@@ -1,7 +1,4 @@
 <?php
-/**
- * Buffered query utilities.
- */
 
 declare(strict_types=1);
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * `JOIN` keyword parser.
- */
 
 declare(strict_types=1);
 

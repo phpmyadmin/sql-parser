@@ -1,7 +1,4 @@
 <?php
-/**
- * `INTO` keyword parser.
- */
 
 declare(strict_types=1);
 

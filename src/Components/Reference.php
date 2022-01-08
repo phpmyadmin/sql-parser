@@ -1,7 +1,4 @@
 <?php
-/**
- * `REFERENCES` keyword parser.
- */
 
 declare(strict_types=1);
 

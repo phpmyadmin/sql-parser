@@ -1,9 +1,4 @@
 <?php
-/**
- * Defines the parser of the library.
- *
- * This is one of the most important components, along with the lexer.
- */
 
 declare(strict_types=1);
 
@@ -17,8 +12,11 @@ use function is_string;
 use function strtoupper;
 
 /**
- * Takes multiple tokens (contained in a Lexer instance) as input and builds a
- * parse tree.
+ * Defines the parser of the library.
+ *
+ * This is one of the most important components, along with the lexer.
+ *
+ * Takes multiple tokens (contained in a Lexer instance) as input and builds a parse tree.
  */
 class Parser extends Core
 {

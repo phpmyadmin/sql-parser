@@ -1,7 +1,4 @@
 <?php
-/**
- * `CREATE` statement.
- */
 
 declare(strict_types=1);
 

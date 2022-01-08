@@ -1,9 +1,4 @@
 <?php
-/**
- * Defines a token along with a set of types and flags and utility functions.
- *
- * An array of tokens will result after parsing the query.
- */
 
 declare(strict_types=1);
 
@@ -17,8 +12,11 @@ use function stripcslashes;
 use function strtoupper;
 
 /**
- * A structure representing a lexeme that explicitly indicates its
- * categorization for the purpose of parsing.
+ * Defines a token along with a set of types and flags and utility functions.
+ *
+ * An array of tokens will result after parsing the query.
+ *
+ * A structure representing a lexeme that explicitly indicates its categorization for the purpose of parsing.
  */
 class Token
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * `CHECK` statement.
- */
 
 declare(strict_types=1);
 

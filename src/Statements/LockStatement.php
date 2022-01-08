@@ -1,7 +1,4 @@
 <?php
-/**
- * `LOCK` statement.
- */
 
 declare(strict_types=1);
 

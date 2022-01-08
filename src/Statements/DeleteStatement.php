@@ -1,7 +1,4 @@
 <?php
-/**
- * `DELETE` statement.
- */
 
 declare(strict_types=1);
 

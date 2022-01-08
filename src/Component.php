@@ -1,12 +1,4 @@
 <?php
-/**
- * Defines a component that is later extended to parse specialized components or
- * keywords.
- *
- * There is a small difference between *Component and *Keyword classes: usually,
- * *Component parsers can be reused in multiple  situations and *Keyword parsers
- * count on the *Component classes to do their job.
- */
 
 declare(strict_types=1);
 
@@ -16,8 +8,12 @@ use Exception;
 use Stringable;
 
 /**
- * A component (of a statement) is a part of a statement that is common to
- * multiple query types.
+ * Defines a component that is later extended to parse specialized components or keywords.
+ *
+ * There is a small difference between *Component and *Keyword classes: usually, *Component parsers can be reused in
+ * multiple situations and *Keyword parsers count on the *Component classes to do their job.
+ *
+ * A component (of a statement) is a part of a statement that is common to multiple query types.
  */
 abstract class Component implements Stringable
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * `DROP` statement.
- */
 
 declare(strict_types=1);
 

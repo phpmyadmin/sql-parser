@@ -1,7 +1,4 @@
 <?php
-/**
- * Parses the definition of a key.
- */
 
 declare(strict_types=1);
 

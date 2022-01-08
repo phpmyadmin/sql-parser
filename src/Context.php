@@ -1,10 +1,4 @@
 <?php
-/**
- * Defines a context class that is later extended to define other contexts.
- *
- * A context is a collection of keywords, operators and functions used for
- * parsing.
- */
 
 declare(strict_types=1);
 
@@ -25,6 +19,10 @@ use function strtoupper;
 use function substr;
 
 /**
+ * Defines a context class that is later extended to define other contexts.
+ *
+ * A context is a collection of keywords, operators and functions used for parsing.
+ *
  * Holds the configuration of the context that is currently used.
  */
 abstract class Context

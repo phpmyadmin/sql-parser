@@ -1,11 +1,4 @@
 <?php
-/**
- * Defines the lexer of the library.
- *
- * This is one of the most important components, along with the parser.
- *
- * Depends on context to extract lexemes.
- */
 
 declare(strict_types=1);
 
@@ -38,12 +31,17 @@ if (! defined('USE_UTF_STRINGS')) {
 }
 
 /**
- * Performs lexical analysis over a SQL statement and splits it in multiple
- * tokens.
+ * Defines the lexer of the library.
+ *
+ * This is one of the most important components, along with the parser.
+ *
+ * Depends on context to extract lexemes.
+ *
+ * Performs lexical analysis over a SQL statement and splits it in multiple tokens.
  *
  * The output of the lexer is affected by the context of the SQL statement.
  *
- * @see      Context
+ * @see Context
  */
 class Lexer extends Core
 {

@@ -1,7 +1,4 @@
 <?php
-/**
- * Table utilities.
- */
 
 declare(strict_types=1);
 

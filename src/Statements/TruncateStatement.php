@@ -1,7 +1,4 @@
 <?php
-/**
- * `TRUNCATE` statement.
- */
 
 declare(strict_types=1);
 

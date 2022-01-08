@@ -1,7 +1,4 @@
 <?php
-/**
- * `REPLACE` statement.
- */
 
 declare(strict_types=1);
 
