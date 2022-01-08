@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Exceptions\LoaderException;
 use function class_exists;
 use function constant;
 use function explode;
+use function in_array;
 use function intval;
 use function is_array;
 use function is_numeric;
@@ -258,227 +259,169 @@ abstract class Context
     // ERROR_FOR_DIVISION_BY_ZERO, NO_AUTO_CREATE_USER
     public const SQL_MODE_TRADITIONAL = 1622052;
 
-    // -------------------------------------------------------------------------
-    // Keyword.
-
     /**
      * Checks if the given string is a keyword.
      *
-     * @param string $str        string to be checked
-     * @param bool   $isReserved checks if the keyword is reserved
-     *
-     * @return int|null
+     * @param bool $isReserved checks if the keyword is reserved
      */
-    public static function isKeyword($str, $isReserved = false)
+    public static function isKeyword(string $string, bool $isReserved = false): ?int
     {
-        $str = strtoupper($str);
+        $upperString = strtoupper($string);
 
-        if (isset(static::$keywords[$str])) {
-            if ($isReserved && ! (static::$keywords[$str] & Token::FLAG_KEYWORD_RESERVED)) {
-                return null;
-            }
-
-            return static::$keywords[$str];
-        }
-
-        return null;
-    }
-
-    // -------------------------------------------------------------------------
-    // Operator.
-
-    /**
-     * Checks if the given string is an operator.
-     *
-     * @param string $str string to be checked
-     *
-     * @return int|null the appropriate flag for the operator
-     */
-    public static function isOperator($str)
-    {
-        if (! isset(static::$operators[$str])) {
+        if (
+            ! isset(static::$keywords[$upperString])
+            || ($isReserved && ! (static::$keywords[$upperString] & Token::FLAG_KEYWORD_RESERVED))
+        ) {
             return null;
         }
 
-        return static::$operators[$str];
+        return static::$keywords[$upperString];
     }
 
-    // -------------------------------------------------------------------------
-    // Whitespace.
+    /**
+     * Checks if the given string is an operator and returns the appropriate flag for the operator.
+     */
+    public static function isOperator(string $string): ?int
+    {
+        return static::$operators[$string] ?? null;
+    }
 
     /**
      * Checks if the given character is a whitespace.
-     *
-     * @param string $str string to be checked
-     *
-     * @return bool
      */
-    public static function isWhitespace($str)
+    public static function isWhitespace(string $string): bool
     {
-        return ($str === ' ') || ($str === "\r") || ($str === "\n") || ($str === "\t");
+        return $string === ' ' || $string === "\r" || $string === "\n" || $string === "\t";
     }
-
-    // -------------------------------------------------------------------------
-    // Comment.
 
     /**
      * Checks if the given string is the beginning of a whitespace.
      *
-     * @param string $str string to be checked
-     * @param mixed  $end
-     *
      * @return int|null the appropriate flag for the comment type
      */
-    public static function isComment($str, $end = false)
+    public static function isComment(string $string, bool $end = false): ?int
     {
-        $len = strlen($str);
-        if ($len === 0) {
+        if ($string === '') {
             return null;
         }
 
         // If comment is Bash style (#):
-        if ($str[0] === '#') {
+        if (str_starts_with($string, '#')) {
             return Token::FLAG_COMMENT_BASH;
         }
 
-        // If comment is opening C style (/*), warning, it could be a MySQL command (/*!)
-        if (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
-            return ($len > 2) && ($str[2] === '!') ?
-                Token::FLAG_COMMENT_MYSQL_CMD : Token::FLAG_COMMENT_C;
+        // If comment is a MySQL command
+        if (str_starts_with($string, '/*!')) {
+            return Token::FLAG_COMMENT_MYSQL_CMD;
         }
 
-        // If comment is closing C style (*/), warning, it could conflicts with wildcard and a real opening C style.
-        // It would looks like the following valid SQL statement: "SELECT */* comment */ FROM...".
-        if (($len > 1) && ($str[0] === '*') && ($str[1] === '/')) {
+        // If comment is opening C style (/*) or is closing C style (*/), warning, it could conflict
+        // with wildcard and a real opening C style.
+        // It would look like the following valid SQL statement: "SELECT */* comment */ FROM...".
+        if (str_starts_with($string, '/*') || str_starts_with($string, '*/')) {
             return Token::FLAG_COMMENT_C;
         }
 
         // If comment is SQL style (--\s?):
-        if (($len > 2) && ($str[0] === '-') && ($str[1] === '-') && static::isWhitespace($str[2])) {
-            return Token::FLAG_COMMENT_SQL;
-        }
-
-        if (($len === 2) && $end && ($str[0] === '-') && ($str[1] === '-')) {
+        if (
+            str_starts_with($string, '-- ')
+            || str_starts_with($string, "--\r")
+            || str_starts_with($string, "--\n")
+            || str_starts_with($string, "--\t")
+            || ($string === '--' && $end)
+        ) {
             return Token::FLAG_COMMENT_SQL;
         }
 
         return null;
     }
-
-    // -------------------------------------------------------------------------
-    // Bool.
 
     /**
      * Checks if the given string is a boolean value.
      * This actually check only for `TRUE` and `FALSE` because `1` or `0` are
      * actually numbers and are parsed by specific methods.
-     *
-     * @param string $str string to be checked
-     *
-     * @return bool
      */
-    public static function isBool($str)
+    public static function isBool(string $string): bool
     {
-        $str = strtoupper($str);
+        $upperString = strtoupper($string);
 
-        return ($str === 'TRUE') || ($str === 'FALSE');
+        return $upperString === 'TRUE' || $upperString === 'FALSE';
     }
-
-    // -------------------------------------------------------------------------
-    // Number.
 
     /**
      * Checks if the given character can be a part of a number.
-     *
-     * @param string $str string to be checked
-     *
-     * @return bool
      */
-    public static function isNumber($str)
+    public static function isNumber(string $string): bool
     {
-        return ($str >= '0') && ($str <= '9') || ($str === '.')
-            || ($str === '-') || ($str === '+') || ($str === 'e') || ($str === 'E');
+        return in_array($string, ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-', '+', 'e', 'E'], true);
     }
-
-    // -------------------------------------------------------------------------
-    // Symbol.
 
     /**
      * Checks if the given character is the beginning of a symbol. A symbol
      * can be either a variable or a field name.
      *
-     * @param string $str string to be checked
-     *
      * @return int|null the appropriate flag for the symbol type
      */
-    public static function isSymbol($str)
+    public static function isSymbol(string $string): ?int
     {
-        if (strlen($str) === 0) {
+        if ($string === '') {
             return null;
         }
 
-        if ($str[0] === '@') {
+        if (str_starts_with($string, '@')) {
             return Token::FLAG_SYMBOL_VARIABLE;
         }
 
-        if ($str[0] === '`') {
+        if (str_starts_with($string, '`')) {
             return Token::FLAG_SYMBOL_BACKTICK;
         }
 
-        if ($str[0] === ':' || $str[0] === '?') {
+        if (str_starts_with($string, ':') || str_starts_with($string, '?')) {
             return Token::FLAG_SYMBOL_PARAMETER;
         }
 
         return null;
     }
 
-    // -------------------------------------------------------------------------
-    // String.
-
     /**
      * Checks if the given character is the beginning of a string.
      *
-     * @param string $str string to be checked
+     * @param string $string string to be checked
      *
      * @return int|null the appropriate flag for the string type
      */
-    public static function isString($str)
+    public static function isString(string $string): ?int
     {
-        if (strlen($str) === 0) {
+        if ($string === '') {
             return null;
         }
 
-        if ($str[0] === '\'') {
+        if (str_starts_with($string, '\'')) {
             return Token::FLAG_STRING_SINGLE_QUOTES;
         }
 
-        if ($str[0] === '"') {
+        if (str_starts_with($string, '"')) {
             return Token::FLAG_STRING_DOUBLE_QUOTES;
         }
 
         return null;
     }
 
-    // -------------------------------------------------------------------------
-    // Delimiter.
-
     /**
      * Checks if the given character can be a separator for two lexeme.
      *
-     * @param string $str string to be checked
-     *
-     * @return bool
+     * @param string $string string to be checked
      */
-    public static function isSeparator($str)
+    public static function isSeparator(string $string): bool
     {
-        // NOTES:   Only non alphanumeric ASCII characters may be separators.
+        // NOTES:   Only non-alphanumeric ASCII characters may be separators.
         //          `~` is the last printable ASCII character.
-        return ($str <= '~')
-            && ($str !== '_')
-            && ($str !== '$')
-            && (($str < '0') || ($str > '9'))
-            && (($str < 'a') || ($str > 'z'))
-            && (($str < 'A') || ($str > 'Z'));
+        return $string <= '~'
+            && $string !== '_'
+            && $string !== '$'
+            && ($string < '0' || $string > '9')
+            && ($string < 'a' || $string > 'z')
+            && ($string < 'A' || $string > 'Z');
     }
 
     /**
@@ -488,11 +431,9 @@ abstract class Context
      *
      * @param string $context name of the context or full class name that defines the context
      *
-     * @return void
-     *
      * @throws LoaderException if the specified context doesn't exist.
      */
-    public static function load($context = '')
+    public static function load(string $context = ''): void
     {
         if (empty($context)) {
             $context = self::$defaultContext;
@@ -519,12 +460,11 @@ abstract class Context
      *
      * @see Context::load()
      *
-     * @param string $context name of the context or full class name that
-     *                        defines the context
+     * @param string $context name of the context or full class name that defines the context
      *
      * @return string|null The loaded context. `null` if no context was loaded.
      */
-    public static function loadClosest($context = '')
+    public static function loadClosest(string $context = ''): ?string
     {
         $length = strlen($context);
         for ($i = $length; $i > 0;) {
@@ -564,10 +504,8 @@ abstract class Context
      * Sets the SQL mode.
      *
      * @param string $mode The list of modes. If empty, the mode is reset.
-     *
-     * @return void
      */
-    public static function setMode($mode = '')
+    public static function setMode(string $mode = ''): void
     {
         static::$mode = 0;
         if (empty($mode)) {
@@ -588,7 +526,7 @@ abstract class Context
      *
      * @return string|string[]
      */
-    public static function escape($str, $quote = '`')
+    public static function escape($str, string $quote = '`')
     {
         if (is_array($str)) {
             foreach ($str as $key => $value) {
@@ -614,7 +552,7 @@ abstract class Context
      *
      * @return string either " (double quote, ansi_quotes mode) or ` (backtick, standard mode)
      */
-    public static function getIdentifierQuote()
+    public static function getIdentifierQuote(): string
     {
         return self::hasMode(self::SQL_MODE_ANSI_QUOTES) ? '"' : '`';
     }
@@ -622,11 +560,11 @@ abstract class Context
     /**
      * Function verifies that given SQL Mode constant is currently set
      *
-     * @param int $flag for example Context::SQL_MODE_ANSI_QUOTES
+     * @param int|null $flag for example Context::SQL_MODE_ANSI_QUOTES
      *
      * @return bool false on empty param, true/false on given constant/int value
      */
-    public static function hasMode($flag = null)
+    public static function hasMode(?int $flag = null): bool
     {
         if (empty($flag)) {
             return false;
