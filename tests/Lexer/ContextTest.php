@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\SqlModes;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use Throwable;
 
@@ -124,14 +125,17 @@ class ContextTest extends TestCase
     public function testMode(): void
     {
         Context::setMode('REAL_AS_FLOAT,ANSI_QUOTES,IGNORE_SPACE');
-        $this->assertEquals(
-            Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ANSI_QUOTES | Context::SQL_MODE_IGNORE_SPACE,
-            Context::$MODE
-        );
+        $this->assertSame(SqlModes::REAL_AS_FLOAT | SqlModes::ANSI_QUOTES | SqlModes::IGNORE_SPACE, Context::getMode());
+        $this->assertTrue(Context::hasMode(SqlModes::REAL_AS_FLOAT | SqlModes::IGNORE_SPACE));
+        $this->assertTrue(Context::hasMode(SqlModes::ANSI_QUOTES));
+        $this->assertFalse(Context::hasMode(SqlModes::REAL_AS_FLOAT | SqlModes::ALLOW_INVALID_DATES));
+        $this->assertFalse(Context::hasMode(SqlModes::ALLOW_INVALID_DATES));
+
         Context::setMode('TRADITIONAL');
-        $this->assertEquals(Context::SQL_MODE_TRADITIONAL, Context::$MODE);
+        $this->assertSame(SqlModes::TRADITIONAL, Context::getMode());
+
         Context::setMode();
-        $this->assertEquals(0, Context::$MODE);
+        $this->assertSame(SqlModes::NONE, Context::$MODE);
     }
 
     public function testEscape(): void

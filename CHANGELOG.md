@@ -4,6 +4,7 @@
 
 * Add missing return types annotations
 * Improve the WITH statements parser (#363)
+* Add SqlModes class with SQL modes constants
 
 ## [5.5.0] - 2021-12-08
 

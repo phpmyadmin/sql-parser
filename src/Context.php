@@ -143,123 +143,103 @@ abstract class Context
     ];
 
     /**
-     * The mode of the MySQL server that will be used in lexing, parsing and
-     * building the statements.
+     * The mode of the MySQL server that will be used in lexing, parsing and building the statements.
+     *
+     * @internal use the {@see Context::getMode()} method instead.
      *
      * @var int
      */
-    public static $MODE = 0;
+    public static $MODE = SqlModes::NONE;
 
-    /*
-     * Server SQL Modes
-     * https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html
-     */
+    /** @deprecated Use {@see SqlModes::COMPAT_MYSQL} instead. */
+    public const SQL_MODE_COMPAT_MYSQL = SqlModes::COMPAT_MYSQL;
 
-    // Compatibility mode for Microsoft's SQL server.
-    // This is the equivalent of ANSI_QUOTES.
-    public const SQL_MODE_COMPAT_MYSQL = 2;
+    /** @deprecated Use {@see SqlModes::ALLOW_INVALID_DATES} instead. */
+    public const SQL_MODE_ALLOW_INVALID_DATES = SqlModes::ALLOW_INVALID_DATES;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_allow_invalid_dates
-    public const SQL_MODE_ALLOW_INVALID_DATES = 1;
+    /** @deprecated Use {@see SqlModes::ANSI_QUOTES} instead. */
+    public const SQL_MODE_ANSI_QUOTES = SqlModes::ANSI_QUOTES;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_ansi_quotes
-    public const SQL_MODE_ANSI_QUOTES = 2;
+    /** @deprecated Use {@see SqlModes::ERROR_FOR_DIVISION_BY_ZERO} instead. */
+    public const SQL_MODE_ERROR_FOR_DIVISION_BY_ZERO = SqlModes::ERROR_FOR_DIVISION_BY_ZERO;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_error_for_division_by_zero
-    public const SQL_MODE_ERROR_FOR_DIVISION_BY_ZERO = 4;
+    /** @deprecated Use {@see SqlModes::HIGH_NOT_PRECEDENCE} instead. */
+    public const SQL_MODE_HIGH_NOT_PRECEDENCE = SqlModes::HIGH_NOT_PRECEDENCE;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_high_not_precedence
-    public const SQL_MODE_HIGH_NOT_PRECEDENCE = 8;
+    /** @deprecated Use {@see SqlModes::IGNORE_SPACE} instead. */
+    public const SQL_MODE_IGNORE_SPACE = SqlModes::IGNORE_SPACE;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_ignore_space
-    public const SQL_MODE_IGNORE_SPACE = 16;
+    /** @deprecated Use {@see SqlModes::NO_AUTO_CREATE_USER} instead. */
+    public const SQL_MODE_NO_AUTO_CREATE_USER = SqlModes::NO_AUTO_CREATE_USER;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_auto_create_user
-    public const SQL_MODE_NO_AUTO_CREATE_USER = 32;
+    /** @deprecated Use {@see SqlModes::NO_AUTO_VALUE_ON_ZERO} instead. */
+    public const SQL_MODE_NO_AUTO_VALUE_ON_ZERO = SqlModes::NO_AUTO_VALUE_ON_ZERO;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero
-    public const SQL_MODE_NO_AUTO_VALUE_ON_ZERO = 64;
+    /** @deprecated Use {@see SqlModes::NO_BACKSLASH_ESCAPES} instead. */
+    public const SQL_MODE_NO_BACKSLASH_ESCAPES = SqlModes::NO_BACKSLASH_ESCAPES;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_backslash_escapes
-    public const SQL_MODE_NO_BACKSLASH_ESCAPES = 128;
+    /** @deprecated Use {@see SqlModes::NO_DIR_IN_CREATE} instead. */
+    public const SQL_MODE_NO_DIR_IN_CREATE = SqlModes::NO_DIR_IN_CREATE;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_dir_in_create
-    public const SQL_MODE_NO_DIR_IN_CREATE = 256;
+    /** @deprecated Use {@see SqlModes::NO_ENGINE_SUBSTITUTION} instead. */
+    public const SQL_MODE_NO_ENGINE_SUBSTITUTION = SqlModes::NO_ENGINE_SUBSTITUTION;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_dir_in_create
-    public const SQL_MODE_NO_ENGINE_SUBSTITUTION = 512;
+    /** @deprecated Use {@see SqlModes::NO_FIELD_OPTIONS} instead. */
+    public const SQL_MODE_NO_FIELD_OPTIONS = SqlModes::NO_FIELD_OPTIONS;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_field_options
-    public const SQL_MODE_NO_FIELD_OPTIONS = 1024;
+    /** @deprecated Use {@see SqlModes::NO_KEY_OPTIONS} instead. */
+    public const SQL_MODE_NO_KEY_OPTIONS = SqlModes::NO_KEY_OPTIONS;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_key_options
-    public const SQL_MODE_NO_KEY_OPTIONS = 2048;
+    /** @deprecated Use {@see SqlModes::NO_TABLE_OPTIONS} instead. */
+    public const SQL_MODE_NO_TABLE_OPTIONS = SqlModes::NO_TABLE_OPTIONS;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_table_options
-    public const SQL_MODE_NO_TABLE_OPTIONS = 4096;
+    /** @deprecated Use {@see SqlModes::NO_UNSIGNED_SUBTRACTION} instead. */
+    public const SQL_MODE_NO_UNSIGNED_SUBTRACTION = SqlModes::NO_UNSIGNED_SUBTRACTION;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction
-    public const SQL_MODE_NO_UNSIGNED_SUBTRACTION = 8192;
+    /** @deprecated Use {@see SqlModes::NO_ZERO_DATE} instead. */
+    public const SQL_MODE_NO_ZERO_DATE = SqlModes::NO_ZERO_DATE;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_zero_date
-    public const SQL_MODE_NO_ZERO_DATE = 16384;
+    /** @deprecated Use {@see SqlModes::NO_ZERO_IN_DATE} instead. */
+    public const SQL_MODE_NO_ZERO_IN_DATE = SqlModes::NO_ZERO_IN_DATE;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_no_zero_in_date
-    public const SQL_MODE_NO_ZERO_IN_DATE = 32768;
+    /** @deprecated Use {@see SqlModes::ONLY_FULL_GROUP_BY} instead. */
+    public const SQL_MODE_ONLY_FULL_GROUP_BY = SqlModes::ONLY_FULL_GROUP_BY;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_only_full_group_by
-    public const SQL_MODE_ONLY_FULL_GROUP_BY = 65536;
+    /** @deprecated Use {@see SqlModes::PIPES_AS_CONCAT} instead. */
+    public const SQL_MODE_PIPES_AS_CONCAT = SqlModes::PIPES_AS_CONCAT;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_pipes_as_concat
-    public const SQL_MODE_PIPES_AS_CONCAT = 131072;
+    /** @deprecated Use {@see SqlModes::REAL_AS_FLOAT} instead. */
+    public const SQL_MODE_REAL_AS_FLOAT = SqlModes::REAL_AS_FLOAT;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_real_as_float
-    public const SQL_MODE_REAL_AS_FLOAT = 262144;
+    /** @deprecated Use {@see SqlModes::STRICT_ALL_TABLES} instead. */
+    public const SQL_MODE_STRICT_ALL_TABLES = SqlModes::STRICT_ALL_TABLES;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_all_tables
-    public const SQL_MODE_STRICT_ALL_TABLES = 524288;
+    /** @deprecated Use {@see SqlModes::STRICT_TRANS_TABLES} instead. */
+    public const SQL_MODE_STRICT_TRANS_TABLES = SqlModes::STRICT_TRANS_TABLES;
 
-    // https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_trans_tables
-    public const SQL_MODE_STRICT_TRANS_TABLES = 1048576;
+    /** @deprecated Use {@see SqlModes::NO_ENCLOSING_QUOTES} instead. */
+    public const SQL_MODE_NO_ENCLOSING_QUOTES = SqlModes::NO_ENCLOSING_QUOTES;
 
-    // Custom modes.
+    /** @deprecated Use {@see SqlModes::ANSI} instead. */
+    public const SQL_MODE_ANSI = SqlModes::ANSI;
 
-    // The table and column names and any other field that must be escaped will
-    // not be.
-    // Reserved keywords are being escaped regardless this mode is used or not.
-    public const SQL_MODE_NO_ENCLOSING_QUOTES = 1073741824;
+    /** @deprecated Use {@see SqlModes::DB2} instead. */
+    public const SQL_MODE_DB2 = SqlModes::DB2;
 
-    /*
-     * Combination SQL Modes
-     * https://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sql-mode-combo
-     */
+    /** @deprecated Use {@see SqlModes::MAXDB} instead. */
+    public const SQL_MODE_MAXDB = SqlModes::MAXDB;
 
-    // REAL_AS_FLOAT, PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE
-    public const SQL_MODE_ANSI = 393234;
+    /** @deprecated Use {@see SqlModes::MSSQL} instead. */
+    public const SQL_MODE_MSSQL = SqlModes::MSSQL;
 
-    // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
-    // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS,
-    public const SQL_MODE_DB2 = 138258;
+    /** @deprecated Use {@see SqlModes::ORACLE} instead. */
+    public const SQL_MODE_ORACLE = SqlModes::ORACLE;
 
-    // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
-    // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS, NO_AUTO_CREATE_USER
-    public const SQL_MODE_MAXDB = 138290;
+    /** @deprecated Use {@see SqlModes::POSTGRESQL} instead. */
+    public const SQL_MODE_POSTGRESQL = SqlModes::POSTGRESQL;
 
-    // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
-    // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS
-    public const SQL_MODE_MSSQL = 138258;
-
-    // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
-    // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS, NO_AUTO_CREATE_USER
-    public const SQL_MODE_ORACLE = 138290;
-
-    // PIPES_AS_CONCAT, ANSI_QUOTES, IGNORE_SPACE, NO_KEY_OPTIONS,
-    // NO_TABLE_OPTIONS, NO_FIELD_OPTIONS
-    public const SQL_MODE_POSTGRESQL = 138258;
-
-    // STRICT_TRANS_TABLES, STRICT_ALL_TABLES, NO_ZERO_IN_DATE, NO_ZERO_DATE,
-    // ERROR_FOR_DIVISION_BY_ZERO, NO_AUTO_CREATE_USER
-    public const SQL_MODE_TRADITIONAL = 1622052;
+    /** @deprecated Use {@see SqlModes::TRADITIONAL} instead. */
+    public const SQL_MODE_TRADITIONAL = SqlModes::TRADITIONAL;
 
     // -------------------------------------------------------------------------
     // Keyword.
@@ -572,15 +552,23 @@ abstract class Context
      */
     public static function setMode($mode = '')
     {
-        static::$MODE = 0;
+        static::$MODE = SqlModes::NONE;
         if (empty($mode)) {
             return;
         }
 
         $mode = explode(',', $mode);
         foreach ($mode as $m) {
-            static::$MODE |= constant('static::SQL_MODE_' . $m);
+            static::$MODE |= constant(SqlModes::class . '::' . $m);
         }
+    }
+
+    /**
+     * Gets the SQL mode.
+     */
+    public static function getMode(): int
+    {
+        return static::$MODE;
     }
 
     /**
@@ -601,11 +589,11 @@ abstract class Context
             return $str;
         }
 
-        if ((static::$MODE & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
+        if ((static::$MODE & SqlModes::NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
             return $str;
         }
 
-        if (static::$MODE & self::SQL_MODE_ANSI_QUOTES) {
+        if (static::$MODE & SqlModes::ANSI_QUOTES) {
             $quote = '"';
         }
 
@@ -619,13 +607,13 @@ abstract class Context
      */
     public static function getIdentifierQuote()
     {
-        return self::hasMode(self::SQL_MODE_ANSI_QUOTES) ? '"' : '`';
+        return self::hasMode(SqlModes::ANSI_QUOTES) ? '"' : '`';
     }
 
     /**
      * Function verifies that given SQL Mode constant is currently set
      *
-     * @param int $flag for example Context::SQL_MODE_ANSI_QUOTES
+     * @param int $flag for example {@see SqlModes::ANSI_QUOTES}
      *
      * @return bool false on empty param, true/false on given constant/int value
      */
