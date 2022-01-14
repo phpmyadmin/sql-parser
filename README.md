@@ -24,7 +24,7 @@ composer require phpmyadmin/sql-parser
 
 ## Documentation
 
-The API documentation is available at 
+The API documentation is available at
 <https://develdocs.phpmyadmin.net/sql-parser/>.
 
 ## Usage
@@ -96,7 +96,7 @@ $query2 = $statement->build();
 var_dump($query2); // outputs string(19) 'SELECT  * FROM `b` '
 
 // Change SQL mode
-PhpMyAdmin\SqlParser\Context::setMode('ANSI_QUOTES');
+PhpMyAdmin\SqlParser\Context::setMode(PhpMyAdmin\SqlParser\Context::SQL_MODE_ANSI_QUOTES);
 
 // build the query again using different quotes
 $query2 = $statement->build();

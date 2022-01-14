@@ -33,6 +33,7 @@ abstract class TestCase extends BaseTestCase
         // Users can have French language as default on their OS
         // That would make the assertions fail
         $lang = 'en';
+        Context::load();
     }
 
     /**
@@ -135,7 +136,7 @@ abstract class TestCase extends BaseTestCase
 
         if (str_contains($name, '/ansi/')) {
             // set mode if appropriate
-            Context::setMode('ANSI_QUOTES');
+            Context::setMode(Context::SQL_MODE_ANSI_QUOTES);
         }
 
         $mariaDbPos = strpos($name, '_mariadb_');

@@ -156,7 +156,7 @@ class TestGenerator
 
         if ($ansi === true) {
             // set ANSI_QUOTES for ansi tests
-            Context::setMode('ANSI_QUOTES');
+            Context::setMode(Context::SQL_MODE_ANSI_QUOTES);
         }
 
         $mariaDbPos = strpos($input, '_mariadb_');
