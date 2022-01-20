@@ -1,7 +1,4 @@
 <?php
-/**
- * Defines an array of tokens and utility functions to iterate through it.
- */
 
 declare(strict_types=1);
 
@@ -14,6 +11,8 @@ use function is_array;
 use function is_string;
 
 /**
+ * Defines an array of tokens and utility functions to iterate through it.
+ *
  * A structure representing a list of tokens.
  *
  * @implements ArrayAccess<int, Token>

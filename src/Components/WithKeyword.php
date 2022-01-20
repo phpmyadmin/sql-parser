@@ -1,7 +1,4 @@
 <?php
-/**
- * `WITH` keyword builder.
- */
 
 declare(strict_types=1);
 

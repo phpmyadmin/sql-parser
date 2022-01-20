@@ -1,9 +1,4 @@
 <?php
-/**
- * Parses the create definition of a column or a key.
- *
- * Used for parsing `CREATE TABLE` statement.
- */
 
 declare(strict_types=1);
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.18.0.0">
+<files psalm-version="4.18.1@dda05fa913f4dc6eb3386f2f7ce5a45d37a71bcb">
   <file src="src/Components/AlterOperation.php">
     <DocblockTypeContradiction occurrences="1">
       <code>$component-&gt;field !== ''</code>
@@ -597,13 +597,9 @@
     <InvalidReturnType occurrences="1">
       <code>string|string[]</code>
     </InvalidReturnType>
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="1">
       <code>self::$keywords</code>
-      <code>static::$mode</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>constant('static::SQL_MODE_' . $m)</code>
-    </MixedOperand>
   </file>
   <file src="src/Contexts/ContextMariaDb100000.php">
     <PropertyTypeCoercion occurrences="1"/>

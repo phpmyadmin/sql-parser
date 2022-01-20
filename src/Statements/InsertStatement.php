@@ -1,7 +1,4 @@
 <?php
-/**
- * `INSERT` statement.
- */
 
 declare(strict_types=1);
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * Miscellaneous utilities.
- */
 
 declare(strict_types=1);
 

@@ -1,7 +1,4 @@
 <?php
-/**
- * Parses a data type.
- */
 
 declare(strict_types=1);
 

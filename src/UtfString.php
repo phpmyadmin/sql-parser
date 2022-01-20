@@ -1,14 +1,4 @@
 <?php
-/**
- * Implementation for UTF-8 strings.
- *
- * The subscript operator in PHP, when used with string will return a byte
- * and not a character. Because in UTF-8 strings a character may occupy more
- * than one byte, the subscript operator may return an invalid character.
- *
- * Because the lexer relies on the subscript operator this class had to be
- * implemented.
- */
 
 declare(strict_types=1);
 
@@ -23,6 +13,13 @@ use function mb_strlen;
 use function ord;
 
 /**
+ * Implementation for UTF-8 strings.
+ *
+ * The subscript operator in PHP, when used with string will return a byte and not a character. Because in UTF-8
+ * strings a character may occupy more than one byte, the subscript operator may return an invalid character.
+ *
+ * Because the lexer relies on the subscript operator this class had to be implemented.
+ *
  * Implements array-like access for UTF-8 strings.
  *
  * In this library, this class should be used to parse UTF-8 queries.

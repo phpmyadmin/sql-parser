@@ -1,7 +1,4 @@
 <?php
-/**
- * Transaction statement.
- */
 
 declare(strict_types=1);
 

@@ -4,6 +4,8 @@
 
 * Add missing return types annotations
 * Improve the WITH statements parser (#363)
+* Add support for passing `Context::SQL_MODE*` constants to `Context::setMode` method
+* Deprecate passing strings to the `Context::setMode` method
 
 ## [5.5.0] - 2021-12-08
 

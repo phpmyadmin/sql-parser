@@ -1,7 +1,4 @@
 <?php
-/**
- * `RESTORE` statement.
- */
 
 declare(strict_types=1);
 

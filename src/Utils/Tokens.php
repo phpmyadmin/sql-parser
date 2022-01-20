@@ -1,7 +1,4 @@
 <?php
-/**
- * Token utilities.
- */
 
 declare(strict_types=1);
 

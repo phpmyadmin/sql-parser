@@ -1,7 +1,4 @@
 <?php
-/**
- * Routine utilities.
- */
 
 declare(strict_types=1);
 

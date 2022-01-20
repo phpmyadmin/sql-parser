@@ -1,7 +1,4 @@
 <?php
-/**
- * Error related utilities.
- */
 
 declare(strict_types=1);
 

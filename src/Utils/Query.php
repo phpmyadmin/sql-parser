@@ -1,7 +1,4 @@
 <?php
-/**
- * Statement utilities.
- */
 
 declare(strict_types=1);
 

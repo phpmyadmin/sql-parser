@@ -1,7 +1,4 @@
 <?php
-/**
- * Parses a list of options.
- */
 
 declare(strict_types=1);
 

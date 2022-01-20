@@ -1,7 +1,4 @@
 <?php
-/**
- * `RENAME TABLE` keyword parser.
- */
 
 declare(strict_types=1);
 

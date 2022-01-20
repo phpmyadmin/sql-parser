@@ -1,8 +1,4 @@
 <?php
-/**
- * Parses a reference to an expression (column, table or database name, function
- * call, mathematical expression, etc.).
- */
 
 declare(strict_types=1);
 

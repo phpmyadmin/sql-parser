@@ -1,7 +1,4 @@
 <?php
-/**
- * Parses an array.
- */
 
 declare(strict_types=1);
 
