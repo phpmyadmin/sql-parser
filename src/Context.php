@@ -12,7 +12,6 @@ use function intval;
 use function is_array;
 use function is_int;
 use function is_numeric;
-use function is_string;
 use function str_replace;
 use function str_starts_with;
 use function strlen;
@@ -685,7 +684,7 @@ abstract class Context
         }
 
         static::$MODE = self::SQL_MODE_NONE;
-        if (! is_string($mode) || $mode === '') {
+        if ($mode === '') {
             return;
         }
 
