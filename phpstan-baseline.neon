@@ -31,6 +31,11 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
+			message: "#^Result of && is always true\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
+
+		-
 			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
 			count: 3
 			path: src/Components/AlterOperation.php

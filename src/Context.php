@@ -13,7 +13,6 @@ use function intval;
 use function is_array;
 use function is_int;
 use function is_numeric;
-use function is_string;
 use function str_replace;
 use function str_starts_with;
 use function strlen;
@@ -607,23 +606,20 @@ abstract class Context
     /**
      * Sets the SQL mode.
      *
-     * @param int $mode
-     * @psalm-param 0|positive-int $mode
+     * @param int|string $mode
      *
      * @return void
      */
     public static function setMode($mode = self::SQL_MODE_NONE)
     {
-        /** @var int|string $mode Used to set the old type to $mode for static analysis tools. */
-        $mode = $mode;
-        if (is_int($mode) && $mode >= 1) {
+        if (is_int($mode)) {
             static::$mode = $mode;
 
             return;
         }
 
         static::$mode = self::SQL_MODE_NONE;
-        if (! is_string($mode) || $mode === '') {
+        if ($mode === '') {
             return;
         }
 
