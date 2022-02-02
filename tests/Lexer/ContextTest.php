@@ -128,10 +128,6 @@ class ContextTest extends TestCase
      */
     public function testMode($mode, int $expected): void
     {
-        /**
-         * @psalm-suppress ArgumentTypeCoercion
-         * @phpstan-ignore-next-line
-         */
         Context::setMode($mode);
         $this->assertSame($expected, Context::getMode());
     }
@@ -143,7 +139,6 @@ class ContextTest extends TestCase
     public function providerForTestMode(): array
     {
         return [
-            [-1, Context::SQL_MODE_NONE],
             [0, Context::SQL_MODE_NONE],
             [1, 1],
             ['', Context::SQL_MODE_NONE],
@@ -202,15 +197,8 @@ class ContextTest extends TestCase
         $this->assertSame(Context::SQL_MODE_NONE, Context::getMode());
     }
 
-    /**
-     * BC tests
-     */
     public function testModeWithString(): void
     {
-        /**
-         * @psalm-suppress InvalidScalarArgument
-         * @phpstan-ignore-next-line
-         */
         Context::setMode('REAL_AS_FLOAT,ANSI_QUOTES,IGNORE_SPACE');
         $this->assertSame(
             Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ANSI_QUOTES | Context::SQL_MODE_IGNORE_SPACE,
@@ -221,17 +209,9 @@ class ContextTest extends TestCase
         $this->assertFalse(Context::hasMode(Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ALLOW_INVALID_DATES));
         $this->assertFalse(Context::hasMode(Context::SQL_MODE_ALLOW_INVALID_DATES));
 
-        /**
-         * @psalm-suppress InvalidScalarArgument
-         * @phpstan-ignore-next-line
-         */
         Context::setMode('TRADITIONAL');
         $this->assertSame(Context::SQL_MODE_TRADITIONAL, Context::getMode());
 
-        /**
-         * @psalm-suppress InvalidScalarArgument
-         * @phpstan-ignore-next-line
-         */
         Context::setMode('');
         $this->assertSame(Context::SQL_MODE_NONE, Context::getMode());
     }
