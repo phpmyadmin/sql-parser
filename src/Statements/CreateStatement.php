@@ -746,6 +746,7 @@ class CreateStatement extends Statement
                 if ($list->tokens[$nextidx]->value === 'SELECT') {
                     $list->idx = $nextidx;
                     $this->select = new SelectStatement($parser, $list);
+                    ++$list->idx; // Skipping last token from the select.
                 } elseif ($list->tokens[$nextidx]->value === 'WITH') {
                     ++$list->idx;
                     $this->with = new WithStatement($parser, $list);
