@@ -4,17 +4,17 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2021-12-29 16:13-0300\n"
-"PO-Revision-Date: 2018-07-24 05:41+0000\n"
-"Last-Translator: Dan Caragea <dan_caragea@yahoo.com>\n"
-"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
-"parser/ro/>\n"
+"PO-Revision-Date: 2022-02-08 00:58+0000\n"
+"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/ro/>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Weblate 3.1-dev\n"
+"X-Generator: Weblate 4.11-dev\n"
 
 #: src/Component.php:42 src/Component.php:62
 msgid "Not implemented yet."
@@ -67,17 +67,15 @@ msgstr "Cuvinte cheie neașteptate."
 
 #: src/Components/CaseExpression.php:195
 msgid "Unexpected end of CASE expression"
-msgstr "Sirsit neasteptat al expresiei \"CASE\""
+msgstr "Sfârșit neașteptat al expresiei CASE"
 
 #: src/Components/CaseExpression.php:215
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Potential duplicate alias of CASE expression."
-msgstr "Sirsit neasteptat al expresiei \"CASE\""
+msgstr "Alias potențial duplicat al expresiei CASE."
 
 #: src/Components/CaseExpression.php:228
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "Era așteptat un alias după AS dar am primit "
 
 #: src/Components/CaseExpression.php:241 src/Components/Expression.php:353
 #: src/Components/Expression.php:373 src/Components/Expression.php:408
@@ -85,10 +83,8 @@ msgid "An alias was previously found."
 msgstr "A fost găsit anterior un alias."
 
 #: src/Components/CaseExpression.php:255
-#, fuzzy
-#| msgid "An alias was expected."
 msgid "An alias was expected after AS."
-msgstr "Era așteptat un alias."
+msgstr "Era așteptat un alias după AS."
 
 #: src/Components/CreateDefinition.php:254
 msgid ""
@@ -146,16 +142,12 @@ msgid "An offset was expected."
 msgstr "Era așteptat un decalaj."
 
 #: src/Components/LockExpression.php:94
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of LOCK expression."
-msgstr "Sirsit neasteptat al expresiei \"CASE\""
+msgstr "Sfârșit neașteptat al expresiei LOCK."
 
 #: src/Components/LockExpression.php:204
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Unexpected end of Lock expression."
-msgstr "Sirsit neasteptat al expresiei \"CASE\""
+msgstr "Sfârșit neașteptat al expresiei LOCK."
 
 #: src/Components/OptionsArray.php:151
 #, php-format
@@ -252,28 +244,20 @@ msgid "This type of clause is not valid in Multi-table queries."
 msgstr "Acest tip de clauză nu este valid în interogările mai multor tabele."
 
 #: src/Statements/LockStatement.php:123
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of LOCK statement."
-msgstr "Început neașteptat al declarației."
+msgstr "Sfârșit neașteptat al declarației LOCK."
 
 #: src/Statements/PurgeStatement.php:141
-#, fuzzy
-#| msgid "Unexpected keyword."
 msgid "Unexpected keyword"
-msgstr "Cuvinte cheie neașteptate."
+msgstr "Cuvânt-cheie neașteptat"
 
 #: src/Statements/WithStatement.php:119
-#, fuzzy
-#| msgid "The name of the entity was expected."
 msgid "The name of the CTE was expected."
-msgstr "Era așteptat numele entității."
+msgstr "Era așteptat numele CTE."
 
 #: src/Statements/WithStatement.php:138
-#, fuzzy
-#| msgid "A \"RETURNS\" keyword was expected."
 msgid "AS keyword was expected."
-msgstr "Un cuvânt cheie \"RETURNS\" era de aşteptat."
+msgstr "Era de aşteptat cuvântul-cheie AS."
 
 #: src/Statements/WithStatement.php:154
 #, fuzzy

@@ -342,6 +342,33 @@ EOT
             'SELECT id, first_name, FROMzz employee WHERE id = 2  ',
             $stmt->build()
         );
+
+        $parser = new Parser('CREATE VIEW `view_programlevelpartner`  AS SELECT `p`.`country_id`'
+        . 'AS `country_id` FROM `program_level_partner` `p` ORDER BY `p`.`id` asc');
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'CREATE VIEW `view_programlevelpartner`  AS SELECT `p`.`country_id`'
+            . ' AS `country_id` FROM `program_level_partner` AS `p` ORDER BY `p`.`id` ASC ',
+            $stmt->build()
+        );
+
+        $parser = new Parser('CREATE VIEW `view_zg_bycountry`  AS '
+        . 'SELECT `d`.`zg_id` FROM `view_zg_value` AS `d` GROUP BY `d`.`ind_id`;');
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'CREATE VIEW `view_zg_bycountry`  AS '
+            . 'SELECT `d`.`zg_id` FROM `view_zg_value` AS `d` GROUP BY `d`.`ind_id` ',
+            $stmt->build()
+        );
+
+        $parser = new Parser('CREATE view view_name AS WITH  aa(col1)'
+        . ' AS ( SELECT 1 UNION ALL SELECT 2 ) SELECT col1 FROM cte AS `d` ');
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'CREATE view view_name  AS WITH aa(col1)'
+            . ' AS (SELECT 1 UNION ALL SELECT 2) SELECT col1 FROM cte AS `d`  ',
+            $stmt->build()
+        );
     }
 
     public function testBuilderViewComplex(): void
