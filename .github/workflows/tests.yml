@@ -24,6 +24,9 @@ jobs:
                   - { php-version: 'nightly', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
         steps:
             - uses: actions/checkout@v2
+              with:
+                  # Fetch some commits for Scrutinizer coverage upload
+                  fetch-depth: 15
             - name: Use PHP ${{ matrix.php-version }}
               uses: shivammathur/setup-php@v2
               with:
@@ -57,7 +60,7 @@ jobs:
               uses: codecov/codecov-action@v1
             - name: Send coverage to Scrutinizer
               uses: sudo-bot/action-scrutinizer@latest
-              # Upload can fail on forks
-              continue-on-error: true
+              # Do not run this step on forked versions of the main repository (example: contributor forks)
+              if: github.repository == 'phpmyadmin/sql-parser'
               with:
-                  cli-args: "--format=php-clover build/logs/clover.xml"
+                  cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
