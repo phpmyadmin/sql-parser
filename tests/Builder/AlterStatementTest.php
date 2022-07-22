@@ -20,4 +20,12 @@ class AlterStatementTest extends TestCase
 
         $this->assertEquals($query, $stmt->build());
     }
+
+    public function testBuilderCompressed(): void
+    {
+        $query = 'ALTER TABLE `user` CHANGE `message` `message` TEXT COMPRESSED';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals($query, $stmt->build());
+    }
 }
