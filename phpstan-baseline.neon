@@ -11,6 +11,11 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj given\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
+
+		-
 			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, float\\|int\\|string given\\.$#"
 			count: 2
 			path: src/Components/AlterOperation.php
@@ -21,22 +26,7 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$field \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^Result of && is always true\\.$#"
 			count: 1
 			path: src/Components/AlterOperation.php
 
