@@ -34,7 +34,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
           matrix:
-            php-version: ["7.3"]
+            php-version: ["7.4"]
         steps:
             - uses: actions/checkout@v3
             - name: Use PHP ${{ matrix.php-version }}
