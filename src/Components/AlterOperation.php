@@ -106,7 +106,6 @@ class AlterOperation extends Component
         'MODIFY' => 1,
         'OPTIMIZE' => 1,
         'ORDER' => 1,
-        'PARTITION' => 1,
         'REBUILD' => 1,
         'REMOVE' => 1,
         'RENAME' => 1,
@@ -123,6 +122,8 @@ class AlterOperation extends Component
         'FULLTEXT' => 2,
         'KEY' => 2,
         'KEYS' => 2,
+        'PARTITION' => 2,
+        'PARTITION BY' => 2,
         'PARTITIONING' => 2,
         'PRIMARY KEY' => 2,
         'SPATIAL' => 2,
@@ -191,9 +192,16 @@ class AlterOperation extends Component
     /**
      * The altered field.
      *
-     * @var Expression
+     * @var Expression|string|null
      */
     public $field;
+
+    /**
+     * The partitions.
+     *
+     * @var Component[]|ArrayObj|null
+     */
+    public $partitions;
 
     /**
      * Unparsed tokens.
@@ -203,15 +211,18 @@ class AlterOperation extends Component
     public $unknown = [];
 
     /**
-     * @param OptionsArray $options options of alter operation
-     * @param Expression   $field   altered field
-     * @param Token[]      $unknown unparsed tokens found at the end of operation
+     * @param OptionsArray              $options    options of alter operation
+     * @param Expression|string|null    $field      altered field
+     * @param Component[]|ArrayObj|null $partitions partitions definition found in the operation
+     * @param Token[]                   $unknown    unparsed tokens found at the end of operation
      */
     public function __construct(
         $options = null,
         $field = null,
+        $partitions = null,
         $unknown = []
     ) {
+        $this->partitions = $partitions;
         $this->options = $options;
         $this->field = $field;
         $this->unknown = $unknown;
@@ -244,11 +255,20 @@ class AlterOperation extends Component
          *
          *      1 ----------------------[ field ]----------------------> 2
          *
+         *      1 -------------[ PARTITION / PARTITION BY ]------------> 3
+         *
          *      2 -------------------------[ , ]-----------------------> 0
          *
          * @var int
          */
         $state = 0;
+
+        /**
+         * partition state.
+         *
+         * @var int
+         */
+        $partitionState = 0;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -272,9 +292,8 @@ class AlterOperation extends Component
                     // When parsing the unknown part, the whitespaces are
                     // included to not break anything.
                     $ret->unknown[] = $token;
+                    continue;
                 }
-
-                continue;
             }
 
             if ($state === 0) {
@@ -293,6 +312,10 @@ class AlterOperation extends Component
                 }
 
                 $state = 1;
+                if ($ret->options->has('PARTITION') || $token->value === 'PARTITION BY') {
+                    $state = 3;
+                    $list->getPrevious(); // in order to check whether it's partition or partition by.
+                }
             } elseif ($state === 1) {
                 $ret->field = Expression::parse(
                     $parser,
@@ -362,6 +385,46 @@ class AlterOperation extends Component
                 }
 
                 $ret->unknown[] = $token;
+            } elseif ($state === 3) {
+                if ($partitionState === 0) {
+                        // We want to get the next non-comment and non-space token after $token
+                        // therefore, the first getNext call will start with the current $idx which's $token,
+                        // will return it and increase $idx by 1, which's not guaranteed to be non-comment
+                        // and non-space, that's why we're calling getNext again.
+
+                        $list->getNext();
+                        $nextToken = $list->getNext();
+                    if (
+                        ($token->type === Token::TYPE_KEYWORD)
+                        && (($token->keyword === 'PARTITION BY')
+                        || ($token->keyword === 'PARTITION' && $nextToken && $nextToken->value !== '('))
+                    ) {
+                        $partitionState = 1;
+                    } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITION')) {
+                        $partitionState = 2;
+                    }
+
+                    --$list->idx; // to decrease the idx by one, because the last getNext returned and increased it.
+
+                    // reverting the effect of the getNext
+                    $list->getPrevious();
+                    $list->getPrevious();
+
+                    ++$list->idx; // to index the idx by one, because the last getPrevious returned and decreased it.
+                } elseif ($partitionState === 1) {
+                    // Building the expression used for partitioning.
+                    if (empty($ret->field)) {
+                        $ret->field = '';
+                    }
+
+                    $ret->field .= $token->type === Token::TYPE_WHITESPACE ? ' ' : $token->token;
+                } elseif ($partitionState === 2) {
+                    $ret->partitions = ArrayObj::parse(
+                        $parser,
+                        $list,
+                        ['type' => PartitionDefinition::class]
+                    );
+                }
             }
         }
 
@@ -388,6 +451,10 @@ class AlterOperation extends Component
         }
 
         $ret .= TokensList::build($component->unknown);
+
+        if (isset($component->partitions)) {
+            $ret .= PartitionDefinition::build($component->partitions);
+        }
 
         return $ret;
     }
