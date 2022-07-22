@@ -9,6 +9,7 @@
 * Exclude from composer vendor bundle /tests and /phpunit.xml.dist
 * Support table structure with `COMPRESSED` columns (#351)
 * Add `#[\AllowDynamicProperties]` on `Statement` and `Expression` classes for PHP 8.2 support
+* Support `ALTER` queries of `PARTITIONS` (#329)
 
 ## [5.5.0] - 2021-12-08
 
