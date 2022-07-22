@@ -63,6 +63,16 @@ class TokensListTest extends TestCase
         $this->assertNull($list->getNext());
     }
 
+    public function testGetPrevious(): void
+    {
+        $list = new TokensList($this->tokens);
+        $list->idx = 7;
+        $this->assertEquals($this->tokens[6], $list->getPrevious());
+        $this->assertEquals($this->tokens[4], $list->getPrevious());
+        $this->assertEquals($this->tokens[2], $list->getPrevious());
+        $this->assertNull($list->getPrevious());
+    }
+
     public function testGetNextOfType(): void
     {
         $list = new TokensList($this->tokens);

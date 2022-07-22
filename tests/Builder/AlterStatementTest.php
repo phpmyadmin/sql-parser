@@ -20,4 +20,38 @@ class AlterStatementTest extends TestCase
 
         $this->assertEquals($query, $stmt->build());
     }
+
+    public function testBuilderPartitions(): void
+    {
+        $parser = new Parser('ALTER TABLE t1 PARTITION BY HASH(id) PARTITIONS 8');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals('ALTER TABLE t1 PARTITION BY  HASH(id) PARTITIONS 8 ', $stmt->build());
+
+        $parser = new Parser('ALTER TABLE t1 ADD PARTITION (PARTITION p3 VALUES LESS THAN (2002))');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            "ALTER TABLE t1 ADD PARTITION (\n" .
+            "PARTITION p3 VALUES LESS THAN (2002)\n" .
+            ')',
+            $stmt->build()
+        );
+
+        $parser = new Parser('ALTER TABLE p PARTITION BY LINEAR KEY ALGORITHM=2 (id) PARTITIONS 32;');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'ALTER TABLE p PARTITION BY  LINEAR KEY ALGORITHM=2 (id) PARTITIONS 32 ',
+            $stmt->build()
+        );
+
+        $parser = new Parser('ALTER TABLE t1 DROP PARTITION p0, p1;');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'ALTER TABLE t1 DROP PARTITION  p0, p1 ',
+            $stmt->build()
+        );
+    }
 }
