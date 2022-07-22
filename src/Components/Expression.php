@@ -22,6 +22,7 @@ use function trim;
  *
  * @final
  */
+#[\AllowDynamicProperties]
 class Expression extends Component
 {
     /**

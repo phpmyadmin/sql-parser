@@ -22,6 +22,7 @@ use function trim;
  *
  * Abstract statement definition.
  */
+#[\AllowDynamicProperties]
 abstract class Statement implements Stringable
 {
     /**
