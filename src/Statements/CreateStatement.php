@@ -211,6 +211,14 @@ class CreateStatement extends Statement
             21,
             'var',
         ],
+        'PAGE_COMPRESSED' => [
+            22,
+            'var',
+        ],
+        'PAGE_COMPRESSION_LEVEL' => [
+            23,
+            'var',
+        ],
     ];
 
     /**
