@@ -151,4 +151,12 @@ class CreateDefinitionTest extends TestCase
             CreateDefinition::build($parser->statements[0]->fields[0])
         );
     }
+
+    public function testBuildWithCompressed(): void
+    {
+        $query = 'CREATE TABLE `user` ( `message2` TEXT COMPRESSED )';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals("CREATE TABLE `user` (\n  `message2` text COMPRESSED\n) ", $stmt->build());
+    }
 }
