@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
-use PhpMyAdmin\SqlParser\Exceptions\LoaderException;
-
 use function class_exists;
 use function explode;
 use function intval;
@@ -374,7 +372,7 @@ abstract class Context
         $str = strtoupper($str);
 
         if (isset(static::$KEYWORDS[$str])) {
-            if ($isReserved && ! (static::$KEYWORDS[$str] & Token::FLAG_KEYWORD_RESERVED)) {
+            if ($isReserved && !(static::$KEYWORDS[$str] & Token::FLAG_KEYWORD_RESERVED)) {
                 return null;
             }
 
@@ -396,7 +394,7 @@ abstract class Context
      */
     public static function isOperator($str)
     {
-        if (! isset(static::$OPERATORS[$str])) {
+        if (!isset(static::$OPERATORS[$str])) {
             return null;
         }
 
@@ -588,11 +586,9 @@ abstract class Context
      *
      * @param string $context name of the context or full class name that defines the context
      *
-     * @return void
-     *
-     * @throws LoaderException if the specified context doesn't exist.
+     * @return bool true if the context was loaded, false otherwise
      */
-    public static function load($context = '')
+    public static function load($context = ''): bool
     {
         if (empty($context)) {
             $context = self::$defaultContext;
@@ -603,12 +599,14 @@ abstract class Context
             $context = self::$contextPrefix . $context;
         }
 
-        if (! class_exists($context)) {
-            throw @new LoaderException('Specified context ("' . $context . '") does not exist.', $context);
+        if (!class_exists($context)) {
+            return false;
         }
 
         self::$loadedContext = $context;
         self::$KEYWORDS = $context::$KEYWORDS;
+
+        return true;
     }
 
     /**
@@ -628,24 +626,22 @@ abstract class Context
     {
         $length = strlen($context);
         for ($i = $length; $i > 0;) {
-            try {
-                /* Trying to load the new context */
-                static::load($context);
-
+            /* Trying to load the new context */
+            if (static::load($context)) {
                 return $context;
-            } catch (LoaderException $e) {
-                /* Replace last two non zero digits by zeroes */
-                do {
-                    $i -= 2;
-                    $part = substr($context, $i, 2);
-                    /* No more numeric parts to strip */
-                    if (! is_numeric($part)) {
-                        break 2;
-                    }
-                } while (intval($part) === 0 && $i > 0);
-
-                $context = substr($context, 0, $i) . '00' . substr($context, $i + 2);
             }
+
+            /* Replace last two non zero digits by zeroes */
+            do {
+                $i -= 2;
+                $part = substr($context, $i, 2);
+                /* No more numeric parts to strip */
+                if (!is_numeric($part)) {
+                    break 2;
+                }
+            } while (intval($part) === 0 && $i > 0);
+
+            $context = substr($context, 0, $i) . '00' . substr($context, $i + 2);
         }
 
         /* Fallback to loading at least matching engine */
@@ -815,7 +811,7 @@ abstract class Context
             return $str;
         }
 
-        if ((static::$MODE & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
+        if ((static::$MODE & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (!static::isKeyword($str, true))) {
             return $str;
         }
 
