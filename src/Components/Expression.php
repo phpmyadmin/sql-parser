@@ -20,6 +20,7 @@ use function trim;
  * Parses a reference to an expression (column, table or database name, function
  * call, mathematical expression, etc.).
  */
+#[\AllowDynamicProperties]
 final class Expression implements Component
 {
     /**

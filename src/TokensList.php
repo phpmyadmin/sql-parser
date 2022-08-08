@@ -114,6 +114,24 @@ class TokensList implements ArrayAccess
     }
 
     /**
+     * Gets the previous token. Skips any irrelevant token (whitespaces and
+     * comments).
+     */
+    public function getPrevious(): ?Token
+    {
+        for (; $this->idx > 0; --$this->idx) {
+            if (
+                ($this->tokens[$this->idx]->type !== Token::TYPE_WHITESPACE)
+                && ($this->tokens[$this->idx]->type !== Token::TYPE_COMMENT)
+            ) {
+                return $this->tokens[$this->idx--];
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Gets the next token.
      *
      * @param int $type the type

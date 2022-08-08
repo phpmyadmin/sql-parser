@@ -89,6 +89,7 @@ final class CreateDefinition implements Component
         'INVISIBLE' => 13,
         'ENFORCED' => 14,
         'NOT' => 15,
+        'COMPRESSED' => 16,
         // Common entries.
         //
         // NOTE: Some of the common options are not in the same order which
