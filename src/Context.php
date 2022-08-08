@@ -599,7 +599,7 @@ abstract class Context
             $context = self::$contextPrefix . $context;
         }
 
-        if (!class_exists($context)) {
+        if (! class_exists($context)) {
             return false;
         }
 
@@ -636,7 +636,7 @@ abstract class Context
                 $i -= 2;
                 $part = substr($context, $i, 2);
                 /* No more numeric parts to strip */
-                if (!is_numeric($part)) {
+                if (! is_numeric($part)) {
                     break 2;
                 }
             } while (intval($part) === 0 && $i > 0);
