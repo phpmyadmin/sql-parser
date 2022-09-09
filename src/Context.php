@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
-use PhpMyAdmin\SqlParser\Exceptions\LoaderException;
-
 use function class_exists;
 use function explode;
 use function in_array;
@@ -526,9 +524,9 @@ abstract class Context
      *
      * @param string $context name of the context or full class name that defines the context
      *
-     * @throws LoaderException if the specified context doesn't exist.
+     * @return bool true if the context was loaded, false otherwise
      */
-    public static function load(string $context = ''): void
+    public static function load(string $context = ''): bool
     {
         if (empty($context)) {
             $context = self::$defaultContext;
@@ -540,11 +538,13 @@ abstract class Context
         }
 
         if (! class_exists($context)) {
-            throw @new LoaderException('Specified context ("' . $context . '") does not exist.', $context);
+            return false;
         }
 
         self::$loadedContext = $context;
         self::$keywords = $context::$keywords;
+
+        return true;
     }
 
     /**
@@ -563,24 +563,22 @@ abstract class Context
     {
         $length = strlen($context);
         for ($i = $length; $i > 0;) {
-            try {
-                /* Trying to load the new context */
-                static::load($context);
-
+            /* Trying to load the new context */
+            if (static::load($context)) {
                 return $context;
-            } catch (LoaderException $e) {
-                /* Replace last two non zero digits by zeroes */
-                do {
-                    $i -= 2;
-                    $part = substr($context, $i, 2);
-                    /* No more numeric parts to strip */
-                    if (! is_numeric($part)) {
-                        break 2;
-                    }
-                } while (intval($part) === 0 && $i > 0);
-
-                $context = substr($context, 0, $i) . '00' . substr($context, $i + 2);
             }
+
+            /* Replace last two non zero digits by zeroes */
+            do {
+                $i -= 2;
+                $part = substr($context, $i, 2);
+                /* No more numeric parts to strip */
+                if (! is_numeric($part)) {
+                    break 2;
+                }
+            } while (intval($part) === 0 && $i > 0);
+
+            $context = substr($context, 0, $i) . '00' . substr($context, $i + 2);
         }
 
         /* Fallback to loading at least matching engine */

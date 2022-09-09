@@ -10,6 +10,7 @@
 * Support table structure with `COMPRESSED` columns (#351)
 * Add `#[\AllowDynamicProperties]` on `Statement` and `Expression` classes for PHP 8.2 support
 * Support `ALTER` queries of `PARTITIONS` (#329)
+* Change `Context::load()` error handling to returning a boolean value instead of throwing a `LoaderException` (#384)
 
 ## [5.5.0] - 2021-12-08
 
