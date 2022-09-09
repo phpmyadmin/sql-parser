@@ -57,8 +57,7 @@ jobs:
           composer update --no-interaction --no-progress
 
       - name: Collect coverage report
-        run: |
-          ./vendor/bin/phpunit --stop-on-failure
+        run: composer run phpunit -- --stop-on-failure
 
       - name: Infection
         if: ${{ github.base_ref != '' }}

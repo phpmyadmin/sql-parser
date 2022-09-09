@@ -54,7 +54,7 @@ jobs:
               if: ${{ matrix.php-version == '7.1' }}
               run: composer require phpmyadmin/motranslator:^3.0
             - name: Run php tests
-              run: ./vendor/bin/phpunit
+              run: composer run phpunit
             - name: Send coverage
               uses: codecov/codecov-action@v1
             - name: Send coverage to Scrutinizer
