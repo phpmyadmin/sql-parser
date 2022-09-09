@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.19.0@a2ad69ae4f5ab1f7d225a8dc4e2ec2d9415ed599">
+<files psalm-version="4.27.0@faf106e717c37b8c81721845dba9de3d8deed8ff">
   <file src="src/Component.php">
     <MixedReturnStatement occurrences="1">
       <code>static::build($this)</code>
     </MixedReturnStatement>
   </file>
   <file src="src/Components/AlterOperation.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>$component-&gt;field !== ''</code>
-    </DocblockTypeContradiction>
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$component-&gt;partitions</code>
+    </ArgumentTypeCoercion>
     <InvalidScalarArgument occurrences="1">
       <code>$arrayKey</code>
     </InvalidScalarArgument>
@@ -18,14 +18,9 @@
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyNullPropertyAssignmentValue occurrences="3">
-      <code>$field</code>
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>isset($component-&gt;field)</code>
-      <code>isset($component-&gt;field) &amp;&amp; ($component-&gt;field !== '')</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/Array2d.php">
     <InvalidReturnStatement occurrences="1">
