@@ -29,7 +29,7 @@ jobs:
             - name: Install dependencies
               run: composer install
             - name: Lint files
-              run: ./vendor/bin/phpcs
+              run: composer run phpcs
 
     analyse-php:
         runs-on: ubuntu-latest
@@ -60,6 +60,6 @@ jobs:
             - name: Install dependencies
               run: composer install
             - name: Analyse files with PHPStan
-              run: ./vendor/bin/phpstan analyse
+              run: composer run phpstan
             - name: Analyse files with Psalm
-              run: ./vendor/bin/psalm --shepherd
+              run: composer run psalm -- --shepherd

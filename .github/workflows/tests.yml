@@ -52,7 +52,7 @@ jobs:
             - name: Install dependencies
               run: composer install --no-interaction ${{ matrix.composer-options }}
             - name: Run php tests
-              run: ./vendor/bin/phpunit
+              run: composer run phpunit
             - name: Send coverage
               uses: codecov/codecov-action@v1
             - name: Send coverage to Scrutinizer
