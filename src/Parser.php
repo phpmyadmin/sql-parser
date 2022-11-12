@@ -466,19 +466,36 @@ class Parser extends Core
                 continue;
             }
 
-            // Checking if it is a known statement that can be parsed.
-            if (empty(static::$STATEMENT_PARSERS[$token->keyword])) {
-                if (! isset(static::$STATEMENT_PARSERS[$token->keyword])) {
-                    // A statement is considered recognized if the parser
-                    // is aware that it is a statement, but it does not have
-                    // a parser for it yet.
-                    $this->error('Unrecognized statement type.', $token);
-                }
+            $lastIdx = $list->idx;
 
-                // Skipping to the end of this statement.
-                $list->getNextOfType(Token::TYPE_DELIMITER);
-                $prevLastIdx = $list->idx;
-                continue;
+            ++$list->idx; // Skip ANALYZE
+            $first = $list->getNextOfType(Token::TYPE_KEYWORD);
+            $second = $list->getNextOfType(Token::TYPE_KEYWORD);
+            $statementName = null;
+
+            // ANALYZE keyword can be an indication of two cases:
+            // 1- ANALAYZE TABLE statements, in both mariaDB and MySQL
+            // 2- Explain statement, in case of mariaDB https://mariadb.com/kb/en/explain-analyze/
+            // We need to point case 2 to use the EXPLAIN Parser.
+            if ($token->keyword === 'ANALYZE' && $first->keyword !== 'TABLE' && $second->keyword !== 'TABLE') {
+                $list->idx = $lastIdx;
+                $statementName = 'EXPLAIN';
+            } else {
+                $list->idx = $lastIdx;
+                // Checking if it is a known statement that can be parsed.
+                if (empty(static::$STATEMENT_PARSERS[$token->keyword])) {
+                    if (! isset(static::$STATEMENT_PARSERS[$token->keyword])) {
+                        // A statement is considered recognized if the parser
+                        // is aware that it is a statement, but it does not have
+                        // a parser for it yet.
+                        $this->error('Unrecognized statement type.', $token);
+                    }
+
+                    // Skipping to the end of this statement.
+                    $list->getNextOfType(Token::TYPE_DELIMITER);
+                    $prevLastIdx = $list->idx;
+                    continue;
+                }
             }
 
             /**
@@ -486,7 +503,7 @@ class Parser extends Core
              *
              * @var string
              */
-            $class = static::$STATEMENT_PARSERS[$token->keyword];
+            $class = static::$STATEMENT_PARSERS[$statementName ? $statementName : $token->keyword];
 
             /**
              * Processed statement.

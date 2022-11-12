@@ -6,12 +6,12 @@ namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
-class ExplainStatementTest extends TestCase
+class AnalyzeStatementTest extends TestCase
 {
     /**
-     * @dataProvider explainProvider
+     * @dataProvider analyzeProvider
      */
-    public function testExplain(string $test): void
+    public function testAnalyze(string $test): void
     {
         $this->runParserTest($test);
     }
@@ -19,11 +19,11 @@ class ExplainStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function explainProvider(): array
+    public function analyzeProvider(): array
     {
         return [
-            ['parser/parseExplain'],
-            ['parser/parseExplain1'],
+            ['parser/parseAnalyzeTable'],
+            ['parser/parseAnalyzeTable1'],
         ];
     }
 }
