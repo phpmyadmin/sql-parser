@@ -467,21 +467,25 @@ class Parser extends Core
             }
 
             $lastIdx = $list->idx;
-
-            ++$list->idx; // Skip ANALYZE
-            $first = $list->getNextOfType(Token::TYPE_KEYWORD);
-            $second = $list->getNextOfType(Token::TYPE_KEYWORD);
             $statementName = null;
 
-            // ANALYZE keyword can be an indication of two cases:
-            // 1- ANALAYZE TABLE statements, in both mariaDB and MySQL
-            // 2- Explain statement, in case of mariaDB https://mariadb.com/kb/en/explain-analyze/
-            // We need to point case 2 to use the EXPLAIN Parser.
-            if ($token->keyword === 'ANALYZE' && $first->keyword !== 'TABLE' && $second->keyword !== 'TABLE') {
-                $list->idx = $lastIdx;
+            if ($token->keyword === 'ANALYZE') {
+                ++$list->idx; // Skip ANALYZE
+
+                $first = $list->getNextOfType(Token::TYPE_KEYWORD);
+                $second = $list->getNextOfType(Token::TYPE_KEYWORD);
+
+                // ANALYZE keyword can be an indication of two cases:
+                // 1 - ANALYZE TABLE statements, in both MariaDB and MySQL
+                // 2 - Explain statement, in case of MariaDB https://mariadb.com/kb/en/explain-analyze/
+                // We need to point case 2 to use the EXPLAIN Parser.
                 $statementName = 'EXPLAIN';
-            } else {
+                if ($first->keyword === 'TABLE' || $second->keyword === 'TABLE') {
+                    $statementName = 'ANALYZE';
+                }
+
                 $list->idx = $lastIdx;
+            } else {
                 // Checking if it is a known statement that can be parsed.
                 if (empty(static::$STATEMENT_PARSERS[$token->keyword])) {
                     if (! isset(static::$STATEMENT_PARSERS[$token->keyword])) {
@@ -503,7 +507,7 @@ class Parser extends Core
              *
              * @var string
              */
-            $class = static::$STATEMENT_PARSERS[$statementName ? $statementName : $token->keyword];
+            $class = static::$STATEMENT_PARSERS[$statementName ?? $token->keyword];
 
             /**
              * Processed statement.
