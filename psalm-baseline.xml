@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.27.0@faf106e717c37b8c81721845dba9de3d8deed8ff">
+<files psalm-version="4.30.0@d0bc6e25d89f649e4f36a534f330f8bb4643dd69">
   <file src="src/Component.php">
     <MixedReturnStatement occurrences="1">
       <code>static::build($this)</code>
@@ -785,10 +785,12 @@
     <InvalidStringClass occurrences="1">
       <code>new $class($this, $this-&gt;list)</code>
     </InvalidStringClass>
-    <MixedArrayOffset occurrences="1">
+    <MixedArrayOffset occurrences="2">
+      <code>static::$STATEMENT_PARSERS[$statementName ?? $token-&gt;keyword]</code>
       <code>static::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion occurrences="1">
+    <MixedArrayTypeCoercion occurrences="2">
+      <code>static::$STATEMENT_PARSERS[$statementName ?? $token-&gt;keyword]</code>
       <code>static::$STATEMENT_PARSERS[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
     <ParamNameMismatch occurrences="1">
@@ -803,29 +805,41 @@
     <PossiblyNullArrayAccess occurrences="1">
       <code>$list-&gt;tokens[$list-&gt;idx]</code>
     </PossiblyNullArrayAccess>
-    <PossiblyNullArrayOffset occurrences="1">
+    <PossiblyNullArrayOffset occurrences="2">
       <code>$list-&gt;tokens</code>
+      <code>static::$STATEMENT_PARSERS</code>
     </PossiblyNullArrayOffset>
-    <PossiblyNullOperand occurrences="2">
+    <PossiblyNullOperand occurrences="3">
+      <code>$list-&gt;idx</code>
       <code>$list-&gt;idx</code>
       <code>$prevLastIdx</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyAssignment occurrences="1">
+    <PossiblyNullPropertyAssignment occurrences="2">
+      <code>$list</code>
       <code>$list</code>
     </PossiblyNullPropertyAssignment>
-    <PossiblyNullPropertyFetch occurrences="7">
+    <PossiblyNullPropertyAssignmentValue occurrences="1">
+      <code>$lastIdx</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullPropertyFetch occurrences="9">
+      <code>$first-&gt;keyword</code>
       <code>$list-&gt;count</code>
       <code>$list-&gt;idx</code>
       <code>$list-&gt;tokens</code>
+      <code>$second-&gt;keyword</code>
       <code>$token-&gt;keyword</code>
       <code>$token-&gt;token</code>
       <code>$token-&gt;type</code>
       <code>$token-&gt;value</code>
     </PossiblyNullPropertyFetch>
-    <PossiblyNullReference occurrences="2">
+    <PossiblyNullReference occurrences="3">
+      <code>getNextOfType</code>
       <code>getNextOfType</code>
       <code>getNextOfType</code>
     </PossiblyNullReference>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>string</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Statement.php">
     <DocblockTypeContradiction occurrences="2">
