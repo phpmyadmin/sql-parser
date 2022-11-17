@@ -10,6 +10,7 @@
 * Support table structure with `COMPRESSED` columns (#351)
 * Add `#[\AllowDynamicProperties]` on `Statement` and `Expression` classes for PHP 8.2 support
 * Support `ALTER` queries of `PARTITIONS` (#329)
+* Fixed differentiating between `ANALYZE` and `EXPLAIN` statements (#386)
 
 ## [5.5.0] - 2021-12-08
 
