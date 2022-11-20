@@ -557,7 +557,12 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$idx on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
-			count: 8
+			count: 12
+			path: src/Parser.php
+
+		-
+			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 2
 			path: src/Parser.php
 
 		-
@@ -567,7 +572,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method getNextOfType\\(\\) on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
-			count: 2
+			count: 4
 			path: src/Parser.php
 
 		-
@@ -982,11 +987,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClauseStartOffset\\(\\) should return int but returns int\\|null\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getFlags\\(\\) should return array\\{distinct\\?\\: bool, drop_database\\?\\: bool, group\\?\\: bool, having\\?\\: bool, is_affected\\?\\: bool, is_analyse\\?\\: bool, is_count\\?\\: bool, is_delete\\?\\: bool, \\.\\.\\.\\} but returns non\\-empty\\-array\\<literal\\-string&non\\-falsy\\-string, bool\\|\\(literal\\-string&non\\-falsy\\-string\\)\\>\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
