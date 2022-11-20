@@ -464,7 +464,11 @@ class Query
      *               expressions, the table names are fetched from the
      *               `FROM` expressions
      *               - select_expr - selected expressions
-     * @psalm-return QueryFlagsType
+     * @psalm-return QueryFlagsType&array{
+     *      select_expr?: (string|null)[],
+     *      select_tables?: array{string, string|null}[],
+     *      statement?: Statement|null, parser?: Parser
+     * }
      */
     public static function getAll($query)
     {
