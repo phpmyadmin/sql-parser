@@ -169,6 +169,23 @@ class TokensList implements ArrayAccess
     }
 
     /**
+     * Gets the next token.
+     *
+     * @param int $type the type of the token
+     * @param int $flag the flag of the token
+     */
+    public function getNextOfTypeAndFlag(int $type, int $flag): ?Token
+    {
+        for (; $this->idx < $this->count; ++$this->idx) {
+            if (($this->tokens[$this->idx]->type === $type) && ($this->tokens[$this->idx]->flags === $flag)) {
+                return $this->tokens[$this->idx++];
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Sets an value inside the container.
      *
      * @param int|null $offset the offset to be set
