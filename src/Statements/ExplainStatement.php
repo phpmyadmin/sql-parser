@@ -54,7 +54,7 @@ class ExplainStatement extends Statement
     /**
      * The connection identifier, if used.
      *
-     * @var number|null
+     * @var int|null
      */
     public $connectionId = null;
 
@@ -114,7 +114,7 @@ class ExplainStatement extends Statement
                     || $token->keyword === 'DESC'
                     || $token->keyword === 'DESCRIBE'
                 ) {
-                    $miniState === 1;
+                    $miniState = 1;
                     $this->statemenetAlias = $token->keyword;
 
                     $lastIdx = $list->idx;
