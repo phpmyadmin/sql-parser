@@ -167,10 +167,6 @@ class ExplainStatement extends Statement
                 // assuming that all remaining tokens at state 2, are related to the to-be-explained statement.
                 $idxOfLastParsedToken = $list->count - 1;
                 $subList = new TokensList(array_slice($list->tokens, $list->idx));
-                if ($subList instanceof ParserException) {
-                    $parser->errors[] = $subList;
-                    break;
-                }
 
                 $this->bodyParser = new Parser($subList);
                 if (count($this->bodyParser->errors)) {
