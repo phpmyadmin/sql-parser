@@ -1,5 +1,5 @@
 {
-    "query": "ANALYZE SELECT * FROM orders",
+    "query": "ANALYZE SELECT FROM",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "PARSER_METHODS": [
@@ -15,9 +15,9 @@
             "parseLabel",
             "parseUnknown"
         ],
-        "str": "ANALYZE SELECT * FROM orders",
-        "len": 28,
-        "last": 28,
+        "str": "ANALYZE SELECT FROM",
+        "len": 19,
+        "last": 19,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -59,48 +59,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*",
-                    "value": "*",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 15
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 16
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
                     "type": 1,
                     "flags": 3,
-                    "position": 17
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 21
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "orders",
-                    "value": "orders",
-                    "keyword": null,
-                    "type": 0,
-                    "flags": 0,
-                    "position": 22
+                    "position": 15
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -112,8 +76,8 @@
                     "position": null
                 }
             ],
-            "count": 10,
-            "idx": 10
+            "count": 6,
+            "idx": 7
         },
         "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
@@ -745,22 +709,10 @@
                             },
                             {
                                 "@type": "@7"
-                            },
-                            {
-                                "@type": "@8"
-                            },
-                            {
-                                "@type": "@9"
-                            },
-                            {
-                                "@type": "@10"
-                            },
-                            {
-                                "@type": "@11"
                             }
                         ],
-                        "count": 8,
-                        "idx": 8
+                        "count": 4,
+                        "idx": 4
                     },
                     "statements": [
                         {
@@ -912,58 +864,8 @@
                                     1
                                 ]
                             },
-                            "expr": [
-                                {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                    "ALLOWED_KEYWORDS": {
-                                        "AS": 1,
-                                        "DUAL": 1,
-                                        "NULL": 1,
-                                        "REGEXP": 1,
-                                        "CASE": 1,
-                                        "DIV": 1,
-                                        "AND": 1,
-                                        "OR": 1,
-                                        "XOR": 1,
-                                        "NOT": 1,
-                                        "MOD": 1,
-                                        "OVER": 2
-                                    },
-                                    "database": null,
-                                    "table": null,
-                                    "column": null,
-                                    "expr": "*",
-                                    "alias": null,
-                                    "function": null,
-                                    "subquery": null
-                                }
-                            ],
-                            "from": [
-                                {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                    "ALLOWED_KEYWORDS": {
-                                        "AS": 1,
-                                        "DUAL": 1,
-                                        "NULL": 1,
-                                        "REGEXP": 1,
-                                        "CASE": 1,
-                                        "DIV": 1,
-                                        "AND": 1,
-                                        "OR": 1,
-                                        "XOR": 1,
-                                        "NOT": 1,
-                                        "MOD": 1,
-                                        "OVER": 2
-                                    },
-                                    "database": null,
-                                    "table": "orders",
-                                    "column": null,
-                                    "expr": "orders",
-                                    "alias": null,
-                                    "function": null,
-                                    "subquery": null
-                                }
-                            ],
+                            "expr": [],
+                            "from": [],
                             "index_hints": null,
                             "partition": null,
                             "where": null,
@@ -981,12 +883,33 @@
                                 "options": []
                             },
                             "first": 0,
-                            "last": 6
+                            "last": 2
                         }
                     ],
                     "brackets": 0,
                     "strict": false,
-                    "errors": []
+                    "errors": [
+                        {
+                            "@type": "PhpMyAdmin\\SqlParser\\Exceptions\\ParserException",
+                            "token": {
+                                "@type": "@6"
+                            },
+                            "message": "An expression was expected.",
+                            "code": 0,
+                            "file": "\/Applications\/MAMP\/htdocs\/sql-parser\/src\/Parser.php",
+                            "line": 623
+                        },
+                        {
+                            "@type": "PhpMyAdmin\\SqlParser\\Exceptions\\ParserException",
+                            "token": {
+                                "@type": "@7"
+                            },
+                            "message": "An expression was expected.",
+                            "code": 0,
+                            "file": "\/Applications\/MAMP\/htdocs\/sql-parser\/src\/Parser.php",
+                            "line": 623
+                        }
+                    ]
                 },
                 "statemenetAlias": "ANALYZE",
                 "connectionId": null,
@@ -998,7 +921,7 @@
                     "options": []
                 },
                 "first": 0,
-                "last": 9
+                "last": 2
             }
         ],
         "brackets": 0,
@@ -1007,6 +930,28 @@
     },
     "errors": {
         "lexer": [],
-        "parser": []
+        "parser": [
+            [
+                "An expression was expected.",
+                {
+                    "@type": "@6"
+                },
+                0
+            ],
+            [
+                "An expression was expected.",
+                {
+                    "@type": "@7"
+                },
+                0
+            ],
+            [
+                "Unrecognized statement type.",
+                {
+                    "@type": "@6"
+                },
+                0
+            ]
+        ]
     }
 }

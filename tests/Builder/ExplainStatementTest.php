@@ -9,15 +9,59 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ExplainStatementTest extends TestCase
 {
-    public function testBuilderView(): void
+    public function testBuilder(): void
     {
+        /* Assertion 1 */
         $query = 'EXPLAIN SELECT * FROM test;';
-
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
-
         $this->assertEquals(
-            ' EXPLAIN SELECT * FROM test',
+            'EXPLAIN SELECT * FROM test',
+            $stmt->build()
+        );
+
+        /* Assertion 2 */
+        $query = 'EXPLAIN ANALYZE SELECT * FROM tablename;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'EXPLAIN ANALYZE SELECT * FROM tablename',
+            $stmt->build()
+        );
+
+        /* Assertion 3 */
+        $query = 'DESC ANALYZE SELECT * FROM tablename;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'DESC ANALYZE SELECT * FROM tablename',
+            $stmt->build()
+        );
+
+        /* Assertion 4 */
+        $query = 'ANALYZE SELECT * FROM tablename;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'ANALYZE SELECT * FROM tablename',
+            $stmt->build()
+        );
+
+        /* Assertion 5 */
+        $query = 'DESCRIBE tablename;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'DESCRIBE tablename',
+            $stmt->build()
+        );
+
+        /* Assertion 6 */
+        $query = 'DESC FOR CONNECTION 458';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'DESC FOR CONNECTION 458',
             $stmt->build()
         );
     }
