@@ -64,5 +64,14 @@ class ExplainStatementTest extends TestCase
             'DESC FOR CONNECTION 458',
             $stmt->build()
         );
+
+        /* Assertion 6 */
+        $query = 'EXPLAIN FORMAT=TREE SELECT * FROM db;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'EXPLAIN FORMAT=TREE SELECT * FROM db',
+            $stmt->build()
+        );
     }
 }

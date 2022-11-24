@@ -43,8 +43,8 @@ class ExplainStatement extends Statement
 
     /**
      * The statement alias, could be any of the following:
-     * - EXPLAIN/DESC/DESCRIBE
-     * - EXPLAIN/DESC/DESCRIBE ANALYZE
+     * - {EXPLAIN | DESCRIBE | DESC}
+     * - {EXPLAIN | DESCRIBE | DESC} ANALYZE
      * - ANALYZE
      *
      * @var string
@@ -89,8 +89,8 @@ class ExplainStatement extends Statement
         /**
          * To Differentiate between ANALYZE / EXPLAIN / EXPLAIN ANALYZE
          * 0 -> ANALYZE ( used by mariaDB https://mariadb.com/kb/en/analyze-statement)
-         * 1 -> EXPLAIN / DESC / DESCRIBE
-         * 2 -> EXPLAIN / DESC / DESCRIBE [ANALYZE]
+         * 1 -> {EXPLAIN | DESCRIBE | DESC}
+         * 2 -> {EXPLAIN | DESCRIBE | DESC} ANALYZE
          */
         $miniState = 0;
 
@@ -184,17 +184,20 @@ class ExplainStatement extends Statement
 
     public function build(): string
     {
-        $str = $this->statemenetAlias . ' ';
+        $str = $this->statemenetAlias;
 
-        $str .= OptionsArray::build($this->options);
+        if (count($this->options->options)) {
+            $str .= ' ';
+        }
+
+        $str .= OptionsArray::build($this->options) . ' ';
 
         if ($this->bodyParser) {
             foreach ($this->bodyParser->statements as $statement) {
                 $str .= $statement->build();
             }
         } elseif ($this->connectionId) {
-            $str .= 'FOR CONNECTION ';
-            $str .= $this->connectionId;
+            $str .= 'FOR CONNECTION ' . $this->connectionId;
         } elseif ($this->explainedTable) {
             $str .= $this->explainedTable;
         }
