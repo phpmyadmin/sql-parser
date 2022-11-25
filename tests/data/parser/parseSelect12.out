@@ -440,8 +440,7 @@
                     "SQL_BUFFER_RESULT": 7,
                     "SQL_CACHE": 8,
                     "SQL_NO_CACHE": 8,
-                    "SQL_CALC_FOUND_ROWS": 9,
-                    "NOT": 10
+                    "SQL_CALC_FOUND_ROWS": 9
                 },
                 "END_OPTIONS": {
                     "FOR UPDATE": 1,
@@ -593,7 +592,7 @@
                         "database": null,
                         "table": null,
                         "column": null,
-                        "expr": "1",
+                        "expr": "NOT 1",
                         "alias": "test",
                         "function": null,
                         "subquery": null
@@ -614,9 +613,7 @@
                 "end_options": null,
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": {
-                        "10": "NOT"
-                    }
+                    "options": []
                 },
                 "first": 0,
                 "last": 8

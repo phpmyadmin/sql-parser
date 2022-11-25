@@ -74,6 +74,7 @@ class ExpressionArray extends Component
                 && ($token->value !== 'DUAL')
                 && ($token->value !== 'NULL')
                 && ($token->value !== 'CASE')
+                && ($token->value !== 'NOT')
             ) {
                 // No keyword is expected.
                 break;
