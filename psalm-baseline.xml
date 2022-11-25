@@ -1000,6 +1000,29 @@
       <code>$this-&gt;from</code>
     </PossiblyNullIterator>
   </file>
+  <file src="src/Statements/ExplainStatement.php">
+    <MixedAssignment occurrences="2">
+      <code>$this-&gt;connectionId</code>
+      <code>$this-&gt;explainedTable</code>
+    </MixedAssignment>
+    <PossiblyNullArgument occurrences="2">
+      <code>$this-&gt;options</code>
+      <code>$this-&gt;options-&gt;options</code>
+    </PossiblyNullArgument>
+    <PossiblyNullPropertyFetch occurrences="3">
+      <code>$nextToken-&gt;keyword</code>
+      <code>$nextToken-&gt;value</code>
+      <code>$this-&gt;options-&gt;options</code>
+    </PossiblyNullPropertyFetch>
+    <PropertyNotSetInConstructor occurrences="1">
+      <code>$statementAlias</code>
+    </PropertyNotSetInConstructor>
+    <UnusedVariable occurrences="3">
+      <code>$connectionToken</code>
+      <code>$currToken</code>
+      <code>$forToken</code>
+    </UnusedVariable>
+  </file>
   <file src="src/Statements/InsertStatement.php">
     <PossiblyNullOperand occurrences="2">
       <code>$this-&gt;into</code>
