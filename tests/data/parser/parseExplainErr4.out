@@ -1,5 +1,5 @@
 {
-    "query": "DESC tablename;",
+    "query": "EXPLAIN ",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "PARSER_METHODS": [
@@ -15,17 +15,17 @@
             "parseLabel",
             "parseUnknown"
         ],
-        "str": "DESC tablename;",
-        "len": 15,
-        "last": 15,
+        "str": "EXPLAIN ",
+        "len": 8,
+        "last": 8,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "DESC",
-                    "value": "DESC",
-                    "keyword": "DESC",
+                    "token": "EXPLAIN",
+                    "value": "EXPLAIN",
+                    "keyword": "EXPLAIN",
                     "type": 1,
                     "flags": 3,
                     "position": 0
@@ -37,25 +37,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 4
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "tablename",
-                    "value": "tablename",
-                    "keyword": null,
-                    "type": 0,
-                    "flags": 0,
-                    "position": 5
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ";",
-                    "value": ";",
-                    "keyword": null,
-                    "type": 9,
-                    "flags": 0,
-                    "position": 14
+                    "position": 7
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -67,8 +49,8 @@
                     "position": null
                 }
             ],
-            "count": 5,
-            "idx": 5
+            "count": 3,
+            "idx": 3
         },
         "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
@@ -380,23 +362,26 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-                "unknown": [
-                    {
-                        "@type": "@2"
-                    },
-                    {
-                        "@type": "@3"
-                    },
-                    {
-                        "@type": "@4"
-                    }
-                ],
-                "OPTIONS": [],
+                "OPTIONS": {
+                    "EXTENDED": 1,
+                    "PARTITIONS": 1,
+                    "FORMAT": [
+                        1,
+                        "var"
+                    ]
+                },
+                "bodyParser": null,
+                "statemenetAlias": "EXPLAIN",
+                "connectionId": null,
+                "explainedTable": null,
                 "CLAUSES": [],
                 "END_OPTIONS": [],
-                "options": null,
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
                 "first": 0,
-                "last": 3
+                "last": 2
             }
         ],
         "brackets": 0,
@@ -405,6 +390,14 @@
     },
     "errors": {
         "lexer": [],
-        "parser": []
+        "parser": [
+            [
+                "Unexpected token.",
+                {
+                    "@type": "@4"
+                },
+                0
+            ]
+        ]
     }
 }
