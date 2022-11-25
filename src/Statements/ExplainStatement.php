@@ -49,7 +49,7 @@ class ExplainStatement extends Statement
      *
      * @var string
      */
-    public $statemenetAlias;
+    public $statementAlias;
 
     /**
      * The connection identifier, if used.
@@ -108,20 +108,20 @@ class ExplainStatement extends Statement
             if ($state === 0) {
                 if ($token->keyword === 'ANALYZE' && $miniState === 0) {
                     $state = 1;
-                    $this->statemenetAlias = 'ANALYZE';
+                    $this->statementAlias = 'ANALYZE';
                 } elseif (
                     $token->keyword === 'EXPLAIN'
                     || $token->keyword === 'DESC'
                     || $token->keyword === 'DESCRIBE'
                 ) {
                     $miniState = 1;
-                    $this->statemenetAlias = $token->keyword;
+                    $this->statementAlias = $token->keyword;
 
                     $lastIdx = $list->idx;
                     $nextKeyword = $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ANALYZE');
                     if ($nextKeyword && $nextKeyword->keyword !== null) {
                         $miniState = 2;
-                        $this->statemenetAlias .= ' ANALYZE';
+                        $this->statementAlias .= ' ANALYZE';
                     } else {
                         $list->idx = $lastIdx;
                     }
@@ -184,7 +184,7 @@ class ExplainStatement extends Statement
 
     public function build(): string
     {
-        $str = $this->statemenetAlias;
+        $str = $this->statementAlias;
 
         if (count($this->options->options)) {
             $str .= ' ';
