@@ -69,7 +69,6 @@ class SelectStatement extends Statement
         'SQL_CACHE' => 8,
         'SQL_NO_CACHE' => 8,
         'SQL_CALC_FOUND_ROWS' => 9,
-        'NOT' => 10,
     ];
 
     /**
