@@ -13,6 +13,7 @@
 * Change `Context::load()` error handling to returning a boolean value instead of throwing a `LoaderException` (#384)
 * Fixed differentiating between `ANALYZE` and `EXPLAIN` statements (#386)
 * Added "NOT" to the select options (#374)
+* Implement the `EXPLAIN` Parser (#389)
 
 ## [5.5.0] - 2021-12-08
 
