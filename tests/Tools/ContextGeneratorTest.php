@@ -31,7 +31,7 @@ class ContextGeneratorTest extends TestCase
     public function testSortWords(): void
     {
         $wordsArray = ['41' => [['GEOMETRYCOLLECTION', 'DATE']], '35' => [['SCHEMA', 'REPEAT', 'VALUES']]];
-        $sortedArray = ContextGenerator::sortWords($wordsArray);
+        ContextGenerator::sortWords($wordsArray);
         $this->assertEquals([
             '41' => ['0' => ['DATE', 'GEOMETRYCOLLECTION']],
             '35' => ['0' => ['REPEAT', 'SCHEMA', 'VALUES']],
