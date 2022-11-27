@@ -33,6 +33,7 @@ class ContextTest extends Context
         'NO_FLAG' => 1,
 
         'RESERVED' => 3,
+        'RESERVED2' => 3, 'RESERVED3' => 3, 'RESERVED4' => 3, 'RESERVED5' => 3,
 
         'COMPOSED KEYWORD' => 7,
 

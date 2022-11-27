@@ -40,7 +40,10 @@ class ContextGeneratorTest extends TestCase
         $testFiles = [getcwd() . '/tests/Tools/contexts/testContext.txt'];
         $readWords = ContextGenerator::readWords($testFiles);
         $this->assertEquals([
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [8 => ['RESERVED']],
+            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [
+                8 => ['RESERVED'],
+                9 => ['RESERVED2','RESERVED3','RESERVED4','RESERVED5','RESERVED6','RESERVED7','RESERVED8','RESERVED9',]
+            ],
             Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION => [8 => ['FUNCTION']],
             Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE => [8 => ['DATATYPE']],
             Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_KEY => [7 => ['KEYWORD']],
