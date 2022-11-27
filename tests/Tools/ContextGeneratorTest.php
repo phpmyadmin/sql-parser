@@ -40,7 +40,7 @@ class ContextGeneratorTest extends TestCase
 
     public function testReadWords(): void
     {
-        $testFiles = [getcwd() . '/Tests/Tools/contexts/testContext.txt'];
+        $testFiles = [getcwd() . '/tests/Tools/contexts/testContext.txt'];
         $readWords = ContextGenerator::readWords($testFiles);
         $this->assertEquals([
             Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [8 => ['RESERVED']],
@@ -54,7 +54,7 @@ class ContextGeneratorTest extends TestCase
 
     public function testGenerate(): void
     {
-        $testFiles = [getcwd() . '/Tests/Tools/contexts/testContext.txt'];
+        $testFiles = [getcwd() . '/tests/Tools/contexts/testContext.txt'];
         $readWords = ContextGenerator::readWords($testFiles);
         ContextGenerator::printWords($readWords);
         $options = [
@@ -64,7 +64,7 @@ class ContextGeneratorTest extends TestCase
             'link' => 'https://www.phpmyadmin.net/contribute',
         ];
         $generatedTemplate = ContextGenerator::generate($options);
-        $expectedTemplate = file_get_contents(getcwd() . '/Tests/Tools/templates/ContextTest.php');
+        $expectedTemplate = file_get_contents(getcwd() . '/tests/Tools/templates/ContextTest.php');
         $this->assertEquals($expectedTemplate, $generatedTemplate);
     }
 }
