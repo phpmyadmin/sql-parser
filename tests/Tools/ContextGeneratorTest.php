@@ -15,9 +15,6 @@ class ContextGeneratorTest extends TestCase
 {
     public function testFormatName(): void
     {
-        $name = ContextGenerator::formatName('MySql');
-        $this->assertEquals('MySQL ', $name);
-
         $name = ContextGenerator::formatName('MySql80000');
         $this->assertEquals('MySQL 8.0', $name);
 

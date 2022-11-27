@@ -312,7 +312,7 @@ PHP;
 
         $version = array_map('intval', str_split($versionString, 2));
         /* Remove trailing zero */
-        if (count($version) > 0 && $version[count($version) - 1] === 0) {
+        if ($version[count($version) - 1] === 0) {
             $version = array_slice($version, 0, count($version) - 1);
         }
 
