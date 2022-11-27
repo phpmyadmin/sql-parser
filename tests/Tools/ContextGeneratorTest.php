@@ -21,10 +21,10 @@ class ContextGeneratorTest extends TestCase
         $name = ContextGenerator::formatName('MySql80000');
         $this->assertEquals('MySQL 8.0', $name);
 
-        $name = ContextGenerator::formatName('MariaDB100200');
+        $name = ContextGenerator::formatName('MariaDb100200');
         $this->assertEquals('MariaDB 10.2', $name);
 
-        $name = ContextGenerator::formatName('MariaDB100000');
+        $name = ContextGenerator::formatName('MariaDb100000');
         $this->assertEquals('MariaDB 10.0', $name);
     }
 
