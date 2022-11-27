@@ -42,7 +42,7 @@ class ContextGeneratorTest extends TestCase
         $this->assertEquals([
             Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [
                 8 => ['RESERVED'],
-                9 => ['RESERVED2','RESERVED3','RESERVED4','RESERVED5','RESERVED6','RESERVED7','RESERVED8','RESERVED9',]
+                9 => ['RESERVED2','RESERVED3','RESERVED4','RESERVED5'],
             ],
             Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION => [8 => ['FUNCTION']],
             Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE => [8 => ['DATATYPE']],
