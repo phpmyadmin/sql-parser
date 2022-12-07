@@ -134,13 +134,13 @@ class ExplainStatement extends Statement
                 $state = 2;
             } elseif ($state === 2) {
                 $currIdx = $list->idx;
-                $currToken = $list->getNext();
+                $list->idx++; // Ignore the current token
                 $nextToken = $list->getNext();
                 $list->idx = $currIdx;
 
                 if ($token->keyword === 'FOR' && $nextToken->keyword === 'CONNECTION') {
-                    $forToken = $list->getNext(); // FOR
-                    $connectionToken = $list->getNext(); // CONNECTION
+                    $list->idx++; // Ignore the current token
+                    $list->getNext(); // CONNECTION
                     $nextToken = $list->getNext(); // Identifier
                     $this->connectionId = $nextToken->value;
                     break;
