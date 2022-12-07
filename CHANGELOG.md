@@ -13,6 +13,7 @@
 * Fixed differentiating between `ANALYZE` and `EXPLAIN` statements (#386)
 * Added "NOT" to the select options (#374)
 * Implement the `EXPLAIN` Parser (#389)
+* Support order by `IS NULL` and `IS NOT NULL` options (#398)
 
 ## [5.5.0] - 2021-12-08
 
