@@ -95,6 +95,7 @@ class SelectStatementTest extends TestCase
             ['parser/parseSelectIndexHintErr4'],
             ['parser/parseSelectWithParenthesis'],
             ['parser/parseSelectOrderByComment'],
+            ['parser/parseSelectOrderByIsNull'],
             ['parser/parseSelectOverAlias_mariadb_100600'],
         ];
     }

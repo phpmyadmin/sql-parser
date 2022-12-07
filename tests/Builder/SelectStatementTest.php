@@ -24,6 +24,21 @@ class SelectStatementTest extends TestCase
         );
     }
 
+    public function testBuilderOrderByNull(): void
+    {
+        $query = 'SELECT * FROM some_table ORDER BY some_col IS NULL DESC;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals('SELECT * FROM some_table ORDER BY some_col IS NULL DESC', $stmt->build());
+
+        $query = 'SELECT * FROM some_table ORDER BY some_col IS NOT NULL;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals('SELECT * FROM some_table ORDER BY some_col IS NOT NULL ASC', $stmt->build());
+    }
+
     public function testBuilderUnion(): void
     {
         $parser = new Parser('SELECT 1 UNION SELECT 2');

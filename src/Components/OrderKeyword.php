@@ -34,6 +34,13 @@ class OrderKeyword extends Component
     public $type;
 
     /**
+     * The null options.
+     *
+     * @var string|null
+     */
+    public $nullOptions;
+
+    /**
      * @param Expression $expr the expression that we are sorting by
      * @param string     $type the sorting type
      */
@@ -90,7 +97,21 @@ class OrderKeyword extends Component
                 $expr->expr = Expression::parse($parser, $list);
                 $state = 1;
             } elseif ($state === 1) {
+                $currId = $list->idx;
+                $list->idx++; // Ignore the current token
+                $nextToken = $list->getNext();
+                $list->idx = $currId;
                 if (
+                    ($token->type === Token::TYPE_KEYWORD) &&
+                    ($token->keyword === 'IS' && $nextToken !== null &&
+                    ($nextToken->keyword === 'NOT NULL' ||
+                    $nextToken->keyword === 'NULL')
+                    )
+                ) {
+                    $expr->nullOptions = $token->keyword . ' ' . $nextToken->keyword;
+                    $list->idx++; // Ignore the current token
+                    $list->getNext(); // skip nextToken
+                } elseif (
                     ($token->type === Token::TYPE_KEYWORD)
                     && (($token->keyword === 'ASC') || ($token->keyword === 'DESC'))
                 ) {
@@ -130,6 +151,13 @@ class OrderKeyword extends Component
             return implode(', ', $component);
         }
 
-        return $component->expr . ' ' . $component->type;
+        $str = $component->expr . ' ';
+        if (! empty($component->nullOptions)) {
+            $str .= $component->nullOptions . ' ';
+        }
+
+        $str .= $component->type;
+
+        return $str;
     }
 }
