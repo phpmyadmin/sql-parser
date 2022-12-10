@@ -15,7 +15,7 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         strategy:
             matrix:
-                php-version: ["7.1", "7.2", "7.3", "7.4", "8.0", "8.1"]
+                php-version: ["7.1", "7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
                 os: [ubuntu-latest]
                 experimental: [false]
                 composer-options: ['']
