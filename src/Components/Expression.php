@@ -379,12 +379,15 @@ class Expression extends Component
                     --$list->idx;
                     $beforeToken = $list->getPrevious();
                     $list->idx = $currIdx;
-                    // columns names tokens are of type NONE, and the columns options
+                    // columns names tokens are of type NONE, or SYMBOL (`col`), and the columns options
                     // would start with a token of type KEYWORD, in that case, we want to have a space
                     // between the tokens.
                     if (
-                        $ret->expr !== null && $beforeToken &&
-                        $beforeToken->type === Token::TYPE_NONE && $token->type === Token::TYPE_KEYWORD
+                        $ret->expr !== null &&
+                        $beforeToken &&
+                        ($beforeToken->type === Token::TYPE_NONE ||
+                        $beforeToken->type === Token::TYPE_SYMBOL) &&
+                        $token->type === Token::TYPE_KEYWORD
                     ) {
                         $ret->expr = rtrim($ret->expr, ' ') . ' ';
                     }

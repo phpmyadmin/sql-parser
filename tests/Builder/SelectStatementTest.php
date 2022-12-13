@@ -37,10 +37,10 @@ class SelectStatementTest extends TestCase
 
     public function testBuilderWithIsNull(): void
     {
-        $parser = new Parser('SELECT test3.t1 is not null AS `col1` FROM test3');
+        $parser = new Parser('SELECT `test3`.`t1` is not null AS `is_not_null` FROM `test3` ;');
         $stmt = $parser->statements[0];
 
-        $this->assertEquals('SELECT test3.t1 is not null AS `col1` FROM test3', $stmt->build());
+        $this->assertEquals('SELECT `test3`.`t1` is not null AS `is_not_null` FROM `test3`', $stmt->build());
 
         $parser = new Parser('SELECT test3.t1 is null AS `col1` FROM test3');
         $stmt = $parser->statements[0];
