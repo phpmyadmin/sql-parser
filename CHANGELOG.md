@@ -14,7 +14,7 @@
 * Added "NOT" to the select options (#374)
 * Implement the `EXPLAIN` Parser (#389)
 * Context: Updated contexts to contain `multipoint` and `multipolygon` data types (#393)
-* Improving Expression to allow `IS NULL` and `IS NOT NULL` column options (#399)
+* improving the `Expression` component's allowed keywords (#399)
 
 ## [5.5.0] - 2021-12-08
 
