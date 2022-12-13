@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
 use function is_array;
+use function rtrim;
 use function strlen;
 use function trim;
 
@@ -33,7 +34,6 @@ class Expression extends Component
     private static $ALLOWED_KEYWORDS = [
         'AS' => 1,
         'DUAL' => 1,
-        'NULL' => 1,
         'REGEXP' => 1,
         'CASE' => 1,
         'DIV' => 1,
@@ -44,6 +44,10 @@ class Expression extends Component
         'MOD' => 1,
 
         'OVER' => 2,
+
+        'IS' => 3,
+        'NOT NULL' => 4,
+        'NULL' => 4,
     ];
 
     /**
@@ -371,6 +375,20 @@ class Expression extends Component
 
                     $ret->alias = $prev[1]->value;
                 } else {
+                    $currIdx = $list->idx;
+                    --$list->idx;
+                    $beforeToken = $list->getPrevious();
+                    $list->idx = $currIdx;
+                    // columns names tokens are of type NONE, and the columns options
+                    // would start with a token of type KEYWORD, in that case, we want to have a space
+                    // between the tokens.
+                    if (
+                        $ret->expr !== null && $beforeToken &&
+                        $beforeToken->type === Token::TYPE_NONE && $token->type === Token::TYPE_KEYWORD
+                    ) {
+                        $ret->expr = rtrim($ret->expr, ' ') . ' ';
+                    }
+
                     $ret->expr .= $token->token;
                 }
             } elseif (! $isExpr) {
