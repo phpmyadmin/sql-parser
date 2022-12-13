@@ -60,6 +60,7 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateView2'],
             ['parser/parseCreateView3'],
             ['parser/parseCreateView4'],
+            ['parser/parseCreateView5'],
             ['parser/parseCreateViewMultiple'],
             ['parser/parseCreateViewWithoutQuotes'],
             ['parser/parseCreateViewWithQuotes'],

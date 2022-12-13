@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
 use function is_array;
+use function rtrim;
 use function strlen;
 use function trim;
 
@@ -29,19 +30,22 @@ final class Expression implements Component
      * @var array<string, int>
      */
     private static $allowedKeywords = [
-        'AS' => 1,
-        'DUAL' => 1,
-        'NULL' => 1,
-        'REGEXP' => 1,
-        'CASE' => 1,
-        'DIV' => 1,
         'AND' => 1,
-        'OR' => 1,
-        'XOR' => 1,
-        'NOT' => 1,
+        'AS' => 1,
+        'BETWEEN' => 1,
+        'CASE' => 1,
+        'DUAL' => 1,
+        'DIV' => 1,
+        'IS' => 1,
         'MOD' => 1,
-
-        'OVER' => 2,
+        'NOT' => 1,
+        'NOT NULL' => 1,
+        'NULL' => 1,
+        'OR' => 1,
+        'OVER' => 1,
+        'REGEXP' => 1,
+        'RLIKE' => 1,
+        'XOR' => 1,
     ];
 
     /**
@@ -369,6 +373,23 @@ final class Expression implements Component
 
                     $ret->alias = $prev[1]->value;
                 } else {
+                    $currIdx = $list->idx;
+                    --$list->idx;
+                    $beforeToken = $list->getPrevious();
+                    $list->idx = $currIdx;
+                    // columns names tokens are of type NONE, or SYMBOL (`col`), and the columns options
+                    // would start with a token of type KEYWORD, in that case, we want to have a space
+                    // between the tokens.
+                    if (
+                        $ret->expr !== null &&
+                        $beforeToken &&
+                        ($beforeToken->type === Token::TYPE_NONE ||
+                        $beforeToken->type === Token::TYPE_SYMBOL || $beforeToken->type === Token::TYPE_STRING) &&
+                        $token->type === Token::TYPE_KEYWORD
+                    ) {
+                        $ret->expr = rtrim($ret->expr, ' ') . ' ';
+                    }
+
                     $ret->expr .= $token->token;
                 }
             } elseif (! $isExpr) {
