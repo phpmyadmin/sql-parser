@@ -92,7 +92,7 @@ class Formatter
      *
      * @return array<string, bool|string|array<int, array<string, int|string>>>
      */
-    private function getMergedOptions(array $options)
+    protected function getMergedOptions(array $options)
     {
         $options = array_merge(
             $this->getDefaultOptions(),
