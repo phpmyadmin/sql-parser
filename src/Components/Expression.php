@@ -46,6 +46,7 @@ class Expression extends Component
         'OR' => 1,
         'OVER' => 1,
         'REGEXP' => 1,
+        'RLIKE' => 1,
         'XOR' => 1,
     ];
 
@@ -385,7 +386,7 @@ class Expression extends Component
                         $ret->expr !== null &&
                         $beforeToken &&
                         ($beforeToken->type === Token::TYPE_NONE ||
-                        $beforeToken->type === Token::TYPE_SYMBOL) &&
+                        $beforeToken->type === Token::TYPE_SYMBOL || $beforeToken->type === Token::TYPE_STRING) &&
                         $token->type === Token::TYPE_KEYWORD
                     ) {
                         $ret->expr = rtrim($ret->expr, ' ') . ' ';

@@ -37,6 +37,16 @@ class SelectStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals('SELECT 1 BETWEEN 0 AND 2', $stmt->build());
+
+        $parser = new Parser("SELECT 'a' NOT REGEXP '^[a-d]'");
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals("SELECT 'a' NOT REGEXP '^[a-d]'", $stmt->build());
+
+        $parser = new Parser("SELECT 'a' RLIKE 'a'");
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals("SELECT 'a' RLIKE 'a'", $stmt->build());
     }
 
     public function testBuilderUnion(): void
