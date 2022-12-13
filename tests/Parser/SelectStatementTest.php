@@ -89,6 +89,7 @@ class SelectStatementTest extends TestCase
             ['parser/parseSelectWhere'],
             ['parser/parseSelectIndexHint1'],
             ['parser/parseSelectIndexHint2'],
+            ['parser/parseSelectOrderByIsNull'],
             ['parser/parseSelectIndexHintErr1'],
             ['parser/parseSelectIndexHintErr2'],
             ['parser/parseSelectIndexHintErr3'],
