@@ -22,6 +22,21 @@ class SelectStatementTest extends TestCase
             . 'ON (t2.a=t1.a AND t3.b=t1.b AND t4.c=t1.c)',
             $stmt->build()
         );
+
+        $parser = new Parser('SELECT NULL IS NULL');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals('SELECT NULL IS NULL', $stmt->build());
+
+        $parser = new Parser('SELECT NOT 1');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals('SELECT NOT 1', $stmt->build());
+
+        $parser = new Parser('SELECT 1 BETWEEN 0 AND 2');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals('SELECT 1 BETWEEN 0 AND 2', $stmt->build());
     }
 
     public function testBuilderUnion(): void
