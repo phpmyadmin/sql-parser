@@ -15,6 +15,7 @@
 * Implement the `EXPLAIN` Parser (#389)
 * Context: Updated contexts to contain `multipoint` and `multipolygon` data types (#393)
 * Support more keywords on `Expression` component (#399)
+* Fix PHP 8.3 failing tests (#400)
 
 ## [5.5.0] - 2021-12-08
 
