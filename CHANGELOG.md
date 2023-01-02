@@ -1,5 +1,7 @@
 # Change Log
 
+## [5.x.x] - YYYY-MM-DD
+
 ## [5.6.0] - 2022-01-02
 
 * Add missing return types annotations
