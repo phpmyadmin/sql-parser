@@ -1,6 +1,6 @@
 # Change Log
 
-## [5.6.0] - YYYY-MM-DD
+## [5.6.0] - 2022-01-02
 
 * Add missing return types annotations
 * Improve the WITH statements parser (#363)
