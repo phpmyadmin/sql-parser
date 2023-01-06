@@ -506,6 +506,16 @@ parameters:
 			path: src/Exceptions/ParserException.php
 
 		-
+			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 2
+			path: src/Lexer.php
+
+		-
+			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 3
+			path: src/Lexer.php
+
+		-
 			message: "#^Parameter \\#1 \\$msg \\(string\\) of method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:error\\(\\) should be compatible with parameter \\$error \\(Exception\\) of method PhpMyAdmin\\\\SqlParser\\\\Core\\:\\:error\\(\\)$#"
 			count: 1
 			path: src/Lexer.php
@@ -1126,7 +1136,17 @@ parameters:
 			path: tests/Components/CreateDefinitionTest.php
 
 		-
+			message: "#^Cannot access property \\$alias on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 2
+			path: tests/Components/ExpressionTest.php
+
+		-
 			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 4
+			path: tests/Components/ExpressionTest.php
+
+		-
+			message: "#^Cannot access property \\$table on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
 			path: tests/Components/ExpressionTest.php
 
