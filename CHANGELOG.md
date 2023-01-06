@@ -3,6 +3,7 @@
 ## [5.x.x] - YYYY-MM-DD
 
 * Performance improvement to use less the `nextToken()` function (#397)
+* Lexer - Solving ambiguity on function keywords (#385)
 
 ## [5.6.0] - 2023-01-02
 
