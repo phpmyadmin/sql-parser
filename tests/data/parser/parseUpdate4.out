@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "UPDATE Country x, City y set x.Name=x.Name where x.Code=y.CountryCode;",
         "len": 70,
         "last": 70,
@@ -661,18 +670,22 @@
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "ALLOWED_KEYWORDS": {
-                            "AS": 1,
-                            "DUAL": 1,
-                            "NULL": 1,
-                            "REGEXP": 1,
-                            "CASE": 1,
-                            "DIV": 1,
                             "AND": 1,
-                            "OR": 1,
-                            "XOR": 1,
-                            "NOT": 1,
+                            "AS": 1,
+                            "BETWEEN": 1,
+                            "CASE": 1,
+                            "DUAL": 1,
+                            "DIV": 1,
+                            "IS": 1,
                             "MOD": 1,
-                            "OVER": 2
+                            "NOT": 1,
+                            "NOT NULL": 1,
+                            "NULL": 1,
+                            "OR": 1,
+                            "OVER": 1,
+                            "REGEXP": 1,
+                            "RLIKE": 1,
+                            "XOR": 1
                         },
                         "database": null,
                         "table": "Country",
@@ -685,18 +698,22 @@
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "ALLOWED_KEYWORDS": {
-                            "AS": 1,
-                            "DUAL": 1,
-                            "NULL": 1,
-                            "REGEXP": 1,
-                            "CASE": 1,
-                            "DIV": 1,
                             "AND": 1,
-                            "OR": 1,
-                            "XOR": 1,
-                            "NOT": 1,
+                            "AS": 1,
+                            "BETWEEN": 1,
+                            "CASE": 1,
+                            "DUAL": 1,
+                            "DIV": 1,
+                            "IS": 1,
                             "MOD": 1,
-                            "OVER": 2
+                            "NOT": 1,
+                            "NOT NULL": 1,
+                            "NULL": 1,
+                            "OR": 1,
+                            "OVER": 1,
+                            "REGEXP": 1,
+                            "RLIKE": 1,
+                            "XOR": 1
                         },
                         "database": null,
                         "table": "City",

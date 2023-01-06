@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT left_tbl.*\nFROM left_tbl LEFT JOIN right_tbl ON left_tbl.id = right_tbl.id\nWHERE right_tbl.id IS NULL;",
         "len": 109,
         "last": 109,

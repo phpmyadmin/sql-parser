@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT * FROM orders\nNATURAL JOIN Items_Orders LEFT JOIN items on orders.item_id = items.id\nWHERE customer= 'username'",
         "len": 118,
         "last": 118,

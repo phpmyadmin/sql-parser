@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "-- missing comma between alter operations\nALTER TABLE tb_foo CHANGE inmsg inmsg date NULL AFTER outmsg2 CHANGE inmsg2 inmsg2 time NULL AFTER inmsg;\n",
         "len": 148,
         "last": 148,

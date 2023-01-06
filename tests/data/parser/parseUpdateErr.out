@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "-- extraneous comma\nUPDATE\n    users\nSET\n    username = \"Dan\",\n    id=155,\nWHERE 1 = 1;",
         "len": 87,
         "last": 87,

@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE PROCEDURE P_TEST(uid INT)\nBEGIN\n    SELECT username FROM users WHERE ID = uid;\nEND",
         "len": 89,
         "last": 89,

@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE TRIGGER ins_sum BEFORE INSERT ON account\nFOR EACH ROW BEGIN SET @sum = @sum + NEW.amount END",
         "len": 99,
         "last": 99,

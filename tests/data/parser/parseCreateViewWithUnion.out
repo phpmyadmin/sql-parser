@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE VIEW  `employees_view` AS\nSELECT *\nFROM\n    `employees`\nWHERE\n    `employees`.`gender` = 'M'\nUNION\nSELECT *\nFROM\n    `employees`\nWHERE\n    `employees`.`gender` = 'F';",
         "len": 173,
         "last": 173,

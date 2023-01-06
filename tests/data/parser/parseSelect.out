@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT ALL MAX_STATEMENT_TIME = 10\n    1 + 2 AS result,\n    @idx,\n    id,\n    test.`users`.username AS `name`\nFROM\n    `test`.users, posts\n    PARTITION (p1, p2)\nWHERE\n    id > 0\nORDER BY\n    username DESC,\n    id\nLIMIT 3 OFFSET 2;",
         "len": 231,
         "last": 231,

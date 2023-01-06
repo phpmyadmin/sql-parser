@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT * FROM foo WHERE\nSELECT * FROM foo WHERE\n\nSTART TRANSACTION;\n\nCREATE TABLE `tb` (`uid` INT UNSIGNED NOT NULL\n`position` INT NOT NULL,\nPRIMARY KEY ( `uid` ) ,\nINDEX ( `position` )\n) ENGINE = InnoDB;\n\nCOMMIT;",
         "len": 213,
         "last": 213,

@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE ALGORITHM=UNDEFINED DEFINER=root@localhost\nSQL SECURITY DEFINER VIEW `test_view`  AS\nselect `email_content`.`content_id` AS `content_id`,\n`email_content`.`brand_id` AS `brand_id` from `email_content`;",
         "len": 207,
         "last": 207,

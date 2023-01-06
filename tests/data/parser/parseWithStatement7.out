@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "WITH cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 ) SELECT * FROM cte INNER JOIN table2 ON table2.col1=cte.col1;",
         "len": 111,
         "last": 111,

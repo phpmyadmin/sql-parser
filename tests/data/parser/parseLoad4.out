@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "LOAD DATA INFILE '\/tmp\/test.txt' IGNORE\nINTO TABLE test\nCHARACTER SET 'utf8'\nCOLUMNS TERMINATED BY ','\nLINES TERMINATED BY ';'\nIGNORE 1 LINES\n(col1, col2)\nSET @a = 1;",
         "len": 166,
         "last": 166,

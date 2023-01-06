@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE TABLE T1 (COL1 CHAR(10))\n\nCREATE VIEW  V1 AS SELECT COL1\n    FROM T1 WHERE COL1 LIKE 'A%'\n\nCREATE VIEW V2 AS SELECT COL1\n    FROM V1 WHERE COL1 LIKE '%Z'\n                            WITH LOCAL CHECK OPTION\n\nCREATE VIEW V3 AS SELECT COL1\n    FROM V2 WHERE COL1 LIKE 'AB%'\n\nCREATE VIEW V4 AS SELECT COL1\n    FROM V3 WHERE COL1 LIKE '%YZ'\n                            WITH CASCADED CHECK OPTION\n\nCREATE VIEW V5 AS SELECT COL1\n    FROM V4 WHERE COL1 LIKE 'ABC%'\n",
         "len": 464,
         "last": 464,

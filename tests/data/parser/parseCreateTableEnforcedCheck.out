@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE TABLE IF NOT EXISTS employees_check (FirstName varchar(30) CHECK (FirstName REGEXP '^T' AND FirstName REGEXP 'r$') ENFORCED);",
         "len": 132,
         "last": 132,
