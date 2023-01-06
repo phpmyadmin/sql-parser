@@ -349,12 +349,7 @@ class AlterOperation extends Component
                     }
                 } elseif (! self::checkIfTokenQuotedSymbol($token)) {
                     if (! empty(Parser::$STATEMENT_PARSERS[$token->value])) {
-                        // We want to get the next non-comment and non-space token after $token
-                        // therefore, the first getNext call will start with the current $idx which's $token,
-                        // will return it and increase $idx by 1, which's not guaranteed to be non-comment
-                        // and non-space, that's why we're calling getNext again.
-
-                        $list->getNext();
+                        $list->idx++; // Ignore the current token
                         $nextToken = $list->getNext();
 
                         if ($token->value === 'SET' && $nextToken !== null && $nextToken->value === '(') {
@@ -387,12 +382,7 @@ class AlterOperation extends Component
                 $ret->unknown[] = $token;
             } elseif ($state === 3) {
                 if ($partitionState === 0) {
-                        // We want to get the next non-comment and non-space token after $token
-                        // therefore, the first getNext call will start with the current $idx which's $token,
-                        // will return it and increase $idx by 1, which's not guaranteed to be non-comment
-                        // and non-space, that's why we're calling getNext again.
-
-                        $list->getNext();
+                        $list->idx++; // Ignore the current token
                         $nextToken = $list->getNext();
                     if (
                         ($token->type === Token::TYPE_KEYWORD)

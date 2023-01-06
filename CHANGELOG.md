@@ -2,6 +2,8 @@
 
 ## [5.x.x] - YYYY-MM-DD
 
+* Performance improvement to use less the `nextToken()` function (#397)
+
 ## [5.6.0] - 2023-01-02
 
 * Add missing return types annotations
