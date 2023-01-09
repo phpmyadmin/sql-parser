@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
+use function array_merge;
 use function implode;
 
 /**
@@ -115,6 +116,8 @@ class AlterStatement extends Statement
                     $options = AlterOperation::$VIEW_OPTIONS;
                 } elseif ($this->options->has('USER')) {
                     $options = AlterOperation::$USER_OPTIONS;
+                } elseif ($this->options->has('EVENT')) {
+                    $options = array_merge(AlterOperation::$EVENT_OPTIONS, ['EVENT' => 0]);
                 }
 
                 $this->altered[] = AlterOperation::parse($parser, $list, $options);

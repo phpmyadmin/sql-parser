@@ -151,6 +151,8 @@ class ContextMySql50000 extends Context
         'DEFAULT CHARACTER SET' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
         'NATURAL RIGHT OUTER JOIN' => 7, 'WITH CONSISTENT SNAPSHOT' => 7,
+        'ON COMPLETION PRESERVE' => 7, 'ON COMPLETION NOT PRESERVE' => 7,
+        'ON SCHEDULE' => 7, 'DISABLE ON SLAVE' => 7,
 
         'BIT' => 9, 'XML' => 9,
         'ENUM' => 9, 'JSON' => 9, 'TEXT' => 9,
