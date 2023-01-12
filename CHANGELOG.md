@@ -4,6 +4,8 @@
 
 * Performance improvement to use less the `nextToken()` function (#397)
 * Lexer - Solving ambiguity on function keywords (#385)
+* Implement `ALTER EVENT` (#404)
+* Add `ALTER EVENT` keywords (#404)
 
 ## [5.6.0] - 2023-01-02
 
