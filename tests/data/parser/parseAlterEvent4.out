@@ -595,17 +595,49 @@
                         "VIEW_OPTIONS": {
                             "AS": 1
                         },
+                        "EVENT_OPTIONS": {
+                            "ON SCHEDULE": 1,
+                            "EVERY": [
+                                2,
+                                "expr"
+                            ],
+                            "AT": [
+                                2,
+                                "expr"
+                            ],
+                            "STARTS": [
+                                3,
+                                "expr"
+                            ],
+                            "ENDS": [
+                                4,
+                                "expr"
+                            ],
+                            "ON COMPLETION PRESERVE": 5,
+                            "ON COMPLETION NOT PRESERVE": 5,
+                            "RENAME": 6,
+                            "TO": [
+                                7,
+                                "var"
+                            ],
+                            "ENABLE": 8,
+                            "DISABLE": 8,
+                            "DISABLE ON SLAVE": 8,
+                            "COMMENT": [
+                                9,
+                                "var"
+                            ],
+                            "DO": 10
+                        },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "5": "ON COMPLETION PRESERVE"
+                            }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@8"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
@@ -640,14 +672,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@9"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

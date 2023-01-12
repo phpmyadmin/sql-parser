@@ -631,9 +631,51 @@
                         "VIEW_OPTIONS": {
                             "AS": 1
                         },
+                        "EVENT_OPTIONS": {
+                            "ON SCHEDULE": 1,
+                            "EVERY": [
+                                2,
+                                "expr"
+                            ],
+                            "AT": [
+                                2,
+                                "expr"
+                            ],
+                            "STARTS": [
+                                3,
+                                "expr"
+                            ],
+                            "ENDS": [
+                                4,
+                                "expr"
+                            ],
+                            "ON COMPLETION PRESERVE": 5,
+                            "ON COMPLETION NOT PRESERVE": 5,
+                            "RENAME": 6,
+                            "TO": [
+                                7,
+                                "var"
+                            ],
+                            "ENABLE": 8,
+                            "DISABLE": 8,
+                            "DISABLE ON SLAVE": 8,
+                            "COMMENT": [
+                                9,
+                                "var"
+                            ],
+                            "DO": 10
+                        },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "6": "RENAME",
+                                "7": {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": "my_new_event",
+                                    "value": "my_new_event"
+                                }
+                            }
                         },
                         "field": null,
                         "partitions": null,
@@ -672,21 +714,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "A new statement was found, but no delimiter between it and the previous one.",
-                {
-                    "@type": "@8"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@11"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

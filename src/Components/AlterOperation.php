@@ -183,6 +183,47 @@ class AlterOperation extends Component
     public static $VIEW_OPTIONS = ['AS' => 1];
 
     /**
+     * All event options.
+     *
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
+    public static $EVENT_OPTIONS = [
+        'ON SCHEDULE' => 1,
+        'EVERY' => [
+            2,
+            'expr',
+        ],
+        'AT' => [
+            2,
+            'expr',
+        ],
+        'STARTS' => [
+            3,
+            'expr',
+        ],
+        'ENDS' => [
+            4,
+            'expr',
+        ],
+        'ON COMPLETION PRESERVE' => 5,
+        'ON COMPLETION NOT PRESERVE' => 5,
+        'RENAME' => 6,
+        'TO' => [
+            7,
+            'var',
+        ],
+        'ENABLE' => 8,
+        'DISABLE' => 8,
+        'DISABLE ON SLAVE' => 8,
+        'COMMENT' => [
+            9,
+            'var',
+        ],
+        'DO' => 10,
+    ];
+
+    /**
      * Options of this operation.
      *
      * @var OptionsArray
@@ -299,7 +340,9 @@ class AlterOperation extends Component
             if ($state === 0) {
                 $ret->options = OptionsArray::parse($parser, $list, $options);
 
-                if ($ret->options->has('AS')) {
+                // Not only when aliasing but also when parsing the body of an event, we just list the tokens of the
+                // body in the unknown tokens list, as they define their own statements.
+                if ($ret->options->has('AS') || $ret->options->has('DO')) {
                     for (; $list->idx < $list->count; ++$list->idx) {
                         if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {
                             break;
