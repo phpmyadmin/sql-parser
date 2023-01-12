@@ -342,7 +342,7 @@ class AlterOperation extends Component
 
                 // Not only when aliasing but also when parsing the body of an event, we just list the tokens of the
                 // body in the unknown tokens list, as they define their own statements.
-                if ($ret->options->has('AS') || (isset($options['EVENT']) && $ret->options->has('DO'))) {
+                if ($ret->options->has('AS') || $ret->options->has('DO')) {
                     for (; $list->idx < $list->count; ++$list->idx) {
                         if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {
                             break;
