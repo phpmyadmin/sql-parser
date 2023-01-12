@@ -94,7 +94,7 @@ class Lexer extends Core
      *
      * @var string[]
      */
-    public $KEYWORD_NAME_INDICATORS = [
+    public $keywordNameIndicators = [
         'FROM',
         'SET',
         'WHERE',
@@ -106,7 +106,7 @@ class Lexer extends Core
      *
      * @var string[]
      */
-    public $OPERATOR_NAME_INDICATORS = [
+    public $operatorNameIndicators = [
         ',',
         '.',
     ];
@@ -437,10 +437,10 @@ class Lexer extends Core
             $next = $this->list->getNext();
             if (
                 ($next->type !== Token::TYPE_KEYWORD
-                    || ! in_array($next->value, $this->KEYWORD_NAME_INDICATORS, true)
+                    || ! in_array($next->value, $this->keywordNameIndicators, true)
                 )
                 && ($next->type !== Token::TYPE_OPERATOR
-                    || ! in_array($next->value, $this->OPERATOR_NAME_INDICATORS, true)
+                    || ! in_array($next->value, $this->operatorNameIndicators, true)
                 )
                 && ($next->value !== null)
             ) {
