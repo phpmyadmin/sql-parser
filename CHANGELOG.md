@@ -6,6 +6,7 @@
 * Lexer - Solving ambiguity on function keywords (#385)
 * Implement `ALTER EVENT` (#404)
 * Add `ALTER EVENT` keywords (#404)
+* Drop PHP 7.1 support
 
 ## [5.6.0] - 2023-01-02
 

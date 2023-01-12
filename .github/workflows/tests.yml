@@ -15,7 +15,7 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         strategy:
             matrix:
-                php-version: ["7.1", "7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
+                php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
                 os: [ubuntu-latest]
                 experimental: [false]
                 composer-options: ['']
@@ -51,8 +51,8 @@ jobs:
             - name: Install dependencies
               run: composer install --no-interaction ${{ matrix.composer-options }}
             - name: Install motranslator
-              if: ${{ matrix.php-version == '7.1' }}
-              run: composer require phpmyadmin/motranslator:^3.0
+              if: ${{ matrix.php-version == '7.2' }}
+              run: composer require phpmyadmin/motranslator:^3.0 --with-all-dependencies --no-interaction
             - name: Run php tests
               run: composer run phpunit
             - name: Send coverage
@@ -63,3 +63,50 @@ jobs:
               if: github.repository == 'phpmyadmin/sql-parser'
               with:
                   cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
+
+    php-benchmark:
+        name: Benchmark on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
+        continue-on-error: ${{ matrix.experimental }}
+        strategy:
+            matrix:
+                php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
+                os: [ubuntu-latest]
+                experimental: [false]
+                composer-options: ['']
+                include:
+                  - { php-version: 'nightly', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-reqs' }
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  # Fetch some commits for Scrutinizer coverage upload
+                  fetch-depth: 15
+            - name: Use PHP ${{ matrix.php-version }}
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-version }}
+                  # phar, json and curl are used by composer
+                  # json is used by testing code
+                  # dom, json, mbstring, libxml, xml, xmlwriter are used by phpunit
+                  # tokenizer, xmlwriter and simplexml are used by phpcs
+                  # ctype is used by Psalm
+                  extensions: none, mbstring, phar, json, curl, tokenizer, xml, xmlwriter, simplexml, libxml, dom, ctype
+                  coverage: xdebug
+            - name: Get Composer Cache Directory
+              id: composer-cache
+              run: |
+                echo "::set-output name=dir::$(composer config cache-files-dir)"
+            - name: Restore cache
+              uses: actions/cache@v3
+              with:
+                path: ${{ steps.composer-cache.outputs.dir }}
+                key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-composer-
+            - name: Install dependencies
+              run: composer install --no-interaction ${{ matrix.composer-options }}
+            - name: Install motranslator
+              if: ${{ matrix.php-version == '7.2' }}
+              run: composer require phpmyadmin/motranslator:^3.0 --with-all-dependencies --no-interaction
+            - name: Run benchmarks
+              run: composer run phpbench
