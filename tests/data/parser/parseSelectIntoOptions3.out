@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT a,b,a+b INTO OUTFILE '\/tmp\/result.txt'\n    COLUMNS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\\\"'\n    FROM test_table;",
         "len": 124,
         "last": 124,

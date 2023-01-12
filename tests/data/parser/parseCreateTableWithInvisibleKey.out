@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE TABLE `animes_comments` (\n  `anime_comment_id` bigint unsigned NOT NULL AUTO_INCREMENT,\n  `anime_id` bigint unsigned NOT NULL,\n  `user_id` bigint unsigned NOT NULL,\n  `comment_text` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,\n  `comment_at` datetime DEFAULT NULL,\n  PRIMARY KEY (`anime_comment_id`),\n  KEY `animes_comments_animes_fk` (`anime_id`) invisible,\n  KEY `animes_comments_users_fk` (`user_id`),\n  KEY `comment_at_idx` (`comment_at`) ,\n  CONSTRAINT `animes_comments_animes_fk` FOREIGN KEY (`anime_id`) REFERENCES `animes` (`anime_id`) ON DELETE CASCADE ON UPDATE RESTRICT,\n  CONSTRAINT `animes_comments_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT)",
         "len": 730,
         "last": 730,

@@ -22,6 +22,23 @@ class ExpressionTest extends TestCase
         $this->assertEquals($component->expr, 'col');
     }
 
+    public function testParse3(): void
+    {
+        $component = Expression::parse(new Parser(), $this->getTokensList('col xx'));
+        $this->assertEquals($component->alias, 'xx');
+
+        $component = Expression::parse(new Parser(), $this->getTokensList('col y'));
+        $this->assertEquals($component->alias, 'y');
+
+        $component = Expression::parse(new Parser(), $this->getTokensList('avg.col FROM (SELECT ev.col FROM ev)'));
+        $this->assertEquals($component->table, 'avg');
+        $this->assertEquals($component->expr, 'avg.col');
+
+        $component = Expression::parse(new Parser(), $this->getTokensList('x.id FROM (SELECT a.id FROM a) x'));
+        $this->assertEquals($component->table, 'x');
+        $this->assertEquals($component->expr, 'x.id');
+    }
+
     /**
      * @dataProvider parseErrProvider
      */

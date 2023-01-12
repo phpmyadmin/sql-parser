@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "select `products`.`pid` AS `pid`, `products`.`pname` as `name`, rank() over( partition by `products`.`pvalue` order by `products`.`pid` desc) AS `myrank` from `products` \n",
         "len": 171,
         "last": 171,

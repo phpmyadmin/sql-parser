@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE FUNCTION F_TEST(uid INT) RETURNS VARCHAR\nBEGIN\n    DECLARE username VARCHAR DEFAULT \"\";\n    SELECT username INTO username FROM users WHERE ID = uid;\n    RETURN username;\nEND",
         "len": 180,
         "last": 180,

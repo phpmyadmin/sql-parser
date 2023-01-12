@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase when 1=1 when \"Some\" else \"Other\" end FROM a;",
         "len": 132,
         "last": 132,

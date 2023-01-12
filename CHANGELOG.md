@@ -1,6 +1,11 @@
 # Change Log
 
-## [5.6.0] - YYYY-MM-DD
+## [5.x.x] - YYYY-MM-DD
+
+* Performance improvement to use less the `nextToken()` function (#397)
+* Lexer - Solving ambiguity on function keywords (#385)
+
+## [5.6.0] - 2023-01-02
 
 * Add missing return types annotations
 * Improve the WITH statements parser (#363)
@@ -16,6 +21,7 @@
 * Implement the `EXPLAIN` Parser (#389)
 * Context: Updated contexts to contain `multipoint` and `multipolygon` data types (#393)
 * Support more keywords on `Expression` component (#399)
+* Fix PHP 8.3 failing tests (#400)
 
 ## [5.5.0] - 2021-12-08
 

@@ -142,11 +142,7 @@ final class WithStatement extends Statement
             } elseif ($state === 3) {
                 $idxBeforeGetNext = $list->idx;
 
-                // We want to get the next non-comment and non-space token after $token
-                // therefore, the first getNext call will start with the current $idx which's $token,
-                // will return it and increase $idx by 1, which's not guaranteed to be non-comment
-                // and non-space, that's why we're calling getNext again.
-                $list->getNext();
+                $list->idx++; // Ignore the current token
                 $nextKeyword = $list->getNext();
 
                 if (! ($token->value === '(' && ($nextKeyword && $nextKeyword->value === 'SELECT'))) {

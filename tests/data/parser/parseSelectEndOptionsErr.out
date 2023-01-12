@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT pid, name2 FROM tablename WHERE pid = 20\n\/* USE both end_option, gives error *\/\nFOR UPDATE LOCK IN SHARE MODE",
         "len": 116,
         "last": 116,

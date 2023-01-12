@@ -87,6 +87,30 @@ class Lexer extends Core
         'parseUnknown',
     ];
 
+
+    /**
+     * A list of keywords that indicate that the function keyword
+     * is not used as a function
+     *
+     * @var string[]
+     */
+    public $KEYWORD_NAME_INDICATORS = [
+        'FROM',
+        'SET',
+        'WHERE',
+    ];
+
+    /**
+     * A list of operators that indicate that the function keyword
+     * is not used as a function
+     *
+     * @var string[]
+     */
+    public $OPERATOR_NAME_INDICATORS = [
+        ',',
+        '.',
+    ];
+
     /**
      * The string to be parsed.
      *
@@ -346,6 +370,7 @@ class Lexer extends Core
         $this->list = $list;
 
         $this->solveAmbiguityOnStarOperator();
+        $this->solveAmbiguityOnFunctionKeywords();
     }
 
     /**
@@ -360,10 +385,8 @@ class Lexer extends Core
      * - ")" (a closing parenthesis like in "COUNT(*)").
      * This methods will change the flag of the "*" tokens when any of those condition above is true. Otherwise, the
      * default flag (arithmetic) will be kept.
-     *
-     * @return void
      */
-    private function solveAmbiguityOnStarOperator()
+    private function solveAmbiguityOnStarOperator(): void
     {
         $iBak = $this->list->idx;
         while (($starToken = $this->list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, '*')) !== null) {
@@ -382,6 +405,51 @@ class Lexer extends Core
             }
 
             $starToken->flags = Token::FLAG_OPERATOR_SQL;
+        }
+
+        $this->list->idx = $iBak;
+    }
+
+    /**
+     * Resolves the ambiguity when dealing with the functions keywords.
+     *
+     * In SQL statements, the function keywords might be used as table names or columns names.
+     * To solve this ambiguity, the solution is to find the next token, excluding whitespaces and
+     * comments, right after the function keyword position. The function keyword is for sure used
+     * as column name or table name if the next token found is any of:
+     *
+     * - "FROM" (the FROM keyword like in "SELECT Country x, AverageSalary avg FROM...");
+     * - "WHERE" (the WHERE keyword like in "DELETE FROM emp x WHERE x.salary = 20");
+     * - "SET" (the SET keyword like in "UPDATE Country x, City y set x.Name=x.Name");
+     * - "," (a comma separator like 'x,' in "UPDATE Country x, City y set x.Name=x.Name");
+     * - "." (a dot separator like in "x.asset_id FROM (SELECT evt.asset_id FROM evt)".
+     * - "NULL" (when used as a table alias like in "avg.col FROM (SELECT ev.col FROM ev) avg").
+     *
+     * This method will change the flag of the function keyword tokens when any of those
+     * condition above is true. Otherwise, the
+     * default flag (function keyword) will be kept.
+     */
+    private function solveAmbiguityOnFunctionKeywords(): void
+    {
+        $iBak = $this->list->idx;
+        $keywordFunction = Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION;
+        while (($keywordToken = $this->list->getNextOfTypeAndFlag(Token::TYPE_KEYWORD, $keywordFunction)) !== null) {
+            $next = $this->list->getNext();
+            if (
+                ($next->type !== Token::TYPE_KEYWORD
+                    || ! in_array($next->value, $this->KEYWORD_NAME_INDICATORS, true)
+                )
+                && ($next->type !== Token::TYPE_OPERATOR
+                    || ! in_array($next->value, $this->OPERATOR_NAME_INDICATORS, true)
+                )
+                && ($next->value !== null)
+            ) {
+                continue;
+            }
+
+            $keywordToken->type = Token::TYPE_NONE;
+            $keywordToken->flags = Token::TYPE_NONE;
+            $keywordToken->keyword = $keywordToken->value;
         }
 
         $this->list->idx = $iBak;

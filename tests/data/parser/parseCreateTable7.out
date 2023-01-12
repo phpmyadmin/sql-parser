@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE TABLE `ts` (\n  `id` int(11) DEFAULT NULL,\n  `purchased` date DEFAULT NULL\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4\nPARTITION BY RANGE (YEAR(purchased))\nSUBPARTITION BY HASH (TO_DAYS(purchased))\n(\nPARTITION p0 VALUES LESS THAN (1990)  (\nSUBPARTITION s0 ENGINE=InnoDB,\nSUBPARTITION s1 ENGINE=InnoDB\n),\nPARTITION p1 VALUES LESS THAN (2000)  (\nSUBPARTITION s2 ENGINE=InnoDB,\nSUBPARTITION s3 ENGINE=InnoDB\n),\nPARTITION p2 VALUES LESS THAN MAXVALUE  (\nSUBPARTITION s4 ENGINE=InnoDB,\nSUBPARTITION s5 ENGINE=InnoDB\n)\n);\n",
         "len": 518,
         "last": 518,

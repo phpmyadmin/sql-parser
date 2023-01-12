@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "-- create first view\nCREATE VIEW withclause AS\n\nWITH cte AS (\n  SELECT p.name, p.shape\n  FROM gis_all as p\n)\n\nSELECT cte.*\nFROM cte\nCROSS JOIN gis_all;\n-- create second view\nCREATE VIEW withclause2 AS\n\nWITH cte AS (\n  SELECT p.name, p.shape\n  FROM gis_all as p\n), cte2 AS (\n  SELECT p.name as n2, p.shape as sh2\n  FROM gis_all as p\n)\n\nSELECT cte.*,cte2.*\nFROM cte,cte2\nCROSS JOIN gis_all;",
         "len": 388,
         "last": 388,

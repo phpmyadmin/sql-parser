@@ -793,6 +793,12 @@
     <PossiblyNullPropertyAssignmentValue occurrences="1">
       <code>null</code>
     </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullPropertyFetch occurrences="4">
+      <code>$next-&gt;type</code>
+      <code>$next-&gt;value</code>
+      <code>$next-&gt;value</code>
+      <code>$next-&gt;value</code>
+    </PossiblyNullPropertyFetch>
     <RedundantCondition occurrences="1">
       <code>USE_UTF_STRINGS</code>
     </RedundantCondition>
@@ -1027,11 +1033,6 @@
     <PropertyNotSetInConstructor occurrences="1">
       <code>$statementAlias</code>
     </PropertyNotSetInConstructor>
-    <UnusedVariable occurrences="3">
-      <code>$connectionToken</code>
-      <code>$currToken</code>
-      <code>$forToken</code>
-    </UnusedVariable>
   </file>
   <file src="src/Statements/InsertStatement.php">
     <PossiblyNullOperand occurrences="2">
@@ -1532,9 +1533,15 @@
     </UndefinedMethod>
   </file>
   <file src="tests/Components/ExpressionTest.php">
-    <PossiblyNullPropertyFetch occurrences="2">
+    <PossiblyNullPropertyFetch occurrences="8">
+      <code>$component-&gt;alias</code>
+      <code>$component-&gt;alias</code>
       <code>$component-&gt;expr</code>
       <code>$component-&gt;expr</code>
+      <code>$component-&gt;expr</code>
+      <code>$component-&gt;expr</code>
+      <code>$component-&gt;table</code>
+      <code>$component-&gt;table</code>
     </PossiblyNullPropertyFetch>
   </file>
   <file src="tests/Components/JoinKeywordTest.php">

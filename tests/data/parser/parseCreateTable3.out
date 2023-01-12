@@ -15,6 +15,15 @@
             "parseLabel",
             "parseUnknown"
         ],
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE TABLE table1 (\n    a INT NOT NULL,\n    b VARCHAR(32),\n    c INT AS (a mod 10) VIRTUAL,\n    d VARCHAR(5) AS (left(b,5)) PERSISTENT\n);",
         "len": 139,
         "last": 139,
