@@ -116,7 +116,6 @@ class AlterOperation extends Component
         'COLUMN' => 2,
         'CONSTRAINT' => 2,
         'DEFAULT' => 2,
-        'TO' => 2,
         'BY' => 2,
         'FOREIGN' => 2,
         'FULLTEXT' => 2,
@@ -128,9 +127,16 @@ class AlterOperation extends Component
         'PRIMARY KEY' => 2,
         'SPATIAL' => 2,
         'TABLESPACE' => 2,
-        'INDEX' => 2,
+        'INDEX' => [
+            2,
+            'var',
+        ],
 
         'CHARACTER SET' => 3,
+        'TO' => [
+            3,
+            'var',
+        ],
     ];
 
     /**
