@@ -443,6 +443,23 @@ EOT
 
     public function testBuilderCreateProcedure(): void
     {
+
+        $parser = new Parser(
+            'CREATE DEFINER=`root`@`%`'
+            . ' PROCEDURE `test2`(IN `_var` INT) DETERMINISTIC'
+            . ' MODIFIES SQL DATA SELECT _var'
+        );
+
+        /** @var CreateStatement $stmt */
+        $stmt = $parser->statements[0];
+
+        $this->assertSame(
+            'CREATE DEFINER=`root`@`%`'
+            . ' PROCEDURE `test2` (IN `_var` INT)  DETERMINISTIC'
+            . ' MODIFIES SQL DATA SELECT _var',
+            $stmt->build()
+        );
+
         $parser = new Parser(
             'CREATE DEFINER=`root`@`%`'
             . ' PROCEDURE `test2`(IN `_var` INT) NOT DETERMINISTIC NO SQL'
