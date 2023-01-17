@@ -443,7 +443,6 @@ EOT
 
     public function testBuilderCreateProcedure(): void
     {
-
         $parser = new Parser(
             'CREATE DEFINER=`root`@`%`'
             . ' PROCEDURE `test2`(IN `_var` INT) DETERMINISTIC'
