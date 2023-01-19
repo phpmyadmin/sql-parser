@@ -480,7 +480,7 @@ class Parser extends Core
                 // 2 - Explain statement, in case of MariaDB https://mariadb.com/kb/en/explain-analyze/
                 // We need to point case 2 to use the EXPLAIN Parser.
                 $statementName = 'EXPLAIN';
-                if ($first->keyword === 'TABLE' || $second->keyword === 'TABLE') {
+                if (($first && $first->keyword === 'TABLE') || ($second && $second->keyword === 'TABLE')) {
                     $statementName = 'ANALYZE';
                 }
 
