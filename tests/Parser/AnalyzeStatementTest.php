@@ -24,6 +24,8 @@ class AnalyzeStatementTest extends TestCase
         return [
             ['parser/parseAnalyzeTable'],
             ['parser/parseAnalyzeTable1'],
+            ['parser/parseAnalyzeErr1'],
+            ['parser/parseAnalyzeErr2'],
         ];
     }
 }
