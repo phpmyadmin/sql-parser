@@ -9,6 +9,7 @@
 * Drop PHP 7.1 support
 * Fix the alter operation table options `RENAME INDEX x TO y` (#405)
 * Fix `CreateStatement` function's options (#406)
+* Fix a PHP notice on Linter using `ANALYZE` (#413)
 
 ## [5.6.0] - 2023-01-02
 
