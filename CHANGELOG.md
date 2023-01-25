@@ -1,6 +1,6 @@
 # Change Log
 
-## [5.x.x] - YYYY-MM-DD
+## [5.7.0] - 2023-01-25
 
 * Performance improvement to use less the `nextToken()` function (#397)
 * Lexer - Solving ambiguity on function keywords (#385)
