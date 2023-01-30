@@ -98,6 +98,7 @@ class SelectStatementTest extends TestCase
             ['parser/parseSelectOrderByComment'],
             ['parser/parseSelectOverAlias_mariadb_100600'],
             ['parser/parseSelectGroupBy'],
+            ['parser/parseSelectGroupByErr'],
         ];
     }
 }

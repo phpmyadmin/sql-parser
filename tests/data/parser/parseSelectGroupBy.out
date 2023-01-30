@@ -1,5 +1,5 @@
 {
-    "query": "SELECT * FROM movie GROUP BY title;\nSELECT * FROM movie GROUP BY 1;\nSELECT * FROM movie GROUP BY year, title;\nSELECT * FROM movie GROUP BY year WITH ROLLUP;\n",
+    "query": "SELECT * FROM movie GROUP BY title;\nSELECT * FROM movie GROUP BY 1;\nSELECT * FROM movie GROUP BY year, title;\nSELECT * FROM movie GROUP BY year WITH ROLLUP;\nSELECT * FROM movie GROUP BY year, title WITH ROLLUP;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "PARSER_METHODS": [
@@ -24,9 +24,9 @@
             ",",
             "."
         ],
-        "str": "SELECT * FROM movie GROUP BY title;\nSELECT * FROM movie GROUP BY 1;\nSELECT * FROM movie GROUP BY year, title;\nSELECT * FROM movie GROUP BY year WITH ROLLUP;\n",
-        "len": 157,
-        "last": 157,
+        "str": "SELECT * FROM movie GROUP BY title;\nSELECT * FROM movie GROUP BY 1;\nSELECT * FROM movie GROUP BY year, title;\nSELECT * FROM movie GROUP BY year WITH ROLLUP;\nSELECT * FROM movie GROUP BY year, title WITH ROLLUP;\n",
+        "len": 211,
+        "last": 211,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -563,6 +563,186 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 157
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 163
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "*",
+                    "value": "*",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 164
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 165
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 166
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 170
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "movie",
+                    "value": "movie",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 171
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 176
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "GROUP BY",
+                    "value": "GROUP BY",
+                    "keyword": "GROUP BY",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 177
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 185
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "year",
+                    "value": "year",
+                    "keyword": "YEAR",
+                    "type": 1,
+                    "flags": 41,
+                    "position": 186
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 190
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 191
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "title",
+                    "value": "title",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 192
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 197
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "WITH",
+                    "value": "WITH",
+                    "keyword": "WITH",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 198
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 202
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "ROLLUP",
+                    "value": "ROLLUP",
+                    "keyword": "ROLLUP",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 203
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 209
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 210
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -571,8 +751,8 @@
                     "position": null
                 }
             ],
-            "count": 60,
-            "idx": 60
+            "count": 80,
+            "idx": 80
         },
         "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
@@ -1986,6 +2166,328 @@
                 },
                 "first": 54,
                 "last": 55
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
+                "OPTIONS": {
+                    "ALL": 1,
+                    "DISTINCT": 1,
+                    "DISTINCTROW": 1,
+                    "HIGH_PRIORITY": 2,
+                    "MAX_STATEMENT_TIME": [
+                        3,
+                        "var="
+                    ],
+                    "STRAIGHT_JOIN": 4,
+                    "SQL_SMALL_RESULT": 5,
+                    "SQL_BIG_RESULT": 6,
+                    "SQL_BUFFER_RESULT": 7,
+                    "SQL_CACHE": 8,
+                    "SQL_NO_CACHE": 8,
+                    "SQL_CALC_FOUND_ROWS": 9
+                },
+                "END_OPTIONS": {
+                    "FOR UPDATE": 1,
+                    "LOCK IN SHARE MODE": 1
+                },
+                "CLAUSES": {
+                    "SELECT": [
+                        "SELECT",
+                        2
+                    ],
+                    "_OPTIONS": [
+                        "_OPTIONS",
+                        1
+                    ],
+                    "_SELECT": [
+                        "SELECT",
+                        1
+                    ],
+                    "INTO": [
+                        "INTO",
+                        3
+                    ],
+                    "FROM": [
+                        "FROM",
+                        3
+                    ],
+                    "FORCE": [
+                        "FORCE",
+                        1
+                    ],
+                    "USE": [
+                        "USE",
+                        1
+                    ],
+                    "IGNORE": [
+                        "IGNORE",
+                        3
+                    ],
+                    "PARTITION": [
+                        "PARTITION",
+                        3
+                    ],
+                    "JOIN": [
+                        "JOIN",
+                        1
+                    ],
+                    "FULL JOIN": [
+                        "FULL JOIN",
+                        1
+                    ],
+                    "INNER JOIN": [
+                        "INNER JOIN",
+                        1
+                    ],
+                    "LEFT JOIN": [
+                        "LEFT JOIN",
+                        1
+                    ],
+                    "LEFT OUTER JOIN": [
+                        "LEFT OUTER JOIN",
+                        1
+                    ],
+                    "RIGHT JOIN": [
+                        "RIGHT JOIN",
+                        1
+                    ],
+                    "RIGHT OUTER JOIN": [
+                        "RIGHT OUTER JOIN",
+                        1
+                    ],
+                    "NATURAL JOIN": [
+                        "NATURAL JOIN",
+                        1
+                    ],
+                    "NATURAL LEFT JOIN": [
+                        "NATURAL LEFT JOIN",
+                        1
+                    ],
+                    "NATURAL RIGHT JOIN": [
+                        "NATURAL RIGHT JOIN",
+                        1
+                    ],
+                    "NATURAL LEFT OUTER JOIN": [
+                        "NATURAL LEFT OUTER JOIN",
+                        1
+                    ],
+                    "NATURAL RIGHT OUTER JOIN": [
+                        "NATURAL RIGHT JOIN",
+                        1
+                    ],
+                    "WHERE": [
+                        "WHERE",
+                        3
+                    ],
+                    "GROUP BY": [
+                        "GROUP BY",
+                        3
+                    ],
+                    "HAVING": [
+                        "HAVING",
+                        3
+                    ],
+                    "ORDER BY": [
+                        "ORDER BY",
+                        3
+                    ],
+                    "LIMIT": [
+                        "LIMIT",
+                        3
+                    ],
+                    "PROCEDURE": [
+                        "PROCEDURE",
+                        3
+                    ],
+                    "UNION": [
+                        "UNION",
+                        1
+                    ],
+                    "EXCEPT": [
+                        "EXCEPT",
+                        1
+                    ],
+                    "INTERSECT": [
+                        "INTERSECT",
+                        1
+                    ],
+                    "_END_OPTIONS": [
+                        "_END_OPTIONS",
+                        1
+                    ]
+                },
+                "expr": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                        "ALLOWED_KEYWORDS": {
+                            "AND": 1,
+                            "AS": 1,
+                            "BETWEEN": 1,
+                            "CASE": 1,
+                            "DUAL": 1,
+                            "DIV": 1,
+                            "IS": 1,
+                            "MOD": 1,
+                            "NOT": 1,
+                            "NOT NULL": 1,
+                            "NULL": 1,
+                            "OR": 1,
+                            "OVER": 1,
+                            "REGEXP": 1,
+                            "RLIKE": 1,
+                            "XOR": 1
+                        },
+                        "database": null,
+                        "table": null,
+                        "column": null,
+                        "expr": "*",
+                        "alias": null,
+                        "function": null,
+                        "subquery": null
+                    }
+                ],
+                "from": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                        "ALLOWED_KEYWORDS": {
+                            "AND": 1,
+                            "AS": 1,
+                            "BETWEEN": 1,
+                            "CASE": 1,
+                            "DUAL": 1,
+                            "DIV": 1,
+                            "IS": 1,
+                            "MOD": 1,
+                            "NOT": 1,
+                            "NOT NULL": 1,
+                            "NULL": 1,
+                            "OR": 1,
+                            "OVER": 1,
+                            "REGEXP": 1,
+                            "RLIKE": 1,
+                            "XOR": 1
+                        },
+                        "database": null,
+                        "table": "movie",
+                        "column": null,
+                        "expr": "movie",
+                        "alias": null,
+                        "function": null,
+                        "subquery": null
+                    }
+                ],
+                "index_hints": null,
+                "partition": null,
+                "where": null,
+                "group": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\GroupKeyword",
+                        "type": null,
+                        "expr": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "ALLOWED_KEYWORDS": {
+                                "AND": 1,
+                                "AS": 1,
+                                "BETWEEN": 1,
+                                "CASE": 1,
+                                "DUAL": 1,
+                                "DIV": 1,
+                                "IS": 1,
+                                "MOD": 1,
+                                "NOT": 1,
+                                "NOT NULL": 1,
+                                "NULL": 1,
+                                "OR": 1,
+                                "OVER": 1,
+                                "REGEXP": 1,
+                                "RLIKE": 1,
+                                "XOR": 1
+                            },
+                            "database": null,
+                            "table": null,
+                            "column": null,
+                            "expr": "year",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        }
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\GroupKeyword",
+                        "type": null,
+                        "expr": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "ALLOWED_KEYWORDS": {
+                                "AND": 1,
+                                "AS": 1,
+                                "BETWEEN": 1,
+                                "CASE": 1,
+                                "DUAL": 1,
+                                "DIV": 1,
+                                "IS": 1,
+                                "MOD": 1,
+                                "NOT": 1,
+                                "NOT NULL": 1,
+                                "NULL": 1,
+                                "OR": 1,
+                                "OVER": 1,
+                                "REGEXP": 1,
+                                "RLIKE": 1,
+                                "XOR": 1
+                            },
+                            "database": null,
+                            "table": null,
+                            "column": "title",
+                            "expr": "title",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        }
+                    }
+                ],
+                "having": null,
+                "order": null,
+                "limit": null,
+                "procedure": null,
+                "into": null,
+                "join": null,
+                "union": [],
+                "end_options": null,
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "first": 59,
+                "last": 73
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
+                "OPTIONS": {
+                    "RECURSIVE": 1
+                },
+                "CLAUSES": {
+                    "WITH": [
+                        "WITH",
+                        2
+                    ],
+                    "_OPTIONS": [
+                        "_OPTIONS",
+                        1
+                    ],
+                    "AS": [
+                        "AS",
+                        2
+                    ]
+                },
+                "withers": [],
+                "cteStatementParser": null,
+                "END_OPTIONS": [],
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "first": 74,
+                "last": 75
             }
         ],
         "brackets": 0,
@@ -2020,6 +2522,34 @@
                 "Unrecognized statement type.",
                 {
                     "@type": "@58"
+                },
+                0
+            ],
+            [
+                "A new statement was found, but no delimiter between it and the previous one.",
+                {
+                    "@type": "@76"
+                },
+                0
+            ],
+            [
+                "The name of the CTE was expected.",
+                {
+                    "@type": "@78"
+                },
+                0
+            ],
+            [
+                "Unexpected end of the WITH CTE.",
+                {
+                    "@type": "@78"
+                },
+                0
+            ],
+            [
+                "Unrecognized statement type.",
+                {
+                    "@type": "@78"
                 },
                 0
             ]
