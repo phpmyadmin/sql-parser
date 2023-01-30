@@ -116,6 +116,10 @@ class Parser extends Core
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\OptionsArray',
             'field' => 'end_options',
         ],
+        '_GROUP_OPTIONS' => [
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\OptionsArray',
+            'field' => 'group_options',
+        ],
 
         'INTERSECT' => [
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\UnionKeyword',
