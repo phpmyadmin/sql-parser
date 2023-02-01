@@ -217,7 +217,8 @@ class AlterOperation extends Component
         'RENAME' => 6,
         'TO' => [
             7,
-            'var',
+            'expr',
+            ['parseField' => 'table']
         ],
         'ENABLE' => 8,
         'DISABLE' => 8,

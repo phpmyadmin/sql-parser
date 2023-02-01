@@ -1032,7 +1032,6 @@
                             "COLUMN": 2,
                             "CONSTRAINT": 2,
                             "DEFAULT": 2,
-                            "TO": 2,
                             "BY": 2,
                             "FOREIGN": 2,
                             "FULLTEXT": 2,
@@ -1044,8 +1043,15 @@
                             "PRIMARY KEY": 2,
                             "SPATIAL": 2,
                             "TABLESPACE": 2,
-                            "INDEX": 2,
-                            "CHARACTER SET": 3
+                            "INDEX": [
+                                2,
+                                "var"
+                            ],
+                            "CHARACTER SET": 3,
+                            "TO": [
+                                3,
+                                "var"
+                            ]
                         },
                         "USER_OPTIONS": {
                             "ATTRIBUTE": [
@@ -1104,7 +1110,10 @@
                             "RENAME": 6,
                             "TO": [
                                 7,
-                                "var"
+                                "expr",
+                                {
+                                    "parseField": "table"
+                                }
                             ],
                             "ENABLE": 8,
                             "DISABLE": 8,
@@ -1223,7 +1232,34 @@
                                 "7": {
                                     "name": "TO",
                                     "equals": false,
-                                    "expr": "my_complete_event",
+                                    "expr": {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                        "ALLOWED_KEYWORDS": {
+                                            "AND": 1,
+                                            "AS": 1,
+                                            "BETWEEN": 1,
+                                            "CASE": 1,
+                                            "DUAL": 1,
+                                            "DIV": 1,
+                                            "IS": 1,
+                                            "MOD": 1,
+                                            "NOT": 1,
+                                            "NOT NULL": 1,
+                                            "NULL": 1,
+                                            "OR": 1,
+                                            "OVER": 1,
+                                            "REGEXP": 1,
+                                            "RLIKE": 1,
+                                            "XOR": 1
+                                        },
+                                        "database": null,
+                                        "table": "my_complete_event",
+                                        "column": null,
+                                        "expr": "my_complete_event",
+                                        "alias": null,
+                                        "function": null,
+                                        "subquery": null
+                                    },
                                     "value": "my_complete_event"
                                 },
                                 "8": "DISABLE",
