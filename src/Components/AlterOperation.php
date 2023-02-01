@@ -218,7 +218,7 @@ class AlterOperation extends Component
         'TO' => [
             7,
             'expr',
-            ['parseField' => 'table']
+            ['parseField' => 'table'],
         ],
         'ENABLE' => 8,
         'DISABLE' => 8,
