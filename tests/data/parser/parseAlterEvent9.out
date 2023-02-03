@@ -1,5 +1,5 @@
 {
-    "query": "ALTER EVENT my_event\n    ON SCHEDULE\n      EVERY 2 WEEK\n      STARTS CURRENT_TIMESTAMP + INTERVAL 4 WEEK\n      ENDS '2099-12-30 23:12:01' + INTERVAL 1 DAY\n    ON COMPLETION NOT PRESERVE\n    RENAME TO my_complete_event\n    DISABLE\n    COMMENT 'String as a comment'\n    DO\n        SELECT * FROM my_table;\n",
+    "query": "ALTER EVENT old_db.old_event RENAME TO new_db.new_event;\nALTER EVENT `old_db`.`old_event` RENAME TO `new_db`.`new_event`;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "PARSER_METHODS": [
@@ -24,9 +24,9 @@
             ",",
             "."
         ],
-        "str": "ALTER EVENT my_event\n    ON SCHEDULE\n      EVERY 2 WEEK\n      STARTS CURRENT_TIMESTAMP + INTERVAL 4 WEEK\n      ENDS '2099-12-30 23:12:01' + INTERVAL 1 DAY\n    ON COMPLETION NOT PRESERVE\n    RENAME TO my_complete_event\n    DISABLE\n    COMMENT 'String as a comment'\n    DO\n        SELECT * FROM my_table;\n",
-        "len": 303,
-        "last": 303,
+        "str": "ALTER EVENT old_db.old_event RENAME TO new_db.new_event;\nALTER EVENT `old_db`.`old_event` RENAME TO `new_db`.`new_event`;\n",
+        "len": 122,
+        "last": 122,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -68,8 +68,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "my_event",
-                    "value": "my_event",
+                    "token": "old_db",
+                    "value": "old_db",
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
@@ -77,93 +77,138 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n    ",
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 18
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "old_event",
+                    "value": "old_event",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 19
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
                     "value": " ",
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 20
+                    "position": 28
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "ON SCHEDULE",
-                    "value": "ON SCHEDULE",
-                    "keyword": "ON SCHEDULE",
+                    "token": "RENAME",
+                    "value": "RENAME",
+                    "keyword": "RENAME",
                     "type": 1,
-                    "flags": 7,
-                    "position": 25
+                    "flags": 3,
+                    "position": 29
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n      ",
+                    "token": " ",
                     "value": " ",
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
+                    "position": 35
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "TO",
+                    "value": "TO",
+                    "keyword": "TO",
+                    "type": 1,
+                    "flags": 3,
                     "position": 36
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "EVERY",
-                    "value": "EVERY",
-                    "keyword": "EVERY",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 43
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 48
+                    "position": 38
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "2",
-                    "value": 2,
+                    "token": "new_db",
+                    "value": "new_db",
                     "keyword": null,
-                    "type": 6,
+                    "type": 0,
                     "flags": 0,
-                    "position": 49
+                    "position": 39
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
+                    "token": ".",
+                    "value": ".",
                     "keyword": null,
-                    "type": 3,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 45
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "new_event",
+                    "value": "new_event",
+                    "keyword": null,
+                    "type": 0,
                     "flags": 0,
-                    "position": 50
+                    "position": 46
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "WEEK",
-                    "value": "WEEK",
-                    "keyword": "WEEK",
-                    "type": 1,
-                    "flags": 33,
-                    "position": 51
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n      ",
-                    "value": " ",
+                    "token": ";",
+                    "value": ";",
                     "keyword": null,
-                    "type": 3,
+                    "type": 9,
                     "flags": 0,
                     "position": 55
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "STARTS",
-                    "value": "STARTS",
-                    "keyword": "STARTS",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 56
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 57
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 62
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "EVENT",
+                    "value": "EVENT",
+                    "keyword": "EVENT",
                     "type": 1,
                     "flags": 1,
-                    "position": 62
+                    "position": 63
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -176,30 +221,30 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "CURRENT_TIMESTAMP",
-                    "value": "CURRENT_TIMESTAMP",
-                    "keyword": "CURRENT_TIMESTAMP",
-                    "type": 1,
-                    "flags": 35,
+                    "token": "`old_db`",
+                    "value": "old_db",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
                     "position": 69
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 86
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "+",
-                    "value": "+",
+                    "token": ".",
+                    "value": ".",
                     "keyword": null,
                     "type": 2,
-                    "flags": 1,
-                    "position": 87
+                    "flags": 16,
+                    "position": 77
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "`old_event`",
+                    "value": "old_event",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 78
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -208,34 +253,34 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 88
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "INTERVAL",
-                    "value": "INTERVAL",
-                    "keyword": "INTERVAL",
-                    "type": 1,
-                    "flags": 43,
                     "position": 89
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "RENAME",
+                    "value": "RENAME",
+                    "keyword": "RENAME",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 90
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 97
+                    "position": 96
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "4",
-                    "value": 4,
-                    "keyword": null,
-                    "type": 6,
-                    "flags": 0,
-                    "position": 98
+                    "token": "TO",
+                    "value": "TO",
+                    "keyword": "TO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 97
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -248,336 +293,30 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "WEEK",
-                    "value": "WEEK",
-                    "keyword": "WEEK",
-                    "type": 1,
-                    "flags": 33,
+                    "token": "`new_db`",
+                    "value": "new_db",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
                     "position": 100
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n      ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 104
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "ENDS",
-                    "value": "ENDS",
-                    "keyword": "ENDS",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 111
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 115
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'2099-12-30 23:12:01'",
-                    "value": "2099-12-30 23:12:01",
-                    "keyword": null,
-                    "type": 7,
-                    "flags": 1,
-                    "position": 116
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 137
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "+",
-                    "value": "+",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 1,
-                    "position": 138
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 139
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "INTERVAL",
-                    "value": "INTERVAL",
-                    "keyword": "INTERVAL",
-                    "type": 1,
-                    "flags": 43,
-                    "position": 140
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 148
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "1",
-                    "value": 1,
-                    "keyword": null,
-                    "type": 6,
-                    "flags": 0,
-                    "position": 149
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 150
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "DAY",
-                    "value": "DAY",
-                    "keyword": "DAY",
-                    "type": 1,
-                    "flags": 33,
-                    "position": 151
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n    ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 154
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "ON COMPLETION NOT PRESERVE",
-                    "value": "ON COMPLETION NOT PRESERVE",
-                    "keyword": "ON COMPLETION NOT PRESERVE",
-                    "type": 1,
-                    "flags": 7,
-                    "position": 159
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n    ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 185
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "RENAME",
-                    "value": "RENAME",
-                    "keyword": "RENAME",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 190
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 196
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "TO",
-                    "value": "TO",
-                    "keyword": "TO",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 197
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 199
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "my_complete_event",
-                    "value": "my_complete_event",
-                    "keyword": null,
-                    "type": 0,
-                    "flags": 0,
-                    "position": 200
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n    ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 217
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "DISABLE",
-                    "value": "DISABLE",
-                    "keyword": "DISABLE",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 222
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n    ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 229
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "COMMENT",
-                    "value": "COMMENT",
-                    "keyword": "COMMENT",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 234
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 241
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'String as a comment'",
-                    "value": "String as a comment",
-                    "keyword": null,
-                    "type": 7,
-                    "flags": 1,
-                    "position": 242
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n    ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 263
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "DO",
-                    "value": "DO",
-                    "keyword": "DO",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 268
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n        ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 270
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SELECT",
-                    "value": "SELECT",
-                    "keyword": "SELECT",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 279
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 285
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*",
-                    "value": "*",
+                    "token": ".",
+                    "value": ".",
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
-                    "position": 286
+                    "position": 108
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
+                    "token": "`new_event`",
+                    "value": "new_event",
                     "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 287
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "FROM",
-                    "value": "FROM",
-                    "keyword": "FROM",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 288
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 292
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "my_table",
-                    "value": "my_table",
-                    "keyword": null,
-                    "type": 0,
-                    "flags": 0,
-                    "position": 293
+                    "type": 8,
+                    "flags": 2,
+                    "position": 109
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -586,7 +325,7 @@
                     "keyword": null,
                     "type": 9,
                     "flags": 0,
-                    "position": 301
+                    "position": 120
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -595,7 +334,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 302
+                    "position": 121
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -607,8 +346,8 @@
                     "position": null
                 }
             ],
-            "count": 64,
-            "idx": 64
+            "count": 35,
+            "idx": 35
         },
         "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
@@ -940,10 +679,10 @@
                         "RLIKE": 1,
                         "XOR": 1
                     },
-                    "database": null,
-                    "table": "my_event",
+                    "database": "old_db",
+                    "table": "old_event",
                     "column": null,
-                    "expr": "my_event",
+                    "expr": "old_db.old_event",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -1127,107 +866,6 @@
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
-                                "1": "ON SCHEDULE",
-                                "2": {
-                                    "name": "EVERY",
-                                    "equals": false,
-                                    "expr": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "ALLOWED_KEYWORDS": {
-                                            "AND": 1,
-                                            "AS": 1,
-                                            "BETWEEN": 1,
-                                            "CASE": 1,
-                                            "DUAL": 1,
-                                            "DIV": 1,
-                                            "IS": 1,
-                                            "MOD": 1,
-                                            "NOT": 1,
-                                            "NOT NULL": 1,
-                                            "NULL": 1,
-                                            "OR": 1,
-                                            "OVER": 1,
-                                            "REGEXP": 1,
-                                            "RLIKE": 1,
-                                            "XOR": 1
-                                        },
-                                        "database": null,
-                                        "table": null,
-                                        "column": null,
-                                        "expr": "2 WEEK",
-                                        "alias": null,
-                                        "function": null,
-                                        "subquery": null
-                                    },
-                                    "value": "2 WEEK"
-                                },
-                                "3": {
-                                    "name": "STARTS",
-                                    "equals": false,
-                                    "expr": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "ALLOWED_KEYWORDS": {
-                                            "AND": 1,
-                                            "AS": 1,
-                                            "BETWEEN": 1,
-                                            "CASE": 1,
-                                            "DUAL": 1,
-                                            "DIV": 1,
-                                            "IS": 1,
-                                            "MOD": 1,
-                                            "NOT": 1,
-                                            "NOT NULL": 1,
-                                            "NULL": 1,
-                                            "OR": 1,
-                                            "OVER": 1,
-                                            "REGEXP": 1,
-                                            "RLIKE": 1,
-                                            "XOR": 1
-                                        },
-                                        "database": null,
-                                        "table": null,
-                                        "column": null,
-                                        "expr": "CURRENT_TIMESTAMP + INTERVAL 4 WEEK",
-                                        "alias": null,
-                                        "function": null,
-                                        "subquery": null
-                                    },
-                                    "value": "CURRENT_TIMESTAMP + INTERVAL 4 WEEK"
-                                },
-                                "4": {
-                                    "name": "ENDS",
-                                    "equals": false,
-                                    "expr": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "ALLOWED_KEYWORDS": {
-                                            "AND": 1,
-                                            "AS": 1,
-                                            "BETWEEN": 1,
-                                            "CASE": 1,
-                                            "DUAL": 1,
-                                            "DIV": 1,
-                                            "IS": 1,
-                                            "MOD": 1,
-                                            "NOT": 1,
-                                            "NOT NULL": 1,
-                                            "NULL": 1,
-                                            "OR": 1,
-                                            "OVER": 1,
-                                            "REGEXP": 1,
-                                            "RLIKE": 1,
-                                            "XOR": 1
-                                        },
-                                        "database": null,
-                                        "table": null,
-                                        "column": "2099-12-30 23:12:01",
-                                        "expr": "'2099-12-30 23:12:01'+ INTERVAL 1 DAY",
-                                        "alias": null,
-                                        "function": null,
-                                        "subquery": null
-                                    },
-                                    "value": "'2099-12-30 23:12:01'+ INTERVAL 1 DAY"
-                                },
-                                "5": "ON COMPLETION NOT PRESERVE",
                                 "6": "RENAME",
                                 "7": {
                                     "name": "TO",
@@ -1252,54 +890,21 @@
                                             "RLIKE": 1,
                                             "XOR": 1
                                         },
-                                        "database": null,
-                                        "table": "my_complete_event",
+                                        "database": "new_db",
+                                        "table": "new_event",
                                         "column": null,
-                                        "expr": "my_complete_event",
+                                        "expr": "new_db.new_event",
                                         "alias": null,
                                         "function": null,
                                         "subquery": null
                                     },
-                                    "value": "my_complete_event"
-                                },
-                                "8": "DISABLE",
-                                "9": {
-                                    "name": "COMMENT",
-                                    "equals": false,
-                                    "expr": "'String as a comment'",
-                                    "value": "String as a comment"
-                                },
-                                "10": "DO"
+                                    "value": "new_db.new_event"
+                                }
                             }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@55"
-                            },
-                            {
-                                "@type": "@56"
-                            },
-                            {
-                                "@type": "@57"
-                            },
-                            {
-                                "@type": "@58"
-                            },
-                            {
-                                "@type": "@59"
-                            },
-                            {
-                                "@type": "@60"
-                            },
-                            {
-                                "@type": "@61"
-                            },
-                            {
-                                "@type": "@62"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
@@ -1325,7 +930,282 @@
                     }
                 },
                 "first": 0,
-                "last": 61
+                "last": 15
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                "table": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                    "ALLOWED_KEYWORDS": {
+                        "AND": 1,
+                        "AS": 1,
+                        "BETWEEN": 1,
+                        "CASE": 1,
+                        "DUAL": 1,
+                        "DIV": 1,
+                        "IS": 1,
+                        "MOD": 1,
+                        "NOT": 1,
+                        "NOT NULL": 1,
+                        "NULL": 1,
+                        "OR": 1,
+                        "OVER": 1,
+                        "REGEXP": 1,
+                        "RLIKE": 1,
+                        "XOR": 1
+                    },
+                    "database": "old_db",
+                    "table": "old_event",
+                    "column": null,
+                    "expr": "`old_db`.`old_event`",
+                    "alias": null,
+                    "function": null,
+                    "subquery": null
+                },
+                "altered": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                        "DB_OPTIONS": {
+                            "CHARACTER SET": [
+                                1,
+                                "var"
+                            ],
+                            "CHARSET": [
+                                1,
+                                "var"
+                            ],
+                            "DEFAULT CHARACTER SET": [
+                                1,
+                                "var"
+                            ],
+                            "DEFAULT CHARSET": [
+                                1,
+                                "var"
+                            ],
+                            "UPGRADE": [
+                                1,
+                                "var"
+                            ],
+                            "COLLATE": [
+                                2,
+                                "var"
+                            ],
+                            "DEFAULT COLLATE": [
+                                2,
+                                "var"
+                            ]
+                        },
+                        "TABLE_OPTIONS": {
+                            "ENGINE": [
+                                1,
+                                "var="
+                            ],
+                            "AUTO_INCREMENT": [
+                                1,
+                                "var="
+                            ],
+                            "AVG_ROW_LENGTH": [
+                                1,
+                                "var"
+                            ],
+                            "MAX_ROWS": [
+                                1,
+                                "var"
+                            ],
+                            "ROW_FORMAT": [
+                                1,
+                                "var"
+                            ],
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "ADD": 1,
+                            "ALTER": 1,
+                            "ANALYZE": 1,
+                            "CHANGE": 1,
+                            "CHARSET": 1,
+                            "CHECK": 1,
+                            "COALESCE": 1,
+                            "CONVERT": 1,
+                            "DEFAULT CHARSET": 1,
+                            "DISABLE": 1,
+                            "DISCARD": 1,
+                            "DROP": 1,
+                            "ENABLE": 1,
+                            "IMPORT": 1,
+                            "MODIFY": 1,
+                            "OPTIMIZE": 1,
+                            "ORDER": 1,
+                            "REBUILD": 1,
+                            "REMOVE": 1,
+                            "RENAME": 1,
+                            "REORGANIZE": 1,
+                            "REPAIR": 1,
+                            "UPGRADE": 1,
+                            "COLUMN": 2,
+                            "CONSTRAINT": 2,
+                            "DEFAULT": 2,
+                            "BY": 2,
+                            "FOREIGN": 2,
+                            "FULLTEXT": 2,
+                            "KEY": 2,
+                            "KEYS": 2,
+                            "PARTITION": 2,
+                            "PARTITION BY": 2,
+                            "PARTITIONING": 2,
+                            "PRIMARY KEY": 2,
+                            "SPATIAL": 2,
+                            "TABLESPACE": 2,
+                            "INDEX": [
+                                2,
+                                "var"
+                            ],
+                            "CHARACTER SET": 3,
+                            "TO": [
+                                3,
+                                "var"
+                            ]
+                        },
+                        "USER_OPTIONS": {
+                            "ATTRIBUTE": [
+                                1,
+                                "var"
+                            ],
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "REQUIRE": [
+                                1,
+                                "var"
+                            ],
+                            "BY": [
+                                2,
+                                "expr"
+                            ],
+                            "PASSWORD": [
+                                2,
+                                "var"
+                            ],
+                            "WITH": [
+                                2,
+                                "var"
+                            ],
+                            "ACCOUNT": 1,
+                            "DEFAULT": 1,
+                            "LOCK": 2,
+                            "UNLOCK": 2,
+                            "IDENTIFIED": 3
+                        },
+                        "VIEW_OPTIONS": {
+                            "AS": 1
+                        },
+                        "EVENT_OPTIONS": {
+                            "ON SCHEDULE": 1,
+                            "EVERY": [
+                                2,
+                                "expr"
+                            ],
+                            "AT": [
+                                2,
+                                "expr"
+                            ],
+                            "STARTS": [
+                                3,
+                                "expr"
+                            ],
+                            "ENDS": [
+                                4,
+                                "expr"
+                            ],
+                            "ON COMPLETION PRESERVE": 5,
+                            "ON COMPLETION NOT PRESERVE": 5,
+                            "RENAME": 6,
+                            "TO": [
+                                7,
+                                "expr",
+                                {
+                                    "parseField": "table"
+                                }
+                            ],
+                            "ENABLE": 8,
+                            "DISABLE": 8,
+                            "DISABLE ON SLAVE": 8,
+                            "COMMENT": [
+                                9,
+                                "var"
+                            ],
+                            "DO": 10
+                        },
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "6": "RENAME",
+                                "7": {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                        "ALLOWED_KEYWORDS": {
+                                            "AND": 1,
+                                            "AS": 1,
+                                            "BETWEEN": 1,
+                                            "CASE": 1,
+                                            "DUAL": 1,
+                                            "DIV": 1,
+                                            "IS": 1,
+                                            "MOD": 1,
+                                            "NOT": 1,
+                                            "NOT NULL": 1,
+                                            "NULL": 1,
+                                            "OR": 1,
+                                            "OVER": 1,
+                                            "REGEXP": 1,
+                                            "RLIKE": 1,
+                                            "XOR": 1
+                                        },
+                                        "database": "new_db",
+                                        "table": "new_event",
+                                        "column": null,
+                                        "expr": "`new_db`.`new_event`",
+                                        "alias": null,
+                                        "function": null,
+                                        "subquery": null
+                                    },
+                                    "value": "`new_db`.`new_event`"
+                                }
+                            }
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
+                    }
+                ],
+                "OPTIONS": {
+                    "ONLINE": 1,
+                    "OFFLINE": 1,
+                    "IGNORE": 2,
+                    "DATABASE": 3,
+                    "EVENT": 3,
+                    "FUNCTION": 3,
+                    "PROCEDURE": 3,
+                    "SERVER": 3,
+                    "TABLE": 3,
+                    "TABLESPACE": 3,
+                    "USER": 3,
+                    "VIEW": 3
+                },
+                "CLAUSES": [],
+                "END_OPTIONS": [],
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": {
+                        "3": "EVENT"
+                    }
+                },
+                "first": 16,
+                "last": 32
             }
         ],
         "brackets": 0,
