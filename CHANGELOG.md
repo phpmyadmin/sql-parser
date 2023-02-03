@@ -2,6 +2,8 @@
 
 ## [5.x.x] - YYYY-MM-DD
 
+- Fix `ALTER EVENT RENAME TO` to use expression instead of var (#420)
+
 ## [5.7.0] - 2023-01-25
 
 * Performance improvement to use less the `nextToken()` function (#397)
