@@ -582,7 +582,6 @@
                             "COLUMN": 2,
                             "CONSTRAINT": 2,
                             "DEFAULT": 2,
-                            "TO": 2,
                             "BY": 2,
                             "FOREIGN": 2,
                             "FULLTEXT": 2,
@@ -594,8 +593,15 @@
                             "PRIMARY KEY": 2,
                             "SPATIAL": 2,
                             "TABLESPACE": 2,
-                            "INDEX": 2,
-                            "CHARACTER SET": 3
+                            "INDEX": [
+                                2,
+                                "var"
+                            ],
+                            "CHARACTER SET": 3,
+                            "TO": [
+                                3,
+                                "var"
+                            ]
                         },
                         "USER_OPTIONS": {
                             "ATTRIBUTE": [
@@ -654,7 +660,10 @@
                             "RENAME": 6,
                             "TO": [
                                 7,
-                                "var"
+                                "expr",
+                                {
+                                    "parseField": "table"
+                                }
                             ],
                             "ENABLE": 8,
                             "DISABLE": 8,
