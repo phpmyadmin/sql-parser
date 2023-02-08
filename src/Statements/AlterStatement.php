@@ -43,7 +43,11 @@ class AlterStatement extends Statement
         'ONLINE' => 1,
         'OFFLINE' => 1,
         'IGNORE' => 2,
-
+        // `DEFINER` is also used for `ALTER EVENT`
+        //'DEFINER' => [
+        //    2,
+        //    'expr=',
+        //],
         'DATABASE' => 3,
         'EVENT' => 3,
         'FUNCTION' => 3,

@@ -76,6 +76,7 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterEventOnScheduleEvery4'],
             ['parser/parseAlterEventOnScheduleEvery5'],
             ['parser/parseAlterEventOnScheduleEvery6'],
+            ['parser/parseAlterEventWithDefiner'],
         ];
     }
 }
