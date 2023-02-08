@@ -1058,9 +1058,9 @@
                         "XOR": 1
                     },
                     "database": null,
-                    "table": "DEFINER",
+                    "table": "my_event",
                     "column": null,
-                    "expr": "DEFINER",
+                    "expr": "my_event",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -1243,42 +1243,23 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "8": "ENABLE"
+                            }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@6"
-                            },
-                            {
-                                "@type": "@7"
-                            },
-                            {
-                                "@type": "@8"
-                            },
-                            {
-                                "@type": "@9"
-                            },
-                            {
-                                "@type": "@10"
-                            },
-                            {
-                                "@type": "@11"
-                            },
-                            {
-                                "@type": "@12"
-                            },
-                            {
-                                "@type": "@13"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
                     "ONLINE": 1,
                     "OFFLINE": 1,
                     "IGNORE": 2,
+                    "DEFINER": [
+                        2,
+                        "expr="
+                    ],
                     "DATABASE": 3,
                     "EVENT": 3,
                     "FUNCTION": 3,
@@ -1293,7 +1274,42 @@
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "2": {
+                            "name": "DEFINER",
+                            "equals": true,
+                            "expr": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                "ALLOWED_KEYWORDS": {
+                                    "AND": 1,
+                                    "AS": 1,
+                                    "BETWEEN": 1,
+                                    "CASE": 1,
+                                    "DUAL": 1,
+                                    "DIV": 1,
+                                    "IS": 1,
+                                    "MOD": 1,
+                                    "NOT": 1,
+                                    "NOT NULL": 1,
+                                    "NULL": 1,
+                                    "OR": 1,
+                                    "OVER": 1,
+                                    "REGEXP": 1,
+                                    "RLIKE": 1,
+                                    "XOR": 1
+                                },
+                                "database": null,
+                                "table": null,
+                                "column": "user",
+                                "expr": "'user'",
+                                "alias": null,
+                                "function": null,
+                                "subquery": null
+                            },
+                            "value": "'user'"
+                        },
+                        "3": "EVENT"
+                    }
                 },
                 "first": 0,
                 "last": 13
@@ -1321,9 +1337,9 @@
                         "XOR": 1
                     },
                     "database": null,
-                    "table": "DEFINER",
+                    "table": "my_event",
                     "column": null,
-                    "expr": "DEFINER",
+                    "expr": "my_event",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -1506,42 +1522,23 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "8": "ENABLE"
+                            }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@21"
-                            },
-                            {
-                                "@type": "@22"
-                            },
-                            {
-                                "@type": "@23"
-                            },
-                            {
-                                "@type": "@24"
-                            },
-                            {
-                                "@type": "@25"
-                            },
-                            {
-                                "@type": "@26"
-                            },
-                            {
-                                "@type": "@27"
-                            },
-                            {
-                                "@type": "@28"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
                     "ONLINE": 1,
                     "OFFLINE": 1,
                     "IGNORE": 2,
+                    "DEFINER": [
+                        2,
+                        "expr="
+                    ],
                     "DATABASE": 3,
                     "EVENT": 3,
                     "FUNCTION": 3,
@@ -1556,7 +1553,42 @@
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "2": {
+                            "name": "DEFINER",
+                            "equals": true,
+                            "expr": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                "ALLOWED_KEYWORDS": {
+                                    "AND": 1,
+                                    "AS": 1,
+                                    "BETWEEN": 1,
+                                    "CASE": 1,
+                                    "DUAL": 1,
+                                    "DIV": 1,
+                                    "IS": 1,
+                                    "MOD": 1,
+                                    "NOT": 1,
+                                    "NOT NULL": 1,
+                                    "NULL": 1,
+                                    "OR": 1,
+                                    "OVER": 1,
+                                    "REGEXP": 1,
+                                    "RLIKE": 1,
+                                    "XOR": 1
+                                },
+                                "database": null,
+                                "table": null,
+                                "column": "user",
+                                "expr": "`user`",
+                                "alias": null,
+                                "function": null,
+                                "subquery": null
+                            },
+                            "value": "`user`"
+                        },
+                        "3": "EVENT"
+                    }
                 },
                 "first": 14,
                 "last": 28
@@ -1584,9 +1616,9 @@
                         "XOR": 1
                     },
                     "database": null,
-                    "table": "DEFINER",
+                    "table": "my_event",
                     "column": null,
-                    "expr": "DEFINER",
+                    "expr": "my_event",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -1769,45 +1801,23 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "8": "ENABLE"
+                            }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@36"
-                            },
-                            {
-                                "@type": "@37"
-                            },
-                            {
-                                "@type": "@38"
-                            },
-                            {
-                                "@type": "@39"
-                            },
-                            {
-                                "@type": "@40"
-                            },
-                            {
-                                "@type": "@41"
-                            },
-                            {
-                                "@type": "@42"
-                            },
-                            {
-                                "@type": "@43"
-                            },
-                            {
-                                "@type": "@44"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
                     "ONLINE": 1,
                     "OFFLINE": 1,
                     "IGNORE": 2,
+                    "DEFINER": [
+                        2,
+                        "expr="
+                    ],
                     "DATABASE": 3,
                     "EVENT": 3,
                     "FUNCTION": 3,
@@ -1822,7 +1832,42 @@
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "2": {
+                            "name": "DEFINER",
+                            "equals": true,
+                            "expr": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                "ALLOWED_KEYWORDS": {
+                                    "AND": 1,
+                                    "AS": 1,
+                                    "BETWEEN": 1,
+                                    "CASE": 1,
+                                    "DUAL": 1,
+                                    "DIV": 1,
+                                    "IS": 1,
+                                    "MOD": 1,
+                                    "NOT": 1,
+                                    "NOT NULL": 1,
+                                    "NULL": 1,
+                                    "OR": 1,
+                                    "OVER": 1,
+                                    "REGEXP": 1,
+                                    "RLIKE": 1,
+                                    "XOR": 1
+                                },
+                                "database": null,
+                                "table": null,
+                                "column": null,
+                                "expr": "user@host",
+                                "alias": null,
+                                "function": null,
+                                "subquery": null
+                            },
+                            "value": "user@host"
+                        },
+                        "3": "EVENT"
+                    }
                 },
                 "first": 29,
                 "last": 44
@@ -1850,9 +1895,9 @@
                         "XOR": 1
                     },
                     "database": null,
-                    "table": "DEFINER",
+                    "table": "my_event",
                     "column": null,
-                    "expr": "DEFINER",
+                    "expr": "my_event",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -2035,42 +2080,23 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "8": "ENABLE"
+                            }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@52"
-                            },
-                            {
-                                "@type": "@53"
-                            },
-                            {
-                                "@type": "@54"
-                            },
-                            {
-                                "@type": "@55"
-                            },
-                            {
-                                "@type": "@56"
-                            },
-                            {
-                                "@type": "@57"
-                            },
-                            {
-                                "@type": "@58"
-                            },
-                            {
-                                "@type": "@59"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
                     "ONLINE": 1,
                     "OFFLINE": 1,
                     "IGNORE": 2,
+                    "DEFINER": [
+                        2,
+                        "expr="
+                    ],
                     "DATABASE": 3,
                     "EVENT": 3,
                     "FUNCTION": 3,
@@ -2085,7 +2111,42 @@
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "2": {
+                            "name": "DEFINER",
+                            "equals": true,
+                            "expr": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                "ALLOWED_KEYWORDS": {
+                                    "AND": 1,
+                                    "AS": 1,
+                                    "BETWEEN": 1,
+                                    "CASE": 1,
+                                    "DUAL": 1,
+                                    "DIV": 1,
+                                    "IS": 1,
+                                    "MOD": 1,
+                                    "NOT": 1,
+                                    "NOT NULL": 1,
+                                    "NULL": 1,
+                                    "OR": 1,
+                                    "OVER": 1,
+                                    "REGEXP": 1,
+                                    "RLIKE": 1,
+                                    "XOR": 1
+                                },
+                                "database": null,
+                                "table": null,
+                                "column": "user@host",
+                                "expr": "'user'@'host'",
+                                "alias": null,
+                                "function": null,
+                                "subquery": null
+                            },
+                            "value": "'user'@'host'"
+                        },
+                        "3": "EVENT"
+                    }
                 },
                 "first": 45,
                 "last": 59
@@ -2113,9 +2174,9 @@
                         "XOR": 1
                     },
                     "database": null,
-                    "table": "DEFINER",
+                    "table": "my_event",
                     "column": null,
-                    "expr": "DEFINER",
+                    "expr": "my_event",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -2298,42 +2359,23 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "8": "ENABLE"
+                            }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@67"
-                            },
-                            {
-                                "@type": "@68"
-                            },
-                            {
-                                "@type": "@69"
-                            },
-                            {
-                                "@type": "@70"
-                            },
-                            {
-                                "@type": "@71"
-                            },
-                            {
-                                "@type": "@72"
-                            },
-                            {
-                                "@type": "@73"
-                            },
-                            {
-                                "@type": "@74"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "OPTIONS": {
                     "ONLINE": 1,
                     "OFFLINE": 1,
                     "IGNORE": 2,
+                    "DEFINER": [
+                        2,
+                        "expr="
+                    ],
                     "DATABASE": 3,
                     "EVENT": 3,
                     "FUNCTION": 3,
@@ -2348,7 +2390,42 @@
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "2": {
+                            "name": "DEFINER",
+                            "equals": true,
+                            "expr": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                "ALLOWED_KEYWORDS": {
+                                    "AND": 1,
+                                    "AS": 1,
+                                    "BETWEEN": 1,
+                                    "CASE": 1,
+                                    "DUAL": 1,
+                                    "DIV": 1,
+                                    "IS": 1,
+                                    "MOD": 1,
+                                    "NOT": 1,
+                                    "NOT NULL": 1,
+                                    "NULL": 1,
+                                    "OR": 1,
+                                    "OVER": 1,
+                                    "REGEXP": 1,
+                                    "RLIKE": 1,
+                                    "XOR": 1
+                                },
+                                "database": null,
+                                "table": null,
+                                "column": "user@host",
+                                "expr": "`user`@`host`",
+                                "alias": null,
+                                "function": null,
+                                "subquery": null
+                            },
+                            "value": "`user`@`host`"
+                        },
+                        "3": "EVENT"
+                    }
                 },
                 "first": 60,
                 "last": 74
@@ -2360,77 +2437,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@14"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@14"
-                },
-                0
-            ],
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@29"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@29"
-                },
-                0
-            ],
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@45"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@45"
-                },
-                0
-            ],
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@60"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@60"
-                },
-                0
-            ],
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@75"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@75"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
