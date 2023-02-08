@@ -34,7 +34,7 @@ class AlterStatementTest extends TestCase
         $parser = new Parser('ALTER TABLE t1 PARTITION BY HASH(id) PARTITIONS 8');
         $stmt = $parser->statements[0];
 
-        $this->assertEquals('ALTER TABLE t1 PARTITION BY  HASH(id) PARTITIONS 8 ', $stmt->build());
+        $this->assertEquals('ALTER TABLE t1 PARTITION BY  HASH(id) PARTITIONS 8', $stmt->build());
 
         $parser = new Parser('ALTER TABLE t1 ADD PARTITION (PARTITION p3 VALUES LESS THAN (2002))');
         $stmt = $parser->statements[0];
@@ -50,7 +50,7 @@ class AlterStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'ALTER TABLE p PARTITION BY  LINEAR KEY ALGORITHM=2 (id) PARTITIONS 32 ',
+            'ALTER TABLE p PARTITION BY  LINEAR KEY ALGORITHM=2 (id) PARTITIONS 32',
             $stmt->build()
         );
 
@@ -58,8 +58,16 @@ class AlterStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'ALTER TABLE t1 DROP PARTITION  p0, p1 ',
+            'ALTER TABLE t1 DROP PARTITION  p0, p1',
             $stmt->build()
         );
+    }
+
+    public function testBuilderEventWithDefiner(): void
+    {
+        $query = 'ALTER DEFINER=user EVENT myEvent ENABLE';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals($query, $stmt->build());
     }
 }
