@@ -21,6 +21,37 @@ class AlterStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
     }
 
+    public function testBuilderWithComments(): void
+    {
+        $query = 'ALTER /* comment */ TABLE `actor` ' .
+            'ADD PRIMARY KEY (`actor_id`), -- comment at the end of the line' . "\n" .
+            'ADD KEY `idx_actor_last_name` (`last_name`) -- and that is the last comment.';
+
+        $expectedQuery = 'ALTER TABLE `actor` ' .
+            'ADD PRIMARY KEY (`actor_id`), ' .
+            'ADD KEY `idx_actor_last_name` (`last_name`)';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals($expectedQuery, $stmt->build());
+    }
+
+    public function testBuilderWithCommentsOnOptions(): void
+    {
+        $query = 'ALTER EVENT `myEvent` /* comment */ ' .
+            'ON SCHEDULE -- Comment at the end of the line' . "\n" .
+            'AT "2023-01-01 01:23:45"';
+
+        $expectedQuery = 'ALTER EVENT `myEvent` ' .
+            'ON SCHEDULE AT "2023-01-01 01:23:45"';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals($expectedQuery, $stmt->build());
+    }
+
     public function testBuilderCompressed(): void
     {
         $query = 'ALTER TABLE `user` CHANGE `message` `message` TEXT COMPRESSED';
