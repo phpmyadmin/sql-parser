@@ -2,7 +2,7 @@
 
 ## [5.x.x] - YYYY-MM-DD
 
-- Fix `ALTER EVENT RENAME TO` to use expression instead of var (#420)
+- Fix `ALTER EVENT RENAME TO` to use expression instead of var (#419)
 
 ## [5.7.0] - 2023-01-25
 
