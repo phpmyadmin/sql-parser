@@ -287,6 +287,10 @@
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "end_options"
             },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "group_options"
+            },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
                 "field": "union"
@@ -371,10 +375,6 @@
             "GROUP BY": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\GroupKeyword",
                 "field": "group"
-            },
-            "WITH ROLLUP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "group_options"
             },
             "HAVING": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -654,9 +654,9 @@
                         "GROUP BY",
                         3
                     ],
-                    "WITH ROLLUP": [
-                        "WITH ROLLUP",
-                        2
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
                     ],
                     "HAVING": [
                         "HAVING",
@@ -790,7 +790,9 @@
                 ],
                 "group_options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "1": "WITH ROLLUP"
+                    }
                 },
                 "having": null,
                 "order": null,
@@ -805,7 +807,7 @@
                     "options": []
                 },
                 "first": 0,
-                "last": 16
+                "last": 17
             }
         ],
         "brackets": 0,
@@ -826,20 +828,6 @@
                 "Unrecognized keyword.",
                 {
                     "@type": "@17"
-                },
-                0
-            ],
-            [
-                "This type of clause was previously parsed.",
-                {
-                    "@type": "@19"
-                },
-                0
-            ],
-            [
-                "Unrecognized statement type.",
-                {
-                    "@type": "@19"
                 },
                 0
             ]

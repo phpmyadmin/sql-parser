@@ -368,6 +368,10 @@
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "end_options"
             },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "group_options"
+            },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
                 "field": "union"
@@ -910,6 +914,10 @@
                     "ONLINE": 1,
                     "OFFLINE": 1,
                     "IGNORE": 2,
+                    "DEFINER": [
+                        2,
+                        "expr="
+                    ],
                     "DATABASE": 3,
                     "EVENT": 3,
                     "FUNCTION": 3,
@@ -921,6 +929,7 @@
                     "VIEW": 3
                 },
                 "CLAUSES": [],
+                "GROUP_OPTIONS": [],
                 "END_OPTIONS": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",

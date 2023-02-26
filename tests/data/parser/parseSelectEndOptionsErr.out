@@ -323,6 +323,10 @@
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "end_options"
             },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "group_options"
+            },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
                 "field": "union"
@@ -586,6 +590,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
+                "GROUP_OPTIONS": {
+                    "WITH ROLLUP": 1
+                },
                 "END_OPTIONS": {
                     "FOR UPDATE": 1,
                     "LOCK IN SHARE MODE": 1
@@ -682,6 +689,10 @@
                     "GROUP BY": [
                         "GROUP BY",
                         3
+                    ],
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
                     ],
                     "HAVING": [
                         "HAVING",
@@ -845,6 +856,7 @@
                     }
                 ],
                 "group": null,
+                "group_options": null,
                 "having": null,
                 "order": null,
                 "limit": null,

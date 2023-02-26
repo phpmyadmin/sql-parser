@@ -1061,6 +1061,10 @@
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "end_options"
             },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "group_options"
+            },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
                 "field": "union"
@@ -1145,10 +1149,6 @@
             "GROUP BY": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\GroupKeyword",
                 "field": "group"
-            },
-            "WITH ROLLUP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "group_options"
             },
             "HAVING": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -1428,9 +1428,9 @@
                         "GROUP BY",
                         3
                     ],
-                    "WITH ROLLUP": [
-                        "WITH ROLLUP",
-                        2
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
                     ],
                     "HAVING": [
                         "HAVING",
@@ -1697,9 +1697,9 @@
                         "GROUP BY",
                         3
                     ],
-                    "WITH ROLLUP": [
-                        "WITH ROLLUP",
-                        2
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
                     ],
                     "HAVING": [
                         "HAVING",
@@ -1966,9 +1966,9 @@
                         "GROUP BY",
                         3
                     ],
-                    "WITH ROLLUP": [
-                        "WITH ROLLUP",
-                        2
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
                     ],
                     "HAVING": [
                         "HAVING",
@@ -2267,9 +2267,9 @@
                         "GROUP BY",
                         3
                     ],
-                    "WITH ROLLUP": [
-                        "WITH ROLLUP",
-                        2
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
                     ],
                     "HAVING": [
                         "HAVING",
@@ -2403,7 +2403,9 @@
                 ],
                 "group_options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "1": "WITH ROLLUP"
+                    }
                 },
                 "having": null,
                 "order": null,
@@ -2539,9 +2541,9 @@
                         "GROUP BY",
                         3
                     ],
-                    "WITH ROLLUP": [
-                        "WITH ROLLUP",
-                        2
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
                     ],
                     "HAVING": [
                         "HAVING",
@@ -2707,7 +2709,9 @@
                 ],
                 "group_options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "1": "WITH ROLLUP"
+                    }
                 },
                 "having": null,
                 "order": null,
@@ -2843,9 +2847,9 @@
                         "GROUP BY",
                         3
                     ],
-                    "WITH ROLLUP": [
-                        "WITH ROLLUP",
-                        2
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
                     ],
                     "HAVING": [
                         "HAVING",
@@ -3011,7 +3015,9 @@
                 ],
                 "group_options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "1": "WITH ROLLUP"
+                    }
                 },
                 "having": null,
                 "order": [
