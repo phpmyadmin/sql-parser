@@ -4,6 +4,7 @@
 
 - Fix `ALTER EVENT RENAME TO` to use expression instead of var (#419)
 - Fix incorrect order of operations to parse table/db called `` (#422)
+- Fix ALTER EVENT statement with DEFINER=user modifier fails to be parsed (#418)
 
 ## [5.7.0] - 2023-01-25
 
