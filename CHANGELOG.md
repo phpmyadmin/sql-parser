@@ -3,6 +3,7 @@
 ## [5.x.x] - YYYY-MM-DD
 
 - Fix `ALTER EVENT RENAME TO` to use expression instead of var (#419)
+- Fix incorrect order of operations to parse table/db called `` (#422)
 
 ## [5.7.0] - 2023-01-25
 
