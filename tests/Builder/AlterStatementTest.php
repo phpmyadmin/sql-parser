@@ -21,6 +21,37 @@ class AlterStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
     }
 
+    public function testBuilderWithComments(): void
+    {
+        $query = 'ALTER /* comment */ TABLE `actor` ' .
+            'ADD PRIMARY KEY (`actor_id`), -- comment at the end of the line' . "\n" .
+            'ADD KEY `idx_actor_last_name` (`last_name`) -- and that is the last comment.';
+
+        $expectedQuery = 'ALTER TABLE `actor` ' .
+            'ADD PRIMARY KEY (`actor_id`), ' .
+            'ADD KEY `idx_actor_last_name` (`last_name`)';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals($expectedQuery, $stmt->build());
+    }
+
+    public function testBuilderWithCommentsOnOptions(): void
+    {
+        $query = 'ALTER EVENT `myEvent` /* comment */ ' .
+            'ON SCHEDULE -- Comment at the end of the line' . "\n" .
+            'AT "2023-01-01 01:23:45"';
+
+        $expectedQuery = 'ALTER EVENT `myEvent` ' .
+            'ON SCHEDULE AT "2023-01-01 01:23:45"';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals($expectedQuery, $stmt->build());
+    }
+
     public function testBuilderCompressed(): void
     {
         $query = 'ALTER TABLE `user` CHANGE `message` `message` TEXT COMPRESSED';
@@ -34,7 +65,7 @@ class AlterStatementTest extends TestCase
         $parser = new Parser('ALTER TABLE t1 PARTITION BY HASH(id) PARTITIONS 8');
         $stmt = $parser->statements[0];
 
-        $this->assertEquals('ALTER TABLE t1 PARTITION BY  HASH(id) PARTITIONS 8 ', $stmt->build());
+        $this->assertEquals('ALTER TABLE t1 PARTITION BY  HASH(id) PARTITIONS 8', $stmt->build());
 
         $parser = new Parser('ALTER TABLE t1 ADD PARTITION (PARTITION p3 VALUES LESS THAN (2002))');
         $stmt = $parser->statements[0];
@@ -50,7 +81,7 @@ class AlterStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'ALTER TABLE p PARTITION BY  LINEAR KEY ALGORITHM=2 (id) PARTITIONS 32 ',
+            'ALTER TABLE p PARTITION BY  LINEAR KEY ALGORITHM=2 (id) PARTITIONS 32',
             $stmt->build()
         );
 
@@ -58,8 +89,16 @@ class AlterStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'ALTER TABLE t1 DROP PARTITION  p0, p1 ',
+            'ALTER TABLE t1 DROP PARTITION  p0, p1',
             $stmt->build()
         );
+    }
+
+    public function testBuilderEventWithDefiner(): void
+    {
+        $query = 'ALTER DEFINER=user EVENT myEvent ENABLE';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals($query, $stmt->build());
     }
 }
