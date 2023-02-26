@@ -292,8 +292,8 @@ class Token
 
                 if (isset($str[0]) && (($str[0] === '`') || ($str[0] === '"') || ($str[0] === '\''))) {
                     $quote = $str[0];
-                    $str = str_replace($quote . $quote, $quote, $str);
                     $str = mb_substr($str, 1, -1, 'UTF-8');
+                    $str = str_replace($quote . $quote, $quote, $str);
                 }
 
                 return $str;
