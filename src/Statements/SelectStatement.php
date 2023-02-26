@@ -75,6 +75,12 @@ class SelectStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
+    public static $GROUP_OPTIONS = ['WITH ROLLUP' => 1];
+
+    /**
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
     public static $END_OPTIONS = [
         'FOR UPDATE' => 1,
         'LOCK IN SHARE MODE' => 1,
@@ -176,7 +182,6 @@ class SelectStatement extends Statement
             'NATURAL RIGHT JOIN',
             1,
         ],
-
         'WHERE' => [
             'WHERE',
             3,
@@ -184,6 +189,10 @@ class SelectStatement extends Statement
         'GROUP BY' => [
             'GROUP BY',
             3,
+        ],
+        '_GROUP_OPTIONS' => [
+            '_GROUP_OPTIONS',
+            1,
         ],
         'HAVING' => [
             'HAVING',
@@ -263,6 +272,13 @@ class SelectStatement extends Statement
      * @var GroupKeyword[]|null
      */
     public $group;
+
+    /**
+     * List of options available for the GROUP BY component.
+     *
+     * @var OptionsArray|null
+     */
+    public $group_options;
 
     /**
      * Conditions used for filtering the result set.

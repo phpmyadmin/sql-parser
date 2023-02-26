@@ -168,6 +168,7 @@ class ContextMySql50700 extends Context
         'CROSS JOIN' => 7, 'ESCAPED BY' => 7, 'FOR UPDATE' => 7, 'INNER JOIN' => 7,
         'LINEAR KEY' => 7, 'NO RELEASE' => 7, 'OR REPLACE' => 7, 'RIGHT JOIN' => 7,
         'ENCLOSED BY' => 7, 'LINEAR HASH' => 7, 'ON SCHEDULE' => 7, 'STARTING BY' => 7,
+        'WITH ROLLUP' => 7,
         'AND NO CHAIN' => 7, 'CONTAINS SQL' => 7, 'FOR EACH ROW' => 7, 'NATURAL JOIN' => 7,
         'PARTITION BY' => 7, 'SET PASSWORD' => 7, 'SQL SECURITY' => 7,
         'CHARACTER SET' => 7, 'IF NOT EXISTS' => 7, 'TERMINATED BY' => 7,

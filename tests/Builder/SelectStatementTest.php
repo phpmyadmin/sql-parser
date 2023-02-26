@@ -294,6 +294,42 @@ class SelectStatementTest extends TestCase
         );
     }
 
+    public function testBuilderGroupByWithRollup(): void
+    {
+        $query = 'SELECT year FROM movies GROUP BY year WITH ROLLUP';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            $query,
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderGroupByMultipleColumnsWithRollup(): void
+    {
+        $query = 'SELECT title, year FROM movies GROUP BY title, year WITH ROLLUP';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            $query,
+            $stmt->build()
+        );
+    }
+
+    public function testBuilderGroupByWithRollupWithOtherClauses(): void
+    {
+        $query = 'SELECT year FROM movies GROUP BY year WITH ROLLUP ORDER BY year ASC LIMIT 0, 5';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            $query,
+            $stmt->build()
+        );
+    }
+
     public function testBuilderIndexHint(): void
     {
         $query = 'SELECT * FROM address FORCE INDEX (idx_fk_city_id) IGNORE KEY FOR GROUP BY (a, b,c) WHERE city_id<0';
