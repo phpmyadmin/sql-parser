@@ -222,7 +222,8 @@ class Expression extends Component
 
             // Skipping whitespaces and comments.
             if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
-                if ($isExpr) {
+                // If the token is a closing C comment from a MySQL command, it must be ignored.
+                if ($isExpr && $token->token !== '*/') {
                     $ret->expr .= $token->token;
                 }
 
