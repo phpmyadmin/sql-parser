@@ -440,8 +440,8 @@ class AlterOperation extends Component
                 $ret->unknown[] = $token;
             } elseif ($state === 3) {
                 if ($partitionState === 0) {
-                        $list->idx++; // Ignore the current token
-                        $nextToken = $list->getNext();
+                    $list->idx++; // Ignore the current token
+                    $nextToken = $list->getNext();
                     if (
                         ($token->type === Token::TYPE_KEYWORD)
                         && (($token->keyword === 'PARTITION BY')
@@ -460,12 +460,27 @@ class AlterOperation extends Component
 
                     ++$list->idx; // to index the idx by one, because the last getPrevious returned and decreased it.
                 } elseif ($partitionState === 1) {
+                    // Fetch the next token in a way the current index is reset to manage whitespaces in "field".
+                    $currIdx = $list->idx;
+                    ++$list->idx;
+                    $nextToken = $list->getNext();
+                    $list->idx = $currIdx;
                     // Building the expression used for partitioning.
                     if (empty($ret->field)) {
                         $ret->field = '';
                     }
 
-                    $ret->field .= $token->type === Token::TYPE_WHITESPACE ? ' ' : $token->token;
+                    if (
+                        $token->type === Token::TYPE_OPERATOR
+                        && $token->value === '('
+                        && $nextToken
+                        && $nextToken->keyword === 'PARTITION'
+                    ) {
+                        $partitionState = 2;
+                        --$list->idx; // Current idx is on "(". We need a step back for ArrayObj::parse incoming.
+                    } else {
+                        $ret->field .= $token->type === Token::TYPE_WHITESPACE ? ' ' : $token->token;
+                    }
                 } elseif ($partitionState === 2) {
                     $ret->partitions = ArrayObj::parse(
                         $parser,
