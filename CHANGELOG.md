@@ -1,5 +1,9 @@
 # Change Log
 
+## [6.0.x] - YYYY-MM-DD
+
+* Drop support for PHP 7.2, 7.3, 7.4 and 8.0
+
 ## [5.x.x] - YYYY-MM-DD
 
 - Fix `ALTER EVENT RENAME TO` to use expression instead of var (#419)

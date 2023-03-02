@@ -15,7 +15,7 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         strategy:
             matrix:
-                php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
+                php-version: ["8.1", "8.2"]
                 os: [ubuntu-latest]
                 experimental: [false]
                 composer-options: ['']
@@ -50,9 +50,6 @@ jobs:
                   ${{ runner.os }}-composer-
             - name: Install dependencies
               run: composer install --no-interaction ${{ matrix.composer-options }}
-            - name: Install motranslator
-              if: ${{ matrix.php-version == '7.2' }}
-              run: composer require phpmyadmin/motranslator:^3.0 --with-all-dependencies --no-interaction
             - name: Run php tests
               run: composer run phpunit
             - name: Send coverage
@@ -70,7 +67,7 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         strategy:
             matrix:
-                php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
+                php-version: ["8.1", "8.2"]
                 os: [ubuntu-latest]
                 experimental: [false]
                 composer-options: ['']
@@ -105,8 +102,5 @@ jobs:
                   ${{ runner.os }}-composer-
             - name: Install dependencies
               run: composer install --no-interaction ${{ matrix.composer-options }}
-            - name: Install motranslator
-              if: ${{ matrix.php-version == '7.2' }}
-              run: composer require phpmyadmin/motranslator:^3.0 --with-all-dependencies --no-interaction
             - name: Run benchmarks
               run: composer run phpbench

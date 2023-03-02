@@ -13,11 +13,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: Use php 7.2
+            - name: Use PHP 8.1
               uses: shivammathur/setup-php@v2
               with:
-                  php-version: 7.2
-                  tools: composer:v2
+                  php-version: 8.1
             - name: Validate composer.json and composer.lock
               run: composer validate
             - name: Cache module
@@ -34,7 +33,7 @@ jobs:
         runs-on: ubuntu-latest
         strategy:
           matrix:
-            php-version: ["7.4"]
+            php-version: ["8.1"]
         steps:
             - uses: actions/checkout@v3
             - name: Use PHP ${{ matrix.php-version }}
