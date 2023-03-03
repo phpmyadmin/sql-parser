@@ -59,7 +59,7 @@ class LexerTest extends TestCase
     /**
      * @return string[][]
      */
-    public function lexProvider(): array
+    public static function lexProvider(): array
     {
         return [
             ['lexer/lex'],

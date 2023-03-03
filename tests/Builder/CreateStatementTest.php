@@ -241,7 +241,7 @@ class CreateStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function partitionQueriesProvider(): array
+    public static function partitionQueriesProvider(): array
     {
         return [
             [

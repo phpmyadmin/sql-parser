@@ -25,7 +25,7 @@ class ParserTest extends TestCase
     /**
      * @return string[][]
      */
-    public function parseProvider(): array
+    public static function parseProvider(): array
     {
         return [
             ['parser/parse'],

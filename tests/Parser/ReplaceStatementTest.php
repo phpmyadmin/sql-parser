@@ -19,7 +19,7 @@ class ReplaceStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function replaceProvider(): array
+    public static function replaceProvider(): array
     {
         return [
             ['parser/parseReplace'],

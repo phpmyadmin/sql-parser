@@ -19,7 +19,7 @@ class RenameStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function renameProvider(): array
+    public static function renameProvider(): array
     {
         return [
             ['parser/parseRename'],

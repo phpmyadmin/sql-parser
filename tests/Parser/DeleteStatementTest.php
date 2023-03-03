@@ -19,7 +19,7 @@ class DeleteStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function deleteProvider(): array
+    public static function deleteProvider(): array
     {
         return [
             ['parser/parseDelete'],

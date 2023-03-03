@@ -19,7 +19,7 @@ class PurgeStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function purgeProvider(): array
+    public static function purgeProvider(): array
     {
         return [
             ['parser/parsePurge'],

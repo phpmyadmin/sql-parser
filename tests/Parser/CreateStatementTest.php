@@ -19,7 +19,7 @@ class CreateStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function createProvider(): array
+    public static function createProvider(): array
     {
         return [
             ['parser/parseCreateDatabase'],
