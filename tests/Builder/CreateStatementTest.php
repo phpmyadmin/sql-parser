@@ -245,7 +245,7 @@ class CreateStatementTest extends TestCase
     {
         return [
             [
-                'subparts' => <<<EOT
+                'subparts' => <<<'EOT'
 CREATE TABLE `ts` (
   `id` int(11) DEFAULT NULL,
   `purchased` date DEFAULT NULL
@@ -270,7 +270,7 @@ EOT
             ,
             ],
             [
-                'parts' => <<<EOT
+                'parts' => <<<'EOT'
 CREATE TABLE ptest (
   `event_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC
