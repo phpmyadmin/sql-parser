@@ -109,6 +109,23 @@ class Token
      */
     public const TYPE_LABEL = 10;
 
+    /**
+     *  All tokens types
+     */
+    public const TYPE_ALL = [
+        Token::TYPE_NONE,
+        Token::TYPE_KEYWORD,
+        Token::TYPE_OPERATOR,
+        Token::TYPE_WHITESPACE,
+        Token::TYPE_COMMENT,
+        Token::TYPE_BOOL,
+        Token::TYPE_NUMBER,
+        Token::TYPE_STRING,
+        Token::TYPE_SYMBOL,
+        Token::TYPE_DELIMITER,
+        Token::TYPE_LABEL,
+    ];
+
     // Flags that describe the tokens in more detail.
     // All keywords must have flag 1 so `Context::isKeyword` method doesn't
     // require strict comparison.

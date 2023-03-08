@@ -132,16 +132,40 @@ class TokensList implements ArrayAccess
     }
 
     /**
+     * Gets the previous token.
+     *
+     * @param int|int[] $type the type
+     *
+     * @return Token|null
+     */
+    public function getPreviousOfType($type)
+    {
+        if (!is_array($type)) {
+            $type = [$type];
+        }
+        for (; $this->idx >= 0; --$this->idx) {
+            if (in_array($this->tokens[$this->idx]->type, $type, true)) {
+                return $this->tokens[$this->idx--];
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Gets the next token.
      *
-     * @param int $type the type
+     * @param int|int[] $type the type
      *
      * @return Token|null
      */
     public function getNextOfType($type)
     {
+        if (!is_array($type)) {
+            $type = [$type];
+        }
         for (; $this->idx < $this->count; ++$this->idx) {
-            if ($this->tokens[$this->idx]->type === $type) {
+            if (in_array($this->tokens[$this->idx]->type, $type, true)) {
                 return $this->tokens[$this->idx++];
             }
         }

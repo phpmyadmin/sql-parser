@@ -87,9 +87,21 @@ class TokensListTest extends TestCase
     {
         $list = new TokensList($this->tokens);
         $this->assertEquals($this->tokens[0], $list->getNextOfType(Token::TYPE_KEYWORD));
-        $this->assertEquals($this->tokens[4], $list->getNextOfType(Token::TYPE_KEYWORD));
-        $this->assertEquals($this->tokens[8], $list->getNextOfType(Token::TYPE_KEYWORD));
+        $this->assertEquals($this->tokens[4], $list->getNextOfType([Token::TYPE_KEYWORD]));
+        $this->assertEquals($this->tokens[6], $list->getNextOfType([Token::TYPE_KEYWORD, Token::TYPE_SYMBOL]));
+        $this->assertEquals($this->tokens[8], $list->getNextOfType([Token::TYPE_KEYWORD, Token::TYPE_SYMBOL]));
         $this->assertNull($list->getNextOfType(Token::TYPE_KEYWORD));
+    }
+
+    public function testGetPreviousOfType(): void
+    {
+        $list = new TokensList($this->tokens);
+        $list->idx = 9;
+        $this->assertEquals($this->tokens[8], $list->getPreviousOfType([Token::TYPE_KEYWORD, Token::TYPE_SYMBOL]));
+        $this->assertEquals($this->tokens[6], $list->getPreviousOfType([Token::TYPE_KEYWORD, Token::TYPE_SYMBOL]));
+        $this->assertEquals($this->tokens[4], $list->getPreviousOfType([Token::TYPE_KEYWORD]));
+        $this->assertEquals($this->tokens[0], $list->getPreviousOfType(Token::TYPE_KEYWORD));
+        $this->assertNull($list->getPreviousOfType(Token::TYPE_KEYWORD));
     }
 
     public function testGetNextOfTypeAndFlag(): void
