@@ -119,7 +119,7 @@ class TokensList implements ArrayAccess
      */
     public function getPrevious(): ?Token
     {
-        for (; $this->idx > 0; --$this->idx) {
+        for (; $this->idx >= 0; --$this->idx) {
             if (
                 ($this->tokens[$this->idx]->type !== Token::TYPE_WHITESPACE)
                 && ($this->tokens[$this->idx]->type !== Token::TYPE_COMMENT)

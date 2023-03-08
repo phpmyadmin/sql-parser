@@ -79,6 +79,7 @@ class TokensListTest extends TestCase
         $this->assertEquals($this->tokens[6], $list->getPrevious());
         $this->assertEquals($this->tokens[4], $list->getPrevious());
         $this->assertEquals($this->tokens[2], $list->getPrevious());
+        $this->assertEquals($this->tokens[0], $list->getPrevious());
         $this->assertNull($list->getPrevious());
     }
 
