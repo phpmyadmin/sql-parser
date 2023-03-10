@@ -851,6 +851,11 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\CustomJsonSerializer\\:\\:extractObjectData\\(\\) has parameter \\$ref with generic class ReflectionClass but does not specify its types\\: T$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
