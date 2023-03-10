@@ -45,6 +45,7 @@ class SelectStatementTest extends TestCase
             ['parser/parseSelect13'],
             ['parser/parseSelect14'],
             ['parser/parseSelect15'],
+            ['parser/parseSelect16'],
             ['parser/parseSelectErr1'],
             ['parser/parseSelectErr2'],
             ['parser/parseSelectNested'],
