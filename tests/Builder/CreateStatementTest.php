@@ -302,6 +302,20 @@ EOT
     public function testBuilderView(): void
     {
         $parser = new Parser(
+            'CREATE OR REPLACE VIEW xviewmytable  AS SELECT mytable.id '
+            . 'AS id, mytable.personid AS personid FROM mytable '
+            . 'WHERE (mytable.birth > \'1990-01-19\') GROUP BY mytable.personid  ;'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE OR REPLACE VIEW xviewmytable  AS SELECT mytable.id '
+            . 'AS `id`, mytable.personid AS `personid` FROM mytable '
+            . 'WHERE (mytable.birth > \'1990-01-19\') GROUP BY mytable.personid ',
+            $stmt->build()
+        );
+
+        $parser = new Parser(
             'CREATE VIEW myView (vid, vfirstname) AS ' .
             'SELECT id, first_name FROM employee WHERE id = 1'
         );
