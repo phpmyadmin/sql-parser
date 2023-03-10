@@ -2,28 +2,6 @@
     "query": "SET @idx := 1;\nSELECT @idx, @`idx`, @ ",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "KEYWORD_NAME_INDICATORS": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "OPERATOR_NAME_INDICATORS": [
-            ",",
-            "."
-        ],
         "str": "SET @idx := 1;\nSELECT @idx, @`idx`, @ ",
         "len": 38,
         "last": 38,
@@ -205,7 +183,6 @@
             "count": 19,
             "idx": 0
         },
-        "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

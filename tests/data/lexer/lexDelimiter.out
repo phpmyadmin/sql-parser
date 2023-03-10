@@ -2,28 +2,6 @@
     "query": "DELIMITER GO\nSELECT a,b FROM foo GO\nSELECT * FROM bar",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "KEYWORD_NAME_INDICATORS": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "OPERATOR_NAME_INDICATORS": [
-            ",",
-            "."
-        ],
         "str": "DELIMITER GO\nSELECT a,b FROM foo GO\nSELECT * FROM bar",
         "len": 53,
         "last": 53,
@@ -250,7 +228,6 @@
             "count": 24,
             "idx": 0
         },
-        "DEFAULT_DELIMITER": ";",
         "delimiter": "GO",
         "delimiterLen": 2,
         "strict": false,
