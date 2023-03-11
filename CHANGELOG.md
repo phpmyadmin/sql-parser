@@ -6,6 +6,7 @@
 - Fix incorrect order of operations to parse table/db called `` (#422)
 - Fix ALTER EVENT statement with DEFINER=user modifier fails to be parsed (#418)
 - Fix GROUP BY modifier WITH ROLLUP is treated as a syntax error and prevents export of SQL query results
+- Fix `TokensList::getPrevious` was not able to reach very first token (#428)
 
 ## [5.7.0] - 2023-01-25
 
