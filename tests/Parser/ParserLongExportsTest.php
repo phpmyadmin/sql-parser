@@ -90,6 +90,11 @@ SQL;
             'SET  @OLD_COLLATION_CONNECTION = @@COLLATION_CONNECTION */',
             'SET NAMES utf8mb4',
         ], $collectedSetStatements);
+
+        foreach ($parser->statements as $stmt) {
+            // Check they all build
+            $this->assertIsString($stmt->build());
+        }
     }
 
     /**
