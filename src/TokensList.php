@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser;
 use ArrayAccess;
 
 use function count;
+use function in_array;
 use function is_array;
 use function is_string;
 
@@ -140,9 +141,10 @@ class TokensList implements ArrayAccess
      */
     public function getPreviousOfType($type)
     {
-        if (!is_array($type)) {
+        if (! is_array($type)) {
             $type = [$type];
         }
+
         for (; $this->idx >= 0; --$this->idx) {
             if (in_array($this->tokens[$this->idx]->type, $type, true)) {
                 return $this->tokens[$this->idx--];
@@ -161,9 +163,10 @@ class TokensList implements ArrayAccess
      */
     public function getNextOfType($type)
     {
-        if (!is_array($type)) {
+        if (! is_array($type)) {
             $type = [$type];
         }
+
         for (; $this->idx < $this->count; ++$this->idx) {
             if (in_array($this->tokens[$this->idx]->type, $type, true)) {
                 return $this->tokens[$this->idx++];
