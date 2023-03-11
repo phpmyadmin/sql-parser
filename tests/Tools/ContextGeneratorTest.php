@@ -60,11 +60,11 @@ class ContextGeneratorTest extends TestCase
         $options = [
             'keywords' => $readWords,
             'name' => 'MYSQL TEST',
-            'class' => 'ContextTest',
+            'class' => 'TestContext',
             'link' => 'https://www.phpmyadmin.net/contribute',
         ];
         $generatedTemplate = ContextGenerator::generate($options);
-        $expectedTemplate = file_get_contents(getcwd() . '/tests/Tools/templates/ContextTest.php');
+        $expectedTemplate = file_get_contents(getcwd() . '/tests/Tools/templates/TestContext.php');
         $this->assertEquals($expectedTemplate, $generatedTemplate);
     }
 }
