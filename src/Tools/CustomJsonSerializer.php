@@ -42,6 +42,7 @@ class CustomJsonSerializer extends JsonSerializer
         'VIEW_OPTIONS',
         'EVENT_OPTIONS',
         'USER_OPTIONS',
+        'asciiMap',
     ];
 
     /**
