@@ -1171,6 +1171,11 @@ parameters:
 			path: tests/Parser/LoadStatementTest.php
 
 		-
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Statement\\>\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: tests/Parser/ParserLongExportsTest.php
+
+		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: tests/Parser/SelectStatementTest.php
