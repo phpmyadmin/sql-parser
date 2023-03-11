@@ -8,6 +8,7 @@
 - Fix GROUP BY modifier WITH ROLLUP is treated as a syntax error and prevents export of SQL query results
 - Fix `TokensList::getPrevious` was not able to reach very first token (#428)
 - Fix `TransactionStatement::build()` "Call to a member function build() on null" when the transaction has no end
+- Fix MySQL-specific commands parsing (#226)
 
 ## [5.7.0] - 2023-01-25
 
