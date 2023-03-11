@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.7.7@e028ba46ba0d7f9a78bc3201c251e137383e145f">
+<files psalm-version="5.8.0@9cf4f60a333f779ad3bc704a555920e81d4fdcda">
   <file src="src/Component.php">
     <MethodSignatureMustProvideReturnType>
       <code>__toString</code>
@@ -193,6 +193,9 @@
     <InvalidArgument>
       <code><![CDATA[$options['breakOnParentheses']]]></code>
     </InvalidArgument>
+    <InvalidAttribute>
+      <code>\AllowDynamicProperties</code>
+    </InvalidAttribute>
     <MixedArrayOffset>
       <code><![CDATA[Parser::$STATEMENT_PARSERS[$token->keyword]]]></code>
       <code><![CDATA[self::$ALLOWED_KEYWORDS[$token->keyword]]]></code>
@@ -4904,6 +4907,9 @@
       <code>$built[$field]</code>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
     </InvalidArgument>
+    <InvalidAttribute>
+      <code>\AllowDynamicProperties</code>
+    </InvalidAttribute>
     <InvalidStringClass>
       <code>$class::parse($parser, $list, $options)</code>
     </InvalidStringClass>
@@ -5225,7 +5231,6 @@
       <code><![CDATA[$this->statements]]></code>
     </PossiblyNullIterator>
     <PossiblyNullReference>
-      <code>build</code>
       <code>has</code>
     </PossiblyNullReference>
   </file>
@@ -5271,6 +5276,21 @@
     <UnnecessaryVarAnnotation>
       <code>string</code>
     </UnnecessaryVarAnnotation>
+  </file>
+  <file src="src/Tools/CustomJsonSerializer.php">
+    <MixedAssignment>
+      <code>$data[$property]</code>
+      <code>$data[$property]</code>
+    </MixedAssignment>
+    <MoreSpecificImplementedParamType>
+      <code>$properties</code>
+    </MoreSpecificImplementedParamType>
+    <PropertyNotSetInConstructor>
+      <code>CustomJsonSerializer</code>
+    </PropertyNotSetInConstructor>
+    <UnusedMethodCall>
+      <code>setAccessible</code>
+    </UnusedMethodCall>
   </file>
   <file src="src/Tools/TestGenerator.php">
     <MixedOperand>
@@ -5708,6 +5728,14 @@
     <PossiblyNullReference>
       <code>has</code>
     </PossiblyNullReference>
+  </file>
+  <file src="tests/Parser/ParserLongExportsTest.php">
+    <MixedAssignment>
+      <code>$transactionStatement</code>
+    </MixedAssignment>
+    <PossiblyNullIterator>
+      <code><![CDATA[$statement->statements]]></code>
+    </PossiblyNullIterator>
   </file>
   <file src="tests/Parser/SelectStatementTest.php">
     <PossiblyNullReference>

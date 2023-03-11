@@ -12,7 +12,6 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\UtfString;
-use Zumba\JsonSerializer\JsonSerializer;
 
 use function file_exists;
 use function file_get_contents;
@@ -170,7 +169,7 @@ class TestGenerator
 
         // unset mode, reset to default every time, to be sure
         Context::setMode();
-        $serializer = new JsonSerializer();
+        $serializer = new CustomJsonSerializer();
         // Writing test's data.
         $encoded = $serializer->serialize($test);
 

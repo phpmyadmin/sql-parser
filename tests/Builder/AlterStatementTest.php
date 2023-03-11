@@ -21,6 +21,18 @@ class AlterStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
     }
 
+    public function testBuilderWithExpression(): void
+    {
+        $query = 'ALTER TABLE `table` '
+                . 'ADD UNIQUE KEY `functional_index`'
+                . ' (`field1`,`field2`, (IFNULL(`field3`,0)))';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals($query, $stmt->build());
+    }
+
     public function testBuilderWithComments(): void
     {
         $query = 'ALTER /* comment */ TABLE `actor` ' .
