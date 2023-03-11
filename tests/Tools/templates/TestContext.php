@@ -15,7 +15,7 @@ use PhpMyAdmin\SqlParser\Token;
  *
  * @see https://www.phpmyadmin.net/contribute
  */
-class ContextTest extends Context
+class TestContext extends Context
 {
     /**
      * List of keywords.
