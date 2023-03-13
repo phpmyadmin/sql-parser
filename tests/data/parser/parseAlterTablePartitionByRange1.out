@@ -1736,8 +1736,273 @@
                                 "2": "PARTITION BY"
                             }
                         },
-                        "field": " RANGE (MONTH(trip_date)) ( PARTITION p01 VALUES LESS THAN (02), PARTITION p02 VALUES LESS THAN (03), PARTITION p03 VALUES LESS THAN (04), PARTITION p04 VALUES LESS THAN (05), PARTITION p05 VALUES LESS THAN (06), PARTITION p06 VALUES LESS THAN (07), PARTITION p07 VALUES LESS THAN (08), PARTITION p08 VALUES LESS THAN (09), PARTITION p09 VALUES LESS THAN (10), PARTITION p10 VALUES LESS THAN (11), PARTITION p11 VALUES LESS THAN (12), PARTITION p12 VALUES LESS THAN (13), PARTITION pmaxval VALUES LESS THAN MAXVALUE )",
-                        "partitions": null,
+                        "field": " RANGE (MONTH(trip_date)) ",
+                        "partitions": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p01",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(02)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p02",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(03)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p03",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(04)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p04",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(05)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p05",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(06)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p06",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(07)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p07",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(08)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p08",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(09)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p09",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(10)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p10",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(11)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p11",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(12)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p12",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(13)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "pmaxval",
+                                "type": "LESS THAN",
+                                "expr": "MAXVALUE",
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            }
+                        ],
                         "unknown": []
                     }
                 ],
