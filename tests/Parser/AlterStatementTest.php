@@ -41,6 +41,8 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterErr3'],
             ['parser/parseAlterErr4'],
             ['parser/parseAlterTableRenameIndex'],
+            ['parser/parseAlterTablePartitionByRange1'],
+            ['parser/parseAlterTablePartitionByRange2'],
             ['parser/parseAlterWithInvisible'],
             ['parser/parseAlterTableCharacterSet1'],
             ['parser/parseAlterTableCharacterSet2'],
@@ -79,6 +81,8 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterEventOnScheduleEvery6'],
             ['parser/parseAlterEventWithDefiner'],
             ['parser/parseAlterEventWithOtherDefiners'],
+            ['parser/parseAlterRenameColumn'],
+            ['parser/parseAlterRenameColumns'],
         ];
     }
 }

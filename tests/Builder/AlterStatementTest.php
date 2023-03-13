@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Builder;
 
+use Generator;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
@@ -104,11 +105,90 @@ class AlterStatementTest extends TestCase
             'ALTER TABLE t1 DROP PARTITION  p0, p1',
             $stmt->build()
         );
+
+        $parser = new Parser(
+            'ALTER TABLE trips PARTITION BY RANGE (MONTH(trip_date))'
+            . ' (' . "\n"
+            . ' PARTITION p01 VALUES LESS THAN (02),' . "\n"
+            . ' PARTITION p02 VALUES LESS THAN (03),' . "\n"
+            . ' PARTITION p03 VALUES LESS THAN (04),' . "\n"
+            . ' PARTITION p04 VALUES LESS THAN (05),' . "\n"
+            . ' PARTITION p05 VALUES LESS THAN (06),' . "\n"
+            . ' PARTITION p06 VALUES LESS THAN (07),' . "\n"
+            . ' PARTITION p07 VALUES LESS THAN (08),' . "\n"
+            . ' PARTITION p08 VALUES LESS THAN (09),' . "\n"
+            . ' PARTITION p09 VALUES LESS THAN (10),' . "\n"
+            . ' PARTITION p10 VALUES LESS THAN (11),' . "\n"
+            . ' PARTITION p11 VALUES LESS THAN (12),' . "\n"
+            . ' PARTITION p12 VALUES LESS THAN (13),' . "\n"
+            . ' PARTITION pmaxval VALUES LESS THAN MAXVALUE' . "\n"
+            . ');'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'ALTER TABLE trips PARTITION BY  RANGE (MONTH(trip_date))  (' . "\n"
+            . 'PARTITION p01 VALUES LESS THAN (02),' . "\n"
+            . 'PARTITION p02 VALUES LESS THAN (03),' . "\n"
+            . 'PARTITION p03 VALUES LESS THAN (04),' . "\n"
+            . 'PARTITION p04 VALUES LESS THAN (05),' . "\n"
+            . 'PARTITION p05 VALUES LESS THAN (06),' . "\n"
+            . 'PARTITION p06 VALUES LESS THAN (07),' . "\n"
+            . 'PARTITION p07 VALUES LESS THAN (08),' . "\n"
+            . 'PARTITION p08 VALUES LESS THAN (09),' . "\n"
+            . 'PARTITION p09 VALUES LESS THAN (10),' . "\n"
+            . 'PARTITION p10 VALUES LESS THAN (11),' . "\n"
+            . 'PARTITION p11 VALUES LESS THAN (12),' . "\n"
+            . 'PARTITION p12 VALUES LESS THAN (13),' . "\n"
+            . 'PARTITION pmaxval VALUES LESS THAN MAXVALUE' . "\n"
+            . ')',
+            $stmt->build()
+        );
     }
 
     public function testBuilderEventWithDefiner(): void
     {
         $query = 'ALTER DEFINER=user EVENT myEvent ENABLE';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals($query, $stmt->build());
+    }
+
+    /**
+     * @return Generator<string, array{string}>
+     */
+    public static function provideBuilderForRenameColumn(): Generator
+    {
+        $query = 'ALTER TABLE myTable RENAME COLUMN a TO b';
+
+        yield 'Single RENAME COLUMN' => [$query];
+
+        $query = 'ALTER TABLE myTable RENAME COLUMN a TO b, RENAME COLUMN b TO a';
+
+        yield 'Multiple RENAME COLUMN' => [$query];
+
+        $query = 'ALTER TABLE myTable ' .
+            'RENAME COLUMN a TO b, ' .
+            'RENAME COLUMN b TO a, ' .
+            'RENAME INDEX oldIndex TO newIndex, ' .
+            'RENAME TO newTable';
+
+        yield 'Mixed RENAME COLUMN + RENAME INDEX + RENAME table' => [$query];
+
+        $query = 'ALTER TABLE myTable ' .
+            'RENAME TO newTable, ' .
+            'RENAME INDEX oldIndex TO newIndex, ' .
+            'RENAME COLUMN b TO a, ' .
+            'RENAME COLUMN a TO b';
+
+        yield 'Mixed RENAME table + RENAME INDEX + RENAME COLUMNS' => [$query];
+    }
+
+    /**
+     * @dataProvider provideBuilderForRenameColumn
+     */
+    public function testBuilderRenameColumn(string $query): void
+    {
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
         $this->assertEquals($query, $stmt->build());
