@@ -467,8 +467,42 @@
                                 "2": "PARTITION BY"
                             }
                         },
-                        "field": " RANGE (MONTH(departure_date)) ( PARTITION p01 VALUES LESS THAN (02) , PARTITION pmaxval VALUES LESS THAN MAXVALUE )",
-                        "partitions": null,
+                        "field": " RANGE (MONTH(departure_date)) ",
+                        "partitions": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "p01",
+                                "type": "LESS THAN",
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": null,
+                                    "expr": "(02)",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
+                                "isSubpartition": false,
+                                "name": "pmaxval",
+                                "type": "LESS THAN",
+                                "expr": "MAXVALUE",
+                                "subpartitions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                }
+                            }
+                        ],
                         "unknown": []
                     }
                 ],

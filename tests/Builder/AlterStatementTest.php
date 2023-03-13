@@ -127,20 +127,21 @@ class AlterStatementTest extends TestCase
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
-            'ALTER TABLE trips PARTITION BY  RANGE (MONTH(trip_date)) ('
-            . ' PARTITION p01 VALUES LESS THAN (02),'
-            . ' PARTITION p02 VALUES LESS THAN (03),'
-            . ' PARTITION p03 VALUES LESS THAN (04),'
-            . ' PARTITION p04 VALUES LESS THAN (05),'
-            . ' PARTITION p05 VALUES LESS THAN (06),'
-            . ' PARTITION p06 VALUES LESS THAN (07),'
-            . ' PARTITION p07 VALUES LESS THAN (08),'
-            . ' PARTITION p08 VALUES LESS THAN (09),'
-            . ' PARTITION p09 VALUES LESS THAN (10),'
-            . ' PARTITION p10 VALUES LESS THAN (11),'
-            . ' PARTITION p11 VALUES LESS THAN (12),'
-            . ' PARTITION p12 VALUES LESS THAN (13),'
-            . ' PARTITION pmaxval VALUES LESS THAN MAXVALUE )',
+            'ALTER TABLE trips PARTITION BY  RANGE (MONTH(trip_date))  (' . "\n"
+            . 'PARTITION p01 VALUES LESS THAN (02),' . "\n"
+            . 'PARTITION p02 VALUES LESS THAN (03),' . "\n"
+            . 'PARTITION p03 VALUES LESS THAN (04),' . "\n"
+            . 'PARTITION p04 VALUES LESS THAN (05),' . "\n"
+            . 'PARTITION p05 VALUES LESS THAN (06),' . "\n"
+            . 'PARTITION p06 VALUES LESS THAN (07),' . "\n"
+            . 'PARTITION p07 VALUES LESS THAN (08),' . "\n"
+            . 'PARTITION p08 VALUES LESS THAN (09),' . "\n"
+            . 'PARTITION p09 VALUES LESS THAN (10),' . "\n"
+            . 'PARTITION p10 VALUES LESS THAN (11),' . "\n"
+            . 'PARTITION p11 VALUES LESS THAN (12),' . "\n"
+            . 'PARTITION p12 VALUES LESS THAN (13),' . "\n"
+            . 'PARTITION pmaxval VALUES LESS THAN MAXVALUE' . "\n"
+            . ')',
             $stmt->build()
         );
     }
