@@ -13,12 +13,12 @@ class ParserLongExportsTest extends TestCase
 {
     public function testMysqldump(): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
 -- MySQL dump 10.13  Distrib 5.7.24, for Linux (x86_64)ldump e-nocleg-2-dev 01-te
 --
 -- Host: localhost    Database: x
 -- ------------------------------------------------------
--- Server version	5.7.24
+-- Server version   5.7.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
