@@ -113,4 +113,21 @@ class AlterStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals($query, $stmt->build());
     }
+
+
+    public function testBuilderRenameColumn(): void
+    {
+        $query = 'ALTER TABLE myTable RENAME COLUMN a TO b;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals($query, $stmt->build());
+    }
+
+    public function testBuilderRenameColumns(): void
+    {
+        $query = 'ALTER TABLE myTable RENAME COLUMN a TO b, RENAME COLUMN b TO a;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals($query, $stmt->build());
+    }
 }
