@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Builder;
 
+use Generator;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
@@ -114,18 +115,41 @@ class AlterStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
     }
 
-
-    public function testBuilderRenameColumn(): void
+    /**
+     * @return Generator<string, array{string}>
+     */
+    public static function provideBuilderForRenameColumn(): Generator
     {
-        $query = 'ALTER TABLE myTable RENAME COLUMN a TO b;';
-        $parser = new Parser($query);
-        $stmt = $parser->statements[0];
-        $this->assertEquals($query, $stmt->build());
+        $query = 'ALTER TABLE myTable RENAME COLUMN a TO b';
+
+        yield 'Single RENAME COLUMN' => [$query];
+
+        $query = 'ALTER TABLE myTable RENAME COLUMN a TO b, RENAME COLUMN b TO a';
+
+        yield 'Multiple RENAME COLUMN' => [$query];
+
+        $query = 'ALTER TABLE myTable ' .
+            'RENAME COLUMN a TO b, ' .
+            'RENAME COLUMN b TO a, ' .
+            'RENAME INDEX oldIndex TO newIndex, ' .
+            'RENAME TO newTable';
+
+        yield 'Mixed RENAME COLUMN + RENAME INDEX + RENAME table' => [$query];
+
+        $query = 'ALTER TABLE myTable ' .
+            'RENAME TO newTable, ' .
+            'RENAME INDEX oldIndex TO newIndex, ' .
+            'RENAME COLUMN b TO a, ' .
+            'RENAME COLUMN a TO b';
+
+        yield 'Mixed RENAME table + RENAME INDEX + RENAME COLUMNS' => [$query];
     }
 
-    public function testBuilderRenameColumns(): void
+    /**
+     * @dataProvider provideBuilderForRenameColumn
+     */
+    public function testBuilderRenameColumn(string $query): void
     {
-        $query = 'ALTER TABLE myTable RENAME COLUMN a TO b, RENAME COLUMN b TO a;';
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
         $this->assertEquals($query, $stmt->build());

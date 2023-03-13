@@ -499,10 +499,16 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "1": "RENAME",
-                                "2": "COLUMN"
-                            }
+                            "options": [
+                                "RENAME",
+                                "COLUMN",
+                                {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": "b",
+                                    "value": "b"
+                                }
+                            ]
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
@@ -521,10 +527,16 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "1": "RENAME",
-                                "2": "COLUMN"
-                            }
+                            "options": [
+                                "RENAME",
+                                "COLUMN",
+                                {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": "c",
+                                    "value": "c"
+                                }
+                            ]
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
@@ -543,10 +555,16 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "1": "RENAME",
-                                "2": "COLUMN"
-                            }
+                            "options": [
+                                "RENAME",
+                                "COLUMN",
+                                {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": "d",
+                                    "value": "d"
+                                }
+                            ]
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
@@ -565,10 +583,16 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "1": "RENAME",
-                                "2": "COLUMN"
-                            }
+                            "options": [
+                                "RENAME",
+                                "COLUMN",
+                                {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": "a",
+                                    "value": "a"
+                                }
+                            ]
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
@@ -600,35 +624,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@14"
-                },
-                0
-            ],
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@25"
-                },
-                0
-            ],
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@36"
-                },
-                0
-            ],
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@47"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

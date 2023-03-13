@@ -202,10 +202,16 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "1": "RENAME",
-                                "2": "COLUMN"
-                            }
+                            "options": [
+                                "RENAME",
+                                "COLUMN",
+                                {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": "bar",
+                                    "value": "bar"
+                                }
+                            ]
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
@@ -237,14 +243,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Missing comma before start of a new alter operation.",
-                {
-                    "@type": "@14"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
