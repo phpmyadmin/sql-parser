@@ -41,6 +41,7 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterErr3'],
             ['parser/parseAlterErr4'],
             ['parser/parseAlterTableRenameIndex'],
+            ['parser/parseAlterTablePartitionByRange1'],
             ['parser/parseAlterWithInvisible'],
             ['parser/parseAlterTableCharacterSet1'],
             ['parser/parseAlterTableCharacterSet2'],
