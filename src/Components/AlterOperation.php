@@ -159,9 +159,10 @@ class AlterOperation extends Component
             1,
             'var',
         ],
-        'BY' => [
+
+        'IDENTIFIED WITH' => [
             2,
-            'expr',
+            'var',
         ],
         'PASSWORD' => [
             2,
@@ -170,6 +171,11 @@ class AlterOperation extends Component
         'WITH' => [
             2,
             'var',
+        ],
+
+        'BY' => [
+            4,
+            'expr',
         ],
 
         'ACCOUNT' => 1,

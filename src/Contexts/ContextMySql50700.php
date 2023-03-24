@@ -216,6 +216,7 @@ class ContextMySql50700 extends Context
         'FULLTEXT KEY' => 23, 'UNIQUE INDEX' => 23,
         'SPATIAL INDEX' => 23,
         'FULLTEXT INDEX' => 23,
+        'IDENTIFIED WITH' => 23,
 
         'X' => 33, 'Y' => 33,
         'LN' => 33, 'PI' => 33,
