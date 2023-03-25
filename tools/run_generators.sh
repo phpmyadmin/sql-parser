@@ -6,12 +6,12 @@ export LC_ALL=C
 # Runs the test and context generators.
 #
 
-BASE="$(dirname $0)"
+PROJECT_ROOT=$(dirname $(dirname $(readlink -m $0)))
 
-echo "Using base dir: $BASE"
-cd $BASE
+echo "Using base dir: ${PROJECT_ROOT}"
+cd ${PROJECT_ROOT}
 
-php ContextGenerator.php contexts/ ../src/Contexts
-php TestGenerator.php ../tests/data ../tests/data
+php tools/ContextGenerator.php tools/contexts/ src/Contexts
+php tools/TestGenerator.php tests/data tests/data
 
 echo "Done."
