@@ -11,7 +11,6 @@ use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\SqlParser\UtfString;
 
 use function file_exists;
 use function file_get_contents;
@@ -26,7 +25,6 @@ use function scandir;
 use function sprintf;
 use function str_contains;
 use function str_ends_with;
-use function str_replace;
 use function strpos;
 use function substr;
 
@@ -175,15 +173,6 @@ class TestGenerator
         $serializer = new CustomJsonSerializer();
         // Writing test's data.
         $encoded = $serializer->serialize($test);
-
-        /**
-         * Can not decode null char in keys.
-         *
-         * @see UtfString::$asciiMap
-         */
-        if (str_contains($encoded, '"asciiMap":{"\u0000":0,"')) {
-            $encoded = str_replace('"asciiMap":{"\u0000":0,"', '"asciiMap":{"', $encoded);
-        }
 
         $encoded = json_encode(
             json_decode($encoded),
