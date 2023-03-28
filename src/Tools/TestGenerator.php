@@ -163,6 +163,9 @@ class TestGenerator
             // set context
             $mariaDbVersion = (int) substr($input, $mariaDbPos + 9, 6);
             Context::load('MariaDb' . $mariaDbVersion);
+        } else {
+            // Load the default context to be sure there is no side effects
+            Context::load('');
         }
 
         $test = static::generate($query, $type);
