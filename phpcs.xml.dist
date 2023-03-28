@@ -13,10 +13,7 @@
 
     <exclude-pattern>tools/doctum-config.php</exclude-pattern>
 
-    <rule ref="PhpMyAdmin">
-        <exclude name="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint"/>
-        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint"/>
-    </rule>
+    <rule ref="PhpMyAdmin"/>
 
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireSingleLineCondition"/>
     <rule ref="SlevomatCodingStandard.Functions.RequireSingleLineCall"/>
@@ -31,10 +28,54 @@
         <exclude-pattern>tests/Tools/templates/*</exclude-pattern>
     </rule>
 
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>src/Context.php</exclude-pattern>
+    </rule>
+
+    <!-- Rules that should be followed, but are not required -->
+    <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountAfterControlStructure">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.ParentCallSpacing.IncorrectLinesCountBeforeControlStructure">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.PropertySpacing.IncorrectCountOfBlankLinesAfterProperty">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.InlineDocCommentDeclaration.InvalidFormat">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Commenting.RequireOneLineDocComment.MultiLineDocComment">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Exceptions.RequireNonCapturingCatch.NonCapturingCatchRequired">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInCall.MissingTrailingComma">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Functions.RequireTrailingCommaInDeclaration.MissingTrailingComma">
+        <severity>4</severity>
+    </rule>
     <rule ref="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName">
-        <exclude-pattern>src/TokensList.php</exclude-pattern>
-        <exclude-pattern>src/UtfString.php</exclude-pattern>
-        <exclude-pattern>src/Components/Expression.php</exclude-pattern>
-        <exclude-pattern>src/Statement.php</exclude-pattern>
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint.MissingNativeTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
+        <severity>4</severity>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat.DisallowedShortNullable">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps">
+        <severity>4</severity>
+    </rule>
+    <rule ref="Squiz.PHP.GlobalKeyword.NotAllowed">
+        <severity>4</severity>
     </rule>
 </ruleset>

@@ -1,5 +1,5 @@
 {
-    "query": "SELECT c1, c2, c3\n   \/* Subquery in FROM list *\/\n   FROM (SELECT C1, c2, c3 FROM test2) t1\n   WHERE RIGHT(name, 2) = 'AB';\n",
+    "query": "SELECT c1, c2, c3\n   /* Subquery in FROM list */\n   FROM (SELECT C1, c2, c3 FROM test2) t1\n   WHERE RIGHT(name, 2) = 'AB';\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "SELECT c1, c2, c3\n   \/* Subquery in FROM list *\/\n   FROM (SELECT C1, c2, c3 FROM test2) t1\n   WHERE RIGHT(name, 2) = 'AB';\n",
+        "str": "SELECT c1, c2, c3\n   /* Subquery in FROM list */\n   FROM (SELECT C1, c2, c3 FROM test2) t1\n   WHERE RIGHT(name, 2) = 'AB';\n",
         "len": 123,
         "last": 123,
         "list": {
@@ -122,8 +122,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* Subquery in FROM list *\/",
-                    "value": "\/* Subquery in FROM list *\/",
+                    "token": "/* Subquery in FROM list */",
+                    "value": "/* Subquery in FROM list */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -530,6 +530,10 @@
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
             },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
+            },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
                 "field": "union"
@@ -890,6 +894,10 @@
                         "GROUP BY",
                         3
                     ],
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
+                    ],
                     "HAVING": [
                         "HAVING",
                         3
@@ -1081,6 +1089,7 @@
                     }
                 ],
                 "group": null,
+                "groupOptions": null,
                 "having": null,
                 "order": null,
                 "limit": null,

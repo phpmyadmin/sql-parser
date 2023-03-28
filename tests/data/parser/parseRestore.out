@@ -1,5 +1,5 @@
 {
-    "query": "RESTORE TABLE my_table FROM \"\/path\/to\/backup\/directory\"",
+    "query": "RESTORE TABLE my_table FROM \"/path/to/backup/directory\"",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "RESTORE TABLE my_table FROM \"\/path\/to\/backup\/directory\"",
+        "str": "RESTORE TABLE my_table FROM \"/path/to/backup/directory\"",
         "len": 55,
         "last": 55,
         "list": {
@@ -104,8 +104,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\"\/path\/to\/backup\/directory\"",
-                    "value": "\/path\/to\/backup\/directory",
+                    "token": "\"/path/to/backup/directory\"",
+                    "value": "/path/to/backup/directory",
                     "keyword": null,
                     "type": 7,
                     "flags": 2,
@@ -187,6 +187,10 @@
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
+            },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -480,8 +484,8 @@
                         {
                             "name": "FROM",
                             "equals": false,
-                            "expr": "\"\/path\/to\/backup\/directory\"",
-                            "value": "\/path\/to\/backup\/directory"
+                            "expr": "\"/path/to/backup/directory\"",
+                            "value": "/path/to/backup/directory"
                         }
                     ]
                 },

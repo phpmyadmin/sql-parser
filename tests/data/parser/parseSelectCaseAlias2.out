@@ -1,5 +1,5 @@
 {
-    "query": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase \/* *\/ when 1=1 then \"Some\" when 2=1 then \"Other\" end \/* *\/ foo FROM a;",
+    "query": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase /* */ when 1=1 then \"Some\" when 2=1 then \"Other\" end /* */ foo FROM a;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase \/* *\/ when 1=1 then \"Some\" when 2=1 then \"Other\" end \/* *\/ foo FROM a;",
+        "str": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase /* */ when 1=1 then \"Some\" when 2=1 then \"Other\" end /* */ foo FROM a;",
         "len": 157,
         "last": 157,
         "list": {
@@ -293,8 +293,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -509,8 +509,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -655,6 +655,10 @@
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
+            },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -1016,6 +1020,10 @@
                         "GROUP BY",
                         3
                     ],
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
+                    ],
                     "HAVING": [
                         "HAVING",
                         3
@@ -1253,6 +1261,7 @@
                 "partition": null,
                 "where": null,
                 "group": null,
+                "groupOptions": null,
                 "having": null,
                 "order": null,
                 "limit": null,

@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
+use function trim;
 
 /**
  * `ALTER` statement.
@@ -43,7 +44,11 @@ class AlterStatement extends Statement
         'ONLINE' => 1,
         'OFFLINE' => 1,
         'IGNORE' => 2,
-
+        // `DEFINER` is also used for `ALTER EVENT`
+        'DEFINER' => [
+            2,
+            'expr=',
+        ],
         'DATABASE' => 3,
         'EVENT' => 3,
         'FUNCTION' => 3,
@@ -115,6 +120,8 @@ class AlterStatement extends Statement
                     $options = AlterOperation::$viewOptions;
                 } elseif ($this->options->has('USER')) {
                     $options = AlterOperation::$userOptions;
+                } elseif ($this->options->has('EVENT')) {
+                    $options = AlterOperation::$eventOptions;
                 }
 
                 $this->altered[] = AlterOperation::parse($parser, $list, $options);
@@ -137,8 +144,10 @@ class AlterStatement extends Statement
             $tmp[] = $altered::build($altered);
         }
 
-        return 'ALTER ' . OptionsArray::build($this->options)
+        return trim(
+            'ALTER ' . OptionsArray::build($this->options)
             . ' ' . Expression::build($this->table)
-            . ' ' . implode(', ', $tmp);
+            . ' ' . implode(', ', $tmp)
+        );
     }
 }

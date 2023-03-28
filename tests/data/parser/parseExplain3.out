@@ -611,6 +611,10 @@
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
             },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
+            },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
                 "field": "union"
@@ -922,6 +926,10 @@
                         "_END_OPTIONS": {
                             "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "field": "endOptions"
+                        },
+                        "_GROUP_OPTIONS": {
+                            "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "field": "groupOptions"
                         },
                         "INTERSECT": {
                             "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -1446,6 +1454,10 @@
                                     "GROUP BY",
                                     3
                                 ],
+                                "_GROUP_OPTIONS": [
+                                    "_GROUP_OPTIONS",
+                                    1
+                                ],
                                 "HAVING": [
                                     "HAVING",
                                     3
@@ -1664,6 +1676,7 @@
                                     }
                                 }
                             ],
+                            "groupOptions": null,
                             "having": null,
                             "order": null,
                             "limit": null,

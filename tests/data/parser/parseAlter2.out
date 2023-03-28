@@ -1,5 +1,5 @@
 {
-    "query": "ALTER \/* *\/ TABLE \/* *\/ table\nCONVERT \/* *\/ TO \/* *\/ CHARACTER \/* *\/ SET \/* *\/ utf8;",
+    "query": "ALTER /* */ TABLE /* */ table\nCONVERT /* */ TO /* */ CHARACTER /* */ SET /* */ utf8;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "ALTER \/* *\/ TABLE \/* *\/ table\nCONVERT \/* *\/ TO \/* *\/ CHARACTER \/* *\/ SET \/* *\/ utf8;",
+        "str": "ALTER /* */ TABLE /* */ table\nCONVERT /* */ TO /* */ CHARACTER /* */ SET /* */ utf8;",
         "len": 84,
         "last": 84,
         "list": {
@@ -50,8 +50,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -86,8 +86,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -140,8 +140,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -176,8 +176,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -212,8 +212,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -248,8 +248,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -358,6 +358,10 @@
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
+            },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -690,7 +694,6 @@
                             "COLUMN": 2,
                             "CONSTRAINT": 2,
                             "DEFAULT": 2,
-                            "TO": 2,
                             "BY": 2,
                             "FOREIGN": 2,
                             "FULLTEXT": 2,
@@ -702,8 +705,15 @@
                             "PRIMARY KEY": 2,
                             "SPATIAL": 2,
                             "TABLESPACE": 2,
-                            "INDEX": 2,
-                            "CHARACTER SET": 3
+                            "INDEX": [
+                                2,
+                                "var"
+                            ],
+                            "CHARACTER SET": 3,
+                            "TO": [
+                                3,
+                                "var"
+                            ]
                         },
                         "userOptions": {
                             "ATTRIBUTE": [
@@ -718,9 +728,13 @@
                                 1,
                                 "var"
                             ],
-                            "BY": [
+                            "IDENTIFIED VIA": [
                                 2,
-                                "expr"
+                                "var"
+                            ],
+                            "IDENTIFIED WITH": [
+                                2,
+                                "var"
                             ],
                             "PASSWORD": [
                                 2,
@@ -729,6 +743,10 @@
                             "WITH": [
                                 2,
                                 "var"
+                            ],
+                            "BY": [
+                                4,
+                                "expr"
                             ],
                             "ACCOUNT": 1,
                             "DEFAULT": 1,
@@ -739,31 +757,67 @@
                         "viewOptions": {
                             "AS": 1
                         },
+                        "eventOptions": {
+                            "ON SCHEDULE": 1,
+                            "EVERY": [
+                                2,
+                                "expr"
+                            ],
+                            "AT": [
+                                2,
+                                "expr"
+                            ],
+                            "STARTS": [
+                                3,
+                                "expr"
+                            ],
+                            "ENDS": [
+                                4,
+                                "expr"
+                            ],
+                            "ON COMPLETION PRESERVE": 5,
+                            "ON COMPLETION NOT PRESERVE": 5,
+                            "RENAME": 6,
+                            "TO": [
+                                7,
+                                "expr",
+                                {
+                                    "parseField": "table"
+                                }
+                            ],
+                            "ENABLE": 8,
+                            "DISABLE": 8,
+                            "DISABLE ON SLAVE": 8,
+                            "COMMENT": [
+                                9,
+                                "var"
+                            ],
+                            "DO": 10
+                        },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
-                                "2": "TO"
+                                "3": {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": "CHARACTER",
+                                    "value": "CHARACTER"
+                                }
                             }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@20"
-                            },
-                            {
-                                "@type": "@21"
-                            },
-                            {
-                                "@type": "@23"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "statementOptions": {
                     "ONLINE": 1,
                     "OFFLINE": 1,
                     "IGNORE": 2,
+                    "DEFINER": [
+                        2,
+                        "expr="
+                    ],
                     "DATABASE": 3,
                     "EVENT": 3,
                     "FUNCTION": 3,
@@ -780,7 +834,7 @@
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "3": "TABLE",
-                        "13": "TABLE"
+                        "14": "TABLE"
                     }
                 },
                 "first": 0,

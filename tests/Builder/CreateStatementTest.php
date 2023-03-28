@@ -241,11 +241,11 @@ class CreateStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function partitionQueriesProvider(): array
+    public static function partitionQueriesProvider(): array
     {
         return [
             [
-                'subparts' => <<<EOT
+                'subparts' => <<<'EOT'
 CREATE TABLE `ts` (
   `id` int(11) DEFAULT NULL,
   `purchased` date DEFAULT NULL
@@ -270,7 +270,7 @@ EOT
             ,
             ],
             [
-                'parts' => <<<EOT
+                'parts' => <<<'EOT'
 CREATE TABLE ptest (
   `event_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC
@@ -301,6 +301,20 @@ EOT
 
     public function testBuilderView(): void
     {
+        $parser = new Parser(
+            'CREATE OR REPLACE VIEW xviewmytable  AS SELECT mytable.id '
+            . 'AS id, mytable.personid AS personid FROM mytable '
+            . 'WHERE (mytable.birth > \'1990-01-19\') GROUP BY mytable.personid  ;'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE OR REPLACE VIEW xviewmytable  AS SELECT mytable.id '
+            . 'AS `id`, mytable.personid AS `personid` FROM mytable '
+            . 'WHERE (mytable.birth > \'1990-01-19\') GROUP BY mytable.personid ',
+            $stmt->build()
+        );
+
         $parser = new Parser(
             'CREATE VIEW myView (vid, vfirstname) AS ' .
             'SELECT id, first_name FROM employee WHERE id = 1'
@@ -443,6 +457,22 @@ EOT
 
     public function testBuilderCreateProcedure(): void
     {
+        $parser = new Parser(
+            'CREATE DEFINER=`root`@`%`'
+            . ' PROCEDURE `test2`(IN `_var` INT) DETERMINISTIC'
+            . ' MODIFIES SQL DATA SELECT _var'
+        );
+
+        /** @var CreateStatement $stmt */
+        $stmt = $parser->statements[0];
+
+        $this->assertSame(
+            'CREATE DEFINER=`root`@`%`'
+            . ' PROCEDURE `test2` (IN `_var` INT)  DETERMINISTIC'
+            . ' MODIFIES SQL DATA SELECT _var',
+            $stmt->build()
+        );
+
         $parser = new Parser(
             'CREATE DEFINER=`root`@`%`'
             . ' PROCEDURE `test2`(IN `_var` INT) NOT DETERMINISTIC NO SQL'

@@ -1,5 +1,5 @@
 {
-    "query": "CREATE USER test",
+    "query": "ALTER DEFINER = user EVENT my_event ENABLE;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,17 +24,17 @@
             ",",
             "."
         ],
-        "str": "CREATE USER test",
-        "len": 16,
-        "last": 16,
+        "str": "ALTER DEFINER = user EVENT my_event ENABLE;\n",
+        "len": 44,
+        "last": 44,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "CREATE",
-                    "value": "CREATE",
-                    "keyword": "CREATE",
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
                     "type": 1,
                     "flags": 3,
                     "position": 0
@@ -46,16 +46,16 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 6
+                    "position": 5
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "USER",
-                    "value": "USER",
-                    "keyword": "USER",
+                    "token": "DEFINER",
+                    "value": "DEFINER",
+                    "keyword": "DEFINER",
                     "type": 1,
-                    "flags": 33,
-                    "position": 7
+                    "flags": 1,
+                    "position": 6
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -64,16 +64,106 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 11
+                    "position": 13
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "test",
-                    "value": "test",
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 14
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 15
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "user",
+                    "value": "user",
+                    "keyword": "USER",
+                    "type": 1,
+                    "flags": 33,
+                    "position": 16
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 20
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "EVENT",
+                    "value": "EVENT",
+                    "keyword": "EVENT",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 21
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 26
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "my_event",
+                    "value": "my_event",
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 12
+                    "position": 27
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 35
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "ENABLE",
+                    "value": "ENABLE",
+                    "keyword": "ENABLE",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 36
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 42
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 43
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -85,8 +175,8 @@
                     "position": null
                 }
             ],
-            "count": 6,
-            "idx": 6
+            "count": 16,
+            "idx": 16
         },
         "defaultDelimiter": ";",
         "delimiter": ";",
@@ -151,6 +241,10 @@
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
+            },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -397,228 +491,8 @@
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-                "statementOptions": {
-                    "TEMPORARY": 1,
-                    "OR REPLACE": 2,
-                    "ALGORITHM": [
-                        3,
-                        "var="
-                    ],
-                    "DEFINER": [
-                        4,
-                        "expr="
-                    ],
-                    "SQL SECURITY": [
-                        5,
-                        "var"
-                    ],
-                    "DATABASE": 6,
-                    "EVENT": 6,
-                    "FUNCTION": 6,
-                    "INDEX": 6,
-                    "UNIQUE INDEX": 6,
-                    "FULLTEXT INDEX": 6,
-                    "SPATIAL INDEX": 6,
-                    "PROCEDURE": 6,
-                    "SERVER": 6,
-                    "TABLE": 6,
-                    "TABLESPACE": 6,
-                    "TRIGGER": 6,
-                    "USER": 6,
-                    "VIEW": 6,
-                    "SCHEMA": 6,
-                    "IF NOT EXISTS": 7
-                },
-                "databaseOptions": {
-                    "CHARACTER SET": [
-                        1,
-                        "var="
-                    ],
-                    "CHARSET": [
-                        1,
-                        "var="
-                    ],
-                    "DEFAULT CHARACTER SET": [
-                        1,
-                        "var="
-                    ],
-                    "DEFAULT CHARSET": [
-                        1,
-                        "var="
-                    ],
-                    "DEFAULT COLLATE": [
-                        2,
-                        "var="
-                    ],
-                    "COLLATE": [
-                        2,
-                        "var="
-                    ]
-                },
-                "tableOptions": {
-                    "ENGINE": [
-                        1,
-                        "var="
-                    ],
-                    "AUTO_INCREMENT": [
-                        2,
-                        "var="
-                    ],
-                    "AVG_ROW_LENGTH": [
-                        3,
-                        "var"
-                    ],
-                    "CHARACTER SET": [
-                        4,
-                        "var="
-                    ],
-                    "CHARSET": [
-                        4,
-                        "var="
-                    ],
-                    "DEFAULT CHARACTER SET": [
-                        4,
-                        "var="
-                    ],
-                    "DEFAULT CHARSET": [
-                        4,
-                        "var="
-                    ],
-                    "CHECKSUM": [
-                        5,
-                        "var"
-                    ],
-                    "DEFAULT COLLATE": [
-                        6,
-                        "var="
-                    ],
-                    "COLLATE": [
-                        6,
-                        "var="
-                    ],
-                    "COMMENT": [
-                        7,
-                        "var="
-                    ],
-                    "CONNECTION": [
-                        8,
-                        "var"
-                    ],
-                    "DATA DIRECTORY": [
-                        9,
-                        "var"
-                    ],
-                    "DELAY_KEY_WRITE": [
-                        10,
-                        "var"
-                    ],
-                    "INDEX DIRECTORY": [
-                        11,
-                        "var"
-                    ],
-                    "INSERT_METHOD": [
-                        12,
-                        "var"
-                    ],
-                    "KEY_BLOCK_SIZE": [
-                        13,
-                        "var"
-                    ],
-                    "MAX_ROWS": [
-                        14,
-                        "var"
-                    ],
-                    "MIN_ROWS": [
-                        15,
-                        "var"
-                    ],
-                    "PACK_KEYS": [
-                        16,
-                        "var"
-                    ],
-                    "PASSWORD": [
-                        17,
-                        "var"
-                    ],
-                    "ROW_FORMAT": [
-                        18,
-                        "var"
-                    ],
-                    "TABLESPACE": [
-                        19,
-                        "var"
-                    ],
-                    "STORAGE": [
-                        20,
-                        "var"
-                    ],
-                    "UNION": [
-                        21,
-                        "var"
-                    ],
-                    "PAGE_COMPRESSED": [
-                        22,
-                        "var"
-                    ],
-                    "PAGE_COMPRESSION_LEVEL": [
-                        23,
-                        "var"
-                    ]
-                },
-                "functionOptions": {
-                    "NOT": [
-                        2,
-                        "var"
-                    ],
-                    "FUNCTION": [
-                        3,
-                        "var="
-                    ],
-                    "PROCEDURE": [
-                        3,
-                        "var="
-                    ],
-                    "CONTAINS": [
-                        4,
-                        "expr"
-                    ],
-                    "NO": [
-                        4,
-                        "var"
-                    ],
-                    "READS": [
-                        4,
-                        "var"
-                    ],
-                    "MODIFIES": [
-                        4,
-                        "expr"
-                    ],
-                    "SQL SECURITY": [
-                        6,
-                        "var"
-                    ],
-                    "LANGUAGE": [
-                        7,
-                        "var"
-                    ],
-                    "COMMENT": [
-                        8,
-                        "var"
-                    ],
-                    "CREATE": 1,
-                    "DETERMINISTIC": 2,
-                    "DATA": 5
-                },
-                "triggerOptions": {
-                    "BEFORE": 1,
-                    "AFTER": 1,
-                    "INSERT": 2,
-                    "UPDATE": 2,
-                    "DELETE": 2
-                },
-                "name": {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "allowedKeywords": {
                         "AND": 1,
@@ -639,37 +513,269 @@
                         "XOR": 1
                     },
                     "database": null,
-                    "table": "test",
+                    "table": "my_event",
                     "column": null,
-                    "expr": "test",
+                    "expr": "my_event",
                     "alias": null,
                     "function": null,
                     "subquery": null
                 },
-                "entityOptions": null,
-                "fields": null,
-                "with": null,
-                "select": null,
-                "like": null,
-                "partitionBy": null,
-                "partitionsNum": null,
-                "subpartitionBy": null,
-                "subpartitionsNum": null,
-                "partitions": null,
-                "table": null,
-                "return": null,
-                "parameters": null,
-                "body": [],
+                "altered": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                        "databaseOptions": {
+                            "CHARACTER SET": [
+                                1,
+                                "var"
+                            ],
+                            "CHARSET": [
+                                1,
+                                "var"
+                            ],
+                            "DEFAULT CHARACTER SET": [
+                                1,
+                                "var"
+                            ],
+                            "DEFAULT CHARSET": [
+                                1,
+                                "var"
+                            ],
+                            "UPGRADE": [
+                                1,
+                                "var"
+                            ],
+                            "COLLATE": [
+                                2,
+                                "var"
+                            ],
+                            "DEFAULT COLLATE": [
+                                2,
+                                "var"
+                            ]
+                        },
+                        "tableOptions": {
+                            "ENGINE": [
+                                1,
+                                "var="
+                            ],
+                            "AUTO_INCREMENT": [
+                                1,
+                                "var="
+                            ],
+                            "AVG_ROW_LENGTH": [
+                                1,
+                                "var"
+                            ],
+                            "MAX_ROWS": [
+                                1,
+                                "var"
+                            ],
+                            "ROW_FORMAT": [
+                                1,
+                                "var"
+                            ],
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "ADD": 1,
+                            "ALTER": 1,
+                            "ANALYZE": 1,
+                            "CHANGE": 1,
+                            "CHARSET": 1,
+                            "CHECK": 1,
+                            "COALESCE": 1,
+                            "CONVERT": 1,
+                            "DEFAULT CHARSET": 1,
+                            "DISABLE": 1,
+                            "DISCARD": 1,
+                            "DROP": 1,
+                            "ENABLE": 1,
+                            "IMPORT": 1,
+                            "MODIFY": 1,
+                            "OPTIMIZE": 1,
+                            "ORDER": 1,
+                            "REBUILD": 1,
+                            "REMOVE": 1,
+                            "RENAME": 1,
+                            "REORGANIZE": 1,
+                            "REPAIR": 1,
+                            "UPGRADE": 1,
+                            "COLUMN": 2,
+                            "CONSTRAINT": 2,
+                            "DEFAULT": 2,
+                            "BY": 2,
+                            "FOREIGN": 2,
+                            "FULLTEXT": 2,
+                            "KEY": 2,
+                            "KEYS": 2,
+                            "PARTITION": 2,
+                            "PARTITION BY": 2,
+                            "PARTITIONING": 2,
+                            "PRIMARY KEY": 2,
+                            "SPATIAL": 2,
+                            "TABLESPACE": 2,
+                            "INDEX": [
+                                2,
+                                "var"
+                            ],
+                            "CHARACTER SET": 3,
+                            "TO": [
+                                3,
+                                "var"
+                            ]
+                        },
+                        "userOptions": {
+                            "ATTRIBUTE": [
+                                1,
+                                "var"
+                            ],
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "REQUIRE": [
+                                1,
+                                "var"
+                            ],
+                            "IDENTIFIED VIA": [
+                                2,
+                                "var"
+                            ],
+                            "IDENTIFIED WITH": [
+                                2,
+                                "var"
+                            ],
+                            "PASSWORD": [
+                                2,
+                                "var"
+                            ],
+                            "WITH": [
+                                2,
+                                "var"
+                            ],
+                            "BY": [
+                                4,
+                                "expr"
+                            ],
+                            "ACCOUNT": 1,
+                            "DEFAULT": 1,
+                            "LOCK": 2,
+                            "UNLOCK": 2,
+                            "IDENTIFIED": 3
+                        },
+                        "viewOptions": {
+                            "AS": 1
+                        },
+                        "eventOptions": {
+                            "ON SCHEDULE": 1,
+                            "EVERY": [
+                                2,
+                                "expr"
+                            ],
+                            "AT": [
+                                2,
+                                "expr"
+                            ],
+                            "STARTS": [
+                                3,
+                                "expr"
+                            ],
+                            "ENDS": [
+                                4,
+                                "expr"
+                            ],
+                            "ON COMPLETION PRESERVE": 5,
+                            "ON COMPLETION NOT PRESERVE": 5,
+                            "RENAME": 6,
+                            "TO": [
+                                7,
+                                "expr",
+                                {
+                                    "parseField": "table"
+                                }
+                            ],
+                            "ENABLE": 8,
+                            "DISABLE": 8,
+                            "DISABLE ON SLAVE": 8,
+                            "COMMENT": [
+                                9,
+                                "var"
+                            ],
+                            "DO": 10
+                        },
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "8": "ENABLE"
+                            }
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
+                    }
+                ],
+                "statementOptions": {
+                    "ONLINE": 1,
+                    "OFFLINE": 1,
+                    "IGNORE": 2,
+                    "DEFINER": [
+                        2,
+                        "expr="
+                    ],
+                    "DATABASE": 3,
+                    "EVENT": 3,
+                    "FUNCTION": 3,
+                    "PROCEDURE": 3,
+                    "SERVER": 3,
+                    "TABLE": 3,
+                    "TABLESPACE": 3,
+                    "USER": 3,
+                    "VIEW": 3
+                },
                 "clauses": [],
                 "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
-                        "6": "USER"
+                        "2": {
+                            "name": "DEFINER",
+                            "equals": true,
+                            "expr": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                "allowedKeywords": {
+                                    "AND": 1,
+                                    "AS": 1,
+                                    "BETWEEN": 1,
+                                    "CASE": 1,
+                                    "DUAL": 1,
+                                    "DIV": 1,
+                                    "IS": 1,
+                                    "MOD": 1,
+                                    "NOT": 1,
+                                    "NOT NULL": 1,
+                                    "NULL": 1,
+                                    "OR": 1,
+                                    "OVER": 1,
+                                    "REGEXP": 1,
+                                    "RLIKE": 1,
+                                    "XOR": 1
+                                },
+                                "database": null,
+                                "table": null,
+                                "column": null,
+                                "expr": "user",
+                                "alias": null,
+                                "function": null,
+                                "subquery": null
+                            },
+                            "value": "user"
+                        },
+                        "3": "EVENT"
                     }
                 },
                 "first": 0,
-                "last": 5
+                "last": 13
             }
         ],
         "brackets": 0,

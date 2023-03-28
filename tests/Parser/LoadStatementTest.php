@@ -28,7 +28,7 @@ class LoadStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function loadProvider(): array
+    public static function loadProvider(): array
     {
         return [
             ['parser/parseLoad1'],

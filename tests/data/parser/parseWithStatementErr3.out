@@ -377,6 +377,10 @@
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
             },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
+            },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
                 "field": "union"
@@ -804,22 +808,10 @@
                         3,
                         "var="
                     ],
-                    "CONTAINS": [
-                        4,
-                        "expr"
-                    ],
-                    "NO": [
-                        4,
-                        "var"
-                    ],
-                    "READS": [
-                        4,
-                        "var"
-                    ],
-                    "MODIFIES": [
-                        4,
-                        "expr"
-                    ],
+                    "CONTAINS SQL": 4,
+                    "NO SQL": 4,
+                    "READS SQL DATA": 4,
+                    "MODIFIES SQL DATA": 4,
                     "SQL SECURITY": [
                         6,
                         "var"
@@ -833,8 +825,7 @@
                         "var"
                     ],
                     "CREATE": 1,
-                    "DETERMINISTIC": 2,
-                    "DATA": 5
+                    "DETERMINISTIC": 2
                 },
                 "triggerOptions": {
                     "BEFORE": 1,
@@ -964,6 +955,10 @@
                                     "_END_OPTIONS": {
                                         "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                         "field": "endOptions"
+                                    },
+                                    "_GROUP_OPTIONS": {
+                                        "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                        "field": "groupOptions"
                                     },
                                     "INTERSECT": {
                                         "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -1362,6 +1357,10 @@
                                                 "GROUP BY",
                                                 3
                                             ],
+                                            "_GROUP_OPTIONS": [
+                                                "_GROUP_OPTIONS",
+                                                1
+                                            ],
                                             "HAVING": [
                                                 "HAVING",
                                                 3
@@ -1430,6 +1429,7 @@
                                         "partition": null,
                                         "where": null,
                                         "group": null,
+                                        "groupOptions": null,
                                         "having": null,
                                         "order": null,
                                         "limit": null,
@@ -1555,6 +1555,10 @@
                                                             "GROUP BY",
                                                             3
                                                         ],
+                                                        "_GROUP_OPTIONS": [
+                                                            "_GROUP_OPTIONS",
+                                                            1
+                                                        ],
                                                         "HAVING": [
                                                             "HAVING",
                                                             3
@@ -1623,6 +1627,7 @@
                                                     "partition": null,
                                                     "where": null,
                                                     "group": null,
+                                                    "groupOptions": null,
                                                     "having": null,
                                                     "order": [],
                                                     "limit": null,

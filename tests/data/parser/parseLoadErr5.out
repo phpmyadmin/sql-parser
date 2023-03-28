@@ -1,5 +1,5 @@
 {
-    "query": "LOAD DATA INFILE '\/tmp\/test.txt' IGNORE\nINTO TABLE test\n@a = 1;",
+    "query": "LOAD DATA INFILE '/tmp/test.txt' IGNORE\nINTO TABLE test\n@a = 1;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "LOAD DATA INFILE '\/tmp\/test.txt' IGNORE\nINTO TABLE test\n@a = 1;",
+        "str": "LOAD DATA INFILE '/tmp/test.txt' IGNORE\nINTO TABLE test\n@a = 1;",
         "len": 63,
         "last": 63,
         "list": {
@@ -68,8 +68,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'\/tmp\/test.txt'",
-                    "value": "\/tmp\/test.txt",
+                    "token": "'/tmp/test.txt'",
+                    "value": "/tmp/test.txt",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
@@ -286,6 +286,10 @@
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
+            },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -586,11 +590,11 @@
                     "database": null,
                     "table": null,
                     "column": null,
-                    "expr": "'\/tmp\/test.txt'",
+                    "expr": "'/tmp/test.txt'",
                     "alias": null,
                     "function": null,
                     "subquery": null,
-                    "file": "\/tmp\/test.txt"
+                    "file": "/tmp/test.txt"
                 },
                 "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",

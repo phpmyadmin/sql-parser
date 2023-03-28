@@ -1,9 +1,32 @@
 # Change Log
 
+## [6.0.x] - YYYY-MM-DD
+
+* Drop support for PHP 7.2, 7.3, 7.4 and 8.0
+
 ## [5.x.x] - YYYY-MM-DD
+
+- Fix `ALTER EVENT RENAME TO` to use expression instead of var (#419)
+- Fix incorrect order of operations to parse table/db called `` (#422)
+- Fix ALTER EVENT statement with DEFINER=user modifier fails to be parsed (#418)
+- Fix GROUP BY modifier WITH ROLLUP is treated as a syntax error and prevents export of SQL query results
+- Fix `TokensList::getPrevious` was not able to reach very first token (#428)
+- Fix `TransactionStatement::build()` "Call to a member function build() on null" when the transaction has no end
+- Fix MySQL-specific commands parsing (#226)
+- Fix `ALTER TABLE … RENAME COLUMN … TO …` is not understood by the parser/linter (#430)
+- Fix `PARTITION` syntax errors (#377)
+- Fix `ALTER USER` when used with `IDENTIFIED WITH/VIA/BY` option (#431)
+
+## [5.7.0] - 2023-01-25
 
 * Performance improvement to use less the `nextToken()` function (#397)
 * Lexer - Solving ambiguity on function keywords (#385)
+* Implement `ALTER EVENT` (#404)
+* Add `ALTER EVENT` keywords (#404)
+* Drop PHP 7.1 support
+* Fix the alter operation table options `RENAME INDEX x TO y` (#405)
+* Fix `CreateStatement` function's options (#406)
+* Fix a PHP notice on Linter using `ANALYZE` (#413)
 
 ## [5.6.0] - 2023-01-02
 

@@ -19,7 +19,7 @@ class CreateStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function createProvider(): array
+    public static function createProvider(): array
     {
         return [
             ['parser/parseCreateDatabase'],
@@ -41,6 +41,10 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateTable6'],
             ['parser/parseCreateTable7'],
             ['parser/parseCreateTable8'],
+            ['parser/parseCreateTable9'],
+            ['parser/parseCreateTable10'],
+            ['parser/parseCreateTable11'],
+            ['parser/parseCreateTable12'],
             ['parser/parseCreateTableErr1'],
             ['parser/parseCreateTableErr2'],
             ['parser/parseCreateTableErr3'],
@@ -55,7 +59,8 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateTableNotEnforcedCheck'],
             ['parser/parseCreateTableWithInvisibleKey'],
             ['parser/parseCreateTrigger'],
-            ['parser/parseCreateUser'],
+            ['parser/parseCreateUser1'],
+            ['parser/parseCreateUser2'],
             ['parser/parseCreateView'],
             ['parser/parseCreateView2'],
             ['parser/parseCreateView3'],
@@ -67,6 +72,7 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateViewWithWrongSyntax'],
             ['parser/parseCreateViewWithUnion'],
             ['parser/parseCreateViewAsWithAs'],
+            ['parser/parseCreateOrReplaceView1'],
         ];
     }
 }

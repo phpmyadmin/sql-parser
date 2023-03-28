@@ -23,7 +23,7 @@ class WithStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function parseWith(): array
+    public static function parseWith(): array
     {
         return [
             ['parser/parseWithStatement'],
@@ -48,7 +48,7 @@ class WithStatementTest extends TestCase
 
     public function testWith(): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
 WITH categories(identifier, name, parent_id) AS (
     SELECT c.identifier, c.name, c.parent_id FROM category c WHERE c.identifier = 'a'
     UNION ALL
@@ -67,7 +67,7 @@ SQL;
         $this->assertCount(1, $parser->statements);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $expected = <<<SQL
+        $expected = <<<'SQL'
 WITH categories(identifier, name, parent_id) AS (SELECT c.identifier, c.name, c.parent_id FROM category AS `c` WHERE c.identifier = 'a' UNION ALL SELECT c.identifier, c.name, c.parent_id FROM categories, category AS `c` WHERE c.identifier = categories.parent_id), foo AS (SELECT * FROM test) SELECT * FROM categories
 SQL;
         // phpcs:enable
@@ -76,7 +76,7 @@ SQL;
 
     public function testWithHasErrors(): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
 WITH categories(identifier, name, parent_id) AS (
     SOMETHING * FROM foo
 )
@@ -94,7 +94,7 @@ SQL;
 
     public function testWithEmbedParenthesis(): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
 WITH categories AS (
     SELECT * FROM (SELECT * FROM foo)
 )
@@ -109,7 +109,7 @@ SQL;
         $this->assertCount(0, $parserErrors);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
-        $expected = <<<SQL
+        $expected = <<<'SQL'
 WITH categories AS (SELECT * FROM (SELECT * FROM foo)) SELECT * FROM categories
 SQL;
         // phpcs:enable
@@ -118,7 +118,7 @@ SQL;
 
     public function testWithHasUnclosedParenthesis(): void
     {
-        $sql = <<<SQL
+        $sql = <<<'SQL'
 WITH categories(identifier, name, parent_id) AS (
     SELECT * FROM (SELECT * FROM foo
 )

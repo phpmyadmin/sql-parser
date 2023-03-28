@@ -221,30 +221,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "NO",
-                    "value": "NO",
-                    "keyword": "NO",
+                    "token": "NO SQL",
+                    "value": "NO SQL",
+                    "keyword": "NO SQL",
                     "type": 1,
-                    "flags": 1,
+                    "flags": 7,
                     "position": 77
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 79
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SQL",
-                    "value": "SQL",
-                    "keyword": "SQL",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 80
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -328,8 +310,8 @@
                     "position": null
                 }
             ],
-            "count": 33,
-            "idx": 34
+            "count": 31,
+            "idx": 32
         },
         "defaultDelimiter": ";",
         "delimiter": ";",
@@ -394,6 +376,10 @@
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
+            },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -822,22 +808,10 @@
                         3,
                         "var="
                     ],
-                    "CONTAINS": [
-                        4,
-                        "expr"
-                    ],
-                    "NO": [
-                        4,
-                        "var"
-                    ],
-                    "READS": [
-                        4,
-                        "var"
-                    ],
-                    "MODIFIES": [
-                        4,
-                        "expr"
-                    ],
+                    "CONTAINS SQL": 4,
+                    "NO SQL": 4,
+                    "READS SQL DATA": 4,
+                    "MODIFIES SQL DATA": 4,
                     "SQL SECURITY": [
                         6,
                         "var"
@@ -851,8 +825,7 @@
                         "var"
                     ],
                     "CREATE": 1,
-                    "DETERMINISTIC": 2,
-                    "DATA": 5
+                    "DETERMINISTIC": 2
                 },
                 "triggerOptions": {
                     "BEFORE": 1,
@@ -898,12 +871,7 @@
                             "expr": "DETERMINISTIC",
                             "value": "DETERMINISTIC"
                         },
-                        "4": {
-                            "name": "NO",
-                            "equals": false,
-                            "expr": "SQL",
-                            "value": "SQL"
-                        },
+                        "4": "NO SQL",
                         "6": {
                             "name": "SQL SECURITY",
                             "equals": false,
@@ -958,16 +926,16 @@
                 ],
                 "body": [
                     {
+                        "@type": "@29"
+                    },
+                    {
+                        "@type": "@30"
+                    },
+                    {
                         "@type": "@31"
                     },
                     {
                         "@type": "@32"
-                    },
-                    {
-                        "@type": "@33"
-                    },
-                    {
-                        "@type": "@34"
                     }
                 ],
                 "clauses": [],
@@ -1012,7 +980,7 @@
                     }
                 },
                 "first": 0,
-                "last": 33
+                "last": 31
             }
         ],
         "brackets": 0,

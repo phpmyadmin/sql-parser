@@ -152,6 +152,10 @@
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
             },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
+            },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
                 "field": "union"
@@ -463,6 +467,10 @@
                         "_END_OPTIONS": {
                             "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "field": "endOptions"
+                        },
+                        "_GROUP_OPTIONS": {
+                            "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "field": "groupOptions"
                         },
                         "INTERSECT": {
                             "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -840,6 +848,10 @@
                                     "GROUP BY",
                                     3
                                 ],
+                                "_GROUP_OPTIONS": [
+                                    "_GROUP_OPTIONS",
+                                    1
+                                ],
                                 "HAVING": [
                                     "HAVING",
                                     3
@@ -879,6 +891,7 @@
                             "partition": null,
                             "where": null,
                             "group": null,
+                            "groupOptions": null,
                             "having": null,
                             "order": null,
                             "limit": null,
@@ -905,8 +918,8 @@
                             },
                             "message": "An expression was expected.",
                             "code": 0,
-                            "file": "\/mnt\/Dev\/@phpmyadmin\/sql-parser\/src\/Parser.php",
-                            "line": 630
+                            "file": "<project-root>/src/Parser.php",
+                            "line": 634
                         },
                         {
                             "@type": "PhpMyAdmin\\SqlParser\\Exceptions\\ParserException",
@@ -915,8 +928,8 @@
                             },
                             "message": "An expression was expected.",
                             "code": 0,
-                            "file": "\/mnt\/Dev\/@phpmyadmin\/sql-parser\/src\/Parser.php",
-                            "line": 630
+                            "file": "<project-root>/src/Parser.php",
+                            "line": 634
                         }
                     ]
                 },

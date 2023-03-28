@@ -1,5 +1,5 @@
 {
-    "query": "SELECT * FROM\nSELECT *FROM\nSELECT a.* FROM\nSELECT a.*,b.* FROM\nSELECT a.*, b.* FROM\nSELECT a.*, \/* with a comment *\/ b.* FROM\nSELECT a.*,\/* with a comment *\/b.* FROM\nSELECT a.* \/* comment *\/ FROM\n-- SELECT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)\nSELECT DISTINCT * FROM\nSELECT DISTINCT *FROM\nSELECT DISTINCT a.* FROM\nSELECT DISTINCT a.*,b.* FROM\nSELECT DISTINCT a.*, b.* FROM\nSELECT DISTINCT a.*, \/* with a comment *\/ b.* FROM\nSELECT DISTINCT a.*,\/* with a comment *\/b.* FROM\nSELECT DISTINCT a.* \/* comment *\/ FROM\n-- SELECT DISTINCT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)\nSELECT `*` FROM table_name\nSELECT `*`.* FROM table_name AS `*`\nSELECT COUNT(*) FROM table_name\nSELECT COUNT( * ) FROM table_name\nSELECT COUNT( * \/* comment with *,USING,FROM *\/) FROM table_name\nSELECT COUNT(`*`) FROM table_name\nSELECT 1 FROM table_name WHERE LABEL LIKE '%*%'\nDELETE a.* USING\nDELETE a.*, b.* USING\nDELETE a.* ,b.* USING\nDELETE a.* , b.* USING\nDELETE a.* \/* comment *\/ USING\nDELETE a.* \/* comment *\/, b.* \/*comment*\/ USING\nDELETE a.* \/* comment *\/ ,b.* \/*comment*\/ USING\nDELETE a.* \/* comment *\/ , b.* \/*comment*\/ USING\n\n",
+    "query": "SELECT * FROM\nSELECT *FROM\nSELECT a.* FROM\nSELECT a.*,b.* FROM\nSELECT a.*, b.* FROM\nSELECT a.*, /* with a comment */ b.* FROM\nSELECT a.*,/* with a comment */b.* FROM\nSELECT a.* /* comment */ FROM\n-- SELECT a.*/* comment */ FROM (This one is not working yet because of https://github.com/phpmyadmin/sql-parser/issues/285. Please uncomment when this issue is fixed.)\nSELECT DISTINCT * FROM\nSELECT DISTINCT *FROM\nSELECT DISTINCT a.* FROM\nSELECT DISTINCT a.*,b.* FROM\nSELECT DISTINCT a.*, b.* FROM\nSELECT DISTINCT a.*, /* with a comment */ b.* FROM\nSELECT DISTINCT a.*,/* with a comment */b.* FROM\nSELECT DISTINCT a.* /* comment */ FROM\n-- SELECT DISTINCT a.*/* comment */ FROM (This one is not working yet because of https://github.com/phpmyadmin/sql-parser/issues/285. Please uncomment when this issue is fixed.)\nSELECT `*` FROM table_name\nSELECT `*`.* FROM table_name AS `*`\nSELECT COUNT(*) FROM table_name\nSELECT COUNT( * ) FROM table_name\nSELECT COUNT( * /* comment with *,USING,FROM */) FROM table_name\nSELECT COUNT(`*`) FROM table_name\nSELECT 1 FROM table_name WHERE LABEL LIKE '%*%'\nDELETE a.* USING\nDELETE a.*, b.* USING\nDELETE a.* ,b.* USING\nDELETE a.* , b.* USING\nDELETE a.* /* comment */ USING\nDELETE a.* /* comment */, b.* /*comment*/ USING\nDELETE a.* /* comment */ ,b.* /*comment*/ USING\nDELETE a.* /* comment */ , b.* /*comment*/ USING\n\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "SELECT * FROM\nSELECT *FROM\nSELECT a.* FROM\nSELECT a.*,b.* FROM\nSELECT a.*, b.* FROM\nSELECT a.*, \/* with a comment *\/ b.* FROM\nSELECT a.*,\/* with a comment *\/b.* FROM\nSELECT a.* \/* comment *\/ FROM\n-- SELECT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)\nSELECT DISTINCT * FROM\nSELECT DISTINCT *FROM\nSELECT DISTINCT a.* FROM\nSELECT DISTINCT a.*,b.* FROM\nSELECT DISTINCT a.*, b.* FROM\nSELECT DISTINCT a.*, \/* with a comment *\/ b.* FROM\nSELECT DISTINCT a.*,\/* with a comment *\/b.* FROM\nSELECT DISTINCT a.* \/* comment *\/ FROM\n-- SELECT DISTINCT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)\nSELECT `*` FROM table_name\nSELECT `*`.* FROM table_name AS `*`\nSELECT COUNT(*) FROM table_name\nSELECT COUNT( * ) FROM table_name\nSELECT COUNT( * \/* comment with *,USING,FROM *\/) FROM table_name\nSELECT COUNT(`*`) FROM table_name\nSELECT 1 FROM table_name WHERE LABEL LIKE '%*%'\nDELETE a.* USING\nDELETE a.*, b.* USING\nDELETE a.* ,b.* USING\nDELETE a.* , b.* USING\nDELETE a.* \/* comment *\/ USING\nDELETE a.* \/* comment *\/, b.* \/*comment*\/ USING\nDELETE a.* \/* comment *\/ ,b.* \/*comment*\/ USING\nDELETE a.* \/* comment *\/ , b.* \/*comment*\/ USING\n\n",
+        "str": "SELECT * FROM\nSELECT *FROM\nSELECT a.* FROM\nSELECT a.*,b.* FROM\nSELECT a.*, b.* FROM\nSELECT a.*, /* with a comment */ b.* FROM\nSELECT a.*,/* with a comment */b.* FROM\nSELECT a.* /* comment */ FROM\n-- SELECT a.*/* comment */ FROM (This one is not working yet because of https://github.com/phpmyadmin/sql-parser/issues/285. Please uncomment when this issue is fixed.)\nSELECT DISTINCT * FROM\nSELECT DISTINCT *FROM\nSELECT DISTINCT a.* FROM\nSELECT DISTINCT a.*,b.* FROM\nSELECT DISTINCT a.*, b.* FROM\nSELECT DISTINCT a.*, /* with a comment */ b.* FROM\nSELECT DISTINCT a.*,/* with a comment */b.* FROM\nSELECT DISTINCT a.* /* comment */ FROM\n-- SELECT DISTINCT a.*/* comment */ FROM (This one is not working yet because of https://github.com/phpmyadmin/sql-parser/issues/285. Please uncomment when this issue is fixed.)\nSELECT `*` FROM table_name\nSELECT `*`.* FROM table_name AS `*`\nSELECT COUNT(*) FROM table_name\nSELECT COUNT( * ) FROM table_name\nSELECT COUNT( * /* comment with *,USING,FROM */) FROM table_name\nSELECT COUNT(`*`) FROM table_name\nSELECT 1 FROM table_name WHERE LABEL LIKE '%*%'\nDELETE a.* USING\nDELETE a.*, b.* USING\nDELETE a.* ,b.* USING\nDELETE a.* , b.* USING\nDELETE a.* /* comment */ USING\nDELETE a.* /* comment */, b.* /*comment*/ USING\nDELETE a.* /* comment */ ,b.* /*comment*/ USING\nDELETE a.* /* comment */ , b.* /*comment*/ USING\n\n",
         "len": 1348,
         "last": 1348,
         "list": {
@@ -491,8 +491,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* with a comment *\/",
-                    "value": "\/* with a comment *\/",
+                    "token": "/* with a comment */",
+                    "value": "/* with a comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -617,8 +617,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* with a comment *\/",
-                    "value": "\/* with a comment *\/",
+                    "token": "/* with a comment */",
+                    "value": "/* with a comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -734,8 +734,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -770,8 +770,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "-- SELECT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)",
-                    "value": "-- SELECT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)",
+                    "token": "-- SELECT a.*/* comment */ FROM (This one is not working yet because of https://github.com/phpmyadmin/sql-parser/issues/285. Please uncomment when this issue is fixed.)",
+                    "value": "-- SELECT a.*/* comment */ FROM (This one is not working yet because of https://github.com/phpmyadmin/sql-parser/issues/285. Please uncomment when this issue is fixed.)",
                     "keyword": null,
                     "type": 4,
                     "flags": 4,
@@ -1355,8 +1355,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* with a comment *\/",
-                    "value": "\/* with a comment *\/",
+                    "token": "/* with a comment */",
+                    "value": "/* with a comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -1499,8 +1499,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* with a comment *\/",
-                    "value": "\/* with a comment *\/",
+                    "token": "/* with a comment */",
+                    "value": "/* with a comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -1634,8 +1634,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -1670,8 +1670,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "-- SELECT DISTINCT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)",
-                    "value": "-- SELECT DISTINCT a.*\/* comment *\/ FROM (This one is not working yet because of https:\/\/github.com\/phpmyadmin\/sql-parser\/issues\/285. Please uncomment when this issue is fixed.)",
+                    "token": "-- SELECT DISTINCT a.*/* comment */ FROM (This one is not working yet because of https://github.com/phpmyadmin/sql-parser/issues/285. Please uncomment when this issue is fixed.)",
+                    "value": "-- SELECT DISTINCT a.*/* comment */ FROM (This one is not working yet because of https://github.com/phpmyadmin/sql-parser/issues/285. Please uncomment when this issue is fixed.)",
                     "keyword": null,
                     "type": 4,
                     "flags": 4,
@@ -2165,8 +2165,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment with *,USING,FROM *\/",
-                    "value": "\/* comment with *,USING,FROM *\/",
+                    "token": "/* comment with *,USING,FROM */",
+                    "value": "/* comment with *,USING,FROM */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -2957,8 +2957,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -3047,8 +3047,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -3110,8 +3110,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*comment*\/",
-                    "value": "\/*comment*\/",
+                    "token": "/*comment*/",
+                    "value": "/*comment*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -3200,8 +3200,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -3263,8 +3263,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*comment*\/",
-                    "value": "\/*comment*\/",
+                    "token": "/*comment*/",
+                    "value": "/*comment*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -3353,8 +3353,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -3425,8 +3425,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*comment*\/",
-                    "value": "\/*comment*\/",
+                    "token": "/*comment*/",
+                    "value": "/*comment*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,

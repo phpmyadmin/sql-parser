@@ -1,5 +1,5 @@
 {
-    "query": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase 1 \/* *\/ when 1 then \"Some\" when 2 then \"Other\" end FROM a;",
+    "query": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase 1 /* */ when 1 then \"Some\" when 2 then \"Other\" end FROM a;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase 1 \/* *\/ when 1 then \"Some\" when 2 then \"Other\" end FROM a;",
+        "str": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase 1 /* */ when 1 then \"Some\" when 2 then \"Other\" end FROM a;",
         "len": 145,
         "last": 145,
         "list": {
@@ -311,8 +311,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -601,6 +601,10 @@
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
+            },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
@@ -962,6 +966,10 @@
                         "GROUP BY",
                         3
                     ],
+                    "_GROUP_OPTIONS": [
+                        "_GROUP_OPTIONS",
+                        1
+                    ],
                     "HAVING": [
                         "HAVING",
                         3
@@ -1049,7 +1057,7 @@
                             "database": null,
                             "table": null,
                             "column": null,
-                            "expr": "1 \/* *\/",
+                            "expr": "1 /* */",
                             "alias": null,
                             "function": null,
                             "subquery": null
@@ -1173,7 +1181,7 @@
                         ],
                         "elseResult": null,
                         "alias": null,
-                        "expr": "CASE 1 \/* *\/ WHEN 1 THEN \"Some\" WHEN 2 THEN \"Other\" END"
+                        "expr": "CASE 1 /* */ WHEN 1 THEN \"Some\" WHEN 2 THEN \"Other\" END"
                     }
                 ],
                 "from": [
@@ -1210,6 +1218,7 @@
                 "partition": null,
                 "where": null,
                 "group": null,
+                "groupOptions": null,
                 "having": null,
                 "order": null,
                 "limit": null,

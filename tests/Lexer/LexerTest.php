@@ -59,7 +59,7 @@ class LexerTest extends TestCase
     /**
      * @return string[][]
      */
-    public function lexProvider(): array
+    public static function lexProvider(): array
     {
         return [
             ['lexer/lex'],
@@ -85,7 +85,11 @@ class LexerTest extends TestCase
             ['lexer/lexSymbolErr1'],
             ['lexer/lexSymbolErr2'],
             ['lexer/lexSymbolErr3'],
-            ['lexer/lexSymbolUser'],
+            ['lexer/lexSymbolUser1'],
+            ['lexer/lexSymbolUser2'],
+            ['lexer/lexSymbolUser3'],
+            ['lexer/lexSymbolUser4_mariadb_100400'],
+            ['lexer/lexSymbolUser5_mariadb_100400'],
             ['lexer/lexWhitespace'],
             ['lexer/lexLabel1'],
             ['lexer/lexLabel2'],

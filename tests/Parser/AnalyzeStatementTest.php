@@ -19,11 +19,13 @@ class AnalyzeStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function analyzeProvider(): array
+    public static function analyzeProvider(): array
     {
         return [
             ['parser/parseAnalyzeTable'],
             ['parser/parseAnalyzeTable1'],
+            ['parser/parseAnalyzeErr1'],
+            ['parser/parseAnalyzeErr2'],
         ];
     }
 }

@@ -1,5 +1,5 @@
 {
-    "query": "SELECT *\/* comment *\/\n\nSELECT \/* comment *\/*\n\nSELECT 2*\/* comment *\/3\n\nSELECT 2\/* comment *\/*3\n\nSELECT *\/*\ncomment\non\nmultiple\nlines\n*\/FROM\n\nDELETE foo.*\/* foo *\/ USING\n\nDELETE foo.*\/* foo *\/,bar.*\/*bar*\/ USING\n\nSELECT `*`\/*with comment*\/ AS star_field\n\nSELECT `*`,*\/*with comment*\/\n\nDELETE a.*\/*multi\nline \/* with C open tag\ncomment inside *\/ USING\n\nSELECT 2*\/* operator *\/3 + 3\/* operator *\/*2,\/* start wildcard *\/*\/* end wildcard *\/\n\nSELECT `*`\/*a*\/*\/*b*\/`*`\n\n-- invalid queries\n\/* SELECT *\/*",
+    "query": "SELECT */* comment */\n\nSELECT /* comment */*\n\nSELECT 2*/* comment */3\n\nSELECT 2/* comment */*3\n\nSELECT */*\ncomment\non\nmultiple\nlines\n*/FROM\n\nDELETE foo.*/* foo */ USING\n\nDELETE foo.*/* foo */,bar.*/*bar*/ USING\n\nSELECT `*`/*with comment*/ AS star_field\n\nSELECT `*`,*/*with comment*/\n\nDELETE a.*/*multi\nline /* with C open tag\ncomment inside */ USING\n\nSELECT 2*/* operator */3 + 3/* operator */*2,/* start wildcard */*/* end wildcard */\n\nSELECT `*`/*a*/*/*b*/`*`\n\n-- invalid queries\n/* SELECT */*",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "SELECT *\/* comment *\/\n\nSELECT \/* comment *\/*\n\nSELECT 2*\/* comment *\/3\n\nSELECT 2\/* comment *\/*3\n\nSELECT *\/*\ncomment\non\nmultiple\nlines\n*\/FROM\n\nDELETE foo.*\/* foo *\/ USING\n\nDELETE foo.*\/* foo *\/,bar.*\/*bar*\/ USING\n\nSELECT `*`\/*with comment*\/ AS star_field\n\nSELECT `*`,*\/*with comment*\/\n\nDELETE a.*\/*multi\nline \/* with C open tag\ncomment inside *\/ USING\n\nSELECT 2*\/* operator *\/3 + 3\/* operator *\/*2,\/* start wildcard *\/*\/* end wildcard *\/\n\nSELECT `*`\/*a*\/*\/*b*\/`*`\n\n-- invalid queries\n\/* SELECT *\/*",
+        "str": "SELECT */* comment */\n\nSELECT /* comment */*\n\nSELECT 2*/* comment */3\n\nSELECT 2/* comment */*3\n\nSELECT */*\ncomment\non\nmultiple\nlines\n*/FROM\n\nDELETE foo.*/* foo */ USING\n\nDELETE foo.*/* foo */,bar.*/*bar*/ USING\n\nSELECT `*`/*with comment*/ AS star_field\n\nSELECT `*`,*/*with comment*/\n\nDELETE a.*/*multi\nline /* with C open tag\ncomment inside */ USING\n\nSELECT 2*/* operator */3 + 3/* operator */*2,/* start wildcard */*/* end wildcard */\n\nSELECT `*`/*a*/*/*b*/`*`\n\n-- invalid queries\n/* SELECT */*",
         "len": 495,
         "last": 495,
         "list": {
@@ -59,8 +59,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -95,8 +95,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -158,8 +158,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -212,8 +212,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -275,8 +275,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*\ncomment\non\nmultiple\nlines\n*\/",
-                    "value": "\/*\ncomment\non\nmultiple\nlines\n*\/",
+                    "token": "/*\ncomment\non\nmultiple\nlines\n*/",
+                    "value": "/*\ncomment\non\nmultiple\nlines\n*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -347,8 +347,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* foo *\/",
-                    "value": "\/* foo *\/",
+                    "token": "/* foo */",
+                    "value": "/* foo */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -428,8 +428,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* foo *\/",
-                    "value": "\/* foo *\/",
+                    "token": "/* foo */",
+                    "value": "/* foo */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -473,8 +473,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*bar*\/",
-                    "value": "\/*bar*\/",
+                    "token": "/*bar*/",
+                    "value": "/*bar*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -536,8 +536,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*with comment*\/",
-                    "value": "\/*with comment*\/",
+                    "token": "/*with comment*/",
+                    "value": "/*with comment*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -635,8 +635,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*with comment*\/",
-                    "value": "\/*with comment*\/",
+                    "token": "/*with comment*/",
+                    "value": "/*with comment*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -698,8 +698,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*multi\nline \/* with C open tag\ncomment inside *\/",
-                    "value": "\/*multi\nline \/* with C open tag\ncomment inside *\/",
+                    "token": "/*multi\nline /* with C open tag\ncomment inside */",
+                    "value": "/*multi\nline /* with C open tag\ncomment inside */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -770,8 +770,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* operator *\/",
-                    "value": "\/* operator *\/",
+                    "token": "/* operator */",
+                    "value": "/* operator */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -824,8 +824,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* operator *\/",
-                    "value": "\/* operator *\/",
+                    "token": "/* operator */",
+                    "value": "/* operator */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -860,8 +860,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* start wildcard *\/",
-                    "value": "\/* start wildcard *\/",
+                    "token": "/* start wildcard */",
+                    "value": "/* start wildcard */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -878,8 +878,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* end wildcard *\/",
-                    "value": "\/* end wildcard *\/",
+                    "token": "/* end wildcard */",
+                    "value": "/* end wildcard */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -923,8 +923,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*a*\/",
-                    "value": "\/*a*\/",
+                    "token": "/*a*/",
+                    "value": "/*a*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -941,8 +941,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*b*\/",
-                    "value": "\/*b*\/",
+                    "token": "/*b*/",
+                    "value": "/*b*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -986,8 +986,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* SELECT *\/",
-                    "value": "\/* SELECT *\/",
+                    "token": "/* SELECT */",
+                    "value": "/* SELECT */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,

@@ -19,7 +19,7 @@ class AlterStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function alterProvider(): array
+    public static function alterProvider(): array
     {
         return [
             ['parser/parseAlter'],
@@ -35,10 +35,14 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlter11'],
             ['parser/parseAlter12'],
             ['parser/parseAlter13'],
+            ['parser/parseAlter14'],
             ['parser/parseAlterErr'],
             ['parser/parseAlterErr2'],
             ['parser/parseAlterErr3'],
             ['parser/parseAlterErr4'],
+            ['parser/parseAlterTableRenameIndex'],
+            ['parser/parseAlterTablePartitionByRange1'],
+            ['parser/parseAlterTablePartitionByRange2'],
             ['parser/parseAlterWithInvisible'],
             ['parser/parseAlterTableCharacterSet1'],
             ['parser/parseAlterTableCharacterSet2'],
@@ -56,6 +60,8 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterUser6'],
             ['parser/parseAlterUser7'],
             ['parser/parseAlterUser8'],
+            ['parser/parseAlterUser9'],
+            ['parser/parseAlterUser10'],
             ['parser/parseAlterEvent'],
             ['parser/parseAlterEvent2'],
             ['parser/parseAlterEvent3'],
@@ -64,6 +70,7 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterEvent6'],
             ['parser/parseAlterEvent7'],
             ['parser/parseAlterEvent8'],
+            ['parser/parseAlterEvent9'],
             ['parser/parseAlterEventComplete'],
             ['parser/parseAlterEventErr'],
             ['parser/parseAlterEventOnScheduleAt'],
@@ -74,6 +81,10 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterEventOnScheduleEvery4'],
             ['parser/parseAlterEventOnScheduleEvery5'],
             ['parser/parseAlterEventOnScheduleEvery6'],
+            ['parser/parseAlterEventWithDefiner'],
+            ['parser/parseAlterEventWithOtherDefiners'],
+            ['parser/parseAlterRenameColumn'],
+            ['parser/parseAlterRenameColumns'],
         ];
     }
 }

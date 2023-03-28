@@ -19,7 +19,7 @@ class CallStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function callProvider(): array
+    public static function callProvider(): array
     {
         return [
             ['parser/parseCall'],

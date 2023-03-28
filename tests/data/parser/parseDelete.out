@@ -1,5 +1,5 @@
 {
-    "query": "DELETE LOW_PRIORITY\n\/* *\/\nFROM\n    `test`.users\nWHERE\n    `id`<3 AND (username=\"Dan\" or username=\"Paul\")\nORDER BY\n    id\n;",
+    "query": "DELETE LOW_PRIORITY\n/* */\nFROM\n    `test`.users\nWHERE\n    `id`<3 AND (username=\"Dan\" or username=\"Paul\")\nORDER BY\n    id\n;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "parserMethods": [
@@ -24,7 +24,7 @@
             ",",
             "."
         ],
-        "str": "DELETE LOW_PRIORITY\n\/* *\/\nFROM\n    `test`.users\nWHERE\n    `id`<3 AND (username=\"Dan\" or username=\"Paul\")\nORDER BY\n    id\n;",
+        "str": "DELETE LOW_PRIORITY\n/* */\nFROM\n    `test`.users\nWHERE\n    `id`<3 AND (username=\"Dan\" or username=\"Paul\")\nORDER BY\n    id\n;",
         "len": 122,
         "last": 122,
         "list": {
@@ -68,8 +68,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* *\/",
-                    "value": "\/* *\/",
+                    "token": "/* */",
+                    "value": "/* */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -439,6 +439,10 @@
             "_END_OPTIONS": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                 "field": "endOptions"
+            },
+            "_GROUP_OPTIONS": {
+                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                "field": "groupOptions"
             },
             "INTERSECT": {
                 "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",

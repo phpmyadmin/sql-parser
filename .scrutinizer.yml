@@ -11,13 +11,13 @@ checks:
   php: true
 tools:
   external_code_coverage:
-    runs: 4 # php 7.x versions
+    runs: 2 # php 8.x versions
     timeout: 480 # 8 min
 build:
   nodes:
     analysis:
       environment:
-        php: 7.2
+        php: 8.1
       dependencies:
         before:
           - composer install

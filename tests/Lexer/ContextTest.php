@@ -46,7 +46,7 @@ class ContextTest extends TestCase
      * @return array<string, array<int, string|null>>
      * @psalm-return array<string, array{string, (string|null)}>
      */
-    public function contextLoadingProvider(): array
+    public static function contextLoadingProvider(): array
     {
         return [
             'MySQL match' => [
@@ -95,7 +95,7 @@ class ContextTest extends TestCase
     /**
      * @return string[][]
      */
-    public function contextNamesProvider(): array
+    public static function contextNamesProvider(): array
     {
         return [
             ['MySql50000'],
@@ -131,7 +131,7 @@ class ContextTest extends TestCase
      * @return array<int, array<int, int|string>>
      * @psalm-return list<array{int|string, int}>
      */
-    public function providerForTestMode(): array
+    public static function providerForTestMode(): array
     {
         return [
             [0, Context::SQL_MODE_NONE],

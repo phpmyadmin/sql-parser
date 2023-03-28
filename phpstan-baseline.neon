@@ -16,11 +16,6 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Parameter \\#1 \\$tokenValue of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:checkIfColumnDefinitionKeyword\\(\\) expects string, float\\|int\\|string given\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Components/AlterOperation.php
@@ -136,12 +131,7 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Negated boolean expression is always true\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\<string\\>\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, array\\<string\\>\\|string given\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
@@ -361,7 +351,7 @@ parameters:
 			path: src/Components/OptionsArray.php
 
 		-
-			message: "#^Parameter \\#2 \\$str2 of function strcasecmp expects string, mixed given\\.$#"
+			message: "#^Parameter \\#2 \\$string2 of function strcasecmp expects string, mixed given\\.$#"
 			count: 2
 			path: src/Components/OptionsArray.php
 
@@ -461,7 +451,7 @@ parameters:
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\<string\\>\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, array\\<string\\>\\|string given\\.$#"
 			count: 1
 			path: src/Components/Reference.php
 
@@ -568,11 +558,6 @@ parameters:
 		-
 			message: "#^Cannot access property \\$idx on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
 			count: 12
-			path: src/Parser.php
-
-		-
-			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
-			count: 2
 			path: src/Parser.php
 
 		-
@@ -821,7 +806,7 @@ parameters:
 			path: src/Statements/ReplaceStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d given\\.$#"
+			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d given\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
@@ -856,11 +841,6 @@ parameters:
 			path: src/Statements/TransactionStatement.php
 
 		-
-			message: "#^Cannot call method build\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\|null\\.$#"
-			count: 1
-			path: src/Statements/TransactionStatement.php
-
-		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 4
 			path: src/Statements/TransactionStatement.php
@@ -886,9 +866,14 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\<int, string\\>\\|false given\\.$#"
+			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, array\\<int, string\\>\\|false given\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\CustomJsonSerializer\\:\\:extractObjectData\\(\\) has parameter \\$ref with generic class ReflectionClass but does not specify its types\\: T$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
 
 		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
@@ -896,12 +881,12 @@ parameters:
 			path: src/Tools/TestGenerator.php
 
 		-
-			message: "#^Parameter \\#1 \\$filename of function is_dir expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$directory of function mkdir expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
 
 		-
-			message: "#^Parameter \\#1 \\$pathname of function mkdir expects string, string\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$filename of function is_dir expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
 
@@ -981,7 +966,7 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
-			message: "#^Parameter \\#1 \\$input of function str_repeat expects string, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$string of function str_repeat expects string, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string given\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
 
@@ -1046,7 +1031,7 @@ parameters:
 			path: src/Utils/Routine.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\<int, mixed\\>\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, array\\<int, mixed\\>\\|string given\\.$#"
 			count: 1
 			path: src/Utils/Routine.php
 
@@ -1076,7 +1061,7 @@ parameters:
 			path: src/Utils/Tokens.php
 
 		-
-			message: "#^Parameter \\#1 \\$str1 of function strcasecmp expects string, int\\|string given\\.$#"
+			message: "#^Parameter \\#1 \\$string1 of function strcasecmp expects string, int\\|string given\\.$#"
 			count: 1
 			path: src/Utils/Tokens.php
 
@@ -1206,6 +1191,11 @@ parameters:
 			path: tests/Parser/LoadStatementTest.php
 
 		-
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Statement\\>\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: tests/Parser/ParserLongExportsTest.php
+
+		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: tests/Parser/SelectStatementTest.php
@@ -1214,16 +1204,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword, stdClass given\\.$#"
 			count: 1
 			path: tests/Parser/WithStatementTest.php
-
-		-
-			message: "#^Cannot access offset int\\<0, max\\> on non\\-empty\\-array\\<int, string\\>\\|false\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$var of function count expects array\\|Countable, array\\<int, string\\>\\|false given\\.$#"
-			count: 1
-			path: tests/Utils/BufferedQueryTest.php
 
 		-
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement, PhpMyAdmin\\\\SqlParser\\\\Statement\\|null given\\.$#"
@@ -1269,4 +1249,9 @@ parameters:
 			message: "#^Parameter \\#2 \\$find of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>, array\\<array\\<string, string\\>\\> given\\.$#"
 			count: 1
 			path: tests/Utils/TokensTest.php
+
+		-
+			message: "#^Expression \"\\$str1\\[\\$i\\]\" on a separate line does not do anything\\.$#"
+			count: 1
+			path: tests/benchmarks/UtfStringBench.php
 

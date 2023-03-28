@@ -13,6 +13,7 @@ use function array_key_exists;
 use function in_array;
 use function is_numeric;
 use function is_string;
+use function trim;
 
 /**
  * Parses an alter operation.
@@ -114,7 +115,6 @@ final class AlterOperation implements Component
         'COLUMN' => 2,
         'CONSTRAINT' => 2,
         'DEFAULT' => 2,
-        'TO' => 2,
         'BY' => 2,
         'FOREIGN' => 2,
         'FULLTEXT' => 2,
@@ -126,9 +126,16 @@ final class AlterOperation implements Component
         'PRIMARY KEY' => 2,
         'SPATIAL' => 2,
         'TABLESPACE' => 2,
-        'INDEX' => 2,
+        'INDEX' => [
+            2,
+            'var',
+        ],
 
         'CHARACTER SET' => 3,
+        'TO' => [
+            3,
+            'var',
+        ],
     ];
 
     /**
@@ -150,9 +157,14 @@ final class AlterOperation implements Component
             1,
             'var',
         ],
-        'BY' => [
+
+        'IDENTIFIED VIA' => [
             2,
-            'expr',
+            'var',
+        ],
+        'IDENTIFIED WITH' => [
+            2,
+            'var',
         ],
         'PASSWORD' => [
             2,
@@ -161,6 +173,11 @@ final class AlterOperation implements Component
         'WITH' => [
             2,
             'var',
+        ],
+
+        'BY' => [
+            4,
+            'expr',
         ],
 
         'ACCOUNT' => 1,
@@ -179,6 +196,48 @@ final class AlterOperation implements Component
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $viewOptions = ['AS' => 1];
+
+    /**
+     * All event options.
+     *
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
+    public static $eventOptions = [
+        'ON SCHEDULE' => 1,
+        'EVERY' => [
+            2,
+            'expr',
+        ],
+        'AT' => [
+            2,
+            'expr',
+        ],
+        'STARTS' => [
+            3,
+            'expr',
+        ],
+        'ENDS' => [
+            4,
+            'expr',
+        ],
+        'ON COMPLETION PRESERVE' => 5,
+        'ON COMPLETION NOT PRESERVE' => 5,
+        'RENAME' => 6,
+        'TO' => [
+            7,
+            'expr',
+            ['parseField' => 'table'],
+        ],
+        'ENABLE' => 8,
+        'DISABLE' => 8,
+        'DISABLE ON SLAVE' => 8,
+        'COMMENT' => [
+            9,
+            'var',
+        ],
+        'DO' => 10,
+    ];
 
     /**
      * Options of this operation.
@@ -297,7 +356,9 @@ final class AlterOperation implements Component
             if ($state === 0) {
                 $ret->options = OptionsArray::parse($parser, $list, $options);
 
-                if ($ret->options->has('AS')) {
+                // Not only when aliasing but also when parsing the body of an event, we just list the tokens of the
+                // body in the unknown tokens list, as they define their own statements.
+                if ($ret->options->has('AS') || $ret->options->has('DO')) {
                     for (; $list->idx < $list->count; ++$list->idx) {
                         if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {
                             break;
@@ -327,6 +388,13 @@ final class AlterOperation implements Component
                     // No field was read. We go back one token so the next
                     // iteration will parse the same token, but in state 2.
                     --$list->idx;
+                }
+
+                // If the operation is a RENAME COLUMN, now we have detected the field to rename, we need to parse
+                // again the options to get the new name of the column.
+                if ($ret->options->has('RENAME') && $ret->options->has('COLUMN')) {
+                    $nextOptions = OptionsArray::parse($parser, $list, $options);
+                    $ret->options->merge($nextOptions);
                 }
 
                 $state = 2;
@@ -380,8 +448,8 @@ final class AlterOperation implements Component
                 $ret->unknown[] = $token;
             } elseif ($state === 3) {
                 if ($partitionState === 0) {
-                        $list->idx++; // Ignore the current token
-                        $nextToken = $list->getNext();
+                    $list->idx++; // Ignore the current token
+                    $nextToken = $list->getNext();
                     if (
                         ($token->type === Token::TYPE_KEYWORD)
                         && (($token->keyword === 'PARTITION BY')
@@ -400,12 +468,27 @@ final class AlterOperation implements Component
 
                     ++$list->idx; // to index the idx by one, because the last getPrevious returned and decreased it.
                 } elseif ($partitionState === 1) {
+                    // Fetch the next token in a way the current index is reset to manage whitespaces in "field".
+                    $currIdx = $list->idx;
+                    ++$list->idx;
+                    $nextToken = $list->getNext();
+                    $list->idx = $currIdx;
                     // Building the expression used for partitioning.
                     if (empty($ret->field)) {
                         $ret->field = '';
                     }
 
-                    $ret->field .= $token->type === Token::TYPE_WHITESPACE ? ' ' : $token->token;
+                    if (
+                        $token->type === Token::TYPE_OPERATOR
+                        && $token->value === '('
+                        && $nextToken
+                        && $nextToken->keyword === 'PARTITION'
+                    ) {
+                        $partitionState = 2;
+                        --$list->idx; // Current idx is on "(". We need a step back for ArrayObj::parse incoming.
+                    } else {
+                        $ret->field .= $token->type === Token::TYPE_WHITESPACE ? ' ' : $token->token;
+                    }
                 } elseif ($partitionState === 2) {
                     $ret->partitions = ArrayObj::parse(
                         $parser,
@@ -431,18 +514,27 @@ final class AlterOperation implements Component
      */
     public static function build($component, array $options = []): string
     {
+        // Specific case of RENAME COLUMN that insert the field between 2 options.
+        $afterFieldsOptions = new OptionsArray();
+        if ($component->options->has('RENAME') && $component->options->has('COLUMN')) {
+            $afterFieldsOptions = clone $component->options;
+            $afterFieldsOptions->remove('RENAME');
+            $afterFieldsOptions->remove('COLUMN');
+            $component->options->remove('TO');
+        }
+
         $ret = $component->options . ' ';
         if (isset($component->field) && ($component->field !== '')) {
             $ret .= $component->field . ' ';
         }
 
-        $ret .= TokensList::build($component->unknown);
+        $ret .= $afterFieldsOptions . TokensList::build($component->unknown);
 
         if (isset($component->partitions)) {
             $ret .= PartitionDefinition::build($component->partitions);
         }
 
-        return $ret;
+        return trim($ret);
     }
 
     /**
