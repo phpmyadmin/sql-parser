@@ -1,10 +1,10 @@
 {
-    "query": "ALTER USER 'jeffrey'@'localhost'\n  IDENTIFIED BY 'new_password' PASSWORD EXPIRE;",
+    "query": "ALTER USER 'bob'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('vp8LAf4#wu2V&Wi*iJWC#3KPotsHzx3u');\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "ALTER USER 'jeffrey'@'localhost'\n  IDENTIFIED BY 'new_password' PASSWORD EXPIRE;",
-        "len": 80,
-        "last": 80,
+        "str": "ALTER USER 'bob'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('vp8LAf4#wu2V&Wi*iJWC#3KPotsHzx3u');\n",
+        "len": 118,
+        "last": 118,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -46,8 +46,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'jeffrey'@'localhost'",
-                    "value": "jeffrey@localhost",
+                    "token": "'bob'@'localhost'",
+                    "value": "bob@localhost",
                     "keyword": null,
                     "type": 8,
                     "flags": 4,
@@ -55,12 +55,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n  ",
+                    "token": " ",
                     "value": " ",
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 32
+                    "position": 28
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -69,7 +69,7 @@
                     "keyword": "IDENTIFIED",
                     "type": 1,
                     "flags": 1,
-                    "position": 35
+                    "position": 29
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -78,16 +78,52 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 45
+                    "position": 39
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "BY",
-                    "value": "BY",
-                    "keyword": "BY",
+                    "token": "VIA",
+                    "value": "VIA",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 40
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 43
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "mysql_native_password",
+                    "value": "mysql_native_password",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 44
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 65
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "USING",
+                    "value": "USING",
+                    "keyword": "USING",
                     "type": 1,
                     "flags": 3,
-                    "position": 46
+                    "position": 66
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -96,25 +132,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 48
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'new_password'",
-                    "value": "new_password",
-                    "keyword": null,
-                    "type": 7,
-                    "flags": 1,
-                    "position": 49
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 63
+                    "position": 71
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -123,25 +141,34 @@
                     "keyword": "PASSWORD",
                     "type": 1,
                     "flags": 33,
-                    "position": 64
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
                     "position": 72
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "EXPIRE",
-                    "value": "EXPIRE",
-                    "keyword": "EXPIRE",
-                    "type": 1,
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 80
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "'vp8LAf4#wu2V&Wi*iJWC#3KPotsHzx3u'",
+                    "value": "vp8LAf4#wu2V&Wi*iJWC#3KPotsHzx3u",
+                    "keyword": null,
+                    "type": 7,
                     "flags": 1,
-                    "position": 73
+                    "position": 81
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 115
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -150,7 +177,16 @@
                     "keyword": null,
                     "type": 9,
                     "flags": 0,
-                    "position": 79
+                    "position": 116
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 117
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -162,8 +198,8 @@
                     "position": null
                 }
             ],
-            "count": 17,
-            "idx": 17
+            "count": 21,
+            "idx": 21
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -181,9 +217,9 @@
                 "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
-                    "table": "jeffrey@localhost",
+                    "table": "bob@localhost",
                     "column": null,
-                    "expr": "'jeffrey'@'localhost'",
+                    "expr": "'bob'@'localhost'",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -194,36 +230,46 @@
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
-                                "3": "IDENTIFIED",
-                                "4": {
-                                    "name": "BY",
-                                    "equals": false,
-                                    "expr": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                        "database": null,
-                                        "table": null,
-                                        "column": "new_password",
-                                        "expr": "'new_password' PASSWORD",
-                                        "alias": null,
-                                        "function": null,
-                                        "subquery": null
-                                    },
-                                    "value": "'new_password' PASSWORD"
-                                }
+                                "3": "IDENTIFIED"
                             }
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
-                            "column": "EXPIRE",
-                            "expr": "EXPIRE",
+                            "column": "VIA",
+                            "expr": "VIA",
                             "alias": null,
                             "function": null,
                             "subquery": null
                         },
                         "partitions": null,
-                        "unknown": []
+                        "unknown": [
+                            {
+                                "@type": "@12"
+                            },
+                            {
+                                "@type": "@13"
+                            },
+                            {
+                                "@type": "@14"
+                            },
+                            {
+                                "@type": "@15"
+                            },
+                            {
+                                "@type": "@16"
+                            },
+                            {
+                                "@type": "@17"
+                            },
+                            {
+                                "@type": "@18"
+                            },
+                            {
+                                "@type": "@19"
+                            }
+                        ]
                     }
                 ],
                 "options": {
@@ -233,7 +279,7 @@
                     }
                 },
                 "first": 0,
-                "last": 15
+                "last": 18
             }
         ],
         "brackets": 0,

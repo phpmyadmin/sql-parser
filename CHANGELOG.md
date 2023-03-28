@@ -15,6 +15,7 @@
 - Fix MySQL-specific commands parsing (#226)
 - Fix `ALTER TABLE … RENAME COLUMN … TO …` is not understood by the parser/linter (#430)
 - Fix `PARTITION` syntax errors (#377)
+- Fix `ALTER USER` when used with `IDENTIFIED WITH/VIA/BY` option (#431)
 
 ## [5.7.0] - 2023-01-25
 

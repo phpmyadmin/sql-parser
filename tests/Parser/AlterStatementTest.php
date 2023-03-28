@@ -60,6 +60,8 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterUser6'],
             ['parser/parseAlterUser7'],
             ['parser/parseAlterUser8'],
+            ['parser/parseAlterUser9'],
+            ['parser/parseAlterUser10'],
             ['parser/parseAlterEvent'],
             ['parser/parseAlterEvent2'],
             ['parser/parseAlterEvent3'],
