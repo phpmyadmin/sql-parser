@@ -160,6 +160,10 @@ class AlterOperation extends Component
             'var',
         ],
 
+        'IDENTIFIED VIA' => [
+            2,
+            'var',
+        ],
         'IDENTIFIED WITH' => [
             2,
             'var',

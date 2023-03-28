@@ -88,6 +88,8 @@ class LexerTest extends TestCase
             ['lexer/lexSymbolUser1'],
             ['lexer/lexSymbolUser2'],
             ['lexer/lexSymbolUser3'],
+            ['lexer/lexSymbolUser4_mariadb_100400'],
+            ['lexer/lexSymbolUser5_mariadb_100400'],
             ['lexer/lexWhitespace'],
             ['lexer/lexLabel1'],
             ['lexer/lexLabel2'],
