@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 
+use function dirname;
 use function file_exists;
 use function file_get_contents;
 use function file_put_contents;
@@ -25,11 +26,13 @@ use function scandir;
 use function sprintf;
 use function str_contains;
 use function str_ends_with;
+use function str_replace;
 use function strpos;
 use function substr;
 
 use const JSON_PRESERVE_ZERO_FRACTION;
 use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
 use const JSON_UNESCAPED_UNICODE;
 
 /**
@@ -174,10 +177,15 @@ class TestGenerator
         // Writing test's data.
         $encoded = $serializer->serialize($test);
 
-        $encoded = json_encode(
+        $encoded = (string) json_encode(
             json_decode($encoded),
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION | JSON_UNESCAPED_SLASHES
         );
+
+        // Remove the project path from .out file, it changes for each dev
+        $projectFolder = dirname(__DIR__, 2);// Jump to root
+        $encoded = str_replace($projectFolder, '<project-root>', $encoded);
+
         file_put_contents($output, $encoded);
 
         // Dumping test's data in human readable format too (if required).
