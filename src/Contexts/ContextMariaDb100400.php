@@ -215,7 +215,8 @@ class ContextMariaDb100400 extends Context
         'FOREIGN KEY' => 23, 'PRIMARY KEY' => 23, 'SPATIAL KEY' => 23,
         'FULLTEXT KEY' => 23, 'UNIQUE INDEX' => 23,
         'SPATIAL INDEX' => 23,
-        'FULLTEXT INDEX' => 23,
+        'FULLTEXT INDEX' => 23, 'IDENTIFIED VIA' => 23,
+        'IDENTIFIED WITH' => 23,
 
         'X' => 33, 'Y' => 33,
         'LN' => 33, 'PI' => 33,
