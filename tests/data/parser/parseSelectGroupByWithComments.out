@@ -1,8 +1,8 @@
 {
-    "query": "SELECT id, title FROM movie GROUP BY movie.id, \/* removed_field, *\/ title;\n",
+    "query": "SELECT id, title FROM movie GROUP BY movie.id, /* removed_field, */ title;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "SELECT id, title FROM movie GROUP BY movie.id, \/* removed_field, *\/ title;\n",
+        "str": "SELECT id, title FROM movie GROUP BY movie.id, /* removed_field, */ title;\n",
         "len": 75,
         "last": 75,
         "list": {
@@ -172,8 +172,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* removed_field, *\/",
-                    "value": "\/* removed_field, *\/",
+                    "token": "/* removed_field, */",
+                    "value": "/* removed_field, */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,

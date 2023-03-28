@@ -1,8 +1,8 @@
 {
-    "query": "CREATE TABLE ts(id INT, purchased DATE)\nPARTITION BY \/* comment *\/ RANGE(YEAR(purchased))\nPARTITIONS 3\nSUBPARTITION BY HASH(TO_DAYS(purchased))\nSUBPARTITIONS 2(\nPARTITION p0\nVALUES LESS THAN(1990)(\n    SUBPARTITION s0,\n    SUBPARTITION s1\n),\nPARTITION p1\nVALUES LESS THAN(2000)(\n    SUBPARTITION s2,\n    SUBPARTITION s3\n),\nPARTITION p2\nVALUES LESS THAN MAXVALUE(\n    SUBPARTITION s4,\n    SUBPARTITION s5\n)\n);",
+    "query": "CREATE TABLE ts(id INT, purchased DATE)\nPARTITION BY /* comment */ RANGE(YEAR(purchased))\nPARTITIONS 3\nSUBPARTITION BY HASH(TO_DAYS(purchased))\nSUBPARTITIONS 2(\nPARTITION p0\nVALUES LESS THAN(1990)(\n    SUBPARTITION s0,\n    SUBPARTITION s1\n),\nPARTITION p1\nVALUES LESS THAN(2000)(\n    SUBPARTITION s2,\n    SUBPARTITION s3\n),\nPARTITION p2\nVALUES LESS THAN MAXVALUE(\n    SUBPARTITION s4,\n    SUBPARTITION s5\n)\n);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "CREATE TABLE ts(id INT, purchased DATE)\nPARTITION BY \/* comment *\/ RANGE(YEAR(purchased))\nPARTITIONS 3\nSUBPARTITION BY HASH(TO_DAYS(purchased))\nSUBPARTITIONS 2(\nPARTITION p0\nVALUES LESS THAN(1990)(\n    SUBPARTITION s0,\n    SUBPARTITION s1\n),\nPARTITION p1\nVALUES LESS THAN(2000)(\n    SUBPARTITION s2,\n    SUBPARTITION s3\n),\nPARTITION p2\nVALUES LESS THAN MAXVALUE(\n    SUBPARTITION s4,\n    SUBPARTITION s5\n)\n);",
+        "str": "CREATE TABLE ts(id INT, purchased DATE)\nPARTITION BY /* comment */ RANGE(YEAR(purchased))\nPARTITIONS 3\nSUBPARTITION BY HASH(TO_DAYS(purchased))\nSUBPARTITIONS 2(\nPARTITION p0\nVALUES LESS THAN(1990)(\n    SUBPARTITION s0,\n    SUBPARTITION s1\n),\nPARTITION p1\nVALUES LESS THAN(2000)(\n    SUBPARTITION s2,\n    SUBPARTITION s3\n),\nPARTITION p2\nVALUES LESS THAN MAXVALUE(\n    SUBPARTITION s4,\n    SUBPARTITION s5\n)\n);",
         "len": 408,
         "last": 408,
         "list": {
@@ -172,8 +172,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* comment *\/",
-                    "value": "\/* comment *\/",
+                    "token": "/* comment */",
+                    "value": "/* comment */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,

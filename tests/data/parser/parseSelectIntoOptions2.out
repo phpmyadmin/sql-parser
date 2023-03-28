@@ -1,8 +1,8 @@
 {
-    "query": "SELECT a,b,a+b INTO OUTFILE '\/tmp\/result.txt'\n    COLUMNS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\\\"'\n    LINES TERMINATED BY '\\n'\n    FROM test_table;",
+    "query": "SELECT a,b,a+b INTO OUTFILE '/tmp/result.txt'\n    COLUMNS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\\\"'\n    LINES TERMINATED BY '\\n'\n    FROM test_table;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "SELECT a,b,a+b INTO OUTFILE '\/tmp\/result.txt'\n    COLUMNS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\\\"'\n    LINES TERMINATED BY '\\n'\n    FROM test_table;",
+        "str": "SELECT a,b,a+b INTO OUTFILE '/tmp/result.txt'\n    COLUMNS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '\\\"'\n    LINES TERMINATED BY '\\n'\n    FROM test_table;",
         "len": 153,
         "last": 153,
         "list": {
@@ -136,8 +136,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'\/tmp\/result.txt'",
-                    "value": "\/tmp\/result.txt",
+                    "token": "'/tmp/result.txt'",
+                    "value": "/tmp/result.txt",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
@@ -432,7 +432,7 @@
                 "into": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
                     "type": "OUTFILE",
-                    "dest": "\/tmp\/result.txt",
+                    "dest": "/tmp/result.txt",
                     "columns": null,
                     "values": null,
                     "fields_options": {
