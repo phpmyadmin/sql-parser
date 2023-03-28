@@ -2,28 +2,6 @@
     "query": "ALTER USER 'user'@'hostname' WITH MAX_QUERIES_PER_HOUR 500 MAX_UPDATES_PER_HOUR 100;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "PARSER_METHODS": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "KEYWORD_NAME_INDICATORS": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "OPERATOR_NAME_INDICATORS": [
-            ",",
-            "."
-        ],
         "str": "ALTER USER 'user'@'hostname' WITH MAX_QUERIES_PER_HOUR 500 MAX_UPDATES_PER_HOUR 100;",
         "len": 84,
         "last": 84,
@@ -187,7 +165,6 @@
             "count": 17,
             "idx": 0
         },
-        "DEFAULT_DELIMITER": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

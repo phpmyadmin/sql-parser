@@ -64,30 +64,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "IDENTIFIED",
-                    "value": "IDENTIFIED",
-                    "keyword": "IDENTIFIED",
+                    "token": "IDENTIFIED WITH",
+                    "value": "IDENTIFIED WITH",
+                    "keyword": "IDENTIFIED WITH",
                     "type": 1,
-                    "flags": 1,
+                    "flags": 23,
                     "position": 29
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 39
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "WITH",
-                    "value": "WITH",
-                    "keyword": "WITH",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 40
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -198,8 +180,8 @@
                     "position": null
                 }
             ],
-            "count": 21,
-            "idx": 21
+            "count": 19,
+            "idx": 19
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -231,17 +213,22 @@
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "2": {
-                                    "name": "WITH",
+                                    "name": "IDENTIFIED WITH",
                                     "equals": false,
                                     "expr": "mysql_native_password",
                                     "value": "mysql_native_password"
-                                },
-                                "3": "IDENTIFIED"
+                                }
                             }
                         },
                         "field": null,
                         "partitions": null,
                         "unknown": [
+                            {
+                                "@type": "@12"
+                            },
+                            {
+                                "@type": "@13"
+                            },
                             {
                                 "@type": "@14"
                             },
@@ -253,12 +240,6 @@
                             },
                             {
                                 "@type": "@17"
-                            },
-                            {
-                                "@type": "@18"
-                            },
-                            {
-                                "@type": "@19"
                             }
                         ]
                     }
@@ -270,7 +251,7 @@
                     }
                 },
                 "first": 0,
-                "last": 18
+                "last": 16
             }
         ],
         "brackets": 0,
