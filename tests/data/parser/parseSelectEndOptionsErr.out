@@ -1,8 +1,8 @@
 {
-    "query": "SELECT pid, name2 FROM tablename WHERE pid = 20\n\/* USE both end_option, gives error *\/\nFOR UPDATE LOCK IN SHARE MODE",
+    "query": "SELECT pid, name2 FROM tablename WHERE pid = 20\n/* USE both end_option, gives error */\nFOR UPDATE LOCK IN SHARE MODE",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "SELECT pid, name2 FROM tablename WHERE pid = 20\n\/* USE both end_option, gives error *\/\nFOR UPDATE LOCK IN SHARE MODE",
+        "str": "SELECT pid, name2 FROM tablename WHERE pid = 20\n/* USE both end_option, gives error */\nFOR UPDATE LOCK IN SHARE MODE",
         "len": 116,
         "last": 116,
         "list": {
@@ -181,8 +181,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* USE both end_option, gives error *\/",
-                    "value": "\/* USE both end_option, gives error *\/",
+                    "token": "/* USE both end_option, gives error */",
+                    "value": "/* USE both end_option, gives error */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,

@@ -1,8 +1,8 @@
 {
-    "query": "SELECT\np.aa,\np.bb,\nCASE\nWHEN p.cc = 'Y' and dd = 'Found' then '99.99999'\nWHEN p.cc = '' and dd = 'Found' then '00.00000'\n    ELSE '99.99999' END as RR,\nCASE\nWHEN dd = 'Found' then 'Y'\n    ELSE 'N' END as RRI,\nCASE\n\tWHEN (SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an) > '2021-01-28' THEN '06\/30\/2020'\n    WHEN p.co < '2021-01-28' THEN '12\/31\/2019'\n    ELSE '06\/30\/2020' END as DAOD\nFROM `LTKP` p\nleft join `LQA` qa\non qa.pi = p.ID\nleft join LSA act\non p.acn = act.an\nwhere  p.a =1 and p.mr = 1 and p.sc<> '23' and qa.qt = 'TEXT' and p.tl = \"TEXT\" and qa.a = 1",
+    "query": "SELECT\np.aa,\np.bb,\nCASE\nWHEN p.cc = 'Y' and dd = 'Found' then '99.99999'\nWHEN p.cc = '' and dd = 'Found' then '00.00000'\n    ELSE '99.99999' END as RR,\nCASE\nWHEN dd = 'Found' then 'Y'\n    ELSE 'N' END as RRI,\nCASE\n\tWHEN (SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an) > '2021-01-28' THEN '06/30/2020'\n    WHEN p.co < '2021-01-28' THEN '12/31/2019'\n    ELSE '06/30/2020' END as DAOD\nFROM `LTKP` p\nleft join `LQA` qa\non qa.pi = p.ID\nleft join LSA act\non p.acn = act.an\nwhere  p.a =1 and p.mr = 1 and p.sc<> '23' and qa.qt = 'TEXT' and p.tl = \"TEXT\" and qa.a = 1",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "SELECT\np.aa,\np.bb,\nCASE\nWHEN p.cc = 'Y' and dd = 'Found' then '99.99999'\nWHEN p.cc = '' and dd = 'Found' then '00.00000'\n    ELSE '99.99999' END as RR,\nCASE\nWHEN dd = 'Found' then 'Y'\n    ELSE 'N' END as RRI,\nCASE\n\tWHEN (SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an) > '2021-01-28' THEN '06\/30\/2020'\n    WHEN p.co < '2021-01-28' THEN '12\/31\/2019'\n    ELSE '06\/30\/2020' END as DAOD\nFROM `LTKP` p\nleft join `LQA` qa\non qa.pi = p.ID\nleft join LSA act\non p.acn = act.an\nwhere  p.a =1 and p.mr = 1 and p.sc<> '23' and qa.qt = 'TEXT' and p.tl = \"TEXT\" and qa.a = 1",
+        "str": "SELECT\np.aa,\np.bb,\nCASE\nWHEN p.cc = 'Y' and dd = 'Found' then '99.99999'\nWHEN p.cc = '' and dd = 'Found' then '00.00000'\n    ELSE '99.99999' END as RR,\nCASE\nWHEN dd = 'Found' then 'Y'\n    ELSE 'N' END as RRI,\nCASE\n\tWHEN (SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an) > '2021-01-28' THEN '06/30/2020'\n    WHEN p.co < '2021-01-28' THEN '12/31/2019'\n    ELSE '06/30/2020' END as DAOD\nFROM `LTKP` p\nleft join `LQA` qa\non qa.pi = p.ID\nleft join LSA act\non p.acn = act.an\nwhere  p.a =1 and p.mr = 1 and p.sc<> '23' and qa.qt = 'TEXT' and p.tl = \"TEXT\" and qa.a = 1",
         "len": 579,
         "last": 579,
         "list": {
@@ -1243,8 +1243,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'06\/30\/2020'",
-                    "value": "06\/30\/2020",
+                    "token": "'06/30/2020'",
+                    "value": "06/30/2020",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
@@ -1369,8 +1369,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'12\/31\/2019'",
-                    "value": "12\/31\/2019",
+                    "token": "'12/31/2019'",
+                    "value": "12/31/2019",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
@@ -1405,8 +1405,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'06\/30\/2020'",
-                    "value": "06\/30\/2020",
+                    "token": "'06/30/2020'",
+                    "value": "06/30/2020",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
@@ -2589,8 +2589,8 @@
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                 "database": null,
                                 "table": null,
-                                "column": "06\/30\/2020",
-                                "expr": "'06\/30\/2020'",
+                                "column": "06/30/2020",
+                                "expr": "'06/30/2020'",
                                 "alias": null,
                                 "function": null,
                                 "subquery": null
@@ -2599,8 +2599,8 @@
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                 "database": null,
                                 "table": null,
-                                "column": "12\/31\/2019",
-                                "expr": "'12\/31\/2019'",
+                                "column": "12/31/2019",
+                                "expr": "'12/31/2019'",
                                 "alias": null,
                                 "function": null,
                                 "subquery": null
@@ -2611,14 +2611,14 @@
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
-                            "column": "06\/30\/2020",
-                            "expr": "'06\/30\/2020'",
+                            "column": "06/30/2020",
+                            "expr": "'06/30/2020'",
                             "alias": null,
                             "function": null,
                             "subquery": null
                         },
                         "alias": "DAOD",
-                        "expr": "CASE WHEN (SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an) > '2021-01-28' THEN '06\/30\/2020' WHEN p.co < '2021-01-28' THEN '12\/31\/2019' ELSE '06\/30\/2020' END AS `DAOD`"
+                        "expr": "CASE WHEN (SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an) > '2021-01-28' THEN '06/30/2020' WHEN p.co < '2021-01-28' THEN '12/31/2019' ELSE '06/30/2020' END AS `DAOD`"
                     }
                 ],
                 "from": [

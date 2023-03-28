@@ -1,8 +1,8 @@
 {
-    "query": "LOAD DATA INFILE '\/tmp\/test.txt' IGNORE\nINTO test\nDATA @a = 1;",
+    "query": "LOAD DATA INFILE '/tmp/test.txt' IGNORE\nINTO test\nDATA @a = 1;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "LOAD DATA INFILE '\/tmp\/test.txt' IGNORE\nINTO test\nDATA @a = 1;",
+        "str": "LOAD DATA INFILE '/tmp/test.txt' IGNORE\nINTO test\nDATA @a = 1;",
         "len": 62,
         "last": 62,
         "list": {
@@ -46,8 +46,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'\/tmp\/test.txt'",
-                    "value": "\/tmp\/test.txt",
+                    "token": "'/tmp/test.txt'",
+                    "value": "/tmp/test.txt",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
@@ -219,11 +219,11 @@
                     "database": null,
                     "table": null,
                     "column": null,
-                    "expr": "'\/tmp\/test.txt'",
+                    "expr": "'/tmp/test.txt'",
                     "alias": null,
                     "function": null,
                     "subquery": null,
-                    "file": "\/tmp\/test.txt"
+                    "file": "/tmp/test.txt"
                 },
                 "table": null,
                 "partition": null,

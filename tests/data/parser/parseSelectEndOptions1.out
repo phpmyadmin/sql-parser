@@ -1,8 +1,8 @@
 {
-    "query": "SELECT pid, name2 FROM tablename WHERE pid = 20 \/* FOR UPDATE end_option *\/ FOR UPDATE",
+    "query": "SELECT pid, name2 FROM tablename WHERE pid = 20 /* FOR UPDATE end_option */ FOR UPDATE",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "SELECT pid, name2 FROM tablename WHERE pid = 20 \/* FOR UPDATE end_option *\/ FOR UPDATE",
+        "str": "SELECT pid, name2 FROM tablename WHERE pid = 20 /* FOR UPDATE end_option */ FOR UPDATE",
         "len": 86,
         "last": 86,
         "list": {
@@ -181,8 +181,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/* FOR UPDATE end_option *\/",
-                    "value": "\/* FOR UPDATE end_option *\/",
+                    "token": "/* FOR UPDATE end_option */",
+                    "value": "/* FOR UPDATE end_option */",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
