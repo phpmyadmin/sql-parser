@@ -2,28 +2,6 @@
     "query": "# comment\nSELECT /*!50000 STRAIGHT_JOIN */ col1 FROM table1, table2 /* select query */\n-- comment\n-- comment 2",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": "# comment\nSELECT /*!50000 STRAIGHT_JOIN */ col1 FROM table1, table2 /* select query */\n-- comment\n-- comment 2",
         "len": 110,
         "last": 111,
@@ -259,7 +237,6 @@
             "count": 25,
             "idx": 0
         },
-        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

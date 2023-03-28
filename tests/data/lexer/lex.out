@@ -2,28 +2,6 @@
     "query": "SELECT \\\\",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": "SELECT \\\\",
         "len": 9,
         "last": 9,
@@ -79,7 +57,6 @@
             "count": 5,
             "idx": 0
         },
-        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

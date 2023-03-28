@@ -2,28 +2,6 @@
     "query": "DELIMITER",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": "DELIMITER",
         "len": 9,
         "last": 9,
@@ -52,7 +30,6 @@
             "count": 2,
             "idx": 0
         },
-        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

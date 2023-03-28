@@ -2,28 +2,6 @@
     "query": "CREATE TABLE `trips` (\n    `id` bigint(20) UNSIGNED NOT NULL COMMENT 'Unique trip Id',\n    `trip_category` int(11) UNSIGNED NOT NULL COMMENT 'Trip category',\n    `trip_month` int(11) UNSIGNED NOT NULL COMMENT 'Trip month',\n    `trip_date` date NOT NULL COMMENT 'The trip date'\n) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'The trips'\nPARTITION BY RANGE(trip_month) SUBPARTITION BY HASH(DAY(trip_date)) (\n    PARTITION p_month_Jan\n    VALUES\n        LESS THAN (0) (\n            SUBPARTITION p_month_Jan_day_0,\n            SUBPARTITION p_month_Jan_day_1,\n            SUBPARTITION p_month_Jan_day_2,\n            SUBPARTITION p_month_Jan_day_3,\n            SUBPARTITION p_month_Jan_day_4,\n            SUBPARTITION p_month_Jan_day_5,\n            SUBPARTITION p_month_Jan_day_6,\n            SUBPARTITION p_month_Jan_day_7,\n            SUBPARTITION p_month_Jan_day_8,\n            SUBPARTITION p_month_Jan_day_9,\n            SUBPARTITION p_month_Jan_day_10,\n            SUBPARTITION p_month_Jan_day_11,\n            SUBPARTITION p_month_Jan_day_12,\n            SUBPARTITION p_month_Jan_day_13,\n            SUBPARTITION p_month_Jan_day_14,\n            SUBPARTITION p_month_Jan_day_15,\n            SUBPARTITION p_month_Jan_day_16,\n            SUBPARTITION p_month_Jan_day_17,\n            SUBPARTITION p_month_Jan_day_18,\n            SUBPARTITION p_month_Jan_day_19,\n            SUBPARTITION p_month_Jan_day_20,\n            SUBPARTITION p_month_Jan_day_21,\n            SUBPARTITION p_month_Jan_day_22,\n            SUBPARTITION p_month_Jan_day_23,\n            SUBPARTITION p_month_Jan_day_24,\n            SUBPARTITION p_month_Jan_day_25,\n            SUBPARTITION p_month_Jan_day_26,\n            SUBPARTITION p_month_Jan_day_27,\n            SUBPARTITION p_month_Jan_day_28,\n            SUBPARTITION p_month_Jan_day_29,\n            SUBPARTITION p_month_Jan_day_30,\n            SUBPARTITION p_month_Jan_day_31\n        ),\n        PARTITION p_month_Feb\n    VALUES\n        LESS THAN (1) (\n            SUBPARTITION p_month_Feb_day_0,\n            SUBPARTITION p_month_Feb_day_1,\n            SUBPARTITION p_month_Feb_day_2,\n            SUBPARTITION p_month_Feb_day_3,\n            SUBPARTITION p_month_Feb_day_4,\n            SUBPARTITION p_month_Feb_day_5,\n            SUBPARTITION p_month_Feb_day_6,\n            SUBPARTITION p_month_Feb_day_7,\n            SUBPARTITION p_month_Feb_day_8,\n            SUBPARTITION p_month_Feb_day_9,\n            SUBPARTITION p_month_Feb_day_10,\n            SUBPARTITION p_month_Feb_day_11,\n            SUBPARTITION p_month_Feb_day_12,\n            SUBPARTITION p_month_Feb_day_13,\n            SUBPARTITION p_month_Feb_day_14,\n            SUBPARTITION p_month_Feb_day_15,\n            SUBPARTITION p_month_Feb_day_16,\n            SUBPARTITION p_month_Feb_day_17,\n            SUBPARTITION p_month_Feb_day_18,\n            SUBPARTITION p_month_Feb_day_19,\n            SUBPARTITION p_month_Feb_day_20,\n            SUBPARTITION p_month_Feb_day_21,\n            SUBPARTITION p_month_Feb_day_22,\n            SUBPARTITION p_month_Feb_day_23,\n            SUBPARTITION p_month_Feb_day_24,\n            SUBPARTITION p_month_Feb_day_25,\n            SUBPARTITION p_month_Feb_day_26,\n            SUBPARTITION p_month_Feb_day_27,\n            SUBPARTITION p_month_Feb_day_28,\n            SUBPARTITION p_month_Feb_day_29,\n            SUBPARTITION p_month_Feb_day_30,\n            SUBPARTITION p_month_Feb_day_31\n        ),\n        PARTITION p_month_Mar\n    VALUES\n        LESS THAN (2) (\n            SUBPARTITION p_month_Mar_day_0,\n            SUBPARTITION p_month_Mar_day_1,\n            SUBPARTITION p_month_Mar_day_2,\n            SUBPARTITION p_month_Mar_day_3,\n            SUBPARTITION p_month_Mar_day_4,\n            SUBPARTITION p_month_Mar_day_5,\n            SUBPARTITION p_month_Mar_day_6,\n            SUBPARTITION p_month_Mar_day_7,\n            SUBPARTITION p_month_Mar_day_8,\n            SUBPARTITION p_month_Mar_day_9,\n            SUBPARTITION p_month_Mar_day_10,\n            SUBPARTITION p_month_Mar_day_11,\n            SUBPARTITION p_month_Mar_day_12,\n            SUBPARTITION p_month_Mar_day_13,\n            SUBPARTITION p_month_Mar_day_14,\n            SUBPARTITION p_month_Mar_day_15,\n            SUBPARTITION p_month_Mar_day_16,\n            SUBPARTITION p_month_Mar_day_17,\n            SUBPARTITION p_month_Mar_day_18,\n            SUBPARTITION p_month_Mar_day_19,\n            SUBPARTITION p_month_Mar_day_20,\n            SUBPARTITION p_month_Mar_day_21,\n            SUBPARTITION p_month_Mar_day_22,\n            SUBPARTITION p_month_Mar_day_23,\n            SUBPARTITION p_month_Mar_day_24,\n            SUBPARTITION p_month_Mar_day_25,\n            SUBPARTITION p_month_Mar_day_26,\n            SUBPARTITION p_month_Mar_day_27,\n            SUBPARTITION p_month_Mar_day_28,\n            SUBPARTITION p_month_Mar_day_29,\n            SUBPARTITION p_month_Mar_day_30,\n            SUBPARTITION p_month_Mar_day_31\n        ),\n        PARTITION p_month_Apr\n    VALUES\n        LESS THAN (3) (\n            SUBPARTITION p_month_Apr_day_0,\n            SUBPARTITION p_month_Apr_day_1,\n            SUBPARTITION p_month_Apr_day_2,\n            SUBPARTITION p_month_Apr_day_3,\n            SUBPARTITION p_month_Apr_day_4,\n            SUBPARTITION p_month_Apr_day_5,\n            SUBPARTITION p_month_Apr_day_6,\n            SUBPARTITION p_month_Apr_day_7,\n            SUBPARTITION p_month_Apr_day_8,\n            SUBPARTITION p_month_Apr_day_9,\n            SUBPARTITION p_month_Apr_day_10,\n            SUBPARTITION p_month_Apr_day_11,\n            SUBPARTITION p_month_Apr_day_12,\n            SUBPARTITION p_month_Apr_day_13,\n            SUBPARTITION p_month_Apr_day_14,\n            SUBPARTITION p_month_Apr_day_15,\n            SUBPARTITION p_month_Apr_day_16,\n            SUBPARTITION p_month_Apr_day_17,\n            SUBPARTITION p_month_Apr_day_18,\n            SUBPARTITION p_month_Apr_day_19,\n            SUBPARTITION p_month_Apr_day_20,\n            SUBPARTITION p_month_Apr_day_21,\n            SUBPARTITION p_month_Apr_day_22,\n            SUBPARTITION p_month_Apr_day_23,\n            SUBPARTITION p_month_Apr_day_24,\n            SUBPARTITION p_month_Apr_day_25,\n            SUBPARTITION p_month_Apr_day_26,\n            SUBPARTITION p_month_Apr_day_27,\n            SUBPARTITION p_month_Apr_day_28,\n            SUBPARTITION p_month_Apr_day_29,\n            SUBPARTITION p_month_Apr_day_30,\n            SUBPARTITION p_month_Apr_day_31\n        ),\n        PARTITION p_month_Mai\n    VALUES\n        LESS THAN (4) (\n            SUBPARTITION p_month_Mai_day_0,\n            SUBPARTITION p_month_Mai_day_1,\n            SUBPARTITION p_month_Mai_day_2,\n            SUBPARTITION p_month_Mai_day_3,\n            SUBPARTITION p_month_Mai_day_4,\n            SUBPARTITION p_month_Mai_day_5,\n            SUBPARTITION p_month_Mai_day_6,\n            SUBPARTITION p_month_Mai_day_7,\n            SUBPARTITION p_month_Mai_day_8,\n            SUBPARTITION p_month_Mai_day_9,\n            SUBPARTITION p_month_Mai_day_10,\n            SUBPARTITION p_month_Mai_day_11,\n            SUBPARTITION p_month_Mai_day_12,\n            SUBPARTITION p_month_Mai_day_13,\n            SUBPARTITION p_month_Mai_day_14,\n            SUBPARTITION p_month_Mai_day_15,\n            SUBPARTITION p_month_Mai_day_16,\n            SUBPARTITION p_month_Mai_day_17,\n            SUBPARTITION p_month_Mai_day_18,\n            SUBPARTITION p_month_Mai_day_19,\n            SUBPARTITION p_month_Mai_day_20,\n            SUBPARTITION p_month_Mai_day_21,\n            SUBPARTITION p_month_Mai_day_22,\n            SUBPARTITION p_month_Mai_day_23,\n            SUBPARTITION p_month_Mai_day_24,\n            SUBPARTITION p_month_Mai_day_25,\n            SUBPARTITION p_month_Mai_day_26,\n            SUBPARTITION p_month_Mai_day_27,\n            SUBPARTITION p_month_Mai_day_28,\n            SUBPARTITION p_month_Mai_day_29,\n            SUBPARTITION p_month_Mai_day_30,\n            SUBPARTITION p_month_Mai_day_31\n        ),\n        PARTITION p_month_Jun\n    VALUES\n        LESS THAN (5) (\n            SUBPARTITION p_month_Jun_day_0,\n            SUBPARTITION p_month_Jun_day_1,\n            SUBPARTITION p_month_Jun_day_2,\n            SUBPARTITION p_month_Jun_day_3,\n            SUBPARTITION p_month_Jun_day_4,\n            SUBPARTITION p_month_Jun_day_5,\n            SUBPARTITION p_month_Jun_day_6,\n            SUBPARTITION p_month_Jun_day_7,\n            SUBPARTITION p_month_Jun_day_8,\n            SUBPARTITION p_month_Jun_day_9,\n            SUBPARTITION p_month_Jun_day_10,\n            SUBPARTITION p_month_Jun_day_11,\n            SUBPARTITION p_month_Jun_day_12,\n            SUBPARTITION p_month_Jun_day_13,\n            SUBPARTITION p_month_Jun_day_14,\n            SUBPARTITION p_month_Jun_day_15,\n            SUBPARTITION p_month_Jun_day_16,\n            SUBPARTITION p_month_Jun_day_17,\n            SUBPARTITION p_month_Jun_day_18,\n            SUBPARTITION p_month_Jun_day_19,\n            SUBPARTITION p_month_Jun_day_20,\n            SUBPARTITION p_month_Jun_day_21,\n            SUBPARTITION p_month_Jun_day_22,\n            SUBPARTITION p_month_Jun_day_23,\n            SUBPARTITION p_month_Jun_day_24,\n            SUBPARTITION p_month_Jun_day_25,\n            SUBPARTITION p_month_Jun_day_26,\n            SUBPARTITION p_month_Jun_day_27,\n            SUBPARTITION p_month_Jun_day_28,\n            SUBPARTITION p_month_Jun_day_29,\n            SUBPARTITION p_month_Jun_day_30,\n            SUBPARTITION p_month_Jun_day_31\n        ),\n        PARTITION p_month_Jul\n    VALUES\n        LESS THAN (6) (\n            SUBPARTITION p_month_Jul_day_0,\n            SUBPARTITION p_month_Jul_day_1,\n            SUBPARTITION p_month_Jul_day_2,\n            SUBPARTITION p_month_Jul_day_3,\n            SUBPARTITION p_month_Jul_day_4,\n            SUBPARTITION p_month_Jul_day_5,\n            SUBPARTITION p_month_Jul_day_6,\n            SUBPARTITION p_month_Jul_day_7,\n            SUBPARTITION p_month_Jul_day_8,\n            SUBPARTITION p_month_Jul_day_9,\n            SUBPARTITION p_month_Jul_day_10,\n            SUBPARTITION p_month_Jul_day_11,\n            SUBPARTITION p_month_Jul_day_12,\n            SUBPARTITION p_month_Jul_day_13,\n            SUBPARTITION p_month_Jul_day_14,\n            SUBPARTITION p_month_Jul_day_15,\n            SUBPARTITION p_month_Jul_day_16,\n            SUBPARTITION p_month_Jul_day_17,\n            SUBPARTITION p_month_Jul_day_18,\n            SUBPARTITION p_month_Jul_day_19,\n            SUBPARTITION p_month_Jul_day_20,\n            SUBPARTITION p_month_Jul_day_21,\n            SUBPARTITION p_month_Jul_day_22,\n            SUBPARTITION p_month_Jul_day_23,\n            SUBPARTITION p_month_Jul_day_24,\n            SUBPARTITION p_month_Jul_day_25,\n            SUBPARTITION p_month_Jul_day_26,\n            SUBPARTITION p_month_Jul_day_27,\n            SUBPARTITION p_month_Jul_day_28,\n            SUBPARTITION p_month_Jul_day_29,\n            SUBPARTITION p_month_Jul_day_30,\n            SUBPARTITION p_month_Jul_day_31\n        ),\n        PARTITION p_month_Aug\n    VALUES\n        LESS THAN (7) (\n            SUBPARTITION p_month_Aug_day_0,\n            SUBPARTITION p_month_Aug_day_1,\n            SUBPARTITION p_month_Aug_day_2,\n            SUBPARTITION p_month_Aug_day_3,\n            SUBPARTITION p_month_Aug_day_4,\n            SUBPARTITION p_month_Aug_day_5,\n            SUBPARTITION p_month_Aug_day_6,\n            SUBPARTITION p_month_Aug_day_7,\n            SUBPARTITION p_month_Aug_day_8,\n            SUBPARTITION p_month_Aug_day_9,\n            SUBPARTITION p_month_Aug_day_10,\n            SUBPARTITION p_month_Aug_day_11,\n            SUBPARTITION p_month_Aug_day_12,\n            SUBPARTITION p_month_Aug_day_13,\n            SUBPARTITION p_month_Aug_day_14,\n            SUBPARTITION p_month_Aug_day_15,\n            SUBPARTITION p_month_Aug_day_16,\n            SUBPARTITION p_month_Aug_day_17,\n            SUBPARTITION p_month_Aug_day_18,\n            SUBPARTITION p_month_Aug_day_19,\n            SUBPARTITION p_month_Aug_day_20,\n            SUBPARTITION p_month_Aug_day_21,\n            SUBPARTITION p_month_Aug_day_22,\n            SUBPARTITION p_month_Aug_day_23,\n            SUBPARTITION p_month_Aug_day_24,\n            SUBPARTITION p_month_Aug_day_25,\n            SUBPARTITION p_month_Aug_day_26,\n            SUBPARTITION p_month_Aug_day_27,\n            SUBPARTITION p_month_Aug_day_28,\n            SUBPARTITION p_month_Aug_day_29,\n            SUBPARTITION p_month_Aug_day_30,\n            SUBPARTITION p_month_Aug_day_31\n        ),\n        PARTITION p_month_Sep\n    VALUES\n        LESS THAN (8) (\n            SUBPARTITION p_month_Sep_day_0,\n            SUBPARTITION p_month_Sep_day_1,\n            SUBPARTITION p_month_Sep_day_2,\n            SUBPARTITION p_month_Sep_day_3,\n            SUBPARTITION p_month_Sep_day_4,\n            SUBPARTITION p_month_Sep_day_5,\n            SUBPARTITION p_month_Sep_day_6,\n            SUBPARTITION p_month_Sep_day_7,\n            SUBPARTITION p_month_Sep_day_8,\n            SUBPARTITION p_month_Sep_day_9,\n            SUBPARTITION p_month_Sep_day_10,\n            SUBPARTITION p_month_Sep_day_11,\n            SUBPARTITION p_month_Sep_day_12,\n            SUBPARTITION p_month_Sep_day_13,\n            SUBPARTITION p_month_Sep_day_14,\n            SUBPARTITION p_month_Sep_day_15,\n            SUBPARTITION p_month_Sep_day_16,\n            SUBPARTITION p_month_Sep_day_17,\n            SUBPARTITION p_month_Sep_day_18,\n            SUBPARTITION p_month_Sep_day_19,\n            SUBPARTITION p_month_Sep_day_20,\n            SUBPARTITION p_month_Sep_day_21,\n            SUBPARTITION p_month_Sep_day_22,\n            SUBPARTITION p_month_Sep_day_23,\n            SUBPARTITION p_month_Sep_day_24,\n            SUBPARTITION p_month_Sep_day_25,\n            SUBPARTITION p_month_Sep_day_26,\n            SUBPARTITION p_month_Sep_day_27,\n            SUBPARTITION p_month_Sep_day_28,\n            SUBPARTITION p_month_Sep_day_29,\n            SUBPARTITION p_month_Sep_day_30,\n            SUBPARTITION p_month_Sep_day_31\n        ),\n        PARTITION p_month_Oct\n    VALUES\n        LESS THAN (9) (\n            SUBPARTITION p_month_Oct_day_0,\n            SUBPARTITION p_month_Oct_day_1,\n            SUBPARTITION p_month_Oct_day_2,\n            SUBPARTITION p_month_Oct_day_3,\n            SUBPARTITION p_month_Oct_day_4,\n            SUBPARTITION p_month_Oct_day_5,\n            SUBPARTITION p_month_Oct_day_6,\n            SUBPARTITION p_month_Oct_day_7,\n            SUBPARTITION p_month_Oct_day_8,\n            SUBPARTITION p_month_Oct_day_9,\n            SUBPARTITION p_month_Oct_day_10,\n            SUBPARTITION p_month_Oct_day_11,\n            SUBPARTITION p_month_Oct_day_12,\n            SUBPARTITION p_month_Oct_day_13,\n            SUBPARTITION p_month_Oct_day_14,\n            SUBPARTITION p_month_Oct_day_15,\n            SUBPARTITION p_month_Oct_day_16,\n            SUBPARTITION p_month_Oct_day_17,\n            SUBPARTITION p_month_Oct_day_18,\n            SUBPARTITION p_month_Oct_day_19,\n            SUBPARTITION p_month_Oct_day_20,\n            SUBPARTITION p_month_Oct_day_21,\n            SUBPARTITION p_month_Oct_day_22,\n            SUBPARTITION p_month_Oct_day_23,\n            SUBPARTITION p_month_Oct_day_24,\n            SUBPARTITION p_month_Oct_day_25,\n            SUBPARTITION p_month_Oct_day_26,\n            SUBPARTITION p_month_Oct_day_27,\n            SUBPARTITION p_month_Oct_day_28,\n            SUBPARTITION p_month_Oct_day_29,\n            SUBPARTITION p_month_Oct_day_30,\n            SUBPARTITION p_month_Oct_day_31\n        ),\n        PARTITION p_month_Nov\n    VALUES\n        LESS THAN (10) (\n            SUBPARTITION p_month_Nov_day_0,\n            SUBPARTITION p_month_Nov_day_1,\n            SUBPARTITION p_month_Nov_day_2,\n            SUBPARTITION p_month_Nov_day_3,\n            SUBPARTITION p_month_Nov_day_4,\n            SUBPARTITION p_month_Nov_day_5,\n            SUBPARTITION p_month_Nov_day_6,\n            SUBPARTITION p_month_Nov_day_7,\n            SUBPARTITION p_month_Nov_day_8,\n            SUBPARTITION p_month_Nov_day_9,\n            SUBPARTITION p_month_Nov_day_10,\n            SUBPARTITION p_month_Nov_day_11,\n            SUBPARTITION p_month_Nov_day_12,\n            SUBPARTITION p_month_Nov_day_13,\n            SUBPARTITION p_month_Nov_day_14,\n            SUBPARTITION p_month_Nov_day_15,\n            SUBPARTITION p_month_Nov_day_16,\n            SUBPARTITION p_month_Nov_day_17,\n            SUBPARTITION p_month_Nov_day_18,\n            SUBPARTITION p_month_Nov_day_19,\n            SUBPARTITION p_month_Nov_day_20,\n            SUBPARTITION p_month_Nov_day_21,\n            SUBPARTITION p_month_Nov_day_22,\n            SUBPARTITION p_month_Nov_day_23,\n            SUBPARTITION p_month_Nov_day_24,\n            SUBPARTITION p_month_Nov_day_25,\n            SUBPARTITION p_month_Nov_day_26,\n            SUBPARTITION p_month_Nov_day_27,\n            SUBPARTITION p_month_Nov_day_28,\n            SUBPARTITION p_month_Nov_day_29,\n            SUBPARTITION p_month_Nov_day_30,\n            SUBPARTITION p_month_Nov_day_31\n        ),\n        PARTITION p_month_Dec\n    VALUES\n        LESS THAN (11) (\n            SUBPARTITION p_month_Dec_day_0,\n            SUBPARTITION p_month_Dec_day_1,\n            SUBPARTITION p_month_Dec_day_2,\n            SUBPARTITION p_month_Dec_day_3,\n            SUBPARTITION p_month_Dec_day_4,\n            SUBPARTITION p_month_Dec_day_5,\n            SUBPARTITION p_month_Dec_day_6,\n            SUBPARTITION p_month_Dec_day_7,\n            SUBPARTITION p_month_Dec_day_8,\n            SUBPARTITION p_month_Dec_day_9,\n            SUBPARTITION p_month_Dec_day_10,\n            SUBPARTITION p_month_Dec_day_11,\n            SUBPARTITION p_month_Dec_day_12,\n            SUBPARTITION p_month_Dec_day_13,\n            SUBPARTITION p_month_Dec_day_14,\n            SUBPARTITION p_month_Dec_day_15,\n            SUBPARTITION p_month_Dec_day_16,\n            SUBPARTITION p_month_Dec_day_17,\n            SUBPARTITION p_month_Dec_day_18,\n            SUBPARTITION p_month_Dec_day_19,\n            SUBPARTITION p_month_Dec_day_20,\n            SUBPARTITION p_month_Dec_day_21,\n            SUBPARTITION p_month_Dec_day_22,\n            SUBPARTITION p_month_Dec_day_23,\n            SUBPARTITION p_month_Dec_day_24,\n            SUBPARTITION p_month_Dec_day_25,\n            SUBPARTITION p_month_Dec_day_26,\n            SUBPARTITION p_month_Dec_day_27,\n            SUBPARTITION p_month_Dec_day_28,\n            SUBPARTITION p_month_Dec_day_29,\n            SUBPARTITION p_month_Dec_day_30,\n            SUBPARTITION p_month_Dec_day_31\n        )\n)",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": "CREATE TABLE `trips` (\n    `id` bigint(20) UNSIGNED NOT NULL COMMENT 'Unique trip Id',\n    `trip_category` int(11) UNSIGNED NOT NULL COMMENT 'Trip category',\n    `trip_month` int(11) UNSIGNED NOT NULL COMMENT 'Trip month',\n    `trip_date` date NOT NULL COMMENT 'The trip date'\n) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'The trips'\nPARTITION BY RANGE(trip_month) SUBPARTITION BY HASH(DAY(trip_date)) (\n    PARTITION p_month_Jan\n    VALUES\n        LESS THAN (0) (\n            SUBPARTITION p_month_Jan_day_0,\n            SUBPARTITION p_month_Jan_day_1,\n            SUBPARTITION p_month_Jan_day_2,\n            SUBPARTITION p_month_Jan_day_3,\n            SUBPARTITION p_month_Jan_day_4,\n            SUBPARTITION p_month_Jan_day_5,\n            SUBPARTITION p_month_Jan_day_6,\n            SUBPARTITION p_month_Jan_day_7,\n            SUBPARTITION p_month_Jan_day_8,\n            SUBPARTITION p_month_Jan_day_9,\n            SUBPARTITION p_month_Jan_day_10,\n            SUBPARTITION p_month_Jan_day_11,\n            SUBPARTITION p_month_Jan_day_12,\n            SUBPARTITION p_month_Jan_day_13,\n            SUBPARTITION p_month_Jan_day_14,\n            SUBPARTITION p_month_Jan_day_15,\n            SUBPARTITION p_month_Jan_day_16,\n            SUBPARTITION p_month_Jan_day_17,\n            SUBPARTITION p_month_Jan_day_18,\n            SUBPARTITION p_month_Jan_day_19,\n            SUBPARTITION p_month_Jan_day_20,\n            SUBPARTITION p_month_Jan_day_21,\n            SUBPARTITION p_month_Jan_day_22,\n            SUBPARTITION p_month_Jan_day_23,\n            SUBPARTITION p_month_Jan_day_24,\n            SUBPARTITION p_month_Jan_day_25,\n            SUBPARTITION p_month_Jan_day_26,\n            SUBPARTITION p_month_Jan_day_27,\n            SUBPARTITION p_month_Jan_day_28,\n            SUBPARTITION p_month_Jan_day_29,\n            SUBPARTITION p_month_Jan_day_30,\n            SUBPARTITION p_month_Jan_day_31\n        ),\n        PARTITION p_month_Feb\n    VALUES\n        LESS THAN (1) (\n            SUBPARTITION p_month_Feb_day_0,\n            SUBPARTITION p_month_Feb_day_1,\n            SUBPARTITION p_month_Feb_day_2,\n            SUBPARTITION p_month_Feb_day_3,\n            SUBPARTITION p_month_Feb_day_4,\n            SUBPARTITION p_month_Feb_day_5,\n            SUBPARTITION p_month_Feb_day_6,\n            SUBPARTITION p_month_Feb_day_7,\n            SUBPARTITION p_month_Feb_day_8,\n            SUBPARTITION p_month_Feb_day_9,\n            SUBPARTITION p_month_Feb_day_10,\n            SUBPARTITION p_month_Feb_day_11,\n            SUBPARTITION p_month_Feb_day_12,\n            SUBPARTITION p_month_Feb_day_13,\n            SUBPARTITION p_month_Feb_day_14,\n            SUBPARTITION p_month_Feb_day_15,\n            SUBPARTITION p_month_Feb_day_16,\n            SUBPARTITION p_month_Feb_day_17,\n            SUBPARTITION p_month_Feb_day_18,\n            SUBPARTITION p_month_Feb_day_19,\n            SUBPARTITION p_month_Feb_day_20,\n            SUBPARTITION p_month_Feb_day_21,\n            SUBPARTITION p_month_Feb_day_22,\n            SUBPARTITION p_month_Feb_day_23,\n            SUBPARTITION p_month_Feb_day_24,\n            SUBPARTITION p_month_Feb_day_25,\n            SUBPARTITION p_month_Feb_day_26,\n            SUBPARTITION p_month_Feb_day_27,\n            SUBPARTITION p_month_Feb_day_28,\n            SUBPARTITION p_month_Feb_day_29,\n            SUBPARTITION p_month_Feb_day_30,\n            SUBPARTITION p_month_Feb_day_31\n        ),\n        PARTITION p_month_Mar\n    VALUES\n        LESS THAN (2) (\n            SUBPARTITION p_month_Mar_day_0,\n            SUBPARTITION p_month_Mar_day_1,\n            SUBPARTITION p_month_Mar_day_2,\n            SUBPARTITION p_month_Mar_day_3,\n            SUBPARTITION p_month_Mar_day_4,\n            SUBPARTITION p_month_Mar_day_5,\n            SUBPARTITION p_month_Mar_day_6,\n            SUBPARTITION p_month_Mar_day_7,\n            SUBPARTITION p_month_Mar_day_8,\n            SUBPARTITION p_month_Mar_day_9,\n            SUBPARTITION p_month_Mar_day_10,\n            SUBPARTITION p_month_Mar_day_11,\n            SUBPARTITION p_month_Mar_day_12,\n            SUBPARTITION p_month_Mar_day_13,\n            SUBPARTITION p_month_Mar_day_14,\n            SUBPARTITION p_month_Mar_day_15,\n            SUBPARTITION p_month_Mar_day_16,\n            SUBPARTITION p_month_Mar_day_17,\n            SUBPARTITION p_month_Mar_day_18,\n            SUBPARTITION p_month_Mar_day_19,\n            SUBPARTITION p_month_Mar_day_20,\n            SUBPARTITION p_month_Mar_day_21,\n            SUBPARTITION p_month_Mar_day_22,\n            SUBPARTITION p_month_Mar_day_23,\n            SUBPARTITION p_month_Mar_day_24,\n            SUBPARTITION p_month_Mar_day_25,\n            SUBPARTITION p_month_Mar_day_26,\n            SUBPARTITION p_month_Mar_day_27,\n            SUBPARTITION p_month_Mar_day_28,\n            SUBPARTITION p_month_Mar_day_29,\n            SUBPARTITION p_month_Mar_day_30,\n            SUBPARTITION p_month_Mar_day_31\n        ),\n        PARTITION p_month_Apr\n    VALUES\n        LESS THAN (3) (\n            SUBPARTITION p_month_Apr_day_0,\n            SUBPARTITION p_month_Apr_day_1,\n            SUBPARTITION p_month_Apr_day_2,\n            SUBPARTITION p_month_Apr_day_3,\n            SUBPARTITION p_month_Apr_day_4,\n            SUBPARTITION p_month_Apr_day_5,\n            SUBPARTITION p_month_Apr_day_6,\n            SUBPARTITION p_month_Apr_day_7,\n            SUBPARTITION p_month_Apr_day_8,\n            SUBPARTITION p_month_Apr_day_9,\n            SUBPARTITION p_month_Apr_day_10,\n            SUBPARTITION p_month_Apr_day_11,\n            SUBPARTITION p_month_Apr_day_12,\n            SUBPARTITION p_month_Apr_day_13,\n            SUBPARTITION p_month_Apr_day_14,\n            SUBPARTITION p_month_Apr_day_15,\n            SUBPARTITION p_month_Apr_day_16,\n            SUBPARTITION p_month_Apr_day_17,\n            SUBPARTITION p_month_Apr_day_18,\n            SUBPARTITION p_month_Apr_day_19,\n            SUBPARTITION p_month_Apr_day_20,\n            SUBPARTITION p_month_Apr_day_21,\n            SUBPARTITION p_month_Apr_day_22,\n            SUBPARTITION p_month_Apr_day_23,\n            SUBPARTITION p_month_Apr_day_24,\n            SUBPARTITION p_month_Apr_day_25,\n            SUBPARTITION p_month_Apr_day_26,\n            SUBPARTITION p_month_Apr_day_27,\n            SUBPARTITION p_month_Apr_day_28,\n            SUBPARTITION p_month_Apr_day_29,\n            SUBPARTITION p_month_Apr_day_30,\n            SUBPARTITION p_month_Apr_day_31\n        ),\n        PARTITION p_month_Mai\n    VALUES\n        LESS THAN (4) (\n            SUBPARTITION p_month_Mai_day_0,\n            SUBPARTITION p_month_Mai_day_1,\n            SUBPARTITION p_month_Mai_day_2,\n            SUBPARTITION p_month_Mai_day_3,\n            SUBPARTITION p_month_Mai_day_4,\n            SUBPARTITION p_month_Mai_day_5,\n            SUBPARTITION p_month_Mai_day_6,\n            SUBPARTITION p_month_Mai_day_7,\n            SUBPARTITION p_month_Mai_day_8,\n            SUBPARTITION p_month_Mai_day_9,\n            SUBPARTITION p_month_Mai_day_10,\n            SUBPARTITION p_month_Mai_day_11,\n            SUBPARTITION p_month_Mai_day_12,\n            SUBPARTITION p_month_Mai_day_13,\n            SUBPARTITION p_month_Mai_day_14,\n            SUBPARTITION p_month_Mai_day_15,\n            SUBPARTITION p_month_Mai_day_16,\n            SUBPARTITION p_month_Mai_day_17,\n            SUBPARTITION p_month_Mai_day_18,\n            SUBPARTITION p_month_Mai_day_19,\n            SUBPARTITION p_month_Mai_day_20,\n            SUBPARTITION p_month_Mai_day_21,\n            SUBPARTITION p_month_Mai_day_22,\n            SUBPARTITION p_month_Mai_day_23,\n            SUBPARTITION p_month_Mai_day_24,\n            SUBPARTITION p_month_Mai_day_25,\n            SUBPARTITION p_month_Mai_day_26,\n            SUBPARTITION p_month_Mai_day_27,\n            SUBPARTITION p_month_Mai_day_28,\n            SUBPARTITION p_month_Mai_day_29,\n            SUBPARTITION p_month_Mai_day_30,\n            SUBPARTITION p_month_Mai_day_31\n        ),\n        PARTITION p_month_Jun\n    VALUES\n        LESS THAN (5) (\n            SUBPARTITION p_month_Jun_day_0,\n            SUBPARTITION p_month_Jun_day_1,\n            SUBPARTITION p_month_Jun_day_2,\n            SUBPARTITION p_month_Jun_day_3,\n            SUBPARTITION p_month_Jun_day_4,\n            SUBPARTITION p_month_Jun_day_5,\n            SUBPARTITION p_month_Jun_day_6,\n            SUBPARTITION p_month_Jun_day_7,\n            SUBPARTITION p_month_Jun_day_8,\n            SUBPARTITION p_month_Jun_day_9,\n            SUBPARTITION p_month_Jun_day_10,\n            SUBPARTITION p_month_Jun_day_11,\n            SUBPARTITION p_month_Jun_day_12,\n            SUBPARTITION p_month_Jun_day_13,\n            SUBPARTITION p_month_Jun_day_14,\n            SUBPARTITION p_month_Jun_day_15,\n            SUBPARTITION p_month_Jun_day_16,\n            SUBPARTITION p_month_Jun_day_17,\n            SUBPARTITION p_month_Jun_day_18,\n            SUBPARTITION p_month_Jun_day_19,\n            SUBPARTITION p_month_Jun_day_20,\n            SUBPARTITION p_month_Jun_day_21,\n            SUBPARTITION p_month_Jun_day_22,\n            SUBPARTITION p_month_Jun_day_23,\n            SUBPARTITION p_month_Jun_day_24,\n            SUBPARTITION p_month_Jun_day_25,\n            SUBPARTITION p_month_Jun_day_26,\n            SUBPARTITION p_month_Jun_day_27,\n            SUBPARTITION p_month_Jun_day_28,\n            SUBPARTITION p_month_Jun_day_29,\n            SUBPARTITION p_month_Jun_day_30,\n            SUBPARTITION p_month_Jun_day_31\n        ),\n        PARTITION p_month_Jul\n    VALUES\n        LESS THAN (6) (\n            SUBPARTITION p_month_Jul_day_0,\n            SUBPARTITION p_month_Jul_day_1,\n            SUBPARTITION p_month_Jul_day_2,\n            SUBPARTITION p_month_Jul_day_3,\n            SUBPARTITION p_month_Jul_day_4,\n            SUBPARTITION p_month_Jul_day_5,\n            SUBPARTITION p_month_Jul_day_6,\n            SUBPARTITION p_month_Jul_day_7,\n            SUBPARTITION p_month_Jul_day_8,\n            SUBPARTITION p_month_Jul_day_9,\n            SUBPARTITION p_month_Jul_day_10,\n            SUBPARTITION p_month_Jul_day_11,\n            SUBPARTITION p_month_Jul_day_12,\n            SUBPARTITION p_month_Jul_day_13,\n            SUBPARTITION p_month_Jul_day_14,\n            SUBPARTITION p_month_Jul_day_15,\n            SUBPARTITION p_month_Jul_day_16,\n            SUBPARTITION p_month_Jul_day_17,\n            SUBPARTITION p_month_Jul_day_18,\n            SUBPARTITION p_month_Jul_day_19,\n            SUBPARTITION p_month_Jul_day_20,\n            SUBPARTITION p_month_Jul_day_21,\n            SUBPARTITION p_month_Jul_day_22,\n            SUBPARTITION p_month_Jul_day_23,\n            SUBPARTITION p_month_Jul_day_24,\n            SUBPARTITION p_month_Jul_day_25,\n            SUBPARTITION p_month_Jul_day_26,\n            SUBPARTITION p_month_Jul_day_27,\n            SUBPARTITION p_month_Jul_day_28,\n            SUBPARTITION p_month_Jul_day_29,\n            SUBPARTITION p_month_Jul_day_30,\n            SUBPARTITION p_month_Jul_day_31\n        ),\n        PARTITION p_month_Aug\n    VALUES\n        LESS THAN (7) (\n            SUBPARTITION p_month_Aug_day_0,\n            SUBPARTITION p_month_Aug_day_1,\n            SUBPARTITION p_month_Aug_day_2,\n            SUBPARTITION p_month_Aug_day_3,\n            SUBPARTITION p_month_Aug_day_4,\n            SUBPARTITION p_month_Aug_day_5,\n            SUBPARTITION p_month_Aug_day_6,\n            SUBPARTITION p_month_Aug_day_7,\n            SUBPARTITION p_month_Aug_day_8,\n            SUBPARTITION p_month_Aug_day_9,\n            SUBPARTITION p_month_Aug_day_10,\n            SUBPARTITION p_month_Aug_day_11,\n            SUBPARTITION p_month_Aug_day_12,\n            SUBPARTITION p_month_Aug_day_13,\n            SUBPARTITION p_month_Aug_day_14,\n            SUBPARTITION p_month_Aug_day_15,\n            SUBPARTITION p_month_Aug_day_16,\n            SUBPARTITION p_month_Aug_day_17,\n            SUBPARTITION p_month_Aug_day_18,\n            SUBPARTITION p_month_Aug_day_19,\n            SUBPARTITION p_month_Aug_day_20,\n            SUBPARTITION p_month_Aug_day_21,\n            SUBPARTITION p_month_Aug_day_22,\n            SUBPARTITION p_month_Aug_day_23,\n            SUBPARTITION p_month_Aug_day_24,\n            SUBPARTITION p_month_Aug_day_25,\n            SUBPARTITION p_month_Aug_day_26,\n            SUBPARTITION p_month_Aug_day_27,\n            SUBPARTITION p_month_Aug_day_28,\n            SUBPARTITION p_month_Aug_day_29,\n            SUBPARTITION p_month_Aug_day_30,\n            SUBPARTITION p_month_Aug_day_31\n        ),\n        PARTITION p_month_Sep\n    VALUES\n        LESS THAN (8) (\n            SUBPARTITION p_month_Sep_day_0,\n            SUBPARTITION p_month_Sep_day_1,\n            SUBPARTITION p_month_Sep_day_2,\n            SUBPARTITION p_month_Sep_day_3,\n            SUBPARTITION p_month_Sep_day_4,\n            SUBPARTITION p_month_Sep_day_5,\n            SUBPARTITION p_month_Sep_day_6,\n            SUBPARTITION p_month_Sep_day_7,\n            SUBPARTITION p_month_Sep_day_8,\n            SUBPARTITION p_month_Sep_day_9,\n            SUBPARTITION p_month_Sep_day_10,\n            SUBPARTITION p_month_Sep_day_11,\n            SUBPARTITION p_month_Sep_day_12,\n            SUBPARTITION p_month_Sep_day_13,\n            SUBPARTITION p_month_Sep_day_14,\n            SUBPARTITION p_month_Sep_day_15,\n            SUBPARTITION p_month_Sep_day_16,\n            SUBPARTITION p_month_Sep_day_17,\n            SUBPARTITION p_month_Sep_day_18,\n            SUBPARTITION p_month_Sep_day_19,\n            SUBPARTITION p_month_Sep_day_20,\n            SUBPARTITION p_month_Sep_day_21,\n            SUBPARTITION p_month_Sep_day_22,\n            SUBPARTITION p_month_Sep_day_23,\n            SUBPARTITION p_month_Sep_day_24,\n            SUBPARTITION p_month_Sep_day_25,\n            SUBPARTITION p_month_Sep_day_26,\n            SUBPARTITION p_month_Sep_day_27,\n            SUBPARTITION p_month_Sep_day_28,\n            SUBPARTITION p_month_Sep_day_29,\n            SUBPARTITION p_month_Sep_day_30,\n            SUBPARTITION p_month_Sep_day_31\n        ),\n        PARTITION p_month_Oct\n    VALUES\n        LESS THAN (9) (\n            SUBPARTITION p_month_Oct_day_0,\n            SUBPARTITION p_month_Oct_day_1,\n            SUBPARTITION p_month_Oct_day_2,\n            SUBPARTITION p_month_Oct_day_3,\n            SUBPARTITION p_month_Oct_day_4,\n            SUBPARTITION p_month_Oct_day_5,\n            SUBPARTITION p_month_Oct_day_6,\n            SUBPARTITION p_month_Oct_day_7,\n            SUBPARTITION p_month_Oct_day_8,\n            SUBPARTITION p_month_Oct_day_9,\n            SUBPARTITION p_month_Oct_day_10,\n            SUBPARTITION p_month_Oct_day_11,\n            SUBPARTITION p_month_Oct_day_12,\n            SUBPARTITION p_month_Oct_day_13,\n            SUBPARTITION p_month_Oct_day_14,\n            SUBPARTITION p_month_Oct_day_15,\n            SUBPARTITION p_month_Oct_day_16,\n            SUBPARTITION p_month_Oct_day_17,\n            SUBPARTITION p_month_Oct_day_18,\n            SUBPARTITION p_month_Oct_day_19,\n            SUBPARTITION p_month_Oct_day_20,\n            SUBPARTITION p_month_Oct_day_21,\n            SUBPARTITION p_month_Oct_day_22,\n            SUBPARTITION p_month_Oct_day_23,\n            SUBPARTITION p_month_Oct_day_24,\n            SUBPARTITION p_month_Oct_day_25,\n            SUBPARTITION p_month_Oct_day_26,\n            SUBPARTITION p_month_Oct_day_27,\n            SUBPARTITION p_month_Oct_day_28,\n            SUBPARTITION p_month_Oct_day_29,\n            SUBPARTITION p_month_Oct_day_30,\n            SUBPARTITION p_month_Oct_day_31\n        ),\n        PARTITION p_month_Nov\n    VALUES\n        LESS THAN (10) (\n            SUBPARTITION p_month_Nov_day_0,\n            SUBPARTITION p_month_Nov_day_1,\n            SUBPARTITION p_month_Nov_day_2,\n            SUBPARTITION p_month_Nov_day_3,\n            SUBPARTITION p_month_Nov_day_4,\n            SUBPARTITION p_month_Nov_day_5,\n            SUBPARTITION p_month_Nov_day_6,\n            SUBPARTITION p_month_Nov_day_7,\n            SUBPARTITION p_month_Nov_day_8,\n            SUBPARTITION p_month_Nov_day_9,\n            SUBPARTITION p_month_Nov_day_10,\n            SUBPARTITION p_month_Nov_day_11,\n            SUBPARTITION p_month_Nov_day_12,\n            SUBPARTITION p_month_Nov_day_13,\n            SUBPARTITION p_month_Nov_day_14,\n            SUBPARTITION p_month_Nov_day_15,\n            SUBPARTITION p_month_Nov_day_16,\n            SUBPARTITION p_month_Nov_day_17,\n            SUBPARTITION p_month_Nov_day_18,\n            SUBPARTITION p_month_Nov_day_19,\n            SUBPARTITION p_month_Nov_day_20,\n            SUBPARTITION p_month_Nov_day_21,\n            SUBPARTITION p_month_Nov_day_22,\n            SUBPARTITION p_month_Nov_day_23,\n            SUBPARTITION p_month_Nov_day_24,\n            SUBPARTITION p_month_Nov_day_25,\n            SUBPARTITION p_month_Nov_day_26,\n            SUBPARTITION p_month_Nov_day_27,\n            SUBPARTITION p_month_Nov_day_28,\n            SUBPARTITION p_month_Nov_day_29,\n            SUBPARTITION p_month_Nov_day_30,\n            SUBPARTITION p_month_Nov_day_31\n        ),\n        PARTITION p_month_Dec\n    VALUES\n        LESS THAN (11) (\n            SUBPARTITION p_month_Dec_day_0,\n            SUBPARTITION p_month_Dec_day_1,\n            SUBPARTITION p_month_Dec_day_2,\n            SUBPARTITION p_month_Dec_day_3,\n            SUBPARTITION p_month_Dec_day_4,\n            SUBPARTITION p_month_Dec_day_5,\n            SUBPARTITION p_month_Dec_day_6,\n            SUBPARTITION p_month_Dec_day_7,\n            SUBPARTITION p_month_Dec_day_8,\n            SUBPARTITION p_month_Dec_day_9,\n            SUBPARTITION p_month_Dec_day_10,\n            SUBPARTITION p_month_Dec_day_11,\n            SUBPARTITION p_month_Dec_day_12,\n            SUBPARTITION p_month_Dec_day_13,\n            SUBPARTITION p_month_Dec_day_14,\n            SUBPARTITION p_month_Dec_day_15,\n            SUBPARTITION p_month_Dec_day_16,\n            SUBPARTITION p_month_Dec_day_17,\n            SUBPARTITION p_month_Dec_day_18,\n            SUBPARTITION p_month_Dec_day_19,\n            SUBPARTITION p_month_Dec_day_20,\n            SUBPARTITION p_month_Dec_day_21,\n            SUBPARTITION p_month_Dec_day_22,\n            SUBPARTITION p_month_Dec_day_23,\n            SUBPARTITION p_month_Dec_day_24,\n            SUBPARTITION p_month_Dec_day_25,\n            SUBPARTITION p_month_Dec_day_26,\n            SUBPARTITION p_month_Dec_day_27,\n            SUBPARTITION p_month_Dec_day_28,\n            SUBPARTITION p_month_Dec_day_29,\n            SUBPARTITION p_month_Dec_day_30,\n            SUBPARTITION p_month_Dec_day_31\n        )\n)",
         "len": 18500,
         "last": 18500,
@@ -20050,7 +20028,6 @@
             "count": 2224,
             "idx": 2224
         },
-        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -20058,306 +20035,6 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "statementParsers": {
-            "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "FLUSH": "",
-            "GRANT": "",
-            "HELP": "",
-            "SET PASSWORD": "",
-            "STATUS": "",
-            "USE": "",
-            "ANALYZE": "PhpMyAdmin\\SqlParser\\Statements\\AnalyzeStatement",
-            "BACKUP": "PhpMyAdmin\\SqlParser\\Statements\\BackupStatement",
-            "CHECK": "PhpMyAdmin\\SqlParser\\Statements\\CheckStatement",
-            "CHECKSUM": "PhpMyAdmin\\SqlParser\\Statements\\ChecksumStatement",
-            "OPTIMIZE": "PhpMyAdmin\\SqlParser\\Statements\\OptimizeStatement",
-            "REPAIR": "PhpMyAdmin\\SqlParser\\Statements\\RepairStatement",
-            "RESTORE": "PhpMyAdmin\\SqlParser\\Statements\\RestoreStatement",
-            "SET": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-            "SHOW": "PhpMyAdmin\\SqlParser\\Statements\\ShowStatement",
-            "ALTER": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
-            "CREATE": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-            "DROP": "PhpMyAdmin\\SqlParser\\Statements\\DropStatement",
-            "RENAME": "PhpMyAdmin\\SqlParser\\Statements\\RenameStatement",
-            "TRUNCATE": "PhpMyAdmin\\SqlParser\\Statements\\TruncateStatement",
-            "CALL": "PhpMyAdmin\\SqlParser\\Statements\\CallStatement",
-            "DELETE": "PhpMyAdmin\\SqlParser\\Statements\\DeleteStatement",
-            "DO": "",
-            "HANDLER": "",
-            "INSERT": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
-            "LOAD DATA": "PhpMyAdmin\\SqlParser\\Statements\\LoadStatement",
-            "REPLACE": "PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement",
-            "SELECT": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-            "UPDATE": "PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement",
-            "WITH": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
-            "DEALLOCATE": "",
-            "EXECUTE": "",
-            "PREPARE": "",
-            "BEGIN": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "COMMIT": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "ROLLBACK": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "START TRANSACTION": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "PURGE": "PhpMyAdmin\\SqlParser\\Statements\\PurgeStatement",
-            "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
-            "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
-        },
-        "keywordParsers": {
-            "PARTITION BY": [],
-            "SUBPARTITION BY": [],
-            "_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "options"
-            },
-            "_END_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "endOptions"
-            },
-            "_GROUP_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "groupOptions"
-            },
-            "INTERSECT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "EXCEPT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION ALL": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION DISTINCT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "ALTER": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "ANALYZE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "BACKUP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CALL": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
-                "field": "call"
-            },
-            "CHECK": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CHECKSUM": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CROSS JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "DROP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "fields",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "FORCE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "FROM": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "from",
-                "options": {
-                    "field": "table"
-                }
-            },
-            "GROUP BY": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\GroupKeyword",
-                "field": "group"
-            },
-            "HAVING": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                "field": "having"
-            },
-            "IGNORE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "INTO": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
-                "field": "into"
-            },
-            "JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LEFT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LEFT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "ON": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "RIGHT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "RIGHT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "INNER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "FULL JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "FULL OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL LEFT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL RIGHT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL LEFT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL RIGHT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "STRAIGHT_JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LIMIT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Limit",
-                "field": "limit"
-            },
-            "OPTIMIZE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "ORDER BY": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
-                "field": "order"
-            },
-            "PARTITION": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
-                "field": "partition"
-            },
-            "PROCEDURE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
-                "field": "procedure"
-            },
-            "RENAME": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\RenameOperation",
-                "field": "renames"
-            },
-            "REPAIR": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "RESTORE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "SET": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                "field": "set"
-            },
-            "SELECT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "expr"
-            },
-            "TRUNCATE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "UPDATE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "USE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "VALUE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Array2d",
-                "field": "values"
-            },
-            "VALUES": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Array2d",
-                "field": "values"
-            },
-            "WHERE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                "field": "where"
-            }
-        },
         "list": {
             "@type": "@1"
         },
@@ -20396,201 +20073,8 @@
                     "SCHEMA": 6,
                     "IF NOT EXISTS": 7
                 },
-                "databaseOptions": {
-                    "CHARACTER SET": [
-                        1,
-                        "var="
-                    ],
-                    "CHARSET": [
-                        1,
-                        "var="
-                    ],
-                    "DEFAULT CHARACTER SET": [
-                        1,
-                        "var="
-                    ],
-                    "DEFAULT CHARSET": [
-                        1,
-                        "var="
-                    ],
-                    "DEFAULT COLLATE": [
-                        2,
-                        "var="
-                    ],
-                    "COLLATE": [
-                        2,
-                        "var="
-                    ]
-                },
-                "tableOptions": {
-                    "ENGINE": [
-                        1,
-                        "var="
-                    ],
-                    "AUTO_INCREMENT": [
-                        2,
-                        "var="
-                    ],
-                    "AVG_ROW_LENGTH": [
-                        3,
-                        "var"
-                    ],
-                    "CHARACTER SET": [
-                        4,
-                        "var="
-                    ],
-                    "CHARSET": [
-                        4,
-                        "var="
-                    ],
-                    "DEFAULT CHARACTER SET": [
-                        4,
-                        "var="
-                    ],
-                    "DEFAULT CHARSET": [
-                        4,
-                        "var="
-                    ],
-                    "CHECKSUM": [
-                        5,
-                        "var"
-                    ],
-                    "DEFAULT COLLATE": [
-                        6,
-                        "var="
-                    ],
-                    "COLLATE": [
-                        6,
-                        "var="
-                    ],
-                    "COMMENT": [
-                        7,
-                        "var="
-                    ],
-                    "CONNECTION": [
-                        8,
-                        "var"
-                    ],
-                    "DATA DIRECTORY": [
-                        9,
-                        "var"
-                    ],
-                    "DELAY_KEY_WRITE": [
-                        10,
-                        "var"
-                    ],
-                    "INDEX DIRECTORY": [
-                        11,
-                        "var"
-                    ],
-                    "INSERT_METHOD": [
-                        12,
-                        "var"
-                    ],
-                    "KEY_BLOCK_SIZE": [
-                        13,
-                        "var"
-                    ],
-                    "MAX_ROWS": [
-                        14,
-                        "var"
-                    ],
-                    "MIN_ROWS": [
-                        15,
-                        "var"
-                    ],
-                    "PACK_KEYS": [
-                        16,
-                        "var"
-                    ],
-                    "PASSWORD": [
-                        17,
-                        "var"
-                    ],
-                    "ROW_FORMAT": [
-                        18,
-                        "var"
-                    ],
-                    "TABLESPACE": [
-                        19,
-                        "var"
-                    ],
-                    "STORAGE": [
-                        20,
-                        "var"
-                    ],
-                    "UNION": [
-                        21,
-                        "var"
-                    ],
-                    "PAGE_COMPRESSED": [
-                        22,
-                        "var"
-                    ],
-                    "PAGE_COMPRESSION_LEVEL": [
-                        23,
-                        "var"
-                    ]
-                },
-                "functionOptions": {
-                    "NOT": [
-                        2,
-                        "var"
-                    ],
-                    "FUNCTION": [
-                        3,
-                        "var="
-                    ],
-                    "PROCEDURE": [
-                        3,
-                        "var="
-                    ],
-                    "CONTAINS SQL": 4,
-                    "NO SQL": 4,
-                    "READS SQL DATA": 4,
-                    "MODIFIES SQL DATA": 4,
-                    "SQL SECURITY": [
-                        6,
-                        "var"
-                    ],
-                    "LANGUAGE": [
-                        7,
-                        "var"
-                    ],
-                    "COMMENT": [
-                        8,
-                        "var"
-                    ],
-                    "CREATE": 1,
-                    "DETERMINISTIC": 2
-                },
-                "triggerOptions": {
-                    "BEFORE": 1,
-                    "AFTER": 1,
-                    "INSERT": 2,
-                    "UPDATE": 2,
-                    "DELETE": 2
-                },
                 "name": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "allowedKeywords": {
-                        "AND": 1,
-                        "AS": 1,
-                        "BETWEEN": 1,
-                        "CASE": 1,
-                        "DUAL": 1,
-                        "DIV": 1,
-                        "IS": 1,
-                        "MOD": 1,
-                        "NOT": 1,
-                        "NOT NULL": 1,
-                        "NULL": 1,
-                        "OR": 1,
-                        "OVER": 1,
-                        "REGEXP": 1,
-                        "RLIKE": 1,
-                        "XOR": 1
-                    },
                     "database": null,
                     "table": "trips",
                     "column": null,
@@ -20631,86 +20115,10 @@
                 "fields": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "fieldOptions": {
-                            "_UNSORTED": true,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "DEFAULT": [
-                                2,
-                                "expr",
-                                {
-                                    "breakOnAlias": true
-                                }
-                            ],
-                            "CHARSET": [
-                                2,
-                                "var"
-                            ],
-                            "COLLATE": [
-                                3,
-                                "var"
-                            ],
-                            "AUTO_INCREMENT": 3,
-                            "PRIMARY": 4,
-                            "PRIMARY KEY": 4,
-                            "UNIQUE": 4,
-                            "UNIQUE KEY": 4,
-                            "COMMENT": [
-                                5,
-                                "var"
-                            ],
-                            "COLUMN_FORMAT": [
-                                6,
-                                "var"
-                            ],
-                            "ON UPDATE": [
-                                7,
-                                "expr"
-                            ],
-                            "GENERATED ALWAYS": 8,
-                            "AS": [
-                                9,
-                                "expr",
-                                {
-                                    "parenthesesDelimited": true
-                                }
-                            ],
-                            "VIRTUAL": 10,
-                            "PERSISTENT": 11,
-                            "STORED": 11,
-                            "CHECK": [
-                                12,
-                                "expr",
-                                {
-                                    "parenthesesDelimited": true
-                                }
-                            ],
-                            "INVISIBLE": 13,
-                            "ENFORCED": 14,
-                            "NOT": 15,
-                            "COMPRESSED": 16
-                        },
                         "name": "id",
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "dataTypeOptions": {
-                                "BINARY": 1,
-                                "CHARACTER SET": [
-                                    2,
-                                    "var"
-                                ],
-                                "CHARSET": [
-                                    2,
-                                    "var"
-                                ],
-                                "COLLATE": [
-                                    3,
-                                    "var"
-                                ],
-                                "UNSIGNED": 4,
-                                "ZEROFILL": 5
-                            },
                             "name": "BIGINT",
                             "parameters": [
                                 "20"
@@ -20739,86 +20147,10 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "fieldOptions": {
-                            "_UNSORTED": true,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "DEFAULT": [
-                                2,
-                                "expr",
-                                {
-                                    "breakOnAlias": true
-                                }
-                            ],
-                            "CHARSET": [
-                                2,
-                                "var"
-                            ],
-                            "COLLATE": [
-                                3,
-                                "var"
-                            ],
-                            "AUTO_INCREMENT": 3,
-                            "PRIMARY": 4,
-                            "PRIMARY KEY": 4,
-                            "UNIQUE": 4,
-                            "UNIQUE KEY": 4,
-                            "COMMENT": [
-                                5,
-                                "var"
-                            ],
-                            "COLUMN_FORMAT": [
-                                6,
-                                "var"
-                            ],
-                            "ON UPDATE": [
-                                7,
-                                "expr"
-                            ],
-                            "GENERATED ALWAYS": 8,
-                            "AS": [
-                                9,
-                                "expr",
-                                {
-                                    "parenthesesDelimited": true
-                                }
-                            ],
-                            "VIRTUAL": 10,
-                            "PERSISTENT": 11,
-                            "STORED": 11,
-                            "CHECK": [
-                                12,
-                                "expr",
-                                {
-                                    "parenthesesDelimited": true
-                                }
-                            ],
-                            "INVISIBLE": 13,
-                            "ENFORCED": 14,
-                            "NOT": 15,
-                            "COMPRESSED": 16
-                        },
                         "name": "trip_category",
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "dataTypeOptions": {
-                                "BINARY": 1,
-                                "CHARACTER SET": [
-                                    2,
-                                    "var"
-                                ],
-                                "CHARSET": [
-                                    2,
-                                    "var"
-                                ],
-                                "COLLATE": [
-                                    3,
-                                    "var"
-                                ],
-                                "UNSIGNED": 4,
-                                "ZEROFILL": 5
-                            },
                             "name": "INT",
                             "parameters": [
                                 "11"
@@ -20847,86 +20179,10 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "fieldOptions": {
-                            "_UNSORTED": true,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "DEFAULT": [
-                                2,
-                                "expr",
-                                {
-                                    "breakOnAlias": true
-                                }
-                            ],
-                            "CHARSET": [
-                                2,
-                                "var"
-                            ],
-                            "COLLATE": [
-                                3,
-                                "var"
-                            ],
-                            "AUTO_INCREMENT": 3,
-                            "PRIMARY": 4,
-                            "PRIMARY KEY": 4,
-                            "UNIQUE": 4,
-                            "UNIQUE KEY": 4,
-                            "COMMENT": [
-                                5,
-                                "var"
-                            ],
-                            "COLUMN_FORMAT": [
-                                6,
-                                "var"
-                            ],
-                            "ON UPDATE": [
-                                7,
-                                "expr"
-                            ],
-                            "GENERATED ALWAYS": 8,
-                            "AS": [
-                                9,
-                                "expr",
-                                {
-                                    "parenthesesDelimited": true
-                                }
-                            ],
-                            "VIRTUAL": 10,
-                            "PERSISTENT": 11,
-                            "STORED": 11,
-                            "CHECK": [
-                                12,
-                                "expr",
-                                {
-                                    "parenthesesDelimited": true
-                                }
-                            ],
-                            "INVISIBLE": 13,
-                            "ENFORCED": 14,
-                            "NOT": 15,
-                            "COMPRESSED": 16
-                        },
                         "name": "trip_month",
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "dataTypeOptions": {
-                                "BINARY": 1,
-                                "CHARACTER SET": [
-                                    2,
-                                    "var"
-                                ],
-                                "CHARSET": [
-                                    2,
-                                    "var"
-                                ],
-                                "COLLATE": [
-                                    3,
-                                    "var"
-                                ],
-                                "UNSIGNED": 4,
-                                "ZEROFILL": 5
-                            },
                             "name": "INT",
                             "parameters": [
                                 "11"
@@ -20955,86 +20211,10 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                        "fieldOptions": {
-                            "_UNSORTED": true,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "DEFAULT": [
-                                2,
-                                "expr",
-                                {
-                                    "breakOnAlias": true
-                                }
-                            ],
-                            "CHARSET": [
-                                2,
-                                "var"
-                            ],
-                            "COLLATE": [
-                                3,
-                                "var"
-                            ],
-                            "AUTO_INCREMENT": 3,
-                            "PRIMARY": 4,
-                            "PRIMARY KEY": 4,
-                            "UNIQUE": 4,
-                            "UNIQUE KEY": 4,
-                            "COMMENT": [
-                                5,
-                                "var"
-                            ],
-                            "COLUMN_FORMAT": [
-                                6,
-                                "var"
-                            ],
-                            "ON UPDATE": [
-                                7,
-                                "expr"
-                            ],
-                            "GENERATED ALWAYS": 8,
-                            "AS": [
-                                9,
-                                "expr",
-                                {
-                                    "parenthesesDelimited": true
-                                }
-                            ],
-                            "VIRTUAL": 10,
-                            "PERSISTENT": 11,
-                            "STORED": 11,
-                            "CHECK": [
-                                12,
-                                "expr",
-                                {
-                                    "parenthesesDelimited": true
-                                }
-                            ],
-                            "INVISIBLE": 13,
-                            "ENFORCED": 14,
-                            "NOT": 15,
-                            "COMPRESSED": 16
-                        },
                         "name": "trip_date",
                         "isConstraint": null,
                         "type": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "dataTypeOptions": {
-                                "BINARY": 1,
-                                "CHARACTER SET": [
-                                    2,
-                                    "var"
-                                ],
-                                "CHARSET": [
-                                    2,
-                                    "var"
-                                ],
-                                "COLLATE": [
-                                    3,
-                                    "var"
-                                ],
-                                "UNSIGNED": 4,
-                                "ZEROFILL": 5
-                            },
                             "name": "DATE",
                             "parameters": [],
                             "options": {
@@ -21111,24 +20291,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -22789,24 +21951,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -24467,24 +23611,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -26145,24 +25271,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -27823,24 +26931,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -29501,24 +28591,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -31179,24 +30251,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -32857,24 +31911,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -34535,24 +33571,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -36213,24 +35231,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -37891,24 +36891,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -39569,24 +38551,6 @@
                         "type": "LESS THAN",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -41207,8 +40171,6 @@
                 "return": null,
                 "parameters": null,
                 "body": [],
-                "clauses": [],
-                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {

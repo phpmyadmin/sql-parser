@@ -2,28 +2,6 @@
     "query": "DELIMTER //\nSELECT a,b FROM test //\nSELECT * FROM bar //",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": "DELIMTER //\nSELECT a,b FROM test //\nSELECT * FROM bar //",
         "len": 56,
         "last": 56,
@@ -295,7 +273,6 @@
             "count": 29,
             "idx": 0
         },
-        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,

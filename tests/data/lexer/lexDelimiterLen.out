@@ -2,28 +2,6 @@
     "query": "DELIMITER abcdefghijklmnopqrstuvwxyz\nSELECT 1 abcdefghijklmnopqrstuvwxyz\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": "DELIMITER abcdefghijklmnopqrstuvwxyz\nSELECT 1 abcdefghijklmnopqrstuvwxyz\n",
         "len": 73,
         "last": 73,
@@ -151,7 +129,6 @@
             "count": 13,
             "idx": 0
         },
-        "defaultDelimiter": ";",
         "delimiter": "abcdefghijklmno",
         "delimiterLen": 15,
         "strict": false,

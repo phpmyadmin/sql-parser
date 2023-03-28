@@ -2,28 +2,6 @@
     "query": "SELECT post.*, post.username AS postusername, post.ipaddress AS ip, IF(post.visible = 2, 1, 0) AS isdeleted, user.*, userfield.*, usertextfield.*, icon.title as icontitle, icon.iconpath, avatar.avatarpath, NOT ISNULL(customavatar.userid) AS hascustomavatar, customavatar.dateline AS avatardateline,customavatar.width AS avwidth,customavatar.height AS avheight, spamlog.postid AS spamlog_postid, deletionlog.userid AS del_userid, deletionlog.username AS del_username, deletionlog.reason AS del_reason, editlog.userid AS edit_userid, editlog.username AS edit_username, editlog.dateline AS edit_dateline, editlog.reason AS edit_reason, editlog.hashistory, postparsed.pagetext_html, postparsed.hasimages, sigparsed.signatureparsed, sigparsed.hasimages AS sighasimages, sigpic.userid AS sigpic, sigpic.dateline AS sigpicdateline, sigpic.width AS sigpicwidth, sigpic.height AS sigpicheight, IF(displaygroupid=0, user.usergroupid, displaygroupid) AS displaygroupid, infractiongroupid , post_icon_list.icon_id_list, post_icon_list.is_auto AS icon_is_auto, approvedlog.modid AS approvedmodid, approvedlog.dateline AS approveddateline, approvedlog.status AS approvedstatus, approvedlog.info AS approvedinfo, movedlog.modid AS movedmodid, movedlog.dateline AS moveddateline, movedlog.status AS movedstatus, movedlog.info AS movedinfo, ( SELECT useragent FROM session WHERE userid=post.userid AND lastactivity > 1644859580 ORDER BY lastactivity DESC LIMIT 1 ) AS useragent, IF ( user.userid IS NOT NULL, (SELECT COUNT(usernoteid) FROM usernote AS usernote WHERE usernote.userid=user.userid AND usernote.priority>=0), 0 ) AS usernotecount , deletionlog.dateline AS del_dateline, scheduled_approval.defer_time AS vbpmal_approval_defer_time, additional_user_data.last_year_message_count, additional_user_data.last_year_reputation, additional_user_data.last_year_groan_count, paid_post_activation.activation_id AS paid_post_activation_id, alm_Model_UserData.credits FROM post AS post LEFT JOIN user AS user ON(user.userid = post.userid) LEFT JOIN userfield AS userfield ON(userfield.userid = user.userid) LEFT JOIN usertextfield AS usertextfield ON(usertextfield.userid = user.userid) LEFT JOIN icon AS icon ON(icon.iconid = post.iconid) LEFT JOIN avatar AS avatar  ON(avatar.avatarid = user.avatarid) LEFT JOIN customavatar AS customavatar ON(customavatar.userid = user.userid) LEFT JOIN spamlog AS spamlog ON(spamlog.postid = post.postid) LEFT JOIN deletionlog AS deletionlog ON(post.postid = deletionlog.primaryid AND deletionlog.type = 'post') LEFT JOIN editlog AS editlog ON(editlog.postid = post.postid) LEFT JOIN postparsed AS postparsed ON(postparsed.postid = post.postid AND postparsed.styleid = 23 AND postparsed.languageid = 5) LEFT JOIN sigparsed AS sigparsed ON(sigparsed.userid = user.userid AND sigparsed.styleid = 23 AND sigparsed.languageid = 5) LEFT JOIN sigpic AS sigpic ON(sigpic.userid = post.userid) LEFT JOIN vbppim_post_icon_list AS post_icon_list ON post_icon_list.post_id=post.postid LEFT JOIN vbpmal_log AS approvedlog ON (approvedlog.itemid=post.postid AND approvedlog.action='postapprove') LEFT JOIN vbpmal_log AS movedlog ON (movedlog.itemid=post.postid AND movedlog.action='postmove') LEFT JOIN vbpmal_scheduled_post_approval AS scheduled_approval ON scheduled_approval.post_id = post.postid LEFT JOIN vbpsmt_additional_user_data AS additional_user_data ON additional_user_data.userid=post.userid LEFT JOIN market_pp_post_activation_mapping AS paid_post_activation ON paid_post_activation.post_id = post.postid LEFT JOIN alm_Model_UserData AS alm_Model_UserData ON alm_Model_UserData.user_id=user.userid WHERE post.postid IN (0,3254399,3254508,3254743,3254817,3254969,3255328,3255582,3257603,3257873,3258126,3258150,3258254,3258272,3258311,3260767,3260770,3260776,3261180,3261263,3261317,3261318) ORDER BY post.dateline",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": "SELECT post.*, post.username AS postusername, post.ipaddress AS ip, IF(post.visible = 2, 1, 0) AS isdeleted, user.*, userfield.*, usertextfield.*, icon.title as icontitle, icon.iconpath, avatar.avatarpath, NOT ISNULL(customavatar.userid) AS hascustomavatar, customavatar.dateline AS avatardateline,customavatar.width AS avwidth,customavatar.height AS avheight, spamlog.postid AS spamlog_postid, deletionlog.userid AS del_userid, deletionlog.username AS del_username, deletionlog.reason AS del_reason, editlog.userid AS edit_userid, editlog.username AS edit_username, editlog.dateline AS edit_dateline, editlog.reason AS edit_reason, editlog.hashistory, postparsed.pagetext_html, postparsed.hasimages, sigparsed.signatureparsed, sigparsed.hasimages AS sighasimages, sigpic.userid AS sigpic, sigpic.dateline AS sigpicdateline, sigpic.width AS sigpicwidth, sigpic.height AS sigpicheight, IF(displaygroupid=0, user.usergroupid, displaygroupid) AS displaygroupid, infractiongroupid , post_icon_list.icon_id_list, post_icon_list.is_auto AS icon_is_auto, approvedlog.modid AS approvedmodid, approvedlog.dateline AS approveddateline, approvedlog.status AS approvedstatus, approvedlog.info AS approvedinfo, movedlog.modid AS movedmodid, movedlog.dateline AS moveddateline, movedlog.status AS movedstatus, movedlog.info AS movedinfo, ( SELECT useragent FROM session WHERE userid=post.userid AND lastactivity > 1644859580 ORDER BY lastactivity DESC LIMIT 1 ) AS useragent, IF ( user.userid IS NOT NULL, (SELECT COUNT(usernoteid) FROM usernote AS usernote WHERE usernote.userid=user.userid AND usernote.priority>=0), 0 ) AS usernotecount , deletionlog.dateline AS del_dateline, scheduled_approval.defer_time AS vbpmal_approval_defer_time, additional_user_data.last_year_message_count, additional_user_data.last_year_reputation, additional_user_data.last_year_groan_count, paid_post_activation.activation_id AS paid_post_activation_id, alm_Model_UserData.credits FROM post AS post LEFT JOIN user AS user ON(user.userid = post.userid) LEFT JOIN userfield AS userfield ON(userfield.userid = user.userid) LEFT JOIN usertextfield AS usertextfield ON(usertextfield.userid = user.userid) LEFT JOIN icon AS icon ON(icon.iconid = post.iconid) LEFT JOIN avatar AS avatar  ON(avatar.avatarid = user.avatarid) LEFT JOIN customavatar AS customavatar ON(customavatar.userid = user.userid) LEFT JOIN spamlog AS spamlog ON(spamlog.postid = post.postid) LEFT JOIN deletionlog AS deletionlog ON(post.postid = deletionlog.primaryid AND deletionlog.type = 'post') LEFT JOIN editlog AS editlog ON(editlog.postid = post.postid) LEFT JOIN postparsed AS postparsed ON(postparsed.postid = post.postid AND postparsed.styleid = 23 AND postparsed.languageid = 5) LEFT JOIN sigparsed AS sigparsed ON(sigparsed.userid = user.userid AND sigparsed.styleid = 23 AND sigparsed.languageid = 5) LEFT JOIN sigpic AS sigpic ON(sigpic.userid = post.userid) LEFT JOIN vbppim_post_icon_list AS post_icon_list ON post_icon_list.post_id=post.postid LEFT JOIN vbpmal_log AS approvedlog ON (approvedlog.itemid=post.postid AND approvedlog.action='postapprove') LEFT JOIN vbpmal_log AS movedlog ON (movedlog.itemid=post.postid AND movedlog.action='postmove') LEFT JOIN vbpmal_scheduled_post_approval AS scheduled_approval ON scheduled_approval.post_id = post.postid LEFT JOIN vbpsmt_additional_user_data AS additional_user_data ON additional_user_data.userid=post.userid LEFT JOIN market_pp_post_activation_mapping AS paid_post_activation ON paid_post_activation.post_id = post.postid LEFT JOIN alm_Model_UserData AS alm_Model_UserData ON alm_Model_UserData.user_id=user.userid WHERE post.postid IN (0,3254399,3254508,3254743,3254817,3254969,3255328,3255582,3257603,3257873,3258126,3258150,3258254,3258272,3258311,3260767,3260770,3260776,3261180,3261263,3261317,3261318) ORDER BY post.dateline",
         "len": 3834,
         "last": 3834,
@@ -9349,7 +9327,6 @@
             "count": 1035,
             "idx": 1035
         },
-        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -9357,306 +9334,6 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "statementParsers": {
-            "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "FLUSH": "",
-            "GRANT": "",
-            "HELP": "",
-            "SET PASSWORD": "",
-            "STATUS": "",
-            "USE": "",
-            "ANALYZE": "PhpMyAdmin\\SqlParser\\Statements\\AnalyzeStatement",
-            "BACKUP": "PhpMyAdmin\\SqlParser\\Statements\\BackupStatement",
-            "CHECK": "PhpMyAdmin\\SqlParser\\Statements\\CheckStatement",
-            "CHECKSUM": "PhpMyAdmin\\SqlParser\\Statements\\ChecksumStatement",
-            "OPTIMIZE": "PhpMyAdmin\\SqlParser\\Statements\\OptimizeStatement",
-            "REPAIR": "PhpMyAdmin\\SqlParser\\Statements\\RepairStatement",
-            "RESTORE": "PhpMyAdmin\\SqlParser\\Statements\\RestoreStatement",
-            "SET": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-            "SHOW": "PhpMyAdmin\\SqlParser\\Statements\\ShowStatement",
-            "ALTER": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
-            "CREATE": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-            "DROP": "PhpMyAdmin\\SqlParser\\Statements\\DropStatement",
-            "RENAME": "PhpMyAdmin\\SqlParser\\Statements\\RenameStatement",
-            "TRUNCATE": "PhpMyAdmin\\SqlParser\\Statements\\TruncateStatement",
-            "CALL": "PhpMyAdmin\\SqlParser\\Statements\\CallStatement",
-            "DELETE": "PhpMyAdmin\\SqlParser\\Statements\\DeleteStatement",
-            "DO": "",
-            "HANDLER": "",
-            "INSERT": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
-            "LOAD DATA": "PhpMyAdmin\\SqlParser\\Statements\\LoadStatement",
-            "REPLACE": "PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement",
-            "SELECT": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-            "UPDATE": "PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement",
-            "WITH": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
-            "DEALLOCATE": "",
-            "EXECUTE": "",
-            "PREPARE": "",
-            "BEGIN": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "COMMIT": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "ROLLBACK": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "START TRANSACTION": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "PURGE": "PhpMyAdmin\\SqlParser\\Statements\\PurgeStatement",
-            "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
-            "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
-        },
-        "keywordParsers": {
-            "PARTITION BY": [],
-            "SUBPARTITION BY": [],
-            "_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "options"
-            },
-            "_END_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "endOptions"
-            },
-            "_GROUP_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "groupOptions"
-            },
-            "INTERSECT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "EXCEPT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION ALL": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION DISTINCT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "ALTER": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "ANALYZE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "BACKUP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CALL": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
-                "field": "call"
-            },
-            "CHECK": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CHECKSUM": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CROSS JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "DROP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "fields",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "FORCE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "FROM": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "from",
-                "options": {
-                    "field": "table"
-                }
-            },
-            "GROUP BY": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\GroupKeyword",
-                "field": "group"
-            },
-            "HAVING": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                "field": "having"
-            },
-            "IGNORE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "INTO": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
-                "field": "into"
-            },
-            "JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LEFT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LEFT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "ON": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "RIGHT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "RIGHT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "INNER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "FULL JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "FULL OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL LEFT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL RIGHT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL LEFT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL RIGHT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "STRAIGHT_JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LIMIT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Limit",
-                "field": "limit"
-            },
-            "OPTIMIZE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "ORDER BY": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
-                "field": "order"
-            },
-            "PARTITION": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
-                "field": "partition"
-            },
-            "PROCEDURE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
-                "field": "procedure"
-            },
-            "RENAME": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\RenameOperation",
-                "field": "renames"
-            },
-            "REPAIR": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "RESTORE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "SET": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                "field": "set"
-            },
-            "SELECT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "expr"
-            },
-            "TRUNCATE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "UPDATE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "USE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "VALUE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Array2d",
-                "field": "values"
-            },
-            "VALUES": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Array2d",
-                "field": "values"
-            },
-            "WHERE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                "field": "where"
-            }
-        },
         "list": {
             "@type": "@1"
         },
@@ -9680,161 +9357,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "post",
                         "column": null,
@@ -9845,24 +9370,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "post",
                         "column": "username",
@@ -9873,24 +9380,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "post",
                         "column": "ipaddress",
@@ -9901,24 +9390,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -9929,24 +9400,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "user",
                         "column": null,
@@ -9957,24 +9410,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "userfield",
                         "column": null,
@@ -9985,24 +9420,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "usertextfield",
                         "column": null,
@@ -10013,24 +9430,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "icon",
                         "column": "title",
@@ -10041,24 +9440,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "icon",
                         "column": "iconpath",
@@ -10069,24 +9450,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "avatar",
                         "column": "avatarpath",
@@ -10097,24 +9460,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -10125,24 +9470,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "customavatar",
                         "column": "dateline",
@@ -10153,24 +9480,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "customavatar",
                         "column": "width",
@@ -10181,24 +9490,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "customavatar",
                         "column": "height",
@@ -10209,24 +9500,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "spamlog",
                         "column": "postid",
@@ -10237,24 +9510,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "deletionlog",
                         "column": "userid",
@@ -10265,24 +9520,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "deletionlog",
                         "column": "username",
@@ -10293,24 +9530,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "deletionlog",
                         "column": "reason",
@@ -10321,24 +9540,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "editlog",
                         "column": "userid",
@@ -10349,24 +9550,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "editlog",
                         "column": "username",
@@ -10377,24 +9560,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "editlog",
                         "column": "dateline",
@@ -10405,24 +9570,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "editlog",
                         "column": "reason",
@@ -10433,24 +9580,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "editlog",
                         "column": "hashistory",
@@ -10461,24 +9590,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "postparsed",
                         "column": "pagetext_html",
@@ -10489,24 +9600,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "postparsed",
                         "column": "hasimages",
@@ -10517,24 +9610,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "sigparsed",
                         "column": "signatureparsed",
@@ -10545,24 +9620,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "sigparsed",
                         "column": "hasimages",
@@ -10573,24 +9630,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "sigpic",
                         "column": "userid",
@@ -10601,24 +9640,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "sigpic",
                         "column": "dateline",
@@ -10629,24 +9650,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "sigpic",
                         "column": "width",
@@ -10657,24 +9660,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "sigpic",
                         "column": "height",
@@ -10685,24 +9670,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -10713,24 +9680,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": "infractiongroupid",
@@ -10741,24 +9690,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "post_icon_list",
                         "column": "icon_id_list",
@@ -10769,24 +9700,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "post_icon_list",
                         "column": "is_auto",
@@ -10797,24 +9710,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "approvedlog",
                         "column": "modid",
@@ -10825,24 +9720,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "approvedlog",
                         "column": "dateline",
@@ -10853,24 +9730,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "approvedlog",
                         "column": "status",
@@ -10881,24 +9740,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "approvedlog",
                         "column": "info",
@@ -10909,24 +9750,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "movedlog",
                         "column": "modid",
@@ -10937,24 +9760,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "movedlog",
                         "column": "dateline",
@@ -10965,24 +9770,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "movedlog",
                         "column": "status",
@@ -10993,24 +9780,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "movedlog",
                         "column": "info",
@@ -11021,24 +9790,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -11049,24 +9800,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -11077,24 +9810,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "deletionlog",
                         "column": "dateline",
@@ -11105,24 +9820,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "scheduled_approval",
                         "column": "defer_time",
@@ -11133,24 +9830,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "additional_user_data",
                         "column": "last_year_message_count",
@@ -11161,24 +9840,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "additional_user_data",
                         "column": "last_year_reputation",
@@ -11189,24 +9850,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "additional_user_data",
                         "column": "last_year_groan_count",
@@ -11217,24 +9860,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "paid_post_activation",
                         "column": "activation_id",
@@ -11245,24 +9870,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "alm_Model_UserData",
                         "column": "credits",
@@ -11275,24 +9882,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "post",
                         "column": null,
@@ -11307,34 +9896,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "post",
                             "postid"
@@ -11351,24 +9912,6 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "post",
                             "column": "dateline",
@@ -11386,44 +9929,9 @@
                 "join": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": null,
                             "column": null,
@@ -11435,34 +9943,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "user",
                                     "userid",
@@ -11476,44 +9956,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "userfield",
                             "column": null,
@@ -11525,34 +9970,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "userfield",
                                     "userid",
@@ -11566,44 +9983,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "usertextfield",
                             "column": null,
@@ -11615,34 +9997,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "usertextfield",
                                     "userid",
@@ -11656,44 +10010,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "icon",
                             "column": null,
@@ -11705,34 +10024,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "icon",
                                     "iconid",
@@ -11746,44 +10037,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "avatar",
                             "column": null,
@@ -11795,34 +10051,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "avatar",
                                     "avatarid",
@@ -11836,44 +10064,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "customavatar",
                             "column": null,
@@ -11885,34 +10078,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "customavatar",
                                     "userid",
@@ -11926,44 +10091,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "spamlog",
                             "column": null,
@@ -11975,34 +10105,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "spamlog",
                                     "postid",
@@ -12016,44 +10118,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "deletionlog",
                             "column": null,
@@ -12065,34 +10132,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "post",
                                     "postid",
@@ -12104,68 +10143,12 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [],
                                 "isOperator": true,
                                 "expr": "AND"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "deletionlog",
                                     "type",
@@ -12179,44 +10162,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "editlog",
                             "column": null,
@@ -12228,34 +10176,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "editlog",
                                     "postid",
@@ -12269,44 +10189,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "postparsed",
                             "column": null,
@@ -12318,34 +10203,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "postparsed",
                                     "postid",
@@ -12356,68 +10213,12 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [],
                                 "isOperator": true,
                                 "expr": "AND"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "postparsed",
                                     "styleid"
@@ -12427,68 +10228,12 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [],
                                 "isOperator": true,
                                 "expr": "AND"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "postparsed",
                                     "languageid"
@@ -12501,44 +10246,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "sigparsed",
                             "column": null,
@@ -12550,34 +10260,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "sigparsed",
                                     "userid",
@@ -12588,68 +10270,12 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [],
                                 "isOperator": true,
                                 "expr": "AND"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "sigparsed",
                                     "styleid"
@@ -12659,68 +10285,12 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [],
                                 "isOperator": true,
                                 "expr": "AND"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "sigparsed",
                                     "languageid"
@@ -12733,44 +10303,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "sigpic",
                             "column": null,
@@ -12782,34 +10317,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "sigpic",
                                     "userid",
@@ -12823,44 +10330,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "vbppim_post_icon_list",
                             "column": null,
@@ -12872,34 +10344,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "post_icon_list",
                                     "post_id",
@@ -12914,44 +10358,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "vbpmal_log",
                             "column": null,
@@ -12963,34 +10372,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "approvedlog",
                                     "itemid",
@@ -13002,68 +10383,12 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [],
                                 "isOperator": true,
                                 "expr": "AND"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "approvedlog",
                                     "action",
@@ -13077,44 +10402,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "vbpmal_log",
                             "column": null,
@@ -13126,34 +10416,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "movedlog",
                                     "itemid",
@@ -13165,68 +10427,12 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [],
                                 "isOperator": true,
                                 "expr": "AND"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "movedlog",
                                     "action",
@@ -13240,44 +10446,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "vbpmal_scheduled_post_approval",
                             "column": null,
@@ -13289,34 +10460,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "scheduled_approval",
                                     "post_id",
@@ -13331,44 +10474,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "vbpsmt_additional_user_data",
                             "column": null,
@@ -13380,34 +10488,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "additional_user_data",
                                     "userid",
@@ -13421,44 +10501,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "market_pp_post_activation_mapping",
                             "column": null,
@@ -13470,34 +10515,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "paid_post_activation",
                                     "post_id",
@@ -13512,44 +10529,9 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "joins": {
-                            "CROSS JOIN": "CROSS",
-                            "FULL JOIN": "FULL",
-                            "FULL OUTER JOIN": "FULL",
-                            "INNER JOIN": "INNER",
-                            "JOIN": "JOIN",
-                            "LEFT JOIN": "LEFT",
-                            "LEFT OUTER JOIN": "LEFT",
-                            "RIGHT JOIN": "RIGHT",
-                            "RIGHT OUTER JOIN": "RIGHT",
-                            "NATURAL JOIN": "NATURAL",
-                            "NATURAL LEFT JOIN": "NATURAL LEFT",
-                            "NATURAL RIGHT JOIN": "NATURAL RIGHT",
-                            "NATURAL LEFT OUTER JOIN": "NATURAL LEFT OUTER",
-                            "NATURAL RIGHT OUTER JOIN": "NATURAL RIGHT OUTER",
-                            "STRAIGHT_JOIN": "STRAIGHT"
-                        },
                         "type": "LEFT",
                         "expr": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "alm_Model_UserData",
                             "column": null,
@@ -13561,34 +10543,6 @@
                         "on": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                                "delimiters": [
-                                    "&&",
-                                    "||",
-                                    "AND",
-                                    "OR",
-                                    "XOR"
-                                ],
-                                "allowedKeywords": {
-                                    "ALL": 1,
-                                    "AND": 1,
-                                    "BETWEEN": 1,
-                                    "EXISTS": 1,
-                                    "IF": 1,
-                                    "IN": 1,
-                                    "INTERVAL": 1,
-                                    "IS": 1,
-                                    "LIKE": 1,
-                                    "MATCH": 1,
-                                    "NOT IN": 1,
-                                    "NOT NULL": 1,
-                                    "NOT": 1,
-                                    "NULL": 1,
-                                    "OR": 1,
-                                    "REGEXP": 1,
-                                    "RLIKE": 1,
-                                    "SOUNDS": 1,
-                                    "XOR": 1
-                                },
                                 "identifiers": [
                                     "alm_Model_UserData",
                                     "user_id",

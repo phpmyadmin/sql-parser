@@ -2,28 +2,6 @@
     "query": "SELECT * FROM film WHERE film_id = 10 OR film_id >= 20;\nSELECT * FROM film WHERE (film_id < 10) || (film_id > 20);\nSELECT * FROM film WHERE `film_id` != 10 AND `film_id` <= 20;\nSELECT * FROM film WHERE `film`.`film_id` <> 10 && `film`.`film_id` <= 20;\nSELECT * FROM film WHERE film.film_id < 20 XOR film.rating = 'PG-13';\nSELECT * FROM film WHERE /* film_id = */ film_id = 10;\nSELECT * FROM film WHERE NOT film_id > 10;\nSELECT * FROM film WHERE ! (film_id > 10);\nSELECT * FROM film WHERE description IS NULL;\nSELECT * FROM film WHERE description IS NOT NULL;\nSELECT * FROM film WHERE film_id BETWEEN 10 AND 20;\nSELECT * FROM film WHERE film_id NOT BETWEEN 10 AND 20;\nSELECT * FROM film WHERE film_id IN (3,5,7);\nSELECT * FROM film WHERE rating = UPPER('pg');\nSELECT * FROM film WHERE rating SOUNDS LIKE 'PG';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": "SELECT * FROM film WHERE film_id = 10 OR film_id >= 20;\nSELECT * FROM film WHERE (film_id < 10) || (film_id > 20);\nSELECT * FROM film WHERE `film_id` != 10 AND `film_id` <= 20;\nSELECT * FROM film WHERE `film`.`film_id` <> 10 && `film`.`film_id` <= 20;\nSELECT * FROM film WHERE film.film_id < 20 XOR film.rating = 'PG-13';\nSELECT * FROM film WHERE /* film_id = */ film_id = 10;\nSELECT * FROM film WHERE NOT film_id > 10;\nSELECT * FROM film WHERE ! (film_id > 10);\nSELECT * FROM film WHERE description IS NULL;\nSELECT * FROM film WHERE description IS NOT NULL;\nSELECT * FROM film WHERE film_id BETWEEN 10 AND 20;\nSELECT * FROM film WHERE film_id NOT BETWEEN 10 AND 20;\nSELECT * FROM film WHERE film_id IN (3,5,7);\nSELECT * FROM film WHERE rating = UPPER('pg');\nSELECT * FROM film WHERE rating SOUNDS LIKE 'PG';",
         "len": 808,
         "last": 808,
@@ -3058,7 +3036,6 @@
             "count": 336,
             "idx": 336
         },
-        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -3066,306 +3043,6 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "statementParsers": {
-            "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "FLUSH": "",
-            "GRANT": "",
-            "HELP": "",
-            "SET PASSWORD": "",
-            "STATUS": "",
-            "USE": "",
-            "ANALYZE": "PhpMyAdmin\\SqlParser\\Statements\\AnalyzeStatement",
-            "BACKUP": "PhpMyAdmin\\SqlParser\\Statements\\BackupStatement",
-            "CHECK": "PhpMyAdmin\\SqlParser\\Statements\\CheckStatement",
-            "CHECKSUM": "PhpMyAdmin\\SqlParser\\Statements\\ChecksumStatement",
-            "OPTIMIZE": "PhpMyAdmin\\SqlParser\\Statements\\OptimizeStatement",
-            "REPAIR": "PhpMyAdmin\\SqlParser\\Statements\\RepairStatement",
-            "RESTORE": "PhpMyAdmin\\SqlParser\\Statements\\RestoreStatement",
-            "SET": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-            "SHOW": "PhpMyAdmin\\SqlParser\\Statements\\ShowStatement",
-            "ALTER": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
-            "CREATE": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-            "DROP": "PhpMyAdmin\\SqlParser\\Statements\\DropStatement",
-            "RENAME": "PhpMyAdmin\\SqlParser\\Statements\\RenameStatement",
-            "TRUNCATE": "PhpMyAdmin\\SqlParser\\Statements\\TruncateStatement",
-            "CALL": "PhpMyAdmin\\SqlParser\\Statements\\CallStatement",
-            "DELETE": "PhpMyAdmin\\SqlParser\\Statements\\DeleteStatement",
-            "DO": "",
-            "HANDLER": "",
-            "INSERT": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
-            "LOAD DATA": "PhpMyAdmin\\SqlParser\\Statements\\LoadStatement",
-            "REPLACE": "PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement",
-            "SELECT": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-            "UPDATE": "PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement",
-            "WITH": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
-            "DEALLOCATE": "",
-            "EXECUTE": "",
-            "PREPARE": "",
-            "BEGIN": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "COMMIT": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "ROLLBACK": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "START TRANSACTION": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "PURGE": "PhpMyAdmin\\SqlParser\\Statements\\PurgeStatement",
-            "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
-            "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
-        },
-        "keywordParsers": {
-            "PARTITION BY": [],
-            "SUBPARTITION BY": [],
-            "_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "options"
-            },
-            "_END_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "endOptions"
-            },
-            "_GROUP_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "groupOptions"
-            },
-            "INTERSECT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "EXCEPT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION ALL": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION DISTINCT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "ALTER": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "ANALYZE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "BACKUP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CALL": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
-                "field": "call"
-            },
-            "CHECK": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CHECKSUM": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CROSS JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "DROP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "fields",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "FORCE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "FROM": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "from",
-                "options": {
-                    "field": "table"
-                }
-            },
-            "GROUP BY": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\GroupKeyword",
-                "field": "group"
-            },
-            "HAVING": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                "field": "having"
-            },
-            "IGNORE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "INTO": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
-                "field": "into"
-            },
-            "JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LEFT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LEFT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "ON": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "RIGHT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "RIGHT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "INNER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "FULL JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "FULL OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL LEFT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL RIGHT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL LEFT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL RIGHT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "STRAIGHT_JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LIMIT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Limit",
-                "field": "limit"
-            },
-            "OPTIMIZE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "ORDER BY": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
-                "field": "order"
-            },
-            "PARTITION": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
-                "field": "partition"
-            },
-            "PROCEDURE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
-                "field": "procedure"
-            },
-            "RENAME": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\RenameOperation",
-                "field": "renames"
-            },
-            "REPAIR": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "RESTORE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "SET": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                "field": "set"
-            },
-            "SELECT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "expr"
-            },
-            "TRUNCATE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "UPDATE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "USE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "VALUE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Array2d",
-                "field": "values"
-            },
-            "VALUES": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Array2d",
-                "field": "values"
-            },
-            "WHERE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                "field": "where"
-            }
-        },
         "list": {
             "@type": "@1"
         },
@@ -3389,161 +3066,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -3556,24 +3081,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -3588,34 +3095,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -3624,68 +3103,12 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [],
                         "isOperator": true,
                         "expr": "OR"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -3729,161 +3152,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -3896,24 +3167,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -3928,34 +3181,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -3964,68 +3189,12 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [],
                         "isOperator": true,
                         "expr": "||"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -4069,161 +3238,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -4236,24 +3253,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -4268,34 +3267,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -4304,68 +3275,12 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [],
                         "isOperator": true,
                         "expr": "AND"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -4409,161 +3324,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -4576,24 +3339,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -4608,34 +3353,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film",
                             "film_id"
@@ -4645,68 +3362,12 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [],
                         "isOperator": true,
                         "expr": "&&"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film",
                             "film_id"
@@ -4751,161 +3412,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -4918,24 +3427,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -4950,34 +3441,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film",
                             "film_id"
@@ -4987,68 +3450,12 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [],
                         "isOperator": true,
                         "expr": "XOR"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film",
                             "rating",
@@ -5094,161 +3501,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -5261,24 +3516,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -5293,34 +3530,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -5364,161 +3573,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -5531,24 +3588,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -5563,34 +3602,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -5634,161 +3645,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -5801,24 +3660,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -5833,34 +3674,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -5904,161 +3717,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -6071,24 +3732,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -6103,34 +3746,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "description"
                         ],
@@ -6174,161 +3789,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -6341,24 +3804,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -6373,34 +3818,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "description"
                         ],
@@ -6444,161 +3861,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -6611,24 +3876,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -6643,34 +3890,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -6714,161 +3933,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -6881,24 +3948,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -6913,34 +3962,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -6984,161 +4005,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -7151,24 +4020,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -7183,34 +4034,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "film_id"
                         ],
@@ -7254,161 +4077,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -7421,24 +4092,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -7453,34 +4106,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "rating",
                             "UPPER",
@@ -7526,161 +4151,9 @@
                     "SQL_NO_CACHE": 8,
                     "SQL_CALC_FOUND_ROWS": 9
                 },
-                "statementEndOptions": {
-                    "FOR UPDATE": 1,
-                    "LOCK IN SHARE MODE": 1
-                },
-                "clauses": {
-                    "SELECT": [
-                        "SELECT",
-                        2
-                    ],
-                    "_OPTIONS": [
-                        "_OPTIONS",
-                        1
-                    ],
-                    "_SELECT": [
-                        "SELECT",
-                        1
-                    ],
-                    "INTO": [
-                        "INTO",
-                        3
-                    ],
-                    "FROM": [
-                        "FROM",
-                        3
-                    ],
-                    "FORCE": [
-                        "FORCE",
-                        1
-                    ],
-                    "USE": [
-                        "USE",
-                        1
-                    ],
-                    "IGNORE": [
-                        "IGNORE",
-                        3
-                    ],
-                    "PARTITION": [
-                        "PARTITION",
-                        3
-                    ],
-                    "JOIN": [
-                        "JOIN",
-                        1
-                    ],
-                    "FULL JOIN": [
-                        "FULL JOIN",
-                        1
-                    ],
-                    "INNER JOIN": [
-                        "INNER JOIN",
-                        1
-                    ],
-                    "LEFT JOIN": [
-                        "LEFT JOIN",
-                        1
-                    ],
-                    "LEFT OUTER JOIN": [
-                        "LEFT OUTER JOIN",
-                        1
-                    ],
-                    "RIGHT JOIN": [
-                        "RIGHT JOIN",
-                        1
-                    ],
-                    "RIGHT OUTER JOIN": [
-                        "RIGHT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL JOIN": [
-                        "NATURAL JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT JOIN": [
-                        "NATURAL LEFT JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "NATURAL LEFT OUTER JOIN": [
-                        "NATURAL LEFT OUTER JOIN",
-                        1
-                    ],
-                    "NATURAL RIGHT OUTER JOIN": [
-                        "NATURAL RIGHT JOIN",
-                        1
-                    ],
-                    "WHERE": [
-                        "WHERE",
-                        3
-                    ],
-                    "GROUP BY": [
-                        "GROUP BY",
-                        3
-                    ],
-                    "_GROUP_OPTIONS": [
-                        "_GROUP_OPTIONS",
-                        1
-                    ],
-                    "HAVING": [
-                        "HAVING",
-                        3
-                    ],
-                    "ORDER BY": [
-                        "ORDER BY",
-                        3
-                    ],
-                    "LIMIT": [
-                        "LIMIT",
-                        3
-                    ],
-                    "PROCEDURE": [
-                        "PROCEDURE",
-                        3
-                    ],
-                    "UNION": [
-                        "UNION",
-                        1
-                    ],
-                    "EXCEPT": [
-                        "EXCEPT",
-                        1
-                    ],
-                    "INTERSECT": [
-                        "INTERSECT",
-                        1
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "expr": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": null,
                         "column": null,
@@ -7693,24 +4166,6 @@
                 "from": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "allowedKeywords": {
-                            "AND": 1,
-                            "AS": 1,
-                            "BETWEEN": 1,
-                            "CASE": 1,
-                            "DUAL": 1,
-                            "DIV": 1,
-                            "IS": 1,
-                            "MOD": 1,
-                            "NOT": 1,
-                            "NOT NULL": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "OVER": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "XOR": 1
-                        },
                         "database": null,
                         "table": "film",
                         "column": null,
@@ -7725,34 +4180,6 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "delimiters": [
-                            "&&",
-                            "||",
-                            "AND",
-                            "OR",
-                            "XOR"
-                        ],
-                        "allowedKeywords": {
-                            "ALL": 1,
-                            "AND": 1,
-                            "BETWEEN": 1,
-                            "EXISTS": 1,
-                            "IF": 1,
-                            "IN": 1,
-                            "INTERVAL": 1,
-                            "IS": 1,
-                            "LIKE": 1,
-                            "MATCH": 1,
-                            "NOT IN": 1,
-                            "NOT NULL": 1,
-                            "NOT": 1,
-                            "NULL": 1,
-                            "OR": 1,
-                            "REGEXP": 1,
-                            "RLIKE": 1,
-                            "SOUNDS": 1,
-                            "XOR": 1
-                        },
                         "identifiers": [
                             "rating",
                             "SOUNDS",

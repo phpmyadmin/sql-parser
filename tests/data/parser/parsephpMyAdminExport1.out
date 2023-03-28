@@ -2,28 +2,6 @@
     "query": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https://www.phpmyadmin.net/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n/*!40101 SET NAMES utf8mb4 */;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "parserMethods": [
-            "parseDelimiter",
-            "parseWhitespace",
-            "parseNumber",
-            "parseComment",
-            "parseOperator",
-            "parseBool",
-            "parseString",
-            "parseSymbol",
-            "parseKeyword",
-            "parseLabel",
-            "parseUnknown"
-        ],
-        "keywordNameIndicators": [
-            "FROM",
-            "SET",
-            "WHERE"
-        ],
-        "operatorNameIndicators": [
-            ",",
-            "."
-        ],
         "str": {
             "@type": "PhpMyAdmin\\SqlParser\\UtfString",
             "str": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https://www.phpmyadmin.net/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n/*!40101 SET NAMES utf8mb4 */;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n",
@@ -4586,7 +4564,6 @@
             "count": 505,
             "idx": 506
         },
-        "defaultDelimiter": ";",
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
@@ -4594,322 +4571,12 @@
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "statementParsers": {
-            "DESCRIBE": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "DESC": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "EXPLAIN": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-            "FLUSH": "",
-            "GRANT": "",
-            "HELP": "",
-            "SET PASSWORD": "",
-            "STATUS": "",
-            "USE": "",
-            "ANALYZE": "PhpMyAdmin\\SqlParser\\Statements\\AnalyzeStatement",
-            "BACKUP": "PhpMyAdmin\\SqlParser\\Statements\\BackupStatement",
-            "CHECK": "PhpMyAdmin\\SqlParser\\Statements\\CheckStatement",
-            "CHECKSUM": "PhpMyAdmin\\SqlParser\\Statements\\ChecksumStatement",
-            "OPTIMIZE": "PhpMyAdmin\\SqlParser\\Statements\\OptimizeStatement",
-            "REPAIR": "PhpMyAdmin\\SqlParser\\Statements\\RepairStatement",
-            "RESTORE": "PhpMyAdmin\\SqlParser\\Statements\\RestoreStatement",
-            "SET": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-            "SHOW": "PhpMyAdmin\\SqlParser\\Statements\\ShowStatement",
-            "ALTER": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
-            "CREATE": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-            "DROP": "PhpMyAdmin\\SqlParser\\Statements\\DropStatement",
-            "RENAME": "PhpMyAdmin\\SqlParser\\Statements\\RenameStatement",
-            "TRUNCATE": "PhpMyAdmin\\SqlParser\\Statements\\TruncateStatement",
-            "CALL": "PhpMyAdmin\\SqlParser\\Statements\\CallStatement",
-            "DELETE": "PhpMyAdmin\\SqlParser\\Statements\\DeleteStatement",
-            "DO": "",
-            "HANDLER": "",
-            "INSERT": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
-            "LOAD DATA": "PhpMyAdmin\\SqlParser\\Statements\\LoadStatement",
-            "REPLACE": "PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement",
-            "SELECT": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-            "UPDATE": "PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement",
-            "WITH": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
-            "DEALLOCATE": "",
-            "EXECUTE": "",
-            "PREPARE": "",
-            "BEGIN": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "COMMIT": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "ROLLBACK": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "START TRANSACTION": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-            "PURGE": "PhpMyAdmin\\SqlParser\\Statements\\PurgeStatement",
-            "LOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
-            "UNLOCK": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement"
-        },
-        "keywordParsers": {
-            "PARTITION BY": [],
-            "SUBPARTITION BY": [],
-            "_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "options"
-            },
-            "_END_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "endOptions"
-            },
-            "_GROUP_OPTIONS": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                "field": "groupOptions"
-            },
-            "INTERSECT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "EXCEPT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION ALL": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "UNION DISTINCT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\UnionKeyword",
-                "field": "union"
-            },
-            "ALTER": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "ANALYZE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "BACKUP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CALL": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
-                "field": "call"
-            },
-            "CHECK": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CHECKSUM": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "CROSS JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "DROP": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "fields",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "FORCE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "FROM": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "from",
-                "options": {
-                    "field": "table"
-                }
-            },
-            "GROUP BY": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\GroupKeyword",
-                "field": "group"
-            },
-            "HAVING": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                "field": "having"
-            },
-            "IGNORE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "INTO": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
-                "field": "into"
-            },
-            "JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LEFT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LEFT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "ON": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "RIGHT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "RIGHT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "INNER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "FULL JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "FULL OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL LEFT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL RIGHT JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL LEFT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "NATURAL RIGHT OUTER JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "STRAIGHT_JOIN": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                "field": "join"
-            },
-            "LIMIT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Limit",
-                "field": "limit"
-            },
-            "OPTIMIZE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "ORDER BY": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
-                "field": "order"
-            },
-            "PARTITION": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
-                "field": "partition"
-            },
-            "PROCEDURE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
-                "field": "procedure"
-            },
-            "RENAME": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\RenameOperation",
-                "field": "renames"
-            },
-            "REPAIR": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "RESTORE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "SET": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                "field": "set"
-            },
-            "SELECT": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "expr"
-            },
-            "TRUNCATE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                "field": "table",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "UPDATE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\ExpressionArray",
-                "field": "tables",
-                "options": {
-                    "parseField": "table"
-                }
-            },
-            "USE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\IndexHint",
-                "field": "index_hints"
-            },
-            "VALUE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Array2d",
-                "field": "values"
-            },
-            "VALUES": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Array2d",
-                "field": "values"
-            },
-            "WHERE": {
-                "class": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                "field": "where"
-            }
-        },
         "list": {
             "@type": "@2"
         },
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                "clauses": {
-                    "SET": [
-                        "SET",
-                        3
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "statementOptions": {
                     "CHARSET": [
                         3,
@@ -4935,13 +4602,6 @@
                     "@@GLOBAL": 3,
                     "@@PERSIST": 3,
                     "@@PERSIST_ONLY": 3
-                },
-                "statementEndOptions": {
-                    "COLLATE": [
-                        1,
-                        "var"
-                    ],
-                    "DEFAULT": 1
                 },
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -4960,16 +4620,6 @@
             },
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                "clauses": {
-                    "SET": [
-                        "SET",
-                        3
-                    ],
-                    "_END_OPTIONS": [
-                        "_END_OPTIONS",
-                        1
-                    ]
-                },
                 "statementOptions": {
                     "CHARSET": [
                         3,
@@ -4995,13 +4645,6 @@
                     "@@GLOBAL": 3,
                     "@@PERSIST": 3,
                     "@@PERSIST_ONLY": 3
-                },
-                "statementEndOptions": {
-                    "COLLATE": [
-                        1,
-                        "var"
-                    ],
-                    "DEFAULT": 1
                 },
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -5024,16 +4667,6 @@
                 "statements": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "clauses": {
-                            "SET": [
-                                "SET",
-                                3
-                            ],
-                            "_END_OPTIONS": [
-                                "_END_OPTIONS",
-                                1
-                            ]
-                        },
                         "statementOptions": {
                             "CHARSET": [
                                 3,
@@ -5059,13 +4692,6 @@
                             "@@GLOBAL": 3,
                             "@@PERSIST": 3,
                             "@@PERSIST_ONLY": 3
-                        },
-                        "statementEndOptions": {
-                            "COLLATE": [
-                                1,
-                                "var"
-                            ],
-                            "DEFAULT": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -5084,16 +4710,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "clauses": {
-                            "SET": [
-                                "SET",
-                                3
-                            ],
-                            "_END_OPTIONS": [
-                                "_END_OPTIONS",
-                                1
-                            ]
-                        },
                         "statementOptions": {
                             "CHARSET": [
                                 3,
@@ -5119,13 +4735,6 @@
                             "@@GLOBAL": 3,
                             "@@PERSIST": 3,
                             "@@PERSIST_ONLY": 3
-                        },
-                        "statementEndOptions": {
-                            "COLLATE": [
-                                1,
-                                "var"
-                            ],
-                            "DEFAULT": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -5144,16 +4753,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "clauses": {
-                            "SET": [
-                                "SET",
-                                3
-                            ],
-                            "_END_OPTIONS": [
-                                "_END_OPTIONS",
-                                1
-                            ]
-                        },
                         "statementOptions": {
                             "CHARSET": [
                                 3,
@@ -5179,13 +4778,6 @@
                             "@@GLOBAL": 3,
                             "@@PERSIST": 3,
                             "@@PERSIST_ONLY": 3
-                        },
-                        "statementEndOptions": {
-                            "COLLATE": [
-                                1,
-                                "var"
-                            ],
-                            "DEFAULT": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -5204,16 +4796,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "clauses": {
-                            "SET": [
-                                "SET",
-                                3
-                            ],
-                            "_END_OPTIONS": [
-                                "_END_OPTIONS",
-                                1
-                            ]
-                        },
                         "statementOptions": {
                             "CHARSET": [
                                 3,
@@ -5239,13 +4821,6 @@
                             "@@GLOBAL": 3,
                             "@@PERSIST": 3,
                             "@@PERSIST_ONLY": 3
-                        },
-                        "statementEndOptions": {
-                            "COLLATE": [
-                                1,
-                                "var"
-                            ],
-                            "DEFAULT": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -5264,16 +4839,6 @@
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "clauses": {
-                            "SET": [
-                                "SET",
-                                3
-                            ],
-                            "_END_OPTIONS": [
-                                "_END_OPTIONS",
-                                1
-                            ]
-                        },
                         "statementOptions": {
                             "CHARSET": [
                                 3,
@@ -5299,13 +4864,6 @@
                             "@@GLOBAL": 3,
                             "@@PERSIST": 3,
                             "@@PERSIST_ONLY": 3
-                        },
-                        "statementEndOptions": {
-                            "COLLATE": [
-                                1,
-                                "var"
-                            ],
-                            "DEFAULT": 1
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -5357,201 +4915,8 @@
                             "SCHEMA": 6,
                             "IF NOT EXISTS": 7
                         },
-                        "databaseOptions": {
-                            "CHARACTER SET": [
-                                1,
-                                "var="
-                            ],
-                            "CHARSET": [
-                                1,
-                                "var="
-                            ],
-                            "DEFAULT CHARACTER SET": [
-                                1,
-                                "var="
-                            ],
-                            "DEFAULT CHARSET": [
-                                1,
-                                "var="
-                            ],
-                            "DEFAULT COLLATE": [
-                                2,
-                                "var="
-                            ],
-                            "COLLATE": [
-                                2,
-                                "var="
-                            ]
-                        },
-                        "tableOptions": {
-                            "ENGINE": [
-                                1,
-                                "var="
-                            ],
-                            "AUTO_INCREMENT": [
-                                2,
-                                "var="
-                            ],
-                            "AVG_ROW_LENGTH": [
-                                3,
-                                "var"
-                            ],
-                            "CHARACTER SET": [
-                                4,
-                                "var="
-                            ],
-                            "CHARSET": [
-                                4,
-                                "var="
-                            ],
-                            "DEFAULT CHARACTER SET": [
-                                4,
-                                "var="
-                            ],
-                            "DEFAULT CHARSET": [
-                                4,
-                                "var="
-                            ],
-                            "CHECKSUM": [
-                                5,
-                                "var"
-                            ],
-                            "DEFAULT COLLATE": [
-                                6,
-                                "var="
-                            ],
-                            "COLLATE": [
-                                6,
-                                "var="
-                            ],
-                            "COMMENT": [
-                                7,
-                                "var="
-                            ],
-                            "CONNECTION": [
-                                8,
-                                "var"
-                            ],
-                            "DATA DIRECTORY": [
-                                9,
-                                "var"
-                            ],
-                            "DELAY_KEY_WRITE": [
-                                10,
-                                "var"
-                            ],
-                            "INDEX DIRECTORY": [
-                                11,
-                                "var"
-                            ],
-                            "INSERT_METHOD": [
-                                12,
-                                "var"
-                            ],
-                            "KEY_BLOCK_SIZE": [
-                                13,
-                                "var"
-                            ],
-                            "MAX_ROWS": [
-                                14,
-                                "var"
-                            ],
-                            "MIN_ROWS": [
-                                15,
-                                "var"
-                            ],
-                            "PACK_KEYS": [
-                                16,
-                                "var"
-                            ],
-                            "PASSWORD": [
-                                17,
-                                "var"
-                            ],
-                            "ROW_FORMAT": [
-                                18,
-                                "var"
-                            ],
-                            "TABLESPACE": [
-                                19,
-                                "var"
-                            ],
-                            "STORAGE": [
-                                20,
-                                "var"
-                            ],
-                            "UNION": [
-                                21,
-                                "var"
-                            ],
-                            "PAGE_COMPRESSED": [
-                                22,
-                                "var"
-                            ],
-                            "PAGE_COMPRESSION_LEVEL": [
-                                23,
-                                "var"
-                            ]
-                        },
-                        "functionOptions": {
-                            "NOT": [
-                                2,
-                                "var"
-                            ],
-                            "FUNCTION": [
-                                3,
-                                "var="
-                            ],
-                            "PROCEDURE": [
-                                3,
-                                "var="
-                            ],
-                            "CONTAINS SQL": 4,
-                            "NO SQL": 4,
-                            "READS SQL DATA": 4,
-                            "MODIFIES SQL DATA": 4,
-                            "SQL SECURITY": [
-                                6,
-                                "var"
-                            ],
-                            "LANGUAGE": [
-                                7,
-                                "var"
-                            ],
-                            "COMMENT": [
-                                8,
-                                "var"
-                            ],
-                            "CREATE": 1,
-                            "DETERMINISTIC": 2
-                        },
-                        "triggerOptions": {
-                            "BEFORE": 1,
-                            "AFTER": 1,
-                            "INSERT": 2,
-                            "UPDATE": 2,
-                            "DELETE": 2
-                        },
                         "name": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "monitoring__times",
                             "column": null,
@@ -5586,86 +4951,10 @@
                         "fields": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                                "fieldOptions": {
-                                    "_UNSORTED": true,
-                                    "NOT NULL": 1,
-                                    "NULL": 1,
-                                    "DEFAULT": [
-                                        2,
-                                        "expr",
-                                        {
-                                            "breakOnAlias": true
-                                        }
-                                    ],
-                                    "CHARSET": [
-                                        2,
-                                        "var"
-                                    ],
-                                    "COLLATE": [
-                                        3,
-                                        "var"
-                                    ],
-                                    "AUTO_INCREMENT": 3,
-                                    "PRIMARY": 4,
-                                    "PRIMARY KEY": 4,
-                                    "UNIQUE": 4,
-                                    "UNIQUE KEY": 4,
-                                    "COMMENT": [
-                                        5,
-                                        "var"
-                                    ],
-                                    "COLUMN_FORMAT": [
-                                        6,
-                                        "var"
-                                    ],
-                                    "ON UPDATE": [
-                                        7,
-                                        "expr"
-                                    ],
-                                    "GENERATED ALWAYS": 8,
-                                    "AS": [
-                                        9,
-                                        "expr",
-                                        {
-                                            "parenthesesDelimited": true
-                                        }
-                                    ],
-                                    "VIRTUAL": 10,
-                                    "PERSISTENT": 11,
-                                    "STORED": 11,
-                                    "CHECK": [
-                                        12,
-                                        "expr",
-                                        {
-                                            "parenthesesDelimited": true
-                                        }
-                                    ],
-                                    "INVISIBLE": 13,
-                                    "ENFORCED": 14,
-                                    "NOT": 15,
-                                    "COMPRESSED": 16
-                                },
                                 "name": "idServer",
                                 "isConstraint": null,
                                 "type": {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                                    "dataTypeOptions": {
-                                        "BINARY": 1,
-                                        "CHARACTER SET": [
-                                            2,
-                                            "var"
-                                        ],
-                                        "CHARSET": [
-                                            2,
-                                            "var"
-                                        ],
-                                        "COLLATE": [
-                                            3,
-                                            "var"
-                                        ],
-                                        "UNSIGNED": 4,
-                                        "ZEROFILL": 5
-                                    },
                                     "name": "INT",
                                     "parameters": [
                                         "11"
@@ -5694,86 +4983,10 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                                "fieldOptions": {
-                                    "_UNSORTED": true,
-                                    "NOT NULL": 1,
-                                    "NULL": 1,
-                                    "DEFAULT": [
-                                        2,
-                                        "expr",
-                                        {
-                                            "breakOnAlias": true
-                                        }
-                                    ],
-                                    "CHARSET": [
-                                        2,
-                                        "var"
-                                    ],
-                                    "COLLATE": [
-                                        3,
-                                        "var"
-                                    ],
-                                    "AUTO_INCREMENT": 3,
-                                    "PRIMARY": 4,
-                                    "PRIMARY KEY": 4,
-                                    "UNIQUE": 4,
-                                    "UNIQUE KEY": 4,
-                                    "COMMENT": [
-                                        5,
-                                        "var"
-                                    ],
-                                    "COLUMN_FORMAT": [
-                                        6,
-                                        "var"
-                                    ],
-                                    "ON UPDATE": [
-                                        7,
-                                        "expr"
-                                    ],
-                                    "GENERATED ALWAYS": 8,
-                                    "AS": [
-                                        9,
-                                        "expr",
-                                        {
-                                            "parenthesesDelimited": true
-                                        }
-                                    ],
-                                    "VIRTUAL": 10,
-                                    "PERSISTENT": 11,
-                                    "STORED": 11,
-                                    "CHECK": [
-                                        12,
-                                        "expr",
-                                        {
-                                            "parenthesesDelimited": true
-                                        }
-                                    ],
-                                    "INVISIBLE": 13,
-                                    "ENFORCED": 14,
-                                    "NOT": 15,
-                                    "COMPRESSED": 16
-                                },
                                 "name": "time",
                                 "isConstraint": null,
                                 "type": {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                                    "dataTypeOptions": {
-                                        "BINARY": 1,
-                                        "CHARACTER SET": [
-                                            2,
-                                            "var"
-                                        ],
-                                        "CHARSET": [
-                                            2,
-                                            "var"
-                                        ],
-                                        "COLLATE": [
-                                            3,
-                                            "var"
-                                        ],
-                                        "UNSIGNED": 4,
-                                        "ZEROFILL": 5
-                                    },
                                     "name": "TIMESTAMP",
                                     "parameters": [],
                                     "options": {
@@ -5792,24 +5005,6 @@
                                             "equals": false,
                                             "expr": {
                                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                "allowedKeywords": {
-                                                    "AND": 1,
-                                                    "AS": 1,
-                                                    "BETWEEN": 1,
-                                                    "CASE": 1,
-                                                    "DUAL": 1,
-                                                    "DIV": 1,
-                                                    "IS": 1,
-                                                    "MOD": 1,
-                                                    "NOT": 1,
-                                                    "NOT NULL": 1,
-                                                    "NULL": 1,
-                                                    "OR": 1,
-                                                    "OVER": 1,
-                                                    "REGEXP": 1,
-                                                    "RLIKE": 1,
-                                                    "XOR": 1
-                                                },
                                                 "database": null,
                                                 "table": null,
                                                 "column": null,
@@ -5825,24 +5020,6 @@
                                             "equals": false,
                                             "expr": {
                                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                "allowedKeywords": {
-                                                    "AND": 1,
-                                                    "AS": 1,
-                                                    "BETWEEN": 1,
-                                                    "CASE": 1,
-                                                    "DUAL": 1,
-                                                    "DIV": 1,
-                                                    "IS": 1,
-                                                    "MOD": 1,
-                                                    "NOT": 1,
-                                                    "NOT NULL": 1,
-                                                    "NULL": 1,
-                                                    "OR": 1,
-                                                    "OVER": 1,
-                                                    "REGEXP": 1,
-                                                    "RLIKE": 1,
-                                                    "XOR": 1
-                                                },
                                                 "database": null,
                                                 "table": null,
                                                 "column": null,
@@ -5864,86 +5041,10 @@
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                                "fieldOptions": {
-                                    "_UNSORTED": true,
-                                    "NOT NULL": 1,
-                                    "NULL": 1,
-                                    "DEFAULT": [
-                                        2,
-                                        "expr",
-                                        {
-                                            "breakOnAlias": true
-                                        }
-                                    ],
-                                    "CHARSET": [
-                                        2,
-                                        "var"
-                                    ],
-                                    "COLLATE": [
-                                        3,
-                                        "var"
-                                    ],
-                                    "AUTO_INCREMENT": 3,
-                                    "PRIMARY": 4,
-                                    "PRIMARY KEY": 4,
-                                    "UNIQUE": 4,
-                                    "UNIQUE KEY": 4,
-                                    "COMMENT": [
-                                        5,
-                                        "var"
-                                    ],
-                                    "COLUMN_FORMAT": [
-                                        6,
-                                        "var"
-                                    ],
-                                    "ON UPDATE": [
-                                        7,
-                                        "expr"
-                                    ],
-                                    "GENERATED ALWAYS": 8,
-                                    "AS": [
-                                        9,
-                                        "expr",
-                                        {
-                                            "parenthesesDelimited": true
-                                        }
-                                    ],
-                                    "VIRTUAL": 10,
-                                    "PERSISTENT": 11,
-                                    "STORED": 11,
-                                    "CHECK": [
-                                        12,
-                                        "expr",
-                                        {
-                                            "parenthesesDelimited": true
-                                        }
-                                    ],
-                                    "INVISIBLE": 13,
-                                    "ENFORCED": 14,
-                                    "NOT": 15,
-                                    "COMPRESSED": 16
-                                },
                                 "name": "totalTime",
                                 "isConstraint": null,
                                 "type": {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                                    "dataTypeOptions": {
-                                        "BINARY": 1,
-                                        "CHARACTER SET": [
-                                            2,
-                                            "var"
-                                        ],
-                                        "CHARSET": [
-                                            2,
-                                            "var"
-                                        ],
-                                        "COLLATE": [
-                                            3,
-                                            "var"
-                                        ],
-                                        "UNSIGNED": 4,
-                                        "ZEROFILL": 5
-                                    },
                                     "name": "FLOAT",
                                     "parameters": [],
                                     "options": {
@@ -5981,8 +5082,6 @@
                         "return": null,
                         "parameters": null,
                         "body": [],
-                        "clauses": [],
-                        "statementEndOptions": [],
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
@@ -6026,201 +5125,8 @@
                             "SCHEMA": 6,
                             "IF NOT EXISTS": 7
                         },
-                        "databaseOptions": {
-                            "CHARACTER SET": [
-                                1,
-                                "var="
-                            ],
-                            "CHARSET": [
-                                1,
-                                "var="
-                            ],
-                            "DEFAULT CHARACTER SET": [
-                                1,
-                                "var="
-                            ],
-                            "DEFAULT CHARSET": [
-                                1,
-                                "var="
-                            ],
-                            "DEFAULT COLLATE": [
-                                2,
-                                "var="
-                            ],
-                            "COLLATE": [
-                                2,
-                                "var="
-                            ]
-                        },
-                        "tableOptions": {
-                            "ENGINE": [
-                                1,
-                                "var="
-                            ],
-                            "AUTO_INCREMENT": [
-                                2,
-                                "var="
-                            ],
-                            "AVG_ROW_LENGTH": [
-                                3,
-                                "var"
-                            ],
-                            "CHARACTER SET": [
-                                4,
-                                "var="
-                            ],
-                            "CHARSET": [
-                                4,
-                                "var="
-                            ],
-                            "DEFAULT CHARACTER SET": [
-                                4,
-                                "var="
-                            ],
-                            "DEFAULT CHARSET": [
-                                4,
-                                "var="
-                            ],
-                            "CHECKSUM": [
-                                5,
-                                "var"
-                            ],
-                            "DEFAULT COLLATE": [
-                                6,
-                                "var="
-                            ],
-                            "COLLATE": [
-                                6,
-                                "var="
-                            ],
-                            "COMMENT": [
-                                7,
-                                "var="
-                            ],
-                            "CONNECTION": [
-                                8,
-                                "var"
-                            ],
-                            "DATA DIRECTORY": [
-                                9,
-                                "var"
-                            ],
-                            "DELAY_KEY_WRITE": [
-                                10,
-                                "var"
-                            ],
-                            "INDEX DIRECTORY": [
-                                11,
-                                "var"
-                            ],
-                            "INSERT_METHOD": [
-                                12,
-                                "var"
-                            ],
-                            "KEY_BLOCK_SIZE": [
-                                13,
-                                "var"
-                            ],
-                            "MAX_ROWS": [
-                                14,
-                                "var"
-                            ],
-                            "MIN_ROWS": [
-                                15,
-                                "var"
-                            ],
-                            "PACK_KEYS": [
-                                16,
-                                "var"
-                            ],
-                            "PASSWORD": [
-                                17,
-                                "var"
-                            ],
-                            "ROW_FORMAT": [
-                                18,
-                                "var"
-                            ],
-                            "TABLESPACE": [
-                                19,
-                                "var"
-                            ],
-                            "STORAGE": [
-                                20,
-                                "var"
-                            ],
-                            "UNION": [
-                                21,
-                                "var"
-                            ],
-                            "PAGE_COMPRESSED": [
-                                22,
-                                "var"
-                            ],
-                            "PAGE_COMPRESSION_LEVEL": [
-                                23,
-                                "var"
-                            ]
-                        },
-                        "functionOptions": {
-                            "NOT": [
-                                2,
-                                "var"
-                            ],
-                            "FUNCTION": [
-                                3,
-                                "var="
-                            ],
-                            "PROCEDURE": [
-                                3,
-                                "var="
-                            ],
-                            "CONTAINS SQL": 4,
-                            "NO SQL": 4,
-                            "READS SQL DATA": 4,
-                            "MODIFIES SQL DATA": 4,
-                            "SQL SECURITY": [
-                                6,
-                                "var"
-                            ],
-                            "LANGUAGE": [
-                                7,
-                                "var"
-                            ],
-                            "COMMENT": [
-                                8,
-                                "var"
-                            ],
-                            "CREATE": 1,
-                            "DETERMINISTIC": 2
-                        },
-                        "triggerOptions": {
-                            "BEFORE": 1,
-                            "AFTER": 1,
-                            "INSERT": 2,
-                            "UPDATE": 2,
-                            "DELETE": 2
-                        },
                         "name": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "copyTimes",
                             "column": null,
@@ -6247,24 +5153,6 @@
                         "partitions": null,
                         "table": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "allowedKeywords": {
-                                "AND": 1,
-                                "AS": 1,
-                                "BETWEEN": 1,
-                                "CASE": 1,
-                                "DUAL": 1,
-                                "DIV": 1,
-                                "IS": 1,
-                                "MOD": 1,
-                                "NOT": 1,
-                                "NOT NULL": 1,
-                                "NULL": 1,
-                                "OR": 1,
-                                "OVER": 1,
-                                "REGEXP": 1,
-                                "RLIKE": 1,
-                                "XOR": 1
-                            },
                             "database": null,
                             "table": "monitoring__times",
                             "column": null,
@@ -7192,8 +6080,6 @@
                                 "@type": "@507"
                             }
                         ],
-                        "clauses": [],
-                        "statementEndOptions": [],
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
@@ -7217,8 +6103,6 @@
                     "RELEASE": 4,
                     "NO RELEASE": 4
                 },
-                "clauses": [],
-                "statementEndOptions": [],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
