@@ -1,20 +1,20 @@
 {
-    "query": "CREATE FUNCTION F_TEST(uid INT) RETURNS VARCHAR\nBEGIN\n    DECLARE username VARCHAR DEFAULT \"\";\n    SELECT username INTO username FROM users WHERE ID = uid;\n    RETURN username;\nEND",
+    "query": "DELIMITER $$\nCREATE FUNCTION F_TEST(uid INT) RETURNS VARCHAR\nBEGIN\n    DECLARE username VARCHAR DEFAULT \"\";\n    SELECT username INTO username FROM users WHERE ID = uid;\n    RETURN username;\nEND",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "CREATE FUNCTION F_TEST(uid INT) RETURNS VARCHAR\nBEGIN\n    DECLARE username VARCHAR DEFAULT \"\";\n    SELECT username INTO username FROM users WHERE ID = uid;\n    RETURN username;\nEND",
-        "len": 180,
-        "last": 180,
+        "str": "DELIMITER $$\nCREATE FUNCTION F_TEST(uid INT) RETURNS VARCHAR\nBEGIN\n    DECLARE username VARCHAR DEFAULT \"\";\n    SELECT username INTO username FROM users WHERE ID = uid;\n    RETURN username;\nEND",
+        "len": 193,
+        "last": 193,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "CREATE",
-                    "value": "CREATE",
-                    "keyword": "CREATE",
-                    "type": 1,
-                    "flags": 3,
+                    "token": "DELIMITER",
+                    "value": "DELIMITER",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
                     "position": 0
                 },
                 {
@@ -24,7 +24,43 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 6
+                    "position": 9
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "$$",
+                    "value": "$$",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 10
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 12
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "CREATE",
+                    "value": "CREATE",
+                    "keyword": "CREATE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 13
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 19
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -33,7 +69,7 @@
                     "keyword": "FUNCTION",
                     "type": 1,
                     "flags": 1,
-                    "position": 7
+                    "position": 20
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -42,7 +78,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 15
+                    "position": 28
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -51,7 +87,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 16
+                    "position": 29
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -60,7 +96,7 @@
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
-                    "position": 22
+                    "position": 35
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -69,52 +105,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 23
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 26
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "INT",
-                    "value": "INT",
-                    "keyword": "INT",
-                    "type": 1,
-                    "flags": 11,
-                    "position": 27
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ")",
-                    "value": ")",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 30
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 31
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "RETURNS",
-                    "value": "RETURNS",
-                    "keyword": "RETURNS",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 32
+                    "position": 36
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -127,12 +118,57 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "INT",
+                    "value": "INT",
+                    "keyword": "INT",
+                    "type": 1,
+                    "flags": 11,
+                    "position": 40
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 43
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 44
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "RETURNS",
+                    "value": "RETURNS",
+                    "keyword": "RETURNS",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 45
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 52
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "VARCHAR",
                     "value": "VARCHAR",
                     "keyword": "VARCHAR",
                     "type": 1,
                     "flags": 11,
-                    "position": 40
+                    "position": 53
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -141,7 +177,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 47
+                    "position": 60
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -150,7 +186,7 @@
                     "keyword": "BEGIN",
                     "type": 1,
                     "flags": 1,
-                    "position": 48
+                    "position": 61
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -159,7 +195,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 53
+                    "position": 66
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -168,7 +204,7 @@
                     "keyword": "DECLARE",
                     "type": 1,
                     "flags": 3,
-                    "position": 58
+                    "position": 71
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -177,7 +213,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 65
+                    "position": 78
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -186,7 +222,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 66
+                    "position": 79
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -195,7 +231,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 74
+                    "position": 87
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -204,7 +240,7 @@
                     "keyword": "VARCHAR",
                     "type": 1,
                     "flags": 11,
-                    "position": 75
+                    "position": 88
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -213,7 +249,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 82
+                    "position": 95
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -222,7 +258,7 @@
                     "keyword": "DEFAULT",
                     "type": 1,
                     "flags": 35,
-                    "position": 83
+                    "position": 96
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -231,7 +267,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 90
+                    "position": 103
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -240,16 +276,16 @@
                     "keyword": null,
                     "type": 7,
                     "flags": 2,
-                    "position": 91
+                    "position": 104
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
-                    "flags": 0,
-                    "position": 93
+                    "type": 2,
+                    "flags": 16,
+                    "position": 106
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -258,7 +294,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 94
+                    "position": 107
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -267,7 +303,7 @@
                     "keyword": "SELECT",
                     "type": 1,
                     "flags": 3,
-                    "position": 99
+                    "position": 112
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -276,7 +312,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 105
+                    "position": 118
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -285,7 +321,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 106
+                    "position": 119
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -294,7 +330,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 114
+                    "position": 127
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -303,7 +339,7 @@
                     "keyword": "INTO",
                     "type": 1,
                     "flags": 3,
-                    "position": 115
+                    "position": 128
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -312,7 +348,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 119
+                    "position": 132
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -321,7 +357,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 120
+                    "position": 133
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -330,7 +366,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 128
+                    "position": 141
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -339,7 +375,7 @@
                     "keyword": "FROM",
                     "type": 1,
                     "flags": 3,
-                    "position": 129
+                    "position": 142
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -348,7 +384,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 133
+                    "position": 146
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -357,7 +393,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 134
+                    "position": 147
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -366,7 +402,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 139
+                    "position": 152
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -375,7 +411,7 @@
                     "keyword": "WHERE",
                     "type": 1,
                     "flags": 3,
-                    "position": 140
+                    "position": 153
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -384,7 +420,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 145
+                    "position": 158
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -393,7 +429,7 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 146
+                    "position": 159
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -402,7 +438,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 148
+                    "position": 161
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -411,7 +447,7 @@
                     "keyword": null,
                     "type": 2,
                     "flags": 2,
-                    "position": 149
+                    "position": 162
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -420,7 +456,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 150
+                    "position": 163
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -429,16 +465,16 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 151
+                    "position": 164
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
-                    "flags": 0,
-                    "position": 154
+                    "type": 2,
+                    "flags": 16,
+                    "position": 167
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -447,7 +483,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 155
+                    "position": 168
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -456,7 +492,7 @@
                     "keyword": "RETURN",
                     "type": 1,
                     "flags": 3,
-                    "position": 160
+                    "position": 173
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -465,7 +501,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 166
+                    "position": 179
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -474,16 +510,16 @@
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
-                    "position": 167
+                    "position": 180
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
-                    "flags": 0,
-                    "position": 175
+                    "type": 2,
+                    "flags": 16,
+                    "position": 188
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -492,7 +528,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 176
+                    "position": 189
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -501,7 +537,7 @@
                     "keyword": "END",
                     "type": 1,
                     "flags": 1,
-                    "position": 177
+                    "position": 190
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -513,210 +549,15 @@
                     "position": null
                 }
             ],
-            "count": 56,
-            "idx": 57
+            "count": 60,
+            "idx": 0
         },
-        "delimiter": ";",
-        "delimiterLen": 1,
+        "delimiter": "$$",
+        "delimiterLen": 2,
         "strict": false,
         "errors": []
     },
-    "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "list": {
-            "@type": "@1"
-        },
-        "statements": [
-            {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-                "name": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "database": null,
-                    "table": "F_TEST",
-                    "column": null,
-                    "expr": "F_TEST",
-                    "alias": null,
-                    "function": null,
-                    "subquery": null
-                },
-                "entityOptions": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
-                },
-                "fields": null,
-                "with": null,
-                "select": null,
-                "like": null,
-                "partitionBy": null,
-                "partitionsNum": null,
-                "subpartitionBy": null,
-                "subpartitionsNum": null,
-                "partitions": null,
-                "table": null,
-                "return": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                    "name": "VARCHAR",
-                    "parameters": [],
-                    "options": {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                        "options": []
-                    }
-                },
-                "parameters": [
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\ParameterDefinition",
-                        "name": "uid",
-                        "inOut": null,
-                        "type": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                            "name": "INT",
-                            "parameters": [],
-                            "options": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                "options": []
-                            }
-                        }
-                    }
-                ],
-                "body": [
-                    {
-                        "@type": "@17"
-                    },
-                    {
-                        "@type": "@18"
-                    },
-                    {
-                        "@type": "@19"
-                    },
-                    {
-                        "@type": "@20"
-                    },
-                    {
-                        "@type": "@21"
-                    },
-                    {
-                        "@type": "@22"
-                    },
-                    {
-                        "@type": "@23"
-                    },
-                    {
-                        "@type": "@24"
-                    },
-                    {
-                        "@type": "@25"
-                    },
-                    {
-                        "@type": "@26"
-                    },
-                    {
-                        "@type": "@27"
-                    },
-                    {
-                        "@type": "@28"
-                    },
-                    {
-                        "@type": "@29"
-                    },
-                    {
-                        "@type": "@30"
-                    },
-                    {
-                        "@type": "@31"
-                    },
-                    {
-                        "@type": "@32"
-                    },
-                    {
-                        "@type": "@33"
-                    },
-                    {
-                        "@type": "@34"
-                    },
-                    {
-                        "@type": "@35"
-                    },
-                    {
-                        "@type": "@36"
-                    },
-                    {
-                        "@type": "@37"
-                    },
-                    {
-                        "@type": "@38"
-                    },
-                    {
-                        "@type": "@39"
-                    },
-                    {
-                        "@type": "@40"
-                    },
-                    {
-                        "@type": "@41"
-                    },
-                    {
-                        "@type": "@42"
-                    },
-                    {
-                        "@type": "@43"
-                    },
-                    {
-                        "@type": "@44"
-                    },
-                    {
-                        "@type": "@45"
-                    },
-                    {
-                        "@type": "@46"
-                    },
-                    {
-                        "@type": "@47"
-                    },
-                    {
-                        "@type": "@48"
-                    },
-                    {
-                        "@type": "@49"
-                    },
-                    {
-                        "@type": "@50"
-                    },
-                    {
-                        "@type": "@51"
-                    },
-                    {
-                        "@type": "@52"
-                    },
-                    {
-                        "@type": "@53"
-                    },
-                    {
-                        "@type": "@54"
-                    },
-                    {
-                        "@type": "@55"
-                    },
-                    {
-                        "@type": "@56"
-                    },
-                    {
-                        "@type": "@57"
-                    }
-                ],
-                "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": {
-                        "6": "FUNCTION"
-                    }
-                },
-                "first": 0,
-                "last": 56
-            }
-        ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
-    },
+    "parser": null,
     "errors": {
         "lexer": [],
         "parser": []

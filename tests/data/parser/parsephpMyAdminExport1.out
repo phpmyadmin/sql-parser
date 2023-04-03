@@ -1,10 +1,10 @@
 {
-    "query": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https://www.phpmyadmin.net/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n/*!40101 SET NAMES utf8mb4 */;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n",
+    "query": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https:\/\/www.phpmyadmin.net\/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n\/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT *\/;\n\/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS *\/;\n\/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION *\/;\n\/*!40101 SET NAMES utf8mb4 *\/;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer\/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n\/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT *\/;\n\/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS *\/;\n\/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION *\/;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "str": {
             "@type": "PhpMyAdmin\\SqlParser\\UtfString",
-            "str": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https://www.phpmyadmin.net/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n/*!40101 SET NAMES utf8mb4 */;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n",
+            "str": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https:\/\/www.phpmyadmin.net\/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n\/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT *\/;\n\/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS *\/;\n\/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION *\/;\n\/*!40101 SET NAMES utf8mb4 *\/;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer\/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n\/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT *\/;\n\/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS *\/;\n\/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION *\/;\n",
             "byteIdx": 2645,
             "charIdx": 2634,
             "byteLen": 2646,
@@ -53,8 +53,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "-- https://www.phpmyadmin.net/",
-                    "value": "-- https://www.phpmyadmin.net/",
+                    "token": "-- https:\/\/www.phpmyadmin.net\/",
+                    "value": "-- https:\/\/www.phpmyadmin.net\/",
                     "keyword": null,
                     "type": 4,
                     "flags": 4,
@@ -431,8 +431,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "/*!40101",
-                    "value": "/*!40101",
+                    "token": "\/*!40101",
+                    "value": "\/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -503,8 +503,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*/",
-                    "value": "*/",
+                    "token": "*\/",
+                    "value": "*\/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -530,8 +530,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "/*!40101",
-                    "value": "/*!40101",
+                    "token": "\/*!40101",
+                    "value": "\/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -602,8 +602,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*/",
-                    "value": "*/",
+                    "token": "*\/",
+                    "value": "*\/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -629,8 +629,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "/*!40101",
-                    "value": "/*!40101",
+                    "token": "\/*!40101",
+                    "value": "\/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -701,8 +701,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*/",
-                    "value": "*/",
+                    "token": "*\/",
+                    "value": "*\/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -728,8 +728,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "/*!40101",
-                    "value": "/*!40101",
+                    "token": "\/*!40101",
+                    "value": "\/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -800,8 +800,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*/",
-                    "value": "*/",
+                    "token": "*\/",
+                    "value": "*\/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -3680,8 +3680,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'Unique idServer/time'",
-                    "value": "Unique idServer/time",
+                    "token": "'Unique idServer\/time'",
+                    "value": "Unique idServer\/time",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
@@ -4256,8 +4256,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "/*!40101",
-                    "value": "/*!40101",
+                    "token": "\/*!40101",
+                    "value": "\/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -4328,8 +4328,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*/",
-                    "value": "*/",
+                    "token": "*\/",
+                    "value": "*\/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -4355,8 +4355,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "/*!40101",
-                    "value": "/*!40101",
+                    "token": "\/*!40101",
+                    "value": "\/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -4427,8 +4427,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*/",
-                    "value": "*/",
+                    "token": "*\/",
+                    "value": "*\/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -4454,8 +4454,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "/*!40101",
-                    "value": "/*!40101",
+                    "token": "\/*!40101",
+                    "value": "\/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -4526,8 +4526,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*/",
-                    "value": "*/",
+                    "token": "*\/",
+                    "value": "*\/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -4562,1303 +4562,14 @@
                 }
             ],
             "count": 505,
-            "idx": 506
+            "idx": 0
         },
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
         "errors": []
     },
-    "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
-        "list": {
-            "@type": "@2"
-        },
-        "statements": [
-            {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
-                },
-                "end_options": null,
-                "set": [
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                        "column": "SQL_MODE",
-                        "value": "\"NO_AUTO_VALUE_ON_ZERO\""
-                    }
-                ],
-                "first": 0,
-                "last": 22
-            },
-            {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
-                },
-                "end_options": null,
-                "set": [
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                        "column": "AUTOCOMMIT",
-                        "value": "0"
-                    }
-                ],
-                "first": 23,
-                "last": 31
-            },
-            {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
-                "type": 1,
-                "statements": [
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "end_options": null,
-                        "set": [
-                            {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                                "column": "time_zone",
-                                "value": "\"+00:00\""
-                            }
-                        ],
-                        "first": 35,
-                        "last": 43
-                    },
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "end_options": null,
-                        "set": [
-                            {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                                "column": "@OLD_CHARACTER_SET_CLIENT",
-                                "value": "@@CHARACTER_SET_CLIENT"
-                            }
-                        ],
-                        "first": 44,
-                        "last": 54
-                    },
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "end_options": null,
-                        "set": [
-                            {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                                "column": "@OLD_CHARACTER_SET_RESULTS",
-                                "value": "@@CHARACTER_SET_RESULTS"
-                            }
-                        ],
-                        "first": 55,
-                        "last": 65
-                    },
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "end_options": null,
-                        "set": [
-                            {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
-                                "column": "@OLD_COLLATION_CONNECTION",
-                                "value": "@@COLLATION_CONNECTION"
-                            }
-                        ],
-                        "first": 66,
-                        "last": 76
-                    },
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
-                        "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "3": {
-                                    "name": "NAMES",
-                                    "equals": false,
-                                    "expr": "utf8mb4",
-                                    "value": "utf8mb4"
-                                }
-                            }
-                        },
-                        "end_options": null,
-                        "set": [],
-                        "first": 77,
-                        "last": 87
-                    },
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-                        "name": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": "monitoring__times",
-                            "column": null,
-                            "expr": "`monitoring__times`",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "entityOptions": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "1": {
-                                    "name": "ENGINE",
-                                    "equals": true,
-                                    "expr": "InnoDB",
-                                    "value": "InnoDB"
-                                },
-                                "4": {
-                                    "name": "DEFAULT CHARSET",
-                                    "equals": true,
-                                    "expr": "utf8",
-                                    "value": "utf8"
-                                },
-                                "6": {
-                                    "name": "COLLATE",
-                                    "equals": true,
-                                    "expr": "utf8_unicode_ci",
-                                    "value": "utf8_unicode_ci"
-                                }
-                            }
-                        },
-                        "fields": [
-                            {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                                "name": "idServer",
-                                "isConstraint": null,
-                                "type": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                                    "name": "INT",
-                                    "parameters": [
-                                        "11"
-                                    ],
-                                    "options": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                        "options": {
-                                            "4": "UNSIGNED"
-                                        }
-                                    }
-                                },
-                                "key": null,
-                                "references": null,
-                                "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                    "options": {
-                                        "1": "NOT NULL",
-                                        "5": {
-                                            "name": "COMMENT",
-                                            "equals": false,
-                                            "expr": "'Id of server'",
-                                            "value": "Id of server"
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                                "name": "time",
-                                "isConstraint": null,
-                                "type": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                                    "name": "TIMESTAMP",
-                                    "parameters": [],
-                                    "options": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                        "options": []
-                                    }
-                                },
-                                "key": null,
-                                "references": null,
-                                "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                    "options": {
-                                        "1": "NOT NULL",
-                                        "2": {
-                                            "name": "DEFAULT",
-                                            "equals": false,
-                                            "expr": {
-                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                "database": null,
-                                                "table": null,
-                                                "column": null,
-                                                "expr": "CURRENT_TIMESTAMP",
-                                                "alias": null,
-                                                "function": null,
-                                                "subquery": null
-                                            },
-                                            "value": "CURRENT_TIMESTAMP"
-                                        },
-                                        "7": {
-                                            "name": "ON UPDATE",
-                                            "equals": false,
-                                            "expr": {
-                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                "database": null,
-                                                "table": null,
-                                                "column": null,
-                                                "expr": "CURRENT_TIMESTAMP",
-                                                "alias": null,
-                                                "function": null,
-                                                "subquery": null
-                                            },
-                                            "value": "CURRENT_TIMESTAMP"
-                                        },
-                                        "5": {
-                                            "name": "COMMENT",
-                                            "equals": false,
-                                            "expr": "'Time UTC'",
-                                            "value": "Time UTC"
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
-                                "name": "totalTime",
-                                "isConstraint": null,
-                                "type": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
-                                    "name": "FLOAT",
-                                    "parameters": [],
-                                    "options": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                        "options": {
-                                            "4": "UNSIGNED"
-                                        }
-                                    }
-                                },
-                                "key": null,
-                                "references": null,
-                                "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                    "options": {
-                                        "1": "NOT NULL",
-                                        "5": {
-                                            "name": "COMMENT",
-                                            "equals": false,
-                                            "expr": "'Total time in ms'",
-                                            "value": "Total time in ms"
-                                        }
-                                    }
-                                }
-                            }
-                        ],
-                        "with": null,
-                        "select": null,
-                        "like": null,
-                        "partitionBy": null,
-                        "partitionsNum": null,
-                        "subpartitionBy": null,
-                        "subpartitionsNum": null,
-                        "partitions": null,
-                        "table": null,
-                        "return": null,
-                        "parameters": null,
-                        "body": [],
-                        "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "6": "TABLE"
-                            }
-                        },
-                        "first": 88,
-                        "last": 172
-                    },
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-                        "name": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": "copyTimes",
-                            "column": null,
-                            "expr": "`copyTimes`",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "entityOptions": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "1": "AFTER",
-                                "2": "INSERT"
-                            }
-                        },
-                        "fields": null,
-                        "with": null,
-                        "select": null,
-                        "like": null,
-                        "partitionBy": null,
-                        "partitionsNum": null,
-                        "subpartitionBy": null,
-                        "subpartitionsNum": null,
-                        "partitions": null,
-                        "table": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": "monitoring__times",
-                            "column": null,
-                            "expr": "`monitoring__times`",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "return": null,
-                        "parameters": null,
-                        "body": [
-                            {
-                                "@type": "@203"
-                            },
-                            {
-                                "@type": "@204"
-                            },
-                            {
-                                "@type": "@205"
-                            },
-                            {
-                                "@type": "@206"
-                            },
-                            {
-                                "@type": "@207"
-                            },
-                            {
-                                "@type": "@208"
-                            },
-                            {
-                                "@type": "@209"
-                            },
-                            {
-                                "@type": "@210"
-                            },
-                            {
-                                "@type": "@211"
-                            },
-                            {
-                                "@type": "@212"
-                            },
-                            {
-                                "@type": "@213"
-                            },
-                            {
-                                "@type": "@214"
-                            },
-                            {
-                                "@type": "@215"
-                            },
-                            {
-                                "@type": "@216"
-                            },
-                            {
-                                "@type": "@217"
-                            },
-                            {
-                                "@type": "@218"
-                            },
-                            {
-                                "@type": "@219"
-                            },
-                            {
-                                "@type": "@220"
-                            },
-                            {
-                                "@type": "@221"
-                            },
-                            {
-                                "@type": "@222"
-                            },
-                            {
-                                "@type": "@223"
-                            },
-                            {
-                                "@type": "@224"
-                            },
-                            {
-                                "@type": "@225"
-                            },
-                            {
-                                "@type": "@226"
-                            },
-                            {
-                                "@type": "@227"
-                            },
-                            {
-                                "@type": "@228"
-                            },
-                            {
-                                "@type": "@229"
-                            },
-                            {
-                                "@type": "@230"
-                            },
-                            {
-                                "@type": "@231"
-                            },
-                            {
-                                "@type": "@232"
-                            },
-                            {
-                                "@type": "@233"
-                            },
-                            {
-                                "@type": "@234"
-                            },
-                            {
-                                "@type": "@235"
-                            },
-                            {
-                                "@type": "@236"
-                            },
-                            {
-                                "@type": "@237"
-                            },
-                            {
-                                "@type": "@238"
-                            },
-                            {
-                                "@type": "@239"
-                            },
-                            {
-                                "@type": "@240"
-                            },
-                            {
-                                "@type": "@241"
-                            },
-                            {
-                                "@type": "@242"
-                            },
-                            {
-                                "@type": "@243"
-                            },
-                            {
-                                "@type": "@244"
-                            },
-                            {
-                                "@type": "@245"
-                            },
-                            {
-                                "@type": "@246"
-                            },
-                            {
-                                "@type": "@247"
-                            },
-                            {
-                                "@type": "@248"
-                            },
-                            {
-                                "@type": "@249"
-                            },
-                            {
-                                "@type": "@250"
-                            },
-                            {
-                                "@type": "@251"
-                            },
-                            {
-                                "@type": "@252"
-                            },
-                            {
-                                "@type": "@253"
-                            },
-                            {
-                                "@type": "@254"
-                            },
-                            {
-                                "@type": "@255"
-                            },
-                            {
-                                "@type": "@256"
-                            },
-                            {
-                                "@type": "@257"
-                            },
-                            {
-                                "@type": "@258"
-                            },
-                            {
-                                "@type": "@259"
-                            },
-                            {
-                                "@type": "@260"
-                            },
-                            {
-                                "@type": "@261"
-                            },
-                            {
-                                "@type": "@262"
-                            },
-                            {
-                                "@type": "@263"
-                            },
-                            {
-                                "@type": "@264"
-                            },
-                            {
-                                "@type": "@265"
-                            },
-                            {
-                                "@type": "@266"
-                            },
-                            {
-                                "@type": "@267"
-                            },
-                            {
-                                "@type": "@268"
-                            },
-                            {
-                                "@type": "@269"
-                            },
-                            {
-                                "@type": "@270"
-                            },
-                            {
-                                "@type": "@271"
-                            },
-                            {
-                                "@type": "@272"
-                            },
-                            {
-                                "@type": "@273"
-                            },
-                            {
-                                "@type": "@274"
-                            },
-                            {
-                                "@type": "@275"
-                            },
-                            {
-                                "@type": "@276"
-                            },
-                            {
-                                "@type": "@277"
-                            },
-                            {
-                                "@type": "@278"
-                            },
-                            {
-                                "@type": "@279"
-                            },
-                            {
-                                "@type": "@280"
-                            },
-                            {
-                                "@type": "@281"
-                            },
-                            {
-                                "@type": "@282"
-                            },
-                            {
-                                "@type": "@283"
-                            },
-                            {
-                                "@type": "@284"
-                            },
-                            {
-                                "@type": "@285"
-                            },
-                            {
-                                "@type": "@286"
-                            },
-                            {
-                                "@type": "@287"
-                            },
-                            {
-                                "@type": "@288"
-                            },
-                            {
-                                "@type": "@289"
-                            },
-                            {
-                                "@type": "@290"
-                            },
-                            {
-                                "@type": "@291"
-                            },
-                            {
-                                "@type": "@292"
-                            },
-                            {
-                                "@type": "@293"
-                            },
-                            {
-                                "@type": "@294"
-                            },
-                            {
-                                "@type": "@295"
-                            },
-                            {
-                                "@type": "@296"
-                            },
-                            {
-                                "@type": "@297"
-                            },
-                            {
-                                "@type": "@298"
-                            },
-                            {
-                                "@type": "@299"
-                            },
-                            {
-                                "@type": "@300"
-                            },
-                            {
-                                "@type": "@301"
-                            },
-                            {
-                                "@type": "@302"
-                            },
-                            {
-                                "@type": "@303"
-                            },
-                            {
-                                "@type": "@304"
-                            },
-                            {
-                                "@type": "@305"
-                            },
-                            {
-                                "@type": "@306"
-                            },
-                            {
-                                "@type": "@307"
-                            },
-                            {
-                                "@type": "@308"
-                            },
-                            {
-                                "@type": "@309"
-                            },
-                            {
-                                "@type": "@310"
-                            },
-                            {
-                                "@type": "@311"
-                            },
-                            {
-                                "@type": "@312"
-                            },
-                            {
-                                "@type": "@313"
-                            },
-                            {
-                                "@type": "@314"
-                            },
-                            {
-                                "@type": "@315"
-                            },
-                            {
-                                "@type": "@316"
-                            },
-                            {
-                                "@type": "@317"
-                            },
-                            {
-                                "@type": "@318"
-                            },
-                            {
-                                "@type": "@319"
-                            },
-                            {
-                                "@type": "@320"
-                            },
-                            {
-                                "@type": "@321"
-                            },
-                            {
-                                "@type": "@322"
-                            },
-                            {
-                                "@type": "@323"
-                            },
-                            {
-                                "@type": "@324"
-                            },
-                            {
-                                "@type": "@325"
-                            },
-                            {
-                                "@type": "@326"
-                            },
-                            {
-                                "@type": "@327"
-                            },
-                            {
-                                "@type": "@328"
-                            },
-                            {
-                                "@type": "@329"
-                            },
-                            {
-                                "@type": "@330"
-                            },
-                            {
-                                "@type": "@331"
-                            },
-                            {
-                                "@type": "@332"
-                            },
-                            {
-                                "@type": "@333"
-                            },
-                            {
-                                "@type": "@334"
-                            },
-                            {
-                                "@type": "@335"
-                            },
-                            {
-                                "@type": "@336"
-                            },
-                            {
-                                "@type": "@337"
-                            },
-                            {
-                                "@type": "@338"
-                            },
-                            {
-                                "@type": "@339"
-                            },
-                            {
-                                "@type": "@340"
-                            },
-                            {
-                                "@type": "@341"
-                            },
-                            {
-                                "@type": "@342"
-                            },
-                            {
-                                "@type": "@343"
-                            },
-                            {
-                                "@type": "@344"
-                            },
-                            {
-                                "@type": "@345"
-                            },
-                            {
-                                "@type": "@346"
-                            },
-                            {
-                                "@type": "@347"
-                            },
-                            {
-                                "@type": "@348"
-                            },
-                            {
-                                "@type": "@349"
-                            },
-                            {
-                                "@type": "@350"
-                            },
-                            {
-                                "@type": "@351"
-                            },
-                            {
-                                "@type": "@352"
-                            },
-                            {
-                                "@type": "@353"
-                            },
-                            {
-                                "@type": "@354"
-                            },
-                            {
-                                "@type": "@355"
-                            },
-                            {
-                                "@type": "@356"
-                            },
-                            {
-                                "@type": "@357"
-                            },
-                            {
-                                "@type": "@358"
-                            },
-                            {
-                                "@type": "@359"
-                            },
-                            {
-                                "@type": "@360"
-                            },
-                            {
-                                "@type": "@361"
-                            },
-                            {
-                                "@type": "@362"
-                            },
-                            {
-                                "@type": "@363"
-                            },
-                            {
-                                "@type": "@364"
-                            },
-                            {
-                                "@type": "@365"
-                            },
-                            {
-                                "@type": "@366"
-                            },
-                            {
-                                "@type": "@367"
-                            },
-                            {
-                                "@type": "@368"
-                            },
-                            {
-                                "@type": "@369"
-                            },
-                            {
-                                "@type": "@370"
-                            },
-                            {
-                                "@type": "@371"
-                            },
-                            {
-                                "@type": "@372"
-                            },
-                            {
-                                "@type": "@373"
-                            },
-                            {
-                                "@type": "@374"
-                            },
-                            {
-                                "@type": "@375"
-                            },
-                            {
-                                "@type": "@376"
-                            },
-                            {
-                                "@type": "@377"
-                            },
-                            {
-                                "@type": "@378"
-                            },
-                            {
-                                "@type": "@379"
-                            },
-                            {
-                                "@type": "@380"
-                            },
-                            {
-                                "@type": "@381"
-                            },
-                            {
-                                "@type": "@382"
-                            },
-                            {
-                                "@type": "@383"
-                            },
-                            {
-                                "@type": "@384"
-                            },
-                            {
-                                "@type": "@385"
-                            },
-                            {
-                                "@type": "@386"
-                            },
-                            {
-                                "@type": "@387"
-                            },
-                            {
-                                "@type": "@388"
-                            },
-                            {
-                                "@type": "@389"
-                            },
-                            {
-                                "@type": "@390"
-                            },
-                            {
-                                "@type": "@391"
-                            },
-                            {
-                                "@type": "@392"
-                            },
-                            {
-                                "@type": "@393"
-                            },
-                            {
-                                "@type": "@394"
-                            },
-                            {
-                                "@type": "@395"
-                            },
-                            {
-                                "@type": "@396"
-                            },
-                            {
-                                "@type": "@397"
-                            },
-                            {
-                                "@type": "@398"
-                            },
-                            {
-                                "@type": "@399"
-                            },
-                            {
-                                "@type": "@400"
-                            },
-                            {
-                                "@type": "@401"
-                            },
-                            {
-                                "@type": "@402"
-                            },
-                            {
-                                "@type": "@403"
-                            },
-                            {
-                                "@type": "@404"
-                            },
-                            {
-                                "@type": "@405"
-                            },
-                            {
-                                "@type": "@406"
-                            },
-                            {
-                                "@type": "@407"
-                            },
-                            {
-                                "@type": "@408"
-                            },
-                            {
-                                "@type": "@409"
-                            },
-                            {
-                                "@type": "@410"
-                            },
-                            {
-                                "@type": "@411"
-                            },
-                            {
-                                "@type": "@412"
-                            },
-                            {
-                                "@type": "@413"
-                            },
-                            {
-                                "@type": "@414"
-                            },
-                            {
-                                "@type": "@415"
-                            },
-                            {
-                                "@type": "@416"
-                            },
-                            {
-                                "@type": "@417"
-                            },
-                            {
-                                "@type": "@418"
-                            },
-                            {
-                                "@type": "@419"
-                            },
-                            {
-                                "@type": "@420"
-                            },
-                            {
-                                "@type": "@421"
-                            },
-                            {
-                                "@type": "@422"
-                            },
-                            {
-                                "@type": "@423"
-                            },
-                            {
-                                "@type": "@424"
-                            },
-                            {
-                                "@type": "@425"
-                            },
-                            {
-                                "@type": "@426"
-                            },
-                            {
-                                "@type": "@427"
-                            },
-                            {
-                                "@type": "@428"
-                            },
-                            {
-                                "@type": "@429"
-                            },
-                            {
-                                "@type": "@430"
-                            },
-                            {
-                                "@type": "@431"
-                            },
-                            {
-                                "@type": "@432"
-                            },
-                            {
-                                "@type": "@433"
-                            },
-                            {
-                                "@type": "@434"
-                            },
-                            {
-                                "@type": "@435"
-                            },
-                            {
-                                "@type": "@436"
-                            },
-                            {
-                                "@type": "@437"
-                            },
-                            {
-                                "@type": "@438"
-                            },
-                            {
-                                "@type": "@439"
-                            },
-                            {
-                                "@type": "@440"
-                            },
-                            {
-                                "@type": "@441"
-                            },
-                            {
-                                "@type": "@442"
-                            },
-                            {
-                                "@type": "@443"
-                            },
-                            {
-                                "@type": "@444"
-                            },
-                            {
-                                "@type": "@445"
-                            },
-                            {
-                                "@type": "@446"
-                            },
-                            {
-                                "@type": "@447"
-                            },
-                            {
-                                "@type": "@448"
-                            },
-                            {
-                                "@type": "@449"
-                            },
-                            {
-                                "@type": "@450"
-                            },
-                            {
-                                "@type": "@451"
-                            },
-                            {
-                                "@type": "@452"
-                            },
-                            {
-                                "@type": "@453"
-                            },
-                            {
-                                "@type": "@454"
-                            },
-                            {
-                                "@type": "@455"
-                            },
-                            {
-                                "@type": "@456"
-                            },
-                            {
-                                "@type": "@457"
-                            },
-                            {
-                                "@type": "@458"
-                            },
-                            {
-                                "@type": "@459"
-                            },
-                            {
-                                "@type": "@460"
-                            },
-                            {
-                                "@type": "@461"
-                            },
-                            {
-                                "@type": "@462"
-                            },
-                            {
-                                "@type": "@463"
-                            },
-                            {
-                                "@type": "@464"
-                            },
-                            {
-                                "@type": "@465"
-                            },
-                            {
-                                "@type": "@466"
-                            },
-                            {
-                                "@type": "@467"
-                            },
-                            {
-                                "@type": "@468"
-                            },
-                            {
-                                "@type": "@469"
-                            },
-                            {
-                                "@type": "@470"
-                            },
-                            {
-                                "@type": "@471"
-                            },
-                            {
-                                "@type": "@472"
-                            },
-                            {
-                                "@type": "@473"
-                            },
-                            {
-                                "@type": "@474"
-                            },
-                            {
-                                "@type": "@475"
-                            },
-                            {
-                                "@type": "@476"
-                            },
-                            {
-                                "@type": "@477"
-                            },
-                            {
-                                "@type": "@478"
-                            },
-                            {
-                                "@type": "@479"
-                            },
-                            {
-                                "@type": "@480"
-                            },
-                            {
-                                "@type": "@481"
-                            },
-                            {
-                                "@type": "@482"
-                            },
-                            {
-                                "@type": "@483"
-                            },
-                            {
-                                "@type": "@484"
-                            },
-                            {
-                                "@type": "@485"
-                            },
-                            {
-                                "@type": "@486"
-                            },
-                            {
-                                "@type": "@487"
-                            },
-                            {
-                                "@type": "@488"
-                            },
-                            {
-                                "@type": "@489"
-                            },
-                            {
-                                "@type": "@490"
-                            },
-                            {
-                                "@type": "@491"
-                            },
-                            {
-                                "@type": "@492"
-                            },
-                            {
-                                "@type": "@493"
-                            },
-                            {
-                                "@type": "@494"
-                            },
-                            {
-                                "@type": "@495"
-                            },
-                            {
-                                "@type": "@496"
-                            },
-                            {
-                                "@type": "@497"
-                            },
-                            {
-                                "@type": "@498"
-                            },
-                            {
-                                "@type": "@499"
-                            },
-                            {
-                                "@type": "@500"
-                            },
-                            {
-                                "@type": "@501"
-                            },
-                            {
-                                "@type": "@502"
-                            },
-                            {
-                                "@type": "@503"
-                            },
-                            {
-                                "@type": "@504"
-                            },
-                            {
-                                "@type": "@505"
-                            },
-                            {
-                                "@type": "@506"
-                            },
-                            {
-                                "@type": "@507"
-                            }
-                        ],
-                        "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": {
-                                "6": "TRIGGER"
-                            }
-                        },
-                        "first": 184,
-                        "last": 505
-                    }
-                ],
-                "end": null,
-                "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": {
-                        "1": "START TRANSACTION"
-                    }
-                },
-                "first": 32,
-                "last": 34
-            }
-        ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
-    },
+    "parser": null,
     "errors": {
         "lexer": [],
         "parser": []

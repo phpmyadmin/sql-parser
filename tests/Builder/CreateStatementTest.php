@@ -520,7 +520,8 @@ EOT
     public function testBuilderCreateFunction(): void
     {
         $parser = new Parser(
-            'CREATE DEFINER=`root`@`localhost`'
+            'DELIMITER $$' . "\n"
+            . 'CREATE DEFINER=`root`@`localhost`'
             . ' FUNCTION `inventory_in_stock`(`p_inventory_id` INT) RETURNS tinyint(1)'
             . ' READS SQL DATA'
             . ' COMMENT \'My best function written by a friend\'\'s friend\''
@@ -663,6 +664,7 @@ EOT
     public function testBuilderRoutine(): void
     {
         $parser = new Parser(
+            'DELIMITER $$' . "\n" .
             'CREATE FUNCTION test (IN `i` INT) RETURNS VARCHAR ' .
             'BEGIN ' .
             'DECLARE name VARCHAR DEFAULT ""; ' .
