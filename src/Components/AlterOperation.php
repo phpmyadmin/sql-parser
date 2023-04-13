@@ -70,6 +70,10 @@ class AlterOperation extends Component
             1,
             'var=',
         ],
+        'ALGORITHM' => [
+            1,
+            'var=',
+        ],
         'AUTO_INCREMENT' => [
             1,
             'var=',
@@ -77,6 +81,10 @@ class AlterOperation extends Component
         'AVG_ROW_LENGTH' => [
             1,
             'var',
+        ],
+        'LOCK' => [
+            1,
+            'var=',
         ],
         'MAX_ROWS' => [
             1,
