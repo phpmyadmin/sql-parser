@@ -1,10 +1,10 @@
 {
-    "query": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https:\/\/www.phpmyadmin.net\/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n\/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT *\/;\n\/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS *\/;\n\/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION *\/;\n\/*!40101 SET NAMES utf8mb4 *\/;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer\/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n\/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT *\/;\n\/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS *\/;\n\/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION *\/;\n",
+    "query": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https://www.phpmyadmin.net/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n/*!40101 SET NAMES utf8mb4 */;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "str": {
             "@type": "PhpMyAdmin\\SqlParser\\UtfString",
-            "str": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https:\/\/www.phpmyadmin.net\/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n\/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT *\/;\n\/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS *\/;\n\/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION *\/;\n\/*!40101 SET NAMES utf8mb4 *\/;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer\/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n\/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT *\/;\n\/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS *\/;\n\/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION *\/;\n",
+            "str": "-- phpMyAdmin SQL Dump\n-- version 5.0.0-dev\n-- https://www.phpmyadmin.net/\n--\n-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com\n-- Généré le :  mer. 05 sep. 2018 à 00:03\n-- Version du serveur :  10.0.24-MariaDB\n-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1\n\nSET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";\nSET AUTOCOMMIT = 0;\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n\n\n/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n/*!40101 SET NAMES utf8mb4 */;\n\n--\n-- Base de données :  `xxxxxdbnamexxxxx`\n--\n\n-- --------------------------------------------------------\n\n--\n-- Structure de la table `monitoring__times`\n--\n\nCREATE TABLE `monitoring__times` (\n  `idServer` int(11) UNSIGNED NOT NULL COMMENT 'Id of server',\n  `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Time UTC',\n  `totalTime` float UNSIGNED NOT NULL COMMENT 'Total time in ms'\n) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\n\n--\n-- Déclencheurs `monitoring__times`\n--\nDELIMITER $$\nCREATE TRIGGER `copyTimes` AFTER INSERT ON `monitoring__times` FOR EACH ROW INSERT INTO monitoring__times_mirror\n(`idServer`, `time`, `totalTime`) VALUES(new.idServer, new.time, new.totalTime)\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `deleteTimes` AFTER DELETE ON `monitoring__times` FOR EACH ROW DELETE FROM monitoring__times_mirror\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\nDELIMITER $$\nCREATE TRIGGER `updateTimes` AFTER UPDATE ON `monitoring__times` FOR EACH ROW UPDATE monitoring__times_mirror\nSET `idServer`=new.idServer,\n`time`=new.time,\n`totalTime`=new.totalTime\nWHERE `idServer`=old.idServer\nAND `time`=old.time\nAND `totalTime`=old.totalTime\n$$\nDELIMITER ;\n\n--\n-- Index pour les tables déchargées\n--\n\n--\n-- Index pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD UNIQUE KEY `idServer` (`idServer`,`time`) USING BTREE COMMENT 'Unique idServer/time',\n  ADD KEY `INDEX_totalTime` (`totalTime`) USING BTREE COMMENT 'Index for totalTime column';\n\n--\n-- Contraintes pour les tables déchargées\n--\n\n--\n-- Contraintes pour la table `monitoring__times`\n--\nALTER TABLE `monitoring__times`\n  ADD CONSTRAINT `monitoring__times__idServer` FOREIGN KEY (`idServer`) REFERENCES `monitoring__servers` (`id`);\nCOMMIT;\n\n/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n",
             "byteIdx": 2645,
             "charIdx": 2634,
             "byteLen": 2646,
@@ -53,8 +53,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "-- https:\/\/www.phpmyadmin.net\/",
-                    "value": "-- https:\/\/www.phpmyadmin.net\/",
+                    "token": "-- https://www.phpmyadmin.net/",
+                    "value": "-- https://www.phpmyadmin.net/",
                     "keyword": null,
                     "type": 4,
                     "flags": 4,
@@ -431,8 +431,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*!40101",
-                    "value": "\/*!40101",
+                    "token": "/*!40101",
+                    "value": "/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -503,8 +503,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*\/",
-                    "value": "*\/",
+                    "token": "*/",
+                    "value": "*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -530,8 +530,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*!40101",
-                    "value": "\/*!40101",
+                    "token": "/*!40101",
+                    "value": "/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -602,8 +602,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*\/",
-                    "value": "*\/",
+                    "token": "*/",
+                    "value": "*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -629,8 +629,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*!40101",
-                    "value": "\/*!40101",
+                    "token": "/*!40101",
+                    "value": "/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -701,8 +701,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*\/",
-                    "value": "*\/",
+                    "token": "*/",
+                    "value": "*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -728,8 +728,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*!40101",
-                    "value": "\/*!40101",
+                    "token": "/*!40101",
+                    "value": "/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -800,8 +800,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*\/",
-                    "value": "*\/",
+                    "token": "*/",
+                    "value": "*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -3680,8 +3680,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "'Unique idServer\/time'",
-                    "value": "Unique idServer\/time",
+                    "token": "'Unique idServer/time'",
+                    "value": "Unique idServer/time",
                     "keyword": null,
                     "type": 7,
                     "flags": 1,
@@ -4256,8 +4256,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*!40101",
-                    "value": "\/*!40101",
+                    "token": "/*!40101",
+                    "value": "/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -4328,8 +4328,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*\/",
-                    "value": "*\/",
+                    "token": "*/",
+                    "value": "*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -4355,8 +4355,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*!40101",
-                    "value": "\/*!40101",
+                    "token": "/*!40101",
+                    "value": "/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -4427,8 +4427,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*\/",
-                    "value": "*\/",
+                    "token": "*/",
+                    "value": "*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -4454,8 +4454,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\/*!40101",
-                    "value": "\/*!40101",
+                    "token": "/*!40101",
+                    "value": "/*!40101",
                     "keyword": null,
                     "type": 4,
                     "flags": 10,
@@ -4526,8 +4526,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*\/",
-                    "value": "*\/",
+                    "token": "*/",
+                    "value": "*/",
                     "keyword": null,
                     "type": 4,
                     "flags": 2,
@@ -4562,14 +4562,1121 @@
                 }
             ],
             "count": 505,
-            "idx": 0
+            "idx": 505
         },
         "delimiter": ";",
         "delimiterLen": 1,
         "strict": false,
         "errors": []
     },
-    "parser": null,
+    "parser": {
+        "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "list": {
+            "@type": "@2"
+        },
+        "statements": [
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "end_options": null,
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "SQL_MODE",
+                        "value": "\"NO_AUTO_VALUE_ON_ZERO\""
+                    }
+                ],
+                "first": 0,
+                "last": 22
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "end_options": null,
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "AUTOCOMMIT",
+                        "value": "0"
+                    }
+                ],
+                "first": 23,
+                "last": 31
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
+                "type": 1,
+                "statements": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": []
+                        },
+                        "end_options": null,
+                        "set": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                                "column": "time_zone",
+                                "value": "\"+00:00\""
+                            }
+                        ],
+                        "first": 35,
+                        "last": 43
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": []
+                        },
+                        "end_options": null,
+                        "set": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                                "column": "@OLD_CHARACTER_SET_CLIENT",
+                                "value": "@@CHARACTER_SET_CLIENT"
+                            }
+                        ],
+                        "first": 44,
+                        "last": 54
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": []
+                        },
+                        "end_options": null,
+                        "set": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                                "column": "@OLD_CHARACTER_SET_RESULTS",
+                                "value": "@@CHARACTER_SET_RESULTS"
+                            }
+                        ],
+                        "first": 55,
+                        "last": 65
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": []
+                        },
+                        "end_options": null,
+                        "set": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                                "column": "@OLD_COLLATION_CONNECTION",
+                                "value": "@@COLLATION_CONNECTION"
+                            }
+                        ],
+                        "first": 66,
+                        "last": 76
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "3": {
+                                    "name": "NAMES",
+                                    "equals": false,
+                                    "expr": "utf8mb4",
+                                    "value": "utf8mb4"
+                                }
+                            }
+                        },
+                        "end_options": null,
+                        "set": [],
+                        "first": 77,
+                        "last": 87
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
+                        "name": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "entityOptions": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": {
+                                    "name": "ENGINE",
+                                    "equals": true,
+                                    "expr": "InnoDB",
+                                    "value": "InnoDB"
+                                },
+                                "4": {
+                                    "name": "DEFAULT CHARSET",
+                                    "equals": true,
+                                    "expr": "utf8",
+                                    "value": "utf8"
+                                },
+                                "6": {
+                                    "name": "COLLATE",
+                                    "equals": true,
+                                    "expr": "utf8_unicode_ci",
+                                    "value": "utf8_unicode_ci"
+                                }
+                            }
+                        },
+                        "fields": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                                "name": "idServer",
+                                "isConstraint": null,
+                                "type": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
+                                    "name": "INT",
+                                    "parameters": [
+                                        "11"
+                                    ],
+                                    "options": {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                        "options": {
+                                            "4": "UNSIGNED"
+                                        }
+                                    }
+                                },
+                                "key": null,
+                                "references": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "NOT NULL",
+                                        "5": {
+                                            "name": "COMMENT",
+                                            "equals": false,
+                                            "expr": "'Id of server'",
+                                            "value": "Id of server"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                                "name": "time",
+                                "isConstraint": null,
+                                "type": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
+                                    "name": "TIMESTAMP",
+                                    "parameters": [],
+                                    "options": {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                        "options": []
+                                    }
+                                },
+                                "key": null,
+                                "references": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "NOT NULL",
+                                        "2": {
+                                            "name": "DEFAULT",
+                                            "equals": false,
+                                            "expr": {
+                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                "database": null,
+                                                "table": null,
+                                                "column": null,
+                                                "expr": "CURRENT_TIMESTAMP",
+                                                "alias": null,
+                                                "function": null,
+                                                "subquery": null
+                                            },
+                                            "value": "CURRENT_TIMESTAMP"
+                                        },
+                                        "7": {
+                                            "name": "ON UPDATE",
+                                            "equals": false,
+                                            "expr": {
+                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                "database": null,
+                                                "table": null,
+                                                "column": null,
+                                                "expr": "CURRENT_TIMESTAMP",
+                                                "alias": null,
+                                                "function": null,
+                                                "subquery": null
+                                            },
+                                            "value": "CURRENT_TIMESTAMP"
+                                        },
+                                        "5": {
+                                            "name": "COMMENT",
+                                            "equals": false,
+                                            "expr": "'Time UTC'",
+                                            "value": "Time UTC"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                                "name": "totalTime",
+                                "isConstraint": null,
+                                "type": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
+                                    "name": "FLOAT",
+                                    "parameters": [],
+                                    "options": {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                        "options": {
+                                            "4": "UNSIGNED"
+                                        }
+                                    }
+                                },
+                                "key": null,
+                                "references": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "NOT NULL",
+                                        "5": {
+                                            "name": "COMMENT",
+                                            "equals": false,
+                                            "expr": "'Total time in ms'",
+                                            "value": "Total time in ms"
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "with": null,
+                        "select": null,
+                        "like": null,
+                        "partitionBy": null,
+                        "partitionsNum": null,
+                        "subpartitionBy": null,
+                        "subpartitionsNum": null,
+                        "partitions": null,
+                        "table": null,
+                        "return": null,
+                        "parameters": null,
+                        "body": [],
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "6": "TABLE"
+                            }
+                        },
+                        "first": 88,
+                        "last": 172
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
+                        "name": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "copyTimes",
+                            "column": null,
+                            "expr": "`copyTimes`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "entityOptions": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": "AFTER",
+                                "2": "INSERT"
+                            }
+                        },
+                        "fields": null,
+                        "with": null,
+                        "select": null,
+                        "like": null,
+                        "partitionBy": null,
+                        "partitionsNum": null,
+                        "subpartitionBy": null,
+                        "subpartitionsNum": null,
+                        "partitions": null,
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "return": null,
+                        "parameters": null,
+                        "body": [
+                            {
+                                "@type": "@203"
+                            },
+                            {
+                                "@type": "@204"
+                            },
+                            {
+                                "@type": "@205"
+                            },
+                            {
+                                "@type": "@206"
+                            },
+                            {
+                                "@type": "@207"
+                            },
+                            {
+                                "@type": "@208"
+                            },
+                            {
+                                "@type": "@209"
+                            },
+                            {
+                                "@type": "@210"
+                            },
+                            {
+                                "@type": "@211"
+                            },
+                            {
+                                "@type": "@212"
+                            },
+                            {
+                                "@type": "@213"
+                            },
+                            {
+                                "@type": "@214"
+                            },
+                            {
+                                "@type": "@215"
+                            },
+                            {
+                                "@type": "@216"
+                            },
+                            {
+                                "@type": "@217"
+                            },
+                            {
+                                "@type": "@218"
+                            },
+                            {
+                                "@type": "@219"
+                            },
+                            {
+                                "@type": "@220"
+                            },
+                            {
+                                "@type": "@221"
+                            },
+                            {
+                                "@type": "@222"
+                            },
+                            {
+                                "@type": "@223"
+                            },
+                            {
+                                "@type": "@224"
+                            },
+                            {
+                                "@type": "@225"
+                            },
+                            {
+                                "@type": "@226"
+                            },
+                            {
+                                "@type": "@227"
+                            },
+                            {
+                                "@type": "@228"
+                            },
+                            {
+                                "@type": "@229"
+                            },
+                            {
+                                "@type": "@230"
+                            },
+                            {
+                                "@type": "@231"
+                            },
+                            {
+                                "@type": "@232"
+                            },
+                            {
+                                "@type": "@233"
+                            },
+                            {
+                                "@type": "@234"
+                            },
+                            {
+                                "@type": "@235"
+                            }
+                        ],
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "6": "TRIGGER"
+                            }
+                        },
+                        "first": 184,
+                        "last": 233
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
+                        "name": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "deleteTimes",
+                            "column": null,
+                            "expr": "`deleteTimes`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "entityOptions": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": "AFTER",
+                                "2": "DELETE"
+                            }
+                        },
+                        "fields": null,
+                        "with": null,
+                        "select": null,
+                        "like": null,
+                        "partitionBy": null,
+                        "partitionsNum": null,
+                        "subpartitionBy": null,
+                        "subpartitionsNum": null,
+                        "partitions": null,
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "return": null,
+                        "parameters": null,
+                        "body": [
+                            {
+                                "@type": "@262"
+                            },
+                            {
+                                "@type": "@263"
+                            },
+                            {
+                                "@type": "@264"
+                            },
+                            {
+                                "@type": "@265"
+                            },
+                            {
+                                "@type": "@266"
+                            },
+                            {
+                                "@type": "@267"
+                            },
+                            {
+                                "@type": "@268"
+                            },
+                            {
+                                "@type": "@269"
+                            },
+                            {
+                                "@type": "@270"
+                            },
+                            {
+                                "@type": "@271"
+                            },
+                            {
+                                "@type": "@272"
+                            },
+                            {
+                                "@type": "@273"
+                            },
+                            {
+                                "@type": "@274"
+                            },
+                            {
+                                "@type": "@275"
+                            },
+                            {
+                                "@type": "@276"
+                            },
+                            {
+                                "@type": "@277"
+                            },
+                            {
+                                "@type": "@278"
+                            },
+                            {
+                                "@type": "@279"
+                            },
+                            {
+                                "@type": "@280"
+                            },
+                            {
+                                "@type": "@281"
+                            },
+                            {
+                                "@type": "@282"
+                            },
+                            {
+                                "@type": "@283"
+                            },
+                            {
+                                "@type": "@284"
+                            },
+                            {
+                                "@type": "@285"
+                            },
+                            {
+                                "@type": "@286"
+                            },
+                            {
+                                "@type": "@287"
+                            },
+                            {
+                                "@type": "@288"
+                            },
+                            {
+                                "@type": "@289"
+                            },
+                            {
+                                "@type": "@290"
+                            },
+                            {
+                                "@type": "@291"
+                            }
+                        ],
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "6": "TRIGGER"
+                            }
+                        },
+                        "first": 243,
+                        "last": 289
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
+                        "name": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "updateTimes",
+                            "column": null,
+                            "expr": "`updateTimes`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "entityOptions": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": "AFTER",
+                                "2": "UPDATE"
+                            }
+                        },
+                        "fields": null,
+                        "with": null,
+                        "select": null,
+                        "like": null,
+                        "partitionBy": null,
+                        "partitionsNum": null,
+                        "subpartitionBy": null,
+                        "subpartitionsNum": null,
+                        "partitions": null,
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "return": null,
+                        "parameters": null,
+                        "body": [
+                            {
+                                "@type": "@318"
+                            },
+                            {
+                                "@type": "@319"
+                            },
+                            {
+                                "@type": "@320"
+                            },
+                            {
+                                "@type": "@321"
+                            },
+                            {
+                                "@type": "@322"
+                            },
+                            {
+                                "@type": "@323"
+                            },
+                            {
+                                "@type": "@324"
+                            },
+                            {
+                                "@type": "@325"
+                            },
+                            {
+                                "@type": "@326"
+                            },
+                            {
+                                "@type": "@327"
+                            },
+                            {
+                                "@type": "@328"
+                            },
+                            {
+                                "@type": "@329"
+                            },
+                            {
+                                "@type": "@330"
+                            },
+                            {
+                                "@type": "@331"
+                            },
+                            {
+                                "@type": "@332"
+                            },
+                            {
+                                "@type": "@333"
+                            },
+                            {
+                                "@type": "@334"
+                            },
+                            {
+                                "@type": "@335"
+                            },
+                            {
+                                "@type": "@336"
+                            },
+                            {
+                                "@type": "@337"
+                            },
+                            {
+                                "@type": "@338"
+                            },
+                            {
+                                "@type": "@339"
+                            },
+                            {
+                                "@type": "@340"
+                            },
+                            {
+                                "@type": "@341"
+                            },
+                            {
+                                "@type": "@342"
+                            },
+                            {
+                                "@type": "@343"
+                            },
+                            {
+                                "@type": "@344"
+                            },
+                            {
+                                "@type": "@345"
+                            },
+                            {
+                                "@type": "@346"
+                            },
+                            {
+                                "@type": "@347"
+                            },
+                            {
+                                "@type": "@348"
+                            },
+                            {
+                                "@type": "@349"
+                            },
+                            {
+                                "@type": "@350"
+                            },
+                            {
+                                "@type": "@351"
+                            },
+                            {
+                                "@type": "@352"
+                            },
+                            {
+                                "@type": "@353"
+                            },
+                            {
+                                "@type": "@354"
+                            },
+                            {
+                                "@type": "@355"
+                            },
+                            {
+                                "@type": "@356"
+                            },
+                            {
+                                "@type": "@357"
+                            },
+                            {
+                                "@type": "@358"
+                            },
+                            {
+                                "@type": "@359"
+                            },
+                            {
+                                "@type": "@360"
+                            },
+                            {
+                                "@type": "@361"
+                            },
+                            {
+                                "@type": "@362"
+                            },
+                            {
+                                "@type": "@363"
+                            },
+                            {
+                                "@type": "@364"
+                            },
+                            {
+                                "@type": "@365"
+                            },
+                            {
+                                "@type": "@366"
+                            },
+                            {
+                                "@type": "@367"
+                            }
+                        ],
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "6": "TRIGGER"
+                            }
+                        },
+                        "first": 299,
+                        "last": 365
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "altered": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "ADD"
+                                    }
+                                },
+                                "field": null,
+                                "partitions": null,
+                                "unknown": [
+                                    {
+                                        "@type": "@394"
+                                    },
+                                    {
+                                        "@type": "@395"
+                                    },
+                                    {
+                                        "@type": "@396"
+                                    },
+                                    {
+                                        "@type": "@397"
+                                    },
+                                    {
+                                        "@type": "@398"
+                                    },
+                                    {
+                                        "@type": "@399"
+                                    },
+                                    {
+                                        "@type": "@400"
+                                    },
+                                    {
+                                        "@type": "@401"
+                                    },
+                                    {
+                                        "@type": "@402"
+                                    },
+                                    {
+                                        "@type": "@403"
+                                    },
+                                    {
+                                        "@type": "@404"
+                                    },
+                                    {
+                                        "@type": "@405"
+                                    },
+                                    {
+                                        "@type": "@406"
+                                    },
+                                    {
+                                        "@type": "@407"
+                                    },
+                                    {
+                                        "@type": "@408"
+                                    },
+                                    {
+                                        "@type": "@409"
+                                    },
+                                    {
+                                        "@type": "@410"
+                                    }
+                                ]
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "ADD",
+                                        "2": "KEY"
+                                    }
+                                },
+                                "field": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": "INDEX_totalTime",
+                                    "expr": "`INDEX_totalTime`",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "partitions": null,
+                                "unknown": [
+                                    {
+                                        "@type": "@419"
+                                    },
+                                    {
+                                        "@type": "@420"
+                                    },
+                                    {
+                                        "@type": "@421"
+                                    },
+                                    {
+                                        "@type": "@422"
+                                    },
+                                    {
+                                        "@type": "@423"
+                                    },
+                                    {
+                                        "@type": "@424"
+                                    },
+                                    {
+                                        "@type": "@425"
+                                    },
+                                    {
+                                        "@type": "@426"
+                                    },
+                                    {
+                                        "@type": "@427"
+                                    },
+                                    {
+                                        "@type": "@428"
+                                    },
+                                    {
+                                        "@type": "@429"
+                                    }
+                                ]
+                            }
+                        ],
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "3": "TABLE"
+                            }
+                        },
+                        "first": 371,
+                        "last": 427
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "altered": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "ADD",
+                                        "2": "CONSTRAINT"
+                                    }
+                                },
+                                "field": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": "monitoring__times__idServer",
+                                    "expr": "`monitoring__times__idServer`",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "partitions": null,
+                                "unknown": [
+                                    {
+                                        "@type": "@456"
+                                    },
+                                    {
+                                        "@type": "@457"
+                                    },
+                                    {
+                                        "@type": "@458"
+                                    },
+                                    {
+                                        "@type": "@459"
+                                    },
+                                    {
+                                        "@type": "@460"
+                                    },
+                                    {
+                                        "@type": "@461"
+                                    },
+                                    {
+                                        "@type": "@462"
+                                    },
+                                    {
+                                        "@type": "@463"
+                                    },
+                                    {
+                                        "@type": "@464"
+                                    },
+                                    {
+                                        "@type": "@465"
+                                    },
+                                    {
+                                        "@type": "@466"
+                                    },
+                                    {
+                                        "@type": "@467"
+                                    },
+                                    {
+                                        "@type": "@468"
+                                    }
+                                ]
+                            }
+                        ],
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "3": "TABLE"
+                            }
+                        },
+                        "first": 428,
+                        "last": 466
+                    }
+                ],
+                "end": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
+                    "type": 2,
+                    "statements": null,
+                    "end": null,
+                    "options": {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                        "options": {
+                            "1": "COMMIT"
+                        }
+                    },
+                    "first": 467,
+                    "last": 468
+                },
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": {
+                        "1": "START TRANSACTION"
+                    }
+                },
+                "first": 32,
+                "last": 34
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "end_options": null,
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "CHARACTER_SET_CLIENT",
+                        "value": "@OLD_CHARACTER_SET_CLIENT"
+                    }
+                ],
+                "first": 469,
+                "last": 479
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "end_options": null,
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "CHARACTER_SET_RESULTS",
+                        "value": "@OLD_CHARACTER_SET_RESULTS"
+                    }
+                ],
+                "first": 480,
+                "last": 490
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "end_options": null,
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "COLLATION_CONNECTION",
+                        "value": "@OLD_COLLATION_CONNECTION"
+                    }
+                ],
+                "first": 491,
+                "last": 501
+            }
+        ],
+        "brackets": 0,
+        "strict": false,
+        "errors": []
+    },
     "errors": {
         "lexer": [],
         "parser": []
