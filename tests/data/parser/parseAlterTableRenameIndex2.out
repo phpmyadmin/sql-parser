@@ -307,33 +307,31 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": null,
-                            "column": "ALGORITHM",
-                            "expr": "ALGORITHM",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@20"
-                            },
-                            {
-                                "@type": "@21"
+                            "options": {
+                                "1": {
+                                    "name": "ALGORITHM",
+                                    "equals": true,
+                                    "expr": "INPLACE",
+                                    "value": "INPLACE"
+                                }
                             }
-                        ]
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
+                            "options": {
+                                "1": {
+                                    "name": "LOCK",
+                                    "equals": true,
+                                    "expr": "NONE",
+                                    "value": "NONE"
+                                }
+                            }
                         },
                         "field": null,
                         "partitions": null,
@@ -356,28 +354,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@22"
-                },
-                0
-            ],
-            [
-                "A new statement was found, but no delimiter between it and the previous one.",
-                {
-                    "@type": "@24"
-                },
-                0
-            ],
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@26"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

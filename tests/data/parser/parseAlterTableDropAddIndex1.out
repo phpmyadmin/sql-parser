@@ -431,27 +431,18 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": null,
-                            "column": "ALGORITHM",
-                            "expr": "ALGORITHM",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@33"
-                            },
-                            {
-                                "@type": "@34"
+                            "options": {
+                                "1": {
+                                    "name": "ALGORITHM",
+                                    "equals": true,
+                                    "expr": "COPY",
+                                    "value": "COPY"
+                                }
                             }
-                        ]
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
                     }
                 ],
                 "options": {
@@ -470,14 +461,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@35"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
