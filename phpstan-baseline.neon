@@ -36,22 +36,22 @@ parameters:
 			path: src/Components/Array2d.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\> but returns array\\<int, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\> but returns array\\<int\\<0, max\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
 			count: 1
 			path: src/Components/Array2d.php
 
 		-
-			message: "#^Cannot access an offset on array\\<int, mixed\\>\\|ArrayAccess\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
+			message: "#^Cannot access an offset on array\\<int\\<0, max\\>, mixed\\>\\|ArrayAccess\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
 			count: 1
 			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Cannot access property \\$raw on array\\<int, mixed\\>\\|ArrayAccess\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
+			message: "#^Cannot access property \\$raw on array\\<int\\<0, max\\>, mixed\\>\\|ArrayAccess\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
 			count: 2
 			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Cannot access property \\$values on array\\<int, mixed\\>\\|ArrayAccess\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
+			message: "#^Cannot access property \\$values on array\\<int\\<0, max\\>, mixed\\>\\|ArrayAccess\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
 			count: 2
 			path: src/Components/ArrayObj.php
 
@@ -61,7 +61,7 @@ parameters:
 			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj but returns array\\<int, mixed\\>\\|ArrayAccess\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj but returns array\\<int\\<0, max\\>, mixed\\>\\|ArrayAccess\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
 			count: 1
 			path: src/Components/ArrayObj.php
 
@@ -151,7 +151,7 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> but returns array\\<int, PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> but returns array\\<int\\<0, max\\>, PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\.$#"
 			count: 1
 			path: src/Components/ExpressionArray.php
 
@@ -1001,12 +1001,12 @@ parameters:
 			path: src/Utils/Routine.php
 
 		-
-			message: "#^Cannot assign new offset to array\\<int, mixed\\>\\|string\\.$#"
+			message: "#^Cannot assign new offset to array\\<int\\<0, max\\>, mixed\\>\\|string\\.$#"
 			count: 1
 			path: src/Utils/Routine.php
 
 		-
-			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\<int, mixed\\>\\|string given\\.$#"
+			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\<int\\<0, max\\>, mixed\\>\\|string given\\.$#"
 			count: 1
 			path: src/Utils/Routine.php
 
