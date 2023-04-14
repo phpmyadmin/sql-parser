@@ -76,6 +76,10 @@ final class AlterOperation implements Component
             1,
             'var',
         ],
+        'COALESCE PARTITION' => [
+            1,
+            'var',
+        ],
         'MAX_ROWS' => [
             1,
             'var',
@@ -94,7 +98,6 @@ final class AlterOperation implements Component
         'CHANGE' => 1,
         'CHARSET' => 1,
         'CHECK' => 1,
-        'COALESCE' => 1,
         'CONVERT' => 1,
         'DEFAULT CHARSET' => 1,
         'DISABLE' => 1,
