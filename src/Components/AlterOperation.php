@@ -68,6 +68,10 @@ final class AlterOperation implements Component
             1,
             'var=',
         ],
+        'ALGORITHM' => [
+            1,
+            'var=',
+        ],
         'AUTO_INCREMENT' => [
             1,
             'var=',
@@ -79,6 +83,10 @@ final class AlterOperation implements Component
         'COALESCE PARTITION' => [
             1,
             'var',
+        ],
+        'LOCK' => [
+            1,
+            'var=',
         ],
         'MAX_ROWS' => [
             1,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.8.0@9cf4f60a333f779ad3bc704a555920e81d4fdcda">
+<files psalm-version="5.9.0@8b9ad1eb9e8b7d3101f949291da2b9f7767cd163">
   <file src="src/Components/AlterOperation.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$component->partitions]]></code>
@@ -241,18 +241,12 @@
     <InvalidArgument>
       <code>$this</code>
     </InvalidArgument>
-    <InvalidArrayOffset>
-      <code>$ret[$retIndex]</code>
-    </InvalidArrayOffset>
     <InvalidReturnStatement>
       <code>$ret</code>
     </InvalidReturnStatement>
     <InvalidReturnType>
       <code>Expression[]</code>
     </InvalidReturnType>
-    <MixedPropertyAssignment>
-      <code>$ret[$retIndex]</code>
-    </MixedPropertyAssignment>
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -830,7 +824,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -1121,7 +1116,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -1449,7 +1445,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -1777,7 +1774,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -2105,7 +2103,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -2433,7 +2432,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -2761,7 +2761,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -3060,7 +3061,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
         'NATURAL RIGHT OUTER JOIN' => 7, 'WITH CONSISTENT SNAPSHOT' => 7,
@@ -3324,7 +3326,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -3603,7 +3606,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -3887,7 +3891,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -4198,7 +4203,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -4527,7 +4533,8 @@
         'LEFT OUTER JOIN' => 7, 'SUBPARTITION BY' => 7,
         'DISABLE ON SLAVE' => 7, 'GENERATED ALWAYS' => 7, 'RIGHT OUTER JOIN' => 7,
         'MODIFIES SQL DATA' => 7, 'NATURAL LEFT JOIN' => 7, 'START TRANSACTION' => 7,
-        'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7, 'SELECT TRANSACTION' => 7,
+        'COALESCE PARTITION' => 7, 'LOCK IN SHARE MODE' => 7, 'NATURAL RIGHT JOIN' => 7,
+        'SELECT TRANSACTION' => 7,
         'DEFAULT CHARACTER SET' => 7,
         'ON COMPLETION PRESERVE' => 7,
         'NATURAL LEFT OUTER JOIN' => 7,
@@ -5237,9 +5244,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Tools/ContextGenerator.php">
-    <InvalidArrayOffset>
-      <code>$version[count($version) - 1]</code>
-    </InvalidArrayOffset>
     <PossiblyNullArgument>
       <code><![CDATA[$options['keywords']]]></code>
     </PossiblyNullArgument>
@@ -5792,6 +5796,108 @@
       <code><![CDATA[$parser->statements[0]]]></code>
       <code><![CDATA[$parser->statements[0]]]></code>
     </ArgumentTypeCoercion>
+    <InvalidReturnStatement>
+      <code><![CDATA[[
+            [
+                'CREATE USER test',
+                [],
+            ],
+            [
+                'CREATE TABLE `address` (
+                  `address_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+                  `address` varchar(50) NOT NULL,
+                  `address2` varchar(50) DEFAULT NULL,
+                  `district` varchar(20) NOT NULL,
+                  `city_id` smallint(5) unsigned NOT NULL,
+                  `postal_code` varchar(10) DEFAULT NULL,
+                  `phone` varchar(20) NOT NULL,
+                  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                  PRIMARY KEY (`address_id`),
+                  KEY `idx_fk_city_id` (`city_id`),
+                  CONSTRAINT `fk_address_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=606 DEFAULT CHARSET=utf8',
+                [
+                    'address_id' => [
+                        'type' => 'SMALLINT',
+                        'timestamp_not_null' => false,
+                    ],
+                    'address' => [
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                    ],
+                    'address2' => [
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                        'default_value' => 'NULL',
+                    ],
+                    'district' => [
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                    ],
+                    'city_id' => [
+                        'type' => 'SMALLINT',
+                        'timestamp_not_null' => false,
+                    ],
+                    'postal_code' => [
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                        'default_value' => 'NULL',
+                    ],
+                    'phone' => [
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                    ],
+                    'last_update' => [
+                        'type' => 'TIMESTAMP',
+                        'timestamp_not_null' => true,
+                        'default_value' => 'CURRENT_TIMESTAMP',
+                        'default_current_timestamp' => true,
+                        'on_update_current_timestamp' => true,
+                    ],
+                ],
+            ],
+            [
+                'CREATE TABLE table1 (
+                    a INT NOT NULL,
+                    b VARCHAR(32),
+                    c INT AS (a mod 10) VIRTUAL,
+                    d VARCHAR(5) AS (left(b,5)) PERSISTENT
+                )',
+                [
+                    'a' => [
+                        'type' => 'INT',
+                        'timestamp_not_null' => false,
+                    ],
+                    'b' => [
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                    ],
+                    'c' => [
+                        'type' => 'INT',
+                        'timestamp_not_null' => false,
+                        'generated' => true,
+                        'expr' => '(a mod 10)',
+                    ],
+                    'd' => [
+                        'type' => 'VARCHAR',
+                        'timestamp_not_null' => false,
+                        'generated' => true,
+                        'expr' => '(left(b,5))',
+                    ],
+                ],
+            ],
+        ]]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code><![CDATA[list<array{string, array<string, array{
+     *   type: string,
+     *   timestamp_not_null: bool,
+     *   default_value?: string,
+     *   default_current_timestamp?: bool,
+     *   on_update_current_timestamp?: bool,
+     *   expr?: string
+     * }>}>]]></code>
+    </InvalidReturnType>
   </file>
   <file src="tests/Utils/TokensTest.php">
     <InvalidArgument>
