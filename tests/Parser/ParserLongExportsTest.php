@@ -89,6 +89,9 @@ SQL;
             'SET  @OLD_CHARACTER_SET_RESULTS = @@CHARACTER_SET_RESULTS',
             'SET  @OLD_COLLATION_CONNECTION = @@COLLATION_CONNECTION',
             'SET NAMES utf8mb4',
+            'SET  CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT',
+            'SET  CHARACTER_SET_RESULTS = @OLD_CHARACTER_SET_RESULTS',
+            'SET  COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION',
         ], $collectedSetStatements);
 
         foreach ($parser->statements as $stmt) {
