@@ -4562,7 +4562,7 @@
                 }
             ],
             "count": 505,
-            "idx": 506
+            "idx": 505
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -5262,85 +5262,90 @@
                             },
                             {
                                 "@type": "@235"
-                            },
-                            {
-                                "@type": "@236"
-                            },
-                            {
-                                "@type": "@237"
-                            },
-                            {
-                                "@type": "@238"
-                            },
-                            {
-                                "@type": "@239"
-                            },
-                            {
-                                "@type": "@240"
-                            },
-                            {
-                                "@type": "@241"
-                            },
-                            {
-                                "@type": "@242"
-                            },
-                            {
-                                "@type": "@243"
-                            },
-                            {
-                                "@type": "@244"
-                            },
-                            {
-                                "@type": "@245"
-                            },
-                            {
-                                "@type": "@246"
-                            },
-                            {
-                                "@type": "@247"
-                            },
-                            {
-                                "@type": "@248"
-                            },
-                            {
-                                "@type": "@249"
-                            },
-                            {
-                                "@type": "@250"
-                            },
-                            {
-                                "@type": "@251"
-                            },
-                            {
-                                "@type": "@252"
-                            },
-                            {
-                                "@type": "@253"
-                            },
-                            {
-                                "@type": "@254"
-                            },
-                            {
-                                "@type": "@255"
-                            },
-                            {
-                                "@type": "@256"
-                            },
-                            {
-                                "@type": "@257"
-                            },
-                            {
-                                "@type": "@258"
-                            },
-                            {
-                                "@type": "@259"
-                            },
-                            {
-                                "@type": "@260"
-                            },
-                            {
-                                "@type": "@261"
-                            },
+                            }
+                        ],
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "6": "TRIGGER"
+                            }
+                        },
+                        "first": 184,
+                        "last": 233
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
+                        "statementOptions": {
+                            "TEMPORARY": 1,
+                            "OR REPLACE": 2,
+                            "ALGORITHM": [
+                                3,
+                                "var="
+                            ],
+                            "DEFINER": [
+                                4,
+                                "expr="
+                            ],
+                            "SQL SECURITY": [
+                                5,
+                                "var"
+                            ],
+                            "DATABASE": 6,
+                            "EVENT": 6,
+                            "FUNCTION": 6,
+                            "INDEX": 6,
+                            "UNIQUE INDEX": 6,
+                            "FULLTEXT INDEX": 6,
+                            "SPATIAL INDEX": 6,
+                            "PROCEDURE": 6,
+                            "SERVER": 6,
+                            "TABLE": 6,
+                            "TABLESPACE": 6,
+                            "TRIGGER": 6,
+                            "USER": 6,
+                            "VIEW": 6,
+                            "SCHEMA": 6,
+                            "IF NOT EXISTS": 7
+                        },
+                        "name": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "deleteTimes",
+                            "column": null,
+                            "expr": "`deleteTimes`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "entityOptions": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": "AFTER",
+                                "2": "DELETE"
+                            }
+                        },
+                        "fields": null,
+                        "with": null,
+                        "select": null,
+                        "like": null,
+                        "partitionBy": null,
+                        "partitionsNum": null,
+                        "subpartitionBy": null,
+                        "subpartitionsNum": null,
+                        "partitions": null,
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "return": null,
+                        "parameters": null,
+                        "body": [
                             {
                                 "@type": "@262"
                             },
@@ -5430,85 +5435,90 @@
                             },
                             {
                                 "@type": "@291"
-                            },
-                            {
-                                "@type": "@292"
-                            },
-                            {
-                                "@type": "@293"
-                            },
-                            {
-                                "@type": "@294"
-                            },
-                            {
-                                "@type": "@295"
-                            },
-                            {
-                                "@type": "@296"
-                            },
-                            {
-                                "@type": "@297"
-                            },
-                            {
-                                "@type": "@298"
-                            },
-                            {
-                                "@type": "@299"
-                            },
-                            {
-                                "@type": "@300"
-                            },
-                            {
-                                "@type": "@301"
-                            },
-                            {
-                                "@type": "@302"
-                            },
-                            {
-                                "@type": "@303"
-                            },
-                            {
-                                "@type": "@304"
-                            },
-                            {
-                                "@type": "@305"
-                            },
-                            {
-                                "@type": "@306"
-                            },
-                            {
-                                "@type": "@307"
-                            },
-                            {
-                                "@type": "@308"
-                            },
-                            {
-                                "@type": "@309"
-                            },
-                            {
-                                "@type": "@310"
-                            },
-                            {
-                                "@type": "@311"
-                            },
-                            {
-                                "@type": "@312"
-                            },
-                            {
-                                "@type": "@313"
-                            },
-                            {
-                                "@type": "@314"
-                            },
-                            {
-                                "@type": "@315"
-                            },
-                            {
-                                "@type": "@316"
-                            },
-                            {
-                                "@type": "@317"
-                            },
+                            }
+                        ],
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "6": "TRIGGER"
+                            }
+                        },
+                        "first": 243,
+                        "last": 289
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
+                        "statementOptions": {
+                            "TEMPORARY": 1,
+                            "OR REPLACE": 2,
+                            "ALGORITHM": [
+                                3,
+                                "var="
+                            ],
+                            "DEFINER": [
+                                4,
+                                "expr="
+                            ],
+                            "SQL SECURITY": [
+                                5,
+                                "var"
+                            ],
+                            "DATABASE": 6,
+                            "EVENT": 6,
+                            "FUNCTION": 6,
+                            "INDEX": 6,
+                            "UNIQUE INDEX": 6,
+                            "FULLTEXT INDEX": 6,
+                            "SPATIAL INDEX": 6,
+                            "PROCEDURE": 6,
+                            "SERVER": 6,
+                            "TABLE": 6,
+                            "TABLESPACE": 6,
+                            "TRIGGER": 6,
+                            "USER": 6,
+                            "VIEW": 6,
+                            "SCHEMA": 6,
+                            "IF NOT EXISTS": 7
+                        },
+                        "name": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "updateTimes",
+                            "column": null,
+                            "expr": "`updateTimes`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "entityOptions": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": "AFTER",
+                                "2": "UPDATE"
+                            }
+                        },
+                        "fields": null,
+                        "with": null,
+                        "select": null,
+                        "like": null,
+                        "partitionBy": null,
+                        "partitionsNum": null,
+                        "subpartitionBy": null,
+                        "subpartitionsNum": null,
+                        "partitions": null,
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "return": null,
+                        "parameters": null,
+                        "body": [
                             {
                                 "@type": "@318"
                             },
@@ -5658,426 +5668,6 @@
                             },
                             {
                                 "@type": "@367"
-                            },
-                            {
-                                "@type": "@368"
-                            },
-                            {
-                                "@type": "@369"
-                            },
-                            {
-                                "@type": "@370"
-                            },
-                            {
-                                "@type": "@371"
-                            },
-                            {
-                                "@type": "@372"
-                            },
-                            {
-                                "@type": "@373"
-                            },
-                            {
-                                "@type": "@374"
-                            },
-                            {
-                                "@type": "@375"
-                            },
-                            {
-                                "@type": "@376"
-                            },
-                            {
-                                "@type": "@377"
-                            },
-                            {
-                                "@type": "@378"
-                            },
-                            {
-                                "@type": "@379"
-                            },
-                            {
-                                "@type": "@380"
-                            },
-                            {
-                                "@type": "@381"
-                            },
-                            {
-                                "@type": "@382"
-                            },
-                            {
-                                "@type": "@383"
-                            },
-                            {
-                                "@type": "@384"
-                            },
-                            {
-                                "@type": "@385"
-                            },
-                            {
-                                "@type": "@386"
-                            },
-                            {
-                                "@type": "@387"
-                            },
-                            {
-                                "@type": "@388"
-                            },
-                            {
-                                "@type": "@389"
-                            },
-                            {
-                                "@type": "@390"
-                            },
-                            {
-                                "@type": "@391"
-                            },
-                            {
-                                "@type": "@392"
-                            },
-                            {
-                                "@type": "@393"
-                            },
-                            {
-                                "@type": "@394"
-                            },
-                            {
-                                "@type": "@395"
-                            },
-                            {
-                                "@type": "@396"
-                            },
-                            {
-                                "@type": "@397"
-                            },
-                            {
-                                "@type": "@398"
-                            },
-                            {
-                                "@type": "@399"
-                            },
-                            {
-                                "@type": "@400"
-                            },
-                            {
-                                "@type": "@401"
-                            },
-                            {
-                                "@type": "@402"
-                            },
-                            {
-                                "@type": "@403"
-                            },
-                            {
-                                "@type": "@404"
-                            },
-                            {
-                                "@type": "@405"
-                            },
-                            {
-                                "@type": "@406"
-                            },
-                            {
-                                "@type": "@407"
-                            },
-                            {
-                                "@type": "@408"
-                            },
-                            {
-                                "@type": "@409"
-                            },
-                            {
-                                "@type": "@410"
-                            },
-                            {
-                                "@type": "@411"
-                            },
-                            {
-                                "@type": "@412"
-                            },
-                            {
-                                "@type": "@413"
-                            },
-                            {
-                                "@type": "@414"
-                            },
-                            {
-                                "@type": "@415"
-                            },
-                            {
-                                "@type": "@416"
-                            },
-                            {
-                                "@type": "@417"
-                            },
-                            {
-                                "@type": "@418"
-                            },
-                            {
-                                "@type": "@419"
-                            },
-                            {
-                                "@type": "@420"
-                            },
-                            {
-                                "@type": "@421"
-                            },
-                            {
-                                "@type": "@422"
-                            },
-                            {
-                                "@type": "@423"
-                            },
-                            {
-                                "@type": "@424"
-                            },
-                            {
-                                "@type": "@425"
-                            },
-                            {
-                                "@type": "@426"
-                            },
-                            {
-                                "@type": "@427"
-                            },
-                            {
-                                "@type": "@428"
-                            },
-                            {
-                                "@type": "@429"
-                            },
-                            {
-                                "@type": "@430"
-                            },
-                            {
-                                "@type": "@431"
-                            },
-                            {
-                                "@type": "@432"
-                            },
-                            {
-                                "@type": "@433"
-                            },
-                            {
-                                "@type": "@434"
-                            },
-                            {
-                                "@type": "@435"
-                            },
-                            {
-                                "@type": "@436"
-                            },
-                            {
-                                "@type": "@437"
-                            },
-                            {
-                                "@type": "@438"
-                            },
-                            {
-                                "@type": "@439"
-                            },
-                            {
-                                "@type": "@440"
-                            },
-                            {
-                                "@type": "@441"
-                            },
-                            {
-                                "@type": "@442"
-                            },
-                            {
-                                "@type": "@443"
-                            },
-                            {
-                                "@type": "@444"
-                            },
-                            {
-                                "@type": "@445"
-                            },
-                            {
-                                "@type": "@446"
-                            },
-                            {
-                                "@type": "@447"
-                            },
-                            {
-                                "@type": "@448"
-                            },
-                            {
-                                "@type": "@449"
-                            },
-                            {
-                                "@type": "@450"
-                            },
-                            {
-                                "@type": "@451"
-                            },
-                            {
-                                "@type": "@452"
-                            },
-                            {
-                                "@type": "@453"
-                            },
-                            {
-                                "@type": "@454"
-                            },
-                            {
-                                "@type": "@455"
-                            },
-                            {
-                                "@type": "@456"
-                            },
-                            {
-                                "@type": "@457"
-                            },
-                            {
-                                "@type": "@458"
-                            },
-                            {
-                                "@type": "@459"
-                            },
-                            {
-                                "@type": "@460"
-                            },
-                            {
-                                "@type": "@461"
-                            },
-                            {
-                                "@type": "@462"
-                            },
-                            {
-                                "@type": "@463"
-                            },
-                            {
-                                "@type": "@464"
-                            },
-                            {
-                                "@type": "@465"
-                            },
-                            {
-                                "@type": "@466"
-                            },
-                            {
-                                "@type": "@467"
-                            },
-                            {
-                                "@type": "@468"
-                            },
-                            {
-                                "@type": "@469"
-                            },
-                            {
-                                "@type": "@470"
-                            },
-                            {
-                                "@type": "@471"
-                            },
-                            {
-                                "@type": "@472"
-                            },
-                            {
-                                "@type": "@473"
-                            },
-                            {
-                                "@type": "@474"
-                            },
-                            {
-                                "@type": "@475"
-                            },
-                            {
-                                "@type": "@476"
-                            },
-                            {
-                                "@type": "@477"
-                            },
-                            {
-                                "@type": "@478"
-                            },
-                            {
-                                "@type": "@479"
-                            },
-                            {
-                                "@type": "@480"
-                            },
-                            {
-                                "@type": "@481"
-                            },
-                            {
-                                "@type": "@482"
-                            },
-                            {
-                                "@type": "@483"
-                            },
-                            {
-                                "@type": "@484"
-                            },
-                            {
-                                "@type": "@485"
-                            },
-                            {
-                                "@type": "@486"
-                            },
-                            {
-                                "@type": "@487"
-                            },
-                            {
-                                "@type": "@488"
-                            },
-                            {
-                                "@type": "@489"
-                            },
-                            {
-                                "@type": "@490"
-                            },
-                            {
-                                "@type": "@491"
-                            },
-                            {
-                                "@type": "@492"
-                            },
-                            {
-                                "@type": "@493"
-                            },
-                            {
-                                "@type": "@494"
-                            },
-                            {
-                                "@type": "@495"
-                            },
-                            {
-                                "@type": "@496"
-                            },
-                            {
-                                "@type": "@497"
-                            },
-                            {
-                                "@type": "@498"
-                            },
-                            {
-                                "@type": "@499"
-                            },
-                            {
-                                "@type": "@500"
-                            },
-                            {
-                                "@type": "@501"
-                            },
-                            {
-                                "@type": "@502"
-                            },
-                            {
-                                "@type": "@503"
-                            },
-                            {
-                                "@type": "@504"
-                            },
-                            {
-                                "@type": "@505"
-                            },
-                            {
-                                "@type": "@506"
-                            },
-                            {
-                                "@type": "@507"
                             }
                         ],
                         "options": {
@@ -6086,11 +5676,300 @@
                                 "6": "TRIGGER"
                             }
                         },
-                        "first": 184,
-                        "last": 505
+                        "first": 299,
+                        "last": 365
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "altered": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "ADD"
+                                    }
+                                },
+                                "field": null,
+                                "partitions": null,
+                                "unknown": [
+                                    {
+                                        "@type": "@394"
+                                    },
+                                    {
+                                        "@type": "@395"
+                                    },
+                                    {
+                                        "@type": "@396"
+                                    },
+                                    {
+                                        "@type": "@397"
+                                    },
+                                    {
+                                        "@type": "@398"
+                                    },
+                                    {
+                                        "@type": "@399"
+                                    },
+                                    {
+                                        "@type": "@400"
+                                    },
+                                    {
+                                        "@type": "@401"
+                                    },
+                                    {
+                                        "@type": "@402"
+                                    },
+                                    {
+                                        "@type": "@403"
+                                    },
+                                    {
+                                        "@type": "@404"
+                                    },
+                                    {
+                                        "@type": "@405"
+                                    },
+                                    {
+                                        "@type": "@406"
+                                    },
+                                    {
+                                        "@type": "@407"
+                                    },
+                                    {
+                                        "@type": "@408"
+                                    },
+                                    {
+                                        "@type": "@409"
+                                    },
+                                    {
+                                        "@type": "@410"
+                                    }
+                                ]
+                            },
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "ADD",
+                                        "2": "KEY"
+                                    }
+                                },
+                                "field": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": "INDEX_totalTime",
+                                    "expr": "`INDEX_totalTime`",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "partitions": null,
+                                "unknown": [
+                                    {
+                                        "@type": "@419"
+                                    },
+                                    {
+                                        "@type": "@420"
+                                    },
+                                    {
+                                        "@type": "@421"
+                                    },
+                                    {
+                                        "@type": "@422"
+                                    },
+                                    {
+                                        "@type": "@423"
+                                    },
+                                    {
+                                        "@type": "@424"
+                                    },
+                                    {
+                                        "@type": "@425"
+                                    },
+                                    {
+                                        "@type": "@426"
+                                    },
+                                    {
+                                        "@type": "@427"
+                                    },
+                                    {
+                                        "@type": "@428"
+                                    },
+                                    {
+                                        "@type": "@429"
+                                    }
+                                ]
+                            }
+                        ],
+                        "statementOptions": {
+                            "ONLINE": 1,
+                            "OFFLINE": 1,
+                            "IGNORE": 2,
+                            "DEFINER": [
+                                2,
+                                "expr="
+                            ],
+                            "DATABASE": 3,
+                            "EVENT": 3,
+                            "FUNCTION": 3,
+                            "PROCEDURE": 3,
+                            "SERVER": 3,
+                            "TABLE": 3,
+                            "TABLESPACE": 3,
+                            "USER": 3,
+                            "VIEW": 3
+                        },
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "3": "TABLE"
+                            }
+                        },
+                        "first": 371,
+                        "last": 427
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                        "table": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "monitoring__times",
+                            "column": null,
+                            "expr": "`monitoring__times`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "altered": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": {
+                                        "1": "ADD",
+                                        "2": "CONSTRAINT"
+                                    }
+                                },
+                                "field": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": "monitoring__times__idServer",
+                                    "expr": "`monitoring__times__idServer`",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "partitions": null,
+                                "unknown": [
+                                    {
+                                        "@type": "@456"
+                                    },
+                                    {
+                                        "@type": "@457"
+                                    },
+                                    {
+                                        "@type": "@458"
+                                    },
+                                    {
+                                        "@type": "@459"
+                                    },
+                                    {
+                                        "@type": "@460"
+                                    },
+                                    {
+                                        "@type": "@461"
+                                    },
+                                    {
+                                        "@type": "@462"
+                                    },
+                                    {
+                                        "@type": "@463"
+                                    },
+                                    {
+                                        "@type": "@464"
+                                    },
+                                    {
+                                        "@type": "@465"
+                                    },
+                                    {
+                                        "@type": "@466"
+                                    },
+                                    {
+                                        "@type": "@467"
+                                    },
+                                    {
+                                        "@type": "@468"
+                                    }
+                                ]
+                            }
+                        ],
+                        "statementOptions": {
+                            "ONLINE": 1,
+                            "OFFLINE": 1,
+                            "IGNORE": 2,
+                            "DEFINER": [
+                                2,
+                                "expr="
+                            ],
+                            "DATABASE": 3,
+                            "EVENT": 3,
+                            "FUNCTION": 3,
+                            "PROCEDURE": 3,
+                            "SERVER": 3,
+                            "TABLE": 3,
+                            "TABLESPACE": 3,
+                            "USER": 3,
+                            "VIEW": 3
+                        },
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "3": "TABLE"
+                            }
+                        },
+                        "first": 428,
+                        "last": 466
                     }
                 ],
-                "end": null,
+                "end": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
+                    "type": 2,
+                    "statements": null,
+                    "end": null,
+                    "statementOptions": {
+                        "START TRANSACTION": 1,
+                        "BEGIN": 1,
+                        "COMMIT": 1,
+                        "ROLLBACK": 1,
+                        "WITH CONSISTENT SNAPSHOT": 2,
+                        "WORK": 2,
+                        "AND NO CHAIN": 3,
+                        "AND CHAIN": 3,
+                        "RELEASE": 4,
+                        "NO RELEASE": 4
+                    },
+                    "options": {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                        "options": {
+                            "1": "COMMIT"
+                        }
+                    },
+                    "first": 467,
+                    "last": 468
+                },
                 "statementOptions": {
                     "START TRANSACTION": 1,
                     "BEGIN": 1,
@@ -6111,6 +5990,135 @@
                 },
                 "first": 32,
                 "last": 34
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "statementOptions": {
+                    "CHARSET": [
+                        3,
+                        "var"
+                    ],
+                    "CHARACTER SET": [
+                        3,
+                        "var"
+                    ],
+                    "NAMES": [
+                        3,
+                        "var"
+                    ],
+                    "PASSWORD": [
+                        3,
+                        "expr"
+                    ],
+                    "SESSION": 3,
+                    "GLOBAL": 3,
+                    "PERSIST": 3,
+                    "PERSIST_ONLY": 3,
+                    "@@SESSION": 3,
+                    "@@GLOBAL": 3,
+                    "@@PERSIST": 3,
+                    "@@PERSIST_ONLY": 3
+                },
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "endOptions": null,
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "CHARACTER_SET_CLIENT",
+                        "value": "@OLD_CHARACTER_SET_CLIENT"
+                    }
+                ],
+                "first": 469,
+                "last": 479
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "statementOptions": {
+                    "CHARSET": [
+                        3,
+                        "var"
+                    ],
+                    "CHARACTER SET": [
+                        3,
+                        "var"
+                    ],
+                    "NAMES": [
+                        3,
+                        "var"
+                    ],
+                    "PASSWORD": [
+                        3,
+                        "expr"
+                    ],
+                    "SESSION": 3,
+                    "GLOBAL": 3,
+                    "PERSIST": 3,
+                    "PERSIST_ONLY": 3,
+                    "@@SESSION": 3,
+                    "@@GLOBAL": 3,
+                    "@@PERSIST": 3,
+                    "@@PERSIST_ONLY": 3
+                },
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "endOptions": null,
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "CHARACTER_SET_RESULTS",
+                        "value": "@OLD_CHARACTER_SET_RESULTS"
+                    }
+                ],
+                "first": 480,
+                "last": 490
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "statementOptions": {
+                    "CHARSET": [
+                        3,
+                        "var"
+                    ],
+                    "CHARACTER SET": [
+                        3,
+                        "var"
+                    ],
+                    "NAMES": [
+                        3,
+                        "var"
+                    ],
+                    "PASSWORD": [
+                        3,
+                        "expr"
+                    ],
+                    "SESSION": 3,
+                    "GLOBAL": 3,
+                    "PERSIST": 3,
+                    "PERSIST_ONLY": 3,
+                    "@@SESSION": 3,
+                    "@@GLOBAL": 3,
+                    "@@PERSIST": 3,
+                    "@@PERSIST_ONLY": 3
+                },
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "endOptions": null,
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "COLLATION_CONNECTION",
+                        "value": "@OLD_COLLATION_CONNECTION"
+                    }
+                ],
+                "first": 491,
+                "last": 501
             }
         ],
         "brackets": 0,
