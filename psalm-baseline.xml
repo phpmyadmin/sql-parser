@@ -203,9 +203,9 @@
     </RedundantCondition>
   </file>
   <file src="src/Components/FunctionCall.php">
-    <MixedAssignment occurrences="1">
-      <code>$ret-&gt;name</code>
-    </MixedAssignment>
+    <MixedOperand occurrences="1">
+      <code>$token-&gt;value</code>
+    </MixedOperand>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -877,9 +877,6 @@
     <MixedOperand occurrences="1">
       <code>$class::build($this-&gt;$field)</code>
     </MixedOperand>
-    <PossiblyNullPropertyFetch occurrences="1">
-      <code>$list-&gt;offsetGet($list-&gt;idx)-&gt;type</code>
-    </PossiblyNullPropertyFetch>
     <PossiblyUndefinedArrayOffset occurrences="4">
       <code>Parser::$KEYWORD_PARSERS[$name]['class']</code>
       <code>Parser::$KEYWORD_PARSERS[$name]['field']</code>
