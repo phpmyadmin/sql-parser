@@ -30,6 +30,7 @@ class CustomJsonSerializer extends JsonSerializer
         'databaseOptions',
         'delimiters',
         'joins',
+        'statementOptions',
         'statementFieldsOptions',
         'statementLinesOptions',
         'triggerOptions',

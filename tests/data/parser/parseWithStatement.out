@@ -367,12 +367,6 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
-                "statementOptions": {
-                    "LOW_PRIORITY": 1,
-                    "DELAYED": 2,
-                    "HIGH_PRIORITY": 3,
-                    "IGNORE": 4
-                },
                 "into": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
                     "type": null,
@@ -397,9 +391,6 @@
                 "select": null,
                 "with": {
                     "@type": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
-                    "statementOptions": {
-                        "RECURSIVE": 1
-                    },
                     "withers": {
                         "cte": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
@@ -460,23 +451,6 @@
                                 "statements": [
                                     {
                                         "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                                        "statementOptions": {
-                                            "ALL": 1,
-                                            "DISTINCT": 1,
-                                            "DISTINCTROW": 1,
-                                            "HIGH_PRIORITY": 2,
-                                            "MAX_STATEMENT_TIME": [
-                                                3,
-                                                "var="
-                                            ],
-                                            "STRAIGHT_JOIN": 4,
-                                            "SQL_SMALL_RESULT": 5,
-                                            "SQL_BIG_RESULT": 6,
-                                            "SQL_BUFFER_RESULT": 7,
-                                            "SQL_CACHE": 8,
-                                            "SQL_NO_CACHE": 8,
-                                            "SQL_CALC_FOUND_ROWS": 9
-                                        },
                                         "expr": [
                                             {
                                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
@@ -506,23 +480,6 @@
                                                 "UNION ALL",
                                                 {
                                                     "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                                                    "statementOptions": {
-                                                        "ALL": 1,
-                                                        "DISTINCT": 1,
-                                                        "DISTINCTROW": 1,
-                                                        "HIGH_PRIORITY": 2,
-                                                        "MAX_STATEMENT_TIME": [
-                                                            3,
-                                                            "var="
-                                                        ],
-                                                        "STRAIGHT_JOIN": 4,
-                                                        "SQL_SMALL_RESULT": 5,
-                                                        "SQL_BIG_RESULT": 6,
-                                                        "SQL_BUFFER_RESULT": 7,
-                                                        "SQL_CACHE": 8,
-                                                        "SQL_NO_CACHE": 8,
-                                                        "SQL_CALC_FOUND_ROWS": 9
-                                                    },
                                                     "expr": [
                                                         {
                                                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
@@ -609,23 +566,6 @@
                         "statements": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                                "statementOptions": {
-                                    "ALL": 1,
-                                    "DISTINCT": 1,
-                                    "DISTINCTROW": 1,
-                                    "HIGH_PRIORITY": 2,
-                                    "MAX_STATEMENT_TIME": [
-                                        3,
-                                        "var="
-                                    ],
-                                    "STRAIGHT_JOIN": 4,
-                                    "SQL_SMALL_RESULT": 5,
-                                    "SQL_BIG_RESULT": 6,
-                                    "SQL_BUFFER_RESULT": 7,
-                                    "SQL_CACHE": 8,
-                                    "SQL_NO_CACHE": 8,
-                                    "SQL_CALC_FOUND_ROWS": 9
-                                },
                                 "expr": [
                                     {
                                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
