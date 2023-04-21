@@ -31,7 +31,7 @@ class CallStatementTest extends TestCase
 
     public function testBuilderWithDbName(): void
     {
-        $query = 'CALL mydb.foo()';
+        $query = 'CALL foo()';
 
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
@@ -41,7 +41,7 @@ class CallStatementTest extends TestCase
 
     public function testBuilderWithDbNameShort(): void
     {
-        $query = 'CALL mydb.foo';
+        $query = 'CALL foo';
 
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
@@ -51,12 +51,12 @@ class CallStatementTest extends TestCase
 
     public function testBuilderWithDbNameAndParams(): void
     {
-        $query = 'CALL mydb.foo(@bar, @baz);';
+        $query = 'CALL foo(@bar, @baz);';
 
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
 
-        $this->assertEquals('CALL mydb.foo(@bar,@baz)', $stmt->build());
+        $this->assertEquals('CALL foo(@bar,@baz)', $stmt->build());
     }
 
     public function testBuilderMultiCallsShort(): void
