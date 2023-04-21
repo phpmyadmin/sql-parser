@@ -48,6 +48,7 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateTable13'],
             ['parser/parseCreateTable14'],
             ['parser/parseCreateTable15'],
+            ['parser/parseCreateTable16'],
             ['parser/parseCreateTableErr1'],
             ['parser/parseCreateTableErr2'],
             ['parser/parseCreateTableErr3'],
