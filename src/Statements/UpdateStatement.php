@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\Condition;
 use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
@@ -15,6 +16,7 @@ use PhpMyAdmin\SqlParser\Statement;
  * `UPDATE` statement.
  *
  * UPDATE [LOW_PRIORITY] [IGNORE] table_reference
+ *     [INNER JOIN | LEFT JOIN | JOIN] T1 ON T1.C1 = T2.C1
  *     SET col_name1={expr1|DEFAULT} [, col_name2={expr2|DEFAULT}] ...
  *     [WHERE where_condition]
  *     [ORDER BY ...]
@@ -60,6 +62,18 @@ class UpdateStatement extends Statement
         // Used for updated tables.
         '_UPDATE' => [
             'UPDATE',
+            1,
+        ],
+        'JOIN' => [
+            'JOIN',
+            1,
+        ],
+        'LEFT JOIN' => [
+            'LEFT JOIN',
+            1,
+        ],
+        'INNER JOIN' => [
+            'INNER JOIN',
             1,
         ],
         'SET' => [
@@ -114,4 +128,11 @@ class UpdateStatement extends Statement
      * @var Limit|null
      */
     public $limit;
+
+    /**
+     * Joins.
+     *
+     * @var JoinKeyword[]|null
+     */
+    public $join;
 }
