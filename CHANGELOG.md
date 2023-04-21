@@ -15,6 +15,7 @@
 - Fix `COALESCE PARTITION` in `ALTER TABLE`, rather than `COALESCE` (#323)
 - Support `ALGORITHM` and `LOCK` options in `ALTER TABLE` statements (#319)
 - Fix way end of functions, procedures and triggers' bodies is identified (#438)
+- Fix `enclosed by` is not recognized by the parser when `fields` is in lower case (#236)
 
 ## [5.7.0] - 2023-01-25
 
