@@ -22,9 +22,13 @@ class UpdateStatementTest extends TestCase
     public function updateProvider(): array
     {
         return [
-            ['parser/parseUpdate'],
+            ['parser/parseUpdate1'],
             ['parser/parseUpdate2'],
             ['parser/parseUpdate3'],
+            ['parser/parseUpdate4'],
+            ['parser/parseUpdate5'],
+            ['parser/parseUpdate6'],
+            ['parser/parseUpdate7'],
             ['parser/parseUpdateErr'],
         ];
     }
