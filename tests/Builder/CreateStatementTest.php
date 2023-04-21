@@ -70,6 +70,17 @@ class CreateStatementTest extends TestCase
         );
     }
 
+    public function testBuilderWithComments(): void
+    {
+        $parser = new Parser('CREATE TABLE tab1 (`col1` TIMESTAMP /*!40100 DEFAULT NULL */)');
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            // TODO: fix with https://github.com/phpmyadmin/sql-parser/issues/256
+            "CREATE TABLE tab1 (\n  `col1` timestamp DEFAULT NULL\n) ",
+            $stmt->build()
+        );
+    }
+
     public function testBuilderCompressed(): void
     {
         $parser = new Parser('CREATE TABLE users ( user_id int ) PAGE_COMPRESSED=1 PAGE_COMPRESSION_LEVEL=9;');
