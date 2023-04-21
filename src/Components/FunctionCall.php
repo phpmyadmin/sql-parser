@@ -78,6 +78,7 @@ class FunctionCall extends Component
 
             // End of statement.
             if ($token->type === Token::TYPE_DELIMITER) {
+                --$list->idx; // Let last token to previous one to avoid "This type of clause was previously parsed."
                 break;
             }
 
