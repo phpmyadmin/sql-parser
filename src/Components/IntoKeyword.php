@@ -221,14 +221,14 @@ final class IntoKeyword implements Component
 
                 $state = 3;
             } elseif ($state === 3) {
-                $ret->parseFileOptions($parser, $list, $token->value);
+                $ret->parseFileOptions($parser, $list, $token->keyword);
                 $state = 4;
             } elseif ($state === 4) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword !== 'LINES') {
                     break;
                 }
 
-                $ret->parseFileOptions($parser, $list, $token->value);
+                $ret->parseFileOptions($parser, $list, $token->keyword);
                 $state = 5;
             }
         }
@@ -241,7 +241,7 @@ final class IntoKeyword implements Component
     /**
      * @param Parser     $parser  The parser
      * @param TokensList $list    A token list
-     * @param string     $keyword They keyword
+     * @param string     $keyword The keyword
      *
      * @return void
      */

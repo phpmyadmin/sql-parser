@@ -20,7 +20,7 @@ class InsertStatementTest extends TestCase
         );
 
         /* Assertion 2 */
-        /* Reserved keywords (with backqoutes as field name) */
+        /* Reserved keywords (with backquotes as field name) */
         $parser = new Parser('INSERT INTO tbl(`order`) VALUES (1)');
         $stmt = $parser->statements[0];
         $this->assertEquals(

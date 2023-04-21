@@ -25,6 +25,8 @@ class CallStatementTest extends TestCase
             ['parser/parseCall'],
             ['parser/parseCall2'],
             ['parser/parseCall3'],
+            ['parser/parseCall4'],
+            ['parser/parseCall5'],
         ];
     }
 }

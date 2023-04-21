@@ -37,6 +37,7 @@ class LoadStatementTest extends TestCase
             ['parser/parseLoad4'],
             ['parser/parseLoad5'],
             ['parser/parseLoad6'],
+            ['parser/parseLoad7'],
             ['parser/parseLoadErr1'],
             ['parser/parseLoadErr2'],
             ['parser/parseLoadErr3'],
