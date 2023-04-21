@@ -21,9 +21,7 @@ class UpdateStatementTest extends TestCase
             $stmt->build()
         );
         /* Assertion 2 */
-        $parser = new Parser(
-            'update user u join user_detail ud on u.id = ud.user_id set ud.ip =\'33\' where u.id = 1'
-        );
+        $parser = new Parser('update user u join user_detail ud on u.id = ud.user_id set ud.ip =\'33\' where u.id = 1');
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'UPDATE user AS `u` SET ud.ip = \'33\' WHERE u.id = 1',

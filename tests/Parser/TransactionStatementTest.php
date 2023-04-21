@@ -38,6 +38,9 @@ class TransactionStatementTest extends TestCase
             ['parser/parseTransaction2'],
             ['parser/parseTransaction3'],
             ['parser/parseTransaction4'],
+            ['parser/parseTransaction5'],
+            ['parser/parseTransaction6'],
+            ['parser/parseTransaction7'],
             ['parser/parseTransactionErr1'],
         ];
     }
