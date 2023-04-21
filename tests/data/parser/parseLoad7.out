@@ -316,12 +316,10 @@
                     "dest": "/tmp/temp.data",
                     "columns": null,
                     "values": null,
-                    "fields_options": null,
-                    "fields_keyword": null,
-                    "lines_options": {
+                    "fields_options": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                         "options": {
-                            "2": {
+                            "1": {
                                 "name": "TERMINATED BY",
                                 "equals": false,
                                 "expr": {
@@ -335,9 +333,41 @@
                                     "subquery": null
                                 },
                                 "value": "','"
+                            },
+                            "3": {
+                                "name": "ENCLOSED BY",
+                                "equals": false,
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": "\"",
+                                    "expr": "'\"'",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "value": "'\"'"
+                            },
+                            "4": {
+                                "name": "ESCAPED BY",
+                                "equals": false,
+                                "expr": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": "$",
+                                    "expr": "'$'",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "value": "'$'"
                             }
                         }
-                    }
+                    },
+                    "fields_keyword": true,
+                    "lines_options": null
                 },
                 "join": null,
                 "union": [],
@@ -356,35 +386,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized keyword.",
-                {
-                    "@type": "@18"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@20"
-                },
-                0
-            ],
-            [
-                "Unrecognized keyword.",
-                {
-                    "@type": "@22"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@24"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
