@@ -245,8 +245,8 @@
   </file>
   <file src="src/Components/IntoKeyword.php">
     <MixedArgument occurrences="2">
-      <code>$token-&gt;value</code>
-      <code>$token-&gt;value</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
     </MixedArgument>
     <MixedAssignment occurrences="1">
       <code>$ret-&gt;dest</code>
@@ -257,9 +257,11 @@
     <PossiblyInvalidPropertyFetch occurrences="1">
       <code>ArrayObj::parse($parser, $list)-&gt;values</code>
     </PossiblyInvalidPropertyFetch>
-    <PossiblyNullArgument occurrences="2">
+    <PossiblyNullArgument occurrences="4">
       <code>$component-&gt;fields_options</code>
       <code>$component-&gt;lines_options</code>
+      <code>$token-&gt;keyword</code>
+      <code>$token-&gt;keyword</code>
     </PossiblyNullArgument>
     <PossiblyNullOperand occurrences="1">
       <code>$component-&gt;dest</code>
