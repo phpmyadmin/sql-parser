@@ -56,6 +56,7 @@ class CreateDefinition extends Component
             'var',
         ],
         'AUTO_INCREMENT' => 3,
+        'KEY' => 4,
         'PRIMARY' => 4,
         'PRIMARY KEY' => 4,
         'UNIQUE' => 4,

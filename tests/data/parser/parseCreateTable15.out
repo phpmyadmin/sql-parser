@@ -430,8 +430,71 @@
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
-                                "1": "NOT NULL"
+                                "1": "NOT NULL",
+                                "4": "KEY"
                             }
+                        }
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                        "name": "make",
+                        "isConstraint": null,
+                        "type": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
+                            "name": "VARCHAR",
+                            "parameters": [
+                                "128"
+                            ],
+                            "options": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                "options": []
+                            }
+                        },
+                        "key": null,
+                        "references": null,
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": []
+                        }
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                        "name": "year",
+                        "isConstraint": null,
+                        "type": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
+                            "name": "INTEGER",
+                            "parameters": [],
+                            "options": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                "options": []
+                            }
+                        },
+                        "key": null,
+                        "references": null,
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": []
+                        }
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                        "name": "mileage",
+                        "isConstraint": null,
+                        "type": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
+                            "name": "INTEGER",
+                            "parameters": [],
+                            "options": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                "options": []
+                            }
+                        },
+                        "key": null,
+                        "references": null,
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": []
                         }
                     }
                 ],
@@ -454,7 +517,7 @@
                     }
                 },
                 "first": 0,
-                "last": 24
+                "last": 39
             }
         ],
         "brackets": 0,
@@ -463,28 +526,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "A comma or a closing bracket was expected.",
-                {
-                    "@type": "@20"
-                },
-                0
-            ],
-            [
-                "Unexpected beginning of statement.",
-                {
-                    "@type": "@27"
-                },
-                0
-            ],
-            [
-                "Unrecognized statement type.",
-                {
-                    "@type": "@31"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
