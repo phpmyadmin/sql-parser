@@ -171,11 +171,6 @@ parameters:
 			path: src/Components/ExpressionArray.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/FunctionCall.php
@@ -559,11 +554,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$union \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\) does not accept array\\<array\\<int, bool\\|PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\|string\\>\\|PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\.$#"
 			count: 1
 			path: src/Parser.php
-
-		-
-			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
-			count: 1
-			path: src/Statement.php
 
 		-
 			message: "#^Offset 'class' does not exist on array\\{class\\?\\: string, field\\?\\: non\\-empty\\-string, options\\?\\: array\\<string, string\\>\\}\\.$#"

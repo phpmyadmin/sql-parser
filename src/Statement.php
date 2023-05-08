@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
-use PhpMyAdmin\SqlParser\Components\FunctionCall;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use Stringable;
 
@@ -415,13 +414,6 @@ abstract class Statement implements Stringable
             }
 
             $this->after($parser, $list, $token);
-
-            // #223 Here may make a patch, if last is delimiter, back one
-            if ($class !== FunctionCall::class || $list->offsetGet($list->idx)->type !== Token::TYPE_DELIMITER) {
-                continue;
-            }
-
-            --$list->idx;
         }
 
         // This may be corrected by the parser.
