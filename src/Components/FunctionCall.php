@@ -76,6 +76,7 @@ final class FunctionCall implements Component
 
             // End of statement.
             if ($token->type === Token::TYPE_DELIMITER) {
+                --$list->idx; // Let last token to previous one to avoid "This type of clause was previously parsed."
                 break;
             }
 
@@ -85,13 +86,15 @@ final class FunctionCall implements Component
             }
 
             if ($state === 0) {
-                $ret->name = $token->value;
-                $state = 1;
-            } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $ret->parameters = ArrayObj::parse($parser, $list);
+                if ($token->type === Token::TYPE_OPERATOR && $token->value === '(') {
+                    --$list->idx; // ArrayObj needs to start with `(`
+                    $state = 1;
+                    continue;// do not add this token to the name
                 }
 
+                $ret->name .= $token->value;
+            } elseif ($state === 1) {
+                    $ret->parameters = ArrayObj::parse($parser, $list);
                 break;
             }
         }

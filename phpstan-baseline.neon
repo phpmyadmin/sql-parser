@@ -176,11 +176,6 @@ parameters:
 			path: src/Components/ExpressionArray.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/FunctionCall.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/FunctionCall.php
@@ -586,11 +581,6 @@ parameters:
 			path: src/Parser.php
 
 		-
-			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
-			count: 1
-			path: src/Statement.php
-
-		-
 			message: "#^Offset 'class' does not exist on array\\{class\\?\\: class\\-string\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>, field\\?\\: non\\-empty\\-string, options\\?\\: array\\<string, string\\>\\}\\.$#"
 			count: 1
 			path: src/Statement.php
@@ -816,18 +806,8 @@ parameters:
 			path: src/Statements/ReplaceStatement.php
 
 		-
-			message: "#^PHPDoc type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\>\\|null of property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SetStatement\\:\\:\\$options is not covariant with PHPDoc type PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null of overridden property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$options\\.$#"
-			count: 1
-			path: src/Statements/SetStatement.php
-
-		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
-			count: 1
-			path: src/Statements/SetStatement.php
-
-		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\>\\|null given\\.$#"
-			count: 1
+			count: 2
 			path: src/Statements/SetStatement.php
 
 		-
