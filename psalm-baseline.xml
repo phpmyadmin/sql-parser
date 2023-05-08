@@ -1004,18 +1004,21 @@
     </PossiblyNullIterator>
   </file>
   <file src="src/Statements/ExplainStatement.php">
-    <MixedAssignment occurrences="2">
+    <MixedAssignment occurrences="4">
       <code>$this-&gt;connectionId</code>
+      <code>$this-&gt;explainedColumn</code>
+      <code>$this-&gt;explainedDatabase</code>
       <code>$this-&gt;explainedTable</code>
     </MixedAssignment>
-    <PossiblyNullArgument occurrences="2">
-      <code>$this-&gt;options</code>
-      <code>$this-&gt;options-&gt;options</code>
-    </PossiblyNullArgument>
-    <PossiblyNullPropertyFetch occurrences="3">
+    <PossiblyInvalidOperand occurrences="4">
+      <code>Context::escape($this-&gt;explainedColumn)</code>
+      <code>Context::escape($this-&gt;explainedDatabase)</code>
+      <code>Context::escape($this-&gt;explainedTable)</code>
+      <code>Context::escape($this-&gt;explainedTable)</code>
+    </PossiblyInvalidOperand>
+    <PossiblyNullPropertyFetch occurrences="2">
       <code>$nextToken-&gt;keyword</code>
       <code>$nextToken-&gt;value</code>
-      <code>$this-&gt;options-&gt;options</code>
     </PossiblyNullPropertyFetch>
     <PropertyNotSetInConstructor occurrences="1">
       <code>$statementAlias</code>
