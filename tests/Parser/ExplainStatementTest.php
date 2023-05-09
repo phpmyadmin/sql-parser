@@ -31,11 +31,11 @@ class ExplainStatementTest extends TestCase
             ['parser/parseExplain6'],
             ['parser/parseExplain7'],
             ['parser/parseExplain8'],
+            ['parser/parseExplain9'],
             ['parser/parseExplainErr'],
             ['parser/parseExplainErr1'],
             ['parser/parseExplainErr2'],
             ['parser/parseExplainErr3'],
-            ['parser/parseExplainErr4'],
         ];
     }
 }
