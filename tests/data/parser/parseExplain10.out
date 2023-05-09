@@ -214,7 +214,123 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-                "bodyParser": null,
+                "bodyParser": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                    "list": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+                        "tokens": [
+                            {
+                                "@type": "@4"
+                            },
+                            {
+                                "@type": "@5"
+                            },
+                            {
+                                "@type": "@6"
+                            },
+                            {
+                                "@type": "@7"
+                            },
+                            {
+                                "@type": "@8"
+                            },
+                            {
+                                "@type": "@9"
+                            },
+                            {
+                                "@type": "@10"
+                            },
+                            {
+                                "@type": "@11"
+                            },
+                            {
+                                "@type": "@12"
+                            },
+                            {
+                                "@type": "@13"
+                            },
+                            {
+                                "@type": "@14"
+                            },
+                            {
+                                "@type": "@15"
+                            },
+                            {
+                                "@type": "@16"
+                            },
+                            {
+                                "@type": "@17"
+                            },
+                            {
+                                "@type": "@18"
+                            },
+                            {
+                                "@type": "@19"
+                            },
+                            {
+                                "@type": "@20"
+                            },
+                            {
+                                "@type": "@21"
+                            },
+                            {
+                                "@type": "@22"
+                            }
+                        ],
+                        "count": 19,
+                        "idx": 19
+                    },
+                    "statements": [
+                        {
+                            "@type": "PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement",
+                            "into": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
+                                "type": null,
+                                "dest": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": "test",
+                                    "column": null,
+                                    "expr": "test",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
+                                "columns": null,
+                                "values": null,
+                                "fields_options": null,
+                                "fields_keyword": null,
+                                "lines_options": null
+                            },
+                            "values": [
+                                {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
+                                    "raw": [
+                                        "1",
+                                        "'Old'",
+                                        "'2014-08-20 18:47:00'"
+                                    ],
+                                    "values": [
+                                        "1",
+                                        "Old",
+                                        "2014-08-20 18:47:00"
+                                    ]
+                                }
+                            ],
+                            "set": null,
+                            "select": null,
+                            "options": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                "options": []
+                            },
+                            "first": 0,
+                            "last": 16
+                        }
+                    ],
+                    "brackets": 0,
+                    "strict": false,
+                    "errors": []
+                },
                 "statementAlias": "DESC",
                 "connectionId": null,
                 "explainedTable": null,
@@ -223,7 +339,7 @@
                     "options": []
                 },
                 "first": 0,
-                "last": 2
+                "last": 20
             }
         ],
         "brackets": 0,
@@ -232,21 +348,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@4"
-                },
-                0
-            ],
-            [
-                "Unrecognized statement type.",
-                {
-                    "@type": "@6"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

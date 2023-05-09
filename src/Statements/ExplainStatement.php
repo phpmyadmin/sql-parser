@@ -154,7 +154,9 @@ class ExplainStatement extends Statement
 
                 if (
                     $token->keyword !== 'SELECT'
+                    && $token->keyword !== 'TABLE'
                     && $token->keyword !== 'INSERT'
+                    && $token->keyword !== 'REPLACE'
                     && $token->keyword !== 'UPDATE'
                     && $token->keyword !== 'DELETE'
                 ) {

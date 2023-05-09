@@ -160,7 +160,70 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-                "bodyParser": null,
+                "bodyParser": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                    "list": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+                        "tokens": [
+                            {
+                                "@type": "@4"
+                            },
+                            {
+                                "@type": "@5"
+                            },
+                            {
+                                "@type": "@6"
+                            },
+                            {
+                                "@type": "@7"
+                            },
+                            {
+                                "@type": "@8"
+                            },
+                            {
+                                "@type": "@9"
+                            },
+                            {
+                                "@type": "@10"
+                            },
+                            {
+                                "@type": "@11"
+                            },
+                            {
+                                "@type": "@12"
+                            },
+                            {
+                                "@type": "@13"
+                            },
+                            {
+                                "@type": "@14"
+                            },
+                            {
+                                "@type": "@15"
+                            },
+                            {
+                                "@type": "@16"
+                            }
+                        ],
+                        "count": 13,
+                        "idx": 13
+                    },
+                    "statements": [],
+                    "brackets": 0,
+                    "strict": false,
+                    "errors": [
+                        {
+                            "@type": "PhpMyAdmin\\SqlParser\\Exceptions\\ParserException",
+                            "token": {
+                                "@type": "@4"
+                            },
+                            "message": "Unrecognized statement type.",
+                            "code": 0,
+                            "file": "<project-root>/src/Parser.php",
+                            "line": 627
+                        }
+                    ]
+                },
                 "statementAlias": "DESC",
                 "connectionId": null,
                 "explainedTable": null,
@@ -180,7 +243,7 @@
         "lexer": [],
         "parser": [
             [
-                "Unexpected token.",
+                "Unrecognized statement type.",
                 {
                     "@type": "@4"
                 },
