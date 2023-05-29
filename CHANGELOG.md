@@ -20,6 +20,7 @@
 - Fix `CALL` statements parsing (#372)
 - Implement support for `LEFT JOIN`, `JOIN`, `INNER JOIN` on `UpdateStatement` (#260)
 - Implement support for `TABLE` and `REPLACE` statements on `DESCRIBE` statements
+- Fix `DESCRIBE` to allow a schema.table syntax (#445)
 
 ## [5.7.0] - 2023-01-25
 
