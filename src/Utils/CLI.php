@@ -297,10 +297,7 @@ class CLI
         return 1;
     }
 
-    /**
-     * @return string|false
-     */
-    public function readStdin()
+    public function readStdin(): string|false|null
     {
         $read = [STDIN];
         $write = [];

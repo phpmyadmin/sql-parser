@@ -52,14 +52,14 @@ class Tokens
     }
 
     /**
-     * @param TokensList|string|UtfString $list
-     * @param Token[]                     $find
-     * @param Token[]                     $replace
-     *
-     * @return TokensList
+     * @param Token[] $find
+     * @param Token[] $replace
      */
-    public static function replaceTokens($list, array $find, array $replace)
-    {
+    public static function replaceTokens(
+        TokensList|string|UtfString $list,
+        array $find,
+        array $replace
+    ): TokensList|string {
         /**
          * Whether the first parameter is a list.
          */
