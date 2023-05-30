@@ -190,7 +190,7 @@ class TokensList implements ArrayAccess
      * @param int|null $offset the offset to be set
      * @param Token    $value  the token to be saved
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         if ($offset === null) {
             $this->tokens[$this->count++] = $value;
@@ -204,7 +204,7 @@ class TokensList implements ArrayAccess
      *
      * @param int $offset the offset to be returned
      */
-    public function offsetGet($offset): Token|null
+    public function offsetGet(mixed $offset): Token|null
     {
         return $offset < $this->count ? $this->tokens[$offset] : null;
     }
@@ -214,7 +214,7 @@ class TokensList implements ArrayAccess
      *
      * @param int $offset the offset to be checked
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return $offset < $this->count;
     }
@@ -224,7 +224,7 @@ class TokensList implements ArrayAccess
      *
      * @param int $offset the offset to be unset
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         unset($this->tokens[$offset]);
         --$this->count;
