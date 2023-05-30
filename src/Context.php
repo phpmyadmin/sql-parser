@@ -357,7 +357,7 @@ abstract class Context
      *
      * @param bool $isReserved checks if the keyword is reserved
      */
-    public static function isKeyword(string $string, bool $isReserved = false): ?int
+    public static function isKeyword(string $string, bool $isReserved = false): int|null
     {
         $upperString = strtoupper($string);
 
@@ -374,7 +374,7 @@ abstract class Context
     /**
      * Checks if the given string is an operator and returns the appropriate flag for the operator.
      */
-    public static function isOperator(string $string): ?int
+    public static function isOperator(string $string): int|null
     {
         return static::$operators[$string] ?? null;
     }
@@ -392,7 +392,7 @@ abstract class Context
      *
      * @return int|null the appropriate flag for the comment type
      */
-    public static function isComment(string $string, bool $end = false): ?int
+    public static function isComment(string $string, bool $end = false): int|null
     {
         if ($string === '') {
             return null;
@@ -455,7 +455,7 @@ abstract class Context
      *
      * @return int|null the appropriate flag for the symbol type
      */
-    public static function isSymbol(string $string): ?int
+    public static function isSymbol(string $string): int|null
     {
         if ($string === '') {
             return null;
@@ -483,7 +483,7 @@ abstract class Context
      *
      * @return int|null the appropriate flag for the string type
      */
-    public static function isString(string $string): ?int
+    public static function isString(string $string): int|null
     {
         if ($string === '') {
             return null;
@@ -559,7 +559,7 @@ abstract class Context
      *
      * @return string|null The loaded context. `null` if no context was loaded.
      */
-    public static function loadClosest(string $context = ''): ?string
+    public static function loadClosest(string $context = ''): string|null
     {
         $length = strlen($context);
         for ($i = $length; $i > 0;) {
@@ -776,7 +776,7 @@ abstract class Context
      *
      * @return bool false on empty param, true/false on given constant/int value
      */
-    public static function hasMode(?int $flag = null): bool
+    public static function hasMode(int|null $flag = null): bool
     {
         if (empty($flag)) {
             return false;

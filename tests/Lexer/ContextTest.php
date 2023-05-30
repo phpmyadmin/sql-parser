@@ -30,7 +30,7 @@ class ContextTest extends TestCase
      *
      * @dataProvider contextLoadingProvider
      */
-    public function testLoadClosest(string $context, ?string $expected): void
+    public function testLoadClosest(string $context, string|null $expected): void
     {
         $this->assertEquals($expected, Context::loadClosest($context));
         if ($expected !== null) {

@@ -86,7 +86,7 @@ class UtfStringTest extends TestCase
      *
      * @dataProvider utf8StringsProvider
      */
-    public function testAccess(string $text, ?string $pos10, ?string $pos20): void
+    public function testAccess(string $text, string|null $pos10, string|null $pos20): void
     {
         $str = new UtfString($text);
         $this->assertEquals($pos10, $str->offsetGet(10));

@@ -629,7 +629,7 @@ class Parser extends Core
      *
      * @throws ParserException throws the exception, if strict mode is enabled.
      */
-    public function error($msg, ?Token $token = null, $code = 0)
+    public function error($msg, Token|null $token = null, $code = 0)
     {
         $error = new ParserException(
             Translator::gettext($msg),
