@@ -366,4 +366,85 @@ class SelectStatement extends Statement
 
         return static::$clauses;
     }
+
+    /**
+     * Gets a list of all aliases and their original names.
+     *
+     * @param string $database the name of the database
+     *
+     * @return array<string, array<string, array<string, array<string, array<string, string>|string|null>>|null>>
+     */
+    public function getAliases(string $database): array
+    {
+        if (empty($this->expr) || empty($this->from)) {
+            return [];
+        }
+
+        $retval = [];
+
+        $tables = [];
+
+        /**
+         * Expressions that may contain aliases.
+         * These are extracted from `FROM` and `JOIN` keywords.
+         */
+        $expressions = $this->from;
+
+        // Adding expressions from JOIN.
+        if (! empty($this->join)) {
+            foreach ($this->join as $join) {
+                $expressions[] = $join->expr;
+            }
+        }
+
+        foreach ($expressions as $expr) {
+            if (! isset($expr->table) || ($expr->table === '')) {
+                continue;
+            }
+
+            $thisDb = isset($expr->database) && ($expr->database !== '') ?
+                $expr->database : $database;
+
+            if (! isset($retval[$thisDb])) {
+                $retval[$thisDb] = [
+                    'alias' => null,
+                    'tables' => [],
+                ];
+            }
+
+            if (! isset($retval[$thisDb]['tables'][$expr->table])) {
+                $retval[$thisDb]['tables'][$expr->table] = [
+                    'alias' => isset($expr->alias) && ($expr->alias !== '') ?
+                        $expr->alias : null,
+                    'columns' => [],
+                ];
+            }
+
+            if (! isset($tables[$thisDb])) {
+                $tables[$thisDb] = [];
+            }
+
+            $tables[$thisDb][$expr->alias] = $expr->table;
+        }
+
+        foreach ($this->expr as $expr) {
+            if (! isset($expr->column, $expr->alias) || ($expr->column === '') || ($expr->alias === '')) {
+                continue;
+            }
+
+            $thisDb = isset($expr->database) && ($expr->database !== '') ?
+                $expr->database : $database;
+
+            if (isset($expr->table) && ($expr->table !== '')) {
+                $thisTable = $tables[$thisDb][$expr->table] ?? $expr->table;
+                $retval[$thisDb]['tables'][$thisTable]['columns'][$expr->column] = $expr->alias;
+            } else {
+                foreach ($retval[$thisDb]['tables'] as &$table) {
+                    $table['columns'][$expr->column] = $expr->alias;
+                }
+            }
+        }
+
+        return $retval;
+    }
 }
