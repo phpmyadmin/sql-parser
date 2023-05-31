@@ -191,9 +191,6 @@
     <InvalidArgument>
       <code><![CDATA[$options['breakOnParentheses']]]></code>
     </InvalidArgument>
-    <InvalidAttribute>
-      <code>\AllowDynamicProperties</code>
-    </InvalidAttribute>
     <MixedArrayOffset>
       <code><![CDATA[Parser::$statementParsers[$token->keyword]]]></code>
       <code><![CDATA[self::$allowedKeywords[$token->keyword]]]></code>
@@ -236,6 +233,9 @@
     <TypeDoesNotContainType>
       <code><![CDATA[empty($options['field'])]]></code>
     </TypeDoesNotContainType>
+    <UndefinedAttributeClass>
+      <code>\AllowDynamicProperties</code>
+    </UndefinedAttributeClass>
   </file>
   <file src="src/Components/ExpressionArray.php">
     <InvalidArgument>
@@ -4914,9 +4914,6 @@
       <code>$built[$field]</code>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
     </InvalidArgument>
-    <InvalidAttribute>
-      <code>\AllowDynamicProperties</code>
-    </InvalidAttribute>
     <MethodSignatureMustProvideReturnType>
       <code>__toString</code>
     </MethodSignatureMustProvideReturnType>
@@ -4952,6 +4949,9 @@
     <TypeDoesNotContainType>
       <code>count($clauses) === 0</code>
     </TypeDoesNotContainType>
+    <UndefinedAttributeClass>
+      <code>\AllowDynamicProperties</code>
+    </UndefinedAttributeClass>
     <UnusedForeachValue>
       <code>$index</code>
     </UnusedForeachValue>
