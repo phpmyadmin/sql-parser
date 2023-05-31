@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Misc;
 
 class MiscTest extends TestCase
 {
     /**
-     * @param mixed[] $expected
      * @psalm-param array<string, array{
      *   alias: (string|null),
      *   tables: array<string, array{alias: (string|null), columns: array<string, string>}>
@@ -19,17 +19,15 @@ class MiscTest extends TestCase
      *
      * @dataProvider getAliasesProvider
      */
-    public function testGetAliases(string $query, string|null $db, array $expected): void
+    public function testGetAliases(string $query, string $db, array $expected): void
     {
         $parser = new Parser($query);
-        $statement = empty($parser->statements[0]) ?
-            null : $parser->statements[0];
-        $this->assertEquals($expected, Misc::getAliases($statement, $db));
+        $this->assertInstanceOf(SelectStatement::class, $parser->statements[0]);
+        $this->assertEquals($expected, Misc::getAliases($parser->statements[0], $db));
     }
 
     /**
-     * @return array<int, array<int, string|mixed[]|null>>
-     * @psalm-return list<array{string, (string|null), array<string, array{
+     * @psalm-return list<array{string, string, array<string, array{
      *   alias: (string|null),
      *   tables: array<string, array{alias: (string|null), columns: array<string, string>}>
      * }>}>
@@ -108,13 +106,8 @@ class MiscTest extends TestCase
                 [],
             ],
             [
-                '',
-                null,
-                [],
-            ],
-            [
                 'SELECT 1',
-                null,
+                '',
                 [],
             ],
             [

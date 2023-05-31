@@ -1186,16 +1186,6 @@ parameters:
 			path: tests/Parser/WithStatementTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement, PhpMyAdmin\\\\SqlParser\\\\Statement\\|null given\\.$#"
-			count: 1
-			path: tests/Utils/MiscTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$database of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Misc\\:\\:getAliases\\(\\) expects string, string\\|null given\\.$#"
-			count: 1
-			path: tests/Utils/MiscTest.php
-
-		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
 			count: 9
 			path: tests/Utils/QueryTest.php

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 
 /**
@@ -20,9 +19,9 @@ class Misc
      *
      * @return array<string, array<string, array<string, array<string, array<string, string>|string|null>>|null>>
      */
-    public static function getAliases($statement, $database)
+    public static function getAliases(SelectStatement $statement, string $database): array
     {
-        if (! ($statement instanceof SelectStatement) || empty($statement->expr) || empty($statement->from)) {
+        if (empty($statement->expr) || empty($statement->from)) {
             return [];
         }
 
@@ -33,8 +32,6 @@ class Misc
         /**
          * Expressions that may contain aliases.
          * These are extracted from `FROM` and `JOIN` keywords.
-         *
-         * @var Expression[]
          */
         $expressions = $statement->from;
 
