@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.11.0@c9b192ab8400fdaf04b2b13d110575adc879aa90">
+<files psalm-version="5.12.0@f90118cdeacd0088e7215e64c0c99ceca819e176">
   <file src="src/Components/AlterOperation.php">
     <ArgumentTypeCoercion>
       <code><![CDATA[$component->partitions]]></code>
@@ -191,9 +191,6 @@
     <InvalidArgument>
       <code><![CDATA[$options['breakOnParentheses']]]></code>
     </InvalidArgument>
-    <InvalidAttribute>
-      <code>\AllowDynamicProperties</code>
-    </InvalidAttribute>
     <MixedArrayOffset>
       <code><![CDATA[Parser::$statementParsers[$token->keyword]]]></code>
       <code><![CDATA[self::$allowedKeywords[$token->keyword]]]></code>
@@ -236,6 +233,9 @@
     <TypeDoesNotContainType>
       <code><![CDATA[empty($options['field'])]]></code>
     </TypeDoesNotContainType>
+    <UndefinedAttributeClass>
+      <code>\AllowDynamicProperties</code>
+    </UndefinedAttributeClass>
   </file>
   <file src="src/Components/ExpressionArray.php">
     <InvalidArgument>
@@ -4905,6 +4905,9 @@
       <code>getNextOfType</code>
       <code>getNextOfType</code>
     </PossiblyNullReference>
+    <UnsupportedPropertyReferenceUsage>
+      <code><![CDATA[$list = &$this->list]]></code>
+    </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="src/Statement.php">
     <DocblockTypeContradiction>
@@ -4914,9 +4917,6 @@
       <code>$built[$field]</code>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
     </InvalidArgument>
-    <InvalidAttribute>
-      <code>\AllowDynamicProperties</code>
-    </InvalidAttribute>
     <MethodSignatureMustProvideReturnType>
       <code>__toString</code>
     </MethodSignatureMustProvideReturnType>
@@ -4952,6 +4952,9 @@
     <TypeDoesNotContainType>
       <code>count($clauses) === 0</code>
     </TypeDoesNotContainType>
+    <UndefinedAttributeClass>
+      <code>\AllowDynamicProperties</code>
+    </UndefinedAttributeClass>
     <UnusedForeachValue>
       <code>$index</code>
     </UnusedForeachValue>
