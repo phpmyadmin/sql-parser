@@ -66,10 +66,6 @@ final class CaseExpression implements Component
      */
     public $expr = '';
 
-    public function __construct()
-    {
-    }
-
     /**
      * @param Parser               $parser  the parser that serves as context
      * @param TokensList           $list    the list of tokens that are being parsed
