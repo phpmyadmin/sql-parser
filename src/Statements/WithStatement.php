@@ -294,10 +294,8 @@ final class WithStatement extends Statement
 
     /**
      * Get tokens within the WITH expression to use them in another parser
-     *
-     * @return ParserException|TokensList
      */
-    private function getSubTokenList(TokensList $list)
+    private function getSubTokenList(TokensList $list): ParserException|TokensList
     {
         $idx = $list->idx;
         $token = $list->tokens[$list->idx];

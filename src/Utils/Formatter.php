@@ -133,7 +133,7 @@ class Formatter
      *   indent_parts: true
      * }
      */
-    protected function getDefaultOptions()
+    protected function getDefaultOptions(): array
     {
         return [
             /*
@@ -196,7 +196,7 @@ class Formatter
      * @return array<int, array<string, int|string>>
      * @psalm-return list<array{type: int, flags: int, html: string, cli: string, function: string}>
      */
-    protected function getDefaultFormats()
+    protected function getDefaultFormats(): array
     {
         return [
             [

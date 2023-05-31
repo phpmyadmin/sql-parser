@@ -42,10 +42,7 @@ class PurgeStatement extends Statement
      */
     public $endExpr;
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $ret = 'PURGE ' . $this->logType . ' LOGS '
             . ($this->endOption !== null ? ($this->endOption . ' ' . $this->endExpr) : '');

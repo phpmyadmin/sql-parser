@@ -93,7 +93,7 @@ final class JoinKeyword implements Component
      *
      * @return JoinKeyword[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): array
     {
         $ret = [];
 

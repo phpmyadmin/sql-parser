@@ -553,10 +553,8 @@ final class AlterOperation implements Component
      * between column and table alteration
      *
      * @param string $tokenValue Value of current token
-     *
-     * @return bool
      */
-    private static function checkIfColumnDefinitionKeyword($tokenValue)
+    private static function checkIfColumnDefinitionKeyword($tokenValue): bool
     {
         $commonOptions = [
             'AUTO_INCREMENT',
@@ -579,10 +577,8 @@ final class AlterOperation implements Component
      * Check if token is symbol and quoted with backtick
      *
      * @param Token $token token to check
-     *
-     * @return bool
      */
-    private static function checkIfTokenQuotedSymbol($token)
+    private static function checkIfTokenQuotedSymbol($token): bool
     {
         return $token->type === Token::TYPE_SYMBOL && $token->flags === Token::FLAG_SYMBOL_BACKTICK;
     }

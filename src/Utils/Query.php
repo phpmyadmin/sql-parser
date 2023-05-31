@@ -611,10 +611,8 @@ class Query
      *                              If string, the name of the first clause that
      *                              should not be included.
      * @param bool       $skipFirst whether to skip the first keyword in clause
-     *
-     * @return string
      */
-    public static function getClause($statement, $list, $clause, $type = 0, $skipFirst = true)
+    public static function getClause($statement, $list, $clause, $type = 0, $skipFirst = true): string
     {
         /**
          * The index of the current clause.
@@ -823,7 +821,7 @@ class Query
      *                                 the remaining part of the query and the last delimiter
      * @psalm-return array{string|null, string, string|null}
      */
-    public static function getFirstStatement($query, $delimiter = null)
+    public static function getFirstStatement($query, $delimiter = null): array
     {
         $lexer = new Lexer($query, false, $delimiter);
         $list = $lexer->list;

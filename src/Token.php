@@ -321,10 +321,8 @@ class Token
 
     /**
      * Converts the token into an inline token by replacing tabs and new lines.
-     *
-     * @return string
      */
-    public function getInlineToken()
+    public function getInlineToken(): string
     {
         return str_replace(
             [

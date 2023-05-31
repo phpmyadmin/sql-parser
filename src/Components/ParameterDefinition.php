@@ -59,7 +59,7 @@ final class ParameterDefinition implements Component
      *
      * @return ParameterDefinition[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): array
     {
         $ret = [];
 

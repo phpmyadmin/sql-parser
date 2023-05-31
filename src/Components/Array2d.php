@@ -25,7 +25,7 @@ final class Array2d implements Component
      *
      * @return ArrayObj[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): array
     {
         $ret = [];
 

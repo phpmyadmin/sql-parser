@@ -62,7 +62,7 @@ class CLI
      *
      * @return string[]|false[]|false
      */
-    public function getopt($opt, $long)
+    public function getopt($opt, $long): array|false
     {
         return getopt($opt, $long);
     }

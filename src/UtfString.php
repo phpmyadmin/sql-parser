@@ -201,11 +201,9 @@ class UtfString implements ArrayAccess, Stringable
      * Checks if the given offset exists.
      *
      * @param int $offset the offset to be checked
-     *
-     * @return bool
      */
     #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return ($offset >= 0) && ($offset < $this->charLen);
     }
