@@ -102,6 +102,7 @@ class SelectStatementTest extends TestCase
             ['parser/parseSelectGroupBy'],
             ['parser/parseSelectGroupByErr'],
             ['parser/parseSelectGroupByWithComments'],
+            ['parser/parseTable1'],
         ];
     }
 }

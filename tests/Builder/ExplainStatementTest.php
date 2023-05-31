@@ -52,7 +52,7 @@ class ExplainStatementTest extends TestCase
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
         $this->assertEquals(
-            'DESCRIBE tablename',
+            'DESCRIBE `tablename`',
             $stmt->build()
         );
 
@@ -65,12 +65,39 @@ class ExplainStatementTest extends TestCase
             $stmt->build()
         );
 
-        /* Assertion 6 */
+        /* Assertion 7 */
         $query = 'EXPLAIN FORMAT=TREE SELECT * FROM db;';
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'EXPLAIN FORMAT=TREE SELECT * FROM db',
+            $stmt->build()
+        );
+
+        /* Assertion 8 */
+        $query = 'DESCRIBE tablename colname;';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'DESCRIBE `tablename` `colname`',
+            $stmt->build()
+        );
+
+        /* Assertion 9 */
+        $query = 'DESCRIBE tablename \'col%me\';';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'DESCRIBE `tablename` `col%me`',
+            $stmt->build()
+        );
+
+        /* Assertion 9 */
+        $query = 'DESCRIBE db.tablename \'col%me\';';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'DESCRIBE `db`.`tablename` `col%me`',
             $stmt->build()
         );
     }

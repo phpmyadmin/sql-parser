@@ -398,7 +398,13 @@ PHP;
 
         foreach ($files as $file) {
             // Skipping current and parent directories.
+            // Skipping _functions* and _common.txt files
             if (($file[0] === '.') || ($file[0] === '_')) {
+                continue;
+            }
+
+            // Skipping README.md
+            if ($file === 'README.md') {
                 continue;
             }
 
