@@ -19,7 +19,7 @@ class MiscTest extends TestCase
      *
      * @dataProvider getAliasesProvider
      */
-    public function testGetAliases(string $query, ?string $db, array $expected): void
+    public function testGetAliases(string $query, string|null $db, array $expected): void
     {
         $parser = new Parser($query);
         $statement = empty($parser->statements[0]) ?

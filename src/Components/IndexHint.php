@@ -52,9 +52,9 @@ final class IndexHint implements Component
      * @param Expression[] $indexes    List of indexes in this hint
      */
     public function __construct(
-        ?string $type = null,
-        ?string $indexOrKey = null,
-        ?string $for = null,
+        string|null $type = null,
+        string|null $indexOrKey = null,
+        string|null $for = null,
         array $indexes = []
     ) {
         $this->type = $type;
