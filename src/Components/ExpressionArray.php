@@ -12,7 +12,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 use function count;
 use function implode;
-use function is_array;
 use function preg_match;
 use function strlen;
 use function substr;
@@ -105,15 +104,12 @@ final class ExpressionArray implements Component
         }
 
         --$list->idx;
-
-        if (is_array($ret)) {
-            $retIndex = count($ret) - 1;
-            if (isset($ret[$retIndex])) {
-                $expr = $ret[$retIndex]->expr;
-                if (preg_match('/\s*--\s.*$/', $expr, $matches)) {
-                    $found = $matches[0];
-                    $ret[$retIndex]->expr = substr($expr, 0, strlen($expr) - strlen($found));
-                }
+        $retIndex = count($ret) - 1;
+        if (isset($ret[$retIndex])) {
+            $expr = $ret[$retIndex]->expr;
+            if (preg_match('/\s*--\s.*$/', $expr, $matches)) {
+                $found = $matches[0];
+                $ret[$retIndex]->expr = substr($expr, 0, strlen($expr) - strlen($found));
             }
         }
 
