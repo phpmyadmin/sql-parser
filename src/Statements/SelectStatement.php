@@ -236,14 +236,14 @@ class SelectStatement extends Statement
      *
      * @var Expression[]
      */
-    public $expr = [];
+    public array $expr = [];
 
     /**
      * Tables used as sources for this statement.
      *
      * @var Expression[]
      */
-    public $from = [];
+    public array $from = [];
 
     /**
      * Index hints
@@ -327,7 +327,7 @@ class SelectStatement extends Statement
      *
      * @var SelectStatement[]
      */
-    public $union = [];
+    public array $union = [];
 
     /**
      * The end options of this query.
@@ -349,7 +349,7 @@ class SelectStatement extends Statement
         // This is a cheap fix for `SELECT` statements that contain `UNION`.
         // The `ORDER BY` and `LIMIT` clauses should be at the end of the
         // statement.
-        if (! empty($this->union)) {
+        if ($this->union !== []) {
             $clauses = static::$clauses;
             unset($clauses['ORDER BY'], $clauses['LIMIT']);
             $clauses['ORDER BY'] = [
@@ -376,7 +376,7 @@ class SelectStatement extends Statement
      */
     public function getAliases(string $database): array
     {
-        if (empty($this->expr) || empty($this->from)) {
+        if ($this->expr === [] || $this->from === []) {
             return [];
         }
 

@@ -24,14 +24,14 @@ final class ArrayObj implements Component
      *
      * @var string[]
      */
-    public $raw = [];
+    public array $raw = [];
 
     /**
      * The array that contains the processed value of each token.
      *
      * @var string[]
      */
-    public $values = [];
+    public array $values = [];
 
     /**
      * @param string[] $raw    the unprocessed values
@@ -168,7 +168,7 @@ final class ArrayObj implements Component
             return implode(', ', $component);
         }
 
-        if (! empty($component->raw)) {
+        if ($component->raw !== []) {
             return '(' . implode(', ', $component->raw) . ')';
         }
 

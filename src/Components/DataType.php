@@ -63,7 +63,7 @@ final class DataType implements Component
      *
      * @var int[]|string[]
      */
-    public $parameters = [];
+    public array $parameters = [];
 
     /**
      * The options of this data type.
@@ -162,7 +162,7 @@ final class DataType implements Component
             $component->name : strtolower($component->name);
 
         $parameters = '';
-        if (! empty($component->parameters)) {
+        if ($component->parameters !== []) {
             $parameters = '(' . implode(',', $component->parameters) . ')';
         }
 
