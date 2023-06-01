@@ -806,17 +806,12 @@ parameters:
 			path: src/Statements/RenameStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\> given\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$value of function count expects array\\|Countable, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d given\\.$#"
-			count: 1
-			path: src/Statements/ReplaceStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$values \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$values \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
