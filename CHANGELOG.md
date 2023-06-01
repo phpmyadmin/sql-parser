@@ -3,6 +3,7 @@
 ## [6.0.x] - YYYY-MM-DD
 
 * Drop support for PHP 7.2, 7.3, 7.4 and 8.0
+* Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
 
 ## [5.x.x] - YYYY-MM-DD
 
