@@ -191,7 +191,9 @@ class BufferedQuery
 
                 $this->current .= $this->query[$i];
                 continue;
-            } elseif ($this->status === self::STATUS_STRING_DOUBLE_QUOTES) {
+            }
+
+            if ($this->status === self::STATUS_STRING_DOUBLE_QUOTES) {
                 // Double-quoted strings like "bar".
                 if ($this->query[$i] === '"') {
                     $this->status = 0;
@@ -199,14 +201,18 @@ class BufferedQuery
 
                 $this->current .= $this->query[$i];
                 continue;
-            } elseif ($this->status === self::STATUS_STRING_BACKTICK) {
+            }
+
+            if ($this->status === self::STATUS_STRING_BACKTICK) {
                 if ($this->query[$i] === '`') {
                     $this->status = 0;
                 }
 
                 $this->current .= $this->query[$i];
                 continue;
-            } elseif (($this->status === self::STATUS_COMMENT_BASH) || ($this->status === self::STATUS_COMMENT_SQL)) {
+            }
+
+            if (($this->status === self::STATUS_COMMENT_BASH) || ($this->status === self::STATUS_COMMENT_SQL)) {
                 // Bash-like (#) or SQL-like (-- ) comments end in new line.
                 if ($this->query[$i] === "\n") {
                     $this->status = 0;
@@ -214,7 +220,9 @@ class BufferedQuery
 
                 $this->current .= $this->query[$i];
                 continue;
-            } elseif ($this->status === self::STATUS_COMMENT_C) {
+            }
+
+            if ($this->status === self::STATUS_COMMENT_C) {
                 // C-like comments end in */.
                 if (($this->query[$i - 1] === '*') && ($this->query[$i] === '/')) {
                     $this->status = 0;
