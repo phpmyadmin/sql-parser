@@ -287,12 +287,12 @@ class Query
      * @return array<string, bool|string>
      * @psalm-return QueryFlagsType
      */
-    private static function getFlagsSelect($statement, $flags)
+    private static function getFlagsSelect(SelectStatement $statement, $flags)
     {
         $flags['querytype'] = 'SELECT';
         $flags['is_select'] = true;
 
-        if (! empty($statement->from)) {
+        if ($statement->from !== []) {
             $flags['select_from'] = true;
         }
 
@@ -343,7 +343,7 @@ class Query
             $flags['having'] = true;
         }
 
-        if (! empty($statement->union)) {
+        if ($statement->union !== []) {
             $flags['union'] = true;
         }
 
