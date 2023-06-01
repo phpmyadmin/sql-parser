@@ -5177,6 +5177,9 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Statements/SelectStatement.php">
+    <PossiblyNullArrayOffset>
+      <code>$tables[$thisDb]</code>
+    </PossiblyNullArrayOffset>
     <PossiblyUnusedProperty>
       <code>$endOptions</code>
       <code>$groupOptions</code>
@@ -5418,14 +5421,6 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$curr->type === Token::TYPE_KEYWORD]]></code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Utils/Misc.php">
-    <DocblockTypeContradiction>
-      <code>! ($statement instanceof SelectStatement)</code>
-    </DocblockTypeContradiction>
-    <PossiblyNullArrayOffset>
-      <code>$tables[$thisDb]</code>
-    </PossiblyNullArrayOffset>
   </file>
   <file src="src/Utils/Query.php">
     <InvalidNullableReturnType>
@@ -5734,15 +5729,6 @@
     <UnusedMethodCall>
       <code>setAccessible</code>
     </UnusedMethodCall>
-  </file>
-  <file src="tests/Utils/MiscTest.php">
-    <ArgumentTypeCoercion>
-      <code>$statement</code>
-    </ArgumentTypeCoercion>
-    <PossiblyNullArgument>
-      <code>$db</code>
-      <code>$statement</code>
-    </PossiblyNullArgument>
   </file>
   <file src="tests/Utils/QueryTest.php">
     <PossiblyNullArgument>
