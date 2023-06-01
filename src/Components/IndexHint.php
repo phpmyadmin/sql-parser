@@ -19,31 +19,25 @@ final class IndexHint implements Component
 {
     /**
      * The type of hint (USE/FORCE/IGNORE)
-     *
-     * @var string
      */
-    public $type;
+    public string|null $type;
 
     /**
      * What the hint is for (INDEX/KEY)
-     *
-     * @var string
      */
-    public $indexOrKey;
+    public string|null $indexOrKey;
 
     /**
      * The clause for which this hint is (JOIN/ORDER BY/GROUP BY)
-     *
-     * @var string
      */
-    public $for;
+    public string|null $for;
 
     /**
      * List of indexes in this hint
      *
      * @var Expression[]
      */
-    public $indexes = [];
+    public array $indexes = [];
 
     /**
      * @param string       $type       the type of hint (USE/FORCE/IGNORE)
