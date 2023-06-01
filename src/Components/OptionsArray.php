@@ -281,7 +281,7 @@ final class OptionsArray implements Component
                 $options[] = $option;
             } else {
                 $options[] = $option['name']
-                    . (! empty($option['equals']) && $option['equals'] ? '=' : ' ')
+                    . (! empty($option['equals']) ? '=' : ' ')
                     . (! empty($option['expr']) ? $option['expr'] : $option['value']);
             }
         }
