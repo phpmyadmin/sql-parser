@@ -408,10 +408,7 @@ class CreateStatement extends Statement
      */
     public $body = [];
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $fields = '';
         if (! empty($this->fields)) {

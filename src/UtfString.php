@@ -292,10 +292,8 @@ class UtfString implements ArrayAccess, Stringable
      * @see https://tools.ietf.org/html/rfc3629
      *
      * @param string $byte the byte to be analyzed
-     *
-     * @return int
      */
-    public static function getCharLength($byte)
+    public static function getCharLength($byte): int
     {
         // Use the default ASCII map as queries are mostly ASCII chars
         // ord($byte) has a performance cost

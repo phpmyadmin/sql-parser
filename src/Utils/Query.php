@@ -738,10 +738,8 @@ class Query
      *                              it is considered to be equal with `$old`.
      * @param bool       $onlyType  whether only the type of the clause should
      *                              be replaced or the entire clause
-     *
-     * @return string
      */
-    public static function replaceClause($statement, $list, $old, $new = null, $onlyType = false)
+    public static function replaceClause($statement, $list, $old, $new = null, $onlyType = false): string
     {
         // TODO: Update the tokens list and the statement.
 

@@ -46,10 +46,7 @@ class RenameStatement extends Statement
         $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
     }
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         return 'RENAME TABLE ' . RenameOperation::build($this->renames);
     }
