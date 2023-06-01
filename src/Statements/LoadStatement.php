@@ -14,7 +14,6 @@ use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
-use function count;
 use function strlen;
 use function trim;
 
@@ -150,14 +149,14 @@ class LoadStatement extends Statement
      *
      * @var Expression[]|null
      */
-    public $columnNamesOrUserVariables;
+    public array|null $columnNamesOrUserVariables = null;
 
     /**
      * SET clause's updated values(optional).
      *
      * @var SetOperation[]|null
      */
-    public $set;
+    public array|null $set = null;
 
     /**
      * Ignore 'number' LINES/ROWS.
@@ -214,11 +213,11 @@ class LoadStatement extends Statement
             $ret .= ' IGNORE ' . $this->ignoreNumber . ' ' . $this->linesRows;
         }
 
-        if ($this->columnNamesOrUserVariables !== null && count($this->columnNamesOrUserVariables) > 0) {
+        if ($this->columnNamesOrUserVariables !== null && $this->columnNamesOrUserVariables !== []) {
             $ret .= ' ' . ExpressionArray::build($this->columnNamesOrUserVariables);
         }
 
-        if ($this->set !== null && count($this->set) > 0) {
+        if ($this->set !== null && $this->set !== []) {
             $ret .= ' SET ' . SetOperation::build($this->set);
         }
 

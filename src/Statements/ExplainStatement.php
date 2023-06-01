@@ -12,7 +12,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function array_slice;
-use function count;
 
 /**
  * `EXPLAIN` statement.
@@ -201,7 +200,7 @@ class ExplainStatement extends Statement
                 $subList = new TokensList(array_slice($list->tokens, $list->idx));
 
                 $this->bodyParser = new Parser($subList);
-                if (count($this->bodyParser->errors)) {
+                if ($this->bodyParser->errors !== []) {
                     foreach ($this->bodyParser->errors as $error) {
                         $parser->errors[] = $error;
                     }
@@ -252,7 +251,7 @@ class ExplainStatement extends Statement
         $str = $this->statementAlias;
 
         if ($this->options !== null) {
-            if (count($this->options->options)) {
+            if ($this->options->options !== []) {
                 $str .= ' ';
             }
 

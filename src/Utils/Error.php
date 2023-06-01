@@ -75,8 +75,8 @@ class Error
      * @return string[]
      */
     public static function format(
-        $errors,
-        $format = '#%1$d: %2$s (near "%4$s" at position %5$d)'
+        array $errors,
+        string $format = '#%1$d: %2$s (near "%4$s" at position %5$d)'
     ): array {
         $ret = [];
 

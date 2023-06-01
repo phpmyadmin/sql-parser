@@ -17,7 +17,6 @@ use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
-use function count;
 use function stripos;
 use function strlen;
 
@@ -107,28 +106,28 @@ class DeleteStatement extends Statement
      *
      * @var Expression[]|null
      */
-    public $from;
+    public array|null $from = null;
 
     /**
      * Joins.
      *
      * @var JoinKeyword[]|null
      */
-    public $join;
+    public array|null $join = null;
 
     /**
      * Tables used as sources for this statement.
      *
      * @var Expression[]|null
      */
-    public $using;
+    public array|null $using = null;
 
     /**
      * Columns used in this statement.
      *
      * @var Expression[]|null
      */
-    public $columns;
+    public array|null $columns = null;
 
     /**
      * Partitions used as source for this statement.
@@ -142,14 +141,14 @@ class DeleteStatement extends Statement
      *
      * @var Condition[]|null
      */
-    public $where;
+    public array|null $where = null;
 
     /**
      * Specifies the order of the rows in the result set.
      *
      * @var OrderKeyword[]|null
      */
-    public $order;
+    public array|null $order = null;
 
     /**
      * Conditions used for limiting the size of the result set.
@@ -165,27 +164,27 @@ class DeleteStatement extends Statement
     {
         $ret = 'DELETE ' . OptionsArray::build($this->options);
 
-        if ($this->columns !== null && count($this->columns) > 0) {
+        if ($this->columns !== null && $this->columns !== []) {
             $ret .= ' ' . ExpressionArray::build($this->columns);
         }
 
-        if ($this->from !== null && count($this->from) > 0) {
+        if ($this->from !== null && $this->from !== []) {
             $ret .= ' FROM ' . ExpressionArray::build($this->from);
         }
 
-        if ($this->join !== null && count($this->join) > 0) {
+        if ($this->join !== null && $this->join !== []) {
             $ret .= ' ' . JoinKeyword::build($this->join);
         }
 
-        if ($this->using !== null && count($this->using) > 0) {
+        if ($this->using !== null && $this->using !== []) {
             $ret .= ' USING ' . ExpressionArray::build($this->using);
         }
 
-        if ($this->where !== null && count($this->where) > 0) {
+        if ($this->where !== null && $this->where !== []) {
             $ret .= ' WHERE ' . Condition::build($this->where);
         }
 
-        if ($this->order !== null && count($this->order) > 0) {
+        if ($this->order !== null && $this->order !== []) {
             $ret .= ' ORDER BY ' . ExpressionArray::build($this->order);
         }
 
