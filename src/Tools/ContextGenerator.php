@@ -210,10 +210,8 @@ PHP;
      * @param array<int, array<int, array<int, string>>> $words  the list of words to be formatted
      * @param int                                        $spaces the number of spaces that starts every line
      * @param int                                        $line   the length of a line
-     *
-     * @return string
      */
-    public static function printWords($words, $spaces = 8, $line = 140)
+    public static function printWords($words, $spaces = 8, $line = 140): string
     {
         $typesCount = count($words);
         $ret = '';
@@ -266,10 +264,8 @@ PHP;
      *   link: string,
      *   keywords: array<int, array<int, array<int, string>>>
      * } $options
-     *
-     * @return string
      */
-    public static function generate($options)
+    public static function generate($options): string
     {
         if (isset($options['keywords'])) {
             $options['keywords'] = static::printWords($options['keywords']);

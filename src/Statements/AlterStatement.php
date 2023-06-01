@@ -134,10 +134,7 @@ class AlterStatement extends Statement
         }
     }
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $tmp = [];
         foreach ($this->altered as $altered) {

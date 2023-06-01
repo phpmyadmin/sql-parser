@@ -102,10 +102,7 @@ class SetStatement extends Statement
      */
     public $set;
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $ret = 'SET ' . OptionsArray::build($this->options)
             . ' ' . SetOperation::build($this->set)

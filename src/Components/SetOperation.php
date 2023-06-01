@@ -49,7 +49,7 @@ final class SetOperation implements Component
      *
      * @return SetOperation[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): array
     {
         $ret = [];
 

@@ -48,7 +48,7 @@ class TestGenerator
      *
      * @return array<string, string|Lexer|Parser|array<string, array<int, array<int, int|string|Token>>>|null>
      */
-    public static function generate($query, $type = 'parser')
+    public static function generate($query, $type = 'parser'): array
     {
         /**
          * Lexer used for tokenizing the query.

@@ -55,7 +55,7 @@ class CustomJsonSerializer extends JsonSerializer
      *
      * @return array<string,mixed>
      */
-    protected function extractObjectData($value, $ref, $properties)
+    protected function extractObjectData($value, $ref, $properties): array
     {
         $data = [];
         foreach ($properties as $property) {

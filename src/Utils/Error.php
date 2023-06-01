@@ -29,7 +29,7 @@ class Error
      *               `$err[3]` holds the position of the string.
      *               (i.e. `[$msg, $code, $str, $pos]`)
      */
-    public static function get($objs)
+    public static function get($objs): array
     {
         $ret = [];
 
@@ -77,7 +77,7 @@ class Error
     public static function format(
         $errors,
         $format = '#%1$d: %2$s (near "%4$s" at position %5$d)'
-    ) {
+    ): array {
         $ret = [];
 
         $i = 0;

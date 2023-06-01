@@ -329,7 +329,7 @@ final class OptionsArray implements Component
      *
      * @return bool whether the key was found and deleted or not
      */
-    public function remove($key)
+    public function remove($key): bool
     {
         foreach ($this->options as $idx => $option) {
             if (is_array($option)) {
@@ -367,10 +367,8 @@ final class OptionsArray implements Component
 
     /**
      * Checks tf there are no options set.
-     *
-     * @return bool
      */
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         return empty($this->options);
     }

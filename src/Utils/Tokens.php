@@ -22,10 +22,8 @@ class Tokens
      *
      * @param Token                          $token   the token to be matched
      * @param array<string, int|string|null> $pattern the pattern to be matches
-     *
-     * @return bool
      */
-    public static function match(Token $token, array $pattern)
+    public static function match(Token $token, array $pattern): bool
     {
         // Token.
         if (isset($pattern['token']) && ($pattern['token'] !== $token->token)) {

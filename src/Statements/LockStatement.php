@@ -120,10 +120,7 @@ class LockStatement extends Statement
         $parser->error('Unexpected end of LOCK statement.', $prevToken);
     }
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         return trim(($this->isLock ? 'LOCK' : 'UNLOCK')
             . ' TABLES ' . LockExpression::build($this->locked));
