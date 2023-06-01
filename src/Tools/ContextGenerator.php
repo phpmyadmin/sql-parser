@@ -291,13 +291,10 @@ PHP;
 
         /* Format name */
         $base = $parts[1];
-        switch ($base) {
-            case 'MySql':
-                $base = 'MySQL';
-                break;
-            case 'MariaDb':
-                $base = 'MariaDB';
-                break;
+        if ($base == 'MySql') {
+            $base = 'MySQL';
+        } elseif ($base == 'MariaDb') {
+            $base = 'MariaDB';
         }
 
         /* Parse version to array */
