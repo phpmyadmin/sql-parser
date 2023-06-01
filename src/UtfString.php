@@ -187,8 +187,6 @@ class UtfString implements ArrayAccess, Stringable
     public function __construct($str)
     {
         $this->str = $str;
-        $this->byteIdx = 0;
-        $this->charIdx = 0;
         $this->byteLen = mb_strlen($str, '8bit');
         if (! mb_check_encoding($str, 'UTF-8')) {
             $this->charLen = 0;
