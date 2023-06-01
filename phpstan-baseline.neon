@@ -826,6 +826,11 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
+			message: "#^Binary operation \"&\" between int and int\\|string results in an error\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
 			message: "#^Binary operation \"&\\=\" between array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string\\|null and array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string\\|null results in an error\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
@@ -851,22 +856,17 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
-			message: "#^Access to an undefined property object\\:\\:\\$alias\\.$#"
+			message: "#^Trying to invoke int\\<min, \\-1\\>\\|int\\<1, max\\>\\|non\\-falsy\\-string but it might not be a callable\\.$#"
 			count: 1
-			path: src/Utils/Query.php
+			path: src/Utils/Formatter.php
 
 		-
-			message: "#^Access to an undefined property object\\:\\:\\$expr\\.$#"
+			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\>\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
 		-
 			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 
@@ -887,11 +887,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClauseStartOffset\\(\\) should return int but returns int\\|null\\.$#"
-			count: 1
-			path: src/Utils/Query.php
-
-		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, object given\\.$#"
 			count: 1
 			path: src/Utils/Query.php
 

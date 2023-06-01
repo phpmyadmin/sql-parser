@@ -392,7 +392,7 @@ final class Expression implements Component
 
                     $ret->expr .= $token->token;
                 }
-            } elseif (! $isExpr) {
+            } else {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '.')) {
                     // Found a `.` which means we expect a column name and
                     // the column name we parsed is actually the table name
