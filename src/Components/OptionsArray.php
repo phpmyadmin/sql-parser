@@ -25,20 +25,12 @@ use function strtoupper;
 final class OptionsArray implements Component
 {
     /**
-     * ArrayObj of selected options.
-     *
-     * @var array<int, mixed>
-     */
-    public array $options = [];
-
-    /**
      * @param array<int, mixed> $options The array of options. Options that have a value
      *                       must be an array with at least two keys `name` and
      *                       `expr` or `value`.
      */
-    public function __construct(array $options = [])
+    public function __construct(public array $options = [])
     {
-        $this->options = $options;
     }
 
     /**
