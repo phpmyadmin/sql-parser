@@ -109,7 +109,7 @@ class OptionsArrayTest extends TestCase
     public function testMerge(): void
     {
         $component = new OptionsArray(['a']);
-        $component->merge(['b', 'c']);
+        $component->merge(new OptionsArray(['b', 'c']));
         $this->assertEquals($component->options, ['a', 'b', 'c']);
     }
 
