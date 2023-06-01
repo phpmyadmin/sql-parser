@@ -32,10 +32,8 @@ class CLI
     /**
      * @param string[]|false[] $params
      * @param string[]         $longopts
-     *
-     * @return void
      */
-    public function mergeLongOpts(&$params, &$longopts)
+    public function mergeLongOpts(&$params, &$longopts): void
     {
         foreach ($longopts as $value) {
             $value = rtrim($value, ':');
@@ -47,10 +45,7 @@ class CLI
         }
     }
 
-    /**
-     * @return void
-     */
-    public function usageHighlight()
+    public function usageHighlight(): void
     {
         echo "Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]\n";
         echo "       cat file.sql | highlight-query\n";
@@ -141,10 +136,7 @@ class CLI
         return 1;
     }
 
-    /**
-     * @return void
-     */
-    public function usageLint()
+    public function usageLint(): void
     {
         echo "Usage: lint-query --query SQL [--ansi]\n";
         echo "       cat file.sql | lint-query\n";
@@ -220,10 +212,7 @@ class CLI
         return 1;
     }
 
-    /**
-     * @return void
-     */
-    public function usageTokenize()
+    public function usageTokenize(): void
     {
         echo "Usage: tokenize-query --query SQL [--ansi]\n";
         echo "       cat file.sql | tokenize-query\n";

@@ -391,11 +391,9 @@ class Parser extends Core
     /**
      * Builds the parse trees.
      *
-     * @return void
-     *
      * @throws ParserException
      */
-    public function parse()
+    public function parse(): void
     {
         /**
          * Last transaction.
@@ -625,11 +623,9 @@ class Parser extends Core
      * @param Token  $token the token that produced the error
      * @param int    $code  the code of the error
      *
-     * @return void
-     *
      * @throws ParserException throws the exception, if strict mode is enabled.
      */
-    public function error($msg, Token|null $token = null, $code = 0)
+    public function error($msg, Token|null $token = null, $code = 0): void
     {
         $error = new ParserException(
             Translator::gettext($msg),

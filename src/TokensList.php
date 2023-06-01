@@ -86,10 +86,8 @@ class TokensList implements ArrayAccess
      * Adds a new token.
      *
      * @param Token $token token to be added in list
-     *
-     * @return void
      */
-    public function add(Token $token)
+    public function add(Token $token): void
     {
         $this->tokens[$this->count++] = $token;
     }
@@ -217,11 +215,9 @@ class TokensList implements ArrayAccess
      *
      * @param int|null $offset the offset to be set
      * @param Token    $value  the token to be saved
-     *
-     * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if ($offset === null) {
             $this->tokens[$this->count++] = $value;
@@ -260,11 +256,9 @@ class TokensList implements ArrayAccess
      * Unsets the value of an offset.
      *
      * @param int $offset the offset to be unset
-     *
-     * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->tokens[$offset]);
         --$this->count;

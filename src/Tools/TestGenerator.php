@@ -202,10 +202,8 @@ class TestGenerator
      * @param string     $input  the input directory
      * @param string     $output the output directory
      * @param mixed|null $debug
-     *
-     * @return void
      */
-    public static function buildAll($input, $output, $debug = null)
+    public static function buildAll($input, $output, $debug = null): void
     {
         $files = scandir($input);
 

@@ -323,10 +323,8 @@ PHP;
      *
      * @param string $input  the input file
      * @param string $output the output directory
-     *
-     * @return void
      */
-    public static function build($input, $output)
+    public static function build($input, $output): void
     {
         /**
          * The directory that contains the input file.
@@ -385,10 +383,8 @@ PHP;
      *
      * @param string $input  the input directory
      * @param string $output the output directory
-     *
-     * @return void
      */
-    public static function buildAll($input, $output)
+    public static function buildAll($input, $output): void
     {
         $files = scandir($input);
 
