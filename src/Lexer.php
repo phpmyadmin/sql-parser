@@ -6,29 +6,12 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 
-use function define;
-use function defined;
 use function in_array;
 use function mb_strlen;
 use function sprintf;
 use function str_ends_with;
 use function strlen;
 use function substr;
-
-if (! defined('USE_UTF_STRINGS')) {
-    // NOTE: In previous versions of PHP (5.5 and older) the default
-    // internal encoding is "ISO-8859-1".
-    // All `mb_` functions must specify the correct encoding, which is
-    // 'UTF-8' in order to work properly.
-
-    /*
-     * Forces usage of `UtfString` if the string is multibyte.
-     * `UtfString` may be slower, but it gives better results.
-     *
-     * @var bool
-     */
-    define('USE_UTF_STRINGS', true);
-}
 
 /**
  * Defines the lexer of the library.
@@ -199,9 +182,8 @@ class Lexer extends Core
         // parse each byte of the input.
         $len = $str instanceof UtfString ? $str->length() : strlen($str);
 
-        // For multi-byte strings, a new instance of `UtfString` is
-        // initialized (only if `UtfString` usage is forced.
-        if (! $str instanceof UtfString && USE_UTF_STRINGS && $len !== mb_strlen($str, 'UTF-8')) {
+        // For multi-byte strings, a new instance of `UtfString` is initialized.
+        if (! $str instanceof UtfString && $len !== mb_strlen($str, 'UTF-8')) {
             $str = new UtfString($str);
         }
 
