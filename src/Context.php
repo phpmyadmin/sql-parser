@@ -633,100 +633,39 @@ abstract class Context
     private static function getModeFromString(string $mode): int
     {
         // phpcs:disable SlevomatCodingStandard.Classes.DisallowLateStaticBindingForConstants.DisallowedLateStaticBindingForConstant
-        switch ($mode) {
-            case 'ALLOW_INVALID_DATES':
-                return static::SQL_MODE_ALLOW_INVALID_DATES;
-
-            case 'ANSI_QUOTES':
-                return static::SQL_MODE_ANSI_QUOTES;
-
-            case 'COMPAT_MYSQL':
-                return static::SQL_MODE_COMPAT_MYSQL;
-
-            case 'ERROR_FOR_DIVISION_BY_ZERO':
-                return static::SQL_MODE_ERROR_FOR_DIVISION_BY_ZERO;
-
-            case 'HIGH_NOT_PRECEDENCE':
-                return static::SQL_MODE_HIGH_NOT_PRECEDENCE;
-
-            case 'IGNORE_SPACE':
-                return static::SQL_MODE_IGNORE_SPACE;
-
-            case 'NO_AUTO_CREATE_USER':
-                return static::SQL_MODE_NO_AUTO_CREATE_USER;
-
-            case 'NO_AUTO_VALUE_ON_ZERO':
-                return static::SQL_MODE_NO_AUTO_VALUE_ON_ZERO;
-
-            case 'NO_BACKSLASH_ESCAPES':
-                return static::SQL_MODE_NO_BACKSLASH_ESCAPES;
-
-            case 'NO_DIR_IN_CREATE':
-                return static::SQL_MODE_NO_DIR_IN_CREATE;
-
-            case 'NO_ENGINE_SUBSTITUTION':
-                return static::SQL_MODE_NO_ENGINE_SUBSTITUTION;
-
-            case 'NO_FIELD_OPTIONS':
-                return static::SQL_MODE_NO_FIELD_OPTIONS;
-
-            case 'NO_KEY_OPTIONS':
-                return static::SQL_MODE_NO_KEY_OPTIONS;
-
-            case 'NO_TABLE_OPTIONS':
-                return static::SQL_MODE_NO_TABLE_OPTIONS;
-
-            case 'NO_UNSIGNED_SUBTRACTION':
-                return static::SQL_MODE_NO_UNSIGNED_SUBTRACTION;
-
-            case 'NO_ZERO_DATE':
-                return static::SQL_MODE_NO_ZERO_DATE;
-
-            case 'NO_ZERO_IN_DATE':
-                return static::SQL_MODE_NO_ZERO_IN_DATE;
-
-            case 'ONLY_FULL_GROUP_BY':
-                return static::SQL_MODE_ONLY_FULL_GROUP_BY;
-
-            case 'PIPES_AS_CONCAT':
-                return static::SQL_MODE_PIPES_AS_CONCAT;
-
-            case 'REAL_AS_FLOAT':
-                return static::SQL_MODE_REAL_AS_FLOAT;
-
-            case 'STRICT_ALL_TABLES':
-                return static::SQL_MODE_STRICT_ALL_TABLES;
-
-            case 'STRICT_TRANS_TABLES':
-                return static::SQL_MODE_STRICT_TRANS_TABLES;
-
-            case 'NO_ENCLOSING_QUOTES':
-                return static::SQL_MODE_NO_ENCLOSING_QUOTES;
-
-            case 'ANSI':
-                return static::SQL_MODE_ANSI;
-
-            case 'DB2':
-                return static::SQL_MODE_DB2;
-
-            case 'MAXDB':
-                return static::SQL_MODE_MAXDB;
-
-            case 'MSSQL':
-                return static::SQL_MODE_MSSQL;
-
-            case 'ORACLE':
-                return static::SQL_MODE_ORACLE;
-
-            case 'POSTGRESQL':
-                return static::SQL_MODE_POSTGRESQL;
-
-            case 'TRADITIONAL':
-                return static::SQL_MODE_TRADITIONAL;
-
-            default:
-                return self::SQL_MODE_NONE;
-        }
+        return match ($mode) {
+            'ALLOW_INVALID_DATES' => static::SQL_MODE_ALLOW_INVALID_DATES,
+            'ANSI_QUOTES' => static::SQL_MODE_ANSI_QUOTES,
+            'COMPAT_MYSQL' => static::SQL_MODE_COMPAT_MYSQL,
+            'ERROR_FOR_DIVISION_BY_ZERO' => static::SQL_MODE_ERROR_FOR_DIVISION_BY_ZERO,
+            'HIGH_NOT_PRECEDENCE' => static::SQL_MODE_HIGH_NOT_PRECEDENCE,
+            'IGNORE_SPACE' => static::SQL_MODE_IGNORE_SPACE,
+            'NO_AUTO_CREATE_USER' => static::SQL_MODE_NO_AUTO_CREATE_USER,
+            'NO_AUTO_VALUE_ON_ZERO' => static::SQL_MODE_NO_AUTO_VALUE_ON_ZERO,
+            'NO_BACKSLASH_ESCAPES' => static::SQL_MODE_NO_BACKSLASH_ESCAPES,
+            'NO_DIR_IN_CREATE' => static::SQL_MODE_NO_DIR_IN_CREATE,
+            'NO_ENGINE_SUBSTITUTION' => static::SQL_MODE_NO_ENGINE_SUBSTITUTION,
+            'NO_FIELD_OPTIONS' => static::SQL_MODE_NO_FIELD_OPTIONS,
+            'NO_KEY_OPTIONS' => static::SQL_MODE_NO_KEY_OPTIONS,
+            'NO_TABLE_OPTIONS' => static::SQL_MODE_NO_TABLE_OPTIONS,
+            'NO_UNSIGNED_SUBTRACTION' => static::SQL_MODE_NO_UNSIGNED_SUBTRACTION,
+            'NO_ZERO_DATE' => static::SQL_MODE_NO_ZERO_DATE,
+            'NO_ZERO_IN_DATE' => static::SQL_MODE_NO_ZERO_IN_DATE,
+            'ONLY_FULL_GROUP_BY' => static::SQL_MODE_ONLY_FULL_GROUP_BY,
+            'PIPES_AS_CONCAT' => static::SQL_MODE_PIPES_AS_CONCAT,
+            'REAL_AS_FLOAT' => static::SQL_MODE_REAL_AS_FLOAT,
+            'STRICT_ALL_TABLES' => static::SQL_MODE_STRICT_ALL_TABLES,
+            'STRICT_TRANS_TABLES' => static::SQL_MODE_STRICT_TRANS_TABLES,
+            'NO_ENCLOSING_QUOTES' => static::SQL_MODE_NO_ENCLOSING_QUOTES,
+            'ANSI' => static::SQL_MODE_ANSI,
+            'DB2' => static::SQL_MODE_DB2,
+            'MAXDB' => static::SQL_MODE_MAXDB,
+            'MSSQL' => static::SQL_MODE_MSSQL,
+            'ORACLE' => static::SQL_MODE_ORACLE,
+            'POSTGRESQL' => static::SQL_MODE_POSTGRESQL,
+            'TRADITIONAL' => static::SQL_MODE_TRADITIONAL,
+            default => self::SQL_MODE_NONE,
+        };
         // phpcs:enable
     }
 
