@@ -440,10 +440,7 @@ class Formatter
                     && empty(self::$inlineClauses[$lastClause])
                     && (
                         $curr->type !== Token::TYPE_KEYWORD
-                        || (
-                            $curr->type === Token::TYPE_KEYWORD
-                            && $curr->flags & Token::FLAG_KEYWORD_FUNCTION
-                        )
+                        || ($curr->flags & Token::FLAG_KEYWORD_FUNCTION)
                     )
                 ) {
                     $formattedOptions = true;
