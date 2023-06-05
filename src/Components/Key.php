@@ -198,7 +198,7 @@ final class Key implements Component
                         $state = 3;
                     } elseif (($token->value === ',') || ($token->value === ')')) {
                         $state = $token->value === ',' ? 2 : 4;
-                        if (! empty($lastColumn)) {
+                        if ($lastColumn !== []) {
                             $ret->columns[] = $lastColumn;
                             $lastColumn = [];
                         }
