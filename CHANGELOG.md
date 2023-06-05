@@ -26,6 +26,7 @@
 - Implement support for `LEFT JOIN`, `JOIN`, `INNER JOIN` on `UpdateStatement` (#260)
 - Implement support for `TABLE` and `REPLACE` statements on `DESCRIBE` statements
 - Fix `DESCRIBE` to allow a schema.table syntax (#445)
+- Fix parsing insert queries with functions trims commas (#450)
 
 ## [5.7.0] - 2023-01-25
 
