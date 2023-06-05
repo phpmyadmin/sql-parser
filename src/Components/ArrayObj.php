@@ -124,9 +124,9 @@ class ArrayObj extends Component
                             $ret->values[] = trim($lastValue);
                             $lastRaw = $lastValue = '';
                         }
+
                         continue;
                     }
-
                 }
             }
 
