@@ -122,9 +122,9 @@ final class ArrayObj implements Component
                             $ret->values[] = trim($lastValue);
                             $lastRaw = $lastValue = '';
                         }
+
                         continue;
                     }
-
                 }
             }
 
