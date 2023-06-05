@@ -1,6 +1,6 @@
 # Change Log
 
-## [5.x.x] - YYYY-MM-DD
+## [5.8.0] - 2023-06-05
 
 - Fix `ALTER EVENT RENAME TO` to use expression instead of var (#419)
 - Fix incorrect order of operations to parse table/db called `` (#422)
