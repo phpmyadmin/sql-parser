@@ -92,10 +92,7 @@ class CLI
         return $params;
     }
 
-    /**
-     * @return int
-     */
-    public function runHighlight()
+    public function runHighlight(): int
     {
         $params = $this->parseHighlight();
         if ($params === false) {
@@ -159,10 +156,7 @@ class CLI
         return $params;
     }
 
-    /**
-     * @return int
-     */
-    public function runLint()
+    public function runLint(): int
     {
         $params = $this->parseLint();
         if ($params === false) {
@@ -234,10 +228,7 @@ class CLI
         return $params;
     }
 
-    /**
-     * @return int
-     */
-    public function runTokenize()
+    public function runTokenize(): int
     {
         $params = $this->parseTokenize();
         if ($params === false) {

@@ -766,10 +766,9 @@ class Formatter
      *
      * @param Token $token the token to be checked
      *
-     * @return int|false
      * @psalm-return 1|2|false
      */
-    public static function isClause($token)
+    public static function isClause($token): int|false
     {
         if (
             ($token->type === Token::TYPE_KEYWORD && isset(Parser::$statementParsers[$token->keyword]))

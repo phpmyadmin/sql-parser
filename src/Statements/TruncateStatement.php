@@ -29,10 +29,8 @@ class TruncateStatement extends Statement
 
     /**
      * Special build method for truncate statement as Statement::build would return empty string.
-     *
-     * @return string
      */
-    public function build()
+    public function build(): string
     {
         return 'TRUNCATE TABLE ' . $this->table . ';';
     }
