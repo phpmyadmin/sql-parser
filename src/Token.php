@@ -185,7 +185,7 @@ class Token
      *
      * @var mixed|string|null
      */
-    public $keyword;
+    public $keyword = null;
 
     /**
      * The type of this token.
@@ -221,7 +221,6 @@ class Token
         $this->token = $token;
         $this->type = $type;
         $this->flags = $flags;
-        $this->keyword = null;
         $this->value = $this->extract();
     }
 
