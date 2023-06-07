@@ -292,9 +292,9 @@ PHP;
 
         /* Format name */
         $base = $parts[1];
-        if ($base == 'MySql') {
+        if ($base === 'MySql') {
             $base = 'MySQL';
-        } elseif ($base == 'MariaDb') {
+        } elseif ($base === 'MariaDb') {
             $base = 'MariaDB';
         }
 
