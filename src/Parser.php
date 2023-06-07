@@ -494,21 +494,19 @@ class Parser extends Core
                 }
 
                 $list->idx = $lastIdx;
-            } else {
+            } elseif (empty(static::$statementParsers[$token->keyword])) {
                 // Checking if it is a known statement that can be parsed.
-                if (empty(static::$statementParsers[$token->keyword])) {
-                    if (! isset(static::$statementParsers[$token->keyword])) {
-                        // A statement is considered recognized if the parser
-                        // is aware that it is a statement, but it does not have
-                        // a parser for it yet.
-                        $this->error('Unrecognized statement type.', $token);
-                    }
-
-                    // Skipping to the end of this statement.
-                    $list->getNextOfType(Token::TYPE_DELIMITER);
-                    $prevLastIdx = $list->idx;
-                    continue;
+                if (! isset(static::$statementParsers[$token->keyword])) {
+                    // A statement is considered recognized if the parser
+                    // is aware that it is a statement, but it does not have
+                    // a parser for it yet.
+                    $this->error('Unrecognized statement type.', $token);
                 }
+
+                // Skipping to the end of this statement.
+                $list->getNextOfType(Token::TYPE_DELIMITER);
+                $prevLastIdx = $list->idx;
+                continue;
             }
 
             /**

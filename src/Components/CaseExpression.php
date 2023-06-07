@@ -156,16 +156,14 @@ final class CaseExpression implements Component
                                 break 2;
                         }
                     }
-                } else {
-                    if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'THEN') {
-                        ++$list->idx; // Skip 'THEN'
-                        $newResult = Expression::parse($parser, $list);
-                        $state = 0;
-                        $ret->results[] = $newResult;
-                    } elseif ($token->type === Token::TYPE_KEYWORD) {
-                        $parser->error('Unexpected keyword.', $token);
-                        break;
-                    }
+                } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'THEN') {
+                    ++$list->idx; // Skip 'THEN'
+                    $newResult = Expression::parse($parser, $list);
+                    $state = 0;
+                    $ret->results[] = $newResult;
+                } elseif ($token->type === Token::TYPE_KEYWORD) {
+                    $parser->error('Unexpected keyword.', $token);
+                    break;
                 }
             } elseif ($state === 2) {
                 if ($type === 0) {
