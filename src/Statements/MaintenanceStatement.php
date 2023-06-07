@@ -34,10 +34,8 @@ class MaintenanceStatement extends Statement
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      * @param Token      $token  the token that is being parsed
-     *
-     * @return void
      */
-    public function after(Parser $parser, TokensList $list, Token $token)
+    public function after(Parser $parser, TokensList $list, Token $token): void
     {
         // [some options] is going to be parsed first.
         //

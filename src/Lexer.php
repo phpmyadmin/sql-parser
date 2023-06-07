@@ -202,10 +202,8 @@ class Lexer extends Core
      * Sets the delimiter.
      *
      * @param string $delimiter the new delimiter
-     *
-     * @return void
      */
-    public function setDelimiter($delimiter)
+    public function setDelimiter($delimiter): void
     {
         $this->delimiter = $delimiter;
         $this->delimiterLen = strlen($delimiter);
@@ -213,10 +211,8 @@ class Lexer extends Core
 
     /**
      * Parses the string and extracts lexemes.
-     *
-     * @return void
      */
-    public function lex()
+    public function lex(): void
     {
         // TODO: Sometimes, static::parse* functions make unnecessary calls to
         // is* functions. For a better performance, some rules can be deduced
@@ -445,11 +441,9 @@ class Lexer extends Core
      * @param int    $pos  the position of the character
      * @param int    $code the code of the error
      *
-     * @return void
-     *
      * @throws LexerException throws the exception, if strict mode is enabled.
      */
-    public function error($msg, $str = '', $pos = 0, $code = 0)
+    public function error($msg, $str = '', $pos = 0, $code = 0): void
     {
         $error = new LexerException(
             Translator::gettext($msg),

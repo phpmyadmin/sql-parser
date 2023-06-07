@@ -29,10 +29,8 @@ class Translator
 
     /**
      * Loads translator.
-     *
-     * @return void
      */
-    public static function load()
+    public static function load(): void
     {
         if (self::$loader === null) {
             // Create loader object

@@ -242,10 +242,8 @@ final class IntoKeyword implements Component
      * @param Parser     $parser  The parser
      * @param TokensList $list    A token list
      * @param string     $keyword The keyword
-     *
-     * @return void
      */
-    public function parseFileOptions(Parser $parser, TokensList $list, $keyword = 'FIELDS')
+    public function parseFileOptions(Parser $parser, TokensList $list, $keyword = 'FIELDS'): void
     {
         ++$list->idx;
 

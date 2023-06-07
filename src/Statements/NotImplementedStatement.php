@@ -43,7 +43,7 @@ class NotImplementedStatement extends Statement
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      */
-    public function parse(Parser $parser, TokensList $list)
+    public function parse(Parser $parser, TokensList $list): void
     {
         for (; $list->idx < $list->count; ++$list->idx) {
             if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {

@@ -210,11 +210,9 @@ abstract class Statement implements Stringable
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      *
-     * @return void
-     *
      * @throws Exceptions\ParserException
      */
-    public function parse(Parser $parser, TokensList $list)
+    public function parse(Parser $parser, TokensList $list): void
     {
         /**
          * Array containing all list of clauses parsed.
@@ -423,10 +421,8 @@ abstract class Statement implements Stringable
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      * @param Token      $token  the token that is being parsed
-     *
-     * @return void
      */
-    public function before(Parser $parser, TokensList $list, Token $token)
+    public function before(Parser $parser, TokensList $list, Token $token): void
     {
     }
 
@@ -436,10 +432,8 @@ abstract class Statement implements Stringable
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      * @param Token      $token  the token that is being parsed
-     *
-     * @return void
      */
-    public function after(Parser $parser, TokensList $list, Token $token)
+    public function after(Parser $parser, TokensList $list, Token $token): void
     {
     }
 

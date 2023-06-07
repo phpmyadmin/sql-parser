@@ -353,10 +353,8 @@ final class OptionsArray implements Component
      * replaced.
      *
      * @param array<int, mixed>|OptionsArray $options the options to be merged
-     *
-     * @return void
      */
-    public function merge($options)
+    public function merge($options): void
     {
         if (is_array($options)) {
             $this->options = array_merge_recursive($this->options, $options);

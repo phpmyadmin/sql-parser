@@ -64,7 +64,7 @@ class AlterStatement extends Statement
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      */
-    public function parse(Parser $parser, TokensList $list)
+    public function parse(Parser $parser, TokensList $list): void
     {
         ++$list->idx; // Skipping `ALTER`.
         $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
