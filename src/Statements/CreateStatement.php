@@ -476,7 +476,9 @@ class CreateStatement extends Statement
                 . $fields
                 . OptionsArray::build($this->entityOptions)
                 . $partition;
-        } elseif ($this->options->has('VIEW')) {
+        }
+
+        if ($this->options->has('VIEW')) {
             $builtStatement = '';
             if ($this->select !== null) {
                 $builtStatement = $this->select->build();
@@ -490,14 +492,18 @@ class CreateStatement extends Statement
                 . $fields . ' AS ' . $builtStatement
                 . (! empty($this->body) ? TokensList::build($this->body) : '') . ' '
                 . OptionsArray::build($this->entityOptions);
-        } elseif ($this->options->has('TRIGGER')) {
+        }
+
+        if ($this->options->has('TRIGGER')) {
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
                 . OptionsArray::build($this->entityOptions) . ' '
                 . 'ON ' . Expression::build($this->table) . ' '
                 . 'FOR EACH ROW ' . TokensList::build($this->body);
-        } elseif ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
+        }
+
+        if ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
             $tmp = '';
             if ($this->options->has('FUNCTION')) {
                 $tmp = 'RETURNS ' . DataType::build($this->return);
