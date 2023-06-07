@@ -871,48 +871,18 @@ parameters:
 			path: src/Tools/TestGenerator.php
 
 		-
-			message: "#^Cannot access offset 'a' on mixed\\.$#"
-			count: 3
+			message: "#^Parameter \\#1 \\$context of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:load\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
 			path: src/Utils/CLI.php
 
 		-
-			message: "#^Cannot access offset 'c' on mixed\\.$#"
+			message: "#^Parameter \\#1 \\$query of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of class PhpMyAdmin\\\\SqlParser\\\\Lexer constructor expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, string\\|false given\\.$#"
 			count: 2
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Cannot access offset 'f' on mixed\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Cannot access offset 'h' on mixed\\.$#"
-			count: 3
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Cannot access offset 'q' on mixed\\.$#"
-			count: 12
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Parameter \\#1 \\$context of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:load\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Parameter \\#1 \\$query of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Parameter \\#1 \\$str of class PhpMyAdmin\\\\SqlParser\\\\Lexer constructor expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, mixed given\\.$#"
-			count: 2
-			path: src/Utils/CLI.php
-
-		-
-			message: "#^Parameter \\#2 \\$options of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:format\\(\\) expects array\\<string, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string\\>, array\\<string, mixed\\> given\\.$#"
-			count: 1
 			path: src/Utils/CLI.php
 
 		-

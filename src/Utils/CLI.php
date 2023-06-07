@@ -68,9 +68,9 @@ class CLI
     }
 
     /**
-     * @return mixed|false
+     * @return string[]|false[]|false
      */
-    public function parseHighlight()
+    public function parseHighlight(): array|false
     {
         $longopts = [
             'help',
@@ -151,9 +151,9 @@ class CLI
     }
 
     /**
-     * @return mixed
+     * @return string[]|false[]|false
      */
-    public function parseLint()
+    public function parseLint(): array|false
     {
         $longopts = [
             'help',
@@ -230,9 +230,9 @@ class CLI
     }
 
     /**
-     * @return mixed
+     * @return string[]|false[]|false
      */
-    public function parseTokenize()
+    public function parseTokenize(): array|false
     {
         $longopts = [
             'help',
