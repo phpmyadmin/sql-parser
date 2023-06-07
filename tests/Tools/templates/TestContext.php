@@ -27,6 +27,7 @@ class TestContext extends Context
      *      Token::FLAG_KEYWORD_FUNCTION
      *
      * @var array<string,int>
+     * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
     public static $keywords = [

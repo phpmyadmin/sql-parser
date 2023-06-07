@@ -80,6 +80,7 @@ abstract class Context
      * Elements are sorted by flags, length and keyword.
      *
      * @var array<string,int>
+     * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
     public static $keywords = [];
