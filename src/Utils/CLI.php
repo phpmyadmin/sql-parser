@@ -8,7 +8,6 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 
-use function count;
 use function getopt;
 use function implode;
 use function in_array;
@@ -189,7 +188,7 @@ class CLI
             $lexer = new Lexer($params['q'], false);
             $parser = new Parser($lexer->list);
             $errors = Error::get([$lexer, $parser]);
-            if (count($errors) === 0) {
+            if ($errors === []) {
                 return 0;
             }
 

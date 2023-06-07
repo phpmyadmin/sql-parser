@@ -29,7 +29,7 @@ final class OptionsArray implements Component
      *
      * @var array<int, mixed>
      */
-    public $options = [];
+    public array $options = [];
 
     /**
      * @param array<int, mixed> $options The array of options. Options that have a value

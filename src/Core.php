@@ -31,7 +31,7 @@ class Core
      *
      * @var Exception[]
      */
-    public $errors = [];
+    public array $errors = [];
 
     public function __construct()
     {

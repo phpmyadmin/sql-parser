@@ -15,7 +15,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Translator;
 
 use function array_slice;
-use function count;
 
 /**
  * `WITH` statement.
@@ -161,7 +160,7 @@ final class WithStatement extends Statement
 
                 $subParser = new Parser($subList);
 
-                if (count($subParser->errors)) {
+                if ($subParser->errors !== []) {
                     foreach ($subParser->errors as $error) {
                         $parser->errors[] = $error;
                     }
@@ -239,7 +238,7 @@ final class WithStatement extends Statement
 
                 $subList = new TokensList(array_slice($list->tokens, $list->idx, $lengthOfExpressionTokens));
                 $subParser = new Parser($subList);
-                if (count($subParser->errors)) {
+                if ($subParser->errors !== []) {
                     foreach ($subParser->errors as $error) {
                         $parser->errors[] = $error;
                     }

@@ -9,7 +9,6 @@ use Stringable;
 
 use function array_flip;
 use function array_keys;
-use function count;
 use function in_array;
 use function stripos;
 use function trim;
@@ -443,7 +442,7 @@ abstract class Statement implements Stringable
      * @return array<string, array<int, int|string>>
      * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
      */
-    public function getClauses()
+    public function getClauses(): array
     {
         return static::$clauses;
     }
@@ -476,7 +475,7 @@ abstract class Statement implements Stringable
     {
         $clauses = array_flip(array_keys($this->getClauses()));
 
-        if (empty($clauses) || count($clauses) === 0) {
+        if ($clauses === []) {
             return true;
         }
 

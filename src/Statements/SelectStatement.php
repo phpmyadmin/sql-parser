@@ -344,7 +344,7 @@ class SelectStatement extends Statement
      * @return array<string, array<int, int|string>>
      * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
      */
-    public function getClauses()
+    public function getClauses(): array
     {
         // This is a cheap fix for `SELECT` statements that contain `UNION`.
         // The `ORDER BY` and `LIMIT` clauses should be at the end of the

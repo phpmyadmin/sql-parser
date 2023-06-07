@@ -14,7 +14,6 @@ use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
-use function count;
 use function strlen;
 use function trim;
 
@@ -78,7 +77,7 @@ class InsertStatement extends Statement
      *
      * @var ArrayObj[]|null
      */
-    public $values;
+    public array|null $values = null;
 
     /**
      * If SET clause is present
@@ -86,7 +85,7 @@ class InsertStatement extends Statement
      *
      * @var SetOperation[]|null
      */
-    public $set;
+    public array|null $set = null;
 
     /**
      * If SELECT clause is present
@@ -110,7 +109,7 @@ class InsertStatement extends Statement
      *
      * @var SetOperation[]|null
      */
-    public $onDuplicateSet;
+    public array|null $onDuplicateSet = null;
 
     /**
      * @return string
@@ -120,15 +119,15 @@ class InsertStatement extends Statement
         $ret = 'INSERT ' . $this->options;
         $ret = trim($ret) . ' INTO ' . $this->into;
 
-        if ($this->values !== null && count($this->values) > 0) {
+        if ($this->values !== null && $this->values !== []) {
             $ret .= ' VALUES ' . Array2d::build($this->values);
-        } elseif ($this->set !== null && count($this->set) > 0) {
+        } elseif ($this->set !== null && $this->set !== []) {
             $ret .= ' SET ' . SetOperation::build($this->set);
         } elseif ($this->select !== null && strlen((string) $this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 
-        if ($this->onDuplicateSet !== null && count($this->onDuplicateSet) > 0) {
+        if ($this->onDuplicateSet !== null && $this->onDuplicateSet !== []) {
             $ret .= ' ON DUPLICATE KEY UPDATE ' . SetOperation::build($this->onDuplicateSet);
         }
 
