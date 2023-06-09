@@ -336,11 +336,6 @@ parameters:
 			path: src/Components/OrderKeyword.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\) given\\.$#"
-			count: 1
-			path: src/Components/ParameterDefinition.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$inOut \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
@@ -363,11 +358,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
 			count: 2
-			path: src/Components/ParameterDefinition.php
-
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
 			path: src/Components/ParameterDefinition.php
 
 		-
@@ -596,7 +586,7 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -961,7 +951,7 @@ parameters:
 			path: tests/Builder/CreateStatementTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
 			count: 2
 			path: tests/Builder/CreateStatementTest.php
 

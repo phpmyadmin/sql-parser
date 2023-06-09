@@ -141,7 +141,7 @@ final class ParameterDefinition implements Component
     }
 
     /**
-     * @param ParameterDefinition[] $component the component to be built
+     * @param ParameterDefinition[]|ParameterDefinition $component the component to be built
      */
     public static function build($component): string
     {
