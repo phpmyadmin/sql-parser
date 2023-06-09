@@ -61,11 +61,6 @@ parameters:
 			path: src/Components/ArrayObj.php
 
 		-
-			message: "#^Binary operation \"\\.\" between ' AS ' and array\\<string\\>\\|string results in an error\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
@@ -89,11 +84,6 @@ parameters:
 			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
 			path: src/Components/Condition.php
-
-		-
-			message: "#^Binary operation \"\\.\" between array\\<string\\>\\|string and ' ' results in an error\\.$#"
-			count: 1
-			path: src/Components/CreateDefinition.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
@@ -124,16 +114,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Components/DataType.php
-
-		-
-			message: "#^Binary operation \"\\.\" between ' AS ' and array\\<string\\>\\|string results in an error\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, array\\<string\\>\\|string given\\.$#"
-			count: 1
-			path: src/Components/Expression.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
@@ -249,16 +229,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Binary operation \"\\.\" between array\\<string\\>\\|string and ' ' results in an error\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Binary operation \"\\.\\=\" between '' and array\\<string\\>\\|string results in an error\\.$#"
-			count: 1
-			path: src/Components/Key.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns \\(array\\<array\\{name\\?\\: string, length\\?\\: int, order\\?\\: string\\}\\>\\) does not accept non\\-empty\\-array\\<array\\<string, mixed\\>\\>\\.$#"
@@ -431,11 +401,6 @@ parameters:
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, array\\<string\\>\\|string given\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Components/Reference.php
@@ -479,11 +444,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\:\\:build\\(\\) expects array\\<array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\>\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\) given\\.$#"
 			count: 1
 			path: src/Components/UnionKeyword.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) should return array\\<string\\>\\|string but returns array\\<array\\<string\\>\\|string\\>\\.$#"
-			count: 1
-			path: src/Context.php
 
 		-
 			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$keywords \\(non\\-empty\\-array\\<non\\-empty\\-string, int\\>\\) does not accept default value of type array\\{\\}\\.$#"
@@ -689,21 +649,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, mixed given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
-
-		-
-			message: "#^Binary operation \"\\.\" between ' ' and array\\<string\\>\\|string results in an error\\.$#"
-			count: 1
-			path: src/Statements/ExplainStatement.php
-
-		-
-			message: "#^Binary operation \"\\.\" between array\\<string\\>\\|string and '\\.' results in an error\\.$#"
-			count: 1
-			path: src/Statements/ExplainStatement.php
-
-		-
-			message: "#^Binary operation \"\\.\\=\" between string and array\\<string\\>\\|string results in an error\\.$#"
-			count: 1
-			path: src/Statements/ExplainStatement.php
 
 		-
 			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"

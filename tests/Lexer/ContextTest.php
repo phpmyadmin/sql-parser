@@ -222,6 +222,12 @@ class ContextTest extends TestCase
         Context::setMode();
         $this->assertEquals('`test`', Context::escape('test'));
 
-        $this->assertEquals(['`a`', '`b`'], Context::escape(['a', 'b']));
+        $this->assertEquals(['`a`', '`b`'], Context::escapeAll(['a', 'b']));
+    }
+
+    public function testEscapeAll(): void
+    {
+        Context::setMode();
+        $this->assertEquals(['`a`', '`b`'], Context::escapeAll(['a', 'b']));
     }
 }

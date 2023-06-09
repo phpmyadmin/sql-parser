@@ -147,7 +147,7 @@ final class Reference implements Component
     {
         return trim(
             $component->table
-            . ' (' . implode(', ', Context::escape($component->columns)) . ') '
+            . ' (' . implode(', ', Context::escapeAll($component->columns)) . ') '
             . $component->options
         );
     }

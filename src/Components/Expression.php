@@ -472,7 +472,7 @@ final class Expression implements Component
                 $fields[] = $component->column;
             }
 
-            $ret = implode('.', Context::escape($fields));
+            $ret = implode('.', Context::escapeAll($fields));
         }
 
         if (! empty($component->alias)) {
