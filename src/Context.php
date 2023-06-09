@@ -8,7 +8,6 @@ use function class_exists;
 use function explode;
 use function in_array;
 use function intval;
-use function is_array;
 use function is_int;
 use function is_numeric;
 use function str_replace;
@@ -669,21 +668,13 @@ abstract class Context
     /**
      * Escapes the symbol by adding surrounding backticks.
      *
-     * @param string[]|string $str   the string to be escaped
-     * @param string          $quote quote to be used when escaping
+     * @param string $str   the string to be escaped
+     * @param string $quote quote to be used when escaping
      *
-     * @return string|string[]
+     * @return string
      */
-    public static function escape($str, string $quote = '`')
+    public static function escape(string $str, string $quote = '`')
     {
-        if (is_array($str)) {
-            foreach ($str as $key => $value) {
-                $str[$key] = static::escape($value);
-            }
-
-            return $str;
-        }
-
         if ((static::$mode & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
             return $str;
         }
@@ -693,6 +684,22 @@ abstract class Context
         }
 
         return $quote . str_replace($quote, $quote . $quote, $str) . $quote;
+    }
+
+    /**
+     * Escapes the symbol by adding surrounding backticks.
+     *
+     * @param string[] $strings the string to be escaped
+     *
+     * @return string[]
+     */
+    public static function escapeAll(array $strings): array
+    {
+        foreach ($strings as $key => $value) {
+            $strings[$key] = static::escape($value);
+        }
+
+        return $strings;
     }
 
     /**

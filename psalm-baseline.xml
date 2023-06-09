@@ -126,9 +126,6 @@
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[Context::escape($component->alias)]]></code>
-    </PossiblyInvalidOperand>
   </file>
   <file src="src/Components/Condition.php">
     <InvalidArgument>
@@ -164,9 +161,6 @@
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[Context::escape($component->name)]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullOperand>
       <code><![CDATA[$component->options]]></code>
     </PossiblyNullOperand>
@@ -210,12 +204,6 @@
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyInvalidArgument>
-      <code>Context::escape($fields)</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[Context::escape($component->alias)]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullOperand>
       <code><![CDATA[$ret->expr]]></code>
       <code><![CDATA[$ret->expr]]></code>
@@ -366,10 +354,6 @@
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[Context::escape($column['name'])]]></code>
-      <code><![CDATA[Context::escape($component->name)]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullOperand>
       <code><![CDATA[$component->options]]></code>
       <code><![CDATA[$component->options]]></code>
@@ -528,9 +512,6 @@
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[Context::escape($component->name)]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullPropertyAssignmentValue>
       <code>$inOut</code>
       <code>$name</code>
@@ -586,9 +567,6 @@
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[Context::escape($component->columns)]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[ArrayObj::parse($parser, $list)->values]]></code>
     </PossiblyInvalidPropertyFetch>
@@ -667,12 +645,6 @@
     <InvalidPropertyFetch>
       <code>$context::$keywords</code>
     </InvalidPropertyFetch>
-    <InvalidReturnStatement>
-      <code>$str</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>string|string[]</code>
-    </InvalidReturnType>
     <MixedAssignment>
       <code>self::$keywords</code>
     </MixedAssignment>
@@ -1118,12 +1090,6 @@
       <code><![CDATA[$this->explainedDatabase]]></code>
       <code><![CDATA[$this->explainedTable]]></code>
     </MixedAssignment>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[Context::escape($this->explainedColumn)]]></code>
-      <code><![CDATA[Context::escape($this->explainedDatabase)]]></code>
-      <code><![CDATA[Context::escape($this->explainedTable)]]></code>
-      <code><![CDATA[Context::escape($this->explainedTable)]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$nextToken->keyword]]></code>
       <code><![CDATA[$nextToken->value]]></code>
