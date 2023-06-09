@@ -155,11 +155,9 @@ final class Expression implements Component
      * @param TokensList           $list    the list of tokens that are being parsed
      * @param array<string, mixed> $options parameters for parsing
      *
-     * @return Expression|null
-     *
      * @throws ParserException
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): Expression|null
     {
         $ret = new static();
 
