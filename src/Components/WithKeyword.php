@@ -50,10 +50,6 @@ final class WithKeyword implements Component
      */
     public static function build($component): string
     {
-        if (! $component instanceof WithKeyword) {
-            throw new RuntimeException('Can not build a component that is not a WithKeyword');
-        }
-
         if (! isset($component->statement)) {
             throw new RuntimeException('No statement inside WITH');
         }
