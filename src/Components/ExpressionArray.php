@@ -117,10 +117,9 @@ final class ExpressionArray implements Component
     }
 
     /**
-     * @param Expression[]         $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param Expression[] $component the component to be built
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         $ret = [];
         foreach ($component as $frag) {

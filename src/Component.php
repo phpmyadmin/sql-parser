@@ -32,8 +32,7 @@ interface Component extends Stringable
      *
      * In other words, this function represents the inverse function of {@see Component::parse()}.
      *
-     * @param mixed                $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param mixed $component the component to be built
      */
-    public static function build($component, array $options = []): string;
+    public static function build($component): string;
 }

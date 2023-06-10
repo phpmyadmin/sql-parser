@@ -46,10 +46,9 @@ final class WithKeyword implements Component
     }
 
     /**
-     * @param WithKeyword          $component
-     * @param array<string, mixed> $options
+     * @param WithKeyword $component
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         if (! $component instanceof WithKeyword) {
             throw new RuntimeException('Can not build a component that is not a WithKeyword');

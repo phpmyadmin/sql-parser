@@ -520,10 +520,9 @@ final class AlterOperation implements Component
     }
 
     /**
-     * @param AlterOperation       $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param AlterOperation $component the component to be built
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         // Specific case of RENAME COLUMN that insert the field between 2 options.
         $afterFieldsOptions = new OptionsArray();

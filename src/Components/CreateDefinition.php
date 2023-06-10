@@ -319,9 +319,8 @@ final class CreateDefinition implements Component
 
     /**
      * @param CreateDefinition|CreateDefinition[] $component the component to be built
-     * @param array<string, mixed>                $options   parameters for building
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         if (is_array($component)) {
             return "(\n  " . implode(",\n  ", $component) . "\n)";
@@ -338,10 +337,8 @@ final class CreateDefinition implements Component
         }
 
         if (! empty($component->type)) {
-            $tmp .= DataType::build(
-                $component->type,
-                ['lowercase' => true]
-            ) . ' ';
+            $component->type->lowercase = true;
+            $tmp .= DataType::build($component->type) . ' ';
         }
 
         if (! empty($component->key)) {

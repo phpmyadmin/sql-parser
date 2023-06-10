@@ -264,10 +264,9 @@ final class Key implements Component
     }
 
     /**
-     * @param Key                  $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param Key $component the component to be built
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         $ret = $component->type . ' ';
         if (! empty($component->name)) {
