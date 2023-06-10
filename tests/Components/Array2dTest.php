@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
 use PhpMyAdmin\SqlParser\Components\Array2d;
+use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
@@ -28,7 +29,7 @@ class Array2dTest extends TestCase
         $arrays = Array2d::parse(new Parser(), $this->getTokensList('(1, 2), (3, 4), (5, 6)'));
         $this->assertEquals(
             '(1, 2), (3, 4), (5, 6)',
-            Array2d::buildAll($arrays)
+            ArrayObj::buildAll($arrays)
         );
     }
 

@@ -186,7 +186,7 @@ final class IndexHint implements Component
             $ret .= 'FOR ' . $component->for . ' ';
         }
 
-        return $ret . ExpressionArray::buildAll($component->indexes);
+        return $ret . Expression::buildAll($component->indexes);
     }
 
     /**

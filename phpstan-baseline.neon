@@ -26,16 +26,6 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Components/Array2d.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\> but returns array\\<int\\<0, max\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
-			count: 1
-			path: src/Components/Array2d.php
-
-		-
 			message: "#^Cannot access an offset on array\\<int\\<0, max\\>, mixed\\>\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
 			count: 1
 			path: src/Components/ArrayObj.php
@@ -581,11 +571,6 @@ parameters:
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\> given\\.$#"
-			count: 1
-			path: src/Statements/DeleteStatement.php
-
-		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
@@ -674,16 +659,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/RenameStatement.php
-
-		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\> given\\.$#"
-			count: 1
-			path: src/Statements/ReplaceStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ReplaceStatement\\:\\:\\$values \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
-			count: 1
-			path: src/Statements/ReplaceStatement.php
 
 		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"

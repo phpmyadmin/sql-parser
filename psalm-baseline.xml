@@ -59,18 +59,9 @@
     </PropertyTypeCoercion>
   </file>
   <file src="src/Components/Array2d.php">
-    <InvalidReturnStatement>
-      <code>$ret</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>ArrayObj[]</code>
-    </InvalidReturnType>
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$arr->values]]></code>
-    </PossiblyInvalidPropertyFetch>
   </file>
   <file src="src/Components/ArrayObj.php">
     <MixedAssignment>
@@ -221,6 +212,9 @@
       <code>$expr</code>
       <code>$expr</code>
     </PossiblyNullArgument>
+    <PossiblyUnusedMethod>
+      <code>buildAll</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Components/FunctionCall.php">
     <MixedOperand>
@@ -988,9 +982,6 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Statements/DeleteStatement.php">
-    <InvalidArgument>
-      <code><![CDATA[$this->order]]></code>
-    </InvalidArgument>
     <MixedArgument>
       <code><![CDATA[$token->keyword]]></code>
     </MixedArgument>
@@ -1098,12 +1089,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Statements/ReplaceStatement.php">
-    <InvalidArgument>
-      <code><![CDATA[$this->values]]></code>
-    </InvalidArgument>
-    <InvalidPropertyAssignmentValue>
-      <code>Array2d::parse($parser, $list)</code>
-    </InvalidPropertyAssignmentValue>
     <PossiblyNullOperand>
       <code><![CDATA[$this->into]]></code>
       <code><![CDATA[$this->options]]></code>

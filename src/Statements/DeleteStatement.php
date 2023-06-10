@@ -165,11 +165,11 @@ class DeleteStatement extends Statement
         $ret = 'DELETE ' . OptionsArray::build($this->options);
 
         if ($this->columns !== null && $this->columns !== []) {
-            $ret .= ' ' . ExpressionArray::buildAll($this->columns);
+            $ret .= ' ' . Expression::buildAll($this->columns);
         }
 
         if ($this->from !== null && $this->from !== []) {
-            $ret .= ' FROM ' . ExpressionArray::buildAll($this->from);
+            $ret .= ' FROM ' . Expression::buildAll($this->from);
         }
 
         if ($this->join !== null && $this->join !== []) {
@@ -177,7 +177,7 @@ class DeleteStatement extends Statement
         }
 
         if ($this->using !== null && $this->using !== []) {
-            $ret .= ' USING ' . ExpressionArray::buildAll($this->using);
+            $ret .= ' USING ' . Expression::buildAll($this->using);
         }
 
         if ($this->where !== null && $this->where !== []) {
@@ -185,7 +185,7 @@ class DeleteStatement extends Statement
         }
 
         if ($this->order !== null && $this->order !== []) {
-            $ret .= ' ORDER BY ' . ExpressionArray::buildAll($this->order);
+            $ret .= ' ORDER BY ' . OrderKeyword::buildAll($this->order);
         }
 
         if ($this->limit !== null && strlen((string) $this->limit) > 0) {

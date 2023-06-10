@@ -77,6 +77,7 @@ final class Array2d implements Component
                     break;
                 }
 
+                /** @var ArrayObj $arr */
                 $arr = ArrayObj::parse($parser, $list, $options);
                 $arrCount = count($arr->values);
                 if ($count === -1) {
@@ -118,14 +119,6 @@ final class Array2d implements Component
     public static function build($component): string
     {
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
-    }
-
-    /**
-     * @param ArrayObj[] $component the component to be built
-     */
-    public static function buildAll(array $component): string
-    {
-        return ArrayObj::buildAll($component);
     }
 
     public function __toString(): string
