@@ -10,7 +10,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 use function trim;
 
 /**
@@ -112,15 +111,19 @@ final class GroupKeyword implements Component
     }
 
     /**
-     * @param GroupKeyword|GroupKeyword[] $component the component to be built
+     * @param GroupKeyword $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(', ', $component);
-        }
-
         return trim((string) $component->expr);
+    }
+
+    /**
+     * @param GroupKeyword[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(', ', $component);
     }
 
     public function __toString(): string

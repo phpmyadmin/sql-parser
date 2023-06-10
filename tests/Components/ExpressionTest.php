@@ -80,14 +80,14 @@ class ExpressionTest extends TestCase
         ];
     }
 
-    public function testBuild(): void
+    public function testBuildAll(): void
     {
         $component = [
             new Expression('1 + 2', 'three'),
             new Expression('1 + 3', 'four'),
         ];
         $this->assertEquals(
-            Expression::build($component),
+            Expression::buildAll($component),
             '1 + 2 AS `three`, 1 + 3 AS `four`'
         );
     }

@@ -272,7 +272,7 @@ final class CaseExpression implements Component
             $valuesCount = count($component->conditions);
             $resultsCount = count($component->results);
             for ($i = 0; $i < $valuesCount && $i < $resultsCount; ++$i) {
-                $ret .= 'WHEN ' . Condition::build($component->conditions[$i]) . ' ';
+                $ret .= 'WHEN ' . Condition::buildAll($component->conditions[$i]) . ' ';
                 $ret .= 'THEN ' . $component->results[$i] . ' ';
             }
         }

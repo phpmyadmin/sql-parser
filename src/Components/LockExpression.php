@@ -10,7 +10,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 
 /**
  * Parses a reference to a LOCK expression.
@@ -95,15 +94,19 @@ final class LockExpression implements Component
     }
 
     /**
-     * @param LockExpression|LockExpression[] $component the component to be built
+     * @param LockExpression $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(', ', $component);
-        }
-
         return $component->table . ' ' . $component->type;
+    }
+
+    /**
+     * @param LockExpression[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(', ', $component);
     }
 
     /**

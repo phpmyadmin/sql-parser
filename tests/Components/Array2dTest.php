@@ -23,12 +23,12 @@ class Array2dTest extends TestCase
         );
     }
 
-    public function testBuild(): void
+    public function testBuildAll(): void
     {
         $arrays = Array2d::parse(new Parser(), $this->getTokensList('(1, 2), (3, 4), (5, 6)'));
         $this->assertEquals(
             '(1, 2), (3, 4), (5, 6)',
-            Array2d::build($arrays)
+            Array2d::buildAll($arrays)
         );
     }
 

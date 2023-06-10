@@ -10,7 +10,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 
 /**
  * Parses an Index hint.
@@ -178,20 +177,24 @@ final class IndexHint implements Component
     }
 
     /**
-     * @param IndexHint|IndexHint[] $component the component to be built
+     * @param IndexHint $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(' ', $component);
-        }
-
         $ret = $component->type . ' ' . $component->indexOrKey . ' ';
         if ($component->for !== null) {
             $ret .= 'FOR ' . $component->for . ' ';
         }
 
-        return $ret . ExpressionArray::build($component->indexes);
+        return $ret . ExpressionArray::buildAll($component->indexes);
+    }
+
+    /**
+     * @param IndexHint[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(' ', $component);
     }
 
     public function __toString(): string

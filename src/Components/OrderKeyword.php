@@ -10,7 +10,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 
 /**
  * `ORDER BY` keyword parser.
@@ -117,15 +116,19 @@ final class OrderKeyword implements Component
     }
 
     /**
-     * @param OrderKeyword|OrderKeyword[] $component the component to be built
+     * @param OrderKeyword $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(', ', $component);
-        }
-
         return $component->expr . ' ' . $component->type;
+    }
+
+    /**
+     * @param OrderKeyword[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(', ', $component);
     }
 
     public function __toString(): string

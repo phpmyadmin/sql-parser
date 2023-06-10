@@ -10,10 +10,10 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class OrderKeywordTest extends TestCase
 {
-    public function testBuild(): void
+    public function testBuildAll(): void
     {
         $this->assertEquals(
-            OrderKeyword::build(
+            OrderKeyword::buildAll(
                 [
                     new OrderKeyword(new Expression('a'), 'ASC'),
                     new OrderKeyword(new Expression('b'), 'DESC'),

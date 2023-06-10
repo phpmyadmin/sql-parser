@@ -28,7 +28,7 @@ class JoinKeywordTest extends TestCase
         $this->assertEquals(['id'], $component[0]->using->values);
     }
 
-    public function testBuild(): void
+    public function testBuildAll(): void
     {
         $component = JoinKeyword::parse(
             new Parser(),
@@ -40,7 +40,7 @@ class JoinKeywordTest extends TestCase
         $this->assertEquals(
             'LEFT JOIN (t2 CROSS JOIN t3 CROSS JOIN t4) ' .
             'ON (t2.a=t1.a AND t3.b=t1.b AND t4.c=t1.c)',
-            JoinKeyword::build($component)
+            JoinKeyword::buildAll($component)
         );
     }
 }

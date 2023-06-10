@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.14.1@b9d355e0829c397b9b3b47d0c0ed042a8a70284d">
   <file src="src/Components/AlterOperation.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$component->partitions]]></code>
-    </ArgumentTypeCoercion>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[[
         'ON SCHEDULE' => 1,
@@ -53,11 +50,15 @@
     <PossiblyNullPropertyAssignmentValue>
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
+    <PropertyTypeCoercion>
+      <code><![CDATA[ArrayObj::parse(
+                        $parser,
+                        $list,
+                        ['type' => PartitionDefinition::class]
+                    )]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="src/Components/Array2d.php">
-    <InvalidArgument>
-      <code>$this</code>
-    </InvalidArgument>
     <InvalidReturnStatement>
       <code>$ret</code>
     </InvalidReturnStatement>
@@ -206,9 +207,6 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Components/ExpressionArray.php">
-    <InvalidArgument>
-      <code>$this</code>
-    </InvalidArgument>
     <InvalidReturnStatement>
       <code>$ret</code>
     </InvalidReturnStatement>
@@ -262,6 +260,9 @@
       <code><![CDATA[$component->indexOrKey]]></code>
       <code><![CDATA[$component->type]]></code>
     </PossiblyNullOperand>
+    <PossiblyUnusedMethod>
+      <code>buildAll</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Components/IntoKeyword.php">
     <MixedArgument>
@@ -291,9 +292,6 @@
     <DocblockTypeContradiction>
       <code><![CDATA['']]></code>
     </DocblockTypeContradiction>
-    <InvalidArgument>
-      <code>$this</code>
-    </InvalidArgument>
     <MixedArrayOffset>
       <code><![CDATA[static::$joins[$token->keyword]]]></code>
       <code><![CDATA[static::$joins[$token->keyword]]]></code>
@@ -541,12 +539,6 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/RenameOperation.php">
-    <DocblockTypeContradiction>
-      <code>is_array($component)</code>
-    </DocblockTypeContradiction>
-    <MixedArgument>
-      <code>$component</code>
-    </MixedArgument>
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -583,12 +575,12 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/UnionKeyword.php">
-    <InvalidArgument>
-      <code>$this</code>
-    </InvalidArgument>
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
+    <PossiblyUnusedMethod>
+      <code>buildAll</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Components/WithKeyword.php">
     <MoreSpecificImplementedParamType>
@@ -900,6 +892,9 @@
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
+    <UndefinedMethod>
+      <code><![CDATA[$class::buildAll($this->$field)]]></code>
+    </UndefinedMethod>
     <UnusedForeachValue>
       <code>$index</code>
     </UnusedForeachValue>
@@ -1098,9 +1093,9 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Statements/RenameStatement.php">
-    <InvalidArgument>
+    <PossiblyNullArgument>
       <code><![CDATA[$this->renames]]></code>
-    </InvalidArgument>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Statements/ReplaceStatement.php">
     <InvalidArgument>
@@ -1487,14 +1482,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Builder/CreateStatementTest.php">
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$stmt->fields]]></code>
-      <code><![CDATA[$stmt->fields]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$stmt->parameters]]></code>
-      <code><![CDATA[$stmt->parameters]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullReference>
       <code>__toString</code>
       <code>__toString</code>
@@ -1522,52 +1509,14 @@
     </UndefinedMethod>
   </file>
   <file src="tests/Components/CreateDefinitionTest.php">
-    <MixedArgument>
-      <code><![CDATA[$parser->statements[0]->fields[0]]]></code>
-      <code><![CDATA[$parser->statements[0]->fields[1]]]></code>
-      <code><![CDATA[$parser->statements[0]->fields[2]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[2]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[5]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[6]]]></code>
-    </MixedArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$parser->statements[0]->fields[0]]]></code>
-      <code><![CDATA[$parser->statements[0]->fields[1]]]></code>
-      <code><![CDATA[$parser->statements[0]->fields[2]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[2]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[5]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[6]]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$parser->statements[0]->fields[0]]]></code>
-      <code><![CDATA[$parser->statements[0]->fields[1]]]></code>
-      <code><![CDATA[$parser->statements[0]->fields[2]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[2]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[5]]]></code>
-      <code><![CDATA[$parser->statements[1]->fields[6]]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$component[0]->type->name]]></code>
       <code><![CDATA[$component[1]->key->name]]></code>
       <code><![CDATA[$component[1]->key->type]]></code>
     </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
-      <code><![CDATA[$parser->statements[0]->fields]]></code>
-      <code><![CDATA[$parser->statements[0]->fields]]></code>
-      <code><![CDATA[$parser->statements[0]->fields]]></code>
-      <code><![CDATA[$parser->statements[1]->fields]]></code>
-      <code><![CDATA[$parser->statements[1]->fields]]></code>
-      <code><![CDATA[$parser->statements[1]->fields]]></code>
       <code>has</code>
     </PossiblyNullReference>
-    <UndefinedMethod>
-      <code><![CDATA[$parser->statements[0]->fields]]></code>
-      <code><![CDATA[$parser->statements[0]->fields]]></code>
-      <code><![CDATA[$parser->statements[0]->fields]]></code>
-      <code><![CDATA[$parser->statements[1]->fields]]></code>
-      <code><![CDATA[$parser->statements[1]->fields]]></code>
-      <code><![CDATA[$parser->statements[1]->fields]]></code>
-    </UndefinedMethod>
   </file>
   <file src="tests/Components/ExpressionTest.php">
     <PossiblyNullPropertyFetch>
@@ -1622,11 +1571,6 @@
       <code><![CDATA[$component->expr->expr]]></code>
       <code><![CDATA[$component->expr->expr]]></code>
     </PossiblyInvalidPropertyFetch>
-  </file>
-  <file src="tests/Components/RenameOperationTest.php">
-    <InvalidArgument>
-      <code>$component</code>
-    </InvalidArgument>
   </file>
   <file src="tests/Lexer/ContextTest.php">
     <PossiblyUnusedMethod>

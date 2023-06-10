@@ -120,15 +120,15 @@ class InsertStatement extends Statement
         $ret = trim($ret) . ' INTO ' . $this->into;
 
         if ($this->values !== null && $this->values !== []) {
-            $ret .= ' VALUES ' . Array2d::build($this->values);
+            $ret .= ' VALUES ' . ArrayObj::buildAll($this->values);
         } elseif ($this->set !== null && $this->set !== []) {
-            $ret .= ' SET ' . SetOperation::build($this->set);
+            $ret .= ' SET ' . SetOperation::buildAll($this->set);
         } elseif ($this->select !== null && strlen((string) $this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 
         if ($this->onDuplicateSet !== null && $this->onDuplicateSet !== []) {
-            $ret .= ' ON DUPLICATE KEY UPDATE ' . SetOperation::build($this->onDuplicateSet);
+            $ret .= ' ON DUPLICATE KEY UPDATE ' . SetOperation::buildAll($this->onDuplicateSet);
         }
 
         return $ret;

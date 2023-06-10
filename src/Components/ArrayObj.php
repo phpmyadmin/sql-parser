@@ -10,7 +10,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 use function strlen;
 use function trim;
 
@@ -159,19 +158,23 @@ final class ArrayObj implements Component
     }
 
     /**
-     * @param ArrayObj|ArrayObj[] $component the component to be built
+     * @param ArrayObj $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(', ', $component);
-        }
-
         if ($component->raw !== []) {
             return '(' . implode(', ', $component->raw) . ')';
         }
 
         return '(' . implode(', ', $component->values) . ')';
+    }
+
+    /**
+     * @param ArrayObj[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(', ', $component);
     }
 
     public function __toString(): string

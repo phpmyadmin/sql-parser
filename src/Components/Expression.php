@@ -12,7 +12,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 use function rtrim;
 use function strlen;
 use function trim;
@@ -446,14 +445,10 @@ final class Expression implements Component
     }
 
     /**
-     * @param Expression|Expression[] $component the component to be built
+     * @param Expression $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(', ', $component);
-        }
-
         if ($component->expr !== '' && $component->expr !== null) {
             $ret = $component->expr;
         } else {
@@ -478,6 +473,14 @@ final class Expression implements Component
         }
 
         return $ret;
+    }
+
+    /**
+     * @param Expression[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(', ', $component);
     }
 
     public function __toString(): string

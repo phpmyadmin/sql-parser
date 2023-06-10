@@ -214,11 +214,11 @@ class LoadStatement extends Statement
         }
 
         if ($this->columnNamesOrUserVariables !== null && $this->columnNamesOrUserVariables !== []) {
-            $ret .= ' ' . ExpressionArray::build($this->columnNamesOrUserVariables);
+            $ret .= ' ' . ExpressionArray::buildAll($this->columnNamesOrUserVariables);
         }
 
         if ($this->set !== null && $this->set !== []) {
-            $ret .= ' SET ' . SetOperation::build($this->set);
+            $ret .= ' SET ' . SetOperation::buildAll($this->set);
         }
 
         return $ret;

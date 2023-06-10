@@ -123,6 +123,6 @@ class LockStatement extends Statement
     public function build(): string
     {
         return trim(($this->isLock ? 'LOCK' : 'UNLOCK')
-            . ' TABLES ' . LockExpression::build($this->locked));
+            . ' TABLES ' . LockExpression::buildAll($this->locked));
     }
 }

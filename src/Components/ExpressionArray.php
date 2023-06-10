@@ -9,6 +9,8 @@ use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Translator;
+use RuntimeException;
 
 use function count;
 use function implode;
@@ -117,9 +119,17 @@ final class ExpressionArray implements Component
     }
 
     /**
-     * @param Expression[] $component the component to be built
+     * @param ExpressionArray $component
      */
     public static function build($component): string
+    {
+        throw new RuntimeException(Translator::gettext('Not implemented yet.'));
+    }
+
+    /**
+     * @param Expression[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
     {
         $ret = [];
         foreach ($component as $frag) {

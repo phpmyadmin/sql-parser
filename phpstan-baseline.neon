@@ -6,17 +6,17 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj given\\.$#"
-			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, float\\|int\\|string given\\.$#"
 			count: 2
 			path: src/Components/AlterOperation.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$partitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/AlterOperation.php
 
@@ -32,11 +32,6 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\> but returns array\\<int\\<0, max\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>\\.$#"
-			count: 1
-			path: src/Components/Array2d.php
-
-		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\) given\\.$#"
 			count: 1
 			path: src/Components/Array2d.php
 
@@ -126,11 +121,6 @@ parameters:
 			path: src/Components/ExpressionArray.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\) given\\.$#"
-			count: 1
-			path: src/Components/ExpressionArray.php
-
-		-
 			message: "#^Parameter \\#1 \\$string of function strlen expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Components/ExpressionArray.php
@@ -184,11 +174,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\) given\\.$#"
-			count: 1
-			path: src/Components/JoinKeyword.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
@@ -386,11 +371,6 @@ parameters:
 			path: src/Components/Reference.php
 
 		-
-			message: "#^Call to function is_array\\(\\) with PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation will always evaluate to false\\.$#"
-			count: 1
-			path: src/Components/RenameOperation.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
 			path: src/Components/RenameOperation.php
@@ -414,11 +394,6 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:\\$value \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/Components/SetOperation.php
-
-		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\:\\:build\\(\\) expects array\\<array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\>\\>, \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\UnionKeyword\\) given\\.$#"
-			count: 1
-			path: src/Components/UnionKeyword.php
 
 		-
 			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$keywords \\(non\\-empty\\-array\\<non\\-empty\\-string, int\\>\\) does not accept default value of type array\\{\\}\\.$#"
@@ -501,6 +476,11 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Call to an undefined static method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:buildAll\\(\\)\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
 			message: "#^Offset 'class' does not exist on array\\{class\\?\\: class\\-string\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>, field\\?\\: non\\-empty\\-string, options\\?\\: array\\<string, string\\>\\}\\.$#"
 			count: 1
 			path: src/Statement.php
@@ -516,7 +496,7 @@ parameters:
 			path: src/Statements/AlterStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null given\\.$#"
 			count: 1
 			path: src/Statements/AlterStatement.php
 
@@ -556,7 +536,7 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression, PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null given\\.$#"
 			count: 10
 			path: src/Statements/CreateStatement.php
 
@@ -566,7 +546,7 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -601,7 +581,7 @@ parameters:
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ExpressionArray\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\> given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
@@ -691,12 +671,12 @@ parameters:
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/RenameStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\> given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Array2d\\> given\\.$#"
 			count: 1
 			path: src/Statements/ReplaceStatement.php
 
@@ -711,7 +691,7 @@ parameters:
 			path: src/Statements/SetStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
 
@@ -921,44 +901,9 @@ parameters:
 			path: tests/Builder/CreateStatementTest.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null given\\.$#"
-			count: 2
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:build\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
-			count: 2
-			path: tests/Builder/CreateStatementTest.php
-
-		-
 			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: tests/Components/ArrayObjTest.php
-
-		-
-			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot access offset 1 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot access offset 2 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
-			count: 2
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot access offset 5 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot access offset 6 on array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
 
 		-
 			message: "#^Cannot access property \\$name on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
@@ -1004,11 +949,6 @@ parameters:
 			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\.$#"
 			count: 2
 			path: tests/Components/PartitionDefinitionTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:build\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\> given\\.$#"
-			count: 1
-			path: tests/Components/RenameOperationTest.php
 
 		-
 			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 2 and PhpMyAdmin\\\\SqlParser\\\\TokensList will always evaluate to false\\.$#"

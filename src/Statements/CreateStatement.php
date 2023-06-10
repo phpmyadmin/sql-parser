@@ -411,7 +411,7 @@ class CreateStatement extends Statement
         $fields = '';
         if (! empty($this->fields)) {
             if (is_array($this->fields)) {
-                $fields = CreateDefinition::build($this->fields) . ' ';
+                $fields = CreateDefinition::buildAll($this->fields) . ' ';
             } elseif ($this->fields instanceof ArrayObj) {
                 $fields = ArrayObj::build($this->fields);
             }
@@ -465,7 +465,7 @@ class CreateStatement extends Statement
             }
 
             if (! empty($this->partitions)) {
-                $partition .= "\n" . PartitionDefinition::build($this->partitions);
+                $partition .= "\n" . PartitionDefinition::buildAll($this->partitions);
             }
 
             return 'CREATE '
@@ -510,7 +510,7 @@ class CreateStatement extends Statement
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
-                . ParameterDefinition::build($this->parameters) . ' '
+                . ParameterDefinition::buildAll($this->parameters) . ' '
                 . $tmp . ' ' . OptionsArray::build($this->entityOptions) . ' '
                 . TokensList::build($this->body);
         }

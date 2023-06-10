@@ -270,7 +270,7 @@ final class IntoKeyword implements Component
         }
 
         if (isset($component->values)) {
-            return ExpressionArray::build($component->values);
+            return ExpressionArray::buildAll($component->values);
         }
 
         $ret = 'OUTFILE "' . $component->dest . '"';

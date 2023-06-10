@@ -511,9 +511,10 @@ EOT
             $stmt->name->__toString()
         );
 
+        $this->assertNotNull($stmt->parameters);
         $this->assertSame(
             '(IN `_var` INT)',
-            ParameterDefinition::build($stmt->parameters)
+            ParameterDefinition::buildAll($stmt->parameters)
         );
 
         $this->assertSame(
@@ -613,9 +614,10 @@ EOT
             $stmt->name->__toString()
         );
 
+        $this->assertNotNull($stmt->parameters);
         $this->assertSame(
             '(`p_inventory_id` INT)',
-            ParameterDefinition::build($stmt->parameters)
+            ParameterDefinition::buildAll($stmt->parameters)
         );
 
         $this->assertSame(
@@ -735,9 +737,10 @@ SQL
 )
 SQL;
 
+        $this->assertIsArray($stmt->fields);
         $this->assertEquals(
             $tableBody,
-            CreateDefinition::build($stmt->fields)
+            CreateDefinition::buildAll($stmt->fields)
         );
 
         $this->assertEquals(
@@ -834,9 +837,10 @@ SQL
 SQL;
         // phpcs:enable
 
+        $this->assertIsArray($stmt->fields);
         $this->assertEquals(
             $tableBody,
-            CreateDefinition::build($stmt->fields)
+            CreateDefinition::buildAll($stmt->fields)
         );
 
         $this->assertEquals(

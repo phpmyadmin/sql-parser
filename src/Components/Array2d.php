@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Translator;
+use RuntimeException;
 
 use function count;
 use function sprintf;
@@ -112,11 +113,19 @@ final class Array2d implements Component
     }
 
     /**
-     * @param ArrayObj[] $component the component to be built
+     * @param Array2d $component
      */
     public static function build($component): string
     {
-        return ArrayObj::build($component);
+        throw new RuntimeException(Translator::gettext('Not implemented yet.'));
+    }
+
+    /**
+     * @param ArrayObj[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return ArrayObj::buildAll($component);
     }
 
     public function __toString(): string

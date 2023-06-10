@@ -11,7 +11,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
 use function in_array;
-use function is_array;
 use function trim;
 
 /**
@@ -222,15 +221,19 @@ final class Condition implements Component
     }
 
     /**
-     * @param Condition[]|Condition $component the component to be built
+     * @param Condition $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(' ', $component);
-        }
-
         return $component->expr;
+    }
+
+    /**
+     * @param Condition[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(' ', $component);
     }
 
     public function __toString(): string

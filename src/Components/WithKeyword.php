@@ -57,7 +57,7 @@ final class WithKeyword implements Component
         $str = $component->name;
 
         if ($component->columns) {
-            $str .= ArrayObj::build($component->columns);
+            $str .= ArrayObj::buildAll($component->columns);
         }
 
         $str .= ' AS (';

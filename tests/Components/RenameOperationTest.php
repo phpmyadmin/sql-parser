@@ -10,9 +10,9 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class RenameOperationTest extends TestCase
 {
-    public function testBuild(): void
+    public function testBuildAll(): void
     {
         $component = RenameOperation::parse(new Parser(), $this->getTokensList('a TO b, c TO d'));
-        $this->assertEquals(RenameOperation::build($component), 'a TO b, c TO d');
+        $this->assertEquals(RenameOperation::buildAll($component), 'a TO b, c TO d');
     }
 }
