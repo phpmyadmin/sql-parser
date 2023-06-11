@@ -262,7 +262,7 @@ final class Expression implements Component
                         // For a use of CASE like
                         // 'SELECT a = CASE .... END, b=1, `id`, ... FROM ...'
                         $tempCaseExpr = CaseExpression::parse($parser, $list);
-                        $ret->expr .= CaseExpression::build($tempCaseExpr);
+                        $ret->expr .= $tempCaseExpr->build();
                         $isExpr = true;
                         continue;
                     }
@@ -444,32 +444,29 @@ final class Expression implements Component
         return $ret;
     }
 
-    /**
-     * @param Expression $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        if ($component->expr !== '' && $component->expr !== null) {
-            $ret = $component->expr;
+        if ($this->expr !== '' && $this->expr !== null) {
+            $ret = $this->expr;
         } else {
             $fields = [];
-            if (isset($component->database) && ($component->database !== '')) {
-                $fields[] = $component->database;
+            if (isset($this->database) && ($this->database !== '')) {
+                $fields[] = $this->database;
             }
 
-            if (isset($component->table) && ($component->table !== '')) {
-                $fields[] = $component->table;
+            if (isset($this->table) && ($this->table !== '')) {
+                $fields[] = $this->table;
             }
 
-            if (isset($component->column) && ($component->column !== '')) {
-                $fields[] = $component->column;
+            if (isset($this->column) && ($this->column !== '')) {
+                $fields[] = $this->column;
             }
 
             $ret = implode('.', Context::escapeAll($fields));
         }
 
-        if (! empty($component->alias)) {
-            $ret .= ' AS ' . Context::escape($component->alias);
+        if (! empty($this->alias)) {
+            $ret .= ' AS ' . Context::escape($this->alias);
         }
 
         return $ret;
@@ -485,6 +482,6 @@ final class Expression implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

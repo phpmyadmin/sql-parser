@@ -20,19 +20,19 @@ class IntoKeywordTest extends TestCase
     public function testBuild(): void
     {
         $component = IntoKeyword::parse(new Parser(), $this->getTokensList('tbl(`col1`, `col2`)'));
-        $this->assertEquals('tbl(`col1`, `col2`)', IntoKeyword::build($component));
+        $this->assertEquals('tbl(`col1`, `col2`)', $component->build());
     }
 
     public function testBuildValues(): void
     {
         $component = IntoKeyword::parse(new Parser(), $this->getTokensList('@a1, @a2, @a3'));
-        $this->assertEquals('@a1, @a2, @a3', IntoKeyword::build($component));
+        $this->assertEquals('@a1, @a2, @a3', $component->build());
     }
 
     public function testBuildOutfile(): void
     {
         $component = IntoKeyword::parse(new Parser(), $this->getTokensList('OUTFILE "/tmp/outfile.txt"'));
-        $this->assertEquals('OUTFILE "/tmp/outfile.txt"', IntoKeyword::build($component));
+        $this->assertEquals('OUTFILE "/tmp/outfile.txt"', $component->build());
     }
 
     public function testParseErr1(): void

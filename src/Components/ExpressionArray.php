@@ -118,10 +118,7 @@ final class ExpressionArray implements Component
         return $ret;
     }
 
-    /**
-     * @param ExpressionArray $component
-     */
-    public static function build($component): string
+    public function build(): string
     {
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
@@ -131,16 +128,11 @@ final class ExpressionArray implements Component
      */
     public static function buildAll(array $component): string
     {
-        $ret = [];
-        foreach ($component as $frag) {
-            $ret[] = $frag::build($frag);
-        }
-
-        return implode(', ', $ret);
+        return implode(', ', $component);
     }
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

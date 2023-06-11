@@ -93,12 +93,9 @@ final class LockExpression implements Component
         return $ret;
     }
 
-    /**
-     * @param LockExpression $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        return $component->table . ' ' . $component->type;
+        return $this->table . ' ' . $this->type;
     }
 
     /**
@@ -204,6 +201,6 @@ final class LockExpression implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

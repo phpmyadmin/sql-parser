@@ -244,7 +244,7 @@ final class CaseExpression implements Component
                 $parser->error('An alias was expected after AS.', $list->tokens[$list->idx - 1]);
             }
 
-            $ret->expr = self::build($ret);
+            $ret->expr = $ret->build();
         }
 
         --$list->idx;
@@ -252,39 +252,36 @@ final class CaseExpression implements Component
         return $ret;
     }
 
-    /**
-     * @param CaseExpression $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
         $ret = 'CASE ';
-        if (isset($component->value)) {
+        if (isset($this->value)) {
             // Syntax type 0
-            $ret .= $component->value . ' ';
-            $valuesCount = count($component->compareValues);
-            $resultsCount = count($component->results);
+            $ret .= $this->value . ' ';
+            $valuesCount = count($this->compareValues);
+            $resultsCount = count($this->results);
             for ($i = 0; $i < $valuesCount && $i < $resultsCount; ++$i) {
-                $ret .= 'WHEN ' . $component->compareValues[$i] . ' ';
-                $ret .= 'THEN ' . $component->results[$i] . ' ';
+                $ret .= 'WHEN ' . $this->compareValues[$i] . ' ';
+                $ret .= 'THEN ' . $this->results[$i] . ' ';
             }
         } else {
             // Syntax type 1
-            $valuesCount = count($component->conditions);
-            $resultsCount = count($component->results);
+            $valuesCount = count($this->conditions);
+            $resultsCount = count($this->results);
             for ($i = 0; $i < $valuesCount && $i < $resultsCount; ++$i) {
-                $ret .= 'WHEN ' . Condition::buildAll($component->conditions[$i]) . ' ';
-                $ret .= 'THEN ' . $component->results[$i] . ' ';
+                $ret .= 'WHEN ' . Condition::buildAll($this->conditions[$i]) . ' ';
+                $ret .= 'THEN ' . $this->results[$i] . ' ';
             }
         }
 
-        if (isset($component->elseResult)) {
-            $ret .= 'ELSE ' . $component->elseResult . ' ';
+        if (isset($this->elseResult)) {
+            $ret .= 'ELSE ' . $this->elseResult . ' ';
         }
 
         $ret .= 'END';
 
-        if ($component->alias) {
-            $ret .= ' AS ' . Context::escape($component->alias);
+        if ($this->alias) {
+            $ret .= ' AS ' . Context::escape($this->alias);
         }
 
         return $ret;
@@ -292,6 +289,6 @@ final class CaseExpression implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

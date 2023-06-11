@@ -45,24 +45,21 @@ final class WithKeyword implements Component
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
 
-    /**
-     * @param WithKeyword $component
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        if (! isset($component->statement)) {
+        if (! isset($this->statement)) {
             throw new RuntimeException('No statement inside WITH');
         }
 
-        $str = $component->name;
+        $str = $this->name;
 
-        if ($component->columns) {
-            $str .= ArrayObj::buildAll($component->columns);
+        if ($this->columns) {
+            $str .= ArrayObj::buildAll($this->columns);
         }
 
         $str .= ' AS (';
 
-        foreach ($component->statement->statements as $statement) {
+        foreach ($this->statement->statements as $statement) {
             $str .= $statement->build();
         }
 
@@ -73,6 +70,6 @@ final class WithKeyword implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

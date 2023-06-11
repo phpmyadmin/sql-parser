@@ -258,30 +258,27 @@ final class IntoKeyword implements Component
         }
     }
 
-    /**
-     * @param IntoKeyword $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        if ($component->dest instanceof Expression) {
-            $columns = ! empty($component->columns) ? '(`' . implode('`, `', $component->columns) . '`)' : '';
+        if ($this->dest instanceof Expression) {
+            $columns = ! empty($this->columns) ? '(`' . implode('`, `', $this->columns) . '`)' : '';
 
-            return $component->dest . $columns;
+            return $this->dest . $columns;
         }
 
-        if (isset($component->values)) {
-            return Expression::buildAll($component->values);
+        if (isset($this->values)) {
+            return Expression::buildAll($this->values);
         }
 
-        $ret = 'OUTFILE "' . $component->dest . '"';
+        $ret = 'OUTFILE "' . $this->dest . '"';
 
-        $fieldsOptionsString = OptionsArray::build($component->fieldsOptions);
+        $fieldsOptionsString = $this->fieldsOptions?->build() ?? '';
         if (trim($fieldsOptionsString) !== '') {
-            $ret .= $component->fieldsKeyword ? ' FIELDS' : ' COLUMNS';
+            $ret .= $this->fieldsKeyword ? ' FIELDS' : ' COLUMNS';
             $ret .= ' ' . $fieldsOptionsString;
         }
 
-        $linesOptionsString = OptionsArray::build($component->linesOptions);
+        $linesOptionsString = $this->linesOptions?->build() ?? '';
         if (trim($linesOptionsString) !== '') {
             $ret .= ' LINES ' . $linesOptionsString;
         }
@@ -291,6 +288,6 @@ final class IntoKeyword implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

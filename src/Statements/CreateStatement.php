@@ -413,36 +413,36 @@ class CreateStatement extends Statement
             if (is_array($this->fields)) {
                 $fields = CreateDefinition::buildAll($this->fields) . ' ';
             } elseif ($this->fields instanceof ArrayObj) {
-                $fields = ArrayObj::build($this->fields);
+                $fields = $this->fields->build();
             }
         }
 
         if ($this->options->has('DATABASE') || $this->options->has('SCHEMA')) {
             return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
-                . OptionsArray::build($this->entityOptions);
+                . $this->options->build() . ' '
+                . $this->name->build() . ' '
+                . $this->entityOptions->build();
         }
 
         if ($this->options->has('TABLE')) {
             if ($this->select !== null) {
                 return 'CREATE '
-                    . OptionsArray::build($this->options) . ' '
-                    . Expression::build($this->name) . ' '
+                    . $this->options->build() . ' '
+                    . $this->name->build() . ' '
                     . $this->select->build();
             }
 
             if ($this->like !== null) {
                 return 'CREATE '
-                    . OptionsArray::build($this->options) . ' '
-                    . Expression::build($this->name) . ' LIKE '
-                    . Expression::build($this->like);
+                    . $this->options->build() . ' '
+                    . $this->name->build() . ' LIKE '
+                    . $this->like->build();
             }
 
             if ($this->with !== null) {
                 return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
+                . $this->options->build() . ' '
+                . $this->name->build() . ' '
                 . $this->with->build();
             }
 
@@ -469,10 +469,10 @@ class CreateStatement extends Statement
             }
 
             return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
+                . $this->options->build() . ' '
+                . $this->name->build() . ' '
                 . $fields
-                . OptionsArray::build($this->entityOptions)
+                . ($this->entityOptions?->build() ?? '')
                 . $partition;
         }
 
@@ -485,39 +485,39 @@ class CreateStatement extends Statement
             }
 
             return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
+                . $this->options->build() . ' '
+                . $this->name->build() . ' '
                 . $fields . ' AS ' . $builtStatement
                 . (! empty($this->body) ? TokensList::build($this->body) : '') . ' '
-                . OptionsArray::build($this->entityOptions);
+                . ($this->entityOptions?->build() ?? '');
         }
 
         if ($this->options->has('TRIGGER')) {
             return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
-                . OptionsArray::build($this->entityOptions) . ' '
-                . 'ON ' . Expression::build($this->table) . ' '
+                . $this->options->build() . ' '
+                . $this->name->build() . ' '
+                . $this->entityOptions->build() . ' '
+                . 'ON ' . $this->table->build() . ' '
                 . 'FOR EACH ROW ' . TokensList::build($this->body);
         }
 
         if ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
             $tmp = '';
             if ($this->options->has('FUNCTION')) {
-                $tmp = 'RETURNS ' . DataType::build($this->return);
+                $tmp = 'RETURNS ' . $this->return->build();
             }
 
             return 'CREATE '
-                . OptionsArray::build($this->options) . ' '
-                . Expression::build($this->name) . ' '
+                . $this->options->build() . ' '
+                . $this->name->build() . ' '
                 . ParameterDefinition::buildAll($this->parameters) . ' '
-                . $tmp . ' ' . OptionsArray::build($this->entityOptions) . ' '
+                . $tmp . ' ' . $this->entityOptions->build() . ' '
                 . TokensList::build($this->body);
         }
 
         return 'CREATE '
-            . OptionsArray::build($this->options) . ' '
-            . Expression::build($this->name) . ' '
+            . $this->options->build() . ' '
+            . $this->name->build() . ' '
             . TokensList::build($this->body);
     }
 

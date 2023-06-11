@@ -135,6 +135,6 @@ SQL;
     public function testBuildBadWithKeyword(): void
     {
         $this->expectExceptionMessage('No statement inside WITH');
-        WithKeyword::build(new WithKeyword('test'));
+        (new WithKeyword('test'))->build();
     }
 }

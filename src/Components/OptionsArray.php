@@ -266,17 +266,14 @@ final class OptionsArray implements Component
         return $ret;
     }
 
-    /**
-     * @param OptionsArray $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        if (empty($component->options)) {
+        if (empty($this->options)) {
             return '';
         }
 
         $options = [];
-        foreach ($component->options as $option) {
+        foreach ($this->options as $option) {
             if (! is_array($option)) {
                 $options[] = $option;
             } else {
@@ -358,6 +355,6 @@ final class OptionsArray implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

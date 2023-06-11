@@ -157,16 +157,13 @@ final class ArrayObj implements Component
         return $ret;
     }
 
-    /**
-     * @param ArrayObj $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        if ($component->raw !== []) {
-            return '(' . implode(', ', $component->raw) . ')';
+        if ($this->raw !== []) {
+            return '(' . implode(', ', $this->raw) . ')';
         }
 
-        return '(' . implode(', ', $component->values) . ')';
+        return '(' . implode(', ', $this->values) . ')';
     }
 
     /**
@@ -179,6 +176,6 @@ final class ArrayObj implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

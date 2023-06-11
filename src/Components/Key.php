@@ -263,22 +263,19 @@ final class Key implements Component
         return $ret;
     }
 
-    /**
-     * @param Key $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        $ret = $component->type . ' ';
-        if (! empty($component->name)) {
-            $ret .= Context::escape($component->name) . ' ';
+        $ret = $this->type . ' ';
+        if (! empty($this->name)) {
+            $ret .= Context::escape($this->name) . ' ';
         }
 
-        if ($component->expr !== null) {
-            return $ret . '(' . $component->expr . ') ' . $component->options;
+        if ($this->expr !== null) {
+            return $ret . '(' . $this->expr . ') ' . $this->options;
         }
 
         $columns = [];
-        foreach ($component->columns as $column) {
+        foreach ($this->columns as $column) {
             $tmp = '';
             if (isset($column['name'])) {
                 $tmp .= Context::escape($column['name']);
@@ -295,13 +292,13 @@ final class Key implements Component
             $columns[] = $tmp;
         }
 
-        $ret .= '(' . implode(',', $columns) . ') ' . $component->options;
+        $ret .= '(' . implode(',', $columns) . ') ' . $this->options;
 
         return trim($ret);
     }
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

@@ -526,29 +526,26 @@ final class AlterOperation implements Component
         return $ret;
     }
 
-    /**
-     * @param AlterOperation $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
         // Specific case of RENAME COLUMN that insert the field between 2 options.
         $afterFieldsOptions = new OptionsArray();
-        if ($component->options->has('RENAME') && $component->options->has('COLUMN')) {
-            $afterFieldsOptions = clone $component->options;
+        if ($this->options->has('RENAME') && $this->options->has('COLUMN')) {
+            $afterFieldsOptions = clone $this->options;
             $afterFieldsOptions->remove('RENAME');
             $afterFieldsOptions->remove('COLUMN');
-            $component->options->remove('TO');
+            $this->options->remove('TO');
         }
 
-        $ret = $component->options . ' ';
-        if (isset($component->field) && ($component->field !== '')) {
-            $ret .= $component->field . ' ';
+        $ret = $this->options . ' ';
+        if (isset($this->field) && ($this->field !== '')) {
+            $ret .= $this->field . ' ';
         }
 
-        $ret .= $afterFieldsOptions . TokensList::build($component->unknown);
+        $ret .= $afterFieldsOptions . TokensList::build($this->unknown);
 
-        if (isset($component->partitions)) {
-            $ret .= PartitionDefinition::buildAll($component->partitions);
+        if (isset($this->partitions)) {
+            $ret .= PartitionDefinition::buildAll($this->partitions);
         }
 
         return trim($ret);
@@ -591,6 +588,6 @@ final class AlterOperation implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

@@ -176,17 +176,14 @@ final class IndexHint implements Component
         return $ret;
     }
 
-    /**
-     * @param IndexHint $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        $ret = $component->type . ' ' . $component->indexOrKey . ' ';
-        if ($component->for !== null) {
-            $ret .= 'FOR ' . $component->for . ' ';
+        $ret = $this->type . ' ' . $this->indexOrKey . ' ';
+        if ($this->for !== null) {
+            $ret .= 'FOR ' . $this->for . ' ';
         }
 
-        return $ret . Expression::buildAll($component->indexes);
+        return $ret . Expression::buildAll($this->indexes);
     }
 
     /**
@@ -199,6 +196,6 @@ final class IndexHint implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

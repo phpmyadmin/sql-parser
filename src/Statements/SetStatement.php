@@ -104,9 +104,9 @@ class SetStatement extends Statement
 
     public function build(): string
     {
-        $ret = 'SET ' . OptionsArray::build($this->options)
+        $ret = 'SET ' . $this->options->build()
             . ' ' . SetOperation::buildAll($this->set)
-            . ' ' . OptionsArray::build($this->endOptions);
+            . ' ' . ($this->endOptions?->build() ?? '');
 
         return trim($ret);
     }

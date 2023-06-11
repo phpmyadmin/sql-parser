@@ -316,35 +316,32 @@ final class CreateDefinition implements Component
         return $ret;
     }
 
-    /**
-     * @param CreateDefinition $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
         $tmp = '';
 
-        if ($component->isConstraint) {
+        if ($this->isConstraint) {
             $tmp .= 'CONSTRAINT ';
         }
 
-        if (isset($component->name) && ($component->name !== '')) {
-            $tmp .= Context::escape($component->name) . ' ';
+        if (isset($this->name) && ($this->name !== '')) {
+            $tmp .= Context::escape($this->name) . ' ';
         }
 
-        if (! empty($component->type)) {
-            $component->type->lowercase = true;
-            $tmp .= DataType::build($component->type) . ' ';
+        if (! empty($this->type)) {
+            $this->type->lowercase = true;
+            $tmp .= $this->type->build() . ' ';
         }
 
-        if (! empty($component->key)) {
-            $tmp .= $component->key . ' ';
+        if (! empty($this->key)) {
+            $tmp .= $this->key . ' ';
         }
 
-        if (! empty($component->references)) {
-            $tmp .= 'REFERENCES ' . $component->references . ' ';
+        if (! empty($this->references)) {
+            $tmp .= 'REFERENCES ' . $this->references . ' ';
         }
 
-        $tmp .= $component->options;
+        $tmp .= $this->options;
 
         return trim($tmp);
     }
@@ -359,6 +356,6 @@ final class CreateDefinition implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

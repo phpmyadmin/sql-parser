@@ -138,12 +138,12 @@ class AlterStatement extends Statement
     {
         $tmp = [];
         foreach ($this->altered as $altered) {
-            $tmp[] = $altered::build($altered);
+            $tmp[] = $altered->build();
         }
 
         return trim(
-            'ALTER ' . OptionsArray::build($this->options)
-            . ' ' . Expression::build($this->table)
+            'ALTER ' . $this->options->build()
+            . ' ' . $this->table->build()
             . ' ' . implode(', ', $tmp)
         );
     }

@@ -21,6 +21,6 @@ class ReferenceTest extends TestCase
     public function testBuild(): void
     {
         $component = new Reference(new Expression('`tbl`'), ['id']);
-        $this->assertEquals('`tbl` (`id`)', Reference::build($component));
+        $this->assertEquals('`tbl` (`id`)', $component->build());
     }
 }

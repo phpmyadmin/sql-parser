@@ -191,7 +191,7 @@ class LoadStatement extends Statement
         $ret .= ' INTO TABLE ' . $this->table;
 
         if ($this->partition !== null && strlen((string) $this->partition) > 0) {
-            $ret .= ' PARTITION ' . ArrayObj::build($this->partition);
+            $ret .= ' PARTITION ' . $this->partition->build();
         }
 
         if ($this->charsetName !== null) {

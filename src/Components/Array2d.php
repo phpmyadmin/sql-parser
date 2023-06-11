@@ -113,16 +113,13 @@ final class Array2d implements Component
         return $ret;
     }
 
-    /**
-     * @param Array2d $component
-     */
-    public static function build($component): string
+    public function build(): string
     {
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

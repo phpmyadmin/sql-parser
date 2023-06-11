@@ -139,12 +139,9 @@ final class SetOperation implements Component
         return $ret;
     }
 
-    /**
-     * @param SetOperation $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        return $component->column . ' = ' . $component->value;
+        return $this->column . ' = ' . $this->value;
     }
 
     /**
@@ -157,6 +154,6 @@ final class SetOperation implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

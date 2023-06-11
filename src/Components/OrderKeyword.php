@@ -115,12 +115,9 @@ final class OrderKeyword implements Component
         return $ret;
     }
 
-    /**
-     * @param OrderKeyword $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        return $component->expr . ' ' . $component->type;
+        return $this->expr . ' ' . $this->type;
     }
 
     /**
@@ -133,6 +130,6 @@ final class OrderKeyword implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

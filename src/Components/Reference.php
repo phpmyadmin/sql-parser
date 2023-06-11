@@ -139,20 +139,17 @@ final class Reference implements Component
         return $ret;
     }
 
-    /**
-     * @param Reference $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
         return trim(
-            $component->table
-            . ' (' . implode(', ', Context::escapeAll($component->columns)) . ') '
-            . $component->options
+            $this->table
+            . ' (' . implode(', ', Context::escapeAll($this->columns)) . ') '
+            . $this->options
         );
     }
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }
