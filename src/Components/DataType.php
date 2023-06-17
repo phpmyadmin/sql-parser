@@ -72,6 +72,8 @@ final class DataType implements Component
      */
     public $options;
 
+    public bool $lowercase = false;
+
     /**
      * @param string         $name       the name of this data type
      * @param int[]|string[] $parameters the parameters (size or possible values)
@@ -153,13 +155,11 @@ final class DataType implements Component
     }
 
     /**
-     * @param DataType             $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param DataType $component the component to be built
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
-        $name = empty($options['lowercase']) ?
-            $component->name : strtolower($component->name);
+        $name = $component->lowercase ? strtolower($component->name) : $component->name;
 
         $parameters = '';
         if ($component->parameters !== []) {

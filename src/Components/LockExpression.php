@@ -96,9 +96,8 @@ final class LockExpression implements Component
 
     /**
      * @param LockExpression|LockExpression[] $component the component to be built
-     * @param array<string, mixed>            $options   parameters for building
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         if (is_array($component)) {
             return implode(', ', $component);

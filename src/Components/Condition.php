@@ -221,10 +221,9 @@ final class Condition implements Component
     }
 
     /**
-     * @param Condition[]          $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param Condition[] $component the component to be built
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         if (is_array($component)) {
             return implode(' ', $component);

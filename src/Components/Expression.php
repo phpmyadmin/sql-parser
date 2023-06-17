@@ -448,9 +448,8 @@ final class Expression implements Component
 
     /**
      * @param Expression|Expression[] $component the component to be built
-     * @param array<string, mixed>    $options   parameters for building
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         if (is_array($component)) {
             return implode(', ', $component);

@@ -140,10 +140,9 @@ final class Reference implements Component
     }
 
     /**
-     * @param Reference            $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param Reference $component the component to be built
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         return trim(
             $component->table

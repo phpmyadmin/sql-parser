@@ -259,10 +259,9 @@ final class IntoKeyword implements Component
     }
 
     /**
-     * @param IntoKeyword          $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param IntoKeyword $component the component to be built
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         if ($component->dest instanceof Expression) {
             $columns = ! empty($component->columns) ? '(`' . implode('`, `', $component->columns) . '`)' : '';
@@ -282,7 +281,7 @@ final class IntoKeyword implements Component
             $ret .= ' ' . $fieldsOptionsString;
         }
 
-        $linesOptionsString = OptionsArray::build($component->linesOptions, ['expr' => true]);
+        $linesOptionsString = OptionsArray::build($component->linesOptions);
         if (trim($linesOptionsString) !== '') {
             $ret .= ' LINES ' . $linesOptionsString;
         }

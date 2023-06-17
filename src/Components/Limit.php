@@ -109,10 +109,9 @@ final class Limit implements Component
     }
 
     /**
-     * @param Limit                $component the component to be built
-     * @param array<string, mixed> $options   parameters for building
+     * @param Limit $component the component to be built
      */
-    public static function build($component, array $options = []): string
+    public static function build($component): string
     {
         return $component->offset . ', ' . $component->rowCount;
     }
