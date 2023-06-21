@@ -431,17 +431,18 @@ class AlterOperation extends Component
                         $list->idx++; // Ignore the current token
                         $nextToken = $list->getNext();
 
-                        if ($token->type === Token::TYPE_STRING) {
-                            // To avoid string options, like in ENUMs, to be interpreted as statements when they
-                            // actually are just strings.
-                            $ret->unknown[] = $token;
-                            continue;
-                        }
-
-                        if ($token->value === 'SET' && $nextToken !== null && $nextToken->value === '(') {
-                            // To avoid adding the tokens between the SET() parentheses to the unknown tokens
+                        if (
+                            in_array($token->value, ['SET', 'ENUM'], true)
+                            && $nextToken !== null
+                            && $nextToken->value === '('
+                        ) {
+                            // To avoid adding the tokens between the SET() or ENUM() parentheses to the unknown tokens
                             $list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, ')');
-                        } elseif ($token->value === 'SET' && $nextToken !== null && $nextToken->value === 'DEFAULT') {
+                        } elseif (
+                            in_array($token->value, ['SET', 'ENUM'], true)
+                            && $nextToken !== null
+                            && $nextToken->value === 'DEFAULT'
+                        ) {
                             // to avoid adding the `DEFAULT` token to the unknown tokens.
                             ++$list->idx;
                         } else {
