@@ -111,7 +111,13 @@
                     "options": []
                 },
                 "end_options": null,
-                "set": [],
+                "set": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\SetOperation",
+                        "column": "@foo",
+                        "value": "1"
+                    }
+                ],
                 "first": 0,
                 "last": 7
             }
