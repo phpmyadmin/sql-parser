@@ -275,8 +275,8 @@
                         "database": null,
                         "table": null,
                         "column": null,
-                        "expr": "COUNT(*) (PARTITION BY `REGION`)",
-                        "alias": "OVER",
+                        "expr": "COUNT(*) OVER(PARTITION BY `REGION`)",
+                        "alias": "count(REGION)",
                         "function": "COUNT",
                         "subquery": null
                     }
@@ -320,28 +320,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "An alias was previously found.",
-                {
-                    "@type": "@21"
-                },
-                0
-            ],
-            [
-                "An alias was expected.",
-                {
-                    "@type": "@20"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@21"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
