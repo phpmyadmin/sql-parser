@@ -365,7 +365,8 @@ final class Expression implements Component
                     && (($prev[1]->type === Token::TYPE_STRING)
                         || ($prev[1]->type === Token::TYPE_SYMBOL
                             && ! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE))
-                        || ($prev[1]->type === Token::TYPE_NONE))
+                        || ($prev[1]->type === Token::TYPE_NONE
+                            && $prev[1]->token !== 'OVER'))
                 ) {
                     if (! empty($ret->alias)) {
                         $parser->error('An alias was previously found.', $token);
