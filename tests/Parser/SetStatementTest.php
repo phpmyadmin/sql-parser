@@ -32,6 +32,7 @@ class SetStatementTest extends TestCase
             ['parser/parseSetError1'],
             ['parser/parseInsertIntoSet'],
             ['parser/parseSetVariable'],
+            ['parser/parseSetVariable2'],
             ['parser/parseSetGlobalVariable'],
         ];
     }
