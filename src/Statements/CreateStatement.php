@@ -279,10 +279,8 @@ class CreateStatement extends Statement
      * The name of the entity that is created.
      *
      * Used by all `CREATE` statements.
-     *
-     * @var Expression|null
      */
-    public $name;
+    public Expression|null $name = null;
 
     /**
      * The options of the entity (table, procedure, function, etc.).
@@ -548,7 +546,7 @@ class CreateStatement extends Statement
             ]
         );
 
-        if (! isset($this->name) || ($this->name === '')) {
+        if ($this->name === null) {
             $parser->error('The name of the entity was expected.', $list->tokens[$list->idx]);
         } else {
             ++$list->idx; // Skipping field.
