@@ -128,30 +128,15 @@
     </MoreSpecificImplementedParamType>
   </file>
   <file src="src/Components/Condition.php">
-    <InvalidArgument>
-      <code>$this</code>
-    </InvalidArgument>
     <MixedArrayOffset>
       <code><![CDATA[static::$allowedKeywords[$token->value]]]></code>
     </MixedArrayOffset>
-    <MixedInferredReturnType>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <MixedPropertyFetch>
-      <code><![CDATA[$component->expr]]></code>
-    </MixedPropertyFetch>
-    <MixedReturnStatement>
-      <code><![CDATA[$component->expr]]></code>
-    </MixedReturnStatement>
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
     <PossiblyUnusedProperty>
       <code>$isOperator</code>
     </PossiblyUnusedProperty>
-    <RedundantConditionGivenDocblockType>
-      <code>is_array($component)</code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/CreateDefinition.php">
     <MixedAssignment>
@@ -479,24 +464,9 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/ParameterDefinition.php">
-    <InvalidArgument>
-      <code>$this</code>
-    </InvalidArgument>
-    <MixedArgument>
-      <code><![CDATA[$component->name]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$expr->name]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$component->inOut]]></code>
-      <code><![CDATA[$component->type]]></code>
-    </MixedOperand>
-    <MixedPropertyFetch>
-      <code><![CDATA[$component->inOut]]></code>
-      <code><![CDATA[$component->name]]></code>
-      <code><![CDATA[$component->type]]></code>
-    </MixedPropertyFetch>
     <MoreSpecificImplementedParamType>
       <code>$component</code>
     </MoreSpecificImplementedParamType>
@@ -507,7 +477,6 @@
       <code>DataType::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantConditionGivenDocblockType>
-      <code>is_array($component)</code>
       <code><![CDATA[isset($expr->name)]]></code>
     </RedundantConditionGivenDocblockType>
   </file>
@@ -1643,11 +1612,6 @@
     <PossiblyNullReference>
       <code>has</code>
     </PossiblyNullReference>
-  </file>
-  <file src="tests/Parser/WithStatementTest.php">
-    <InvalidArgument>
-      <code>new stdClass()</code>
-    </InvalidArgument>
   </file>
   <file src="tests/TestCase.php">
     <InvalidReturnStatement>

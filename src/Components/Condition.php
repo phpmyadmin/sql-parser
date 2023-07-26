@@ -221,7 +221,7 @@ final class Condition implements Component
     }
 
     /**
-     * @param Condition[] $component the component to be built
+     * @param Condition[]|Condition $component the component to be built
      */
     public static function build($component): string
     {

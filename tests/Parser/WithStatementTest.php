@@ -8,7 +8,6 @@ use PhpMyAdmin\SqlParser\Components\WithKeyword;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
-use stdClass;
 
 class WithStatementTest extends TestCase
 {
@@ -132,12 +131,6 @@ SQL;
         $parser = new Parser($lexer->list);
         $parserErrors = $this->getErrorsAsArray($parser);
         $this->assertEquals($parserErrors[0][0], 'A closing bracket was expected.');
-    }
-
-    public function testBuildWrongWithKeyword(): void
-    {
-        $this->expectExceptionMessage('Can not build a component that is not a WithKeyword');
-        WithKeyword::build(new stdClass());
     }
 
     public function testBuildBadWithKeyword(): void
