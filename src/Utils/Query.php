@@ -528,7 +528,7 @@ class Query
             // If no tables names were found in the SELECT clause or if there
             // are expressions like * or COUNT(*), etc. tables names should be
             // extracted from the FROM clause.
-            if (empty($ret['select_tables'])) {
+            if ($ret['select_tables'] === []) {
                 foreach ($statement->from as $expr) {
                     if (! isset($expr->table) || ($expr->table === '')) {
                         continue;

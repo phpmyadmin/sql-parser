@@ -213,8 +213,6 @@
       <code><![CDATA[$ret->expr]]></code>
     </PossiblyNullOperand>
     <RedundantConditionGivenDocblockType>
-      <code>! $isExpr</code>
-      <code>$isExpr</code>
       <code>$prev[1] !== null</code>
       <code><![CDATA[empty($ret->function) && ($prev[1] !== null)]]></code>
     </RedundantConditionGivenDocblockType>
@@ -470,10 +468,6 @@
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$ret->options[$lastOptionId]['expr']->expr]]></code>
     </PossiblyNullPropertyFetch>
-    <RedundantCondition>
-      <code><![CDATA[! empty($option['equals']) && $option['equals']]]></code>
-      <code><![CDATA[$option['equals']]]></code>
-    </RedundantCondition>
   </file>
   <file src="src/Components/OrderKeyword.php">
     <MoreSpecificImplementedParamType>
@@ -904,9 +898,6 @@
     </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="src/Statement.php">
-    <DocblockTypeContradiction>
-      <code>$class === null</code>
-    </DocblockTypeContradiction>
     <InvalidArgument>
       <code>$built[$field]</code>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
@@ -940,9 +931,6 @@
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-    <RedundantConditionGivenDocblockType>
-      <code>$class !== null</code>
-    </RedundantConditionGivenDocblockType>
     <UnusedForeachValue>
       <code>$index</code>
     </UnusedForeachValue>
@@ -1379,9 +1367,6 @@
     <PossiblyInvalidIterator>
       <code><![CDATA[$this->options['formats']]]></code>
     </PossiblyInvalidIterator>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$curr->type === Token::TYPE_KEYWORD]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Utils/Query.php">
     <InvalidNullableReturnType>
@@ -1436,7 +1421,7 @@
       <code>has</code>
     </PossiblyNullReference>
     <RedundantCondition>
-      <code><![CDATA[empty($ret['select_tables'])]]></code>
+      <code><![CDATA[$ret['select_tables'] === []]]></code>
     </RedundantCondition>
   </file>
   <file src="src/Utils/Routine.php">

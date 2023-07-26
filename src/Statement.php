@@ -298,7 +298,7 @@ abstract class Statement implements Stringable
             /**
              * The name of the class that is used for parsing.
              *
-             * @var Component
+             * @var Component|null
              */
             $class = null;
 
