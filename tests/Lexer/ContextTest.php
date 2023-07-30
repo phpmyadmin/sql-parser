@@ -12,6 +12,11 @@ use function class_exists;
 
 class ContextTest extends TestCase
 {
+    public static function tearDownAfterClass(): void
+    {
+        Context::setMode();
+    }
+
     public function testLoad(): void
     {
         // Default context is 5.7.0.
