@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class StatementTest extends TestCase
 {
@@ -46,9 +47,8 @@ class StatementTest extends TestCase
      *   alias: (string|null),
      *   tables: array<string, array{alias: (string|null), columns: array<string, string>}>
      * }> $expected
-     *
-     * @dataProvider getAliasesProvider
      */
+    #[DataProvider('getAliasesProvider')]
     public function testGetAliases(string $query, string $db, array $expected): void
     {
         $parser = new Parser($query);

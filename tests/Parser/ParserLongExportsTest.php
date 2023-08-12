@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SetStatement;
 use PhpMyAdmin\SqlParser\Statements\TransactionStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class ParserLongExportsTest extends TestCase
 {
@@ -100,9 +101,7 @@ SQL;
         }
     }
 
-    /**
-     * @dataProvider exportFileProvider
-     */
+    #[DataProvider('exportFileProvider')]
     public function testParseExport(string $test): void
     {
         $this->runParserTest($test);

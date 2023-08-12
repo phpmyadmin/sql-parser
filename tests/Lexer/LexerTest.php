@@ -7,15 +7,16 @@ namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\PreserveGlobalState;
+use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 
 use function sprintf;
 
 class LexerTest extends TestCase
 {
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     */
+    #[RunInSeparateProcess]
+    #[PreserveGlobalState(false)]
     public function testError(): void
     {
         $lexer = new Lexer('');
@@ -48,9 +49,7 @@ class LexerTest extends TestCase
         $lexer->error('strict error', 'foo', 1, 4);
     }
 
-    /**
-     * @dataProvider lexProvider
-     */
+    #[DataProvider('lexProvider')]
     public function testLex(string $test): void
     {
         $this->runParserTest($test);

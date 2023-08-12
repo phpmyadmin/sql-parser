@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class RestoreStatementTest extends TestCase
 {
-    /**
-     * @dataProvider restoreProvider
-     */
+    #[DataProvider('restoreProvider')]
     public function testRestore(string $test): void
     {
         $this->runParserTest($test);

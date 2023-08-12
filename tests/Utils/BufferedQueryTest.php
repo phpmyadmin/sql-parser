@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function count;
 use function str_split;
@@ -17,9 +18,8 @@ class BufferedQueryTest extends TestCase
      * @param string[]            $expected
      * @psalm-param array{delimiter?: non-empty-string, parse_delimiter?: bool, add_delimiter?: bool} $options
      * @psalm-param positive-int $chunkSize
-     *
-     * @dataProvider extractProvider
      */
+    #[DataProvider('extractProvider')]
     public function testExtract(
         string $query,
         int $chunkSize,

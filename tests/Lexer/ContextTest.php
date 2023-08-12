@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function class_exists;
 
@@ -27,9 +28,8 @@ class ContextTest extends TestCase
 
     /**
      * Test for loading closest SQL context
-     *
-     * @dataProvider contextLoadingProvider
      */
+    #[DataProvider('contextLoadingProvider')]
     public function testLoadClosest(string $context, string|null $expected): void
     {
         $this->assertEquals($expected, Context::loadClosest($context));
@@ -80,9 +80,7 @@ class ContextTest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider contextNamesProvider
-     */
+    #[DataProvider('contextNamesProvider')]
     public function testLoadAll(string $context): void
     {
         Context::load($context);
@@ -118,9 +116,8 @@ class ContextTest extends TestCase
 
     /**
      * @param int|string $mode
-     *
-     * @dataProvider providerForTestMode
      */
+    #[DataProvider('providerForTestMode')]
     public function testMode($mode, int $expected): void
     {
         Context::setMode($mode);

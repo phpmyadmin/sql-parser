@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Table;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class TableTest extends TestCase
 {
@@ -21,9 +22,8 @@ class TableTest extends TestCase
      *   on_update: string,
      *   on_delete?: string
      * }> $expected
-     *
-     * @dataProvider getForeignKeysProvider
      */
+    #[DataProvider('getForeignKeysProvider')]
     public function testGetForeignKeys(string $query, array $expected): void
     {
         $parser = new Parser($query);
@@ -146,9 +146,8 @@ class TableTest extends TestCase
      *   on_update_current_timestamp?: bool,
      *   expr?: string
      * }> $expected
-     *
-     * @dataProvider getFieldsProvider
      */
+    #[DataProvider('getFieldsProvider')]
     public function testGetFields(string $query, array $expected): void
     {
         $parser = new Parser($query);

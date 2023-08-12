@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\TokensList;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class CreateStatementTest extends TestCase
 {
@@ -299,9 +300,7 @@ EOT
         ];
     }
 
-    /**
-     * @dataProvider partitionQueriesProvider
-     */
+    #[DataProvider('partitionQueriesProvider')]
     public function testBuilderPartitionsEngine(string $query): void
     {
         $parser = new Parser($query);

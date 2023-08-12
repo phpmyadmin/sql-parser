@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Builder;
 use Generator;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class AlterStatementTest extends TestCase
 {
@@ -184,9 +185,7 @@ class AlterStatementTest extends TestCase
         yield 'Mixed RENAME table + RENAME INDEX + RENAME COLUMNS' => [$query];
     }
 
-    /**
-     * @dataProvider provideBuilderForRenameColumn
-     */
+    #[DataProvider('provideBuilderForRenameColumn')]
     public function testBuilderRenameColumn(string $query): void
     {
         $parser = new Parser($query);

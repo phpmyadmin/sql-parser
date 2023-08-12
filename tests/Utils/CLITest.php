@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\CLI;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function dirname;
 use function exec;
@@ -53,9 +54,8 @@ class CLITest extends TestCase
 
     /**
      * @param array<string, bool|string>|false $getopt
-     *
-     * @dataProvider highlightParamsProvider
      */
+    #[DataProvider('highlightParamsProvider')]
     public function testRunHighlight($getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
@@ -128,9 +128,8 @@ class CLITest extends TestCase
 
     /**
      * @param array<string, bool|string>|false $getopt
-     *
-     * @dataProvider highlightParamsStdInProvider
      */
+    #[DataProvider('highlightParamsStdInProvider')]
     public function testRunHighlightStdIn(string $input, $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
@@ -196,9 +195,8 @@ class CLITest extends TestCase
 
     /**
      * @param array<string, bool|string>|false $getopt
-     *
-     * @dataProvider lintParamsStdInProvider
      */
+    #[DataProvider('lintParamsStdInProvider')]
     public function testRunLintFromStdIn(string $input, $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
@@ -261,9 +259,8 @@ class CLITest extends TestCase
 
     /**
      * @param array<string, bool|string>|false $getopt
-     *
-     * @dataProvider lintParamsProvider
      */
+    #[DataProvider('lintParamsProvider')]
     public function testRunLint($getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
@@ -328,9 +325,8 @@ class CLITest extends TestCase
 
     /**
      * @param array<string, bool|string>|false $getopt
-     *
-     * @dataProvider tokenizeParamsProvider
      */
+    #[DataProvider('tokenizeParamsProvider')]
     public function testRunTokenize($getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
@@ -383,9 +379,8 @@ class CLITest extends TestCase
 
     /**
      * @param array<string, bool|string>|false $getopt
-     *
-     * @dataProvider tokenizeParamsStdInProvider
      */
+    #[DataProvider('tokenizeParamsStdInProvider')]
     public function testRunTokenizeStdIn(string $input, $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
@@ -435,9 +430,7 @@ class CLITest extends TestCase
         ];
     }
 
-    /**
-     * @dataProvider stdinParamsProvider
-     */
+    #[DataProvider('stdinParamsProvider')]
     public function testStdinPipe(string $cmd, int $result): void
     {
         exec($cmd, $out, $ret);

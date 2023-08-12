@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Formatter;
+use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionMethod;
 
 class FormatterTest extends TestCase
@@ -17,9 +18,8 @@ class FormatterTest extends TestCase
      * @psalm-param list<array{type: int, flags: int, html: string, cli: string, function?: string}> $default
      * @psalm-param list<array{type?: int, flags?: int, html?: string, cli?: string, function?: string}> $overriding
      * @psalm-param list<array{type: int, flags: int, html: string, cli: string, function?: string}> $expected
-     *
-     * @dataProvider mergeFormatsProvider
      */
+    #[DataProvider('mergeFormatsProvider')]
     public function testMergeFormats(array $default, array $overriding, array $expected): void
     {
         $formatter = $this->createPartialMock(Formatter::class, ['getDefaultOptions', 'getDefaultFormats']);
@@ -245,9 +245,8 @@ class FormatterTest extends TestCase
 
     /**
      * @param array<string, bool> $options
-     *
-     * @dataProvider formatQueriesProviders
      */
+    #[DataProvider('formatQueriesProviders')]
     public function testFormat(string $query, string $text, string $cli, string $html, array $options = []): void
     {
         // Test TEXT format
