@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class ArrayObjTest extends TestCase
 {
@@ -39,9 +40,7 @@ class ArrayObjTest extends TestCase
         $this->assertEquals($components[1]->expr, '3 + 4');
     }
 
-    /**
-     * @dataProvider parseProvider
-     */
+    #[DataProvider('parseProvider')]
     public function testParse(string $test): void
     {
         $this->runParserTest($test);

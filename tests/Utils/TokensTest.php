@@ -7,15 +7,15 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\Utils\Tokens;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class TokensTest extends TestCase
 {
     /**
      * @param array<string, string>[] $find
      * @param Token[]                 $replace
-     *
-     * @dataProvider replaceTokensProvider
      */
+    #[DataProvider('replaceTokensProvider')]
     public function testReplaceTokens(string $list, array $find, array $replace, string $expected): void
     {
         $this->assertEquals($expected, Tokens::replaceTokens($list, $find, $replace));
@@ -45,9 +45,8 @@ class TokensTest extends TestCase
 
     /**
      * @param array<string, int|string> $pattern
-     *
-     * @dataProvider matchProvider
      */
+    #[DataProvider('matchProvider')]
     public function testMatch(Token $token, array $pattern, bool $expected): void
     {
         $this->assertSame($expected, Tokens::match($token, $pattern));

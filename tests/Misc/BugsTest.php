@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Misc;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class BugsTest extends TestCase
 {
-    /**
-     * @dataProvider bugProvider
-     */
+    #[DataProvider('bugProvider')]
     public function testBug(string $test): void
     {
         $this->runParserTest($test);

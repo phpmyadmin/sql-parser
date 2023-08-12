@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class PurgeStatementTest extends TestCase
 {
-    /**
-     * @dataProvider purgeProvider
-     */
+    #[DataProvider('purgeProvider')]
     public function testPurge(string $test): void
     {
         $this->runParserTest($test);

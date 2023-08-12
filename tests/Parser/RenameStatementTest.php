@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class RenameStatementTest extends TestCase
 {
-    /**
-     * @dataProvider renameProvider
-     */
+    #[DataProvider('renameProvider')]
     public function testRename(string $test): void
     {
         $this->runParserTest($test);

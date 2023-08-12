@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class LockStatementTest extends TestCase
 {
-    /**
-     * @dataProvider lockProvider
-     */
+    #[DataProvider('lockProvider')]
     public function testLock(string $test): void
     {
         $this->runParserTest($test);

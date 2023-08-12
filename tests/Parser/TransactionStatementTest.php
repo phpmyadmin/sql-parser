@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class TransactionStatementTest extends TestCase
 {
@@ -20,9 +21,7 @@ class TransactionStatementTest extends TestCase
         );
     }
 
-    /**
-     * @dataProvider transactionProvider
-     */
+    #[DataProvider('transactionProvider')]
     public function testTransaction(string $test): void
     {
         $this->runParserTest($test);

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 use function array_merge;
 
@@ -18,9 +19,8 @@ class QueryTest extends TestCase
     /**
      * @param array<string, bool|string> $expected
      * @psalm-param QueryFlagsType $expected
-     *
-     * @dataProvider getFlagsProvider
      */
+    #[DataProvider('getFlagsProvider')]
     public function testGetFlags(string $query, array $expected): void
     {
         $parser = new Parser($query);
@@ -400,9 +400,8 @@ class QueryTest extends TestCase
 
     /**
      * @param string[] $expected
-     *
-     * @dataProvider getTablesProvider
      */
+    #[DataProvider('getTablesProvider')]
     public function testGetTables(string $query, array $expected): void
     {
         $parser = new Parser($query);

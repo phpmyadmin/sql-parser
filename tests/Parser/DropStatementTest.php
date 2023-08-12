@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class DropStatementTest extends TestCase
 {
-    /**
-     * @dataProvider dropProvider
-     */
+    #[DataProvider('dropProvider')]
     public function testDrop(string $test): void
     {
         $this->runParserTest($test);
