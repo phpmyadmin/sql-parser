@@ -41,6 +41,7 @@ final class Condition implements Component
         'ALL' => 1,
         'AND' => 1,
         'BETWEEN' => 1,
+        'COLLATE' => 1,
         'EXISTS' => 1,
         'IF' => 1,
         'IN' => 1,
