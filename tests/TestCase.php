@@ -93,7 +93,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function getData(string $name): array
     {
-        $serializedData = file_get_contents('tests/data/' . $name . '.out');
+        $serializedData = file_get_contents(__DIR__ . '/data/' . $name . '.out');
         $this->assertIsString($serializedData);
 
         $serializer = new CustomJsonSerializer();

@@ -111,19 +111,27 @@ final class SetOperation implements Component
                     $commaLastSeenAt = $token;
                 }
             } elseif ($state === 1) {
-                $tmp = Expression::parse(
-                    $parser,
-                    $list,
-                    ['breakOnAlias' => true]
-                );
-                if ($tmp === null) {
-                    $parser->error('Missing expression.', $token);
-                    break;
+                if ($token->flags & Token::FLAG_SYMBOL_PARAMETER) {
+                    $expr->column = trim($expr->column);
+                    $expr->value = $token->value;
+                    $ret[] = $expr;
+                } else {
+                    $tmp = Expression::parse(
+                        $parser,
+                        $list,
+                        ['breakOnAlias' => true]
+                    );
+
+                    if ($tmp === null) {
+                        $parser->error('Missing expression.', $token);
+                        break;
+                    }
+
+                    $expr->column = trim($expr->column);
+                    $expr->value = $tmp->expr;
+                    $ret[] = $expr;
                 }
 
-                $expr->column = trim($expr->column);
-                $expr->value = $tmp->expr;
-                $ret[] = $expr;
                 $expr = new static();
                 $state = 0;
                 $commaLastSeenAt = null;

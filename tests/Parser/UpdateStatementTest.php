@@ -28,6 +28,7 @@ class UpdateStatementTest extends TestCase
             ['parser/parseUpdate5'],
             ['parser/parseUpdate6'],
             ['parser/parseUpdate7'],
+            ['parser/parseUpdate8'],
             ['parser/parseUpdateErr'],
         ];
     }
