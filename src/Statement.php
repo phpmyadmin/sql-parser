@@ -10,6 +10,7 @@ use Stringable;
 use function array_flip;
 use function array_keys;
 use function in_array;
+use function is_array;
 use function stripos;
 use function trim;
 
@@ -197,7 +198,11 @@ abstract class Statement implements Stringable
                 continue;
             }
 
-            $query = trim($query) . ' ' . $class::build($this->$field);
+            if (is_array($this->$field)) {
+                $query = trim($query) . ' ' . $class::buildAll($this->$field);
+            } else {
+                $query = trim($query) . ' ' . $class::build($this->$field);
+            }
         }
 
         return $query;

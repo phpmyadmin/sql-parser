@@ -75,6 +75,7 @@ class CreateDefinitionTest extends TestCase
             ') ENGINE=InnoDB"'
         );
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
+        $this->assertIsArray($parser->statements[0]->fields);
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) ' .
             'REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
@@ -94,6 +95,7 @@ class CreateDefinitionTest extends TestCase
             ') ENGINE=InnoDB"'
         );
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
+        $this->assertIsArray($parser->statements[0]->fields);
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) ' .
             'REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
@@ -120,6 +122,7 @@ class CreateDefinitionTest extends TestCase
             . 'ALTER TABLE `searches` ADD `admins_only` BOOLEAN NOT NULL DEFAULT FALSE AFTER `show_separators`;'
         );
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[1]);
+        $this->assertIsArray($parser->statements[1]->fields);
         $this->assertEquals(
             '`public_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL',
             CreateDefinition::build($parser->statements[1]->fields[2])
@@ -146,6 +149,7 @@ class CreateDefinitionTest extends TestCase
             ') ENGINE=InnoDB"'
         );
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
+        $this->assertIsArray($parser->statements[0]->fields);
         $this->assertEquals(
             '`customer_id` smallint(5) UNSIGNED NOT NULL INVISIBLE',
             CreateDefinition::build($parser->statements[0]->fields[0])

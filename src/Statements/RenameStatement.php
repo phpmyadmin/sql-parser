@@ -46,6 +46,6 @@ class RenameStatement extends Statement
 
     public function build(): string
     {
-        return 'RENAME TABLE ' . RenameOperation::build($this->renames);
+        return 'RENAME TABLE ' . RenameOperation::buildAll($this->renames);
     }
 }

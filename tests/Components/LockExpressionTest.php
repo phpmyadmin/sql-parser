@@ -58,14 +58,14 @@ class LockExpressionTest extends TestCase
         ];
     }
 
-    public function testBuild(): void
+    public function testBuildAll(): void
     {
         $component = [
             LockExpression::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL')),
             LockExpression::parse(new Parser(), $this->getTokensList('table2 LOW_PRIORITY WRITE')),
         ];
         $this->assertEquals(
-            LockExpression::build($component),
+            LockExpression::buildAll($component),
             'table1 AS `t1` READ LOCAL, table2 LOW_PRIORITY WRITE'
         );
     }

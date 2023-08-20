@@ -11,7 +11,6 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
 use function in_array;
-use function is_array;
 use function trim;
 
 /**
@@ -141,15 +140,19 @@ final class SetOperation implements Component
     }
 
     /**
-     * @param SetOperation|SetOperation[] $component the component to be built
+     * @param SetOperation $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(', ', $component);
-        }
-
         return $component->column . ' = ' . $component->value;
+    }
+
+    /**
+     * @param SetOperation[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(', ', $component);
     }
 
     public function __toString(): string

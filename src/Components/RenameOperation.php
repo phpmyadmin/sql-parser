@@ -10,7 +10,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 
 /**
  * `RENAME TABLE` keyword parser.
@@ -153,11 +152,15 @@ final class RenameOperation implements Component
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return implode(', ', $component);
-        }
-
         return $component->old . ' TO ' . $component->new;
+    }
+
+    /**
+     * @param RenameOperation[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return implode(', ', $component);
     }
 
     public function __toString(): string

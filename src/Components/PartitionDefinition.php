@@ -10,7 +10,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 use function trim;
 
 /**
@@ -224,19 +223,15 @@ final class PartitionDefinition implements Component
     }
 
     /**
-     * @param PartitionDefinition|PartitionDefinition[] $component the component to be built
+     * @param PartitionDefinition $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return "(\n" . implode(",\n", $component) . "\n)";
-        }
-
         if ($component->isSubpartition) {
             return trim('SUBPARTITION ' . $component->name . ' ' . $component->options);
         }
 
-        $subpartitions = empty($component->subpartitions) ? '' : ' ' . self::build($component->subpartitions);
+        $subpartitions = empty($component->subpartitions) ? '' : ' ' . self::buildAll($component->subpartitions);
 
         return trim(
             'PARTITION ' . $component->name
@@ -244,6 +239,14 @@ final class PartitionDefinition implements Component
             . (! empty($component->options) && ! empty($component->type) ? '' : ' ')
             . $component->options . $subpartitions
         );
+    }
+
+    /**
+     * @param PartitionDefinition[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return "(\n" . implode(",\n", $component) . "\n)";
     }
 
     public function __toString(): string

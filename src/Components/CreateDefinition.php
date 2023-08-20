@@ -11,7 +11,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 use function trim;
 
 /**
@@ -318,14 +317,10 @@ final class CreateDefinition implements Component
     }
 
     /**
-     * @param CreateDefinition|CreateDefinition[] $component the component to be built
+     * @param CreateDefinition $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return "(\n  " . implode(",\n  ", $component) . "\n)";
-        }
-
         $tmp = '';
 
         if ($component->isConstraint) {
@@ -352,6 +347,14 @@ final class CreateDefinition implements Component
         $tmp .= $component->options;
 
         return trim($tmp);
+    }
+
+    /**
+     * @param CreateDefinition[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return "(\n  " . implode(",\n  ", $component) . "\n)";
     }
 
     public function __toString(): string

@@ -11,7 +11,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
-use function is_array;
 use function trim;
 
 /**
@@ -141,14 +140,10 @@ final class ParameterDefinition implements Component
     }
 
     /**
-     * @param ParameterDefinition[]|ParameterDefinition $component the component to be built
+     * @param ParameterDefinition $component the component to be built
      */
     public static function build($component): string
     {
-        if (is_array($component)) {
-            return '(' . implode(', ', $component) . ')';
-        }
-
         $tmp = '';
         if (! empty($component->inOut)) {
             $tmp .= $component->inOut . ' ';
@@ -157,6 +152,14 @@ final class ParameterDefinition implements Component
         return trim(
             $tmp . Context::escape($component->name) . ' ' . $component->type
         );
+    }
+
+    /**
+     * @param ParameterDefinition[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
+    {
+        return '(' . implode(', ', $component) . ')';
     }
 
     public function __toString(): string

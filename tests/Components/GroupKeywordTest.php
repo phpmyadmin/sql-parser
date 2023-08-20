@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 use function array_map;
+use function is_array;
 
 class GroupKeywordTest extends TestCase
 {
@@ -58,7 +59,11 @@ class GroupKeywordTest extends TestCase
     #[DataProvider('provideExpressions')]
     public function testBuild($component, string $expected): void
     {
-        $this->assertSame($expected, GroupKeyword::build($component));
+        if (is_array($component)) {
+            $this->assertSame($expected, GroupKeyword::buildAll($component));
+        } else {
+            $this->assertSame($expected, GroupKeyword::build($component));
+        }
     }
 
     private static function makeComponentFrom(string $string): GroupKeyword

@@ -8,6 +8,8 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\Translator;
+use RuntimeException;
 
 use function array_search;
 use function implode;
@@ -198,15 +200,23 @@ final class JoinKeyword implements Component
     }
 
     /**
-     * @param JoinKeyword[] $component the component to be built
+     * @param JoinKeyword $component
      */
     public static function build($component): string
+    {
+        throw new RuntimeException(Translator::gettext('Not implemented yet.'));
+    }
+
+    /**
+     * @param JoinKeyword[] $component the component to be built
+     */
+    public static function buildAll(array $component): string
     {
         $ret = [];
         foreach ($component as $c) {
             $ret[] = array_search($c->type, static::$joins) . ' ' . $c->expr
                 . (! empty($c->on)
-                    ? ' ON ' . Condition::build($c->on) : '')
+                    ? ' ON ' . Condition::buildAll($c->on) : '')
                 . (! empty($c->using)
                     ? ' USING ' . ArrayObj::build($c->using) : '');
         }

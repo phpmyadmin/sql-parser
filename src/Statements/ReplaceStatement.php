@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\Array2d;
+use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
@@ -60,7 +61,7 @@ class ReplaceStatement extends Statement
     /**
      * Values to be replaced.
      *
-     * @var Array2d[]|null
+     * @var ArrayObj[]|null
      */
     public array|null $values = null;
 
@@ -89,9 +90,9 @@ class ReplaceStatement extends Statement
         $ret = trim($ret) . ' INTO ' . $this->into;
 
         if ($this->values !== null && $this->values !== []) {
-            $ret .= ' VALUES ' . Array2d::build($this->values);
+            $ret .= ' VALUES ' . ArrayObj::buildAll($this->values);
         } elseif ($this->set !== null && $this->set !== []) {
-            $ret .= ' SET ' . SetOperation::build($this->set);
+            $ret .= ' SET ' . SetOperation::buildAll($this->set);
         } elseif ($this->select !== null && strlen((string) $this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
