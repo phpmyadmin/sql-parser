@@ -81,10 +81,7 @@ class ReplaceStatement extends Statement
      */
     public $select;
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $ret = 'REPLACE ' . $this->options;
         $ret = trim($ret) . ' INTO ' . $this->into;

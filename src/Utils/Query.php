@@ -766,10 +766,8 @@ class Query
      * @param array<int, array<int, string>> $ops       Clauses to be replaced. Contains multiple
      *                              arrays having two values: [$old, $new].
      *                              Clauses must be sorted.
-     *
-     * @return string
      */
-    public static function replaceClauses($statement, $list, array $ops)
+    public static function replaceClauses($statement, $list, array $ops): string
     {
         $count = count($ops);
 

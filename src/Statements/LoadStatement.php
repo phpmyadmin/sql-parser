@@ -179,10 +179,7 @@ class LoadStatement extends Statement
      */
     public $linesRows;
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $ret = 'LOAD DATA ' . $this->options
             . ' INFILE ' . $this->fileName;

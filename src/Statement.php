@@ -113,10 +113,8 @@ abstract class Statement implements Stringable
 
     /**
      * Builds the string representation of this statement.
-     *
-     * @return string
      */
-    public function build()
+    public function build(): string
     {
         /**
          * Query to be returned.
@@ -472,11 +470,9 @@ abstract class Statement implements Stringable
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      *
-     * @return bool
-     *
      * @throws Exceptions\ParserException
      */
-    public function validateClauseOrder($parser, $list)
+    public function validateClauseOrder($parser, $list): bool
     {
         $clauses = array_flip(array_keys($this->getClauses()));
 

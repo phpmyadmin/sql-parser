@@ -23,10 +23,7 @@ class NotImplementedStatement extends Statement
      */
     public $unknown = [];
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         // Building the parsed part of the query (if any).
         $query = parent::build() . ' ';
