@@ -10,6 +10,7 @@ use function in_array;
 use function intval;
 use function is_int;
 use function is_numeric;
+use function preg_match;
 use function str_replace;
 use function str_starts_with;
 use function strlen;
@@ -675,7 +676,11 @@ abstract class Context
      */
     public static function escape(string $str, string $quote = '`')
     {
-        if ((static::$mode & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
+        if (
+            (static::$mode & self::SQL_MODE_NO_ENCLOSING_QUOTES) && ! (
+                static::isKeyword($str, true) || self::doesIdentifierRequireQuoting($str)
+            )
+        ) {
             return $str;
         }
 
@@ -726,5 +731,10 @@ abstract class Context
         }
 
         return (self::$mode & $flag) === $flag;
+    }
+
+    private static function doesIdentifierRequireQuoting(string $identifier): bool
+    {
+        return preg_match('/^[$]|^\d+$|[^0-9a-zA-Z$_\x80-\xffff]/', $identifier) === 1;
     }
 }

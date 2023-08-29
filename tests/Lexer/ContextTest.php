@@ -217,6 +217,10 @@ class ContextTest extends TestCase
     {
         Context::setMode(Context::SQL_MODE_NO_ENCLOSING_QUOTES);
         $this->assertEquals('test', Context::escape('test'));
+        $this->assertEquals('`123`', Context::escape('123'));
+        $this->assertEquals('`$test`', Context::escape('$test'));
+        $this->assertEquals('`te st`', Context::escape('te st'));
+        $this->assertEquals('`te.st`', Context::escape('te.st'));
 
         Context::setMode(Context::SQL_MODE_ANSI_QUOTES);
         $this->assertEquals('"test"', Context::escape('test'));
