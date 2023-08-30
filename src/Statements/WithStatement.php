@@ -330,6 +330,6 @@ final class WithStatement extends Statement
 
         $length = $list->idx - $idx;
 
-        return new TokensList(array_slice($list->tokens, $idx, $length), $length);
+        return new TokensList(array_slice($list->tokens, $idx, $length));
     }
 }

@@ -21,13 +21,6 @@ use function is_string;
 class TokensList implements ArrayAccess
 {
     /**
-     * The array of tokens.
-     *
-     * @var Token[]
-     */
-    public $tokens = [];
-
-    /**
      * The count of tokens.
      *
      * @var int
@@ -42,17 +35,11 @@ class TokensList implements ArrayAccess
     public $idx = 0;
 
     /**
-     * @param Token[] $tokens the initial array of tokens
-     * @param int     $count  the count of tokens in the initial array
+     * @param Token[] $tokens The array of tokens.
      */
-    public function __construct(array $tokens = [], $count = -1)
+    public function __construct(public array $tokens = [])
     {
-        if ($tokens === []) {
-            return;
-        }
-
-        $this->tokens = $tokens;
-        $this->count = $count === -1 ? count($tokens) : $count;
+        $this->count = count($tokens);
     }
 
     /**
