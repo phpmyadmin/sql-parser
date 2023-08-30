@@ -37,10 +37,8 @@ final class OptionsArray implements Component
      * @param Parser               $parser  the parser that serves as context
      * @param TokensList           $list    the list of tokens that are being parsed
      * @param array<string, mixed> $options parameters for parsing
-     *
-     * @return OptionsArray
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): OptionsArray
     {
         $ret = new static();
 
@@ -295,10 +293,8 @@ final class OptionsArray implements Component
      * @param string $key     the key to be checked
      * @param bool   $getExpr Gets the expression instead of the value.
      *                        The value is the processed form of the expression.
-     *
-     * @return mixed
      */
-    public function has($key, $getExpr = false)
+    public function has($key, $getExpr = false): mixed
     {
         foreach ($this->options as $option) {
             if (is_array($option)) {

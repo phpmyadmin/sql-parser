@@ -132,10 +132,8 @@ class TestGenerator
      * @param string $output the output file
      * @param string $debug  the debug file
      * @param bool   $ansi   activate quotes ANSI mode
-     *
-     * @return void
      */
-    public static function build($type, $input, $output, $debug = null, $ansi = false)
+    public static function build($type, $input, $output, $debug = null, $ansi = false): void
     {
         // Support query types: `lexer` / `parser`.
         if (! in_array($type, ['lexer', 'parser'])) {

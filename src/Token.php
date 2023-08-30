@@ -228,10 +228,8 @@ class Token
      * Does little processing to the token to extract a value.
      *
      * If no processing can be done it will return the initial string.
-     *
-     * @return mixed
      */
-    public function extract()
+    public function extract(): mixed
     {
         switch ($this->type) {
             case self::TYPE_KEYWORD:

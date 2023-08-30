@@ -63,7 +63,7 @@ class Translator
      *
      * @return string translated string (or original, if not found)
      */
-    public static function gettext($msgid)
+    public static function gettext($msgid): string
     {
         if (! class_exists(Loader::class, true)) {
             return $msgid;

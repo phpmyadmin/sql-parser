@@ -318,20 +318,16 @@ class UtfString implements ArrayAccess, Stringable
 
     /**
      * Returns the length in characters of the string.
-     *
-     * @return int
      */
-    public function length()
+    public function length(): int
     {
         return $this->charLen;
     }
 
     /**
      * Returns the contained string.
-     *
-     * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->str;
     }

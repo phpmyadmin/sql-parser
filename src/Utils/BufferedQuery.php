@@ -120,10 +120,8 @@ class BufferedQuery
      * Extracts a statement from the buffer.
      *
      * @param bool $end whether the end of the buffer was reached
-     *
-     * @return string|false
      */
-    public function extract($end = false)
+    public function extract($end = false): string|false
     {
         /**
          * The last parsed position.

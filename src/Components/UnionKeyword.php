@@ -24,11 +24,9 @@ final class UnionKeyword implements Component
      * @param TokensList           $list    the list of tokens that are being parsed
      * @param array<string, mixed> $options parameters for parsing
      *
-     * @return mixed
-     *
      * @throws RuntimeException not implemented yet.
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): mixed
     {
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }

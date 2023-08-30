@@ -287,7 +287,7 @@ class Query
      * @return array<string, bool|string>
      * @psalm-return QueryFlagsType
      */
-    private static function getFlagsSelect(SelectStatement $statement, $flags)
+    private static function getFlagsSelect(SelectStatement $statement, $flags): array
     {
         $flags['querytype'] = 'SELECT';
         $flags['is_select'] = true;
@@ -363,7 +363,7 @@ class Query
      * @return array<string, bool|string>
      * @psalm-return QueryFlagsType
      */
-    public static function getFlags($statement, $all = false)
+    public static function getFlags($statement, $all = false): array
     {
         $flags = ['querytype' => false];
         if ($all) {
@@ -470,7 +470,7 @@ class Query
      *      statement?: Statement|null, parser?: Parser
      * }
      */
-    public static function getAll($query)
+    public static function getAll($query): array
     {
         $parser = new Parser($query);
 
@@ -558,7 +558,7 @@ class Query
      *
      * @return array<int, string>
      */
-    public static function getTables($statement)
+    public static function getTables($statement): array
     {
         $expressions = [];
 
@@ -882,10 +882,8 @@ class Query
      * @param Statement  $statement the parsed query that has to be modified
      * @param TokensList $list      the list of tokens
      * @param string     $clause    the clause to be returned
-     *
-     * @return int
      */
-    public static function getClauseStartOffset($statement, $list, $clause)
+    public static function getClauseStartOffset($statement, $list, $clause): int
     {
         /**
          * The count of brackets.
