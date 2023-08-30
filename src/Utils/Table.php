@@ -21,7 +21,7 @@ class Table
      *
      * @return array<int, array<string, mixed[]|string|null>>
      */
-    public static function getForeignKeys($statement)
+    public static function getForeignKeys($statement): array
     {
         if (empty($statement->fields) || (! is_array($statement->fields)) || (! $statement->options->has('TABLE'))) {
             return [];
@@ -79,7 +79,7 @@ class Table
      *
      * @return array<int|string, array<string, bool|string|mixed>>
      */
-    public static function getFields($statement)
+    public static function getFields($statement): array
     {
         if (empty($statement->fields) || (! is_array($statement->fields)) || (! $statement->options->has('TABLE'))) {
             return [];

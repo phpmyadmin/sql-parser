@@ -49,7 +49,7 @@ final class ArrayObj implements Component
      *
      * @return ArrayObj|Component[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): ArrayObj|array
     {
         $ret = empty($options['type']) ? new static() : [];
 

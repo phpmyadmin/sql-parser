@@ -670,10 +670,8 @@ abstract class Context
      *
      * @param string $str   the string to be escaped
      * @param string $quote quote to be used when escaping
-     *
-     * @return string
      */
-    public static function escape(string $str, string $quote = '`')
+    public static function escape(string $str, string $quote = '`'): string
     {
         if ((static::$mode & self::SQL_MODE_NO_ENCLOSING_QUOTES) && (! static::isKeyword($str, true))) {
             return $str;

@@ -93,10 +93,8 @@ class TokensList implements ArrayAccess
     /**
      * Gets the next token. Skips any irrelevant token (whitespaces and
      * comments).
-     *
-     * @return Token|null
      */
-    public function getNext()
+    public function getNext(): Token|null
     {
         for (; $this->idx < $this->count; ++$this->idx) {
             if (
@@ -132,10 +130,8 @@ class TokensList implements ArrayAccess
      * Gets the previous token.
      *
      * @param int|int[] $type the type
-     *
-     * @return Token|null
      */
-    public function getPreviousOfType($type)
+    public function getPreviousOfType($type): Token|null
     {
         if (! is_array($type)) {
             $type = [$type];
@@ -154,10 +150,8 @@ class TokensList implements ArrayAccess
      * Gets the next token.
      *
      * @param int|int[] $type the type
-     *
-     * @return Token|null
      */
-    public function getNextOfType($type)
+    public function getNextOfType($type): Token|null
     {
         if (! is_array($type)) {
             $type = [$type];
@@ -177,10 +171,8 @@ class TokensList implements ArrayAccess
      *
      * @param int    $type  the type of the token
      * @param string $value the value of the token
-     *
-     * @return Token|null
      */
-    public function getNextOfTypeAndValue($type, $value)
+    public function getNextOfTypeAndValue($type, $value): Token|null
     {
         for (; $this->idx < $this->count; ++$this->idx) {
             if (($this->tokens[$this->idx]->type === $type) && ($this->tokens[$this->idx]->value === $value)) {

@@ -145,7 +145,7 @@ PHP;
      *
      * @return array<int, array<int, array<int, string>>>
      */
-    public static function readWords(array $files)
+    public static function readWords(array $files): array
     {
         $words = [];
         foreach ($files as $file) {
@@ -279,10 +279,8 @@ PHP;
      * Formats context name.
      *
      * @param string $name name to format
-     *
-     * @return string
      */
-    public static function formatName($name)
+    public static function formatName($name): string
     {
         /* Split name and version */
         $parts = [];
