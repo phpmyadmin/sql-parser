@@ -157,10 +157,7 @@ class DeleteStatement extends Statement
      */
     public $limit;
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $ret = 'DELETE ' . OptionsArray::build($this->options);
 

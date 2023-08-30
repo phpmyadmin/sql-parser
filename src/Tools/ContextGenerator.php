@@ -125,7 +125,7 @@ PHP;
      *
      * @return array<int, array<int, array<int, string>>>
      */
-    public static function sortWords(array &$arr)
+    public static function sortWords(array &$arr): array
     {
         ksort($arr);
         foreach ($arr as &$wordsByLen) {

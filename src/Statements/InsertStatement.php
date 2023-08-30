@@ -111,10 +111,7 @@ class InsertStatement extends Statement
      */
     public array|null $onDuplicateSet = null;
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $ret = 'INSERT ' . $this->options;
         $ret = trim($ret) . ' INTO ' . $this->into;

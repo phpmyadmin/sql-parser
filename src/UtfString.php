@@ -200,7 +200,6 @@ class UtfString implements ArrayAccess, Stringable
      *
      * @param int $offset the offset to be checked
      */
-    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return ($offset >= 0) && ($offset < $this->charLen);
@@ -210,11 +209,8 @@ class UtfString implements ArrayAccess, Stringable
      * Gets the character at given offset.
      *
      * @param int $offset the offset to be returned
-     *
-     * @return string|null
      */
-    #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): string|null
     {
         if (($offset < 0) || ($offset >= $this->charLen)) {
             return null;
@@ -255,12 +251,9 @@ class UtfString implements ArrayAccess, Stringable
      * @param int    $offset the offset to be set
      * @param string $value  the value to be set
      *
-     * @return void
-     *
      * @throws Exception not implemented.
      */
-    #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         throw new Exception('Not implemented.');
     }
@@ -270,12 +263,9 @@ class UtfString implements ArrayAccess, Stringable
      *
      * @param int $offset the value to be unset
      *
-     * @return void
-     *
      * @throws Exception not implemented.
      */
-    #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         throw new Exception('Not implemented.');
     }

@@ -59,10 +59,8 @@ class TokensList implements ArrayAccess
      * Builds an array of tokens by merging their raw value.
      *
      * @param string|Token[]|TokensList $list the tokens to be built
-     *
-     * @return string
      */
-    public static function build($list)
+    public static function build($list): string
     {
         if (is_string($list)) {
             return $list;
@@ -216,7 +214,6 @@ class TokensList implements ArrayAccess
      * @param int|null $offset the offset to be set
      * @param Token    $value  the token to be saved
      */
-    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value): void
     {
         if ($offset === null) {
@@ -230,11 +227,8 @@ class TokensList implements ArrayAccess
      * Gets a value from the container.
      *
      * @param int $offset the offset to be returned
-     *
-     * @return Token|null
      */
-    #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): Token|null
     {
         return $offset < $this->count ? $this->tokens[$offset] : null;
     }
@@ -243,11 +237,8 @@ class TokensList implements ArrayAccess
      * Checks if an offset was previously set.
      *
      * @param int $offset the offset to be checked
-     *
-     * @return bool
      */
-    #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return $offset < $this->count;
     }
@@ -257,7 +248,6 @@ class TokensList implements ArrayAccess
      *
      * @param int $offset the offset to be unset
      */
-    #[\ReturnTypeWillChange]
     public function offsetUnset($offset): void
     {
         unset($this->tokens[$offset]);

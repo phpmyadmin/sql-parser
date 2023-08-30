@@ -926,16 +926,6 @@ parameters:
 			path: tests/Components/PartitionDefinitionTest.php
 
 		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 2 and PhpMyAdmin\\\\SqlParser\\\\TokensList will always evaluate to false\\.$#"
-			count: 1
-			path: tests/Lexer/TokensListTest.php
-
-		-
-			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) with 112 and PhpMyAdmin\\\\SqlParser\\\\UtfString will always evaluate to false\\.$#"
-			count: 1
-			path: tests/Misc/UtfStringTest.php
-
-		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: tests/Parser/LoadStatementTest.php

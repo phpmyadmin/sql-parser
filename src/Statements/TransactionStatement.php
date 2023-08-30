@@ -80,10 +80,7 @@ class TransactionStatement extends Statement
         }
     }
 
-    /**
-     * @return string
-     */
-    public function build()
+    public function build(): string
     {
         $ret = OptionsArray::build($this->options);
         if ($this->type === self::TYPE_BEGIN) {

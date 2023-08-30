@@ -266,10 +266,7 @@ final class WithStatement extends Statement
         --$list->idx;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function build()
+    public function build(): string
     {
         $str = 'WITH ';
 
