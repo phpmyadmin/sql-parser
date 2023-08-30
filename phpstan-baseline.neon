@@ -811,26 +811,6 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
-			message: "#^Binary operation \"&\" between int\\|string and int results in an error\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Parameter \\#1 \\$string1 of function strcasecmp expects string, int\\|string given\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Parameter \\#2 \\$pattern of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:match\\(\\) expects array\\<string, int\\|string\\|null\\>, PhpMyAdmin\\\\SqlParser\\\\Token given\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
 			message: "#^Cannot call method __toString\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
 			path: tests/Builder/CreateStatementTest.php
@@ -939,11 +919,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$find of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>, array\\<array\\<string, string\\>\\> given\\.$#"
-			count: 1
-			path: tests/Utils/TokensTest.php
 
 		-
 			message: "#^Expression \"\\$str1\\[\\$i\\]\" on a separate line does not do anything\\.$#"
