@@ -257,11 +257,6 @@ final class AlterOperation implements Component
     public $partitions;
 
     /**
-     * Unparsed tokens.
-     */
-    public TokensList $unknown;
-
-    /**
      * @param OptionsArray               $options    options of alter operation
      * @param Expression|string|null     $field      altered field
      * @param PartitionDefinition[]|null $partitions partitions definition found in the operation
@@ -271,12 +266,12 @@ final class AlterOperation implements Component
         $options = null,
         $field = null,
         $partitions = null,
-        array $unknown = []
+        public array $unknown = []
     ) {
         $this->partitions = $partitions;
         $this->options = $options;
         $this->field = $field;
-        $this->unknown = new TokensList($unknown);
+        $this->unknown = $unknown;
     }
 
     /**
@@ -523,7 +518,7 @@ final class AlterOperation implements Component
             $ret .= $this->field . ' ';
         }
 
-        $ret .= $afterFieldsOptions . $this->unknown->build();
+        $ret .= $afterFieldsOptions . TokensList::buildFromArray($this->unknown);
 
         if (isset($this->partitions)) {
             $ret .= PartitionDefinition::buildAll($this->partitions);
