@@ -390,9 +390,9 @@ class CreateStatement extends Statement
      * For views, it is the select statement that creates the view.
      * Used by `CREATE FUNCTION`, `CREATE PROCEDURE` and `CREATE VIEW`.
      *
-     * @var Token[]|string
+     * @var Token[]
      */
-    public $body = [];
+    public array $body = [];
 
     public function build(): string
     {
@@ -476,7 +476,7 @@ class CreateStatement extends Statement
                 . $this->options->build() . ' '
                 . $this->name->build() . ' '
                 . $fields . ' AS ' . $builtStatement
-                . (! empty($this->body) ? TokensList::build($this->body) : '') . ' '
+                . TokensList::buildFromArray($this->body) . ' '
                 . ($this->entityOptions?->build() ?? '');
         }
 
@@ -486,7 +486,7 @@ class CreateStatement extends Statement
                 . $this->name->build() . ' '
                 . $this->entityOptions->build() . ' '
                 . 'ON ' . $this->table->build() . ' '
-                . 'FOR EACH ROW ' . TokensList::build($this->body);
+                . 'FOR EACH ROW ' . TokensList::buildFromArray($this->body);
         }
 
         if ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
@@ -500,13 +500,13 @@ class CreateStatement extends Statement
                 . $this->name->build() . ' '
                 . ParameterDefinition::buildAll($this->parameters) . ' '
                 . $tmp . ' ' . $this->entityOptions->build() . ' '
-                . TokensList::build($this->body);
+                . TokensList::buildFromArray($this->body);
         }
 
         return 'CREATE '
             . $this->options->build() . ' '
             . $this->name->build() . ' '
-            . TokensList::build($this->body);
+            . TokensList::buildFromArray($this->body);
     }
 
     /**

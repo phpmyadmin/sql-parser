@@ -64,16 +64,14 @@ class Tokens
         $isList = $list instanceof TokensList;
 
         // Parsing the tokens.
-        if (! $isList) {
+        if (! $list instanceof TokensList) {
             $list = Lexer::getTokens($list);
         }
 
         /**
          * The list to be returned.
-         *
-         * @var Token[]
          */
-        $newList = [];
+        $newList = new TokensList();
 
         /**
          * The length of the find pattern is calculated only once.
@@ -148,6 +146,6 @@ class Tokens
             }
         }
 
-        return $isList ? new TokensList($newList) : TokensList::build($newList);
+        return $isList ? $newList : $newList->build();
     }
 }

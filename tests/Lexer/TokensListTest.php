@@ -45,7 +45,8 @@ class TokensListTest extends TestCase
     public function testBuild(): void
     {
         $list = new TokensList($this->tokens);
-        $this->assertEquals('SELECT * FROM `test` WHERE name=fa', TokensList::build($list));
+        $this->assertEquals('SELECT * FROM `test` WHERE name=fa', $list->build());
+        $this->assertEquals('SELECT * FROM `test` WHERE name=fa', TokensList::buildFromArray($this->tokens));
     }
 
     public function testAdd(): void
