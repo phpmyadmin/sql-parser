@@ -50,7 +50,7 @@ class CLITest extends TestCase
 
     /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('highlightParamsProvider')]
-    public function testRunHighlight($getopt, string $output, int $result): void
+    public function testRunHighlight(array|false $getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
@@ -122,7 +122,7 @@ class CLITest extends TestCase
 
     /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('highlightParamsStdInProvider')]
-    public function testRunHighlightStdIn(string $input, $getopt, string $output, int $result): void
+    public function testRunHighlightStdIn(string $input, array|false $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);
@@ -187,7 +187,7 @@ class CLITest extends TestCase
 
     /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('lintParamsStdInProvider')]
-    public function testRunLintFromStdIn(string $input, $getopt, string $output, int $result): void
+    public function testRunLintFromStdIn(string $input, array|false $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);
@@ -249,7 +249,7 @@ class CLITest extends TestCase
 
     /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('lintParamsProvider')]
-    public function testRunLint($getopt, string $output, int $result): void
+    public function testRunLint(array|false $getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
@@ -313,7 +313,7 @@ class CLITest extends TestCase
 
     /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('tokenizeParamsProvider')]
-    public function testRunTokenize($getopt, string $output, int $result): void
+    public function testRunTokenize(array|false $getopt, string $output, int $result): void
     {
         $cli = $this->getCLI($getopt);
         $this->expectOutputString($output);
@@ -365,7 +365,7 @@ class CLITest extends TestCase
 
     /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('tokenizeParamsStdInProvider')]
-    public function testRunTokenizeStdIn(string $input, $getopt, string $output, int $result): void
+    public function testRunTokenizeStdIn(string $input, array|false $getopt, string $output, int $result): void
     {
         $cli = $this->getCLIStdIn($input, $getopt);
         $this->expectOutputString($output);

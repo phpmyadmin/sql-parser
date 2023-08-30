@@ -59,7 +59,7 @@ abstract class TestCase extends BaseTestCase
      *     : list<array{string, Token, int}>
      * )
      */
-    public function getErrorsAsArray($obj): array
+    public function getErrorsAsArray(Lexer|Parser $obj): array
     {
         $ret = [];
         if ($obj instanceof Lexer) {

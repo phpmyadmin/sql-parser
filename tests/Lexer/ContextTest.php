@@ -117,9 +117,8 @@ class ContextTest extends TestCase
         $this->assertFalse(Context::load('Foo'));
     }
 
-    /** @param int|string $mode */
     #[DataProvider('providerForTestMode')]
-    public function testMode($mode, int $expected): void
+    public function testMode(int|string $mode, int $expected): void
     {
         Context::setMode($mode);
         $this->assertSame($expected, Context::getMode());
