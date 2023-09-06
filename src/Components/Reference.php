@@ -20,11 +20,8 @@ final class Reference implements Component
 {
     /**
      * All references options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $referencesOptions = [
+    private const REFERENCES_OPTIONS = [
         'MATCH' => [
             1,
             'var',
@@ -126,7 +123,7 @@ final class Reference implements Component
                 $ret->columns = ArrayObj::parse($parser, $list)->values;
                 $state = 2;
             } elseif ($state === 2) {
-                $ret->options = OptionsArray::parse($parser, $list, static::$referencesOptions);
+                $ret->options = OptionsArray::parse($parser, $list, self::REFERENCES_OPTIONS);
                 ++$list->idx;
                 break;
             }

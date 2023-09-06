@@ -22,11 +22,8 @@ final class AlterOperation implements Component
 {
     /**
      * All database options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $databaseOptions = [
+    public const DATABASE_OPTIONS = [
         'CHARACTER SET' => [
             1,
             'var',
@@ -59,11 +56,8 @@ final class AlterOperation implements Component
 
     /**
      * All table options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $tableOptions = [
+    public const TABLE_OPTIONS = [
         'ENGINE' => [
             1,
             'var=',
@@ -151,11 +145,8 @@ final class AlterOperation implements Component
 
     /**
      * All user options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $userOptions = [
+    public const USER_OPTIONS = [
         'ATTRIBUTE' => [
             1,
             'var',
@@ -202,19 +193,13 @@ final class AlterOperation implements Component
 
     /**
      * All view options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $viewOptions = ['AS' => 1];
+    public const VIEW_OPTIONS = ['AS' => 1];
 
     /**
      * All event options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $eventOptions = [
+    public const EVENT_OPTIONS = [
         'ON SCHEDULE' => 1,
         'EVERY' => [
             2,
@@ -441,7 +426,7 @@ final class AlterOperation implements Component
                             );
                             break;
                         }
-                    } elseif (! empty(Parser::$statementParsers[$arrayKey])) {
+                    } elseif (! empty(Parser::STATEMENT_PARSERS[$arrayKey])) {
                         // We have reached the end of ALTER operation and suddenly found
                         // a start to new statement, but have not found a delimiter between them
                         $parser->error(
@@ -450,8 +435,8 @@ final class AlterOperation implements Component
                         );
                         break;
                     } elseif (
-                        (array_key_exists($arrayKey, self::$databaseOptions)
-                        || array_key_exists($arrayKey, self::$tableOptions))
+                        (array_key_exists($arrayKey, self::DATABASE_OPTIONS)
+                        || array_key_exists($arrayKey, self::TABLE_OPTIONS))
                         && ! self::checkIfColumnDefinitionKeyword($arrayKey)
                     ) {
                         // This alter operation has finished, which means a comma

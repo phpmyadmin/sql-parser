@@ -39,7 +39,7 @@ class MaintenanceStatement extends Statement
     {
         // [some options] is going to be parsed first.
         //
-        // There is a parser specified in `Parser::$keywordParsers`
+        // There is a parser specified in `Parser::KEYWORD_PARSERS`
         // which parses the name of the tables.
         //
         // Finally, we parse here [some more options] and that's all.

@@ -120,15 +120,15 @@ class AlterStatement extends Statement
             if ($state === 0) {
                 $options = [];
                 if ($this->options->has('DATABASE')) {
-                    $options = AlterOperation::$databaseOptions;
+                    $options = AlterOperation::DATABASE_OPTIONS;
                 } elseif ($this->options->has('TABLE')) {
-                    $options = AlterOperation::$tableOptions;
+                    $options = AlterOperation::TABLE_OPTIONS;
                 } elseif ($this->options->has('VIEW')) {
-                    $options = AlterOperation::$viewOptions;
+                    $options = AlterOperation::VIEW_OPTIONS;
                 } elseif ($this->options->has('USER')) {
-                    $options = AlterOperation::$userOptions;
+                    $options = AlterOperation::USER_OPTIONS;
                 } elseif ($this->options->has('EVENT')) {
-                    $options = AlterOperation::$eventOptions;
+                    $options = AlterOperation::EVENT_OPTIONS;
                 }
 
                 $this->altered[] = AlterOperation::parse($parser, $list, $options);

@@ -22,15 +22,8 @@ final class CreateDefinition implements Component
 {
     /**
      * All field options.
-     *
-     * @var array<string, bool|int|array<int, int|string|array<string, bool>>>
-     * @psalm-var array<string, (bool|positive-int|array{
-     *   0: positive-int,
-     *   1: ('var'|'var='|'expr'|'expr='),
-     *   2?: array<string, bool>
-     * })>
      */
-    public static $fieldOptions = [
+    private const FIELD_OPTIONS = [
         // Tells the `OptionsArray` to not sort the options.
         // See the note below.
         '_UNSORTED' => true,
@@ -271,7 +264,7 @@ final class CreateDefinition implements Component
                 $expr->type = DataType::parse($parser, $list);
                 $state = 3;
             } elseif ($state === 3) {
-                $expr->options = OptionsArray::parse($parser, $list, static::$fieldOptions);
+                $expr->options = OptionsArray::parse($parser, $list, self::FIELD_OPTIONS);
                 $state = 4;
             } elseif ($state === 4) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'REFERENCES') {

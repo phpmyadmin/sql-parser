@@ -21,10 +21,8 @@ final class JoinKeyword implements Component
 {
     /**
      * Types of join.
-     *
-     * @var array<string, string>
      */
-    public static $joins = [
+    public const JOINS = [
         'CROSS JOIN' => 'CROSS',
         'FULL JOIN' => 'FULL',
         'FULL OUTER JOIN' => 'FULL',
@@ -45,7 +43,7 @@ final class JoinKeyword implements Component
     /**
      * Type of this join.
      *
-     * @see JoinKeyword::$joins
+     * @see JoinKeyword::JOINS
      *
      * @var string
      */
@@ -73,7 +71,7 @@ final class JoinKeyword implements Component
     public $using;
 
     /**
-     * @see JoinKeyword::$joins
+     * @see JoinKeyword::JOINS
      *
      * @param string      $type  Join type
      * @param Expression  $expr  join expression
@@ -145,11 +143,11 @@ final class JoinKeyword implements Component
             }
 
             if ($state === 0) {
-                if (($token->type !== Token::TYPE_KEYWORD) || empty(static::$joins[$token->keyword])) {
+                if (($token->type !== Token::TYPE_KEYWORD) || empty(self::JOINS[$token->keyword])) {
                     break;
                 }
 
-                $expr->type = static::$joins[$token->keyword];
+                $expr->type = self::JOINS[$token->keyword];
                 $state = 1;
             } elseif ($state === 1) {
                 $expr->expr = Expression::parse($parser, $list, ['field' => 'table']);
@@ -164,14 +162,14 @@ final class JoinKeyword implements Component
                             $state = 4;
                             break;
                         default:
-                            if (empty(static::$joins[$token->keyword])) {
+                            if (empty(self::JOINS[$token->keyword])) {
                                 /* Next clause is starting */
                                 break 2;
                             }
 
                             $ret[] = $expr;
                             $expr = new static();
-                            $expr->type = static::$joins[$token->keyword];
+                            $expr->type = self::JOINS[$token->keyword];
                             $state = 1;
 
                             break;
@@ -211,7 +209,7 @@ final class JoinKeyword implements Component
     {
         $ret = [];
         foreach ($component as $c) {
-            $ret[] = array_search($c->type, static::$joins) . ' ' . $c->expr
+            $ret[] = array_search($c->type, self::JOINS) . ' ' . $c->expr
                 . (! empty($c->on)
                     ? ' ON ' . Condition::buildAll($c->on) : '')
                 . (! empty($c->using)
