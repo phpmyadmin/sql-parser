@@ -62,14 +62,6 @@ abstract class Statement implements Stringable
     public static $clauses = [];
 
     /**
-     * Options that can be given to GROUP BY component.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
-     */
-    public static $statementGroupOptions = [];
-
-    /**
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
@@ -370,8 +362,11 @@ abstract class Statement implements Stringable
             } elseif ($class === null) {
                 if ($this instanceof Statements\SelectStatement && $token->value === 'WITH ROLLUP') {
                     // Handle group options in Select statement
-                    // See Statements\SelectStatement::$statementGroupOptions
-                    $this->groupOptions = OptionsArray::parse($parser, $list, static::$statementGroupOptions);
+                    $this->groupOptions = OptionsArray::parse(
+                        $parser,
+                        $list,
+                        Statements\SelectStatement::STATEMENT_GROUP_OPTIONS
+                    );
                 } elseif (
                     $this instanceof Statements\SelectStatement
                     && ($token->value === 'FOR UPDATE'

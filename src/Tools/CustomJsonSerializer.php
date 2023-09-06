@@ -17,7 +17,6 @@ class CustomJsonSerializer extends JsonSerializer
 {
     public const SKIP_PROPERTIES = [
         'allowedKeywords',
-        'statementGroupOptions',
         'statementEndOptions',
         'keywordParsers',
         'statementParsers',
