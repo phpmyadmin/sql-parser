@@ -89,7 +89,7 @@ class UtfStringTest extends TestCase
                 'č',
             ],
             'emoji' => [
-                '😂😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯',
+                '🦋😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯',
                 '😂',
                 '😋',
             ],
@@ -97,6 +97,11 @@ class UtfStringTest extends TestCase
                 "P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy",
                 null,
                 null,
+            ],
+            'random' => [
+                'xℤⅿↈⅬ⅀ↆℜℝ⅗ℾ℧ⅰℓⅯⅵⅣ⅒21⅞',
+                'ℾ',
+                '⅞',
             ],
         ];
     }

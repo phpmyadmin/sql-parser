@@ -116,10 +116,8 @@ class UtfString implements ArrayAccess, Stringable
 
         if ($delta > 0) {
             // Fast forwarding.
-            while ($delta-- > 0) {
-                $this->byteIdx += strlen(mb_substr(substr($this->str, $this->byteIdx, 4), 0, 1));
-                ++$this->charIdx;
-            }
+            $this->byteIdx += strlen(mb_substr(substr($this->str, $this->byteIdx, 4 * $delta), 0, $delta));
+            $this->charIdx += $delta;
         } elseif ($delta < 0) {
             // Rewinding.
             while ($delta++ < 0) {
@@ -132,7 +130,7 @@ class UtfString implements ArrayAccess, Stringable
                 --$this->charIdx;
             }
         }
-        
+
         // Fetch the first Unicode character within the next 4 bytes in the string.
         return mb_substr(substr($this->str, $this->byteIdx, 4), 0, 1);
     }
