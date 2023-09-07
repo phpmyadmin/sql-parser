@@ -102,6 +102,12 @@ class UtfString implements ArrayAccess, Stringable
      */
     public function offsetGet($offset): string|null
     {
+        // This function moves the internal byte and character pointer to the requested offset.
+        // This function is part of hot code so the aim is to do the following
+        // operations as efficiently as possible.
+        // UTF-8 character encoding is a variable length encoding that encodes Unicode
+        // characters in 1-4 bytes. Thus we fetch 4 bytes from the current offset and then use mb_substr
+        // to get the first UTF-8 character in it. We then use strlen to get the character's size in bytes.
         if (($offset < 0) || ($offset >= $this->charLen)) {
             return null;
         }
@@ -117,6 +123,8 @@ class UtfString implements ArrayAccess, Stringable
         } elseif ($delta < 0) {
             // Rewinding.
             while ($delta++ < 0) {
+                // We rewind byte by byte and only count characters that are not continuation bytes,
+                // i.e. ASCII characters and first octets of multibyte characters
                 do {
                     $byte = ord($this->str[--$this->byteIdx]);
                 } while (($byte >= 128) && ($byte < 192));
@@ -124,7 +132,8 @@ class UtfString implements ArrayAccess, Stringable
                 --$this->charIdx;
             }
         }
-
+        
+        // Fetch the first Unicode character within the next 4 bytes in the string.
         return mb_substr(substr($this->str, $this->byteIdx, 4), 0, 1);
     }
 
