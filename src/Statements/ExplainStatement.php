@@ -8,8 +8,8 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function array_slice;
 
@@ -116,13 +116,13 @@ class ExplainStatement extends Statement
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 --$list->idx; // Back up one token, no real reasons to document
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if ($token->type === Token::TYPE_WHITESPACE || $token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Whitespace || $token->type === TokenType::Comment) {
                 continue;
             }
 
@@ -139,7 +139,7 @@ class ExplainStatement extends Statement
 
                     $lastIdx = $list->idx;
                     $list->idx++; // Ignore the current token
-                    $nextKeyword = $list->getNextOfType(Token::TYPE_KEYWORD);
+                    $nextKeyword = $list->getNextOfType(TokenType::Keyword);
                     $list->idx = $lastIdx;
 
                     // There is no other keyword, we must be describing a table
@@ -151,7 +151,7 @@ class ExplainStatement extends Statement
                     $miniState = 1;
 
                     $lastIdx = $list->idx;
-                    $nextKeyword = $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ANALYZE');
+                    $nextKeyword = $list->getNextOfTypeAndValue(TokenType::Keyword, 'ANALYZE');
                     if ($nextKeyword && $nextKeyword->keyword !== null) {
                         $miniState = 2;
                         $this->statementAlias .= ' ANALYZE';
@@ -208,13 +208,13 @@ class ExplainStatement extends Statement
                 $list->idx = $idxOfLastParsedToken;
                 break;
             } elseif ($state === 3) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '.')) {
+                if (($token->type === TokenType::Operator) && ($token->value === '.')) {
                     continue;
                 }
 
                 if ($this->explainedDatabase === null) {
                     $lastIdx = $list->idx;
-                    $nextDot = $list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, '.');
+                    $nextDot = $list->getNextOfTypeAndValue(TokenType::Operator, '.');
                     $list->idx = $lastIdx;
                     if ($nextDot !== null) {// We found a dot, so it must be a db.table name format
                         $this->explainedDatabase = $token->value;

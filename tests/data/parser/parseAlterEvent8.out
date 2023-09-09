@@ -7,13 +7,19 @@
         "last": 50,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 18,
+            "idx": 18,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 5
                 },
@@ -31,7 +41,9 @@
                     "token": "EVENT",
                     "value": "EVENT",
                     "keyword": "EVENT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 1,
                     "position": 6
                 },
@@ -40,7 +52,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 11
                 },
@@ -49,7 +63,11 @@
                     "token": "my_event",
                     "value": "my_event",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 12
                 },
@@ -58,7 +76,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 20
                 },
@@ -67,7 +87,9 @@
                     "token": "DO",
                     "value": "DO",
                     "keyword": "DO",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 1,
                     "position": 21
                 },
@@ -76,7 +98,9 @@
                     "token": "\n  ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 23
                 },
@@ -85,7 +109,9 @@
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 26
                 },
@@ -94,7 +120,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 32
                 },
@@ -103,7 +131,11 @@
                     "token": "*",
                     "value": "*",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 16,
                     "position": 33
                 },
@@ -112,7 +144,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 34
                 },
@@ -121,7 +155,9 @@
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 35
                 },
@@ -130,7 +166,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 39
                 },
@@ -139,7 +177,9 @@
                     "token": "my_table",
                     "value": "my_table",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@9"
+                    },
                     "flags": 0,
                     "position": 40
                 },
@@ -148,7 +188,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 48
                 },
@@ -157,7 +201,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 49
                 },
@@ -166,13 +212,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 18,
-            "idx": 18
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -210,15 +256,6 @@
                         "partitions": null,
                         "unknown": [
                             {
-                                "@type": "@9"
-                            },
-                            {
-                                "@type": "@10"
-                            },
-                            {
-                                "@type": "@11"
-                            },
-                            {
                                 "@type": "@12"
                             },
                             {
@@ -231,7 +268,16 @@
                                 "@type": "@15"
                             },
                             {
-                                "@type": "@16"
+                                "@type": "@17"
+                            },
+                            {
+                                "@type": "@18"
+                            },
+                            {
+                                "@type": "@19"
+                            },
+                            {
+                                "@type": "@20"
                             }
                         ]
                     }

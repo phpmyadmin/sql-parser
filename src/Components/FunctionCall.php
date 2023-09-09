@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function is_array;
 
@@ -73,18 +73,18 @@ final class FunctionCall implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 --$list->idx; // Let last token to previous one to avoid "This type of clause was previously parsed."
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if ($state === 0) {
-                if ($token->type === Token::TYPE_OPERATOR && $token->value === '(') {
+                if ($token->type === TokenType::Operator && $token->value === '(') {
                     --$list->idx; // ArrayObj needs to start with `(`
                     $state = 1;
                     continue;// do not add this token to the name

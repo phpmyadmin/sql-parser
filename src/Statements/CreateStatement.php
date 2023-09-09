@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function is_array;
 use function trim;
@@ -545,22 +546,22 @@ class CreateStatement extends Statement
          */
         $token = $list->tokens[$list->idx];
         $nextidx = $list->idx + 1;
-        while ($nextidx < $list->count && $list->tokens[$nextidx]->type === Token::TYPE_WHITESPACE) {
+        while ($nextidx < $list->count && $list->tokens[$nextidx]->type === TokenType::Whitespace) {
             ++$nextidx;
         }
 
         if ($isDatabase) {
             $this->entityOptions = OptionsArray::parse($parser, $list, self::DATABASE_OPTIONS);
         } elseif ($this->options->has('TABLE')) {
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SELECT')) {
+            if (($token->type === TokenType::Keyword) && ($token->keyword === 'SELECT')) {
                 /* CREATE TABLE ... SELECT */
                 $this->select = new SelectStatement($parser, $list);
-            } elseif ($token->type === Token::TYPE_KEYWORD && ($token->keyword === 'WITH')) {
+            } elseif ($token->type === TokenType::Keyword && ($token->keyword === 'WITH')) {
                 /* CREATE TABLE WITH */
                 $this->with = new WithStatement($parser, $list);
             } elseif (
-                ($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'AS')
-                && ($list->tokens[$nextidx]->type === Token::TYPE_KEYWORD)
+                ($token->type === TokenType::Keyword) && ($token->keyword === 'AS')
+                && ($list->tokens[$nextidx]->type === TokenType::Keyword)
             ) {
                 if ($list->tokens[$nextidx]->value === 'SELECT') {
                     /* CREATE TABLE ... AS SELECT */
@@ -571,7 +572,7 @@ class CreateStatement extends Statement
                     $list->idx = $nextidx;
                     $this->with = new WithStatement($parser, $list);
                 }
-            } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'LIKE') {
+            } elseif ($token->type === TokenType::Keyword && $token->keyword === 'LIKE') {
                 /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
                 $list->idx = $nextidx;
                 $this->like = Expression::parse(
@@ -623,27 +624,27 @@ class CreateStatement extends Statement
                     $token = $list->tokens[$list->idx];
 
                     // End of statement.
-                    if ($token->type === Token::TYPE_DELIMITER) {
+                    if ($token->type === TokenType::Delimiter) {
                         break;
                     }
 
                     // Skipping comments.
-                    if ($token->type === Token::TYPE_COMMENT) {
+                    if ($token->type === TokenType::Comment) {
                         continue;
                     }
 
-                    if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITION BY')) {
+                    if (($token->type === TokenType::Keyword) && ($token->keyword === 'PARTITION BY')) {
                         $field = 'partitionBy';
                         $brackets = false;
-                    } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITION BY')) {
+                    } elseif (($token->type === TokenType::Keyword) && ($token->keyword === 'SUBPARTITION BY')) {
                         $field = 'subpartitionBy';
                         $brackets = false;
-                    } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITIONS')) {
-                        $token = $list->getNextOfType(Token::TYPE_NUMBER);
+                    } elseif (($token->type === TokenType::Keyword) && ($token->keyword === 'PARTITIONS')) {
+                        $token = $list->getNextOfType(TokenType::Number);
                         --$list->idx; // `getNextOfType` also advances one position.
                         $this->partitionsNum = $token->value;
-                    } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITIONS')) {
-                        $token = $list->getNextOfType(Token::TYPE_NUMBER);
+                    } elseif (($token->type === TokenType::Keyword) && ($token->keyword === 'SUBPARTITIONS')) {
+                        $token = $list->getNextOfType(TokenType::Number);
                         --$list->idx; // `getNextOfType` also advances one position.
                         $this->subpartitionsNum = $token->value;
                     } elseif (! empty($field)) {
@@ -652,7 +653,7 @@ class CreateStatement extends Statement
                          */
 
                         // Counting brackets.
-                        if ($token->type === Token::TYPE_OPERATOR) {
+                        if ($token->type === TokenType::Operator) {
                             if ($token->value === '(') {
                                 // This is used instead of `++$brackets` because,
                                 // initially, `$brackets` is `false` cannot be
@@ -664,7 +665,7 @@ class CreateStatement extends Statement
                         }
 
                         // Building the expression used for partitioning.
-                        $this->$field .= $token->type === Token::TYPE_WHITESPACE ? ' ' : $token->token;
+                        $this->$field .= $token->type === TokenType::Whitespace ? ' ' : $token->token;
 
                         // Last bracket was read, the expression ended.
                         // Comparing with `0` and not `false`, because `false` means
@@ -674,7 +675,7 @@ class CreateStatement extends Statement
                             $this->$field = trim($this->$field);
                             $field = null;
                         }
-                    } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                    } elseif (($token->type === TokenType::Operator) && ($token->value === '(')) {
                         if (! empty($this->partitionBy)) {
                             $this->partitions = ArrayObj::parse(
                                 $parser,
@@ -691,7 +692,7 @@ class CreateStatement extends Statement
             $this->parameters = ParameterDefinition::parse($parser, $list);
             if ($this->options->has('FUNCTION')) {
                 $prevToken = $token;
-                $token = $list->getNextOfType(Token::TYPE_KEYWORD);
+                $token = $list->getNextOfType(TokenType::Keyword);
                 if ($token === null || $token->keyword !== 'RETURNS') {
                     $parser->error('A "RETURNS" keyword was expected.', $token ?? $prevToken);
                 } else {
@@ -707,7 +708,7 @@ class CreateStatement extends Statement
 
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
-                if ($token->type === Token::TYPE_DELIMITER) {
+                if ($token->type === TokenType::Delimiter) {
                     break;
                 }
 
@@ -718,7 +719,7 @@ class CreateStatement extends Statement
             $token = $list->getNext(); // Skipping whitespaces and comments.
 
             // Parsing columns list.
-            if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+            if (($token->type === TokenType::Operator) && ($token->value === '(')) {
                 --$list->idx; // getNext() also goes forward one field.
                 $this->fields = ArrayObj::parse($parser, $list);
                 ++$list->idx; // Skipping last token from the array.
@@ -727,9 +728,9 @@ class CreateStatement extends Statement
 
             // Parsing the SELECT expression if the view started with it.
             if (
-                $token->type === Token::TYPE_KEYWORD
+                $token->type === TokenType::Keyword
                 && $token->keyword === 'AS'
-                && $list->tokens[$nextidx]->type === Token::TYPE_KEYWORD
+                && $list->tokens[$nextidx]->type === TokenType::Keyword
             ) {
                 if ($list->tokens[$nextidx]->value === 'SELECT') {
                     $list->idx = $nextidx;
@@ -744,7 +745,7 @@ class CreateStatement extends Statement
             // Parsing all other tokens
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
-                if ($token->type === Token::TYPE_DELIMITER) {
+                if ($token->type === TokenType::Delimiter) {
                     break;
                 }
 
@@ -755,7 +756,7 @@ class CreateStatement extends Statement
             $this->entityOptions = OptionsArray::parse($parser, $list, self::TRIGGER_OPTIONS);
             ++$list->idx;
 
-            $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ON');
+            $list->getNextOfTypeAndValue(TokenType::Keyword, 'ON');
             ++$list->idx; // Skipping `ON`.
 
             // Parsing the name of the table.
@@ -769,12 +770,12 @@ class CreateStatement extends Statement
             );
             ++$list->idx;
 
-            $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'FOR EACH ROW');
+            $list->getNextOfTypeAndValue(TokenType::Keyword, 'FOR EACH ROW');
             ++$list->idx; // Skipping `FOR EACH ROW`.
 
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
-                if ($token->type === Token::TYPE_DELIMITER) {
+                if ($token->type === TokenType::Delimiter) {
                     break;
                 }
 
@@ -783,7 +784,7 @@ class CreateStatement extends Statement
         } else {
             for (; $list->idx < $list->count; ++$list->idx) {
                 $token = $list->tokens[$list->idx];
-                if ($token->type === Token::TYPE_DELIMITER) {
+                if ($token->type === TokenType::Delimiter) {
                     break;
                 }
 

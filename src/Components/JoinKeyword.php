@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Translator;
 use RuntimeException;
 
@@ -133,17 +133,17 @@ final class JoinKeyword implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if ($state === 0) {
-                if (($token->type !== Token::TYPE_KEYWORD) || empty(self::JOINS[$token->keyword])) {
+                if (($token->type !== TokenType::Keyword) || empty(self::JOINS[$token->keyword])) {
                     break;
                 }
 
@@ -153,7 +153,7 @@ final class JoinKeyword implements Component
                 $expr->expr = Expression::parse($parser, $list, ['field' => 'table']);
                 $state = 2;
             } elseif ($state === 2) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     switch ($token->keyword) {
                         case 'ON':
                             $state = 3;

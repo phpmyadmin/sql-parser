@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 /**
  * `RENAME` statement.
@@ -36,12 +37,12 @@ class RenameStatement extends Statement
      */
     public function before(Parser $parser, TokensList $list, Token $token): void
     {
-        if (($token->type !== Token::TYPE_KEYWORD) || ($token->keyword !== 'RENAME')) {
+        if (($token->type !== TokenType::Keyword) || ($token->keyword !== 'RENAME')) {
             return;
         }
 
         // Checking if it is the beginning of the query.
-        $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'TABLE');
+        $list->getNextOfTypeAndValue(TokenType::Keyword, 'TABLE');
     }
 
     public function build(): string

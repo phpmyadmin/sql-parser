@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 
@@ -62,8 +62,8 @@ final class LockExpression implements Component
 
             // End of statement.
             if (
-                $token->type === Token::TYPE_DELIMITER
-                || ($token->type === Token::TYPE_OPERATOR
+                $token->type === TokenType::Delimiter
+                || ($token->type === TokenType::Operator
                 && $token->value === ',')
             ) {
                 break;
@@ -133,8 +133,8 @@ final class LockExpression implements Component
 
             // End of statement.
             if (
-                $token->type === Token::TYPE_DELIMITER
-                || ($token->type === Token::TYPE_OPERATOR
+                $token->type === TokenType::Delimiter
+                || ($token->type === TokenType::Operator
                 && $token->value === ',')
             ) {
                 --$list->idx;
@@ -142,12 +142,12 @@ final class LockExpression implements Component
             }
 
             // Skipping whitespaces and comments.
-            if ($token->type === Token::TYPE_WHITESPACE || $token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Whitespace || $token->type === TokenType::Comment) {
                 continue;
             }
 
             // We only expect keywords
-            if ($token->type !== Token::TYPE_KEYWORD) {
+            if ($token->type !== TokenType::Keyword) {
                 $parser->error('Unexpected token.', $token);
                 break;
             }

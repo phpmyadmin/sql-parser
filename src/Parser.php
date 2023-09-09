@@ -428,9 +428,9 @@ class Parser extends Core
 
             // `DELIMITER` is not an actual statement and it requires
             // special handling.
-            if (($token->type === Token::TYPE_NONE) && (strtoupper($token->token) === 'DELIMITER')) {
+            if (($token->type === TokenType::None) && (strtoupper($token->token) === 'DELIMITER')) {
                 // Skipping to the end of this statement.
-                $list->getNextOfType(Token::TYPE_DELIMITER);
+                $list->getNextOfType(TokenType::Delimiter);
                 $prevLastIdx = $list->idx;
                 continue;
             }
@@ -443,12 +443,12 @@ class Parser extends Core
 
             // Statements can start with keywords only.
             // Comments, whitespaces, etc. are ignored.
-            if ($token->type !== Token::TYPE_KEYWORD) {
+            if ($token->type !== TokenType::Keyword) {
                 if (
-                    ($token->type !== Token::TYPE_COMMENT)
-                    && ($token->type !== Token::TYPE_WHITESPACE)
-                    && ($token->type !== Token::TYPE_OPERATOR) // `(` and `)`
-                    && ($token->type !== Token::TYPE_DELIMITER)
+                    ($token->type !== TokenType::Comment)
+                    && ($token->type !== TokenType::Whitespace)
+                    && ($token->type !== TokenType::Operator) // `(` and `)`
+                    && ($token->type !== TokenType::Delimiter)
                 ) {
                     $this->error('Unexpected beginning of statement.', $token);
                 }
@@ -473,8 +473,8 @@ class Parser extends Core
             if ($token->keyword === 'ANALYZE') {
                 ++$list->idx; // Skip ANALYZE
 
-                $first = $list->getNextOfType(Token::TYPE_KEYWORD);
-                $second = $list->getNextOfType(Token::TYPE_KEYWORD);
+                $first = $list->getNextOfType(TokenType::Keyword);
+                $second = $list->getNextOfType(TokenType::Keyword);
 
                 // ANALYZE keyword can be an indication of two cases:
                 // 1 - ANALYZE TABLE statements, in both MariaDB and MySQL
@@ -496,7 +496,7 @@ class Parser extends Core
                 }
 
                 // Skipping to the end of this statement.
-                $list->getNextOfType(Token::TYPE_DELIMITER);
+                $list->getNextOfType(TokenType::Delimiter);
                 $prevLastIdx = $list->idx;
                 continue;
             }

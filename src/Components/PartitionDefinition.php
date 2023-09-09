@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 use function trim;
@@ -146,17 +146,17 @@ final class PartitionDefinition implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if ($state === 0) {
-                $ret->isSubpartition = ($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SUBPARTITION');
+                $ret->isSubpartition = ($token->type === TokenType::Keyword) && ($token->keyword === 'SUBPARTITION');
                 $state = 1;
             } elseif ($state === 1) {
                 $ret->name = $token->value;
@@ -164,7 +164,7 @@ final class PartitionDefinition implements Component
                 // Looking ahead for a 'VALUES' keyword.
                 // Loop until the end of the partition name (delimited by a whitespace)
                 while ($nextToken = $list->tokens[++$list->idx]) {
-                    if ($nextToken->type !== Token::TYPE_NONE) {
+                    if ($nextToken->type !== TokenType::None) {
                         break;
                     }
 
@@ -175,7 +175,7 @@ final class PartitionDefinition implements Component
                 // Get the first token after the white space.
                 $nextToken = $list->tokens[++$idx];
 
-                $state = ($nextToken->type === Token::TYPE_KEYWORD)
+                $state = ($nextToken->type === TokenType::Keyword)
                     && ($nextToken->value === 'VALUES')
                     ? 2 : 5;
             } elseif ($state === 2) {
@@ -202,7 +202,7 @@ final class PartitionDefinition implements Component
                 $ret->options = OptionsArray::parse($parser, $list, static::$partitionOptions);
                 $state = 6;
             } elseif ($state === 6) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                if (($token->type === TokenType::Operator) && ($token->value === '(')) {
                     $ret->subpartitions = ArrayObj::parse(
                         $parser,
                         $list,

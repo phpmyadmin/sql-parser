@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Tools;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Tools\ContextGenerator;
 
 use function file_get_contents;
@@ -40,15 +41,15 @@ class ContextGeneratorTest extends TestCase
         $testFiles = [getcwd() . '/tests/Tools/contexts/testContext.txt'];
         $readWords = ContextGenerator::readWords($testFiles);
         $this->assertEquals([
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_RESERVED => [
                 8 => ['RESERVED'],
                 9 => ['RESERVED2','RESERVED3','RESERVED4','RESERVED5'],
             ],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION => [8 => ['FUNCTION']],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE => [8 => ['DATATYPE']],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_KEY => [7 => ['KEYWORD']],
-            Token::TYPE_KEYWORD => [7 => ['NO_FLAG']],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED | 4 => [16 => ['COMPOSED KEYWORD']],
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_FUNCTION => [8 => ['FUNCTION']],
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_DATA_TYPE => [8 => ['DATATYPE']],
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_KEY => [7 => ['KEYWORD']],
+            TokenType::Keyword->value => [7 => ['NO_FLAG']],
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_RESERVED | 4 => [16 => ['COMPOSED KEYWORD']],
         ], $readWords);
     }
 

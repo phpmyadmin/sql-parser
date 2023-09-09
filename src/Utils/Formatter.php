@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function array_merge;
 use function array_pop;
@@ -200,56 +201,56 @@ class Formatter
     {
         return [
             [
-                'type' => Token::TYPE_KEYWORD,
+                'type' => TokenType::Keyword->value,
                 'flags' => Token::FLAG_KEYWORD_RESERVED,
                 'html' => 'class="sql-reserved"',
                 'cli' => "\x1b[35m",
                 'function' => 'strtoupper',
             ],
             [
-                'type' => Token::TYPE_KEYWORD,
+                'type' => TokenType::Keyword->value,
                 'flags' => 0,
                 'html' => 'class="sql-keyword"',
                 'cli' => "\x1b[95m",
                 'function' => 'strtoupper',
             ],
             [
-                'type' => Token::TYPE_COMMENT,
+                'type' => TokenType::Comment->value,
                 'flags' => 0,
                 'html' => 'class="sql-comment"',
                 'cli' => "\x1b[37m",
                 'function' => '',
             ],
             [
-                'type' => Token::TYPE_BOOL,
+                'type' => TokenType::Bool->value,
                 'flags' => 0,
                 'html' => 'class="sql-atom"',
                 'cli' => "\x1b[36m",
                 'function' => 'strtoupper',
             ],
             [
-                'type' => Token::TYPE_NUMBER,
+                'type' => TokenType::Number->value,
                 'flags' => 0,
                 'html' => 'class="sql-number"',
                 'cli' => "\x1b[92m",
                 'function' => 'strtolower',
             ],
             [
-                'type' => Token::TYPE_STRING,
+                'type' => TokenType::String->value,
                 'flags' => 0,
                 'html' => 'class="sql-string"',
                 'cli' => "\x1b[91m",
                 'function' => '',
             ],
             [
-                'type' => Token::TYPE_SYMBOL,
+                'type' => TokenType::Symbol->value,
                 'flags' => Token::FLAG_SYMBOL_PARAMETER,
                 'html' => 'class="sql-parameter"',
                 'cli' => "\x1b[31m",
                 'function' => '',
             ],
             [
-                'type' => Token::TYPE_SYMBOL,
+                'type' => TokenType::Symbol->value,
                 'flags' => 0,
                 'html' => 'class="sql-variable"',
                 'cli' => "\x1b[36m",
@@ -403,12 +404,12 @@ class Formatter
                 $next = null;
             }
 
-            if ($curr->type === Token::TYPE_WHITESPACE) {
+            if ($curr->type === TokenType::Whitespace) {
                 // Keep linebreaks before and after comments
                 if (
                     str_contains($curr->token, "\n") && (
-                        ($prev !== null && $prev->type === Token::TYPE_COMMENT) ||
-                        ($next !== null && $next->type === Token::TYPE_COMMENT)
+                        ($prev !== null && $prev->type === TokenType::Comment) ||
+                        ($next !== null && $next->type === TokenType::Comment)
                     )
                 ) {
                     $lineEnded = true;
@@ -418,7 +419,7 @@ class Formatter
                 continue;
             }
 
-            if ($curr->type === Token::TYPE_COMMENT && $this->options['remove_comments']) {
+            if ($curr->type === TokenType::Comment && $this->options['remove_comments']) {
                 // Skip Comments if option `remove_comments` is enabled
                 continue;
             }
@@ -437,7 +438,7 @@ class Formatter
                     && ! $formattedOptions
                     && empty(self::$inlineClauses[$lastClause])
                     && (
-                        $curr->type !== Token::TYPE_KEYWORD
+                        $curr->type !== TokenType::Keyword
                         || ($curr->flags & Token::FLAG_KEYWORD_FUNCTION)
                     )
                 ) {
@@ -463,7 +464,7 @@ class Formatter
 
                 // Inline JOINs
                 if (
-                    ($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::JOINS[$prev->value]))
+                    ($prev->type === TokenType::Keyword && isset(JoinKeyword::JOINS[$prev->value]))
                     || (in_array($curr->value, ['ON', 'USING'], true)
                         && isset(JoinKeyword::JOINS[$list->tokens[$list->idx - 2]->value]))
                     || isset($list->tokens[$list->idx - 4], JoinKeyword::JOINS[$list->tokens[$list->idx - 4]->value])
@@ -473,17 +474,17 @@ class Formatter
                 }
 
                 // Indenting BEGIN ... END blocks.
-                if ($prev->type === Token::TYPE_KEYWORD && $prev->keyword === 'BEGIN') {
+                if ($prev->type === TokenType::Keyword && $prev->keyword === 'BEGIN') {
                     $lineEnded = true;
                     $blocksIndentation[] = $indent;
                     ++$indent;
-                } elseif ($curr->type === Token::TYPE_KEYWORD && $curr->keyword === 'END') {
+                } elseif ($curr->type === TokenType::Keyword && $curr->keyword === 'END') {
                     $lineEnded = true;
                     $indent = array_pop($blocksIndentation);
                 }
 
                 // Formatting fragments delimited by comma.
-                if ($prev->type === Token::TYPE_OPERATOR && $prev->value === ',') {
+                if ($prev->type === TokenType::Operator && $prev->value === ',') {
                     // Fragments delimited by a comma are broken into multiple
                     // pieces only if the clause is not inlined or this fragment
                     // is between brackets that are on new line.
@@ -502,7 +503,7 @@ class Formatter
                 // Handling brackets.
                 // Brackets are indented only if the length of the fragment between
                 // them is longer than 30 characters.
-                if ($prev->type === Token::TYPE_OPERATOR && $prev->value === '(') {
+                if ($prev->type === TokenType::Operator && $prev->value === '(') {
                     $blocksIndentation[] = $indent;
                     $shortGroup = true;
                     if (static::getGroupLength($list) > 30) {
@@ -512,7 +513,7 @@ class Formatter
                     }
 
                     $blocksLineEndings[] = $lineEnded;
-                } elseif ($curr->type === Token::TYPE_OPERATOR && $curr->value === ')') {
+                } elseif ($curr->type === TokenType::Operator && $curr->value === ')') {
                     $indent = array_pop($blocksIndentation);
                     $lineEnded |= array_pop($blocksLineEndings);
                     $shortGroup = false;
@@ -528,13 +529,13 @@ class Formatter
                 } elseif (
                     $prev->keyword === 'DELIMITER'
                     || ! (
-                    ($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
+                    ($prev->type === TokenType::Operator && ($prev->value === '.' || $prev->value === '('))
                     // No space after . (
-                    || ($curr->type === Token::TYPE_OPERATOR
+                    || ($curr->type === TokenType::Operator
                         && ($curr->value === '.' || $curr->value === ','
                             || $curr->value === '(' || $curr->value === ')'))
                     // No space before . , ( )
-                    || $curr->type === Token::TYPE_DELIMITER && mb_strlen((string) $curr->value, 'UTF-8') < 2
+                    || $curr->type === TokenType::Delimiter && mb_strlen((string) $curr->value, 'UTF-8') < 2
                     )
                 ) {
                     // If the line ended, there is no point in adding whitespaces.
@@ -641,7 +642,9 @@ class Formatter
         static $prev;
 
         foreach ($this->options['formats'] as $format) {
-            if ($token->type !== $format['type'] || ! (($token->flags & $format['flags']) === $format['flags'])) {
+            if (
+                $token->type->value !== $format['type'] || ! (($token->flags & $format['flags']) === $format['flags'])
+            ) {
                 continue;
             }
 
@@ -730,7 +733,7 @@ class Formatter
 
         for ($idx = $list->idx; $idx < $list->count; ++$idx) {
             // Counting the brackets.
-            if ($list->tokens[$idx]->type === Token::TYPE_OPERATOR) {
+            if ($list->tokens[$idx]->type === TokenType::Operator) {
                 if ($list->tokens[$idx]->value === '(') {
                     ++$count;
                 } elseif ($list->tokens[$idx]->value === ')') {
@@ -758,13 +761,13 @@ class Formatter
     public static function isClause($token): int|false
     {
         if (
-            ($token->type === Token::TYPE_KEYWORD && isset(Parser::STATEMENT_PARSERS[$token->keyword]))
-            || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
+            ($token->type === TokenType::Keyword && isset(Parser::STATEMENT_PARSERS[$token->keyword]))
+            || ($token->type === TokenType::None && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
         }
 
-        if ($token->type === Token::TYPE_KEYWORD && isset(Parser::KEYWORD_PARSERS[$token->keyword])) {
+        if ($token->type === TokenType::Keyword && isset(Parser::KEYWORD_PARSERS[$token->keyword])) {
             return 1;
         }
 

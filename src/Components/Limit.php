@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 /**
  * `LIMIT` keyword parser.
@@ -56,20 +57,20 @@ final class Limit implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
-            if (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
+            if (($token->type === TokenType::Keyword) && ($token->flags & Token::FLAG_KEYWORD_RESERVED)) {
                 break;
             }
 
-            if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'OFFSET') {
+            if ($token->type === TokenType::Keyword && $token->keyword === 'OFFSET') {
                 if ($offset) {
                     $parser->error('An offset was expected.', $token);
                 }
@@ -78,14 +79,14 @@ final class Limit implements Component
                 continue;
             }
 
-            if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
+            if (($token->type === TokenType::Operator) && ($token->value === ',')) {
                 $ret->offset = $ret->rowCount;
                 $ret->rowCount = 0;
                 continue;
             }
 
             // Skip if not a number
-            if (($token->type !== Token::TYPE_NUMBER)) {
+            if (($token->type !== TokenType::Number)) {
                 break;
             }
 

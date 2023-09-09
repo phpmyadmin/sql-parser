@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 use function in_array;
@@ -83,18 +84,18 @@ final class SetOperation implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             // No keyword is expected.
             if (
-                ($token->type === Token::TYPE_KEYWORD)
+                ($token->type === TokenType::Keyword)
                 && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
                 && ($state === 0)
             ) {

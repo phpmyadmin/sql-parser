@@ -20,111 +20,7 @@ use function strtoupper;
  */
 class Token
 {
-    // Types of tokens (a vague description of a token's purpose).
-
-    /**
-     * This type is used when the token is invalid or its type cannot be
-     * determined because of the ambiguous context. Further analysis might be
-     * required to detect its type.
-     */
-    public const TYPE_NONE = 0;
-
-    /**
-     * SQL specific keywords: SELECT, UPDATE, INSERT, etc.
-     */
-    public const TYPE_KEYWORD = 1;
-
-    /**
-     * Any type of legal operator.
-     *
-     * Arithmetic operators: +, -, *, /, etc.
-     * Logical operators: ===, <>, !==, etc.
-     * Bitwise operators: &, |, ^, etc.
-     * Assignment operators: =, +=, -=, etc.
-     * SQL specific operators: . (e.g. .. WHERE database.table ..),
-     *                         * (e.g. SELECT * FROM ..)
-     */
-    public const TYPE_OPERATOR = 2;
-
-    /**
-     * Spaces, tabs, new lines, etc.
-     */
-    public const TYPE_WHITESPACE = 3;
-
-    /**
-     * Any type of legal comment.
-     *
-     * Bash (#), C (/* *\/) or SQL (--) comments:
-     *
-     *      -- SQL-comment
-     *
-     *      #Bash-like comment
-     *
-     *      /*C-like comment*\/
-     *
-     * or:
-     *
-     *      /*C-like
-     *        comment*\/
-     *
-     * Backslashes were added to respect PHP's comments syntax.
-     */
-    public const TYPE_COMMENT = 4;
-
-    /**
-     * Boolean values: true or false.
-     */
-    public const TYPE_BOOL = 5;
-
-    /**
-     * Numbers: 4, 0x8, 15.16, 23e42, etc.
-     */
-    public const TYPE_NUMBER = 6;
-
-    /**
-     * Literal strings: 'string', "test".
-     * Some of these strings are actually symbols.
-     */
-    public const TYPE_STRING = 7;
-
-    /**
-     * Database, table names, variables, etc.
-     * For example: ```SELECT `foo`, `bar` FROM `database`.`table`;```.
-     */
-    public const TYPE_SYMBOL = 8;
-
-    /**
-     * Delimits an unknown string.
-     * For example: ```SELECT * FROM test;```, `test` is a delimiter.
-     */
-    public const TYPE_DELIMITER = 9;
-
-    /**
-     * Labels in LOOP statement, ITERATE statement etc.
-     * For example (only for begin label):
-     *  begin_label: BEGIN [statement_list] END [end_label]
-     *  begin_label: LOOP [statement_list] END LOOP [end_label]
-     *  begin_label: REPEAT [statement_list] ... END REPEAT [end_label]
-     *  begin_label: WHILE ... DO [statement_list] END WHILE [end_label].
-     */
-    public const TYPE_LABEL = 10;
-
-    /**
-     *  All tokens types
-     */
-    public const TYPE_ALL = [
-        self::TYPE_NONE,
-        self::TYPE_KEYWORD,
-        self::TYPE_OPERATOR,
-        self::TYPE_WHITESPACE,
-        self::TYPE_COMMENT,
-        self::TYPE_BOOL,
-        self::TYPE_NUMBER,
-        self::TYPE_STRING,
-        self::TYPE_SYMBOL,
-        self::TYPE_DELIMITER,
-        self::TYPE_LABEL,
-    ];
+    public const FLAG_NONE = 0;
 
     // Flags that describe the tokens in more detail.
     // All keywords must have flag 1 so `Context::isKeyword` method doesn't
@@ -189,10 +85,8 @@ class Token
 
     /**
      * The type of this token.
-     *
-     * @var int
      */
-    public $type;
+    public TokenType $type;
 
     /**
      * The flags of this token.
@@ -212,11 +106,11 @@ class Token
     public $position;
 
     /**
-     * @param string $token the value of the token
-     * @param int    $type  the type of the token
-     * @param int    $flags the flags of the token
+     * @param string    $token the value of the token
+     * @param TokenType $type  the type of the token
+     * @param int       $flags the flags of the token
      */
-    public function __construct($token, $type = 0, $flags = 0)
+    public function __construct($token, TokenType $type = TokenType::None, $flags = 0)
     {
         $this->token = $token;
         $this->type = $type;
@@ -232,7 +126,7 @@ class Token
     public function extract(): mixed
     {
         switch ($this->type) {
-            case self::TYPE_KEYWORD:
+            case TokenType::Keyword:
                 $this->keyword = strtoupper($this->token);
                 if (! ($this->flags & self::FLAG_KEYWORD_RESERVED)) {
                     // Unreserved keywords should stay the way they are because they
@@ -242,13 +136,13 @@ class Token
 
                 return $this->keyword;
 
-            case self::TYPE_WHITESPACE:
+            case TokenType::Whitespace:
                 return ' ';
 
-            case self::TYPE_BOOL:
+            case TokenType::Bool:
                 return strtoupper($this->token) === 'TRUE';
 
-            case self::TYPE_NUMBER:
+            case TokenType::Number:
                 $ret = str_replace('--', '', $this->token); // e.g. ---42 === -42
                 if ($this->flags & self::FLAG_NUMBER_HEX) {
                     $ret = str_replace(['-', '+'], '', $this->token);
@@ -265,7 +159,7 @@ class Token
 
                 return $ret;
 
-            case self::TYPE_STRING:
+            case TokenType::String:
                 // Trims quotes.
                 $str = $this->token;
                 $str = mb_substr($str, 1, -1, 'UTF-8');
@@ -287,7 +181,7 @@ class Token
 
                 return $str;
 
-            case self::TYPE_SYMBOL:
+            case TokenType::Symbol:
                 $str = $this->token;
                 if (isset($str[0]) && ($str[0] === '@')) {
                     // `mb_strlen($str)` must be used instead of `null` because

@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 use function rtrim;
@@ -209,12 +210,12 @@ final class Expression implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 // If the token is a closing C comment from a MySQL command, it must be ignored.
                 if ($isExpr && $token->token !== '*/') {
                     $ret->expr .= $token->token;
@@ -223,7 +224,7 @@ final class Expression implements Component
                 continue;
             }
 
-            if ($token->type === Token::TYPE_KEYWORD) {
+            if ($token->type === TokenType::Keyword) {
                 if (($brackets > 0) && empty($ret->subquery) && ! empty(Parser::STATEMENT_PARSERS[$token->keyword])) {
                     // A `(` was previously found and this keyword is the
                     // beginning of a statement, so this is a subquery.
@@ -273,13 +274,13 @@ final class Expression implements Component
             }
 
             if (
-                ($token->type === Token::TYPE_NUMBER)
-                || ($token->type === Token::TYPE_BOOL)
-                || (($token->type === Token::TYPE_SYMBOL)
+                ($token->type === TokenType::Number)
+                || ($token->type === TokenType::Bool)
+                || (($token->type === TokenType::Symbol)
                 && ($token->flags & Token::FLAG_SYMBOL_VARIABLE))
-                || (($token->type === Token::TYPE_SYMBOL)
+                || (($token->type === TokenType::Symbol)
                 && ($token->flags & Token::FLAG_SYMBOL_PARAMETER))
-                || (($token->type === Token::TYPE_OPERATOR)
+                || (($token->type === TokenType::Operator)
                 && ($token->value !== '.'))
             ) {
                 if (! empty($options['parseField'])) {
@@ -291,7 +292,7 @@ final class Expression implements Component
                 $isExpr = true;
             }
 
-            if ($token->type === Token::TYPE_OPERATOR) {
+            if ($token->type === TokenType::Operator) {
                 if (! empty($options['breakOnParentheses']) && (($token->value === '(') || ($token->value === ')'))) {
                     // No brackets were expected.
                     break;
@@ -301,9 +302,9 @@ final class Expression implements Component
                     ++$brackets;
                     if (
                         empty($ret->function) && ($prev[1] !== null)
-                        && (($prev[1]->type === Token::TYPE_NONE)
-                        || ($prev[1]->type === Token::TYPE_SYMBOL)
-                        || (($prev[1]->type === Token::TYPE_KEYWORD)
+                        && (($prev[1]->type === TokenType::None)
+                        || ($prev[1]->type === TokenType::Symbol)
+                        || (($prev[1]->type === TokenType::Keyword)
                         && ($prev[1]->flags & Token::FLAG_KEYWORD_FUNCTION)))
                     ) {
                         $ret->function = $prev[1]->value;
@@ -354,13 +355,13 @@ final class Expression implements Component
                 if (
                     $brackets === 0
                     && ($prev[0] === null
-                        || (($prev[0]->type !== Token::TYPE_OPERATOR || $prev[0]->token === ')')
-                            && ($prev[0]->type !== Token::TYPE_KEYWORD
+                        || (($prev[0]->type !== TokenType::Operator || $prev[0]->token === ')')
+                            && ($prev[0]->type !== TokenType::Keyword
                                 || ! ($prev[0]->flags & Token::FLAG_KEYWORD_RESERVED))))
-                    && (($prev[1]->type === Token::TYPE_STRING)
-                        || ($prev[1]->type === Token::TYPE_SYMBOL
+                    && (($prev[1]->type === TokenType::String)
+                        || ($prev[1]->type === TokenType::Symbol
                             && ! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE))
-                        || ($prev[1]->type === Token::TYPE_NONE
+                        || ($prev[1]->type === TokenType::None
                             && $prev[1]->token !== 'OVER'))
                 ) {
                     if (! empty($ret->alias)) {
@@ -380,9 +381,9 @@ final class Expression implements Component
                     if (
                         $ret->expr !== null &&
                         $beforeToken &&
-                        ($beforeToken->type === Token::TYPE_NONE ||
-                        $beforeToken->type === Token::TYPE_SYMBOL || $beforeToken->type === Token::TYPE_STRING) &&
-                        $token->type === Token::TYPE_KEYWORD
+                        ($beforeToken->type === TokenType::None ||
+                        $beforeToken->type === TokenType::Symbol || $beforeToken->type === TokenType::String) &&
+                        $token->type === TokenType::Keyword
                     ) {
                         $ret->expr = rtrim($ret->expr, ' ') . ' ';
                     }
@@ -390,7 +391,7 @@ final class Expression implements Component
                     $ret->expr .= $token->token;
                 }
             } else {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '.')) {
+                if (($token->type === TokenType::Operator) && ($token->value === '.')) {
                     // Found a `.` which means we expect a column name and
                     // the column name we parsed is actually the table name
                     // and the table name is actually a database name.

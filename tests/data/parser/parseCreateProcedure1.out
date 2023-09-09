@@ -7,13 +7,19 @@
         "last": 116,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 31,
+            "idx": 31,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "CREATE",
                     "value": "CREATE",
                     "keyword": "CREATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -31,7 +41,9 @@
                     "token": "DEFINER",
                     "value": "DEFINER",
                     "keyword": "DEFINER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 1,
                     "position": 7
                 },
@@ -40,7 +52,11 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 2,
                     "position": 14
                 },
@@ -49,7 +65,11 @@
                     "token": "`root`@`%`",
                     "value": "root@%",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Symbol",
+                        "value": 8
+                    },
                     "flags": 4,
                     "position": 15
                 },
@@ -58,7 +78,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 25
                 },
@@ -67,7 +89,9 @@
                     "token": "PROCEDURE",
                     "value": "PROCEDURE",
                     "keyword": "PROCEDURE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 26
                 },
@@ -76,7 +100,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 35
                 },
@@ -85,7 +111,9 @@
                     "token": "`test2`",
                     "value": "test2",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@10"
+                    },
                     "flags": 2,
                     "position": 36
                 },
@@ -94,7 +122,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@8"
+                    },
                     "flags": 16,
                     "position": 43
                 },
@@ -103,7 +133,9 @@
                     "token": "IN",
                     "value": "IN",
                     "keyword": "IN",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 35,
                     "position": 44
                 },
@@ -112,7 +144,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 46
                 },
@@ -121,7 +155,9 @@
                     "token": "`_var`",
                     "value": "_var",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@10"
+                    },
                     "flags": 2,
                     "position": 47
                 },
@@ -130,7 +166,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 53
                 },
@@ -139,7 +177,9 @@
                     "token": "INT",
                     "value": "INT",
                     "keyword": "INT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 11,
                     "position": 54
                 },
@@ -148,7 +188,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@8"
+                    },
                     "flags": 16,
                     "position": 57
                 },
@@ -157,7 +199,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 58
                 },
@@ -166,7 +210,9 @@
                     "token": "NOT",
                     "value": "NOT",
                     "keyword": "NOT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 59
                 },
@@ -175,7 +221,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 62
                 },
@@ -184,7 +232,9 @@
                     "token": "DETERMINISTIC",
                     "value": "DETERMINISTIC",
                     "keyword": "DETERMINISTIC",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 63
                 },
@@ -193,7 +243,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 76
                 },
@@ -202,7 +254,9 @@
                     "token": "NO SQL",
                     "value": "NO SQL",
                     "keyword": "NO SQL",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 7,
                     "position": 77
                 },
@@ -211,7 +265,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 83
                 },
@@ -220,7 +276,9 @@
                     "token": "SQL SECURITY",
                     "value": "SQL SECURITY",
                     "keyword": "SQL SECURITY",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 7,
                     "position": 84
                 },
@@ -229,7 +287,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 96
                 },
@@ -238,7 +298,9 @@
                     "token": "INVOKER",
                     "value": "INVOKER",
                     "keyword": "INVOKER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 1,
                     "position": 97
                 },
@@ -247,7 +309,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 104
                 },
@@ -256,7 +320,9 @@
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 105
                 },
@@ -265,7 +331,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 111
                 },
@@ -274,7 +342,11 @@
                     "token": "_var",
                     "value": "_var",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 112
                 },
@@ -283,13 +355,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 31,
-            "idx": 31
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -362,13 +436,13 @@
                 ],
                 "body": [
                     {
-                        "@type": "@29"
+                        "@type": "@33"
                     },
                     {
-                        "@type": "@30"
+                        "@type": "@34"
                     },
                     {
-                        "@type": "@31"
+                        "@type": "@35"
                     }
                 ],
                 "options": {

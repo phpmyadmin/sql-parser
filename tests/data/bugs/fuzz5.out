@@ -7,13 +7,19 @@
         "last": 4,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 3,
+            "idx": 3,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "+0x",
                     "value": 0,
                     "keyword": null,
-                    "type": 6,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Number",
+                        "value": 6
+                    },
                     "flags": 1,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": "O",
                     "value": "O",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 3
                 },
@@ -31,13 +41,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 3,
-            "idx": 3
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -67,7 +79,7 @@
             [
                 "Unexpected beginning of statement.",
                 {
-                    "@type": "@3"
+                    "@type": "@4"
                 },
                 0
             ]

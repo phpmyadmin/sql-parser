@@ -7,13 +7,19 @@
         "last": 28,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 10,
+            "idx": 11,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "DELETE",
                     "value": "DELETE",
                     "keyword": "DELETE",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -31,7 +41,9 @@
                     "token": "QUICK",
                     "value": "QUICK",
                     "keyword": "QUICK",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 1,
                     "position": 7
                 },
@@ -40,7 +52,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 12
                 },
@@ -49,7 +63,9 @@
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 13
                 },
@@ -58,7 +74,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 17
                 },
@@ -67,7 +85,11 @@
                     "token": "table1",
                     "value": "table1",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 18
                 },
@@ -76,7 +98,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 24
                 },
@@ -85,7 +109,9 @@
                     "token": "ASC",
                     "value": "ASC",
                     "keyword": "ASC",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 25
                 },
@@ -94,13 +120,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 10,
-            "idx": 11
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -154,14 +182,14 @@
             [
                 "Unexpected keyword.",
                 {
-                    "@type": "@10"
+                    "@type": "@13"
                 },
                 0
             ],
             [
                 "Unrecognized statement type.",
                 {
-                    "@type": "@10"
+                    "@type": "@13"
                 },
                 0
             ]

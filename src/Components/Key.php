@@ -7,8 +7,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 use function trim;
@@ -159,12 +159,12 @@ final class Key implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
@@ -172,7 +172,7 @@ final class Key implements Component
                 $ret->type = $token->value;
                 $state = 1;
             } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                if (($token->type === TokenType::Operator) && ($token->value === '(')) {
                     $positionBeforeSearch = $list->idx;
                     $list->idx++;// Ignore the current token "(" or the search condition will always be true
                     $nextToken = $list->getNext();
@@ -188,7 +188,7 @@ final class Key implements Component
                     $ret->name = $token->value;
                 }
             } elseif ($state === 2) {
-                if ($token->type === Token::TYPE_OPERATOR) {
+                if ($token->type === TokenType::Operator) {
                     if ($token->value === '(') {
                         $state = 3;
                     } elseif (($token->value === ',') || ($token->value === ')')) {
@@ -200,7 +200,7 @@ final class Key implements Component
                     }
                 } elseif (
                     (
-                        $token->type === Token::TYPE_KEYWORD
+                        $token->type === TokenType::Keyword
                     )
                     &&
                     (
@@ -212,7 +212,7 @@ final class Key implements Component
                     $lastColumn['name'] = $token->value;
                 }
             } elseif ($state === 3) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === ')')) {
+                if (($token->type === TokenType::Operator) && ($token->value === ')')) {
                     $state = 2;
                 } else {
                     $lastColumn['length'] = $token->value;
@@ -222,7 +222,7 @@ final class Key implements Component
                 ++$list->idx;
                 break;
             } elseif ($state === 5) {
-                if ($token->type === Token::TYPE_OPERATOR) {
+                if ($token->type === TokenType::Operator) {
                     // This got back to here and we reached the end of the expression
                     if ($token->value === ')') {
                         $state = 4;// go back to state 4 to fetch options

@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 use function trim;
@@ -210,17 +211,17 @@ final class CreateDefinition implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if ($state === 0) {
-                if (($token->type !== Token::TYPE_OPERATOR) || ($token->value !== '(')) {
+                if (($token->type !== TokenType::Operator) || ($token->value !== '(')) {
                     $parser->error('An opening bracket was expected.', $token);
 
                     break;
@@ -228,17 +229,17 @@ final class CreateDefinition implements Component
 
                 $state = 1;
             } elseif ($state === 1) {
-                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'CONSTRAINT') {
+                if ($token->type === TokenType::Keyword && $token->keyword === 'CONSTRAINT') {
                     $expr->isConstraint = true;
-                } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
+                } elseif (($token->type === TokenType::Keyword) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
                     $expr->key = Key::parse($parser, $list);
                     $state = 4;
-                } elseif ($token->type === Token::TYPE_SYMBOL || $token->type === Token::TYPE_NONE) {
+                } elseif ($token->type === TokenType::Symbol || $token->type === TokenType::None) {
                     $expr->name = $token->value;
                     if (! $expr->isConstraint) {
                         $state = 2;
                     }
-                } elseif ($token->type === Token::TYPE_KEYWORD) {
+                } elseif ($token->type === TokenType::Keyword) {
                     if ($token->flags & Token::FLAG_KEYWORD_RESERVED) {
                         // Reserved keywords can't be used
                         // as field names without backquotes
@@ -267,7 +268,7 @@ final class CreateDefinition implements Component
                 $expr->options = OptionsArray::parse($parser, $list, self::FIELD_OPTIONS);
                 $state = 4;
             } elseif ($state === 4) {
-                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'REFERENCES') {
+                if ($token->type === TokenType::Keyword && $token->keyword === 'REFERENCES') {
                     ++$list->idx; // Skipping keyword 'REFERENCES'.
                     $expr->references = Reference::parse($parser, $list);
                 } else {

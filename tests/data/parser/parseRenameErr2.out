@@ -7,13 +7,19 @@
         "last": 18,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 6,
+            "idx": 6,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "RENAME",
                     "value": "RENAME",
                     "keyword": "RENAME",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -31,7 +41,9 @@
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 7
                 },
@@ -40,7 +52,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 12
                 },
@@ -49,7 +63,9 @@
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 13
                 },
@@ -58,13 +74,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 6,
-            "idx": 6
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -95,14 +113,14 @@
             [
                 "The old name of the table was expected.",
                 {
-                    "@type": "@6"
+                    "@type": "@8"
                 },
                 0
             ],
             [
                 "A rename operation was expected.",
                 {
-                    "@type": "@6"
+                    "@type": "@8"
                 },
                 0
             ]

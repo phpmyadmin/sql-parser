@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Translator;
 use RuntimeException;
 
@@ -57,17 +58,17 @@ final class ExpressionArray implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if (
-                ($token->type === Token::TYPE_KEYWORD)
+                ($token->type === TokenType::Keyword)
                 && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
                 && ((~$token->flags & Token::FLAG_KEYWORD_FUNCTION))
                 && ($token->value !== 'DUAL')
@@ -80,7 +81,7 @@ final class ExpressionArray implements Component
             }
 
             if ($state === 0) {
-                if ($token->type === Token::TYPE_KEYWORD && $token->value === 'CASE') {
+                if ($token->type === TokenType::Keyword && $token->value === 'CASE') {
                     $expr = CaseExpression::parse($parser, $list, $options);
                 } else {
                     $expr = Expression::parse($parser, $list, $options);

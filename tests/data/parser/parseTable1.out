@@ -7,13 +7,19 @@
         "last": 36,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 13,
+            "idx": 13,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 5
                 },
@@ -31,7 +41,11 @@
                     "token": "`fo`",
                     "value": "fo",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Symbol",
+                        "value": 8
+                    },
                     "flags": 2,
                     "position": 6
                 },
@@ -40,7 +54,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 10
                 },
@@ -49,7 +65,9 @@
                     "token": "ORDER BY",
                     "value": "ORDER BY",
                     "keyword": "ORDER BY",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 7,
                     "position": 11
                 },
@@ -58,7 +76,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 19
                 },
@@ -67,7 +87,9 @@
                     "token": "`fo`",
                     "value": "fo",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 2,
                     "position": 20
                 },
@@ -76,7 +98,11 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 16,
                     "position": 24
                 },
@@ -85,7 +111,9 @@
                     "token": "`uuid`",
                     "value": "uuid",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 2,
                     "position": 25
                 },
@@ -94,7 +122,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 31
                 },
@@ -103,7 +133,9 @@
                     "token": "ASC",
                     "value": "ASC",
                     "keyword": "ASC",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 32
                 },
@@ -112,7 +144,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 35
                 },
@@ -121,13 +157,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@18"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 13,
-            "idx": 13
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,

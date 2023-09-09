@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 class CreateStatementTest extends TestCase
@@ -666,19 +667,19 @@ EOT
         $stmt->entityOptions = new OptionsArray(['BEFORE', 'INSERT']);
         $stmt->table = new Expression('account');
         $stmt->body = [
-            new Token('SET', Token::TYPE_KEYWORD),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('@sum', Token::TYPE_NONE),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('=', Token::TYPE_OPERATOR),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('@sum', Token::TYPE_NONE),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('+', Token::TYPE_OPERATOR),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('NEW', Token::TYPE_KEYWORD),
-            new Token('.', Token::TYPE_OPERATOR),
-            new Token('amount', Token::TYPE_NONE),
+            new Token('SET', TokenType::Keyword),
+            new Token(' ', TokenType::Whitespace),
+            new Token('@sum', TokenType::None),
+            new Token(' ', TokenType::Whitespace),
+            new Token('=', TokenType::Operator),
+            new Token(' ', TokenType::Whitespace),
+            new Token('@sum', TokenType::None),
+            new Token(' ', TokenType::Whitespace),
+            new Token('+', TokenType::Operator),
+            new Token(' ', TokenType::Whitespace),
+            new Token('NEW', TokenType::Keyword),
+            new Token('.', TokenType::Operator),
+            new Token('amount', TokenType::None),
         ];
 
         $this->assertEquals(

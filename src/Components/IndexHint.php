@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 
@@ -96,18 +96,18 @@ final class IndexHint implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             switch ($state) {
                 case 0:
-                    if ($token->type === Token::TYPE_KEYWORD) {
+                    if ($token->type === TokenType::Keyword) {
                         if ($token->keyword !== 'USE' && $token->keyword !== 'IGNORE' && $token->keyword !== 'FORCE') {
                             break 2;
                         }
@@ -118,7 +118,7 @@ final class IndexHint implements Component
 
                     break;
                 case 1:
-                    if ($token->type === Token::TYPE_KEYWORD) {
+                    if ($token->type === TokenType::Keyword) {
                         if ($token->keyword === 'INDEX' || $token->keyword === 'KEY') {
                             $expr->indexOrKey = $token->keyword;
                         } else {
@@ -133,7 +133,7 @@ final class IndexHint implements Component
 
                     break;
                 case 2:
-                    if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'FOR') {
+                    if ($token->type === TokenType::Keyword && $token->keyword === 'FOR') {
                         $state = 3;
                     } else {
                         $expr->indexes = ExpressionArray::parse($parser, $list);
@@ -144,7 +144,7 @@ final class IndexHint implements Component
 
                     break;
                 case 3:
-                    if ($token->type === Token::TYPE_KEYWORD) {
+                    if ($token->type === TokenType::Keyword) {
                         if (
                             $token->keyword === 'JOIN'
                             || $token->keyword === 'GROUP BY'

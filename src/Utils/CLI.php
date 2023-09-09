@@ -256,7 +256,7 @@ class CLI
             $lexer = new Lexer($params['q'], false);
             foreach ($lexer->list->tokens as $idx => $token) {
                 echo '[TOKEN ', $idx, "]\n";
-                echo 'Type = ', $token->type, "\n";
+                echo 'Type = ', $token->type->value, "\n";
                 echo 'Flags = ', $token->flags, "\n";
                 echo 'Value = ';
                 var_export($token->value);

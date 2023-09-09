@@ -7,13 +7,19 @@
         "last": 22,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 9,
+            "idx": 9,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INSERT",
                     "value": "INSERT",
                     "keyword": "INSERT",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 35,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -31,7 +41,9 @@
                     "token": "INTO",
                     "value": "INTO",
                     "keyword": "INTO",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 7
                 },
@@ -40,7 +52,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 11
                 },
@@ -49,7 +63,9 @@
                     "token": "x",
                     "value": "x",
                     "keyword": "X",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 33,
                     "position": 12
                 },
@@ -58,7 +74,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 13
                 },
@@ -67,7 +85,9 @@
                     "token": "INSERT",
                     "value": "INSERT",
                     "keyword": "INSERT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 35,
                     "position": 14
                 },
@@ -76,7 +96,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 20
                 },
@@ -85,13 +107,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 9,
-            "idx": 9
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -163,7 +187,7 @@
             [
                 "Unexpected keyword.",
                 {
-                    "@type": "@8"
+                    "@type": "@10"
                 },
                 0
             ]

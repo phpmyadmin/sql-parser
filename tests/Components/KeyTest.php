@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokenType;
 
 class KeyTest extends TestCase
 {
@@ -266,7 +267,7 @@ class KeyTest extends TestCase
         $this->assertEquals(new OptionsArray(
             []
         ), $component->options);
-        $t = new Token('convert_tz', Token::TYPE_KEYWORD, 33);
+        $t = new Token('convert_tz', TokenType::Keyword, 33);
         $t->position = 25;
 
         $this->assertEquals([

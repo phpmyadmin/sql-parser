@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 use function strlen;
@@ -88,7 +88,7 @@ final class ArrayObj implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 if ($brackets > 0) {
                     $parser->error('A closing bracket was expected.', $token);
                 }
@@ -97,18 +97,18 @@ final class ArrayObj implements Component
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 $lastRaw .= $token->token;
                 $lastValue = trim($lastValue) . ' ';
                 continue;
             }
 
-            if (($brackets === 0) && (($token->type !== Token::TYPE_OPERATOR) || ($token->value !== '('))) {
+            if (($brackets === 0) && (($token->type !== TokenType::Operator) || ($token->value !== '('))) {
                 $parser->error('An opening bracket was expected.', $token);
                 break;
             }
 
-            if ($token->type === Token::TYPE_OPERATOR) {
+            if ($token->type === TokenType::Operator) {
                 if ($token->value === '(') {
                     if (++$brackets === 1) { // 1 is the base level.
                         continue;

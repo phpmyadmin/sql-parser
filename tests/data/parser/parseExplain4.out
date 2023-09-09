@@ -7,13 +7,19 @@
         "last": 36,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 14,
+            "idx": 14,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "EXPLAIN",
                     "value": "EXPLAIN",
                     "keyword": "EXPLAIN",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 7
                 },
@@ -31,7 +41,9 @@
                     "token": "FORMAT",
                     "value": "FORMAT",
                     "keyword": "FORMAT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 33,
                     "position": 8
                 },
@@ -40,7 +52,11 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 2,
                     "position": 14
                 },
@@ -49,7 +65,11 @@
                     "token": "TREE",
                     "value": "TREE",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 15
                 },
@@ -58,7 +78,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 19
                 },
@@ -67,7 +89,9 @@
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 20
                 },
@@ -76,7 +100,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 26
                 },
@@ -85,7 +111,9 @@
                     "token": "*",
                     "value": "*",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@8"
+                    },
                     "flags": 16,
                     "position": 27
                 },
@@ -94,7 +122,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 28
                 },
@@ -103,7 +133,9 @@
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 29
                 },
@@ -112,7 +144,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 33
                 },
@@ -121,7 +155,9 @@
                     "token": "db",
                     "value": "db",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@10"
+                    },
                     "flags": 0,
                     "position": 34
                 },
@@ -130,13 +166,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 14,
-            "idx": 14
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -155,19 +193,9 @@
                     "@type": "PhpMyAdmin\\SqlParser\\Parser",
                     "list": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+                        "count": 8,
+                        "idx": 8,
                         "tokens": [
-                            {
-                                "@type": "@8"
-                            },
-                            {
-                                "@type": "@9"
-                            },
-                            {
-                                "@type": "@10"
-                            },
-                            {
-                                "@type": "@11"
-                            },
                             {
                                 "@type": "@12"
                             },
@@ -179,10 +207,20 @@
                             },
                             {
                                 "@type": "@15"
+                            },
+                            {
+                                "@type": "@16"
+                            },
+                            {
+                                "@type": "@17"
+                            },
+                            {
+                                "@type": "@18"
+                            },
+                            {
+                                "@type": "@19"
                             }
-                        ],
-                        "count": 8,
-                        "idx": 8
+                        ]
                     },
                     "statements": [
                         {

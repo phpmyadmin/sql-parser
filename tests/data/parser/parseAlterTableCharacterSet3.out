@@ -7,13 +7,19 @@
         "last": 29,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 12,
+            "idx": 12,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 5
                 },
@@ -31,7 +41,9 @@
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 6
                 },
@@ -40,7 +52,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 11
                 },
@@ -49,7 +63,11 @@
                     "token": "`d`",
                     "value": "d",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Symbol",
+                        "value": 8
+                    },
                     "flags": 2,
                     "position": 12
                 },
@@ -58,7 +76,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 15
                 },
@@ -67,7 +87,9 @@
                     "token": "CHARSET",
                     "value": "CHARSET",
                     "keyword": "CHARSET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 33,
                     "position": 16
                 },
@@ -76,7 +98,11 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 2,
                     "position": 23
                 },
@@ -85,7 +111,11 @@
                     "token": "hp8",
                     "value": "hp8",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 24
                 },
@@ -94,7 +124,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 27
                 },
@@ -103,7 +137,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 28
                 },
@@ -112,13 +148,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@17"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 12,
-            "idx": 12
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -156,10 +192,10 @@
                         "partitions": null,
                         "unknown": [
                             {
-                                "@type": "@9"
+                                "@type": "@12"
                             },
                             {
-                                "@type": "@10"
+                                "@type": "@14"
                             }
                         ]
                     }
