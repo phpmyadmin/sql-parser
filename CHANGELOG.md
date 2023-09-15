@@ -13,6 +13,7 @@
 - Fix `ALTER TABLE … MODIFY … ENUM('<reserved_keyword>')` is being wrongly parsed (#478)
 - Fix MariaDB window function with alias gives bad linting errors (#283)
 - Fix unrecognized keyword `COLLATE` in `WHERE` clauses (#491)
+- Fix invalid hexadecimal prefix 0X (#508)
 
 ## [5.8.0] - 2023-06-05
 

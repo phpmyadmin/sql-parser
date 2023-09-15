@@ -813,10 +813,7 @@ class Lexer extends Core
                 } elseif (
                     $this->last + 1 < $this->len
                     && $this->str[$this->last] === '0'
-                    && (
-                        $this->str[$this->last + 1] === 'x'
-                        || $this->str[$this->last + 1] === 'X'
-                    )
+                    && $this->str[$this->last + 1] === 'x'
                 ) {
                     $token .= $this->str[$this->last++];
                     $state = 2;
