@@ -445,7 +445,7 @@ class AlterOperation extends Component
                             );
                             break;
                         }
-                    } elseif (! empty(Parser::$statementParsers[$token->value])) {
+                    } elseif (! empty(Parser::$STATEMENT_PARSERS[$token->value])) {
                         // We have reached the end of ALTER operation and suddenly found
                         // a start to new statement, but have not found a delimiter between them
                         $parser->error(
