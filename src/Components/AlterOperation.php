@@ -11,7 +11,7 @@ use PhpMyAdmin\SqlParser\TokensList;
 
 use function array_key_exists;
 use function in_array;
-use function is_numeric;
+use function is_int;
 use function is_string;
 use function trim;
 
@@ -412,7 +412,7 @@ class AlterOperation extends Component
 
                 $state = 2;
             } elseif ($state === 2) {
-                if (is_string($token->value) || is_numeric($token->value)) {
+                if (is_string($token->value) || is_int($token->value)) {
                     $arrayKey = $token->value;
                 } else {
                     $arrayKey = $token->token;
@@ -445,7 +445,7 @@ class AlterOperation extends Component
                             );
                             break;
                         }
-                    } elseif (! empty(Parser::$STATEMENT_PARSERS[$token->value])) {
+                    } elseif (! empty(Parser::$STATEMENT_PARSERS[$arrayKey])) {
                         // We have reached the end of ALTER operation and suddenly found
                         // a start to new statement, but have not found a delimiter between them
                         $parser->error(
