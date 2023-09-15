@@ -26,6 +26,7 @@ class BugsTest extends TestCase
             ['bugs/gh14'],
             ['bugs/gh16'],
             ['bugs/gh317'],
+            ['bugs/gh508'],
             ['bugs/pma11800'],
             ['bugs/pma11836'],
             ['bugs/pma11843'],
