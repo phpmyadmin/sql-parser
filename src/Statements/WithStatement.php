@@ -16,6 +16,7 @@ use PhpMyAdmin\SqlParser\Translator;
 
 use function array_slice;
 use function count;
+use function preg_match;
 
 /**
  * `WITH` statement.
@@ -114,7 +115,7 @@ final class WithStatement extends Statement
             }
 
             if ($state === 0) {
-                if ($token->type !== Token::TYPE_NONE) {
+                if ($token->type !== Token::TYPE_NONE || ! preg_match('/^[a-zA-Z0-9_$]+$/', $token->token)) {
                     $parser->error('The name of the CTE was expected.', $token);
                     break;
                 }
