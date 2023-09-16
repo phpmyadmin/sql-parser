@@ -24,6 +24,7 @@ class BugsTest extends TestCase
         return [
             ['bugs/fuzz1'],
             ['bugs/fuzz2'],
+            ['bugs/fuzz3'],
             ['bugs/gh9'],
             ['bugs/gh14'],
             ['bugs/gh16'],

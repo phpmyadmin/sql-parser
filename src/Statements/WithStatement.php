@@ -125,7 +125,12 @@ final class WithStatement extends Statement
                 $state = 1;
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_OPERATOR && $token->value === '(') {
-                    $this->withers[$wither]->columns = Array2d::parse($parser, $list);
+                    $columns = Array2d::parse($parser, $list);
+                    if ($parser->errors !== []) {
+                        break;
+                    }
+
+                    $this->withers[$wither]->columns = $columns;
                     $state = 2;
                 } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'AS') {
                     $state = 3;
