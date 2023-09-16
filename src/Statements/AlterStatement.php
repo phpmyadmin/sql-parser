@@ -67,7 +67,14 @@ class AlterStatement extends Statement
     public function parse(Parser $parser, TokensList $list)
     {
         ++$list->idx; // Skipping `ALTER`.
-        $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        $parsedOptions = OptionsArray::parse($parser, $list, static::$OPTIONS);
+        if ($parsedOptions->isEmpty()) {
+            $parser->error('Unrecognized alter operation.', $list->tokens[$list->idx]);
+
+            return;
+        }
+
+        $this->options = $parsedOptions;
         ++$list->idx;
 
         // Parsing affected table.

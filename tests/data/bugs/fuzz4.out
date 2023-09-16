@@ -1,16 +1,16 @@
 {
-    "query": "ALTER..2",
+    "query": "ALTeR=SET",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "ALTER..2",
-        "len": 8,
-        "last": 8,
+        "str": "ALTeR=SET",
+        "len": 9,
+        "last": 9,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "ALTER",
+                    "token": "ALTeR",
                     "value": "ALTER",
                     "keyword": "ALTER",
                     "type": 1,
@@ -19,20 +19,20 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ".",
-                    "value": ".",
+                    "token": "=",
+                    "value": "=",
                     "keyword": null,
                     "type": 2,
-                    "flags": 16,
+                    "flags": 2,
                     "position": 5
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ".2",
-                    "value": 0.2,
-                    "keyword": null,
-                    "type": 6,
-                    "flags": 2,
+                    "token": "SET",
+                    "value": "SET",
+                    "keyword": "SET",
+                    "type": 1,
+                    "flags": 11,
                     "position": 6
                 },
                 {
@@ -66,6 +66,17 @@
                 "options": null,
                 "first": 0,
                 "last": 0
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SetStatement",
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "end_options": null,
+                "set": [],
+                "first": 1,
+                "last": 2
             }
         ],
         "brackets": 0,
@@ -79,13 +90,6 @@
                 "Unrecognized alter operation.",
                 {
                     "@type": "@2"
-                },
-                0
-            ],
-            [
-                "Unexpected beginning of statement.",
-                {
-                    "@type": "@4"
                 },
                 0
             ]
