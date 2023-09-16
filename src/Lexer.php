@@ -158,10 +158,8 @@ class Lexer extends Core
      * @param bool             $strict    whether strict mode should be
      *                                    enabled or not
      * @param string           $delimiter the delimiter to be used
-     *
-     * @return TokensList
      */
-    public static function getTokens($str, $strict = false, $delimiter = null)
+    public static function getTokens($str, $strict = false, $delimiter = null): TokensList
     {
         $lexer = new self($str, $strict, $delimiter);
 
@@ -456,10 +454,8 @@ class Lexer extends Core
 
     /**
      * Parses a keyword.
-     *
-     * @return Token|null
      */
-    public function parseKeyword()
+    public function parseKeyword(): Token|null
     {
         $token = '';
 
@@ -518,10 +514,8 @@ class Lexer extends Core
 
     /**
      * Parses a label.
-     *
-     * @return Token|null
      */
-    public function parseLabel()
+    public function parseLabel(): Token|null
     {
         $token = '';
 
@@ -564,10 +558,8 @@ class Lexer extends Core
 
     /**
      * Parses an operator.
-     *
-     * @return Token|null
      */
-    public function parseOperator()
+    public function parseOperator(): Token|null
     {
         $token = '';
 
@@ -602,10 +594,8 @@ class Lexer extends Core
 
     /**
      * Parses a whitespace.
-     *
-     * @return Token|null
      */
-    public function parseWhitespace()
+    public function parseWhitespace(): Token|null
     {
         $token = $this->str[$this->last];
 
@@ -624,10 +614,8 @@ class Lexer extends Core
 
     /**
      * Parses a comment.
-     *
-     * @return Token|null
      */
-    public function parseComment()
+    public function parseComment(): Token|null
     {
         $iBak = $this->last;
         $token = $this->str[$this->last];
@@ -743,10 +731,8 @@ class Lexer extends Core
 
     /**
      * Parses a boolean.
-     *
-     * @return Token|null
      */
-    public function parseBool()
+    public function parseBool(): Token|null
     {
         if ($this->last + 3 >= $this->len) {
             // At least `min(strlen('TRUE'), strlen('FALSE'))` characters are
@@ -776,10 +762,8 @@ class Lexer extends Core
 
     /**
      * Parses a number.
-     *
-     * @return Token|null
      */
-    public function parseNumber()
+    public function parseNumber(): Token|null
     {
         // A rudimentary state machine is being used to parse numbers due to
         // the various forms of their notation.
@@ -829,10 +813,7 @@ class Lexer extends Core
                 } elseif (
                     $this->last + 1 < $this->len
                     && $this->str[$this->last] === '0'
-                    && (
-                        $this->str[$this->last + 1] === 'x'
-                        || $this->str[$this->last + 1] === 'X'
-                    )
+                    && $this->str[$this->last + 1] === 'x'
                 ) {
                     $token .= $this->str[$this->last++];
                     $state = 2;
@@ -943,11 +924,9 @@ class Lexer extends Core
      *
      * @param string $quote additional starting symbol
      *
-     * @return Token|null
-     *
      * @throws LexerException
      */
-    public function parseString($quote = '')
+    public function parseString($quote = ''): Token|null
     {
         $token = $this->str[$this->last];
         $flags = Context::isString($token);
@@ -995,11 +974,9 @@ class Lexer extends Core
     /**
      * Parses a symbol.
      *
-     * @return Token|null
-     *
      * @throws LexerException
      */
-    public function parseSymbol()
+    public function parseSymbol(): Token|null
     {
         $token = $this->str[$this->last];
         $flags = Context::isSymbol($token);
@@ -1045,10 +1022,8 @@ class Lexer extends Core
 
     /**
      * Parses unknown parts of the query.
-     *
-     * @return Token|null
      */
-    public function parseUnknown()
+    public function parseUnknown(): Token|null
     {
         $token = $this->str[$this->last];
         if (Context::isSeparator($token)) {
@@ -1073,10 +1048,8 @@ class Lexer extends Core
 
     /**
      * Parses the delimiter of the query.
-     *
-     * @return Token|null
      */
-    public function parseDelimiter()
+    public function parseDelimiter(): Token|null
     {
         $idx = 0;
 

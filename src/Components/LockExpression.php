@@ -34,10 +34,8 @@ final class LockExpression implements Component
      * @param Parser               $parser  the parser that serves as context
      * @param TokensList           $list    the list of tokens that are being parsed
      * @param array<string, mixed> $options parameters for parsing
-     *
-     * @return LockExpression
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): LockExpression
     {
         $ret = new static();
 
@@ -106,10 +104,7 @@ final class LockExpression implements Component
         return implode(', ', $component);
     }
 
-    /**
-     * @return string
-     */
-    private static function parseLockType(Parser $parser, TokensList $list)
+    private static function parseLockType(Parser $parser, TokensList $list): string
     {
         $lockType = '';
 

@@ -92,7 +92,7 @@ class Formatter
      *
      * @return array<string, bool|string|array<int, array<string, int|string>>>
      */
-    protected function getMergedOptions(array $options)
+    protected function getMergedOptions(array $options): array
     {
         $options = array_merge(
             $this->getDefaultOptions(),
@@ -324,10 +324,8 @@ class Formatter
      * Formats the given list of tokens.
      *
      * @param TokensList $list the list of tokens
-     *
-     * @return string
      */
-    public function formatList($list)
+    public function formatList($list): string
     {
         /**
          * The query to be returned.
@@ -636,10 +634,8 @@ class Formatter
      * Tries to print the query and returns the result.
      *
      * @param Token $token the token to be printed
-     *
-     * @return string
      */
-    public function toString($token)
+    public function toString($token): string
     {
         $text = $token->token;
         static $prev;
@@ -698,7 +694,7 @@ class Formatter
      *
      * @return string the formatted string
      */
-    public static function format($query, array $options = [])
+    public static function format($query, array $options = []): string
     {
         $lexer = new Lexer($query);
         $formatter = new self($options);
@@ -712,10 +708,8 @@ class Formatter
      * A group is delimited by a pair of brackets.
      *
      * @param TokensList $list the list of tokens
-     *
-     * @return int
      */
-    public static function getGroupLength($list)
+    public static function getGroupLength($list): int
     {
         /**
          * The number of opening brackets found.

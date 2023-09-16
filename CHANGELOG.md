@@ -6,13 +6,18 @@
 - Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
 - Drop `USE_UTF_STRINGS` constant (#471)
 
-## [5.x.x] - YYYY-MM-DD
+## [5.9.x] - YYYY-MM-DD
+
+## [5.8.x] - YYYY-MM-DD
+
+## [5.8.1] - 2023-09-15
 
 - Fix `:=` was not recognized as an operator just like `=` (#306)
 - Fix `ALTER TABLE … MODIFY … ENUM('<reserved_keyword>')` is being wrongly parsed (#234)
 - Fix `ALTER TABLE … MODIFY … ENUM('<reserved_keyword>')` is being wrongly parsed (#478)
 - Fix MariaDB window function with alias gives bad linting errors (#283)
 - Fix unrecognized keyword `COLLATE` in `WHERE` clauses (#491)
+- Fix invalid hexadecimal prefix 0X (#508)
 
 ## [5.8.0] - 2023-06-05
 

@@ -336,10 +336,8 @@ class LoadStatement extends Statement
      * @param Parser     $parser
      * @param TokensList $list
      * @param int        $state
-     *
-     * @return int
      */
-    public function parseKeywordsAccordingToState($parser, $list, $state)
+    public function parseKeywordsAccordingToState($parser, $list, $state): int
     {
         $token = $list->tokens[$list->idx];
 

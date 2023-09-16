@@ -47,11 +47,9 @@ class Core
      *
      * @param Exception $error the error exception
      *
-     * @return void
-     *
      * @throws Exception throws the exception, if strict mode is enabled.
      */
-    public function error($error)
+    public function error($error): void
     {
         if ($this->strict) {
             throw $error;

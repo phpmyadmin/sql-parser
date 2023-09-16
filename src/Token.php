@@ -228,10 +228,8 @@ class Token
      * Does little processing to the token to extract a value.
      *
      * If no processing can be done it will return the initial string.
-     *
-     * @return mixed
      */
-    public function extract()
+    public function extract(): mixed
     {
         switch ($this->type) {
             case self::TYPE_KEYWORD:
@@ -253,8 +251,8 @@ class Token
             case self::TYPE_NUMBER:
                 $ret = str_replace('--', '', $this->token); // e.g. ---42 === -42
                 if ($this->flags & self::FLAG_NUMBER_HEX) {
+                    $ret = str_replace(['-', '+'], '', $this->token);
                     if ($this->flags & self::FLAG_NUMBER_NEGATIVE) {
-                        $ret = str_replace('-', '', $this->token);
                         $ret = -hexdec($ret);
                     } else {
                         $ret = hexdec($ret);

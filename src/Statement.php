@@ -454,10 +454,8 @@ abstract class Statement implements Stringable
      * Builds the string representation of this statement.
      *
      * @see static::build
-     *
-     * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->build();
     }

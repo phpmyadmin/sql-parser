@@ -110,10 +110,8 @@ final class PartitionDefinition implements Component
      * @param Parser               $parser  the parser that serves as context
      * @param TokensList           $list    the list of tokens that are being parsed
      * @param array<string, mixed> $options parameters for parsing
-     *
-     * @return PartitionDefinition
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): PartitionDefinition
     {
         $ret = new static();
 

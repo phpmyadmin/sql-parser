@@ -49,7 +49,7 @@ final class ArrayObj implements Component
      *
      * @return ArrayObj|Component[]
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = [])
+    public static function parse(Parser $parser, TokensList $list, array $options = []): ArrayObj|array
     {
         $ret = empty($options['type']) ? new static() : [];
 
@@ -89,6 +89,10 @@ final class ArrayObj implements Component
 
             // End of statement.
             if ($token->type === Token::TYPE_DELIMITER) {
+                if ($brackets > 0) {
+                    $parser->error('A closing bracket was expected.', $token);
+                }
+
                 break;
             }
 
