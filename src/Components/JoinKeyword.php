@@ -199,10 +199,7 @@ final class JoinKeyword implements Component
         return $ret;
     }
 
-    /**
-     * @param JoinKeyword $component
-     */
-    public static function build($component): string
+    public function build(): string
     {
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
@@ -218,7 +215,7 @@ final class JoinKeyword implements Component
                 . (! empty($c->on)
                     ? ' ON ' . Condition::buildAll($c->on) : '')
                 . (! empty($c->using)
-                    ? ' USING ' . ArrayObj::build($c->using) : '');
+                    ? ' USING ' . $c->using->build() : '');
         }
 
         return implode(' ', $ret);
@@ -226,6 +223,6 @@ final class JoinKeyword implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

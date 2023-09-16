@@ -147,12 +147,9 @@ final class RenameOperation implements Component
         return $ret;
     }
 
-    /**
-     * @param RenameOperation $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        return $component->old . ' TO ' . $component->new;
+        return $this->old . ' TO ' . $this->new;
     }
 
     /**
@@ -165,6 +162,6 @@ final class RenameOperation implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

@@ -100,16 +100,13 @@ final class FunctionCall implements Component
         return $ret;
     }
 
-    /**
-     * @param FunctionCall $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        return $component->name . $component->parameters;
+        return $this->name . $this->parameters;
     }
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

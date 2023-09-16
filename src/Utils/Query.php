@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
@@ -591,7 +590,7 @@ class Query
 
             $expr->expr = null; // Force rebuild.
             $expr->alias = null; // Aliases are not required.
-            $ret[] = Expression::build($expr);
+            $ret[] = $expr->build();
         }
 
         return $ret;

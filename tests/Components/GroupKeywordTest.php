@@ -62,7 +62,7 @@ class GroupKeywordTest extends TestCase
         if (is_array($component)) {
             $this->assertSame($expected, GroupKeyword::buildAll($component));
         } else {
-            $this->assertSame($expected, GroupKeyword::build($component));
+            $this->assertSame($expected, $component->build());
         }
     }
 

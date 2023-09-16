@@ -159,7 +159,7 @@ class DeleteStatement extends Statement
 
     public function build(): string
     {
-        $ret = 'DELETE ' . OptionsArray::build($this->options);
+        $ret = 'DELETE ' . $this->options->build();
 
         if ($this->columns !== null && $this->columns !== []) {
             $ret .= ' ' . Expression::buildAll($this->columns);
@@ -186,7 +186,7 @@ class DeleteStatement extends Statement
         }
 
         if ($this->limit !== null && strlen((string) $this->limit) > 0) {
-            $ret .= ' LIMIT ' . Limit::build($this->limit);
+            $ret .= ' LIMIT ' . $this->limit->build();
         }
 
         return $ret;

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -82,7 +81,7 @@ class TransactionStatement extends Statement
 
     public function build(): string
     {
-        $ret = OptionsArray::build($this->options);
+        $ret = $this->options->build();
         if ($this->type === self::TYPE_BEGIN) {
             foreach ($this->statements as $statement) {
                 /*

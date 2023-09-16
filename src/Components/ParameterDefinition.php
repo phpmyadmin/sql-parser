@@ -139,18 +139,15 @@ final class ParameterDefinition implements Component
         return $ret;
     }
 
-    /**
-     * @param ParameterDefinition $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
         $tmp = '';
-        if (! empty($component->inOut)) {
-            $tmp .= $component->inOut . ' ';
+        if (! empty($this->inOut)) {
+            $tmp .= $this->inOut . ' ';
         }
 
         return trim(
-            $tmp . Context::escape($component->name) . ' ' . $component->type
+            $tmp . Context::escape($this->name) . ' ' . $this->type
         );
     }
 
@@ -164,6 +161,6 @@ final class ParameterDefinition implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

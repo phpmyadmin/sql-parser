@@ -278,7 +278,7 @@ final class WithStatement extends Statement
 
         foreach ($this->withers as $wither) {
             $str .= $str === 'WITH ' ? '' : ', ';
-            $str .= WithKeyword::build($wither);
+            $str .= $wither->build();
         }
 
         $str .= ' ';

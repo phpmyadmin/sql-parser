@@ -110,12 +110,9 @@ final class GroupKeyword implements Component
         return $ret;
     }
 
-    /**
-     * @param GroupKeyword $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        return trim((string) $component->expr);
+        return trim((string) $this->expr);
     }
 
     /**
@@ -128,6 +125,6 @@ final class GroupKeyword implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

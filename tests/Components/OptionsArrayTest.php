@@ -127,7 +127,7 @@ class OptionsArrayTest extends TestCase
             ]
         );
         $this->assertEquals(
-            OptionsArray::build($component),
+            $component->build(),
             'ALL SQL_CALC_FOUND_ROWS MAX_STATEMENT_TIME=42'
         );
     }

@@ -15,13 +15,13 @@ class ArrayObjTest extends TestCase
     public function testBuildRaw(): void
     {
         $component = new ArrayObj(['a', 'b'], []);
-        $this->assertEquals('(a, b)', ArrayObj::build($component));
+        $this->assertEquals('(a, b)', $component->build());
     }
 
     public function testBuildValues(): void
     {
         $component = new ArrayObj([], ['a', 'b']);
-        $this->assertEquals('(a, b)', ArrayObj::build($component));
+        $this->assertEquals('(a, b)', $component->build());
     }
 
     public function testParseType(): void

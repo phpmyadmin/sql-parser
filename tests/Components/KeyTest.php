@@ -27,7 +27,7 @@ class KeyTest extends TestCase
         $this->assertSame([], $component->columns);
         $this->assertSame(
             '()',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -44,7 +44,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type']], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type`)',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -61,7 +61,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'length' => 10]], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type`(10))',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -78,7 +78,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'length' => 10, 'order' => 'ASC']], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type`(10) ASC)',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -95,7 +95,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'order' => 'DESC']], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type` DESC)',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -112,7 +112,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'order' => 'DESC']], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type` DESC)',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -138,7 +138,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'length' => 10]], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type`(10)) COMMENT \'my comment\'',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -213,7 +213,7 @@ class KeyTest extends TestCase
         $this->assertSame([], $component->columns);
         $this->assertSame(
             'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))) ',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -247,7 +247,7 @@ class KeyTest extends TestCase
             'KEY `updated_tz_ind2`'
             . ' ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')))'
             . ' COMMENT \'my comment\'',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -281,7 +281,7 @@ class KeyTest extends TestCase
         $this->assertSame([], $component->columns);
         $this->assertSame(
             'KEY `updated_tz_ind2` (()(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')) ',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -323,7 +323,7 @@ class KeyTest extends TestCase
             'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')),'
             . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\'))'
             . ') COMMENT \'my comment\'',
-            Key::build($component)
+            $component->build()
         );
     }
 
@@ -368,7 +368,7 @@ class KeyTest extends TestCase
             . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\')),'
             . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'RU\'))'
             . ') COMMENT \'my comment\'',
-            Key::build($component)
+            $component->build()
         );
     }
 }

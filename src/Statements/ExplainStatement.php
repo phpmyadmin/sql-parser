@@ -255,7 +255,7 @@ class ExplainStatement extends Statement
                 $str .= ' ';
             }
 
-            $str .= OptionsArray::build($this->options) . ' ';
+            $str .= $this->options->build() . ' ';
         }
 
         if ($this->options === null) {

@@ -106,16 +106,13 @@ final class Limit implements Component
         return $ret;
     }
 
-    /**
-     * @param Limit $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        return $component->offset . ', ' . $component->rowCount;
+        return $this->offset . ', ' . $this->rowCount;
     }
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

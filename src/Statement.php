@@ -199,7 +199,7 @@ abstract class Statement implements Stringable
             if (is_array($this->$field)) {
                 $query = trim($query) . ' ' . $class::buildAll($this->$field);
             } else {
-                $query = trim($query) . ' ' . $class::build($this->$field);
+                $query = trim($query) . ' ' . $this->$field->build();
             }
         }
 

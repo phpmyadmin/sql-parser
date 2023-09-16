@@ -13,12 +13,12 @@ class FunctionCallTest extends TestCase
     public function testBuildArray(): void
     {
         $component = new FunctionCall('func', ['a', 'b']);
-        $this->assertEquals('func(a, b)', FunctionCall::build($component));
+        $this->assertEquals('func(a, b)', $component->build());
     }
 
     public function testBuildArrayObj(): void
     {
         $component = new FunctionCall('func', new ArrayObj(['a', 'b']));
-        $this->assertEquals('func(a, b)', FunctionCall::build($component));
+        $this->assertEquals('func(a, b)', $component->build());
     }
 }

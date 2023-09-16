@@ -152,23 +152,20 @@ final class DataType implements Component
         return $ret;
     }
 
-    /**
-     * @param DataType $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        $name = $component->lowercase ? strtolower($component->name) : $component->name;
+        $name = $this->lowercase ? strtolower($this->name) : $this->name;
 
         $parameters = '';
-        if ($component->parameters !== []) {
-            $parameters = '(' . implode(',', $component->parameters) . ')';
+        if ($this->parameters !== []) {
+            $parameters = '(' . implode(',', $this->parameters) . ')';
         }
 
-        return trim($name . $parameters . ' ' . $component->options);
+        return trim($name . $parameters . ' ' . $this->options);
     }
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

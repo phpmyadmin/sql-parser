@@ -220,12 +220,9 @@ final class Condition implements Component
         return $ret;
     }
 
-    /**
-     * @param Condition $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        return $component->expr;
+        return $this->expr;
     }
 
     /**
@@ -238,6 +235,6 @@ final class Condition implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

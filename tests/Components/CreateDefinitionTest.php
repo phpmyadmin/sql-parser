@@ -79,7 +79,7 @@ class CreateDefinitionTest extends TestCase
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) ' .
             'REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
-            CreateDefinition::build($parser->statements[0]->fields[1])
+            $parser->statements[0]->fields[1]->build()
         );
     }
 
@@ -99,7 +99,7 @@ class CreateDefinitionTest extends TestCase
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) ' .
             'REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
-            CreateDefinition::build($parser->statements[0]->fields[2])
+            $parser->statements[0]->fields[2]->build()
         );
     }
 
@@ -125,15 +125,15 @@ class CreateDefinitionTest extends TestCase
         $this->assertIsArray($parser->statements[1]->fields);
         $this->assertEquals(
             '`public_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL',
-            CreateDefinition::build($parser->statements[1]->fields[2])
+            $parser->statements[1]->fields[2]->build()
         );
         $this->assertEquals(
             '`show_separators` tinyint(1) NOT NULL DEFAULT \'0\'',
-            CreateDefinition::build($parser->statements[1]->fields[5])
+            $parser->statements[1]->fields[5]->build()
         );
         $this->assertEquals(
             '`show_separators_two` tinyint(1) NOT NULL DEFAULT FALSE',
-            CreateDefinition::build($parser->statements[1]->fields[6])
+            $parser->statements[1]->fields[6]->build()
         );
     }
 
@@ -152,7 +152,7 @@ class CreateDefinitionTest extends TestCase
         $this->assertIsArray($parser->statements[0]->fields);
         $this->assertEquals(
             '`customer_id` smallint(5) UNSIGNED NOT NULL INVISIBLE',
-            CreateDefinition::build($parser->statements[0]->fields[0])
+            $parser->statements[0]->fields[0]->build()
         );
     }
 

@@ -220,22 +220,19 @@ final class PartitionDefinition implements Component
         return $ret;
     }
 
-    /**
-     * @param PartitionDefinition $component the component to be built
-     */
-    public static function build($component): string
+    public function build(): string
     {
-        if ($component->isSubpartition) {
-            return trim('SUBPARTITION ' . $component->name . ' ' . $component->options);
+        if ($this->isSubpartition) {
+            return trim('SUBPARTITION ' . $this->name . ' ' . $this->options);
         }
 
-        $subpartitions = empty($component->subpartitions) ? '' : ' ' . self::buildAll($component->subpartitions);
+        $subpartitions = empty($this->subpartitions) ? '' : ' ' . self::buildAll($this->subpartitions);
 
         return trim(
-            'PARTITION ' . $component->name
-            . (empty($component->type) ? '' : ' VALUES ' . $component->type . ' ' . $component->expr . ' ')
-            . (! empty($component->options) && ! empty($component->type) ? '' : ' ')
-            . $component->options . $subpartitions
+            'PARTITION ' . $this->name
+            . (empty($this->type) ? '' : ' VALUES ' . $this->type . ' ' . $this->expr . ' ')
+            . (! empty($this->options) && ! empty($this->type) ? '' : ' ')
+            . $this->options . $subpartitions
         );
     }
 
@@ -249,6 +246,6 @@ final class PartitionDefinition implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }

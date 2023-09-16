@@ -31,10 +31,7 @@ final class UnionKeyword implements Component
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
 
-    /**
-     * @param UnionKeyword $component
-     */
-    public static function build($component): string
+    public function build(): string
     {
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
@@ -54,6 +51,6 @@ final class UnionKeyword implements Component
 
     public function __toString(): string
     {
-        return static::build($this);
+        return $this->build();
     }
 }
