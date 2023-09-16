@@ -22,6 +22,10 @@ class BugsTest extends TestCase
     public function bugProvider(): array
     {
         return [
+            ['bugs/fuzz1'],
+            ['bugs/fuzz2'],
+            ['bugs/fuzz3'],
+            ['bugs/fuzz4'],
             ['bugs/gh9'],
             ['bugs/gh14'],
             ['bugs/gh16'],
