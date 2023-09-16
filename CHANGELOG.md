@@ -1,7 +1,5 @@
 # Change Log
 
-## [5.8.x] - YYYY-MM-DD
-
 ## [5.8.1] - 2023-09-15
 
 - Fix `:=` was not recognized as an operator just like `=` (#306)
