@@ -6,7 +6,6 @@ namespace PhpMyAdmin\SqlParser\Tests\benchmarks;
 
 use PhpMyAdmin\SqlParser\UtfString;
 
-use function chr;
 use function file_get_contents;
 
 class UtfStringBench
@@ -19,8 +18,7 @@ class UtfStringBench
      * @Iterations(20)
      * @Revs(4)
      * @OutputTimeUnit("milliseconds")
-     * @Assert("mode(variant.time.avg) < 100 milliseconds +/- 10%")
-     * @Assert("mode(variant.time.avg) > 30 milliseconds +/- 10%")
+     * @Assert("mode(variant.time.avg) < 40 milliseconds +/- 10%")
      */
     public function benchBuildUtfString(): void
     {
@@ -30,38 +28,30 @@ class UtfStringBench
         }
     }
 
-    /**
-     * @BeforeMethods("setUp")
-     * @Iterations(2)
-     * @Revs(2)
-     * @OutputTimeUnit("microseconds")
-     * @Assert("mode(variant.time.avg) < 800 microseconds +/- 20%")
-     * @Assert("mode(variant.time.avg) > 100 microseconds +/- 10%")
-     */
-    public function benchGetCharLength(): void
-    {
-        UtfString::getCharLength(chr(0x00)); // 00000000
-        UtfString::getCharLength(chr(0x7F)); // 01111111
-
-        UtfString::getCharLength(chr(0xC0)); // 11000000
-        UtfString::getCharLength(chr(0xDF)); // 11011111
-
-        UtfString::getCharLength(chr(0xE0)); // 11100000
-        UtfString::getCharLength(chr(0xEF)); // 11101111
-
-        UtfString::getCharLength(chr(0xF0)); // 11110000
-        UtfString::getCharLength(chr(0xF7)); // 11110111
-
-        UtfString::getCharLength(chr(0xF8)); // 11111000
-        UtfString::getCharLength(chr(0xFB)); // 11111011
-
-        UtfString::getCharLength(chr(0xFC)); // 11111100
-        UtfString::getCharLength(chr(0xFD)); // 11111101
-    }
-
     public function setUp(): void
     {
         $contentsPath = __DIR__ . '/../../LICENSE.txt';
         $this->testContents = (string) file_get_contents($contentsPath);
+    }
+
+    /**
+     * @Iterations(20)
+     * @Revs(4)
+     * @OutputTimeUnit("microseconds")
+     * @Assert("mode(variant.time.avg) < 120 microseconds +/- 10%")
+     */
+    public function benchUtfStringRandomAccessWithUnicode(): void
+    {
+        $text = 'abcdefghijklmnopqrstuvwxyz
+        áéíóúýěřťǔǐǒǎšďȟǰǩľžčǚň
+        🦋😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯
+        P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy
+        xℤⅿↈⅬ⅀ↆℜℝ⅗ℾ℧ⅰℓⅯⅵⅣ⅒21⅞';
+
+        $str1 = new UtfString($text);
+        $str1->offsetGet(10);
+        $str1->offsetGet(100);
+        $str1->offsetGet(20);
+        $str1->offsetGet(0);
     }
 }

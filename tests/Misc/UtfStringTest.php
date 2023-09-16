@@ -9,8 +9,6 @@ use PhpMyAdmin\SqlParser\UtfString;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Throwable;
 
-use function chr;
-
 class UtfStringTest extends TestCase
 {
     /**
@@ -55,27 +53,6 @@ class UtfStringTest extends TestCase
         unset($str[0]);
     }
 
-    public function testGetCharLength(): void
-    {
-        $this->assertEquals(1, UtfString::getCharLength(chr(0x00))); // 00000000
-        $this->assertEquals(1, UtfString::getCharLength(chr(0x7F))); // 01111111
-
-        $this->assertEquals(2, UtfString::getCharLength(chr(0xC0))); // 11000000
-        $this->assertEquals(2, UtfString::getCharLength(chr(0xDF))); // 11011111
-
-        $this->assertEquals(3, UtfString::getCharLength(chr(0xE0))); // 11100000
-        $this->assertEquals(3, UtfString::getCharLength(chr(0xEF))); // 11101111
-
-        $this->assertEquals(4, UtfString::getCharLength(chr(0xF0))); // 11110000
-        $this->assertEquals(4, UtfString::getCharLength(chr(0xF7))); // 11110111
-
-        $this->assertEquals(5, UtfString::getCharLength(chr(0xF8))); // 11111000
-        $this->assertEquals(5, UtfString::getCharLength(chr(0xFB))); // 11111011
-
-        $this->assertEquals(6, UtfString::getCharLength(chr(0xFC))); // 11111100
-        $this->assertEquals(6, UtfString::getCharLength(chr(0xFD))); // 11111101
-    }
-
     public function testToString(): void
     {
         $str = new UtfString(self::TEST_PHRASE);
@@ -112,7 +89,7 @@ class UtfStringTest extends TestCase
                 'č',
             ],
             'emoji' => [
-                '😂😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯',
+                '🦋😄😃😀😊😉😍😘😚😗😂👿😮😨😱😠😡😤😖😆😋👯',
                 '😂',
                 '😋',
             ],
@@ -120,6 +97,11 @@ class UtfStringTest extends TestCase
                 "P\xf8\xed\xb9ern\xec \xbelu\xbbou\xe8k\xfd k\xf3d \xfap\xecl \xef\xe1belsk\xe9 k\xf3dy",
                 null,
                 null,
+            ],
+            'random' => [
+                'xℤⅿↈⅬ⅀ↆℜℝ⅗ℾ℧ⅰℓⅯⅵⅣ⅒21⅞',
+                'ℾ',
+                '⅞',
             ],
         ];
     }
