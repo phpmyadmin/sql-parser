@@ -9,7 +9,6 @@ use ArrayAccess;
 use function count;
 use function in_array;
 use function is_array;
-use function is_string;
 
 /**
  * Defines an array of tokens and utility functions to iterate through it.
@@ -20,13 +19,6 @@ use function is_string;
  */
 class TokensList implements ArrayAccess
 {
-    /**
-     * The array of tokens.
-     *
-     * @var Token[]
-     */
-    public $tokens = [];
-
     /**
      * The count of tokens.
      *
@@ -42,39 +34,31 @@ class TokensList implements ArrayAccess
     public $idx = 0;
 
     /**
-     * @param Token[] $tokens the initial array of tokens
-     * @param int     $count  the count of tokens in the initial array
+     * @param Token[] $tokens The array of tokens.
      */
-    public function __construct(array $tokens = [], $count = -1)
+    public function __construct(public array $tokens = [])
     {
-        if ($tokens === []) {
-            return;
-        }
+        $this->count = count($tokens);
+    }
 
-        $this->tokens = $tokens;
-        $this->count = $count === -1 ? count($tokens) : $count;
+    /**
+     * Builds an array of tokens by merging their raw value.
+     */
+    public function build(): string
+    {
+        return static::buildFromArray($this->tokens);
     }
 
     /**
      * Builds an array of tokens by merging their raw value.
      *
-     * @param string|Token[]|TokensList $list the tokens to be built
+     * @param Token[] $list the tokens to be built
      */
-    public static function build($list): string
+    public static function buildFromArray(array $list): string
     {
-        if (is_string($list)) {
-            return $list;
-        }
-
-        if ($list instanceof self) {
-            $list = $list->tokens;
-        }
-
         $ret = '';
-        if (is_array($list)) {
-            foreach ($list as $tok) {
-                $ret .= $tok->token;
-            }
+        foreach ($list as $token) {
+            $ret .= $token->token;
         }
 
         return $ret;

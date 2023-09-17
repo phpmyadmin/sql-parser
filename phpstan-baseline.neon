@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot assign new offset to array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\.$#"
-			count: 3
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Components/AlterOperation.php
@@ -13,11 +8,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$partitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
-			path: src/Components/AlterOperation.php
-
-		-
-			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
-			count: 3
 			path: src/Components/AlterOperation.php
 
 		-
@@ -501,11 +491,6 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Cannot assign new offset to array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string\\.$#"
-			count: 4
-			path: src/Statements/CreateStatement.php
-
-		-
 			message: "#^Cannot call method build\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
@@ -548,11 +533,6 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\|null\\) does not accept mixed\\.$#"
 			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
-			count: 4
 			path: src/Statements/CreateStatement.php
 
 		-
@@ -831,26 +811,6 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
-			message: "#^Binary operation \"&\" between int\\|string and int results in an error\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Parameter \\#1 \\$string1 of function strcasecmp expects string, int\\|string given\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
-			message: "#^Parameter \\#2 \\$pattern of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:match\\(\\) expects array\\<string, int\\|string\\|null\\>, PhpMyAdmin\\\\SqlParser\\\\Token given\\.$#"
-			count: 1
-			path: src/Utils/Tokens.php
-
-		-
 			message: "#^Cannot call method __toString\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 2
 			path: tests/Builder/CreateStatementTest.php
@@ -959,11 +919,6 @@ parameters:
 			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
 			count: 1
 			path: tests/Utils/TableTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$find of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Tokens\\:\\:replaceTokens\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>, array\\<array\\<string, string\\>\\> given\\.$#"
-			count: 1
-			path: tests/Utils/TokensTest.php
 
 		-
 			message: "#^Expression \"\\$str1\\[\\$i\\]\" on a separate line does not do anything\\.$#"

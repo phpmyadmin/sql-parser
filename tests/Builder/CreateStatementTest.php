@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -524,7 +525,7 @@ EOT
 
         $this->assertSame(
             'SELECT _var',
-            TokensList::build($stmt->body)
+            TokensList::buildFromArray($stmt->body)
         );
     }
 
@@ -652,7 +653,7 @@ EOT
             . '      RETURN TRUE;' . "\n"
             . '    END IF;' . "\n"
             . 'END',
-            TokensList::build($stmt->body)
+            TokensList::buildFromArray($stmt->body)
         );
     }
 
@@ -664,7 +665,21 @@ EOT
         $stmt->name = new Expression('ins_sum');
         $stmt->entityOptions = new OptionsArray(['BEFORE', 'INSERT']);
         $stmt->table = new Expression('account');
-        $stmt->body = 'SET @sum = @sum + NEW.amount';
+        $stmt->body = [
+            new Token('SET', Token::TYPE_KEYWORD),
+            new Token(' ', Token::TYPE_WHITESPACE),
+            new Token('@sum', Token::TYPE_NONE),
+            new Token(' ', Token::TYPE_WHITESPACE),
+            new Token('=', Token::TYPE_OPERATOR),
+            new Token(' ', Token::TYPE_WHITESPACE),
+            new Token('@sum', Token::TYPE_NONE),
+            new Token(' ', Token::TYPE_WHITESPACE),
+            new Token('+', Token::TYPE_OPERATOR),
+            new Token(' ', Token::TYPE_WHITESPACE),
+            new Token('NEW', Token::TYPE_KEYWORD),
+            new Token('.', Token::TYPE_OPERATOR),
+            new Token('amount', Token::TYPE_NONE),
+        ];
 
         $this->assertEquals(
             'CREATE TRIGGER ins_sum BEFORE INSERT ON account ' .

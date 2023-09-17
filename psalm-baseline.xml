@@ -1060,11 +1060,6 @@
       <code><![CDATA[$this->withers]]></code>
     </PossiblyNullArrayOffset>
   </file>
-  <file src="src/TokensList.php">
-    <RedundantConditionGivenDocblockType>
-      <code>is_array($list)</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="src/Tools/ContextGenerator.php">
     <PossiblyNullArgument>
       <code><![CDATA[$options['keywords']]]></code>
@@ -1324,46 +1319,6 @@
       <code>has</code>
       <code>has</code>
     </PossiblyNullReference>
-  </file>
-  <file src="src/Utils/Tokens.php">
-    <InvalidArgument>
-      <code>$find[$k]</code>
-    </InvalidArgument>
-    <MixedArgument>
-      <code><![CDATA[$list->tokens[$j]]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code>$newList</code>
-      <code>$newList</code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$list->tokens[$i]]]></code>
-      <code><![CDATA[$list->tokens[$j]]]></code>
-      <code><![CDATA[$list->tokens[$j]]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code>$newList[]</code>
-      <code>$newList[]</code>
-    </MixedAssignment>
-    <MixedPropertyFetch>
-      <code><![CDATA[$list->tokens[$i]->type]]></code>
-      <code><![CDATA[$list->tokens[$j]->type]]></code>
-    </MixedPropertyFetch>
-    <PossiblyInvalidArgument>
-      <code>$list</code>
-      <code><![CDATA[$pattern['value_str']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$pattern['flags']]]></code>
-    </PossiblyInvalidOperand>
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$list->count]]></code>
-      <code><![CDATA[$list->tokens]]></code>
-    </PossiblyInvalidPropertyFetch>
-    <UndefinedPropertyFetch>
-      <code><![CDATA[$list->count]]></code>
-      <code><![CDATA[$list->tokens]]></code>
-    </UndefinedPropertyFetch>
   </file>
   <file src="tests/Builder/AlterStatementTest.php">
     <PossiblyUnusedMethod>
@@ -1801,15 +1756,6 @@
     <PossiblyUnusedMethod>
       <code>getFieldsProvider</code>
       <code>getForeignKeysProvider</code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Utils/TokensTest.php">
-    <InvalidArgument>
-      <code>$find</code>
-    </InvalidArgument>
-    <PossiblyUnusedMethod>
-      <code>matchProvider</code>
-      <code>replaceTokensProvider</code>
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/benchmarks/UtfStringBench.php">

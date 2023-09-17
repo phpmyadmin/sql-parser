@@ -145,21 +145,6 @@ class Lexer extends Core
     public $delimiterLen;
 
     /**
-     * Gets the tokens list parsed by a new instance of a lexer.
-     *
-     * @param string|UtfString $str       the query to be lexed
-     * @param bool             $strict    whether strict mode should be
-     *                                    enabled or not
-     * @param string           $delimiter the delimiter to be used
-     */
-    public static function getTokens($str, $strict = false, $delimiter = null): TokensList
-    {
-        $lexer = new self($str, $strict, $delimiter);
-
-        return $lexer->list;
-    }
-
-    /**
      * @param string|UtfString $str       the query to be lexed
      * @param bool             $strict    whether strict mode should be
      *                                    enabled or not
