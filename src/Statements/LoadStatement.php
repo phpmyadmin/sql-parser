@@ -54,11 +54,8 @@ class LoadStatement extends Statement
 
     /**
      * FIELDS/COLUMNS Options for `LOAD DATA...INFILE` statements.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementFieldsOptions = [
+    private const STATEMENT_FIELDS_OPTIONS = [
         'TERMINATED BY' => [
             1,
             'expr',
@@ -76,11 +73,8 @@ class LoadStatement extends Statement
 
     /**
      * LINES Options for `LOAD DATA...INFILE` statements.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementLinesOptions = [
+    private const STATEMENT_LINES_OPTIONS = [
         'STARTING BY' => [
             1,
             'expr',
@@ -122,7 +116,7 @@ class LoadStatement extends Statement
     /**
      * Options for FIELDS/COLUMNS keyword.
      *
-     * @see LoadStatement::$statementFieldsOptions
+     * @see LoadStatement::STATEMENT_FIELDS_OPTIONS
      *
      * @var OptionsArray|null
      */
@@ -138,7 +132,7 @@ class LoadStatement extends Statement
     /**
      * Options for OPTIONS keyword.
      *
-     * @see LoadStatement::$statementLinesOptions
+     * @see LoadStatement::STATEMENT_LINES_OPTIONS
      *
      * @var OptionsArray|null
      */
@@ -323,12 +317,12 @@ class LoadStatement extends Statement
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
             // parse field options
-            $this->fieldsOptions = OptionsArray::parse($parser, $list, static::$statementFieldsOptions);
+            $this->fieldsOptions = OptionsArray::parse($parser, $list, self::STATEMENT_FIELDS_OPTIONS);
 
             $this->fieldsKeyword = $keyword;
         } else {
             // parse line options
-            $this->linesOptions = OptionsArray::parse($parser, $list, static::$statementLinesOptions);
+            $this->linesOptions = OptionsArray::parse($parser, $list, self::STATEMENT_LINES_OPTIONS);
         }
     }
 

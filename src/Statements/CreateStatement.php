@@ -73,11 +73,8 @@ class CreateStatement extends Statement
 
     /**
      * All database options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $databaseOptions = [
+    private const DATABASE_OPTIONS = [
         'CHARACTER SET' => [
             1,
             'var=',
@@ -106,11 +103,8 @@ class CreateStatement extends Statement
 
     /**
      * All table options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $tableOptions = [
+    private const TABLE_OPTIONS = [
         'ENGINE' => [
             1,
             'var=',
@@ -223,11 +217,8 @@ class CreateStatement extends Statement
 
     /**
      * All function options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $functionOptions = [
+    private const FUNCTION_OPTIONS = [
         'NOT' => [
             2,
             'var',
@@ -263,11 +254,8 @@ class CreateStatement extends Statement
 
     /**
      * All trigger options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $triggerOptions = [
+    private const TRIGGER_OPTIONS = [
         'BEFORE' => 1,
         'AFTER' => 1,
         'INSERT' => 2,
@@ -287,9 +275,9 @@ class CreateStatement extends Statement
      *
      * Used by `CREATE TABLE`, `CREATE FUNCTION` and `CREATE PROCEDURE`.
      *
-     * @see CreateStatement::$tableOptions
-     * @see CreateStatement::$functionOptions
-     * @see CreateStatement::$triggerOptions
+     * @see CreateStatement::TABLE_OPTIONS
+     * @see CreateStatement::FUNCTION_OPTIONS
+     * @see CreateStatement::TRIGGER_OPTIONS
      *
      * @var OptionsArray|null
      */
@@ -562,7 +550,7 @@ class CreateStatement extends Statement
         }
 
         if ($isDatabase) {
-            $this->entityOptions = OptionsArray::parse($parser, $list, static::$databaseOptions);
+            $this->entityOptions = OptionsArray::parse($parser, $list, self::DATABASE_OPTIONS);
         } elseif ($this->options->has('TABLE')) {
             if (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'SELECT')) {
                 /* CREATE TABLE ... SELECT */
@@ -606,7 +594,7 @@ class CreateStatement extends Statement
 
                 ++$list->idx;
 
-                $this->entityOptions = OptionsArray::parse($parser, $list, static::$tableOptions);
+                $this->entityOptions = OptionsArray::parse($parser, $list, self::TABLE_OPTIONS);
 
                 /**
                  * The field that is being filled (`partitionBy` or
@@ -714,7 +702,7 @@ class CreateStatement extends Statement
 
             ++$list->idx;
 
-            $this->entityOptions = OptionsArray::parse($parser, $list, static::$functionOptions);
+            $this->entityOptions = OptionsArray::parse($parser, $list, self::FUNCTION_OPTIONS);
             ++$list->idx;
 
             for (; $list->idx < $list->count; ++$list->idx) {
@@ -764,7 +752,7 @@ class CreateStatement extends Statement
             }
         } elseif ($this->options->has('TRIGGER')) {
             // Parsing the time and the event.
-            $this->entityOptions = OptionsArray::parse($parser, $list, static::$triggerOptions);
+            $this->entityOptions = OptionsArray::parse($parser, $list, self::TRIGGER_OPTIONS);
             ++$list->idx;
 
             $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ON');

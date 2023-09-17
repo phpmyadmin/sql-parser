@@ -463,11 +463,11 @@ class Formatter
 
                 // Inline JOINs
                 if (
-                    ($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::$joins[$prev->value]))
+                    ($prev->type === Token::TYPE_KEYWORD && isset(JoinKeyword::JOINS[$prev->value]))
                     || (in_array($curr->value, ['ON', 'USING'], true)
-                        && isset(JoinKeyword::$joins[$list->tokens[$list->idx - 2]->value]))
-                    || isset($list->tokens[$list->idx - 4], JoinKeyword::$joins[$list->tokens[$list->idx - 4]->value])
-                    || isset($list->tokens[$list->idx - 6], JoinKeyword::$joins[$list->tokens[$list->idx - 6]->value])
+                        && isset(JoinKeyword::JOINS[$list->tokens[$list->idx - 2]->value]))
+                    || isset($list->tokens[$list->idx - 4], JoinKeyword::JOINS[$list->tokens[$list->idx - 4]->value])
+                    || isset($list->tokens[$list->idx - 6], JoinKeyword::JOINS[$list->tokens[$list->idx - 6]->value])
                 ) {
                     $lineEnded = false;
                 }
@@ -758,13 +758,13 @@ class Formatter
     public static function isClause($token): int|false
     {
         if (
-            ($token->type === Token::TYPE_KEYWORD && isset(Parser::$statementParsers[$token->keyword]))
+            ($token->type === Token::TYPE_KEYWORD && isset(Parser::STATEMENT_PARSERS[$token->keyword]))
             || ($token->type === Token::TYPE_NONE && strtoupper($token->token) === 'DELIMITER')
         ) {
             return 2;
         }
 
-        if ($token->type === Token::TYPE_KEYWORD && isset(Parser::$keywordParsers[$token->keyword])) {
+        if ($token->type === Token::TYPE_KEYWORD && isset(Parser::KEYWORD_PARSERS[$token->keyword])) {
             return 1;
         }
 

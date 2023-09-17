@@ -23,10 +23,9 @@ class Parser extends Core
     /**
      * Array of classes that are used in parsing the SQL statements.
      *
-     * @var array<string, string>
      * @psalm-var array<string, class-string<Statement>|''>
      */
-    public static $statementParsers = [
+    public const STATEMENT_PARSERS = [
         // MySQL Utility Statements
         'DESCRIBE' => Statements\ExplainStatement::class,
         'DESC' => Statements\ExplainStatement::class,
@@ -97,15 +96,8 @@ class Parser extends Core
 
     /**
      * Array of classes that are used in parsing SQL components.
-     *
-     * @var array<string, array<string, string|array<string, string>>>
-     * @psalm-var array<string, array{
-     *   class?: class-string<Component>,
-     *   field?: non-empty-string,
-     *   options?: array<string, string>
-     * }>
      */
-    public static $keywordParsers = [
+    public const KEYWORD_PARSERS = [
         // This is not a proper keyword and was added here to help the
         // formatter.
         'PARTITION BY' => [],
@@ -494,9 +486,9 @@ class Parser extends Core
                 }
 
                 $list->idx = $lastIdx;
-            } elseif (empty(static::$statementParsers[$token->keyword])) {
+            } elseif (empty(self::STATEMENT_PARSERS[$token->keyword])) {
                 // Checking if it is a known statement that can be parsed.
-                if (! isset(static::$statementParsers[$token->keyword])) {
+                if (! isset(self::STATEMENT_PARSERS[$token->keyword])) {
                     // A statement is considered recognized if the parser
                     // is aware that it is a statement, but it does not have
                     // a parser for it yet.
@@ -514,7 +506,7 @@ class Parser extends Core
              *
              * @var string
              */
-            $class = static::$statementParsers[$statementName ?? $token->keyword];
+            $class = self::STATEMENT_PARSERS[$statementName ?? $token->keyword];
 
             /**
              * Processed statement.

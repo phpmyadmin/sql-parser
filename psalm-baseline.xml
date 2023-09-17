@@ -1,46 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
   <file src="src/Components/AlterOperation.php">
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[[
-        'ON SCHEDULE' => 1,
-        'EVERY' => [
-            2,
-            'expr',
-        ],
-        'AT' => [
-            2,
-            'expr',
-        ],
-        'STARTS' => [
-            3,
-            'expr',
-        ],
-        'ENDS' => [
-            4,
-            'expr',
-        ],
-        'ON COMPLETION PRESERVE' => 5,
-        'ON COMPLETION NOT PRESERVE' => 5,
-        'RENAME' => 6,
-        'TO' => [
-            7,
-            'expr',
-            ['parseField' => 'table'],
-        ],
-        'ENABLE' => 8,
-        'DISABLE' => 8,
-        'DISABLE ON SLAVE' => 8,
-        'COMMENT' => [
-            9,
-            'var',
-        ],
-        'DO' => 10,
-    ]]]></code>
-    </InvalidPropertyAssignmentValue>
-    <PossiblyInvalidArgument>
-      <code>$arrayKey</code>
-    </PossiblyInvalidArgument>
     <PossiblyNullPropertyAssignmentValue>
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
@@ -104,7 +64,7 @@
   </file>
   <file src="src/Components/Condition.php">
     <MixedArrayOffset>
-      <code><![CDATA[static::$allowedKeywords[$token->value]]]></code>
+      <code><![CDATA[self::ALLOWED_KEYWORDS[$token->value]]]></code>
     </MixedArrayOffset>
     <PossiblyUnusedProperty>
       <code>$isOperator</code>
@@ -137,13 +97,9 @@
       <code><![CDATA[$options['breakOnParentheses']]]></code>
     </InvalidArgument>
     <MixedArrayOffset>
-      <code><![CDATA[Parser::$statementParsers[$token->keyword]]]></code>
-      <code><![CDATA[self::$allowedKeywords[$token->keyword]]]></code>
+      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
+      <code><![CDATA[self::ALLOWED_KEYWORDS[$token->keyword]]]></code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[Parser::$statementParsers[$token->keyword]]]></code>
-      <code><![CDATA[self::$allowedKeywords[$token->keyword]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code>$field</code>
       <code><![CDATA[$options['field']]]></code>
@@ -241,15 +197,11 @@
       <code><![CDATA['']]></code>
     </DocblockTypeContradiction>
     <MixedArrayOffset>
-      <code><![CDATA[static::$joins[$token->keyword]]]></code>
-      <code><![CDATA[static::$joins[$token->keyword]]]></code>
+      <code><![CDATA[self::JOINS[$token->keyword]]]></code>
+      <code><![CDATA[self::JOINS[$token->keyword]]]></code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[static::$joins[$token->keyword]]]></code>
-      <code><![CDATA[static::$joins[$token->keyword]]]></code>
-    </MixedArrayTypeCoercion>
     <PossiblyFalseOperand>
-      <code><![CDATA[array_search($c->type, static::$joins)]]></code>
+      <code><![CDATA[array_search($c->type, self::JOINS)]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidPropertyAssignmentValue>
       <code>ArrayObj::parse($parser, $list)</code>
@@ -712,13 +664,9 @@
       <code><![CDATA[new $class($this, $this->list)]]></code>
     </InvalidStringClass>
     <MixedArrayOffset>
-      <code><![CDATA[static::$statementParsers[$statementName ?? $token->keyword]]]></code>
-      <code><![CDATA[static::$statementParsers[$token->keyword]]]></code>
+      <code><![CDATA[self::STATEMENT_PARSERS[$statementName ?? $token->keyword]]]></code>
+      <code><![CDATA[self::STATEMENT_PARSERS[$token->keyword]]]></code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[static::$statementParsers[$statementName ?? $token->keyword]]]></code>
-      <code><![CDATA[static::$statementParsers[$token->keyword]]]></code>
-    </MixedArrayTypeCoercion>
     <ParamNameMismatch>
       <code>$msg</code>
     </ParamNameMismatch>
@@ -733,7 +681,7 @@
     </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$list->tokens]]></code>
-      <code>static::$statementParsers</code>
+      <code>self::STATEMENT_PARSERS</code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$list->idx]]></code>
@@ -773,17 +721,13 @@
     <MixedArrayOffset>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
-      <code><![CDATA[Parser::$keywordParsers[$token->value]]]></code>
-      <code>Parser::$keywordParsers[$tokenValue]</code>
-      <code><![CDATA[Parser::$statementParsers[$token->keyword]]]></code>
-      <code><![CDATA[Parser::$statementParsers[$token->value]]]></code>
+      <code><![CDATA[Parser::KEYWORD_PARSERS[$token->value]]]></code>
+      <code>Parser::KEYWORD_PARSERS[$tokenValue]</code>
+      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
+      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->value]]]></code>
       <code><![CDATA[static::$clauses[$token->value]]]></code>
       <code><![CDATA[static::$statementOptions[$token->value]]]></code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code>Parser::$keywordParsers[$tokenValue]</code>
-      <code><![CDATA[Parser::$statementParsers[$token->keyword]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code>$tokenValue</code>
     </MixedAssignment>
@@ -794,10 +738,10 @@
       <code><![CDATA[$this->$field->build()]]></code>
     </MixedOperand>
     <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[Parser::$keywordParsers[$name]['class']]]></code>
-      <code><![CDATA[Parser::$keywordParsers[$name]['field']]]></code>
-      <code><![CDATA[Parser::$keywordParsers[$tokenValue]['class']]]></code>
-      <code><![CDATA[Parser::$keywordParsers[$tokenValue]['field']]]></code>
+      <code><![CDATA[Parser::KEYWORD_PARSERS[$name]['class']]]></code>
+      <code><![CDATA[Parser::KEYWORD_PARSERS[$name]['field']]]></code>
+      <code><![CDATA[Parser::KEYWORD_PARSERS[$tokenValue]['class']]]></code>
+      <code><![CDATA[Parser::KEYWORD_PARSERS[$tokenValue]['field']]]></code>
     </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedReturnValue>
       <code>bool</code>
@@ -1179,19 +1123,17 @@
       <code><![CDATA[$format['type']]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
-      <code><![CDATA[JoinKeyword::$joins[$list->tokens[$list->idx - 2]->value]]]></code>
-      <code><![CDATA[JoinKeyword::$joins[$list->tokens[$list->idx - 4]->value]]]></code>
-      <code><![CDATA[JoinKeyword::$joins[$list->tokens[$list->idx - 6]->value]]]></code>
-      <code><![CDATA[JoinKeyword::$joins[$prev->value]]]></code>
-      <code><![CDATA[Parser::$keywordParsers[$token->keyword]]]></code>
-      <code><![CDATA[Parser::$statementParsers[$token->keyword]]]></code>
+      <code><![CDATA[JoinKeyword::JOINS[$list->tokens[$list->idx - 2]->value]]]></code>
+      <code><![CDATA[JoinKeyword::JOINS[$list->tokens[$list->idx - 4]->value]]]></code>
+      <code><![CDATA[JoinKeyword::JOINS[$list->tokens[$list->idx - 6]->value]]]></code>
+      <code><![CDATA[JoinKeyword::JOINS[$prev->value]]]></code>
+      <code><![CDATA[Parser::KEYWORD_PARSERS[$token->keyword]]]></code>
+      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
       <code>self::$inlineClauses[$lastClause]</code>
       <code>self::$inlineClauses[$lastClause]</code>
       <code>self::$shortClauses[$lastClause]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion>
-      <code><![CDATA[Parser::$keywordParsers[$token->keyword]]]></code>
-      <code><![CDATA[Parser::$statementParsers[$token->keyword]]]></code>
       <code>self::$inlineClauses[$lastClause]</code>
       <code>self::$inlineClauses[$lastClause]</code>
       <code>self::$shortClauses[$lastClause]</code>

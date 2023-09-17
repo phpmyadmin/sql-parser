@@ -21,11 +21,8 @@ final class DataType implements Component
 {
     /**
      * All data type options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $dataTypeOptions = [
+    private const DATA_TYPE_OPTIONS = [
         'BINARY' => 1,
         'CHARACTER SET' => [
             2,
@@ -137,7 +134,7 @@ final class DataType implements Component
                         $parameters->raw : $parameters->values;
                 }
 
-                $ret->options = OptionsArray::parse($parser, $list, static::$dataTypeOptions);
+                $ret->options = OptionsArray::parse($parser, $list, self::DATA_TYPE_OPTIONS);
                 ++$list->idx;
                 break;
             }

@@ -67,11 +67,7 @@ class SetStatement extends Statement
         '@@PERSIST_ONLY' => 3,
     ];
 
-    /**
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
-     */
-    public static $statementEndOptions = [
+    protected const STATEMENT_END_OPTIONS = [
         'COLLATE' => [
             1,
             'var',
@@ -89,7 +85,7 @@ class SetStatement extends Statement
     /**
      * The end options of this query.
      *
-     * @see SetStatement::$statementEndOptions
+     * @see SetStatement::STATEMENT_END_OPTIONS
      *
      * @var OptionsArray|null
      */

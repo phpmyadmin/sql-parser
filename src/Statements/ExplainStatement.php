@@ -20,11 +20,8 @@ class ExplainStatement extends Statement
 {
     /**
      * Options for `EXPLAIN` statements.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $OPTIONS = [
+    private const OPTIONS = [
 
         'EXTENDED' => 1,
         'PARTITIONS' => 1,
@@ -166,7 +163,7 @@ class ExplainStatement extends Statement
                 }
             } elseif ($state === 1) {
                 // Parsing options.
-                $this->options = OptionsArray::parse($parser, $list, static::$OPTIONS);
+                $this->options = OptionsArray::parse($parser, $list, self::OPTIONS);
                 $state = 2;
             } elseif ($state === 2) {
                 $currIdx = $list->idx;

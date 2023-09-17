@@ -20,10 +20,8 @@ final class Condition implements Component
 {
     /**
      * Logical operators that can be used to delimit expressions.
-     *
-     * @var string[]
      */
-    public static $delimiters = [
+    private const DELIMITERS = [
         '&&',
         '||',
         'AND',
@@ -33,10 +31,8 @@ final class Condition implements Component
 
     /**
      * List of allowed reserved keywords in conditions.
-     *
-     * @var array<string, int>
      */
-    public static $allowedKeywords = [
+    private const ALLOWED_KEYWORDS = [
         'ALL' => 1,
         'AND' => 1,
         'BETWEEN' => 1,
@@ -143,7 +139,7 @@ final class Condition implements Component
             }
 
             // Conditions are delimited by logical operators.
-            if (in_array($token->value, static::$delimiters, true)) {
+            if (in_array($token->value, self::DELIMITERS, true)) {
                 if ($betweenBefore && ($token->value === 'AND')) {
                     // The syntax of keyword `BETWEEN` is hard-coded.
                     $betweenBefore = false;
@@ -174,7 +170,7 @@ final class Condition implements Component
                     $betweenBefore = true;
                 }
 
-                if (($brackets === 0) && empty(static::$allowedKeywords[$token->value])) {
+                if (($brackets === 0) && empty(self::ALLOWED_KEYWORDS[$token->value])) {
                     break;
                 }
             }

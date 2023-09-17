@@ -22,11 +22,8 @@ final class Key implements Component
 {
     /**
      * All key options.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $keyOptions = [
+    private const KEY_OPTIONS = [
         'KEY_BLOCK_SIZE' => [
             1,
             'var=',
@@ -221,7 +218,7 @@ final class Key implements Component
                     $lastColumn['length'] = $token->value;
                 }
             } elseif ($state === 4) {
-                $ret->options = OptionsArray::parse($parser, $list, static::$keyOptions);
+                $ret->options = OptionsArray::parse($parser, $list, self::KEY_OPTIONS);
                 ++$list->idx;
                 break;
             } elseif ($state === 5) {

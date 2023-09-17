@@ -25,10 +25,8 @@ final class Expression implements Component
 {
     /**
      * List of allowed reserved keywords in expressions.
-     *
-     * @var array<string, int>
      */
-    private static $allowedKeywords = [
+    private const ALLOWED_KEYWORDS = [
         'AND' => 1,
         'AS' => 1,
         'BETWEEN' => 1,
@@ -226,7 +224,7 @@ final class Expression implements Component
             }
 
             if ($token->type === Token::TYPE_KEYWORD) {
-                if (($brackets > 0) && empty($ret->subquery) && ! empty(Parser::$statementParsers[$token->keyword])) {
+                if (($brackets > 0) && empty($ret->subquery) && ! empty(Parser::STATEMENT_PARSERS[$token->keyword])) {
                     // A `(` was previously found and this keyword is the
                     // beginning of a statement, so this is a subquery.
                     $ret->subquery = $token->keyword;
@@ -237,7 +235,7 @@ final class Expression implements Component
                 ) {
                     $isExpr = true;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED) && ($brackets === 0)) {
-                    if (empty(self::$allowedKeywords[$token->keyword])) {
+                    if (empty(self::ALLOWED_KEYWORDS[$token->keyword])) {
                         // A reserved keyword that is not allowed in the
                         // expression was found so the expression must have
                         // ended and a new clause is starting.

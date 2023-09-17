@@ -30,10 +30,8 @@ class Lexer extends Core
 {
     /**
      * A list of methods that are used in lexing the SQL query.
-     *
-     * @var string[]
      */
-    public static $parserMethods = [
+    private const PARSER_METHODS = [
         // It is best to put the parsers in order of their complexity
         // (ascending) and their occurrence rate (descending).
         //
@@ -70,14 +68,11 @@ class Lexer extends Core
         'parseUnknown',
     ];
 
-
     /**
      * A list of keywords that indicate that the function keyword
      * is not used as a function
-     *
-     * @var string[]
      */
-    public $keywordNameIndicators = [
+    private const KEYWORD_NAME_INDICATORS = [
         'FROM',
         'SET',
         'WHERE',
@@ -86,10 +81,8 @@ class Lexer extends Core
     /**
      * A list of operators that indicate that the function keyword
      * is not used as a function
-     *
-     * @var string[]
      */
-    public $operatorNameIndicators = [
+    private const OPERATOR_NAME_INDICATORS = [
         ',',
         '.',
     ];
@@ -238,7 +231,7 @@ class Lexer extends Core
              */
             $token = null;
 
-            foreach (static::$parserMethods as $method) {
+            foreach (self::PARSER_METHODS as $method) {
                 $token = $this->$method();
 
                 if ($token) {
@@ -413,10 +406,10 @@ class Lexer extends Core
             $next = $this->list->getNext();
             if (
                 ($next->type !== Token::TYPE_KEYWORD
-                    || ! in_array($next->value, $this->keywordNameIndicators, true)
+                    || ! in_array($next->value, self::KEYWORD_NAME_INDICATORS, true)
                 )
                 && ($next->type !== Token::TYPE_OPERATOR
-                    || ! in_array($next->value, $this->operatorNameIndicators, true)
+                    || ! in_array($next->value, self::OPERATOR_NAME_INDICATORS, true)
                 )
                 && ($next->value !== null)
             ) {

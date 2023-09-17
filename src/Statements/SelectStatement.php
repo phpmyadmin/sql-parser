@@ -71,17 +71,9 @@ class SelectStatement extends Statement
         'SQL_CALC_FOUND_ROWS' => 9,
     ];
 
-    /**
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
-     */
-    public static $statementGroupOptions = ['WITH ROLLUP' => 1];
+    protected const STATEMENT_GROUP_OPTIONS = ['WITH ROLLUP' => 1];
 
-    /**
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
-     */
-    public static $statementEndOptions = [
+    protected const STATEMENT_END_OPTIONS = [
         'FOR UPDATE' => 1,
         'LOCK IN SHARE MODE' => 1,
     ];
@@ -332,7 +324,7 @@ class SelectStatement extends Statement
     /**
      * The end options of this query.
      *
-     * @see SelectStatement::$statementEndOptions
+     * @see SelectStatement::STATEMENT_END_OPTIONS
      *
      * @var OptionsArray|null
      */

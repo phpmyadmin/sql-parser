@@ -16,33 +16,9 @@ use function in_array;
 class CustomJsonSerializer extends JsonSerializer
 {
     public const SKIP_PROPERTIES = [
-        'allowedKeywords',
-        'statementGroupOptions',
-        'statementEndOptions',
-        'keywordParsers',
-        'statementParsers',
-        'keywordNameIndicators',// Not static
-        'operatorNameIndicators',// Not static
         'defaultDelimiter',
-        'parserMethods',
-        'OPTIONS',
         'clauses',
-        'databaseOptions',
-        'delimiters',
-        'joins',
         'statementOptions',
-        'statementFieldsOptions',
-        'statementLinesOptions',
-        'triggerOptions',
-        'functionOptions',
-        'tableOptions',
-        'fieldOptions',
-        'dataTypeOptions',
-        'referencesOptions',
-        'keyOptions',
-        'viewOptions',
-        'eventOptions',
-        'userOptions',
     ];
 
     /**

@@ -62,20 +62,6 @@ abstract class Statement implements Stringable
     public static $clauses = [];
 
     /**
-     * Options that can be given to GROUP BY component.
-     *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
-     */
-    public static $statementGroupOptions = [];
-
-    /**
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
-     */
-    public static $statementEndOptions = [];
-
-    /**
      * The options of this query.
      *
      * @see Statement::$statementOptions
@@ -162,7 +148,7 @@ abstract class Statement implements Stringable
              *
              * @var Component
              */
-            $class = Parser::$keywordParsers[$name]['class'];
+            $class = Parser::KEYWORD_PARSERS[$name]['class'];
 
             /**
              * The name of the field that is used as source for the builder.
@@ -170,7 +156,7 @@ abstract class Statement implements Stringable
              *
              * @var string
              */
-            $field = Parser::$keywordParsers[$name]['field'];
+            $field = Parser::KEYWORD_PARSERS[$name]['field'];
 
             // The field is empty, there is nothing to be built.
             if (empty($this->$field)) {
@@ -318,7 +304,7 @@ abstract class Statement implements Stringable
             $options = [];
 
             // Looking for duplicated clauses.
-            if (! empty(Parser::$keywordParsers[$token->value]) || ! empty(Parser::$statementParsers[$token->value])) {
+            if (! empty(Parser::KEYWORD_PARSERS[$token->value]) || ! empty(Parser::STATEMENT_PARSERS[$token->value])) {
                 if (! empty($parsedClauses[$token->value])) {
                     $parser->error('This type of clause was previously parsed.', $token);
                     break;
@@ -332,16 +318,16 @@ abstract class Statement implements Stringable
             // but it might be the beginning of a statement of truncate,
             // so let the value use the keyword field for truncate type.
             $tokenValue = in_array($token->keyword, ['TRUNCATE']) ? $token->keyword : $token->value;
-            if (! empty(Parser::$keywordParsers[$tokenValue]) && $list->idx < $list->count) {
-                $class = Parser::$keywordParsers[$tokenValue]['class'];
-                $field = Parser::$keywordParsers[$tokenValue]['field'];
-                if (! empty(Parser::$keywordParsers[$tokenValue]['options'])) {
-                    $options = Parser::$keywordParsers[$tokenValue]['options'];
+            if (! empty(Parser::KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
+                $class = Parser::KEYWORD_PARSERS[$tokenValue]['class'];
+                $field = Parser::KEYWORD_PARSERS[$tokenValue]['field'];
+                if (! empty(Parser::KEYWORD_PARSERS[$tokenValue]['options'])) {
+                    $options = Parser::KEYWORD_PARSERS[$tokenValue]['options'];
                 }
             }
 
             // Checking if this is the beginning of the statement.
-            if (! empty(Parser::$statementParsers[$token->keyword])) {
+            if (! empty(Parser::STATEMENT_PARSERS[$token->keyword])) {
                 if (
                     ! empty(static::$clauses) // Undefined for some statements.
                     && empty(static::$clauses[$token->value])
@@ -370,24 +356,33 @@ abstract class Statement implements Stringable
             } elseif ($class === null) {
                 if ($this instanceof Statements\SelectStatement && $token->value === 'WITH ROLLUP') {
                     // Handle group options in Select statement
-                    // See Statements\SelectStatement::$statementGroupOptions
-                    $this->groupOptions = OptionsArray::parse($parser, $list, static::$statementGroupOptions);
+                    $this->groupOptions = OptionsArray::parse(
+                        $parser,
+                        $list,
+                        Statements\SelectStatement::STATEMENT_GROUP_OPTIONS
+                    );
                 } elseif (
                     $this instanceof Statements\SelectStatement
                     && ($token->value === 'FOR UPDATE'
                         || $token->value === 'LOCK IN SHARE MODE')
                 ) {
                     // Handle special end options in Select statement
-                    // See Statements\SelectStatement::$statementEndOptions
-                    $this->endOptions = OptionsArray::parse($parser, $list, static::$statementEndOptions);
+                    $this->endOptions = OptionsArray::parse(
+                        $parser,
+                        $list,
+                        Statements\SelectStatement::STATEMENT_END_OPTIONS
+                    );
                 } elseif (
                     $this instanceof Statements\SetStatement
                     && ($token->value === 'COLLATE'
                         || $token->value === 'DEFAULT')
                 ) {
                     // Handle special end options in SET statement
-                    // See Statements\SetStatement::$statementEndOptions
-                    $this->endOptions = OptionsArray::parse($parser, $list, static::$statementEndOptions);
+                    $this->endOptions = OptionsArray::parse(
+                        $parser,
+                        $list,
+                        Statements\SetStatement::STATEMENT_END_OPTIONS
+                    );
                 } else {
                     // There is no parser for this keyword and isn't the beginning
                     // of a statement (so no options) either.
