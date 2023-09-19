@@ -1,0 +1,2 @@
+ALTER TABLE users_type MODIFY limitations ENUM('tout', 'rien', 'bu', 'agence', 'agence_limite', 'n-1', 'agence_inactif');
+UPDATE users_type SET limitations = 'agence_inactif' WHERE id_users_type = 19;

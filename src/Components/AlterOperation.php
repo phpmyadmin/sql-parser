@@ -426,33 +426,26 @@ class AlterOperation extends Component
                     } elseif (($token->value === ',') && ($brackets === 0)) {
                         break;
                     }
-                } elseif (! self::checkIfTokenQuotedSymbol($token)) {
-                    // If the current token is "SET" or "ENUM", we want to avoid the token between their parenthesis in
-                    // the unknown tokens.
-                    if (in_array($token->value, ['SET', 'ENUM'], true)) {
+                } elseif (! self::checkIfTokenQuotedSymbol($token) && $token->type !== Token::TYPE_STRING) {
+                    if (isset(Parser::$STATEMENT_PARSERS[$arrayKey]) && Parser::$STATEMENT_PARSERS[$arrayKey] !== '') {
                         $list->idx++; // Ignore the current token
                         $nextToken = $list->getNext();
 
-                        if ($nextToken !== null && $nextToken->value === '(') {
+                        if ($token->value === 'SET' && $nextToken !== null && $nextToken->value === '(') {
+                            // To avoid adding the tokens between the SET() parentheses to the unknown tokens
                             $list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, ')');
-                        } elseif ($nextToken !== null && $nextToken->value === 'DEFAULT') {
+                        } elseif ($token->value === 'SET' && $nextToken !== null && $nextToken->value === 'DEFAULT') {
                             // to avoid adding the `DEFAULT` token to the unknown tokens.
                             ++$list->idx;
                         } else {
+                            // We have reached the end of ALTER operation and suddenly found
+                            // a start to new statement, but have not found a delimiter between them
                             $parser->error(
                                 'A new statement was found, but no delimiter between it and the previous one.',
                                 $token
                             );
                             break;
                         }
-                    } elseif (! empty(Parser::$STATEMENT_PARSERS[$arrayKey])) {
-                        // We have reached the end of ALTER operation and suddenly found
-                        // a start to new statement, but have not found a delimiter between them
-                        $parser->error(
-                            'A new statement was found, but no delimiter between it and the previous one.',
-                            $token
-                        );
-                        break;
                     } elseif (
                         (array_key_exists($arrayKey, self::$DB_OPTIONS)
                         || array_key_exists($arrayKey, self::$TABLE_OPTIONS))

@@ -1,31 +1,13 @@
 {
-    "query": "-- ENUM with a string that is a statement.\nALTER TABLE `test_table` MODIFY `COL` ENUM(\"INSERT\") NULL;\n",
+    "query": "ALTER TABLE `mail_template` CHANGE COLUMN `mtpl_group` `mtpl_group` ENUM('ORDER') NULL DEFAULT NULL ;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "-- ENUM with a string that is a statement.\nALTER TABLE `test_table` MODIFY `COL` ENUM(\"INSERT\") NULL;\n",
-        "len": 102,
-        "last": 102,
+        "str": "ALTER TABLE `mail_template` CHANGE COLUMN `mtpl_group` `mtpl_group` ENUM('ORDER') NULL DEFAULT NULL ;",
+        "len": 101,
+        "last": 101,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "-- ENUM with a string that is a statement.",
-                    "value": "-- ENUM with a string that is a statement.",
-                    "keyword": null,
-                    "type": 4,
-                    "flags": 4,
-                    "position": 0
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 42
-                },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
@@ -33,7 +15,7 @@
                     "keyword": "ALTER",
                     "type": 1,
                     "flags": 3,
-                    "position": 43
+                    "position": 0
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -42,7 +24,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 48
+                    "position": 5
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -51,7 +33,79 @@
                     "keyword": "TABLE",
                     "type": 1,
                     "flags": 3,
-                    "position": 49
+                    "position": 6
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 11
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "`mail_template`",
+                    "value": "mail_template",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 12
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 27
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "CHANGE",
+                    "value": "CHANGE",
+                    "keyword": "CHANGE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 28
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 34
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "COLUMN",
+                    "value": "COLUMN",
+                    "keyword": "COLUMN",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 35
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 41
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "`mtpl_group`",
+                    "value": "mtpl_group",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 42
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -64,8 +118,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`test_table`",
-                    "value": "test_table",
+                    "token": "`mtpl_group`",
+                    "value": "mtpl_group",
                     "keyword": null,
                     "type": 8,
                     "flags": 2,
@@ -82,48 +136,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "MODIFY",
-                    "value": "MODIFY",
-                    "keyword": "MODIFY",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 68
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 74
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`COL`",
-                    "value": "COL",
-                    "keyword": null,
-                    "type": 8,
-                    "flags": 2,
-                    "position": 75
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 80
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ENUM",
                     "value": "ENUM",
                     "keyword": "ENUM",
                     "type": 1,
                     "flags": 9,
-                    "position": 81
+                    "position": 68
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -132,16 +150,16 @@
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
-                    "position": 85
+                    "position": 72
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\"INSERT\"",
-                    "value": "INSERT",
+                    "token": "'ORDER'",
+                    "value": "ORDER",
                     "keyword": null,
                     "type": 7,
-                    "flags": 2,
-                    "position": 86
+                    "flags": 1,
+                    "position": 73
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -150,7 +168,7 @@
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
-                    "position": 94
+                    "position": 80
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -159,7 +177,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 95
+                    "position": 81
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -168,7 +186,52 @@
                     "keyword": "NULL",
                     "type": 1,
                     "flags": 3,
-                    "position": 96
+                    "position": 82
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 86
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "DEFAULT",
+                    "value": "DEFAULT",
+                    "keyword": "DEFAULT",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 87
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 94
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "NULL",
+                    "value": "NULL",
+                    "keyword": "NULL",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 95
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 99
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -181,15 +244,6 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "\n",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 101
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -198,8 +252,8 @@
                     "position": null
                 }
             ],
-            "count": 21,
-            "idx": 21
+            "count": 27,
+            "idx": 27
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -217,9 +271,9 @@
                 "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
-                    "table": "test_table",
+                    "table": "mail_template",
                     "column": null,
-                    "expr": "`test_table`",
+                    "expr": "`mail_template`",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -230,15 +284,16 @@
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
-                                "1": "MODIFY"
+                                "1": "CHANGE",
+                                "2": "COLUMN"
                             }
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
-                            "column": "COL",
-                            "expr": "`COL`",
+                            "column": "mtpl_group",
+                            "expr": "`mtpl_group`",
                             "alias": null,
                             "function": null,
                             "subquery": null
@@ -262,6 +317,27 @@
                             },
                             {
                                 "@type": "@19"
+                            },
+                            {
+                                "@type": "@20"
+                            },
+                            {
+                                "@type": "@21"
+                            },
+                            {
+                                "@type": "@22"
+                            },
+                            {
+                                "@type": "@23"
+                            },
+                            {
+                                "@type": "@24"
+                            },
+                            {
+                                "@type": "@25"
+                            },
+                            {
+                                "@type": "@26"
                             }
                         ]
                     }
@@ -273,7 +349,7 @@
                     }
                 },
                 "first": 0,
-                "last": 18
+                "last": 25
             }
         ],
         "brackets": 0,
