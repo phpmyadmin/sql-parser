@@ -1,5 +1,9 @@
 # Change Log
 
+## [5.8.2] - 2023-09-19
+
+- Fix a regression with the ALTER operation (#511)
+
 ## [5.8.1] - 2023-09-15
 
 - Fix `:=` was not recognized as an operator just like `=` (#306)
