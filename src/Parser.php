@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Statements\TableStatement;
 use PhpMyAdmin\SqlParser\Statements\TransactionStatement;
 
 use function is_string;
@@ -70,6 +71,7 @@ class Parser extends Core
         'LOAD DATA' => 'PhpMyAdmin\\SqlParser\\Statements\\LoadStatement',
         'REPLACE' => 'PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement',
         'SELECT' => 'PhpMyAdmin\\SqlParser\\Statements\\SelectStatement',
+        'TABLE' => 'PhpMyAdmin\\SqlParser\\Statements\\TableStatement',
         'UPDATE' => 'PhpMyAdmin\\SqlParser\\Statements\\UpdateStatement',
         'WITH' => 'PhpMyAdmin\\SqlParser\\Statements\\WithStatement',
 
@@ -310,6 +312,11 @@ class Parser extends Core
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
             'field' => 'expr',
         ],
+        'TABLE' => [
+            'class' => 'PhpMyAdmin\\SqlParser\\Components\\ExpressionArray',
+            'field' => 'tables',
+            'options' => ['parseField' => 'table'],
+        ],
         'TRUNCATE' => [
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\Expression',
             'field' => 'table',
@@ -534,26 +541,28 @@ class Parser extends Core
             // Handles unions.
             if (
                 ! empty($unionType)
-                && ($lastStatement instanceof SelectStatement)
-                && ($statement instanceof SelectStatement)
+                && (
+                    ($lastStatement instanceof SelectStatement && $statement instanceof SelectStatement)
+                    || ($lastStatement instanceof TableStatement && $statement instanceof TableStatement)
+                )
             ) {
                 /*
-                 * This SELECT statement.
+                 * This SELECT|TABLE statement.
                  *
-                 * @var SelectStatement $statement
+                 * @var SelectStatement|TableStatement $statement
                  */
 
                 /*
-                 * Last SELECT statement.
+                 * Last SELECT|TABLE statement.
                  *
-                 * @var SelectStatement $lastStatement
+                 * @var SelectStatement|TableStatement $lastStatement
                  */
                 $lastStatement->union[] = [
                     $unionType,
                     $statement,
                 ];
 
-                // if there are no no delimiting brackets, the `ORDER` and
+                // if there are no delimiting brackets, the `ORDER` and
                 // `LIMIT` keywords actually belong to the first statement.
                 $lastStatement->order = $statement->order;
                 $lastStatement->limit = $statement->limit;
