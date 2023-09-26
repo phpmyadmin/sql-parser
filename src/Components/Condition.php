@@ -200,7 +200,7 @@ class Condition extends Component
                 && (($token->type !== Token::TYPE_KEYWORD)
                 || ($token->flags & Token::FLAG_KEYWORD_RESERVED))
                 && ($token->type !== Token::TYPE_STRING)
-                && ($token->type !== Token::TYPE_SYMBOL)
+                && ($token->type !== Token::TYPE_SYMBOL || ($token->flags & Token::FLAG_SYMBOL_PARAMETER))
             ) {
                 continue;
             }
