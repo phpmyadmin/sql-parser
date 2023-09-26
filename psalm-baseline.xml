@@ -587,49 +587,11 @@
       <code><![CDATA[$this->last]]></code>
       <code><![CDATA[$this->last]]></code>
     </LoopInvalidation>
-    <MixedAssignment>
-      <code>$lastToken</code>
-      <code>$token</code>
-    </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$lastToken->flags]]></code>
-      <code><![CDATA[$lastToken->token]]></code>
       <code><![CDATA[$lastToken->value]]></code>
       <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$token->flags]]></code>
       <code><![CDATA[$token->value]]></code>
     </MixedOperand>
-    <MixedPropertyAssignment>
-      <code>$lastToken</code>
-      <code>$lastToken</code>
-      <code>$lastToken</code>
-      <code>$lastToken</code>
-      <code>$token</code>
-      <code>$token</code>
-      <code>$token</code>
-      <code>$token</code>
-    </MixedPropertyAssignment>
-    <MixedPropertyFetch>
-      <code><![CDATA[$lastToken->flags]]></code>
-      <code><![CDATA[$lastToken->token]]></code>
-      <code><![CDATA[$lastToken->type]]></code>
-      <code><![CDATA[$lastToken->type]]></code>
-      <code><![CDATA[$lastToken->value]]></code>
-      <code><![CDATA[$lastToken->value]]></code>
-      <code><![CDATA[$token->flags]]></code>
-      <code><![CDATA[$token->token]]></code>
-      <code><![CDATA[$token->token]]></code>
-      <code><![CDATA[$token->type]]></code>
-      <code><![CDATA[$token->type]]></code>
-      <code><![CDATA[$token->type]]></code>
-      <code><![CDATA[$token->value]]></code>
-      <code><![CDATA[$token->value]]></code>
-    </MixedPropertyFetch>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[$list->tokens]]></code>
-      <code><![CDATA[$list->tokens]]></code>
-      <code><![CDATA[$list->tokens]]></code>
-    </MixedPropertyTypeCoercion>
     <NullArgument>
       <code>null</code>
     </NullArgument>
@@ -690,16 +652,6 @@
       <code><![CDATA[$next->value]]></code>
       <code><![CDATA[$next->value]]></code>
     </PossiblyNullPropertyFetch>
-    <PossiblyUnusedMethod>
-      <code>parseBool</code>
-      <code>parseComment</code>
-      <code>parseDelimiter</code>
-      <code>parseKeyword</code>
-      <code>parseLabel</code>
-      <code>parseNumber</code>
-      <code>parseOperator</code>
-      <code>parseSymbol</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Parser.php">
     <InvalidPropertyAssignmentValue>
