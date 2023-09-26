@@ -7,13 +7,19 @@
         "last": 198,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 57,
+            "idx": 57,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "EXPLAIN",
                     "value": "EXPLAIN",
                     "keyword": "EXPLAIN",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 7
                 },
@@ -31,7 +41,9 @@
                     "token": "ANALYZE",
                     "value": "ANALYZE",
                     "keyword": "ANALYZE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 8
                 },
@@ -40,7 +52,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 15
                 },
@@ -49,7 +63,9 @@
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 16
                 },
@@ -58,7 +74,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 22
                 },
@@ -67,7 +85,11 @@
                     "token": "first_name",
                     "value": "first_name",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 23
                 },
@@ -76,7 +98,11 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 16,
                     "position": 33
                 },
@@ -85,7 +111,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 34
                 },
@@ -94,7 +122,9 @@
                     "token": "last_name",
                     "value": "last_name",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 35
                 },
@@ -103,7 +133,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@13"
+                    },
                     "flags": 16,
                     "position": 44
                 },
@@ -112,7 +144,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 45
                 },
@@ -121,7 +155,9 @@
                     "token": "SUM",
                     "value": "SUM",
                     "keyword": "SUM",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 33,
                     "position": 46
                 },
@@ -130,7 +166,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@13"
+                    },
                     "flags": 16,
                     "position": 49
                 },
@@ -139,7 +177,9 @@
                     "token": "amount",
                     "value": "amount",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 50
                 },
@@ -148,7 +188,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@13"
+                    },
                     "flags": 16,
                     "position": 56
                 },
@@ -157,7 +199,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 57
                 },
@@ -166,7 +210,9 @@
                     "token": "AS",
                     "value": "AS",
                     "keyword": "AS",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 58
                 },
@@ -175,7 +221,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 60
                 },
@@ -184,7 +232,9 @@
                     "token": "total",
                     "value": "total",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 61
                 },
@@ -193,7 +243,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 66
                 },
@@ -202,7 +254,9 @@
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 67
                 },
@@ -211,7 +265,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 71
                 },
@@ -220,7 +276,9 @@
                     "token": "staff",
                     "value": "staff",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 72
                 },
@@ -229,7 +287,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 77
                 },
@@ -238,7 +298,9 @@
                     "token": "INNER JOIN",
                     "value": "INNER JOIN",
                     "keyword": "INNER JOIN",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 7,
                     "position": 78
                 },
@@ -247,7 +309,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 88
                 },
@@ -256,7 +320,9 @@
                     "token": "payment",
                     "value": "payment",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 89
                 },
@@ -265,7 +331,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 96
                 },
@@ -274,7 +342,9 @@
                     "token": "ON",
                     "value": "ON",
                     "keyword": "ON",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 97
                 },
@@ -283,7 +353,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 99
                 },
@@ -292,7 +364,9 @@
                     "token": "staff",
                     "value": "staff",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 100
                 },
@@ -301,7 +375,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@13"
+                    },
                     "flags": 16,
                     "position": 105
                 },
@@ -310,7 +386,9 @@
                     "token": "staff_id",
                     "value": "staff_id",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 106
                 },
@@ -319,7 +397,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 114
                 },
@@ -328,7 +408,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@13"
+                    },
                     "flags": 2,
                     "position": 115
                 },
@@ -337,7 +419,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 116
                 },
@@ -346,7 +430,9 @@
                     "token": "payment",
                     "value": "payment",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 117
                 },
@@ -355,7 +441,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@13"
+                    },
                     "flags": 16,
                     "position": 124
                 },
@@ -364,7 +452,9 @@
                     "token": "staff_id",
                     "value": "staff_id",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 125
                 },
@@ -373,7 +463,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 133
                 },
@@ -382,7 +474,9 @@
                     "token": "AND",
                     "value": "AND",
                     "keyword": "AND",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 134
                 },
@@ -391,7 +485,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 137
                 },
@@ -400,7 +496,9 @@
                     "token": "payment_date",
                     "value": "payment_date",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 138
                 },
@@ -409,7 +507,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 150
                 },
@@ -418,7 +518,9 @@
                     "token": "LIKE",
                     "value": "LIKE",
                     "keyword": "LIKE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 151
                 },
@@ -427,7 +529,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 155
                 },
@@ -436,7 +540,11 @@
                     "token": "'2005-08%'",
                     "value": "2005-08%",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "String",
+                        "value": 7
+                    },
                     "flags": 1,
                     "position": 156
                 },
@@ -445,7 +553,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 166
                 },
@@ -454,7 +564,9 @@
                     "token": "GROUP BY",
                     "value": "GROUP BY",
                     "keyword": "GROUP BY",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 7,
                     "position": 167
                 },
@@ -463,7 +575,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 175
                 },
@@ -472,7 +586,9 @@
                     "token": "first_name",
                     "value": "first_name",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 176
                 },
@@ -481,7 +597,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@13"
+                    },
                     "flags": 16,
                     "position": 186
                 },
@@ -490,7 +608,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 187
                 },
@@ -499,7 +619,9 @@
                     "token": "last_name",
                     "value": "last_name",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@11"
+                    },
                     "flags": 0,
                     "position": 188
                 },
@@ -508,7 +630,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 197
                 },
@@ -517,13 +643,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@63"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 57,
-            "idx": 57
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -542,13 +668,9 @@
                     "@type": "PhpMyAdmin\\SqlParser\\Parser",
                     "list": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+                        "count": 53,
+                        "idx": 53,
                         "tokens": [
-                            {
-                                "@type": "@6"
-                            },
-                            {
-                                "@type": "@7"
-                            },
                             {
                                 "@type": "@8"
                             },
@@ -559,13 +681,7 @@
                                 "@type": "@10"
                             },
                             {
-                                "@type": "@11"
-                            },
-                            {
                                 "@type": "@12"
-                            },
-                            {
-                                "@type": "@13"
                             },
                             {
                                 "@type": "@14"
@@ -688,9 +804,6 @@
                                 "@type": "@53"
                             },
                             {
-                                "@type": "@54"
-                            },
-                            {
                                 "@type": "@55"
                             },
                             {
@@ -701,10 +814,23 @@
                             },
                             {
                                 "@type": "@58"
+                            },
+                            {
+                                "@type": "@59"
+                            },
+                            {
+                                "@type": "@60"
+                            },
+                            {
+                                "@type": "@61"
+                            },
+                            {
+                                "@type": "@62"
+                            },
+                            {
+                                "@type": "@64"
                             }
-                        ],
-                        "count": 53,
-                        "idx": 53
+                        ]
                     },
                     "statements": [
                         {

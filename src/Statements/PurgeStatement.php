@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function in_array;
 use function trim;
@@ -73,12 +74,12 @@ class PurgeStatement extends Statement
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
@@ -125,7 +126,7 @@ class PurgeStatement extends Statement
      */
     private static function parseExpectedKeyword($parser, $token, $expectedKeywords): mixed
     {
-        if ($token->type === Token::TYPE_KEYWORD) {
+        if ($token->type === TokenType::Keyword) {
             if (in_array($token->keyword, $expectedKeywords)) {
                 return $token->keyword;
             }

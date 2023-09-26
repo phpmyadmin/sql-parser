@@ -7,13 +7,19 @@
         "last": 4,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 2,
+            "idx": 2,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0X0F",
                     "value": "0X0F",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 0
                 },
@@ -22,13 +28,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 2,
-            "idx": 2
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,

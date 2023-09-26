@@ -7,13 +7,19 @@
         "last": 83,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 26,
+            "idx": 26,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -31,7 +41,11 @@
                     "token": "my_column",
                     "value": "my_column",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 7
                 },
@@ -40,7 +54,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 16
                 },
@@ -49,7 +65,9 @@
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 17
                 },
@@ -58,7 +76,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 21
                 },
@@ -67,7 +87,9 @@
                     "token": "my_table",
                     "value": "my_table",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 0,
                     "position": 22
                 },
@@ -76,7 +98,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 30
                 },
@@ -85,7 +109,9 @@
                     "token": "WHERE",
                     "value": "WHERE",
                     "keyword": "WHERE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 31
                 },
@@ -94,7 +120,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 36
                 },
@@ -103,7 +131,9 @@
                     "token": "BINARY",
                     "value": "BINARY",
                     "keyword": "BINARY",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 43,
                     "position": 37
                 },
@@ -112,7 +142,11 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 16,
                     "position": 43
                 },
@@ -121,7 +155,9 @@
                     "token": "my_column",
                     "value": "my_column",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 0,
                     "position": 44
                 },
@@ -130,7 +166,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@17"
+                    },
                     "flags": 16,
                     "position": 53
                 },
@@ -139,7 +177,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 54
                 },
@@ -148,7 +188,9 @@
                     "token": "!=",
                     "value": "!=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@17"
+                    },
                     "flags": 2,
                     "position": 55
                 },
@@ -157,7 +199,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 57
                 },
@@ -166,7 +210,9 @@
                     "token": "BINARY",
                     "value": "BINARY",
                     "keyword": "BINARY",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 43,
                     "position": 58
                 },
@@ -175,7 +221,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@17"
+                    },
                     "flags": 16,
                     "position": 64
                 },
@@ -184,7 +232,9 @@
                     "token": "UPPER",
                     "value": "UPPER",
                     "keyword": "UPPER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 33,
                     "position": 65
                 },
@@ -193,7 +243,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@17"
+                    },
                     "flags": 16,
                     "position": 70
                 },
@@ -202,7 +254,9 @@
                     "token": "my_column",
                     "value": "my_column",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 0,
                     "position": 71
                 },
@@ -211,7 +265,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@17"
+                    },
                     "flags": 16,
                     "position": 80
                 },
@@ -220,7 +276,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@17"
+                    },
                     "flags": 16,
                     "position": 81
                 },
@@ -229,7 +287,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 82
                 },
@@ -238,13 +298,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 26,
-            "idx": 26
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,

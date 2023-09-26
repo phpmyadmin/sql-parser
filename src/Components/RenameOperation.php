@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 
@@ -78,12 +78,12 @@ final class RenameOperation implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
@@ -102,7 +102,7 @@ final class RenameOperation implements Component
 
                 $state = 1;
             } elseif ($state === 1) {
-                if ($token->type !== Token::TYPE_KEYWORD || $token->keyword !== 'TO') {
+                if ($token->type !== TokenType::Keyword || $token->keyword !== 'TO') {
                     $parser->error('Keyword "TO" was expected.', $token);
                     break;
                 }
@@ -123,7 +123,7 @@ final class RenameOperation implements Component
 
                 $state = 3;
             } elseif ($state === 3) {
-                if (($token->type !== Token::TYPE_OPERATOR) || ($token->value !== ',')) {
+                if (($token->type !== TokenType::Operator) || ($token->value !== ',')) {
                     break;
                 }
 

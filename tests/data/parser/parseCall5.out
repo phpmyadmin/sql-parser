@@ -7,13 +7,19 @@
         "last": 13,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 8,
+            "idx": 8,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "call",
                     "value": "CALL",
                     "keyword": "CALL",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 4
                 },
@@ -31,7 +41,11 @@
                     "token": "e",
                     "value": "e",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 5
                 },
@@ -40,7 +54,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -49,7 +67,9 @@
                     "token": "call",
                     "value": "CALL",
                     "keyword": "CALL",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 7
                 },
@@ -58,7 +78,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 11
                 },
@@ -67,7 +89,9 @@
                     "token": "f",
                     "value": "f",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 0,
                     "position": 12
                 },
@@ -76,13 +100,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@9"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 8,
-            "idx": 8
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,

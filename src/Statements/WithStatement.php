@@ -10,8 +10,8 @@ use PhpMyAdmin\SqlParser\Components\WithKeyword;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Translator;
 
 use function array_slice;
@@ -107,12 +107,12 @@ final class WithStatement extends Statement
             $token = $list->tokens[$list->idx];
 
             // Skipping whitespaces and comments.
-            if ($token->type === Token::TYPE_WHITESPACE || $token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Whitespace || $token->type === TokenType::Comment) {
                 continue;
             }
 
             if ($state === 0) {
-                if ($token->type !== Token::TYPE_NONE || ! preg_match('/^[a-zA-Z0-9_$]+$/', $token->token)) {
+                if ($token->type !== TokenType::None || ! preg_match('/^[a-zA-Z0-9_$]+$/', $token->token)) {
                     $parser->error('The name of the CTE was expected.', $token);
                     break;
                 }
@@ -121,7 +121,7 @@ final class WithStatement extends Statement
                 $this->withers[$wither] = new WithKeyword($wither);
                 $state = 1;
             } elseif ($state === 1) {
-                if ($token->type === Token::TYPE_OPERATOR && $token->value === '(') {
+                if ($token->type === TokenType::Operator && $token->value === '(') {
                     $columns = Array2d::parse($parser, $list);
                     if ($parser->errors !== []) {
                         break;
@@ -129,14 +129,14 @@ final class WithStatement extends Statement
 
                     $this->withers[$wither]->columns = $columns;
                     $state = 2;
-                } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'AS') {
+                } elseif ($token->type === TokenType::Keyword && $token->keyword === 'AS') {
                     $state = 3;
                 } else {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
             } elseif ($state === 2) {
-                if (! ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'AS')) {
+                if (! ($token->type === TokenType::Keyword && $token->keyword === 'AS')) {
                     $parser->error('AS keyword was expected.', $token);
                     break;
                 }
@@ -185,7 +185,7 @@ final class WithStatement extends Statement
                 }
 
                 if (
-                    $token->type === Token::TYPE_KEYWORD && (
+                    $token->type === TokenType::Keyword && (
                     $token->value === 'SELECT'
                     || $token->value === 'INSERT'
                     || $token->value === 'UPDATE'
@@ -218,7 +218,7 @@ final class WithStatement extends Statement
                 // from $list->idx to the end of the $list.
                 $lengthOfExpressionTokens = null;
 
-                if ($list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'ON')) {
+                if ($list->getNextOfTypeAndValue(TokenType::Keyword, 'ON')) {
                     // (-1) because getNextOfTypeAndValue returned ON and increased the index.
                     $idxOfOn = $list->idx - 1;
                     // We want to make sure that it's `ON DUPLICATE KEY UPDATE`

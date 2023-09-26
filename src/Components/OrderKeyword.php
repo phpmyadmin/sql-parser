@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 
@@ -74,12 +74,12 @@ final class OrderKeyword implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
@@ -88,11 +88,11 @@ final class OrderKeyword implements Component
                 $state = 1;
             } elseif ($state === 1) {
                 if (
-                    ($token->type === Token::TYPE_KEYWORD)
+                    ($token->type === TokenType::Keyword)
                     && (($token->keyword === 'ASC') || ($token->keyword === 'DESC'))
                 ) {
                     $expr->type = $token->keyword;
-                } elseif (($token->type === Token::TYPE_OPERATOR) && ($token->value === ',')) {
+                } elseif (($token->type === TokenType::Operator) && ($token->value === ',')) {
                     if (! empty($expr->expr)) {
                         $ret[] = $expr;
                     }

@@ -225,7 +225,7 @@ abstract class Statement implements Stringable
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
@@ -238,8 +238,8 @@ abstract class Statement implements Stringable
 
             // Only keywords are relevant here. Other parts of the query are
             // processed in the functions below.
-            if ($token->type !== Token::TYPE_KEYWORD) {
-                if (($token->type !== Token::TYPE_COMMENT) && ($token->type !== Token::TYPE_WHITESPACE)) {
+            if ($token->type !== TokenType::Keyword) {
+                if (($token->type !== TokenType::Comment) && ($token->type !== TokenType::Whitespace)) {
                     $parser->error('Unexpected token.', $token);
                 }
 
@@ -267,9 +267,9 @@ abstract class Statement implements Stringable
                 ++$list->idx; // Skip ON
 
                 // look for ON DUPLICATE KEY UPDATE
-                $first = $list->getNextOfType(Token::TYPE_KEYWORD);
-                $second = $list->getNextOfType(Token::TYPE_KEYWORD);
-                $third = $list->getNextOfType(Token::TYPE_KEYWORD);
+                $first = $list->getNextOfType(TokenType::Keyword);
+                $second = $list->getNextOfType(TokenType::Keyword);
+                $third = $list->getNextOfType(TokenType::Keyword);
 
                 if (
                     $first && $second && $third

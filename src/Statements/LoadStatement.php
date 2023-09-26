@@ -11,8 +11,8 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function strlen;
 use function trim;
@@ -241,22 +241,22 @@ class LoadStatement extends Statement
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if ($state === 0) {
-                if ($token->type === Token::TYPE_KEYWORD && $token->keyword !== 'INFILE') {
+                if ($token->type === TokenType::Keyword && $token->keyword !== 'INFILE') {
                     $parser->error('Unexpected keyword.', $token);
                     break;
                 }
 
-                if ($token->type !== Token::TYPE_KEYWORD) {
+                if ($token->type !== TokenType::Keyword) {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
@@ -269,7 +269,7 @@ class LoadStatement extends Statement
                 );
                 $state = 1;
             } elseif ($state === 1) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     if ($token->keyword === 'REPLACE' || $token->keyword === 'IGNORE') {
                         $this->replaceIgnore = trim($token->keyword);
                     } elseif ($token->keyword === 'INTO') {
@@ -277,7 +277,7 @@ class LoadStatement extends Statement
                     }
                 }
             } elseif ($state === 2) {
-                if ($token->type !== Token::TYPE_KEYWORD || $token->keyword !== 'TABLE') {
+                if ($token->type !== TokenType::Keyword || $token->keyword !== 'TABLE') {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
@@ -286,13 +286,13 @@ class LoadStatement extends Statement
                 $this->table = Expression::parse($parser, $list, ['parseField' => 'table']);
                 $state = 3;
             } elseif ($state >= 3 && $state <= 7) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     $newState = $this->parseKeywordsAccordingToState($parser, $list, $state);
                     if ($newState === $state) {
                         // Avoid infinite loop
                         break;
                     }
-                } elseif ($token->type === Token::TYPE_OPERATOR && $token->token === '(') {
+                } elseif ($token->type === TokenType::Operator && $token->token === '(') {
                     $this->columnNamesOrUserVariables
                         = ExpressionArray::parse($parser, $list);
                     $state = 7;
@@ -367,10 +367,10 @@ class LoadStatement extends Statement
                     ++$list->idx;
 
                     $this->ignoreNumber = Expression::parse($parser, $list);
-                    $nextToken = $list->getNextOfType(Token::TYPE_KEYWORD);
+                    $nextToken = $list->getNextOfType(TokenType::Keyword);
 
                     if (
-                        $nextToken->type === Token::TYPE_KEYWORD
+                        $nextToken->type === TokenType::Keyword
                         && (($nextToken->keyword === 'LINES')
                         || ($nextToken->keyword === 'ROWS'))
                     ) {

@@ -6,8 +6,8 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Translator;
 
 use function array_merge_recursive;
@@ -90,17 +90,17 @@ final class OptionsArray implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping comments.
-            if ($token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Comment) {
                 continue;
             }
 
             // Skipping whitespace if not parsing value.
-            if (($token->type === Token::TYPE_WHITESPACE) && ($brackets === 0)) {
+            if (($token->type === TokenType::Whitespace) && ($brackets === 0)) {
                 continue;
             }
 

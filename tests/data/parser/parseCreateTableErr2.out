@@ -7,13 +7,19 @@
         "last": 12,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 4,
+            "idx": 4,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "CREATE",
                     "value": "CREATE",
                     "keyword": "CREATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -31,7 +41,9 @@
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 7
                 },
@@ -40,13 +52,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 4,
-            "idx": 4
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -99,14 +113,14 @@
             [
                 "The name of the entity was expected.",
                 {
-                    "@type": "@5"
+                    "@type": "@7"
                 },
                 0
             ],
             [
                 "At least one column definition was expected.",
                 {
-                    "@type": "@4"
+                    "@type": "@6"
                 },
                 0
             ]

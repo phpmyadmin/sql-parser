@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function count;
 
@@ -26,19 +27,19 @@ class TokensListTest extends TestCase
     {
         parent::setUp();
         $this->tokens = [
-            new Token('SELECT', Token::TYPE_KEYWORD),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('*', Token::TYPE_OPERATOR),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('FROM', Token::TYPE_KEYWORD, Token::FLAG_KEYWORD_RESERVED),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('`test`', Token::TYPE_SYMBOL),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('WHERE', Token::TYPE_KEYWORD, Token::FLAG_KEYWORD_RESERVED),
-            new Token(' ', Token::TYPE_WHITESPACE),
-            new Token('name', Token::TYPE_NONE),
-            new Token('=', Token::TYPE_OPERATOR),
-            new Token('fa', Token::TYPE_NONE),
+            new Token('SELECT', TokenType::Keyword),
+            new Token(' ', TokenType::Whitespace),
+            new Token('*', TokenType::Operator),
+            new Token(' ', TokenType::Whitespace),
+            new Token('FROM', TokenType::Keyword, Token::FLAG_KEYWORD_RESERVED),
+            new Token(' ', TokenType::Whitespace),
+            new Token('`test`', TokenType::Symbol),
+            new Token(' ', TokenType::Whitespace),
+            new Token('WHERE', TokenType::Keyword, Token::FLAG_KEYWORD_RESERVED),
+            new Token(' ', TokenType::Whitespace),
+            new Token('name', TokenType::None),
+            new Token('=', TokenType::Operator),
+            new Token('fa', TokenType::None),
         ];
     }
 
@@ -87,43 +88,43 @@ class TokensListTest extends TestCase
     public function testGetNextOfType(): void
     {
         $list = new TokensList($this->tokens);
-        $this->assertEquals($this->tokens[0], $list->getNextOfType(Token::TYPE_KEYWORD));
-        $this->assertEquals($this->tokens[4], $list->getNextOfType([Token::TYPE_KEYWORD]));
-        $this->assertEquals($this->tokens[6], $list->getNextOfType([Token::TYPE_KEYWORD, Token::TYPE_SYMBOL]));
-        $this->assertEquals($this->tokens[8], $list->getNextOfType([Token::TYPE_KEYWORD, Token::TYPE_SYMBOL]));
-        $this->assertNull($list->getNextOfType(Token::TYPE_KEYWORD));
+        $this->assertEquals($this->tokens[0], $list->getNextOfType(TokenType::Keyword));
+        $this->assertEquals($this->tokens[4], $list->getNextOfType([TokenType::Keyword]));
+        $this->assertEquals($this->tokens[6], $list->getNextOfType([TokenType::Keyword, TokenType::Symbol]));
+        $this->assertEquals($this->tokens[8], $list->getNextOfType([TokenType::Keyword, TokenType::Symbol]));
+        $this->assertNull($list->getNextOfType(TokenType::Keyword));
     }
 
     public function testGetPreviousOfType(): void
     {
         $list = new TokensList($this->tokens);
         $list->idx = 9;
-        $this->assertEquals($this->tokens[8], $list->getPreviousOfType([Token::TYPE_KEYWORD, Token::TYPE_SYMBOL]));
-        $this->assertEquals($this->tokens[6], $list->getPreviousOfType([Token::TYPE_KEYWORD, Token::TYPE_SYMBOL]));
-        $this->assertEquals($this->tokens[4], $list->getPreviousOfType([Token::TYPE_KEYWORD]));
-        $this->assertEquals($this->tokens[0], $list->getPreviousOfType(Token::TYPE_KEYWORD));
-        $this->assertNull($list->getPreviousOfType(Token::TYPE_KEYWORD));
+        $this->assertEquals($this->tokens[8], $list->getPreviousOfType([TokenType::Keyword, TokenType::Symbol]));
+        $this->assertEquals($this->tokens[6], $list->getPreviousOfType([TokenType::Keyword, TokenType::Symbol]));
+        $this->assertEquals($this->tokens[4], $list->getPreviousOfType([TokenType::Keyword]));
+        $this->assertEquals($this->tokens[0], $list->getPreviousOfType(TokenType::Keyword));
+        $this->assertNull($list->getPreviousOfType(TokenType::Keyword));
     }
 
     public function testGetNextOfTypeAndFlag(): void
     {
         $list = new TokensList($this->tokens);
         $this->assertEquals($this->tokens[4], $list->getNextOfTypeAndFlag(
-            Token::TYPE_KEYWORD,
+            TokenType::Keyword,
             Token::FLAG_KEYWORD_RESERVED
         ));
         $this->assertEquals($this->tokens[8], $list->getNextOfTypeAndFlag(
-            Token::TYPE_KEYWORD,
+            TokenType::Keyword,
             Token::FLAG_KEYWORD_RESERVED
         ));
-        $this->assertNull($list->getNextOfTypeAndFlag(Token::TYPE_KEYWORD, Token::FLAG_KEYWORD_RESERVED));
+        $this->assertNull($list->getNextOfTypeAndFlag(TokenType::Keyword, Token::FLAG_KEYWORD_RESERVED));
     }
 
     public function testGetNextOfTypeAndValue(): void
     {
         $list = new TokensList($this->tokens);
-        $this->assertEquals($this->tokens[0], $list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'SELECT'));
-        $this->assertNull($list->getNextOfTypeAndValue(Token::TYPE_KEYWORD, 'SELECT'));
+        $this->assertEquals($this->tokens[0], $list->getNextOfTypeAndValue(TokenType::Keyword, 'SELECT'));
+        $this->assertNull($list->getNextOfTypeAndValue(TokenType::Keyword, 'SELECT'));
     }
 
     public function testArrayAccess(): void

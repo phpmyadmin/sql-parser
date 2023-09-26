@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 use function strtolower;
@@ -115,19 +116,19 @@ final class DataType implements Component
             $token = $list->tokens[$list->idx];
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if ($state === 0) {
                 $ret->name = strtoupper((string) $token->value);
-                if (($token->type !== Token::TYPE_KEYWORD) || (! ($token->flags & Token::FLAG_KEYWORD_DATA_TYPE))) {
+                if (($token->type !== TokenType::Keyword) || (! ($token->flags & Token::FLAG_KEYWORD_DATA_TYPE))) {
                     $parser->error('Unrecognized data type.', $token);
                 }
 
                 $state = 1;
             } elseif ($state === 1) {
-                if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                if (($token->type === TokenType::Operator) && ($token->value === '(')) {
                     $parameters = ArrayObj::parse($parser, $list);
                     ++$list->idx;
                     $ret->parameters = ($ret->name === 'ENUM') || ($ret->name === 'SET') ?

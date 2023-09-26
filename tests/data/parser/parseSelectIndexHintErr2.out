@@ -7,13 +7,19 @@
         "last": 49,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 17,
+            "idx": 17,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -31,7 +41,11 @@
                     "token": "*",
                     "value": "*",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 16,
                     "position": 7
                 },
@@ -40,7 +54,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 8
                 },
@@ -49,7 +65,9 @@
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 9
                 },
@@ -58,7 +76,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 13
                 },
@@ -67,7 +87,11 @@
                     "token": "address",
                     "value": "address",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 14
                 },
@@ -76,7 +100,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 21
                 },
@@ -85,7 +111,9 @@
                     "token": "FORCE",
                     "value": "FORCE",
                     "keyword": "FORCE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 22
                 },
@@ -94,7 +122,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 27
                 },
@@ -103,7 +133,9 @@
                     "token": "abc",
                     "value": "abc",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@12"
+                    },
                     "flags": 0,
                     "position": 28
                 },
@@ -112,7 +144,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 31
                 },
@@ -121,7 +155,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 16,
                     "position": 32
                 },
@@ -130,7 +166,9 @@
                     "token": "idx_fk_city_id",
                     "value": "idx_fk_city_id",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@12"
+                    },
                     "flags": 0,
                     "position": 33
                 },
@@ -139,7 +177,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 16,
                     "position": 47
                 },
@@ -148,7 +188,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 48
                 },
@@ -157,13 +201,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 17,
-            "idx": 17
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -234,28 +278,28 @@
             [
                 "Unexpected token.",
                 {
-                    "@type": "@12"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@14"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@15"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
                     "@type": "@16"
+                },
+                0
+            ],
+            [
+                "Unexpected token.",
+                {
+                    "@type": "@18"
+                },
+                0
+            ],
+            [
+                "Unexpected token.",
+                {
+                    "@type": "@19"
+                },
+                0
+            ],
+            [
+                "Unexpected token.",
+                {
+                    "@type": "@20"
                 },
                 0
             ]

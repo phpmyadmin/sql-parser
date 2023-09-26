@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
 use function in_array;
@@ -122,18 +123,18 @@ final class Condition implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if ($token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Comment) {
                 continue;
             }
 
             // Replacing all whitespaces (new lines, tabs, etc.) with a single
             // space character.
-            if ($token->type === Token::TYPE_WHITESPACE) {
+            if ($token->type === TokenType::Whitespace) {
                 $expr->expr .= ' ';
                 continue;
             }
@@ -162,7 +163,7 @@ final class Condition implements Component
             }
 
             if (
-                ($token->type === Token::TYPE_KEYWORD)
+                ($token->type === TokenType::Keyword)
                 && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
                 && ! ($token->flags & Token::FLAG_KEYWORD_FUNCTION)
             ) {
@@ -175,7 +176,7 @@ final class Condition implements Component
                 }
             }
 
-            if ($token->type === Token::TYPE_OPERATOR) {
+            if ($token->type === TokenType::Operator) {
                 if ($token->value === '(') {
                     ++$brackets;
                 } elseif ($token->value === ')') {
@@ -189,11 +190,11 @@ final class Condition implements Component
 
             $expr->expr .= $token->token;
             if (
-                ($token->type !== Token::TYPE_NONE)
-                && (($token->type !== Token::TYPE_KEYWORD)
+                ($token->type !== TokenType::None)
+                && (($token->type !== TokenType::Keyword)
                 || ($token->flags & Token::FLAG_KEYWORD_RESERVED))
-                && ($token->type !== Token::TYPE_STRING)
-                && ($token->type !== Token::TYPE_SYMBOL)
+                && ($token->type !== TokenType::String)
+                && ($token->type !== TokenType::Symbol)
             ) {
                 continue;
             }

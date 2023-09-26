@@ -14,8 +14,8 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function stripos;
 use function strlen;
@@ -235,12 +235,12 @@ class DeleteStatement extends Statement
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             if ($state === 0) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     if ($token->keyword !== 'FROM') {
                         $parser->error('Unexpected keyword.', $token);
                         break;
@@ -255,7 +255,7 @@ class DeleteStatement extends Statement
                     $state = 1;
                 }
             } elseif ($state === 1) {
-                if ($token->type !== Token::TYPE_KEYWORD) {
+                if ($token->type !== TokenType::Keyword) {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
@@ -270,7 +270,7 @@ class DeleteStatement extends Statement
 
                 $state = 2;
             } elseif ($state === 2) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     if (stripos($token->keyword, 'JOIN') !== false) {
                         ++$list->idx;
                         $this->join = JoinKeyword::parse($parser, $list);
@@ -307,7 +307,7 @@ class DeleteStatement extends Statement
                     }
                 }
             } elseif ($state === 3) {
-                if ($token->type !== Token::TYPE_KEYWORD) {
+                if ($token->type !== TokenType::Keyword) {
                     $parser->error('Unexpected token.', $token);
                     break;
                 }
@@ -321,12 +321,12 @@ class DeleteStatement extends Statement
                 $this->where = Condition::parse($parser, $list);
                 $state = 4;
             } elseif ($state === 4) {
-                if ($multiTable === true && $token->type === Token::TYPE_KEYWORD) {
+                if ($multiTable === true && $token->type === TokenType::Keyword) {
                     $parser->error('This type of clause is not valid in Multi-table queries.', $token);
                     break;
                 }
 
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     switch ($token->keyword) {
                         case 'ORDER BY':
                             ++$list->idx; // Skip 'ORDER  BY'
@@ -344,7 +344,7 @@ class DeleteStatement extends Statement
                     }
                 }
             } elseif ($state === 5) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     if ($token->keyword !== 'LIMIT') {
                         $parser->error('Unexpected keyword.', $token);
                         break;

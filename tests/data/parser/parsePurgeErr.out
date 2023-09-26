@@ -7,13 +7,19 @@
         "last": 30,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 9,
+            "idx": 9,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "PURGE",
                     "value": "PURGE",
                     "keyword": "PURGE",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 5
                 },
@@ -31,7 +41,9 @@
                     "token": "LOGS",
                     "value": "LOGS",
                     "keyword": "LOGS",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 1,
                     "position": 6
                 },
@@ -40,7 +52,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 10
                 },
@@ -49,7 +63,9 @@
                     "token": "TO",
                     "value": "TO",
                     "keyword": "TO",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 3,
                     "position": 11
                 },
@@ -58,7 +74,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 13
                 },
@@ -67,7 +85,11 @@
                     "token": "'mysql-bin.010'",
                     "value": "mysql-bin.010",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "String",
+                        "value": 7
+                    },
                     "flags": 1,
                     "position": 14
                 },
@@ -76,7 +98,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 29
                 },
@@ -85,13 +111,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@13"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 9,
-            "idx": 9
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -124,20 +150,13 @@
             [
                 "Unexpected keyword",
                 {
-                    "@type": "@4"
+                    "@type": "@6"
                 },
                 0
             ],
             [
                 "Unexpected keyword",
                 {
-                    "@type": "@6"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
                     "@type": "@8"
                 },
                 0
@@ -145,7 +164,14 @@
             [
                 "Unexpected token.",
                 {
-                    "@type": "@8"
+                    "@type": "@10"
+                },
+                0
+            ],
+            [
+                "Unexpected token.",
+                {
+                    "@type": "@10"
                 },
                 0
             ]

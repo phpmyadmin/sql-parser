@@ -27,8 +27,8 @@ use PhpMyAdmin\SqlParser\Statements\SetStatement;
 use PhpMyAdmin\SqlParser\Statements\ShowStatement;
 use PhpMyAdmin\SqlParser\Statements\TruncateStatement;
 use PhpMyAdmin\SqlParser\Statements\UpdateStatement;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function array_flip;
 use function array_keys;
@@ -650,7 +650,7 @@ class Query
          *
          * @var string
          */
-        $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD)->keyword;
+        $clauseType = $lexer->list->getNextOfType(TokenType::Keyword)->keyword;
 
         /**
          * The index of this clause.
@@ -685,11 +685,11 @@ class Query
         for ($i = $statement->first; $i <= $statement->last; ++$i) {
             $token = $list->tokens[$i];
 
-            if ($token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Comment) {
                 continue;
             }
 
-            if ($token->type === Token::TYPE_OPERATOR) {
+            if ($token->type === TokenType::Operator) {
                 if ($token->value === '(') {
                     ++$brackets;
                 } elseif ($token->value === ')') {
@@ -700,7 +700,7 @@ class Query
             if ($brackets === 0) {
                 // Checking if the section was changed.
                 if (
-                    ($token->type === Token::TYPE_KEYWORD)
+                    ($token->type === TokenType::Keyword)
                     && isset($clauses[$token->keyword])
                     && ($clauses[$token->keyword] >= $currIdx)
                 ) {
@@ -838,13 +838,13 @@ class Query
         for ($list->idx = 0; $list->idx < $list->count; ++$list->idx) {
             $token = $list->tokens[$list->idx];
 
-            if ($token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Comment) {
                 continue;
             }
 
             $statement .= $token->token;
 
-            if (($token->type === Token::TYPE_DELIMITER) && ! empty($token->token)) {
+            if (($token->type === TokenType::Delimiter) && ! empty($token->token)) {
                 $delimiter = $token->token;
                 $fullStatement = true;
                 break;
@@ -900,11 +900,11 @@ class Query
         for ($i = $statement->first; $i <= $statement->last; ++$i) {
             $token = $list->tokens[$i];
 
-            if ($token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Comment) {
                 continue;
             }
 
-            if ($token->type === Token::TYPE_OPERATOR) {
+            if ($token->type === TokenType::Operator) {
                 if ($token->value === '(') {
                     ++$brackets;
                 } elseif ($token->value === ')') {
@@ -917,7 +917,7 @@ class Query
             }
 
             if (
-                ($token->type === Token::TYPE_KEYWORD)
+                ($token->type === TokenType::Keyword)
                 && isset($clauses[$token->keyword])
                 && ($clause === $token->keyword)
             ) {

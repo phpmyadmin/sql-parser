@@ -14,13 +14,19 @@
         "last": 2635,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 505,
+            "idx": 505,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- phpMyAdmin SQL Dump",
                     "value": "-- phpMyAdmin SQL Dump",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Comment",
+                        "value": 4
+                    },
                     "flags": 4,
                     "position": 0
                 },
@@ -29,7 +35,11 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 22
                 },
@@ -38,7 +48,9 @@
                     "token": "-- version 5.0.0-dev",
                     "value": "-- version 5.0.0-dev",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 23
                 },
@@ -47,7 +59,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 43
                 },
@@ -56,7 +70,9 @@
                     "token": "-- https://www.phpmyadmin.net/",
                     "value": "-- https://www.phpmyadmin.net/",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 44
                 },
@@ -65,7 +81,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 74
                 },
@@ -74,7 +92,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 75
                 },
@@ -83,7 +103,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 77
                 },
@@ -92,7 +114,9 @@
                     "token": "-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com",
                     "value": "-- Hôte : xxxx.xxxxx.eu-west-1.rds.amazonaws.com",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 78
                 },
@@ -101,7 +125,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 126
                 },
@@ -110,7 +136,9 @@
                     "token": "-- Généré le :  mer. 05 sep. 2018 à 00:03",
                     "value": "-- Généré le :  mer. 05 sep. 2018 à 00:03",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 127
                 },
@@ -119,7 +147,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 168
                 },
@@ -128,7 +158,9 @@
                     "token": "-- Version du serveur :  10.0.24-MariaDB",
                     "value": "-- Version du serveur :  10.0.24-MariaDB",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 169
                 },
@@ -137,7 +169,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 209
                 },
@@ -146,7 +180,9 @@
                     "token": "-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1",
                     "value": "-- Version de PHP :  7.2.8-1+ubuntu18.04.1+deb.sury.org+1",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 210
                 },
@@ -155,7 +191,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 267
                 },
@@ -164,7 +202,11 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 11,
                     "position": 269
                 },
@@ -173,7 +215,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 272
                 },
@@ -182,7 +226,11 @@
                     "token": "SQL_MODE",
                     "value": "SQL_MODE",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 273
                 },
@@ -191,7 +239,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 281
                 },
@@ -200,7 +250,11 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 2,
                     "position": 282
                 },
@@ -209,7 +263,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 283
                 },
@@ -218,7 +274,11 @@
                     "token": "\"NO_AUTO_VALUE_ON_ZERO\"",
                     "value": "NO_AUTO_VALUE_ON_ZERO",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "String",
+                        "value": 7
+                    },
                     "flags": 2,
                     "position": 284
                 },
@@ -227,7 +287,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 307
                 },
@@ -236,7 +300,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 308
                 },
@@ -245,7 +311,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 309
                 },
@@ -254,7 +322,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 312
                 },
@@ -263,7 +333,9 @@
                     "token": "AUTOCOMMIT",
                     "value": "AUTOCOMMIT",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 313
                 },
@@ -272,7 +344,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 323
                 },
@@ -281,7 +355,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 324
                 },
@@ -290,7 +366,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 325
                 },
@@ -299,7 +377,11 @@
                     "token": "0",
                     "value": 0,
                     "keyword": null,
-                    "type": 6,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Number",
+                        "value": 6
+                    },
                     "flags": 0,
                     "position": 326
                 },
@@ -308,7 +390,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 327
                 },
@@ -317,7 +401,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 328
                 },
@@ -326,7 +412,9 @@
                     "token": "START TRANSACTION",
                     "value": "START TRANSACTION",
                     "keyword": "START TRANSACTION",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 329
                 },
@@ -335,7 +423,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 346
                 },
@@ -344,7 +434,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 347
                 },
@@ -353,7 +445,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 348
                 },
@@ -362,7 +456,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 351
                 },
@@ -371,7 +467,9 @@
                     "token": "time_zone",
                     "value": "time_zone",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 352
                 },
@@ -380,7 +478,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 361
                 },
@@ -389,7 +489,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 362
                 },
@@ -398,7 +500,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 363
                 },
@@ -407,7 +511,9 @@
                     "token": "\"+00:00\"",
                     "value": "+00:00",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "@31"
+                    },
                     "flags": 2,
                     "position": 364
                 },
@@ -416,7 +522,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 372
                 },
@@ -425,7 +533,9 @@
                     "token": "\n\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 373
                 },
@@ -434,7 +544,9 @@
                     "token": "/*!40101",
                     "value": "/*!40101",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 10,
                     "position": 376
                 },
@@ -443,7 +555,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 384
                 },
@@ -452,7 +566,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 385
                 },
@@ -461,7 +577,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 388
                 },
@@ -470,7 +588,11 @@
                     "token": "@OLD_CHARACTER_SET_CLIENT",
                     "value": "OLD_CHARACTER_SET_CLIENT",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Symbol",
+                        "value": 8
+                    },
                     "flags": 1,
                     "position": 389
                 },
@@ -479,7 +601,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 414
                 },
@@ -488,7 +612,9 @@
                     "token": "@@CHARACTER_SET_CLIENT",
                     "value": "CHARACTER_SET_CLIENT",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 9,
                     "position": 415
                 },
@@ -497,7 +623,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 437
                 },
@@ -506,7 +634,9 @@
                     "token": "*/",
                     "value": "*/",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 2,
                     "position": 438
                 },
@@ -515,7 +645,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 440
                 },
@@ -524,7 +656,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 441
                 },
@@ -533,7 +667,9 @@
                     "token": "/*!40101",
                     "value": "/*!40101",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 10,
                     "position": 442
                 },
@@ -542,7 +678,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 450
                 },
@@ -551,7 +689,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 451
                 },
@@ -560,7 +700,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 454
                 },
@@ -569,7 +711,9 @@
                     "token": "@OLD_CHARACTER_SET_RESULTS",
                     "value": "OLD_CHARACTER_SET_RESULTS",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 1,
                     "position": 455
                 },
@@ -578,7 +722,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 481
                 },
@@ -587,7 +733,9 @@
                     "token": "@@CHARACTER_SET_RESULTS",
                     "value": "CHARACTER_SET_RESULTS",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 9,
                     "position": 482
                 },
@@ -596,7 +744,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 505
                 },
@@ -605,7 +755,9 @@
                     "token": "*/",
                     "value": "*/",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 2,
                     "position": 506
                 },
@@ -614,7 +766,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 508
                 },
@@ -623,7 +777,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 509
                 },
@@ -632,7 +788,9 @@
                     "token": "/*!40101",
                     "value": "/*!40101",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 10,
                     "position": 510
                 },
@@ -641,7 +799,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 518
                 },
@@ -650,7 +810,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 519
                 },
@@ -659,7 +821,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 522
                 },
@@ -668,7 +832,9 @@
                     "token": "@OLD_COLLATION_CONNECTION",
                     "value": "OLD_COLLATION_CONNECTION",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 1,
                     "position": 523
                 },
@@ -677,7 +843,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 548
                 },
@@ -686,7 +854,9 @@
                     "token": "@@COLLATION_CONNECTION",
                     "value": "COLLATION_CONNECTION",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 9,
                     "position": 549
                 },
@@ -695,7 +865,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 571
                 },
@@ -704,7 +876,9 @@
                     "token": "*/",
                     "value": "*/",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 2,
                     "position": 572
                 },
@@ -713,7 +887,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 574
                 },
@@ -722,7 +898,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 575
                 },
@@ -731,7 +909,9 @@
                     "token": "/*!40101",
                     "value": "/*!40101",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 10,
                     "position": 576
                 },
@@ -740,7 +920,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 584
                 },
@@ -749,7 +931,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 585
                 },
@@ -758,7 +942,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 588
                 },
@@ -767,7 +953,9 @@
                     "token": "NAMES",
                     "value": "NAMES",
                     "keyword": "NAMES",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 589
                 },
@@ -776,7 +964,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 594
                 },
@@ -785,7 +975,9 @@
                     "token": "utf8mb4",
                     "value": "utf8mb4",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 595
                 },
@@ -794,7 +986,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 602
                 },
@@ -803,7 +997,9 @@
                     "token": "*/",
                     "value": "*/",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 2,
                     "position": 603
                 },
@@ -812,7 +1008,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 605
                 },
@@ -821,7 +1019,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 606
                 },
@@ -830,7 +1030,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 608
                 },
@@ -839,7 +1041,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 610
                 },
@@ -848,7 +1052,9 @@
                     "token": "-- Base de données :  `xxxxxdbnamexxxxx`",
                     "value": "-- Base de données :  `xxxxxdbnamexxxxx`",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 611
                 },
@@ -857,7 +1063,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 651
                 },
@@ -866,7 +1074,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 652
                 },
@@ -875,7 +1085,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 654
                 },
@@ -884,7 +1096,9 @@
                     "token": "-- --------------------------------------------------------",
                     "value": "-- --------------------------------------------------------",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 656
                 },
@@ -893,7 +1107,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 715
                 },
@@ -902,7 +1118,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 717
                 },
@@ -911,7 +1129,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 719
                 },
@@ -920,7 +1140,9 @@
                     "token": "-- Structure de la table `monitoring__times`",
                     "value": "-- Structure de la table `monitoring__times`",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 720
                 },
@@ -929,7 +1151,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 764
                 },
@@ -938,7 +1162,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 765
                 },
@@ -947,7 +1173,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 767
                 },
@@ -956,7 +1184,9 @@
                     "token": "CREATE",
                     "value": "CREATE",
                     "keyword": "CREATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 769
                 },
@@ -965,7 +1195,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 775
                 },
@@ -974,7 +1206,9 @@
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 776
                 },
@@ -983,7 +1217,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 781
                 },
@@ -992,7 +1228,9 @@
                     "token": "`monitoring__times`",
                     "value": "monitoring__times",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 782
                 },
@@ -1001,7 +1239,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 801
                 },
@@ -1010,7 +1250,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 802
                 },
@@ -1019,7 +1261,9 @@
                     "token": "\n  ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 803
                 },
@@ -1028,7 +1272,9 @@
                     "token": "`idServer`",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 806
                 },
@@ -1037,7 +1283,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 816
                 },
@@ -1046,7 +1294,9 @@
                     "token": "int",
                     "value": "INT",
                     "keyword": "INT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 817
                 },
@@ -1055,7 +1305,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 820
                 },
@@ -1064,7 +1316,9 @@
                     "token": "11",
                     "value": 11,
                     "keyword": null,
-                    "type": 6,
+                    "type": {
+                        "@type": "@42"
+                    },
                     "flags": 0,
                     "position": 821
                 },
@@ -1073,7 +1327,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 823
                 },
@@ -1082,7 +1338,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 824
                 },
@@ -1091,7 +1349,9 @@
                     "token": "UNSIGNED",
                     "value": "UNSIGNED",
                     "keyword": "UNSIGNED",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 825
                 },
@@ -1100,7 +1360,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 833
                 },
@@ -1109,7 +1371,9 @@
                     "token": "NOT NULL",
                     "value": "NOT NULL",
                     "keyword": "NOT NULL",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 834
                 },
@@ -1118,7 +1382,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 842
                 },
@@ -1127,7 +1393,9 @@
                     "token": "COMMENT",
                     "value": "COMMENT",
                     "keyword": "COMMENT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 843
                 },
@@ -1136,7 +1404,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 850
                 },
@@ -1145,7 +1415,9 @@
                     "token": "'Id of server'",
                     "value": "Id of server",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "@31"
+                    },
                     "flags": 1,
                     "position": 851
                 },
@@ -1154,7 +1426,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 865
                 },
@@ -1163,7 +1437,9 @@
                     "token": "\n  ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 866
                 },
@@ -1172,7 +1448,9 @@
                     "token": "`time`",
                     "value": "time",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 869
                 },
@@ -1181,7 +1459,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 875
                 },
@@ -1190,7 +1470,9 @@
                     "token": "timestamp",
                     "value": "timestamp",
                     "keyword": "TIMESTAMP",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 41,
                     "position": 876
                 },
@@ -1199,7 +1481,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 885
                 },
@@ -1208,7 +1492,9 @@
                     "token": "NOT NULL",
                     "value": "NOT NULL",
                     "keyword": "NOT NULL",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 886
                 },
@@ -1217,7 +1503,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 894
                 },
@@ -1226,7 +1514,9 @@
                     "token": "DEFAULT",
                     "value": "DEFAULT",
                     "keyword": "DEFAULT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 35,
                     "position": 895
                 },
@@ -1235,7 +1525,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 902
                 },
@@ -1244,7 +1536,9 @@
                     "token": "CURRENT_TIMESTAMP",
                     "value": "CURRENT_TIMESTAMP",
                     "keyword": "CURRENT_TIMESTAMP",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 35,
                     "position": 903
                 },
@@ -1253,7 +1547,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 920
                 },
@@ -1262,7 +1558,9 @@
                     "token": "ON UPDATE",
                     "value": "ON UPDATE",
                     "keyword": "ON UPDATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 921
                 },
@@ -1271,7 +1569,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 930
                 },
@@ -1280,7 +1580,9 @@
                     "token": "CURRENT_TIMESTAMP",
                     "value": "CURRENT_TIMESTAMP",
                     "keyword": "CURRENT_TIMESTAMP",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 35,
                     "position": 931
                 },
@@ -1289,7 +1591,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 948
                 },
@@ -1298,7 +1602,9 @@
                     "token": "COMMENT",
                     "value": "COMMENT",
                     "keyword": "COMMENT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 949
                 },
@@ -1307,7 +1613,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 956
                 },
@@ -1316,7 +1624,9 @@
                     "token": "'Time UTC'",
                     "value": "Time UTC",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "@31"
+                    },
                     "flags": 1,
                     "position": 957
                 },
@@ -1325,7 +1635,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 967
                 },
@@ -1334,7 +1646,9 @@
                     "token": "\n  ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 968
                 },
@@ -1343,7 +1657,9 @@
                     "token": "`totalTime`",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 971
                 },
@@ -1352,7 +1668,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 982
                 },
@@ -1361,7 +1679,9 @@
                     "token": "float",
                     "value": "FLOAT",
                     "keyword": "FLOAT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 983
                 },
@@ -1370,7 +1690,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 988
                 },
@@ -1379,7 +1701,9 @@
                     "token": "UNSIGNED",
                     "value": "UNSIGNED",
                     "keyword": "UNSIGNED",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 989
                 },
@@ -1388,7 +1712,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 997
                 },
@@ -1397,7 +1723,9 @@
                     "token": "NOT NULL",
                     "value": "NOT NULL",
                     "keyword": "NOT NULL",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 998
                 },
@@ -1406,7 +1734,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1006
                 },
@@ -1415,7 +1745,9 @@
                     "token": "COMMENT",
                     "value": "COMMENT",
                     "keyword": "COMMENT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1007
                 },
@@ -1424,7 +1756,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1014
                 },
@@ -1433,7 +1767,9 @@
                     "token": "'Total time in ms'",
                     "value": "Total time in ms",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "@31"
+                    },
                     "flags": 1,
                     "position": 1015
                 },
@@ -1442,7 +1778,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1033
                 },
@@ -1451,7 +1789,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1034
                 },
@@ -1460,7 +1800,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1035
                 },
@@ -1469,7 +1811,9 @@
                     "token": "ENGINE",
                     "value": "ENGINE",
                     "keyword": "ENGINE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1036
                 },
@@ -1478,7 +1822,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1042
                 },
@@ -1487,7 +1833,9 @@
                     "token": "InnoDB",
                     "value": "InnoDB",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1043
                 },
@@ -1496,7 +1844,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1049
                 },
@@ -1505,7 +1855,9 @@
                     "token": "DEFAULT CHARSET",
                     "value": "DEFAULT CHARSET",
                     "keyword": "DEFAULT CHARSET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 1050
                 },
@@ -1514,7 +1866,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1065
                 },
@@ -1523,7 +1877,9 @@
                     "token": "utf8",
                     "value": "utf8",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1066
                 },
@@ -1532,7 +1888,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1070
                 },
@@ -1541,7 +1899,9 @@
                     "token": "COLLATE",
                     "value": "COLLATE",
                     "keyword": "COLLATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1071
                 },
@@ -1550,7 +1910,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1078
                 },
@@ -1559,7 +1921,9 @@
                     "token": "utf8_unicode_ci",
                     "value": "utf8_unicode_ci",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1079
                 },
@@ -1568,7 +1932,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1094
                 },
@@ -1577,7 +1943,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1095
                 },
@@ -1586,7 +1954,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1097
                 },
@@ -1595,7 +1965,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1099
                 },
@@ -1604,7 +1976,9 @@
                     "token": "-- Déclencheurs `monitoring__times`",
                     "value": "-- Déclencheurs `monitoring__times`",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1100
                 },
@@ -1613,7 +1987,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1135
                 },
@@ -1622,7 +1998,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1136
                 },
@@ -1631,7 +2009,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1138
                 },
@@ -1640,7 +2020,9 @@
                     "token": "DELIMITER",
                     "value": "DELIMITER",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1139
                 },
@@ -1649,7 +2031,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1148
                 },
@@ -1658,7 +2042,9 @@
                     "token": "$$",
                     "value": "$$",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1149
                 },
@@ -1667,7 +2053,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1151
                 },
@@ -1676,7 +2064,9 @@
                     "token": "CREATE",
                     "value": "CREATE",
                     "keyword": "CREATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1152
                 },
@@ -1685,7 +2075,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1158
                 },
@@ -1694,7 +2086,9 @@
                     "token": "TRIGGER",
                     "value": "TRIGGER",
                     "keyword": "TRIGGER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1159
                 },
@@ -1703,7 +2097,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1166
                 },
@@ -1712,7 +2108,9 @@
                     "token": "`copyTimes`",
                     "value": "copyTimes",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1167
                 },
@@ -1721,7 +2119,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1178
                 },
@@ -1730,7 +2130,9 @@
                     "token": "AFTER",
                     "value": "AFTER",
                     "keyword": "AFTER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1179
                 },
@@ -1739,7 +2141,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1184
                 },
@@ -1748,7 +2152,9 @@
                     "token": "INSERT",
                     "value": "INSERT",
                     "keyword": "INSERT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 35,
                     "position": 1185
                 },
@@ -1757,7 +2163,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1191
                 },
@@ -1766,7 +2174,9 @@
                     "token": "ON",
                     "value": "ON",
                     "keyword": "ON",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1192
                 },
@@ -1775,7 +2185,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1194
                 },
@@ -1784,7 +2196,9 @@
                     "token": "`monitoring__times`",
                     "value": "monitoring__times",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1195
                 },
@@ -1793,7 +2207,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1214
                 },
@@ -1802,7 +2218,9 @@
                     "token": "FOR EACH ROW",
                     "value": "FOR EACH ROW",
                     "keyword": "FOR EACH ROW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 1215
                 },
@@ -1811,7 +2229,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1227
                 },
@@ -1820,7 +2240,9 @@
                     "token": "INSERT",
                     "value": "INSERT",
                     "keyword": "INSERT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 35,
                     "position": 1228
                 },
@@ -1829,7 +2251,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1234
                 },
@@ -1838,7 +2262,9 @@
                     "token": "INTO",
                     "value": "INTO",
                     "keyword": "INTO",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1235
                 },
@@ -1847,7 +2273,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1239
                 },
@@ -1856,7 +2284,9 @@
                     "token": "monitoring__times_mirror",
                     "value": "monitoring__times_mirror",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1240
                 },
@@ -1865,7 +2295,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1264
                 },
@@ -1874,7 +2306,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1265
                 },
@@ -1883,7 +2317,9 @@
                     "token": "`idServer`",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1266
                 },
@@ -1892,7 +2328,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1276
                 },
@@ -1901,7 +2339,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1277
                 },
@@ -1910,7 +2350,9 @@
                     "token": "`time`",
                     "value": "time",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1278
                 },
@@ -1919,7 +2361,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1284
                 },
@@ -1928,7 +2372,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1285
                 },
@@ -1937,7 +2383,9 @@
                     "token": "`totalTime`",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1286
                 },
@@ -1946,7 +2394,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1297
                 },
@@ -1955,7 +2405,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1298
                 },
@@ -1964,7 +2416,9 @@
                     "token": "VALUES",
                     "value": "VALUES",
                     "keyword": "VALUES",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 35,
                     "position": 1299
                 },
@@ -1973,7 +2427,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1305
                 },
@@ -1982,7 +2438,9 @@
                     "token": "new",
                     "value": "new",
                     "keyword": "NEW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1306
                 },
@@ -1991,7 +2449,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1309
                 },
@@ -2000,7 +2460,9 @@
                     "token": "idServer",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1310
                 },
@@ -2009,7 +2471,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1318
                 },
@@ -2018,7 +2482,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1319
                 },
@@ -2027,7 +2493,9 @@
                     "token": "new",
                     "value": "new",
                     "keyword": "NEW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1320
                 },
@@ -2036,7 +2504,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1323
                 },
@@ -2045,7 +2515,9 @@
                     "token": "time",
                     "value": "time",
                     "keyword": "TIME",
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1324
                 },
@@ -2054,7 +2526,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1328
                 },
@@ -2063,7 +2537,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1329
                 },
@@ -2072,7 +2548,9 @@
                     "token": "new",
                     "value": "new",
                     "keyword": "NEW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1330
                 },
@@ -2081,7 +2559,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1333
                 },
@@ -2090,7 +2570,9 @@
                     "token": "totalTime",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1334
                 },
@@ -2099,7 +2581,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1343
                 },
@@ -2108,7 +2592,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1344
                 },
@@ -2117,7 +2603,9 @@
                     "token": "$$",
                     "value": "$$",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1345
                 },
@@ -2126,7 +2614,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1347
                 },
@@ -2135,7 +2625,9 @@
                     "token": "DELIMITER",
                     "value": "DELIMITER",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1348
                 },
@@ -2144,7 +2636,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1357
                 },
@@ -2153,7 +2647,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1358
                 },
@@ -2162,7 +2658,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1359
                 },
@@ -2171,7 +2669,9 @@
                     "token": "DELIMITER",
                     "value": "DELIMITER",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1360
                 },
@@ -2180,7 +2680,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1369
                 },
@@ -2189,7 +2691,9 @@
                     "token": "$$",
                     "value": "$$",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1370
                 },
@@ -2198,7 +2702,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1372
                 },
@@ -2207,7 +2713,9 @@
                     "token": "CREATE",
                     "value": "CREATE",
                     "keyword": "CREATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1373
                 },
@@ -2216,7 +2724,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1379
                 },
@@ -2225,7 +2735,9 @@
                     "token": "TRIGGER",
                     "value": "TRIGGER",
                     "keyword": "TRIGGER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1380
                 },
@@ -2234,7 +2746,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1387
                 },
@@ -2243,7 +2757,9 @@
                     "token": "`deleteTimes`",
                     "value": "deleteTimes",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1388
                 },
@@ -2252,7 +2768,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1401
                 },
@@ -2261,7 +2779,9 @@
                     "token": "AFTER",
                     "value": "AFTER",
                     "keyword": "AFTER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1402
                 },
@@ -2270,7 +2790,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1407
                 },
@@ -2279,7 +2801,9 @@
                     "token": "DELETE",
                     "value": "DELETE",
                     "keyword": "DELETE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1408
                 },
@@ -2288,7 +2812,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1414
                 },
@@ -2297,7 +2823,9 @@
                     "token": "ON",
                     "value": "ON",
                     "keyword": "ON",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1415
                 },
@@ -2306,7 +2834,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1417
                 },
@@ -2315,7 +2845,9 @@
                     "token": "`monitoring__times`",
                     "value": "monitoring__times",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1418
                 },
@@ -2324,7 +2856,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1437
                 },
@@ -2333,7 +2867,9 @@
                     "token": "FOR EACH ROW",
                     "value": "FOR EACH ROW",
                     "keyword": "FOR EACH ROW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 1438
                 },
@@ -2342,7 +2878,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1450
                 },
@@ -2351,7 +2889,9 @@
                     "token": "DELETE",
                     "value": "DELETE",
                     "keyword": "DELETE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1451
                 },
@@ -2360,7 +2900,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1457
                 },
@@ -2369,7 +2911,9 @@
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1458
                 },
@@ -2378,7 +2922,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1462
                 },
@@ -2387,7 +2933,9 @@
                     "token": "monitoring__times_mirror",
                     "value": "monitoring__times_mirror",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1463
                 },
@@ -2396,7 +2944,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1487
                 },
@@ -2405,7 +2955,9 @@
                     "token": "WHERE",
                     "value": "WHERE",
                     "keyword": "WHERE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1488
                 },
@@ -2414,7 +2966,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1493
                 },
@@ -2423,7 +2977,9 @@
                     "token": "`idServer`",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1494
                 },
@@ -2432,7 +2988,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1504
                 },
@@ -2441,7 +2999,9 @@
                     "token": "old",
                     "value": "old",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1505
                 },
@@ -2450,7 +3010,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1508
                 },
@@ -2459,7 +3021,9 @@
                     "token": "idServer",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1509
                 },
@@ -2468,7 +3032,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1517
                 },
@@ -2477,7 +3043,9 @@
                     "token": "AND",
                     "value": "AND",
                     "keyword": "AND",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1518
                 },
@@ -2486,7 +3054,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1521
                 },
@@ -2495,7 +3065,9 @@
                     "token": "`time`",
                     "value": "time",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1522
                 },
@@ -2504,7 +3076,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1528
                 },
@@ -2513,7 +3087,9 @@
                     "token": "old",
                     "value": "old",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1529
                 },
@@ -2522,7 +3098,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1532
                 },
@@ -2531,7 +3109,9 @@
                     "token": "time",
                     "value": "time",
                     "keyword": "TIME",
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1533
                 },
@@ -2540,7 +3120,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1537
                 },
@@ -2549,7 +3131,9 @@
                     "token": "AND",
                     "value": "AND",
                     "keyword": "AND",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1538
                 },
@@ -2558,7 +3142,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1541
                 },
@@ -2567,7 +3153,9 @@
                     "token": "`totalTime`",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1542
                 },
@@ -2576,7 +3164,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1553
                 },
@@ -2585,7 +3175,9 @@
                     "token": "old",
                     "value": "old",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1554
                 },
@@ -2594,7 +3186,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1557
                 },
@@ -2603,7 +3197,9 @@
                     "token": "totalTime",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1558
                 },
@@ -2612,7 +3208,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1567
                 },
@@ -2621,7 +3219,9 @@
                     "token": "$$",
                     "value": "$$",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1568
                 },
@@ -2630,7 +3230,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1570
                 },
@@ -2639,7 +3241,9 @@
                     "token": "DELIMITER",
                     "value": "DELIMITER",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1571
                 },
@@ -2648,7 +3252,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1580
                 },
@@ -2657,7 +3263,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1581
                 },
@@ -2666,7 +3274,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1582
                 },
@@ -2675,7 +3285,9 @@
                     "token": "DELIMITER",
                     "value": "DELIMITER",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1583
                 },
@@ -2684,7 +3296,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1592
                 },
@@ -2693,7 +3307,9 @@
                     "token": "$$",
                     "value": "$$",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1593
                 },
@@ -2702,7 +3318,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1595
                 },
@@ -2711,7 +3329,9 @@
                     "token": "CREATE",
                     "value": "CREATE",
                     "keyword": "CREATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1596
                 },
@@ -2720,7 +3340,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1602
                 },
@@ -2729,7 +3351,9 @@
                     "token": "TRIGGER",
                     "value": "TRIGGER",
                     "keyword": "TRIGGER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1603
                 },
@@ -2738,7 +3362,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1610
                 },
@@ -2747,7 +3373,9 @@
                     "token": "`updateTimes`",
                     "value": "updateTimes",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1611
                 },
@@ -2756,7 +3384,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1624
                 },
@@ -2765,7 +3395,9 @@
                     "token": "AFTER",
                     "value": "AFTER",
                     "keyword": "AFTER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1625
                 },
@@ -2774,7 +3406,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1630
                 },
@@ -2783,7 +3417,9 @@
                     "token": "UPDATE",
                     "value": "UPDATE",
                     "keyword": "UPDATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1631
                 },
@@ -2792,7 +3428,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1637
                 },
@@ -2801,7 +3439,9 @@
                     "token": "ON",
                     "value": "ON",
                     "keyword": "ON",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1638
                 },
@@ -2810,7 +3450,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1640
                 },
@@ -2819,7 +3461,9 @@
                     "token": "`monitoring__times`",
                     "value": "monitoring__times",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1641
                 },
@@ -2828,7 +3472,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1660
                 },
@@ -2837,7 +3483,9 @@
                     "token": "FOR EACH ROW",
                     "value": "FOR EACH ROW",
                     "keyword": "FOR EACH ROW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 7,
                     "position": 1661
                 },
@@ -2846,7 +3494,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1673
                 },
@@ -2855,7 +3505,9 @@
                     "token": "UPDATE",
                     "value": "UPDATE",
                     "keyword": "UPDATE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1674
                 },
@@ -2864,7 +3516,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1680
                 },
@@ -2873,7 +3527,9 @@
                     "token": "monitoring__times_mirror",
                     "value": "monitoring__times_mirror",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1681
                 },
@@ -2882,7 +3538,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1705
                 },
@@ -2891,7 +3549,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 1706
                 },
@@ -2900,7 +3560,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1709
                 },
@@ -2909,7 +3571,9 @@
                     "token": "`idServer`",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1710
                 },
@@ -2918,7 +3582,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1720
                 },
@@ -2927,7 +3593,9 @@
                     "token": "new",
                     "value": "new",
                     "keyword": "NEW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1721
                 },
@@ -2936,7 +3604,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1724
                 },
@@ -2945,7 +3615,9 @@
                     "token": "idServer",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1725
                 },
@@ -2954,7 +3626,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1733
                 },
@@ -2963,7 +3637,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1734
                 },
@@ -2972,7 +3648,9 @@
                     "token": "`time`",
                     "value": "time",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1735
                 },
@@ -2981,7 +3659,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1741
                 },
@@ -2990,7 +3670,9 @@
                     "token": "new",
                     "value": "new",
                     "keyword": "NEW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1742
                 },
@@ -2999,7 +3681,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1745
                 },
@@ -3008,7 +3692,9 @@
                     "token": "time",
                     "value": "time",
                     "keyword": "TIME",
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1746
                 },
@@ -3017,7 +3703,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1750
                 },
@@ -3026,7 +3714,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1751
                 },
@@ -3035,7 +3725,9 @@
                     "token": "`totalTime`",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1752
                 },
@@ -3044,7 +3736,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1763
                 },
@@ -3053,7 +3747,9 @@
                     "token": "new",
                     "value": "new",
                     "keyword": "NEW",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 1764
                 },
@@ -3062,7 +3758,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1767
                 },
@@ -3071,7 +3769,9 @@
                     "token": "totalTime",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1768
                 },
@@ -3080,7 +3780,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1777
                 },
@@ -3089,7 +3791,9 @@
                     "token": "WHERE",
                     "value": "WHERE",
                     "keyword": "WHERE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1778
                 },
@@ -3098,7 +3802,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1783
                 },
@@ -3107,7 +3813,9 @@
                     "token": "`idServer`",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1784
                 },
@@ -3116,7 +3824,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1794
                 },
@@ -3125,7 +3835,9 @@
                     "token": "old",
                     "value": "old",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1795
                 },
@@ -3134,7 +3846,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1798
                 },
@@ -3143,7 +3857,9 @@
                     "token": "idServer",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1799
                 },
@@ -3152,7 +3868,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1807
                 },
@@ -3161,7 +3879,9 @@
                     "token": "AND",
                     "value": "AND",
                     "keyword": "AND",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1808
                 },
@@ -3170,7 +3890,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1811
                 },
@@ -3179,7 +3901,9 @@
                     "token": "`time`",
                     "value": "time",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1812
                 },
@@ -3188,7 +3912,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1818
                 },
@@ -3197,7 +3923,9 @@
                     "token": "old",
                     "value": "old",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1819
                 },
@@ -3206,7 +3934,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1822
                 },
@@ -3215,7 +3945,9 @@
                     "token": "time",
                     "value": "time",
                     "keyword": "TIME",
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1823
                 },
@@ -3224,7 +3956,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1827
                 },
@@ -3233,7 +3967,9 @@
                     "token": "AND",
                     "value": "AND",
                     "keyword": "AND",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1828
                 },
@@ -3242,7 +3978,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1831
                 },
@@ -3251,7 +3989,9 @@
                     "token": "`totalTime`",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1832
                 },
@@ -3260,7 +4000,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 1843
                 },
@@ -3269,7 +4011,9 @@
                     "token": "old",
                     "value": "old",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1844
                 },
@@ -3278,7 +4022,9 @@
                     "token": ".",
                     "value": ".",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 1847
                 },
@@ -3287,7 +4033,9 @@
                     "token": "totalTime",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1848
                 },
@@ -3296,7 +4044,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1857
                 },
@@ -3305,7 +4055,9 @@
                     "token": "$$",
                     "value": "$$",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1858
                 },
@@ -3314,7 +4066,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1860
                 },
@@ -3323,7 +4077,9 @@
                     "token": "DELIMITER",
                     "value": "DELIMITER",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 1861
                 },
@@ -3332,7 +4088,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1870
                 },
@@ -3341,7 +4099,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 1871
                 },
@@ -3350,7 +4110,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1872
                 },
@@ -3359,7 +4121,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1874
                 },
@@ -3368,7 +4132,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1876
                 },
@@ -3377,7 +4143,9 @@
                     "token": "-- Index pour les tables déchargées",
                     "value": "-- Index pour les tables déchargées",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1877
                 },
@@ -3386,7 +4154,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1912
                 },
@@ -3395,7 +4165,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1913
                 },
@@ -3404,7 +4176,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1915
                 },
@@ -3413,7 +4187,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1917
                 },
@@ -3422,7 +4198,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1919
                 },
@@ -3431,7 +4209,9 @@
                     "token": "-- Index pour la table `monitoring__times`",
                     "value": "-- Index pour la table `monitoring__times`",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1920
                 },
@@ -3440,7 +4220,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1962
                 },
@@ -3449,7 +4231,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 1963
                 },
@@ -3458,7 +4242,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1965
                 },
@@ -3467,7 +4253,9 @@
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1966
                 },
@@ -3476,7 +4264,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1971
                 },
@@ -3485,7 +4275,9 @@
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 1972
                 },
@@ -3494,7 +4286,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1977
                 },
@@ -3503,7 +4297,9 @@
                     "token": "`monitoring__times`",
                     "value": "monitoring__times",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 1978
                 },
@@ -3512,7 +4308,9 @@
                     "token": "\n  ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 1997
                 },
@@ -3521,7 +4319,9 @@
                     "token": "ADD",
                     "value": "ADD",
                     "keyword": "ADD",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2000
                 },
@@ -3530,7 +4330,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2003
                 },
@@ -3539,7 +4341,9 @@
                     "token": "UNIQUE KEY",
                     "value": "UNIQUE KEY",
                     "keyword": "UNIQUE KEY",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 23,
                     "position": 2004
                 },
@@ -3548,7 +4352,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2014
                 },
@@ -3557,7 +4363,9 @@
                     "token": "`idServer`",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2015
                 },
@@ -3566,7 +4374,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2025
                 },
@@ -3575,7 +4385,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2026
                 },
@@ -3584,7 +4396,9 @@
                     "token": "`idServer`",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2027
                 },
@@ -3593,7 +4407,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2037
                 },
@@ -3602,7 +4418,9 @@
                     "token": "`time`",
                     "value": "time",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2038
                 },
@@ -3611,7 +4429,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2044
                 },
@@ -3620,7 +4440,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2045
                 },
@@ -3629,7 +4451,9 @@
                     "token": "USING",
                     "value": "USING",
                     "keyword": "USING",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2046
                 },
@@ -3638,7 +4462,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2051
                 },
@@ -3647,7 +4473,9 @@
                     "token": "BTREE",
                     "value": "BTREE",
                     "keyword": "BTREE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 2052
                 },
@@ -3656,7 +4484,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2057
                 },
@@ -3665,7 +4495,9 @@
                     "token": "COMMENT",
                     "value": "COMMENT",
                     "keyword": "COMMENT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 2058
                 },
@@ -3674,7 +4506,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2065
                 },
@@ -3683,7 +4517,9 @@
                     "token": "'Unique idServer/time'",
                     "value": "Unique idServer/time",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "@31"
+                    },
                     "flags": 1,
                     "position": 2066
                 },
@@ -3692,7 +4528,9 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2088
                 },
@@ -3701,7 +4539,9 @@
                     "token": "\n  ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2089
                 },
@@ -3710,7 +4550,9 @@
                     "token": "ADD",
                     "value": "ADD",
                     "keyword": "ADD",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2092
                 },
@@ -3719,7 +4561,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2095
                 },
@@ -3728,7 +4572,9 @@
                     "token": "KEY",
                     "value": "KEY",
                     "keyword": "KEY",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 19,
                     "position": 2096
                 },
@@ -3737,7 +4583,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2099
                 },
@@ -3746,7 +4594,9 @@
                     "token": "`INDEX_totalTime`",
                     "value": "INDEX_totalTime",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2100
                 },
@@ -3755,7 +4605,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2117
                 },
@@ -3764,7 +4616,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2118
                 },
@@ -3773,7 +4627,9 @@
                     "token": "`totalTime`",
                     "value": "totalTime",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2119
                 },
@@ -3782,7 +4638,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2130
                 },
@@ -3791,7 +4649,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2131
                 },
@@ -3800,7 +4660,9 @@
                     "token": "USING",
                     "value": "USING",
                     "keyword": "USING",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2132
                 },
@@ -3809,7 +4671,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2137
                 },
@@ -3818,7 +4682,9 @@
                     "token": "BTREE",
                     "value": "BTREE",
                     "keyword": "BTREE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 2138
                 },
@@ -3827,7 +4693,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2143
                 },
@@ -3836,7 +4704,9 @@
                     "token": "COMMENT",
                     "value": "COMMENT",
                     "keyword": "COMMENT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 2144
                 },
@@ -3845,7 +4715,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2151
                 },
@@ -3854,7 +4726,9 @@
                     "token": "'Index for totalTime column'",
                     "value": "Index for totalTime column",
                     "keyword": null,
-                    "type": 7,
+                    "type": {
+                        "@type": "@31"
+                    },
                     "flags": 1,
                     "position": 2152
                 },
@@ -3863,7 +4737,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 2180
                 },
@@ -3872,7 +4748,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2181
                 },
@@ -3881,7 +4759,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 2183
                 },
@@ -3890,7 +4770,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2185
                 },
@@ -3899,7 +4781,9 @@
                     "token": "-- Contraintes pour les tables déchargées",
                     "value": "-- Contraintes pour les tables déchargées",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 2186
                 },
@@ -3908,7 +4792,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2227
                 },
@@ -3917,7 +4803,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 2228
                 },
@@ -3926,7 +4814,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2230
                 },
@@ -3935,7 +4825,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 2232
                 },
@@ -3944,7 +4836,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2234
                 },
@@ -3953,7 +4847,9 @@
                     "token": "-- Contraintes pour la table `monitoring__times`",
                     "value": "-- Contraintes pour la table `monitoring__times`",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 2235
                 },
@@ -3962,7 +4858,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2283
                 },
@@ -3971,7 +4869,9 @@
                     "token": "--\n",
                     "value": "--\n",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 4,
                     "position": 2284
                 },
@@ -3980,7 +4880,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2286
                 },
@@ -3989,7 +4891,9 @@
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2287
                 },
@@ -3998,7 +4902,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2292
                 },
@@ -4007,7 +4913,9 @@
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2293
                 },
@@ -4016,7 +4924,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2298
                 },
@@ -4025,7 +4935,9 @@
                     "token": "`monitoring__times`",
                     "value": "monitoring__times",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2299
                 },
@@ -4034,7 +4946,9 @@
                     "token": "\n  ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2318
                 },
@@ -4043,7 +4957,9 @@
                     "token": "ADD",
                     "value": "ADD",
                     "keyword": "ADD",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2321
                 },
@@ -4052,7 +4968,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2324
                 },
@@ -4061,7 +4979,9 @@
                     "token": "CONSTRAINT",
                     "value": "CONSTRAINT",
                     "keyword": "CONSTRAINT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2325
                 },
@@ -4070,7 +4990,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2335
                 },
@@ -4079,7 +5001,9 @@
                     "token": "`monitoring__times__idServer`",
                     "value": "monitoring__times__idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2336
                 },
@@ -4088,7 +5012,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2365
                 },
@@ -4097,7 +5023,9 @@
                     "token": "FOREIGN KEY",
                     "value": "FOREIGN KEY",
                     "keyword": "FOREIGN KEY",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 23,
                     "position": 2366
                 },
@@ -4106,7 +5034,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2377
                 },
@@ -4115,7 +5045,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2378
                 },
@@ -4124,7 +5056,9 @@
                     "token": "`idServer`",
                     "value": "idServer",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2379
                 },
@@ -4133,7 +5067,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2389
                 },
@@ -4142,7 +5078,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2390
                 },
@@ -4151,7 +5089,9 @@
                     "token": "REFERENCES",
                     "value": "REFERENCES",
                     "keyword": "REFERENCES",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 3,
                     "position": 2391
                 },
@@ -4160,7 +5100,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2401
                 },
@@ -4169,7 +5111,9 @@
                     "token": "`monitoring__servers`",
                     "value": "monitoring__servers",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2402
                 },
@@ -4178,7 +5122,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2423
                 },
@@ -4187,7 +5133,9 @@
                     "token": "(",
                     "value": "(",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2424
                 },
@@ -4196,7 +5144,9 @@
                     "token": "`id`",
                     "value": "id",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 2,
                     "position": 2425
                 },
@@ -4205,7 +5155,9 @@
                     "token": ")",
                     "value": ")",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 16,
                     "position": 2429
                 },
@@ -4214,7 +5166,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 2430
                 },
@@ -4223,7 +5177,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2431
                 },
@@ -4232,7 +5188,9 @@
                     "token": "COMMIT",
                     "value": "COMMIT",
                     "keyword": "COMMIT",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 1,
                     "position": 2432
                 },
@@ -4241,7 +5199,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 2438
                 },
@@ -4250,7 +5210,9 @@
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2439
                 },
@@ -4259,7 +5221,9 @@
                     "token": "/*!40101",
                     "value": "/*!40101",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 10,
                     "position": 2441
                 },
@@ -4268,7 +5232,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2449
                 },
@@ -4277,7 +5243,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 2450
                 },
@@ -4286,7 +5254,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2453
                 },
@@ -4295,7 +5265,9 @@
                     "token": "CHARACTER_SET_CLIENT",
                     "value": "CHARACTER_SET_CLIENT",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 2454
                 },
@@ -4304,7 +5276,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 2474
                 },
@@ -4313,7 +5287,9 @@
                     "token": "@OLD_CHARACTER_SET_CLIENT",
                     "value": "OLD_CHARACTER_SET_CLIENT",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 1,
                     "position": 2475
                 },
@@ -4322,7 +5298,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2500
                 },
@@ -4331,7 +5309,9 @@
                     "token": "*/",
                     "value": "*/",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 2,
                     "position": 2501
                 },
@@ -4340,7 +5320,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 2503
                 },
@@ -4349,7 +5331,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2504
                 },
@@ -4358,7 +5342,9 @@
                     "token": "/*!40101",
                     "value": "/*!40101",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 10,
                     "position": 2505
                 },
@@ -4367,7 +5353,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2513
                 },
@@ -4376,7 +5364,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 2514
                 },
@@ -4385,7 +5375,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2517
                 },
@@ -4394,7 +5386,9 @@
                     "token": "CHARACTER_SET_RESULTS",
                     "value": "CHARACTER_SET_RESULTS",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 2518
                 },
@@ -4403,7 +5397,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 2539
                 },
@@ -4412,7 +5408,9 @@
                     "token": "@OLD_CHARACTER_SET_RESULTS",
                     "value": "OLD_CHARACTER_SET_RESULTS",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 1,
                     "position": 2540
                 },
@@ -4421,7 +5419,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2566
                 },
@@ -4430,7 +5430,9 @@
                     "token": "*/",
                     "value": "*/",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 2,
                     "position": 2567
                 },
@@ -4439,7 +5441,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 2569
                 },
@@ -4448,7 +5452,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2570
                 },
@@ -4457,7 +5463,9 @@
                     "token": "/*!40101",
                     "value": "/*!40101",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 10,
                     "position": 2571
                 },
@@ -4466,7 +5474,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2579
                 },
@@ -4475,7 +5485,9 @@
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
-                    "type": 1,
+                    "type": {
+                        "@type": "@22"
+                    },
                     "flags": 11,
                     "position": 2580
                 },
@@ -4484,7 +5496,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2583
                 },
@@ -4493,7 +5507,9 @@
                     "token": "COLLATION_CONNECTION",
                     "value": "COLLATION_CONNECTION",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "@25"
+                    },
                     "flags": 0,
                     "position": 2584
                 },
@@ -4502,7 +5518,9 @@
                     "token": "=",
                     "value": "=",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "@28"
+                    },
                     "flags": 2,
                     "position": 2604
                 },
@@ -4511,7 +5529,9 @@
                     "token": "@OLD_COLLATION_CONNECTION",
                     "value": "OLD_COLLATION_CONNECTION",
                     "keyword": null,
-                    "type": 8,
+                    "type": {
+                        "@type": "@62"
+                    },
                     "flags": 1,
                     "position": 2605
                 },
@@ -4520,7 +5540,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2630
                 },
@@ -4529,7 +5551,9 @@
                     "token": "*/",
                     "value": "*/",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "@4"
+                    },
                     "flags": 2,
                     "position": 2631
                 },
@@ -4538,7 +5562,9 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": 2633
                 },
@@ -4547,7 +5573,9 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@6"
+                    },
                     "flags": 0,
                     "position": 2634
                 },
@@ -4556,13 +5584,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@33"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 505,
-            "idx": 505
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -4922,33 +5950,6 @@
                         "parameters": null,
                         "body": [
                             {
-                                "@type": "@203"
-                            },
-                            {
-                                "@type": "@204"
-                            },
-                            {
-                                "@type": "@205"
-                            },
-                            {
-                                "@type": "@206"
-                            },
-                            {
-                                "@type": "@207"
-                            },
-                            {
-                                "@type": "@208"
-                            },
-                            {
-                                "@type": "@209"
-                            },
-                            {
-                                "@type": "@210"
-                            },
-                            {
-                                "@type": "@211"
-                            },
-                            {
                                 "@type": "@212"
                             },
                             {
@@ -5019,6 +6020,33 @@
                             },
                             {
                                 "@type": "@235"
+                            },
+                            {
+                                "@type": "@236"
+                            },
+                            {
+                                "@type": "@237"
+                            },
+                            {
+                                "@type": "@238"
+                            },
+                            {
+                                "@type": "@239"
+                            },
+                            {
+                                "@type": "@240"
+                            },
+                            {
+                                "@type": "@241"
+                            },
+                            {
+                                "@type": "@242"
+                            },
+                            {
+                                "@type": "@243"
+                            },
+                            {
+                                "@type": "@244"
                             }
                         ],
                         "options": {
@@ -5071,33 +6099,6 @@
                         "return": null,
                         "parameters": null,
                         "body": [
-                            {
-                                "@type": "@262"
-                            },
-                            {
-                                "@type": "@263"
-                            },
-                            {
-                                "@type": "@264"
-                            },
-                            {
-                                "@type": "@265"
-                            },
-                            {
-                                "@type": "@266"
-                            },
-                            {
-                                "@type": "@267"
-                            },
-                            {
-                                "@type": "@268"
-                            },
-                            {
-                                "@type": "@269"
-                            },
-                            {
-                                "@type": "@270"
-                            },
                             {
                                 "@type": "@271"
                             },
@@ -5160,6 +6161,33 @@
                             },
                             {
                                 "@type": "@291"
+                            },
+                            {
+                                "@type": "@292"
+                            },
+                            {
+                                "@type": "@293"
+                            },
+                            {
+                                "@type": "@294"
+                            },
+                            {
+                                "@type": "@295"
+                            },
+                            {
+                                "@type": "@296"
+                            },
+                            {
+                                "@type": "@297"
+                            },
+                            {
+                                "@type": "@298"
+                            },
+                            {
+                                "@type": "@299"
+                            },
+                            {
+                                "@type": "@300"
                             }
                         ],
                         "options": {
@@ -5212,33 +6240,6 @@
                         "return": null,
                         "parameters": null,
                         "body": [
-                            {
-                                "@type": "@318"
-                            },
-                            {
-                                "@type": "@319"
-                            },
-                            {
-                                "@type": "@320"
-                            },
-                            {
-                                "@type": "@321"
-                            },
-                            {
-                                "@type": "@322"
-                            },
-                            {
-                                "@type": "@323"
-                            },
-                            {
-                                "@type": "@324"
-                            },
-                            {
-                                "@type": "@325"
-                            },
-                            {
-                                "@type": "@326"
-                            },
                             {
                                 "@type": "@327"
                             },
@@ -5361,6 +6362,33 @@
                             },
                             {
                                 "@type": "@367"
+                            },
+                            {
+                                "@type": "@368"
+                            },
+                            {
+                                "@type": "@369"
+                            },
+                            {
+                                "@type": "@370"
+                            },
+                            {
+                                "@type": "@371"
+                            },
+                            {
+                                "@type": "@372"
+                            },
+                            {
+                                "@type": "@373"
+                            },
+                            {
+                                "@type": "@374"
+                            },
+                            {
+                                "@type": "@375"
+                            },
+                            {
+                                "@type": "@376"
                             }
                         ],
                         "options": {
@@ -5397,33 +6425,6 @@
                                 "partitions": null,
                                 "unknown": [
                                     {
-                                        "@type": "@394"
-                                    },
-                                    {
-                                        "@type": "@395"
-                                    },
-                                    {
-                                        "@type": "@396"
-                                    },
-                                    {
-                                        "@type": "@397"
-                                    },
-                                    {
-                                        "@type": "@398"
-                                    },
-                                    {
-                                        "@type": "@399"
-                                    },
-                                    {
-                                        "@type": "@400"
-                                    },
-                                    {
-                                        "@type": "@401"
-                                    },
-                                    {
-                                        "@type": "@402"
-                                    },
-                                    {
                                         "@type": "@403"
                                     },
                                     {
@@ -5446,6 +6447,33 @@
                                     },
                                     {
                                         "@type": "@410"
+                                    },
+                                    {
+                                        "@type": "@411"
+                                    },
+                                    {
+                                        "@type": "@412"
+                                    },
+                                    {
+                                        "@type": "@413"
+                                    },
+                                    {
+                                        "@type": "@414"
+                                    },
+                                    {
+                                        "@type": "@415"
+                                    },
+                                    {
+                                        "@type": "@416"
+                                    },
+                                    {
+                                        "@type": "@417"
+                                    },
+                                    {
+                                        "@type": "@418"
+                                    },
+                                    {
+                                        "@type": "@419"
                                     }
                                 ]
                             },
@@ -5471,37 +6499,37 @@
                                 "partitions": null,
                                 "unknown": [
                                     {
-                                        "@type": "@419"
-                                    },
-                                    {
-                                        "@type": "@420"
-                                    },
-                                    {
-                                        "@type": "@421"
-                                    },
-                                    {
-                                        "@type": "@422"
-                                    },
-                                    {
-                                        "@type": "@423"
-                                    },
-                                    {
-                                        "@type": "@424"
-                                    },
-                                    {
-                                        "@type": "@425"
-                                    },
-                                    {
-                                        "@type": "@426"
-                                    },
-                                    {
-                                        "@type": "@427"
-                                    },
-                                    {
                                         "@type": "@428"
                                     },
                                     {
                                         "@type": "@429"
+                                    },
+                                    {
+                                        "@type": "@430"
+                                    },
+                                    {
+                                        "@type": "@431"
+                                    },
+                                    {
+                                        "@type": "@432"
+                                    },
+                                    {
+                                        "@type": "@433"
+                                    },
+                                    {
+                                        "@type": "@434"
+                                    },
+                                    {
+                                        "@type": "@435"
+                                    },
+                                    {
+                                        "@type": "@436"
+                                    },
+                                    {
+                                        "@type": "@437"
+                                    },
+                                    {
+                                        "@type": "@438"
                                     }
                                 ]
                             }
@@ -5550,33 +6578,6 @@
                                 "partitions": null,
                                 "unknown": [
                                     {
-                                        "@type": "@456"
-                                    },
-                                    {
-                                        "@type": "@457"
-                                    },
-                                    {
-                                        "@type": "@458"
-                                    },
-                                    {
-                                        "@type": "@459"
-                                    },
-                                    {
-                                        "@type": "@460"
-                                    },
-                                    {
-                                        "@type": "@461"
-                                    },
-                                    {
-                                        "@type": "@462"
-                                    },
-                                    {
-                                        "@type": "@463"
-                                    },
-                                    {
-                                        "@type": "@464"
-                                    },
-                                    {
                                         "@type": "@465"
                                     },
                                     {
@@ -5587,6 +6588,33 @@
                                     },
                                     {
                                         "@type": "@468"
+                                    },
+                                    {
+                                        "@type": "@469"
+                                    },
+                                    {
+                                        "@type": "@470"
+                                    },
+                                    {
+                                        "@type": "@471"
+                                    },
+                                    {
+                                        "@type": "@472"
+                                    },
+                                    {
+                                        "@type": "@473"
+                                    },
+                                    {
+                                        "@type": "@474"
+                                    },
+                                    {
+                                        "@type": "@475"
+                                    },
+                                    {
+                                        "@type": "@476"
+                                    },
+                                    {
+                                        "@type": "@477"
                                     }
                                 ]
                             }

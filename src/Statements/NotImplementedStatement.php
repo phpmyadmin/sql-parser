@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 /**
  * Not implemented (yet) statements.
@@ -43,7 +44,7 @@ class NotImplementedStatement extends Statement
     public function parse(Parser $parser, TokensList $list): void
     {
         for (; $list->idx < $list->count; ++$list->idx) {
-            if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {
+            if ($list->tokens[$list->idx]->type === TokenType::Delimiter) {
                 break;
             }
 

@@ -7,13 +7,19 @@
         "last": 14,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 5,
+            "idx": 5,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "UNLOCK",
                     "value": "UNLOCK",
                     "keyword": "UNLOCK",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 6
                 },
@@ -31,7 +41,9 @@
                     "token": "TABLES",
                     "value": "TABLES",
                     "keyword": "TABLES",
-                    "type": 1,
+                    "type": {
+                        "@type": "@3"
+                    },
                     "flags": 1,
                     "position": 7
                 },
@@ -40,7 +52,11 @@
                     "token": ";",
                     "value": ";",
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": 13
                 },
@@ -49,13 +65,13 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "@8"
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 5,
-            "idx": 5
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,

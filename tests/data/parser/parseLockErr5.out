@@ -7,13 +7,19 @@
         "last": 50,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 13,
+            "idx": 13,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- extraneous comma",
                     "value": "-- extraneous comma",
                     "keyword": null,
-                    "type": 4,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Comment",
+                        "value": 4
+                    },
                     "flags": 4,
                     "position": 0
                 },
@@ -22,7 +28,11 @@
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
                     "flags": 0,
                     "position": 19
                 },
@@ -31,7 +41,11 @@
                     "token": "LOCK",
                     "value": "LOCK",
                     "keyword": "LOCK",
-                    "type": 1,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
                     "flags": 3,
                     "position": 20
                 },
@@ -40,7 +54,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 24
                 },
@@ -49,7 +65,9 @@
                     "token": "TABLES",
                     "value": "TABLES",
                     "keyword": "TABLES",
-                    "type": 1,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 1,
                     "position": 25
                 },
@@ -58,7 +76,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 31
                 },
@@ -67,7 +87,11 @@
                     "token": "table1",
                     "value": "table1",
                     "keyword": null,
-                    "type": 0,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
                     "flags": 0,
                     "position": 32
                 },
@@ -76,7 +100,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 38
                 },
@@ -85,7 +111,9 @@
                     "token": "READ",
                     "value": "READ",
                     "keyword": "READ",
-                    "type": 1,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 3,
                     "position": 39
                 },
@@ -94,7 +122,9 @@
                     "token": " ",
                     "value": " ",
                     "keyword": null,
-                    "type": 3,
+                    "type": {
+                        "@type": "@5"
+                    },
                     "flags": 0,
                     "position": 43
                 },
@@ -103,7 +133,9 @@
                     "token": "LOCAL",
                     "value": "LOCAL",
                     "keyword": "LOCAL",
-                    "type": 1,
+                    "type": {
+                        "@type": "@7"
+                    },
                     "flags": 1,
                     "position": 44
                 },
@@ -112,7 +144,11 @@
                     "token": ",",
                     "value": ",",
                     "keyword": null,
-                    "type": 2,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
                     "flags": 16,
                     "position": 49
                 },
@@ -121,13 +157,15 @@
                     "token": null,
                     "value": null,
                     "keyword": null,
-                    "type": 9,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
                     "flags": 0,
                     "position": null
                 }
-            ],
-            "count": 13,
-            "idx": 13
+            ]
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -174,7 +212,7 @@
             [
                 "Unexpected end of LOCK statement.",
                 {
-                    "@type": "@13"
+                    "@type": "@17"
                 },
                 0
             ]

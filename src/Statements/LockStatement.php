@@ -7,8 +7,8 @@ namespace PhpMyAdmin\SqlParser\Statements;
 use PhpMyAdmin\SqlParser\Components\LockExpression;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
-use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function trim;
 
@@ -70,17 +70,17 @@ class LockStatement extends Statement
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if ($state === 0) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     if ($token->keyword !== 'TABLES') {
                         $parser->error('Unexpected keyword.', $token);
                         break;

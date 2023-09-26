@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function array_key_exists;
 use function in_array;
@@ -321,17 +322,17 @@ final class AlterOperation implements Component
             $token = $list->tokens[$list->idx];
 
             // End of statement.
-            if ($token->type === Token::TYPE_DELIMITER) {
+            if ($token->type === TokenType::Delimiter) {
                 break;
             }
 
             // Skipping comments.
-            if ($token->type === Token::TYPE_COMMENT) {
+            if ($token->type === TokenType::Comment) {
                 continue;
             }
 
             // Skipping whitespaces.
-            if ($token->type === Token::TYPE_WHITESPACE) {
+            if ($token->type === TokenType::Whitespace) {
                 if ($state === 2) {
                     // When parsing the unknown part, the whitespaces are
                     // included to not break anything.
@@ -347,7 +348,7 @@ final class AlterOperation implements Component
                 // body in the unknown tokens list, as they define their own statements.
                 if ($ret->options->has('AS') || $ret->options->has('DO')) {
                     for (; $list->idx < $list->count; ++$list->idx) {
-                        if ($list->tokens[$list->idx]->type === Token::TYPE_DELIMITER) {
+                        if ($list->tokens[$list->idx]->type === TokenType::Delimiter) {
                             break;
                         }
 
@@ -392,7 +393,7 @@ final class AlterOperation implements Component
                     $arrayKey = $token->token;
                 }
 
-                if ($token->type === Token::TYPE_OPERATOR) {
+                if ($token->type === TokenType::Operator) {
                     if ($token->value === '(') {
                         ++$brackets;
                     } elseif ($token->value === ')') {
@@ -400,14 +401,14 @@ final class AlterOperation implements Component
                     } elseif (($token->value === ',') && ($brackets === 0)) {
                         break;
                     }
-                } elseif (! self::checkIfTokenQuotedSymbol($token) && $token->type !== Token::TYPE_STRING) {
+                } elseif (! self::checkIfTokenQuotedSymbol($token) && $token->type !== TokenType::String) {
                     if (isset(Parser::STATEMENT_PARSERS[$arrayKey]) && Parser::STATEMENT_PARSERS[$arrayKey] !== '') {
                         $list->idx++; // Ignore the current token
                         $nextToken = $list->getNext();
 
                         if ($token->value === 'SET' && $nextToken !== null && $nextToken->value === '(') {
                             // To avoid adding the tokens between the SET() parentheses to the unknown tokens
-                            $list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, ')');
+                            $list->getNextOfTypeAndValue(TokenType::Operator, ')');
                         } elseif ($token->value === 'SET' && $nextToken !== null && $nextToken->value === 'DEFAULT') {
                             // to avoid adding the `DEFAULT` token to the unknown tokens.
                             ++$list->idx;
@@ -438,12 +439,12 @@ final class AlterOperation implements Component
                     $list->idx++; // Ignore the current token
                     $nextToken = $list->getNext();
                     if (
-                        ($token->type === Token::TYPE_KEYWORD)
+                        ($token->type === TokenType::Keyword)
                         && (($token->keyword === 'PARTITION BY')
                         || ($token->keyword === 'PARTITION' && $nextToken && $nextToken->value !== '('))
                     ) {
                         $partitionState = 1;
-                    } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->keyword === 'PARTITION')) {
+                    } elseif (($token->type === TokenType::Keyword) && ($token->keyword === 'PARTITION')) {
                         $partitionState = 2;
                     }
 
@@ -466,7 +467,7 @@ final class AlterOperation implements Component
                     }
 
                     if (
-                        $token->type === Token::TYPE_OPERATOR
+                        $token->type === TokenType::Operator
                         && $token->value === '('
                         && $nextToken
                         && $nextToken->keyword === 'PARTITION'
@@ -474,7 +475,7 @@ final class AlterOperation implements Component
                         $partitionState = 2;
                         --$list->idx; // Current idx is on "(". We need a step back for ArrayObj::parse incoming.
                     } else {
-                        $ret->field .= $token->type === Token::TYPE_WHITESPACE ? ' ' : $token->token;
+                        $ret->field .= $token->type === TokenType::Whitespace ? ' ' : $token->token;
                     }
                 } elseif ($partitionState === 2) {
                     $ret->partitions = ArrayObj::parse(
@@ -552,7 +553,7 @@ final class AlterOperation implements Component
      */
     private static function checkIfTokenQuotedSymbol($token): bool
     {
-        return $token->type === Token::TYPE_SYMBOL && $token->flags === Token::FLAG_SYMBOL_BACKTICK;
+        return $token->type === TokenType::Symbol && $token->flags === Token::FLAG_SYMBOL_BACKTICK;
     }
 
     public function __toString(): string

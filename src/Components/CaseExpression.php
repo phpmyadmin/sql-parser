@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\SqlParser\TokenType;
 
 use function count;
 
@@ -98,12 +99,12 @@ final class CaseExpression implements Component
             $token = $list->tokens[$list->idx];
 
             // Skipping whitespaces and comments.
-            if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+            if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                 continue;
             }
 
             if ($state === 0) {
-                if ($token->type === Token::TYPE_KEYWORD) {
+                if ($token->type === TokenType::Keyword) {
                     switch ($token->keyword) {
                         case 'WHEN':
                             ++$list->idx; // Skip 'WHEN'
@@ -132,7 +133,7 @@ final class CaseExpression implements Component
                 }
             } elseif ($state === 1) {
                 if ($type === 0) {
-                    if ($token->type === Token::TYPE_KEYWORD) {
+                    if ($token->type === TokenType::Keyword) {
                         switch ($token->keyword) {
                             case 'WHEN':
                                 ++$list->idx; // Skip 'WHEN'
@@ -154,23 +155,23 @@ final class CaseExpression implements Component
                                 break 2;
                         }
                     }
-                } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'THEN') {
+                } elseif ($token->type === TokenType::Keyword && $token->keyword === 'THEN') {
                     ++$list->idx; // Skip 'THEN'
                     $newResult = Expression::parse($parser, $list);
                     $state = 0;
                     $ret->results[] = $newResult;
-                } elseif ($token->type === Token::TYPE_KEYWORD) {
+                } elseif ($token->type === TokenType::Keyword) {
                     $parser->error('Unexpected keyword.', $token);
                     break;
                 }
             } elseif ($state === 2) {
                 if ($type === 0) {
-                    if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'THEN') {
+                    if ($token->type === TokenType::Keyword && $token->keyword === 'THEN') {
                         ++$list->idx; // Skip 'THEN'
                         $newResult = Expression::parse($parser, $list);
                         $ret->results[] = $newResult;
                         $state = 1;
-                    } elseif ($token->type === Token::TYPE_KEYWORD) {
+                    } elseif ($token->type === TokenType::Keyword) {
                         $parser->error('Unexpected keyword.', $token);
                         break;
                     }
@@ -187,17 +188,17 @@ final class CaseExpression implements Component
                 $token = $list->tokens[$list->idx];
 
                 // End of statement.
-                if ($token->type === Token::TYPE_DELIMITER) {
+                if ($token->type === TokenType::Delimiter) {
                     break;
                 }
 
                 // Skipping whitespaces and comments.
-                if (($token->type === Token::TYPE_WHITESPACE) || ($token->type === Token::TYPE_COMMENT)) {
+                if (($token->type === TokenType::Whitespace) || ($token->type === TokenType::Comment)) {
                     continue;
                 }
 
                 // Handle optional AS keyword before alias
-                if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'AS') {
+                if ($token->type === TokenType::Keyword && $token->keyword === 'AS') {
                     if ($asFound || ! empty($ret->alias)) {
                         $parser->error('Potential duplicate alias of CASE expression.', $token);
                         break;
@@ -209,7 +210,7 @@ final class CaseExpression implements Component
 
                 if (
                     $asFound
-                    && $token->type === Token::TYPE_KEYWORD
+                    && $token->type === TokenType::Keyword
                     && ($token->flags & Token::FLAG_KEYWORD_RESERVED || $token->flags & Token::FLAG_KEYWORD_FUNCTION)
                 ) {
                     $parser->error('An alias expected after AS but got ' . $token->value, $token);
@@ -219,9 +220,9 @@ final class CaseExpression implements Component
 
                 if (
                     $asFound
-                    || $token->type === Token::TYPE_STRING
-                    || ($token->type === Token::TYPE_SYMBOL && ! $token->flags & Token::FLAG_SYMBOL_VARIABLE)
-                    || $token->type === Token::TYPE_NONE
+                    || $token->type === TokenType::String
+                    || ($token->type === TokenType::Symbol && ! $token->flags & Token::FLAG_SYMBOL_VARIABLE)
+                    || $token->type === TokenType::None
                 ) {
                     // An alias is expected (the keyword `AS` was previously found).
                     if (! empty($ret->alias)) {

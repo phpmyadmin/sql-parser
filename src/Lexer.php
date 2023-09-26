@@ -230,31 +230,31 @@ class Lexer extends Core
                 $this->error('Unexpected character.', $this->str[$this->last], $this->last);
             } elseif (
                 $lastToken !== null
-                && $token->type === Token::TYPE_SYMBOL
+                && $token->type === TokenType::Symbol
                 && $token->flags & Token::FLAG_SYMBOL_VARIABLE
                 && (
-                    $lastToken->type === Token::TYPE_STRING
+                    $lastToken->type === TokenType::String
                     || (
-                        $lastToken->type === Token::TYPE_SYMBOL
+                        $lastToken->type === TokenType::Symbol
                         && $lastToken->flags & Token::FLAG_SYMBOL_BACKTICK
                     )
                 )
             ) {
                 // Handles ```... FROM 'user'@'%' ...```.
                 $lastToken->token .= $token->token;
-                $lastToken->type = Token::TYPE_SYMBOL;
+                $lastToken->type = TokenType::Symbol;
                 $lastToken->flags = Token::FLAG_SYMBOL_USER;
                 $lastToken->value .= '@' . $token->value;
                 continue;
             } elseif (
                 $lastToken !== null
-                && $token->type === Token::TYPE_KEYWORD
-                && $lastToken->type === Token::TYPE_OPERATOR
+                && $token->type === TokenType::Keyword
+                && $lastToken->type === TokenType::Operator
                 && $lastToken->value === '.'
             ) {
                 // Handles ```... tbl.FROM ...```. In this case, FROM is not
                 // a reserved word.
-                $token->type = Token::TYPE_NONE;
+                $token->type = TokenType::None;
                 $token->flags = 0;
                 $token->value = $token->token;
             }
@@ -264,7 +264,7 @@ class Lexer extends Core
             $list->tokens[$list->count++] = $token;
 
             // Handling delimiters.
-            if ($token->type === Token::TYPE_NONE && $token->value === 'DELIMITER') {
+            if ($token->type === TokenType::None && $token->value === 'DELIMITER') {
                 if ($this->last + 1 >= $this->len) {
                     $this->error('Expected whitespace(s) before delimiter.', '', $this->last + 1);
                     continue;
@@ -309,7 +309,7 @@ class Lexer extends Core
 
                 // Saving the delimiter and its token.
                 $this->delimiterLen = strlen($this->delimiter);
-                $token = new Token($this->delimiter, Token::TYPE_DELIMITER);
+                $token = new Token($this->delimiter, TokenType::Delimiter);
                 $token->position = $pos;
                 $list->tokens[$list->count++] = $token;
             }
@@ -318,7 +318,7 @@ class Lexer extends Core
         }
 
         // Adding a final delimiter to mark the ending.
-        $list->tokens[$list->count++] = new Token(null, Token::TYPE_DELIMITER);
+        $list->tokens[$list->count++] = new Token(null, TokenType::Delimiter);
 
         // Saving the tokens list.
         $this->list = $list;
@@ -343,7 +343,7 @@ class Lexer extends Core
     private function solveAmbiguityOnStarOperator(): void
     {
         $iBak = $this->list->idx;
-        while (($starToken = $this->list->getNextOfTypeAndValue(Token::TYPE_OPERATOR, '*')) !== null) {
+        while (($starToken = $this->list->getNextOfTypeAndValue(TokenType::Operator, '*')) !== null) {
             // getNext() already gets rid of whitespaces and comments.
             $next = $this->list->getNext();
 
@@ -352,8 +352,8 @@ class Lexer extends Core
             }
 
             if (
-                ($next->type !== Token::TYPE_KEYWORD || ! in_array($next->value, ['FROM', 'USING'], true))
-                && ($next->type !== Token::TYPE_OPERATOR || ! in_array($next->value, [',', ')'], true))
+                ($next->type !== TokenType::Keyword || ! in_array($next->value, ['FROM', 'USING'], true))
+                && ($next->type !== TokenType::Operator || ! in_array($next->value, [',', ')'], true))
             ) {
                 continue;
             }
@@ -386,14 +386,14 @@ class Lexer extends Core
     private function solveAmbiguityOnFunctionKeywords(): void
     {
         $iBak = $this->list->idx;
-        $keywordFunction = Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION;
-        while (($keywordToken = $this->list->getNextOfTypeAndFlag(Token::TYPE_KEYWORD, $keywordFunction)) !== null) {
+        $keywordFunction = TokenType::Keyword->value | Token::FLAG_KEYWORD_FUNCTION;
+        while (($keywordToken = $this->list->getNextOfTypeAndFlag(TokenType::Keyword, $keywordFunction)) !== null) {
             $next = $this->list->getNext();
             if (
-                ($next->type !== Token::TYPE_KEYWORD
+                ($next->type !== TokenType::Keyword
                     || ! in_array($next->value, self::KEYWORD_NAME_INDICATORS, true)
                 )
-                && ($next->type !== Token::TYPE_OPERATOR
+                && ($next->type !== TokenType::Operator
                     || ! in_array($next->value, self::OPERATOR_NAME_INDICATORS, true)
                 )
                 && ($next->value !== null)
@@ -401,8 +401,8 @@ class Lexer extends Core
                 continue;
             }
 
-            $keywordToken->type = Token::TYPE_NONE;
-            $keywordToken->flags = Token::TYPE_NONE;
+            $keywordToken->type = TokenType::None;
+            $keywordToken->flags = Token::FLAG_NONE;
             $keywordToken->keyword = $keywordToken->value;
         }
 
@@ -477,7 +477,7 @@ class Lexer extends Core
                 continue;
             }
 
-            $ret = new Token($token, Token::TYPE_KEYWORD, $flags);
+            $ret = new Token($token, TokenType::Keyword, $flags);
             $iEnd = $this->last;
 
             // We don't break so we find longest keyword.
@@ -512,7 +512,7 @@ class Lexer extends Core
             if ($this->str[$this->last] === ':' && $j > 1) {
                 // End of label
                 $token .= $this->str[$this->last];
-                $ret = new Token($token, Token::TYPE_LABEL);
+                $ret = new Token($token, TokenType::Label);
                 $iEnd = $this->last;
                 break;
             }
@@ -561,7 +561,7 @@ class Lexer extends Core
                 continue;
             }
 
-            $ret = new Token($token, Token::TYPE_OPERATOR, $flags);
+            $ret = new Token($token, TokenType::Operator, $flags);
             $iEnd = $this->last;
         }
 
@@ -587,7 +587,7 @@ class Lexer extends Core
 
         --$this->last;
 
-        return new Token($token, Token::TYPE_WHITESPACE);
+        return new Token($token, TokenType::Whitespace);
     }
 
     /**
@@ -609,7 +609,7 @@ class Lexer extends Core
                 --$this->last;
             }
 
-            return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_BASH);
+            return new Token($token, TokenType::Comment, Token::FLAG_COMMENT_BASH);
         }
 
         // C style comments. (/*comment*\/)
@@ -634,7 +634,7 @@ class Lexer extends Core
                 // This comment already ended. It may be a part of a
                 // previous MySQL specific command.
                 if ($token === '*/') {
-                    return new Token($token, Token::TYPE_COMMENT, $flags);
+                    return new Token($token, TokenType::Comment, $flags);
                 }
 
                 // Checking if this is a MySQL-specific command.
@@ -654,7 +654,7 @@ class Lexer extends Core
 
                     // We split this comment and parse only its beginning
                     // here.
-                    return new Token($token, Token::TYPE_COMMENT, $flags);
+                    return new Token($token, TokenType::Comment, $flags);
                 }
 
                 // Parsing the comment.
@@ -673,7 +673,7 @@ class Lexer extends Core
                     $token .= $this->str[$this->last];
                 }
 
-                return new Token($token, Token::TYPE_COMMENT, $flags);
+                return new Token($token, TokenType::Comment, $flags);
             }
         }
 
@@ -699,7 +699,7 @@ class Lexer extends Core
                 --$this->last;
             }
 
-            return new Token($token, Token::TYPE_COMMENT, Token::FLAG_COMMENT_SQL);
+            return new Token($token, TokenType::Comment, Token::FLAG_COMMENT_SQL);
         }
 
         $this->last = $iBak;
@@ -723,13 +723,13 @@ class Lexer extends Core
         . $this->str[++$this->last] . $this->str[++$this->last]; // _TRUE_ or _FALS_e
 
         if (Context::isBool($token)) {
-            return new Token($token, Token::TYPE_BOOL);
+            return new Token($token, TokenType::Bool);
         }
 
         if (++$this->last < $this->len) {
             $token .= $this->str[$this->last]; // fals_E_
             if (Context::isBool($token)) {
-                return new Token($token, Token::TYPE_BOOL, 1);
+                return new Token($token, TokenType::Bool, 1);
             }
         }
 
@@ -889,7 +889,7 @@ class Lexer extends Core
         if ($state === 2 || $state === 3 || ($token !== '.' && $state === 4) || $state === 6 || $state === 9) {
             --$this->last;
 
-            return new Token($token, Token::TYPE_NUMBER, $flags);
+            return new Token($token, TokenType::Number, $flags);
         }
 
         $this->last = $iBak;
@@ -946,7 +946,7 @@ class Lexer extends Core
             $token .= $this->str[$this->last];
         }
 
-        return new Token($token, Token::TYPE_STRING, $flags);
+        return new Token($token, TokenType::String, $flags);
     }
 
     /**
@@ -995,7 +995,7 @@ class Lexer extends Core
             $token .= $str->token;
         }
 
-        return new Token($token, Token::TYPE_SYMBOL, $flags);
+        return new Token($token, TokenType::Symbol, $flags);
     }
 
     /**
@@ -1041,6 +1041,6 @@ class Lexer extends Core
 
         $this->last += $this->delimiterLen - 1;
 
-        return new Token($this->delimiter, Token::TYPE_DELIMITER);
+        return new Token($this->delimiter, TokenType::Delimiter);
     }
 }
