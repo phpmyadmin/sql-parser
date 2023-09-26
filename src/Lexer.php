@@ -29,46 +29,6 @@ use function substr;
 class Lexer extends Core
 {
     /**
-     * A list of methods that are used in lexing the SQL query.
-     */
-    private const PARSER_METHODS = [
-        // It is best to put the parsers in order of their complexity
-        // (ascending) and their occurrence rate (descending).
-        //
-        // Conflicts:
-        //
-        // 1. `parseDelimiter`, `parseUnknown`, `parseKeyword`, `parseNumber`
-        // They fight over delimiter. The delimiter may be a keyword, a
-        // number or almost any character which makes the delimiter one of
-        // the first tokens that must be parsed.
-        //
-        // 1. `parseNumber` and `parseOperator`
-        // They fight over `+` and `-`.
-        //
-        // 2. `parseComment` and `parseOperator`
-        // They fight over `/` (as in ```/*comment*/``` or ```a / b```)
-        //
-        // 3. `parseBool` and `parseKeyword`
-        // They fight over `TRUE` and `FALSE`.
-        //
-        // 4. `parseKeyword` and `parseUnknown`
-        // They fight over words. `parseUnknown` does not know about
-        // keywords.
-
-        'parseDelimiter',
-        'parseWhitespace',
-        'parseNumber',
-        'parseComment',
-        'parseOperator',
-        'parseBool',
-        'parseString',
-        'parseSymbol',
-        'parseKeyword',
-        'parseLabel',
-        'parseUnknown',
-    ];
-
-    /**
      * A list of keywords that indicate that the function keyword
      * is not used as a function
      */
@@ -203,26 +163,11 @@ class Lexer extends Core
 
         /**
          * Last processed token.
-         *
-         * @var Token
          */
         $lastToken = null;
 
         for ($this->last = 0, $lastIdx = 0; $this->last < $this->len; $lastIdx = ++$this->last) {
-            /**
-             * The new token.
-             *
-             * @var Token
-             */
-            $token = null;
-
-            foreach (self::PARSER_METHODS as $method) {
-                $token = $this->$method();
-
-                if ($token) {
-                    break;
-                }
-            }
+            $token = $this->parse();
 
             if ($token === null) {
                 // @assert($this->last === $lastIdx);
@@ -1042,5 +987,43 @@ class Lexer extends Core
         $this->last += $this->delimiterLen - 1;
 
         return new Token($this->delimiter, TokenType::Delimiter);
+    }
+
+    private function parse(): Token|null
+    {
+        // It is best to put the parsers in order of their complexity
+        // (ascending) and their occurrence rate (descending).
+        //
+        // Conflicts:
+        //
+        // 1. `parseDelimiter`, `parseUnknown`, `parseKeyword`, `parseNumber`
+        // They fight over delimiter. The delimiter may be a keyword, a
+        // number or almost any character which makes the delimiter one of
+        // the first tokens that must be parsed.
+        //
+        // 1. `parseNumber` and `parseOperator`
+        // They fight over `+` and `-`.
+        //
+        // 2. `parseComment` and `parseOperator`
+        // They fight over `/` (as in ```/*comment*/``` or ```a / b```)
+        //
+        // 3. `parseBool` and `parseKeyword`
+        // They fight over `TRUE` and `FALSE`.
+        //
+        // 4. `parseKeyword` and `parseUnknown`
+        // They fight over words. `parseUnknown` does not know about
+        // keywords.
+
+        return $this->parseDelimiter()
+            ?? $this->parseWhitespace()
+            ?? $this->parseNumber()
+            ?? $this->parseComment()
+            ?? $this->parseOperator()
+            ?? $this->parseBool()
+            ?? $this->parseString()
+            ?? $this->parseSymbol()
+            ?? $this->parseKeyword()
+            ?? $this->parseLabel()
+            ?? $this->parseUnknown();
     }
 }
