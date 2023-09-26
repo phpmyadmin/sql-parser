@@ -23,6 +23,7 @@ class ParameterTest extends TestCase
     {
         return [
             ['misc/parseParameter'],
+            ['misc/parseParameter2'],
         ];
     }
 }

@@ -366,7 +366,8 @@ class Expression extends Component
                                 || ! ($prev[0]->flags & Token::FLAG_KEYWORD_RESERVED))))
                     && (($prev[1]->type === Token::TYPE_STRING)
                         || ($prev[1]->type === Token::TYPE_SYMBOL
-                            && ! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE))
+                            && ! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE)
+                            && ! ($prev[1]->flags & Token::FLAG_SYMBOL_PARAMETER))
                         || ($prev[1]->type === Token::TYPE_NONE
                             && $prev[1]->token !== 'OVER'))
                 ) {

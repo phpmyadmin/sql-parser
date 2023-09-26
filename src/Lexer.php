@@ -1049,7 +1049,7 @@ class Lexer extends Core
             if ($str === null) {
                 $str = $this->parseUnknown();
 
-                if ($str === null) {
+                if ($str === null && ! ($flags & Token::FLAG_SYMBOL_PARAMETER)) {
                     $this->error('Variable name was expected.', $this->str[$this->last], $this->last);
                 }
             }
