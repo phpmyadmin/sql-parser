@@ -194,7 +194,7 @@ final class Condition implements Component
                 && (($token->type !== TokenType::Keyword)
                 || ($token->flags & Token::FLAG_KEYWORD_RESERVED))
                 && ($token->type !== TokenType::String)
-                && ($token->type !== TokenType::Symbol)
+                && ($token->type !== TokenType::Symbol || ($token->flags & Token::FLAG_SYMBOL_PARAMETER))
             ) {
                 continue;
             }

@@ -360,7 +360,8 @@ final class Expression implements Component
                                 || ! ($prev[0]->flags & Token::FLAG_KEYWORD_RESERVED))))
                     && (($prev[1]->type === TokenType::String)
                         || ($prev[1]->type === TokenType::Symbol
-                            && ! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE))
+                            && ! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE)
+                            && ! ($prev[1]->flags & Token::FLAG_SYMBOL_PARAMETER))
                         || ($prev[1]->type === TokenType::None
                             && $prev[1]->token !== 'OVER'))
                 ) {
