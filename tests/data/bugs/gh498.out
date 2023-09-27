@@ -1,0 +1,401 @@
+{
+    "query": "SELECT ?\nFROM uno\nJOIN dos  ON dos.id = uno.id\nLIMIT ? OFFSET ?",
+    "lexer": {
+        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "str": "SELECT ?\nFROM uno\nJOIN dos  ON dos.id = uno.id\nLIMIT ? OFFSET ?",
+        "len": 63,
+        "last": 63,
+        "list": {
+            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "tokens": [
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "?",
+                    "value": "?",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 16,
+                    "position": 7
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 8
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 9
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 13
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "uno",
+                    "value": "uno",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 14
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 17
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "JOIN",
+                    "value": "JOIN",
+                    "keyword": "JOIN",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 18
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 22
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "dos",
+                    "value": "dos",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 23
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "  ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 26
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "ON",
+                    "value": "ON",
+                    "keyword": "ON",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 28
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 30
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "dos",
+                    "value": "dos",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 31
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 34
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "id",
+                    "value": "id",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 35
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 37
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 38
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 39
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "uno",
+                    "value": "uno",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 40
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 43
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "id",
+                    "value": "id",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 44
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 46
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "LIMIT",
+                    "value": "LIMIT",
+                    "keyword": "LIMIT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 47
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 52
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "?",
+                    "value": "?",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 16,
+                    "position": 53
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 54
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "OFFSET",
+                    "value": "OFFSET",
+                    "keyword": "OFFSET",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 55
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 61
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "?",
+                    "value": "?",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 16,
+                    "position": 62
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 32,
+            "idx": 32
+        },
+        "delimiter": ";",
+        "delimiterLen": 1,
+        "strict": false,
+        "errors": []
+    },
+    "parser": {
+        "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "list": {
+            "@type": "@1"
+        },
+        "statements": [
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
+                "expr": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                        "database": null,
+                        "table": null,
+                        "column": null,
+                        "expr": "?",
+                        "alias": null,
+                        "function": null,
+                        "subquery": null
+                    }
+                ],
+                "from": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                        "database": null,
+                        "table": "uno",
+                        "column": null,
+                        "expr": "uno",
+                        "alias": null,
+                        "function": null,
+                        "subquery": null
+                    }
+                ],
+                "index_hints": null,
+                "partition": null,
+                "where": null,
+                "group": null,
+                "group_options": null,
+                "having": null,
+                "order": null,
+                "limit": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Limit",
+                    "offset": "?",
+                    "rowCount": "?"
+                },
+                "procedure": null,
+                "into": null,
+                "join": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
+                        "type": "JOIN",
+                        "expr": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "dos",
+                            "column": null,
+                            "expr": "dos",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "on": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
+                                "identifiers": [
+                                    "dos",
+                                    "id",
+                                    "uno"
+                                ],
+                                "isOperator": false,
+                                "expr": "dos.id = uno.id"
+                            }
+                        ],
+                        "using": null
+                    }
+                ],
+                "union": [],
+                "end_options": null,
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": []
+                },
+                "first": 0,
+                "last": 30
+            }
+        ],
+        "brackets": 0,
+        "strict": false,
+        "errors": []
+    },
+    "errors": {
+        "lexer": [],
+        "parser": []
+    }
+}

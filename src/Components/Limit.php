@@ -18,20 +18,20 @@ final class Limit implements Component
     /**
      * The number of rows skipped.
      *
-     * @var int
+     * @var int|string
      */
     public $offset;
 
     /**
      * The number of rows to be returned.
      *
-     * @var int
+     * @var int|string
      */
     public $rowCount;
 
     /**
-     * @param int $rowCount the row count
-     * @param int $offset   the offset
+     * @param int|string $rowCount the row count
+     * @param int|string $offset   the offset
      */
     public function __construct($rowCount = 0, $offset = 0)
     {
@@ -85,8 +85,11 @@ final class Limit implements Component
                 continue;
             }
 
-            // Skip if not a number
-            if (($token->type !== TokenType::Number)) {
+            // Skip if not a number or a bind parameter (?)
+            if (
+                ! ($token->type === TokenType::Number
+                    || ($token->type === TokenType::Symbol && ($token->flags & Token::FLAG_SYMBOL_PARAMETER)))
+            ) {
                 break;
             }
 
