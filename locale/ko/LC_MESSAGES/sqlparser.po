@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 22:46+0100\n"
-"PO-Revision-Date: 2023-11-17 17:04+0000\n"
+"PO-Revision-Date: 2023-11-21 05:02+0000\n"
 "Last-Translator: Yong Kim <kim@nhn.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/ko/>\n"
@@ -60,11 +60,11 @@ msgstr "왼쪽 괄호가 필요합니다."
 #: src/Statements/LockStatement.php:85 src/Statements/ReplaceStatement.php:149
 #: src/Statements/ReplaceStatement.php:178
 msgid "Unexpected keyword."
-msgstr "잘못된 키워드입니다."
+msgstr "예기치 않은 키워드입니다."
 
 #: src/Components/CaseExpression.php:192
 msgid "Unexpected end of CASE expression"
-msgstr "잘못된 CASE 문의 끝"
+msgstr "예기치 않은 CASE 문의 끝입니다"
 
 #: src/Components/CaseExpression.php:212
 msgid "Potential duplicate alias of CASE expression."
@@ -72,28 +72,27 @@ msgstr "CASE 문의 별칭이 중복되었을 수 있습니다."
 
 #: src/Components/CaseExpression.php:225
 msgid "An alias expected after AS but got "
-msgstr "AS뒤에 별명이 필요합니다. : "
+msgstr "AS 다음에 별칭이 필요하지만, 다음 내용이 있습니다 "
 
 #: src/Components/CaseExpression.php:238 src/Components/Expression.php:352
 #: src/Components/Expression.php:372 src/Components/Expression.php:424
 msgid "An alias was previously found."
-msgstr "이미 사용중인 별명입니다."
+msgstr "이미 사용 중인 별칭입니다."
 
 #: src/Components/CaseExpression.php:252
 msgid "An alias was expected after AS."
-msgstr "AS뒤에 별명이 필요합니다."
+msgstr "AS뒤에 별칭이 필요합니다."
 
 #: src/Components/CreateDefinition.php:255
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
-msgstr ""
-"심볼 이름이 필요합니다! 예약어는 역따옴표 없이 열 이름으로 사용될 수 없습니"
-"다."
+msgstr "식별할 수 있는 이름이 필요합니다! 예약어는 역따옴표 없이 열 이름으로 사용될 "
+"수 없습니다."
 
 #: src/Components/CreateDefinition.php:268
 msgid "A symbol name was expected!"
-msgstr "심볼 이름이 필요합니다!"
+msgstr "식별할 수 있는 이름이 필요합니다!"
 
 #: src/Components/CreateDefinition.php:300
 msgid "A comma or a closing bracket was expected."
@@ -113,11 +112,11 @@ msgstr "식이 필요합니다."
 
 #: src/Components/Expression.php:257 src/Components/Expression.php:435
 msgid "An alias was expected."
-msgstr "별명이 필요합니다."
+msgstr "별칭이 필요합니다."
 
 #: src/Components/Expression.php:403
 msgid "Unexpected dot."
-msgstr "예기치 못한 점(.)입니다."
+msgstr "예기치 못한 마침표(.)입니다."
 
 #: src/Components/IndexHint.php:140 src/Components/IndexHint.php:170
 #: src/Components/Key.php:259 src/Components/LockExpression.php:161
@@ -141,24 +140,24 @@ msgstr "오프셋이 필요합니다."
 
 #: src/Components/LockExpression.php:91 src/Components/LockExpression.php:201
 msgid "Unexpected end of LOCK expression."
-msgstr "LOCK 표현식이 예기치 않게 끝났습니다."
+msgstr "예기치 않은 LOCK 표현식 종료입니다."
 
 #: src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr "이 옵션은 \"%1$s\"와(과) 충돌합니다."
+msgstr "이 옵션은 \"%1$s\" 옵션과 충돌합니다."
 
 #: src/Components/RenameOperation.php:103
 msgid "The old name of the table was expected."
-msgstr "테이블의 이전 이름이 팔요합니다."
+msgstr "테이블의 이전 이름이 필요합니다."
 
 #: src/Components/RenameOperation.php:109
 msgid "Keyword \"TO\" was expected."
-msgstr "키워드 \"TO\"가 팔요합니다."
+msgstr "\"TO\" 키워드가 필요합니다."
 
 #: src/Components/RenameOperation.php:124
 msgid "The new name of the table was expected."
-msgstr "테이블의 새로운 이름이 팔요합니다."
+msgstr "테이블의 새로운 이름이 필요합니다."
 
 #: src/Components/RenameOperation.php:140
 msgid "A rename operation was expected."
@@ -166,11 +165,11 @@ msgstr "이름 바꾸기 작업이 필요합니다."
 
 #: src/Components/SetOperation.php:121
 msgid "Missing expression."
-msgstr "누락된 표현입니다."
+msgstr "구문이 없습니다."
 
 #: src/Lexer.php:274
 msgid "Unexpected character."
-msgstr "예상치 못한 문자입니다."
+msgstr "예기치 않은 문자입니다."
 
 #: src/Lexer.php:313
 msgid "Expected whitespace(s) before delimiter."
@@ -183,7 +182,7 @@ msgstr "구분기호가 필요합니다."
 #: src/Lexer.php:1004
 #, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "닫는 따옴표 %1$s 가 팔요합니다."
+msgstr "닫는 따옴표 %1$s 가 필요합니다."
 
 #: src/Lexer.php:1056
 msgid "Variable name was expected."
@@ -191,7 +190,7 @@ msgstr "변수명이 필요합니다."
 
 #: src/Parser.php:456
 msgid "Unexpected beginning of statement."
-msgstr "명령문이 예기치 않게 시작되었습니다."
+msgstr "예기치 않은 구문 시작합니다."
 
 #: src/Parser.php:499
 msgid "Unrecognized statement type."
@@ -199,11 +198,11 @@ msgstr "인식할 수 없는 명령문 유형입니다."
 
 #: src/Parser.php:587
 msgid "No transaction was previously started."
-msgstr "이전에 시작된 처리가 없습니다."
+msgstr "이전에 시작한 트랜잭션이 없습니다."
 
 #: src/Statement.php:327
 msgid "This type of clause was previously parsed."
-msgstr "이 유형의 절은 이전에 구문 분석되었습니다."
+msgstr "이 유형의 절은 이미 파싱되었습니다."
 
 #: src/Statement.php:398
 msgid "Unrecognized keyword."
@@ -211,11 +210,11 @@ msgstr "인식할 수 없는 키워드입니다."
 
 #: src/Statement.php:409
 msgid "Keyword at end of statement."
-msgstr "명령문 끝에 있는 키워드."
+msgstr "구문의 끝에 있는 키워드입니다."
 
 #: src/Statement.php:555
 msgid "Unexpected ordering of clauses."
-msgstr "예기치 못한 문장(절) 순서입니다."
+msgstr "예기치 않은 절의 순서입니다."
 
 #: src/Statements/CreateStatement.php:549
 msgid "The name of the entity was expected."
@@ -227,7 +226,7 @@ msgstr "테이블 이름이 필요합니다."
 
 #: src/Statements/CreateStatement.php:603
 msgid "At least one column definition was expected."
-msgstr "최소 하나의 열 정의가 필요합니다."
+msgstr "최소한 하나의 열은 정의해야합니다."
 
 #: src/Statements/CreateStatement.php:707
 msgid "A \"RETURNS\" keyword was expected."
@@ -235,19 +234,19 @@ msgstr "\"RETURNS\"키워드가 필요합니다."
 
 #: src/Statements/DeleteStatement.php:329
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr "이 유형의 문장(절)은 다중테이블 요청에서 유효하지 않습니다."
+msgstr "다중테이블 요청에서 이 유형의 절은 유효하지 않습니다."
 
 #: src/Statements/LockStatement.php:120
 msgid "Unexpected end of LOCK statement."
-msgstr "LOCK 표현식이 예기치 않게 끝났습니다."
+msgstr "예기치 않은 LOCK 구문의 끝입니다."
 
 #: src/Statements/PurgeStatement.php:138
 msgid "Unexpected keyword"
-msgstr "예상치 못한 키워드"
+msgstr "예기치 않은 키워드"
 
 #: src/Statements/WithStatement.php:118
 msgid "The name of the CTE was expected."
-msgstr "CTE 이름이 필요합니다."
+msgstr "CTE의 이름이 필요합니다."
 
 #: src/Statements/WithStatement.php:137
 msgid "AS keyword was expected."
@@ -259,7 +258,7 @@ msgstr "CTE의 서브쿼리가 필요합니다."
 
 #: src/Statements/WithStatement.php:266
 msgid "Unexpected end of the WITH CTE."
-msgstr "WITH CTE 표현식이 예기치 않게 끝났습니다."
+msgstr "예기치 않은 WITH CTE의 끝입니다."
 
 #~ msgid "Unexpected end of Lock expression."
 #~ msgstr "LOCK 표현식이 예기치 않게 끝났습니다."
