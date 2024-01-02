@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use Exception;
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 
 use function in_array;
@@ -26,8 +27,24 @@ use function substr;
  *
  * @see Context
  */
-class Lexer extends Core
+class Lexer
 {
+    /**
+     * Whether errors should throw exceptions or just be stored.
+     */
+    private bool $strict = false;
+
+    /**
+     * List of errors that occurred during lexing.
+     *
+     * Usually, the lexing does not stop once an error occurred because that
+     * error might be false positive or a partial result (even a bad one)
+     * might be needed.
+     *
+     * @var Exception[]
+     */
+    public array $errors = [];
+
     /**
      * A list of keywords that indicate that the function keyword
      * is not used as a function
@@ -112,7 +129,9 @@ class Lexer extends Core
      */
     public function __construct($str, $strict = false, $delimiter = null)
     {
-        parent::__construct();
+        if (Context::$keywords === []) {
+            Context::load();
+        }
 
         // `strlen` is used instead of `mb_strlen` because the lexer needs to
         // parse each byte of the input.
@@ -372,7 +391,12 @@ class Lexer extends Core
             $pos,
             $code
         );
-        parent::error($error);
+
+        if ($this->strict) {
+            throw $error;
+        }
+
+        $this->errors[] = $error;
     }
 
     /**

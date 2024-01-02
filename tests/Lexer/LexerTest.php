@@ -43,8 +43,7 @@ class LexerTest extends TestCase
         $this->expectExceptionCode(4);
         $this->expectExceptionMessage('strict error');
         $this->expectException(LexerException::class);
-        $lexer = new Lexer('');
-        $lexer->strict = true;
+        $lexer = new Lexer('', true);
 
         $lexer->error('strict error', 'foo', 1, 4);
     }
