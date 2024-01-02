@@ -129,7 +129,6 @@ class Table
                 continue;
             }
 
-            $ret[$field->name]['generated'] = true;
             $ret[$field->name]['expr'] = $option;
         }
 
