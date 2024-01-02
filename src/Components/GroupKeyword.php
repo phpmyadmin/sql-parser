@@ -17,8 +17,8 @@ use function trim;
  */
 final class GroupKeyword implements Component
 {
-    /** @var mixed */
-    public $type;
+    /** @var 'ASC'|'DESC'|null */
+    public string|null $type = null;
 
     /**
      * The expression that is used for grouping.
