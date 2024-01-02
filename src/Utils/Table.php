@@ -85,6 +85,14 @@ class Table
      * @param CreateStatement $statement the statement to be processed
      *
      * @return array<int|string, array<string, bool|string|mixed>>
+     * @psalm-return array<string, array{
+     *  type: string,
+     *  timestamp_not_null: bool,
+     *  default_value?: mixed,
+     *  default_current_timestamp?: true,
+     *  on_update_current_timestamp?: true,
+     *  expr?: mixed
+     * }>
      */
     public static function getFields($statement): array
     {
