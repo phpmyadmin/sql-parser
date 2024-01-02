@@ -335,8 +335,6 @@ PHP;
          * The directory that contains the input file.
          *
          * Used to include common files.
-         *
-         * @var string
          */
         $directory = dirname($input) . '/';
 
@@ -347,15 +345,11 @@ PHP;
 
         /**
          * The name of the context.
-         *
-         * @var string
          */
         $name = substr($file, 0, -4);
 
         /**
          * The name of the class that defines this context.
-         *
-         * @var string
          */
         $class = 'Context' . $name;
 
