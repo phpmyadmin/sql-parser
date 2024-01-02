@@ -37,8 +37,6 @@ class Routine
                 '',
                 '',
                 '',
-                '',
-                '',
             ];
         }
 
@@ -48,8 +46,6 @@ class Routine
         }
 
         return [
-            '',
-            '',
             $type->name,
             implode(',', $type->parameters),
             implode(' ', $options),
