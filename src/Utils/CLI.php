@@ -149,6 +149,10 @@ class CLI
             'ansi',
         ];
         $params = $this->getopt('hq:c:a', $longopts);
+        if ($params === false) {
+            return false;
+        }
+
         $this->mergeLongOpts($params, $longopts);
 
         return $params;
@@ -221,6 +225,10 @@ class CLI
             'ansi',
         ];
         $params = $this->getopt('hq:a', $longopts);
+        if ($params === false) {
+            return false;
+        }
+
         $this->mergeLongOpts($params, $longopts);
 
         return $params;
