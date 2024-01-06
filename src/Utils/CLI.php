@@ -32,7 +32,7 @@ class CLI
      * @param string[]|false[] $params
      * @param string[]         $longopts
      */
-    public function mergeLongOpts(&$params, &$longopts): void
+    public function mergeLongOpts(array &$params, array &$longopts): void
     {
         foreach ($longopts as $value) {
             $value = rtrim($value, ':');
@@ -51,12 +51,11 @@ class CLI
     }
 
     /**
-     * @param string   $opt
      * @param string[] $long
      *
      * @return string[]|false[]|false
      */
-    public function getopt($opt, $long): array|false
+    public function getopt(string $opt, array $long): array|false
     {
         return getopt($opt, $long);
     }

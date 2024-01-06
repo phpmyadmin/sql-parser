@@ -44,7 +44,7 @@ final class ParameterDefinition implements Component
      * @param string   $inOut parameter's directional type (IN / OUT or None)
      * @param DataType $type  parameter's type
      */
-    public function __construct($name = null, $inOut = null, $type = null)
+    public function __construct(string|null $name = null, string|null $inOut = null, DataType|null $type = null)
     {
         $this->name = $name;
         $this->inOut = $inOut;

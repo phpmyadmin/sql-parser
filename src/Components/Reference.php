@@ -62,7 +62,7 @@ final class Reference implements Component
      * @param string[]     $columns the columns referenced
      * @param OptionsArray $options the options
      */
-    public function __construct($table = null, array $columns = [], $options = null)
+    public function __construct(Expression|null $table = null, array $columns = [], OptionsArray|null $options = null)
     {
         $this->table = $table;
         $this->columns = $columns;

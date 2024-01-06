@@ -150,11 +150,11 @@ final class CreateDefinition implements Component
      * @param Reference|null    $references   references
      */
     public function __construct(
-        $name = null,
-        $options = null,
-        $type = null,
-        $isConstraint = false,
-        $references = null
+        string|null $name = null,
+        OptionsArray|null $options = null,
+        DataType|Key|null $type = null,
+        bool $isConstraint = false,
+        Reference|null $references = null
     ) {
         $this->name = $name;
         $this->options = $options;

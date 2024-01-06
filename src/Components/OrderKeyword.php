@@ -34,7 +34,7 @@ final class OrderKeyword implements Component
      * @param Expression $expr the expression that we are sorting by
      * @param string     $type the sorting type
      */
-    public function __construct($expr = null, $type = 'ASC')
+    public function __construct(Expression|null $expr = null, string $type = 'ASC')
     {
         $this->expr = $expr;
         $this->type = $type;

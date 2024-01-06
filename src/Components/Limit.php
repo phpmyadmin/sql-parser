@@ -33,7 +33,7 @@ final class Limit implements Component
      * @param int|string $rowCount the row count
      * @param int|string $offset   the offset
      */
-    public function __construct($rowCount = 0, $offset = 0)
+    public function __construct(int|string $rowCount = 0, int|string $offset = 0)
     {
         $this->rowCount = $rowCount;
         $this->offset = $offset;

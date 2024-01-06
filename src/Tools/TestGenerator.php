@@ -48,7 +48,7 @@ class TestGenerator
      *
      * @return array<string, string|Lexer|Parser|array<string, array<int, array<int, int|string|Token>>>|null>
      */
-    public static function generate($query, $type = 'parser'): array
+    public static function generate(string $query, string $type = 'parser'): array
     {
         /**
          * Lexer used for tokenizing the query.
@@ -133,8 +133,13 @@ class TestGenerator
      * @param string $debug  the debug file
      * @param bool   $ansi   activate quotes ANSI mode
      */
-    public static function build($type, $input, $output, $debug = null, $ansi = false): void
-    {
+    public static function build(
+        string $type,
+        string $input,
+        string $output,
+        string|null $debug = null,
+        bool $ansi = false
+    ): void {
         // Support query types: `lexer` / `parser`.
         if (! in_array($type, ['lexer', 'parser'])) {
             throw new Exception('Unknown test type (expected `lexer` or `parser`).');
@@ -197,11 +202,10 @@ class TestGenerator
     /**
      * Generates recursively all tests preserving the directory structure.
      *
-     * @param string     $input  the input directory
-     * @param string     $output the output directory
-     * @param mixed|null $debug
+     * @param string $input  the input directory
+     * @param string $output the output directory
      */
-    public static function buildAll($input, $output, $debug = null): void
+    public static function buildAll(string $input, string $output, mixed $debug = null): void
     {
         $files = scandir($input);
 

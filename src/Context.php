@@ -604,10 +604,8 @@ abstract class Context
 
     /**
      * Sets the SQL mode.
-     *
-     * @param int|string $mode
      */
-    public static function setMode($mode = self::SQL_MODE_NONE): void
+    public static function setMode(int|string $mode = self::SQL_MODE_NONE): void
     {
         if (is_int($mode)) {
             static::$mode = $mode;

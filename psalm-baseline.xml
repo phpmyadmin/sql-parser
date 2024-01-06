@@ -646,15 +646,6 @@
       <code><![CDATA[self::STATEMENT_PARSERS[$statementName ?? $token->keyword]]]></code>
       <code><![CDATA[self::STATEMENT_PARSERS[$token->keyword]]]></code>
     </MixedArrayOffset>
-    <PossiblyNullArgument>
-      <code>$list</code>
-      <code>$list</code>
-      <code>$list</code>
-      <code><![CDATA[$token->token]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$list->tokens[$list->idx]]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$list->tokens]]></code>
       <code>self::STATEMENT_PARSERS</code>
@@ -664,27 +655,9 @@
       <code><![CDATA[$list->idx]]></code>
       <code>$prevLastIdx</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyAssignment>
-      <code>$list</code>
-      <code>$list</code>
-    </PossiblyNullPropertyAssignment>
     <PossiblyNullPropertyAssignmentValue>
       <code>$lastIdx</code>
     </PossiblyNullPropertyAssignmentValue>
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$list->count]]></code>
-      <code><![CDATA[$list->idx]]></code>
-      <code><![CDATA[$list->tokens]]></code>
-      <code><![CDATA[$token->keyword]]></code>
-      <code><![CDATA[$token->token]]></code>
-      <code><![CDATA[$token->type]]></code>
-      <code><![CDATA[$token->value]]></code>
-    </PossiblyNullPropertyFetch>
-    <PossiblyNullReference>
-      <code>getNextOfType</code>
-      <code>getNextOfType</code>
-      <code>getNextOfType</code>
-    </PossiblyNullReference>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$list = &$this->list]]></code>
     </UnsupportedPropertyReferenceUsage>
@@ -1533,13 +1506,6 @@
   </file>
   <file src="tests/Utils/QueryTest.php">
     <PossiblyNullArgument>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
       <code><![CDATA[$parser->list]]></code>
       <code><![CDATA[$parser->list]]></code>
       <code><![CDATA[$parser->list]]></code>

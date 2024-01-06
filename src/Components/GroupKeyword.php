@@ -30,7 +30,7 @@ final class GroupKeyword implements Component
     /**
      * @param Expression $expr the expression that we are sorting by
      */
-    public function __construct($expr = null)
+    public function __construct(Expression|null $expr = null)
     {
         $this->expr = $expr;
     }

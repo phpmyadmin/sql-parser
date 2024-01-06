@@ -113,12 +113,12 @@ final class IntoKeyword implements Component
      * @param bool|null              $fieldsKeyword options for OPTIONS keyword
      */
     public function __construct(
-        $type = null,
-        $dest = null,
-        $columns = null,
-        $values = null,
-        $fieldsOptions = null,
-        $fieldsKeyword = null
+        string|null $type = null,
+        string|Expression|null $dest = null,
+        array|null $columns = null,
+        array|null $values = null,
+        OptionsArray|null $fieldsOptions = null,
+        bool|null $fieldsKeyword = null
     ) {
         $this->type = $type;
         $this->dest = $dest;
@@ -236,7 +236,7 @@ final class IntoKeyword implements Component
      * @param TokensList $list    A token list
      * @param string     $keyword The keyword
      */
-    public function parseFileOptions(Parser $parser, TokensList $list, $keyword = 'FIELDS'): void
+    public function parseFileOptions(Parser $parser, TokensList $list, string $keyword = 'FIELDS'): void
     {
         ++$list->idx;
 

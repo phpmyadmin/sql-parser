@@ -34,7 +34,7 @@ final class FunctionCall implements Component
      * @param string|null            $name       the name of the function to be called
      * @param string[]|ArrayObj|null $parameters the parameters of this function
      */
-    public function __construct($name = null, $parameters = null)
+    public function __construct(string|null $name = null, array|ArrayObj|null $parameters = null)
     {
         $this->name = $name;
         if (is_array($parameters)) {

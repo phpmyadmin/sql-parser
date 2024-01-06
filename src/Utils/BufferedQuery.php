@@ -84,7 +84,7 @@ class BufferedQuery
      * @param array<string, bool|string> $options the options of this parser
      * @psalm-param array{delimiter?: non-empty-string, parse_delimiter?: bool, add_delimiter?: bool} $options
      */
-    public function __construct($query = '', array $options = [])
+    public function __construct(string $query = '', array $options = [])
     {
         // Merges specified options with defaults.
         $this->options = array_merge(
@@ -107,10 +107,8 @@ class BufferedQuery
      * Sets the delimiter.
      *
      * Used to update the length of it too.
-     *
-     * @param string $delimiter
      */
-    public function setDelimiter($delimiter): void
+    public function setDelimiter(string $delimiter): void
     {
         $this->delimiter = $delimiter;
         $this->delimiterLen = strlen($delimiter);
@@ -121,7 +119,7 @@ class BufferedQuery
      *
      * @param bool $end whether the end of the buffer was reached
      */
-    public function extract($end = false): string|false
+    public function extract(bool $end = false): string|false
     {
         /**
          * The last parsed position.

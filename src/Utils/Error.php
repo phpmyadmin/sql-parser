@@ -29,7 +29,7 @@ class Error
      *               `$err[3]` holds the position of the string.
      *               (i.e. `[$msg, $code, $str, $pos]`)
      */
-    public static function get($objs): array
+    public static function get(array $objs): array
     {
         $ret = [];
 

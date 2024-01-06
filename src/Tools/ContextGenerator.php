@@ -221,7 +221,7 @@ PHP;
      * @param int                                        $spaces the number of spaces that starts every line
      * @param int                                        $line   the length of a line
      */
-    public static function printWords($words, $spaces = 8, $line = 140): string
+    public static function printWords(array $words, int $spaces = 8, int $line = 140): string
     {
         $typesCount = count($words);
         $ret = '';
@@ -275,7 +275,7 @@ PHP;
      *   keywords: array<int, array<int, array<int, string>>>
      * } $options
      */
-    public static function generate($options): string
+    public static function generate(array $options): string
     {
         if (isset($options['keywords'])) {
             $options['keywords'] = static::printWords($options['keywords']);
@@ -289,7 +289,7 @@ PHP;
      *
      * @param string $name name to format
      */
-    public static function formatName($name): string
+    public static function formatName(string $name): string
     {
         /* Split name and version */
         $parts = [];
@@ -329,7 +329,7 @@ PHP;
      * @param string $input  the input file
      * @param string $output the output directory
      */
-    public static function build($input, $output): void
+    public static function build(string $input, string $output): void
     {
         /**
          * The directory that contains the input file.
@@ -383,7 +383,7 @@ PHP;
      * @param string $input  the input directory
      * @param string $output the output directory
      */
-    public static function buildAll($input, $output): void
+    public static function buildAll(string $input, string $output): void
     {
         $files = scandir($input);
 

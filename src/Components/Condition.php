@@ -80,7 +80,7 @@ final class Condition implements Component
     /**
      * @param string $expr the condition or the operator
      */
-    public function __construct($expr = null)
+    public function __construct(string|null $expr = null)
     {
         $this->expr = trim((string) $expr);
     }

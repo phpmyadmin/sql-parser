@@ -78,8 +78,12 @@ final class JoinKeyword implements Component
      * @param Condition[] $on    join conditions
      * @param ArrayObj    $using columns joined
      */
-    public function __construct($type = null, $expr = null, $on = null, $using = null)
-    {
+    public function __construct(
+        string|null $type = null,
+        Expression|null $expr = null,
+        array|null $on = null,
+        ArrayObj|null $using = null
+    ) {
         $this->type = $type;
         $this->expr = $expr;
         $this->on = $on;

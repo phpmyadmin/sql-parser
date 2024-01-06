@@ -156,7 +156,7 @@ class TokensList implements ArrayAccess
      * @param TokenType $type  the type of the token
      * @param string    $value the value of the token
      */
-    public function getNextOfTypeAndValue(TokenType $type, $value): Token|null
+    public function getNextOfTypeAndValue(TokenType $type, string $value): Token|null
     {
         for (; $this->idx < $this->count; ++$this->idx) {
             if (($this->tokens[$this->idx]->type === $type) && ($this->tokens[$this->idx]->value === $value)) {

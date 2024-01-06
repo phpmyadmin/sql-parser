@@ -291,7 +291,7 @@ final class OptionsArray implements Component
      * @param bool   $getExpr Gets the expression instead of the value.
      *                        The value is the processed form of the expression.
      */
-    public function has($key, $getExpr = false): mixed
+    public function has(string $key, bool $getExpr = false): mixed
     {
         foreach ($this->options as $option) {
             if (is_array($option)) {
@@ -313,7 +313,7 @@ final class OptionsArray implements Component
      *
      * @return bool whether the key was found and deleted or not
      */
-    public function remove($key): bool
+    public function remove(string $key): bool
     {
         foreach ($this->options as $idx => $option) {
             if (is_array($option)) {
