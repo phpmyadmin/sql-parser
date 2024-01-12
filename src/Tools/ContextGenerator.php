@@ -19,11 +19,11 @@ use function round;
 use function scandir;
 use function sort;
 use function sprintf;
+use function str_contains;
 use function str_repeat;
 use function str_replace;
 use function str_split;
 use function strlen;
-use function strstr;
 use function strtoupper;
 use function substr;
 use function trim;
@@ -170,7 +170,7 @@ PHP;
 
             // Reserved, data types, keys, functions, etc. keywords.
             foreach (static::$labelsFlags as $label => $flags) {
-                if (strstr($value, $label) === false) {
+                if (! str_contains($value, $label)) {
                     continue;
                 }
 
@@ -179,7 +179,7 @@ PHP;
             }
 
             // Composed keyword.
-            if (strstr($value, ' ') !== false) {
+            if (str_contains($value, ' ')) {
                 $type |= 2; // Reserved keyword.
                 $type |= 4; // Composed keyword.
             }
@@ -335,8 +335,6 @@ PHP;
          * The directory that contains the input file.
          *
          * Used to include common files.
-         *
-         * @var string
          */
         $directory = dirname($input) . '/';
 
@@ -347,15 +345,11 @@ PHP;
 
         /**
          * The name of the context.
-         *
-         * @var string
          */
         $name = substr($file, 0, -4);
 
         /**
          * The name of the class that defines this context.
-         *
-         * @var string
          */
         $class = 'Context' . $name;
 

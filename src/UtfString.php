@@ -90,7 +90,7 @@ class UtfString implements ArrayAccess, Stringable
      *
      * @param int $offset the offset to be checked
      */
-    public function offsetExists($offset): bool
+    public function offsetExists(mixed $offset): bool
     {
         return ($offset >= 0) && ($offset < $this->charLen);
     }
@@ -100,7 +100,7 @@ class UtfString implements ArrayAccess, Stringable
      *
      * @param int $offset the offset to be returned
      */
-    public function offsetGet($offset): string|null
+    public function offsetGet(mixed $offset): string|null
     {
         // This function moves the internal byte and character pointer to the requested offset.
         // This function is part of hot code so the aim is to do the following
@@ -143,7 +143,7 @@ class UtfString implements ArrayAccess, Stringable
      *
      * @throws Exception not implemented.
      */
-    public function offsetSet($offset, $value): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         throw new Exception('Not implemented.');
     }
@@ -155,7 +155,7 @@ class UtfString implements ArrayAccess, Stringable
      *
      * @throws Exception not implemented.
      */
-    public function offsetUnset($offset): void
+    public function offsetUnset(mixed $offset): void
     {
         throw new Exception('Not implemented.');
     }

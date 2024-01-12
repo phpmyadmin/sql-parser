@@ -450,9 +450,6 @@
     <MixedAssignment>
       <code>self::$keywords</code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>getIdentifierQuote</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Contexts/ContextMariaDb100000.php">
     <UnusedClass>
@@ -564,12 +561,6 @@
       <code>ContextMySql80100</code>
     </UnusedClass>
   </file>
-  <file src="src/Core.php">
-    <RedundantConditionGivenDocblockType>
-      <code>Context::$keywords !== []</code>
-      <code>Context::$keywords !== []</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="src/Exceptions/ParserException.php">
     <PossiblyNullPropertyAssignmentValue>
       <code>$token</code>
@@ -589,9 +580,6 @@
     <NullArgument>
       <code>null</code>
     </NullArgument>
-    <ParamNameMismatch>
-      <code>$msg</code>
-    </ParamNameMismatch>
     <PossiblyNullArgument>
       <code>$flags</code>
       <code><![CDATA[$this->str[$this->last + 1]]]></code>
@@ -658,9 +646,6 @@
       <code><![CDATA[self::STATEMENT_PARSERS[$statementName ?? $token->keyword]]]></code>
       <code><![CDATA[self::STATEMENT_PARSERS[$token->keyword]]]></code>
     </MixedArrayOffset>
-    <ParamNameMismatch>
-      <code>$msg</code>
-    </ParamNameMismatch>
     <PossiblyNullArgument>
       <code>$list</code>
       <code>$list</code>
@@ -1014,9 +999,6 @@
       <code>++$i !== $count</code>
       <code>++$i !== $count</code>
     </RedundantCondition>
-    <UnnecessaryVarAnnotation>
-      <code>string</code>
-    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Tools/CustomJsonSerializer.php">
     <MixedAssignment>
@@ -1250,7 +1232,6 @@
       <code><![CDATA[$ret[$field->name]['expr']]]></code>
     </MixedAssignment>
     <PossiblyNullArrayOffset>
-      <code>$ret</code>
       <code>$ret</code>
       <code>$ret</code>
       <code>$ret</code>
@@ -1594,108 +1575,6 @@
       <code><![CDATA[$parser->statements[0]]]></code>
       <code><![CDATA[$parser->statements[0]]]></code>
     </ArgumentTypeCoercion>
-    <InvalidReturnStatement>
-      <code><![CDATA[[
-            [
-                'CREATE USER test',
-                [],
-            ],
-            [
-                'CREATE TABLE `address` (
-                  `address_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-                  `address` varchar(50) NOT NULL,
-                  `address2` varchar(50) DEFAULT NULL,
-                  `district` varchar(20) NOT NULL,
-                  `city_id` smallint(5) unsigned NOT NULL,
-                  `postal_code` varchar(10) DEFAULT NULL,
-                  `phone` varchar(20) NOT NULL,
-                  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-                  PRIMARY KEY (`address_id`),
-                  KEY `idx_fk_city_id` (`city_id`),
-                  CONSTRAINT `fk_address_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON UPDATE CASCADE
-                ) ENGINE=InnoDB AUTO_INCREMENT=606 DEFAULT CHARSET=utf8',
-                [
-                    'address_id' => [
-                        'type' => 'SMALLINT',
-                        'timestamp_not_null' => false,
-                    ],
-                    'address' => [
-                        'type' => 'VARCHAR',
-                        'timestamp_not_null' => false,
-                    ],
-                    'address2' => [
-                        'type' => 'VARCHAR',
-                        'timestamp_not_null' => false,
-                        'default_value' => 'NULL',
-                    ],
-                    'district' => [
-                        'type' => 'VARCHAR',
-                        'timestamp_not_null' => false,
-                    ],
-                    'city_id' => [
-                        'type' => 'SMALLINT',
-                        'timestamp_not_null' => false,
-                    ],
-                    'postal_code' => [
-                        'type' => 'VARCHAR',
-                        'timestamp_not_null' => false,
-                        'default_value' => 'NULL',
-                    ],
-                    'phone' => [
-                        'type' => 'VARCHAR',
-                        'timestamp_not_null' => false,
-                    ],
-                    'last_update' => [
-                        'type' => 'TIMESTAMP',
-                        'timestamp_not_null' => true,
-                        'default_value' => 'CURRENT_TIMESTAMP',
-                        'default_current_timestamp' => true,
-                        'on_update_current_timestamp' => true,
-                    ],
-                ],
-            ],
-            [
-                'CREATE TABLE table1 (
-                    a INT NOT NULL,
-                    b VARCHAR(32),
-                    c INT AS (a mod 10) VIRTUAL,
-                    d VARCHAR(5) AS (left(b,5)) PERSISTENT
-                )',
-                [
-                    'a' => [
-                        'type' => 'INT',
-                        'timestamp_not_null' => false,
-                    ],
-                    'b' => [
-                        'type' => 'VARCHAR',
-                        'timestamp_not_null' => false,
-                    ],
-                    'c' => [
-                        'type' => 'INT',
-                        'timestamp_not_null' => false,
-                        'generated' => true,
-                        'expr' => '(a mod 10)',
-                    ],
-                    'd' => [
-                        'type' => 'VARCHAR',
-                        'timestamp_not_null' => false,
-                        'generated' => true,
-                        'expr' => '(left(b,5))',
-                    ],
-                ],
-            ],
-        ]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[list<array{string, array<string, array{
-     *   type: string,
-     *   timestamp_not_null: bool,
-     *   default_value?: string,
-     *   default_current_timestamp?: bool,
-     *   on_update_current_timestamp?: bool,
-     *   expr?: string
-     * }>}>]]></code>
-    </InvalidReturnType>
     <PossiblyUnusedMethod>
       <code>getFieldsProvider</code>
       <code>getForeignKeysProvider</code>

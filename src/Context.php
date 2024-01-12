@@ -706,16 +706,6 @@ abstract class Context
     }
 
     /**
-     * Returns char used to quote identifiers based on currently set SQL Mode (ie. standard or ANSI_QUOTES)
-     *
-     * @return string either " (double quote, ansi_quotes mode) or ` (backtick, standard mode)
-     */
-    public static function getIdentifierQuote(): string
-    {
-        return self::hasMode(self::SQL_MODE_ANSI_QUOTES) ? '"' : '`';
-    }
-
-    /**
      * Function verifies that given SQL Mode constant is currently set
      *
      * @param int $flag for example {@see Context::SQL_MODE_ANSI_QUOTES}

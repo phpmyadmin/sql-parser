@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use Exception;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Statements\TransactionStatement;
@@ -18,8 +19,24 @@ use function strtoupper;
  *
  * Takes multiple tokens (contained in a Lexer instance) as input and builds a parse tree.
  */
-class Parser extends Core
+class Parser
 {
+    /**
+     * Whether errors should throw exceptions or just be stored.
+     */
+    private bool $strict = false;
+
+    /**
+     * List of errors that occurred during lexing.
+     *
+     * Usually, the lexing does not stop once an error occurred because that
+     * error might be false positive or a partial result (even a bad one)
+     * might be needed.
+     *
+     * @var Exception[]
+     */
+    public array $errors = [];
+
     /**
      * Array of classes that are used in parsing the SQL statements.
      *
@@ -362,7 +379,9 @@ class Parser extends Core
      */
     public function __construct($list = null, $strict = false)
     {
-        parent::__construct();
+        if (Context::$keywords === []) {
+            Context::load();
+        }
 
         if (is_string($list) || ($list instanceof UtfString)) {
             $lexer = new Lexer($list, $strict);
@@ -622,6 +641,11 @@ class Parser extends Core
             $token,
             $code
         );
-        parent::error($error);
+
+        if ($this->strict) {
+            throw $error;
+        }
+
+        $this->errors[] = $error;
     }
 }

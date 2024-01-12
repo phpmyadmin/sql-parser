@@ -245,13 +245,11 @@ class TableTest extends TestCase
                     'c' => [
                         'type' => 'INT',
                         'timestamp_not_null' => false,
-                        'generated' => true,
                         'expr' => '(a mod 10)',
                     ],
                     'd' => [
                         'type' => 'VARCHAR',
                         'timestamp_not_null' => false,
-                        'generated' => true,
                         'expr' => '(left(b,5))',
                     ],
                 ],

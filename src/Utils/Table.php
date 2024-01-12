@@ -17,11 +17,18 @@ class Table
     /**
      * Gets the foreign keys of the table.
      *
-     * @param CreateStatement $statement the statement to be processed
-     *
-     * @return array<int, array<string, mixed[]|string|null>>
+     * @return list<(string|string[]|null)[]>
+     * @psalm-return list<array{
+     *  constraint: string|null,
+     *  index_list: (int|string)[],
+     *  ref_db_name?: string|null,
+     *  ref_table_name?: string|null,
+     *  ref_index_list?: string[],
+     *  on_update?: string|string[],
+     *  on_delete?: string|string[],
+     * }>
      */
-    public static function getForeignKeys($statement): array
+    public static function getForeignKeys(CreateStatement $statement): array
     {
         if (empty($statement->fields) || (! is_array($statement->fields)) || (! $statement->options->has('TABLE'))) {
             return [];
@@ -78,6 +85,14 @@ class Table
      * @param CreateStatement $statement the statement to be processed
      *
      * @return array<int|string, array<string, bool|string|mixed>>
+     * @psalm-return array<string, array{
+     *  type: string,
+     *  timestamp_not_null: bool,
+     *  default_value?: mixed,
+     *  default_current_timestamp?: true,
+     *  on_update_current_timestamp?: true,
+     *  expr?: mixed
+     * }>
      */
     public static function getFields($statement): array
     {
@@ -129,7 +144,6 @@ class Table
                 continue;
             }
 
-            $ret[$field->name]['generated'] = true;
             $ret[$field->name]['expr'] = $option;
         }
 

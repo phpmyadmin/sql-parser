@@ -76,8 +76,7 @@ class ParserTest extends TestCase
         $this->expectExceptionCode(3);
         $this->expectExceptionMessage('strict error');
         $this->expectException(ParserException::class);
-        $parser = new Parser(new TokensList());
-        $parser->strict = true;
+        $parser = new Parser(new TokensList(), true);
 
         $parser->error('strict error', new Token('foo'), 3);
     }

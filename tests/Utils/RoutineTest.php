@@ -33,15 +33,11 @@ class RoutineTest extends TestCase
                     '',
                     '',
                     '',
-                    '',
-                    '',
                 ],
             ],
             [
                 'TEXT',
                 [
-                    '',
-                    '',
                     'TEXT',
                     '',
                     '',
@@ -50,8 +46,6 @@ class RoutineTest extends TestCase
             [
                 'INT(20)',
                 [
-                    '',
-                    '',
                     'INT',
                     '20',
                     '',
@@ -60,8 +54,6 @@ class RoutineTest extends TestCase
             [
                 'INT UNSIGNED',
                 [
-                    '',
-                    '',
                     'INT',
                     '',
                     'UNSIGNED',
@@ -70,8 +62,6 @@ class RoutineTest extends TestCase
             [
                 'VARCHAR(1) CHARSET utf8',
                 [
-                    '',
-                    '',
                     'VARCHAR',
                     '1',
                     'utf8',
@@ -80,8 +70,6 @@ class RoutineTest extends TestCase
             [
                 'ENUM(\'a\', \'b\') CHARSET latin1',
                 [
-                    '',
-                    '',
                     'ENUM',
                     '\'a\',\'b\'',
                     'latin1',
@@ -90,8 +78,6 @@ class RoutineTest extends TestCase
             [
                 'DECIMAL(5,2) UNSIGNED ZEROFILL',
                 [
-                    '',
-                    '',
                     'DECIMAL',
                     '5,2',
                     'UNSIGNED ZEROFILL',
@@ -100,8 +86,6 @@ class RoutineTest extends TestCase
             [
                 'SET(\'test\'\'esc"\',   \'more\\\'esc\')',
                 [
-                    '',
-                    '',
                     'SET',
                     '\'test\'\'esc"\',\'more\\\'esc\'',
                     '',
