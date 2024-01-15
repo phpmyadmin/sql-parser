@@ -105,10 +105,10 @@ final class Key implements Component
      * @phpstan-param array{name?: string, length?: int, order?: string}[] $columns
      */
     public function __construct(
-        $name = null,
+        string|null $name = null,
         array $columns = [],
-        $type = null,
-        $options = null
+        string|null $type = null,
+        OptionsArray|null $options = null
     ) {
         $this->name = $name;
         $this->columns = $columns;

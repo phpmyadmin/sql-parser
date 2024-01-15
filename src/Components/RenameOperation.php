@@ -34,7 +34,7 @@ final class RenameOperation implements Component
      * @param Expression $old old expression
      * @param Expression $new new expression containing new name
      */
-    public function __construct($old = null, $new = null)
+    public function __construct(Expression|null $old = null, Expression|null $new = null)
     {
         $this->old = $old;
         $this->new = $new;

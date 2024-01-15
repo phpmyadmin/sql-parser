@@ -25,7 +25,7 @@ class Routine
      *
      * @return string[]
      */
-    public static function getReturnType($param): array
+    public static function getReturnType(string $param): array
     {
         $lexer = new Lexer($param);
 
@@ -59,7 +59,7 @@ class Routine
      *
      * @return string[]
      */
-    public static function getParameter($param): array
+    public static function getParameter(string $param): array
     {
         $lexer = new Lexer('(' . $param . ')');
 
@@ -99,7 +99,7 @@ class Routine
      *
      * @return array<string, int|array<int, mixed[]|string|null>>
      */
-    public static function getParameters($statement): array
+    public static function getParameters(CreateStatement $statement): array
     {
         $retval = [
             'num' => 0,

@@ -264,9 +264,9 @@ final class AlterOperation implements Component
      * @param Token[]                    $unknown    unparsed tokens found at the end of operation
      */
     public function __construct(
-        $options = null,
-        $field = null,
-        $partitions = null,
+        OptionsArray|null $options = null,
+        Expression|string|null $field = null,
+        array|null $partitions = null,
         public array $unknown = []
     ) {
         $this->partitions = $partitions;
@@ -527,7 +527,7 @@ final class AlterOperation implements Component
      *
      * @param string $tokenValue Value of current token
      */
-    private static function checkIfColumnDefinitionKeyword($tokenValue): bool
+    private static function checkIfColumnDefinitionKeyword(string $tokenValue): bool
     {
         $commonOptions = [
             'AUTO_INCREMENT',
@@ -551,7 +551,7 @@ final class AlterOperation implements Component
      *
      * @param Token $token token to check
      */
-    private static function checkIfTokenQuotedSymbol($token): bool
+    private static function checkIfTokenQuotedSymbol(Token $token): bool
     {
         return $token->type === TokenType::Symbol && $token->flags === Token::FLAG_SYMBOL_BACKTICK;
     }

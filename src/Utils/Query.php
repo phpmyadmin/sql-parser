@@ -286,7 +286,7 @@ class Query
      * @return array<string, bool|string>
      * @psalm-return QueryFlagsType
      */
-    private static function getFlagsSelect(SelectStatement $statement, $flags): array
+    private static function getFlagsSelect(SelectStatement $statement, array $flags): array
     {
         $flags['querytype'] = 'SELECT';
         $flags['is_select'] = true;
@@ -362,7 +362,7 @@ class Query
      * @return array<string, bool|string>
      * @psalm-return QueryFlagsType
      */
-    public static function getFlags($statement, $all = false): array
+    public static function getFlags(Statement|null $statement, bool $all = false): array
     {
         $flags = ['querytype' => false];
         if ($all) {
@@ -469,7 +469,7 @@ class Query
      *      statement?: Statement|null, parser?: Parser
      * }
      */
-    public static function getAll($query): array
+    public static function getAll(string $query): array
     {
         $parser = new Parser($query);
 
@@ -557,7 +557,7 @@ class Query
      *
      * @return array<int, string>
      */
-    public static function getTables($statement): array
+    public static function getTables(Statement $statement): array
     {
         $expressions = [];
 
@@ -611,8 +611,13 @@ class Query
      *                              should not be included.
      * @param bool       $skipFirst whether to skip the first keyword in clause
      */
-    public static function getClause($statement, $list, $clause, $type = 0, $skipFirst = true): string
-    {
+    public static function getClause(
+        Statement $statement,
+        TokensList $list,
+        string $clause,
+        int|string $type = 0,
+        bool $skipFirst = true
+    ): string {
         /**
          * The index of the current clause.
          *
@@ -738,8 +743,13 @@ class Query
      * @param bool       $onlyType  whether only the type of the clause should
      *                              be replaced or the entire clause
      */
-    public static function replaceClause($statement, $list, $old, $new = null, $onlyType = false): string
-    {
+    public static function replaceClause(
+        Statement $statement,
+        TokensList $list,
+        string $old,
+        string|null $new = null,
+        bool $onlyType = false
+    ): string {
         // TODO: Update the tokens list and the statement.
 
         if ($new === null) {
@@ -766,7 +776,7 @@ class Query
      *                              arrays having two values: [$old, $new].
      *                              Clauses must be sorted.
      */
-    public static function replaceClauses($statement, $list, array $ops): string
+    public static function replaceClauses(Statement $statement, TokensList $list, array $ops): string
     {
         $count = count($ops);
 
@@ -816,7 +826,7 @@ class Query
      *                                 the remaining part of the query and the last delimiter
      * @psalm-return array{string|null, string, string|null}
      */
-    public static function getFirstStatement($query, $delimiter = null): array
+    public static function getFirstStatement(string $query, string|null $delimiter = null): array
     {
         $lexer = new Lexer($query, false, $delimiter);
         $list = $lexer->list;
@@ -882,7 +892,7 @@ class Query
      * @param TokensList $list      the list of tokens
      * @param string     $clause    the clause to be returned
      */
-    public static function getClauseStartOffset($statement, $list, $clause): int
+    public static function getClauseStartOffset(Statement $statement, TokensList $list, string $clause): int
     {
         /**
          * The count of brackets.

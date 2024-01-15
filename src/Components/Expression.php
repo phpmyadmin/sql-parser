@@ -110,8 +110,12 @@ final class Expression implements Component
      * @param string|null $column   the name of the column
      * @param string|null $alias    the name of the alias
      */
-    public function __construct($database = null, $table = null, $column = null, $alias = null)
-    {
+    public function __construct(
+        string|null $database = null,
+        string|null $table = null,
+        string|null $column = null,
+        string|null $alias = null
+    ) {
         if (($column === null) && ($alias === null)) {
             $this->expr = $database; // case 1
             $this->alias = $table; // case 2

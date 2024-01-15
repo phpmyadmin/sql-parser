@@ -78,9 +78,9 @@ final class DataType implements Component
      * @param OptionsArray   $options    the options of this data type
      */
     public function __construct(
-        $name = null,
+        string|null $name = null,
         array $parameters = [],
-        $options = null
+        OptionsArray|null $options = null
     ) {
         $this->name = $name;
         $this->parameters = $parameters;

@@ -465,7 +465,7 @@ abstract class Statement implements Stringable
      *
      * @throws Exceptions\ParserException
      */
-    public function validateClauseOrder($parser, $list): bool
+    public function validateClauseOrder(Parser $parser, TokensList $list): bool
     {
         $clauses = array_flip(array_keys($this->getClauses()));
 

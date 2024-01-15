@@ -127,7 +127,7 @@ class Lexer
      *                                    enabled or not
      * @param string           $delimiter the delimiter to be used
      */
-    public function __construct($str, $strict = false, $delimiter = null)
+    public function __construct(string|UtfString $str, bool $strict = false, string|null $delimiter = null)
     {
         if (Context::$keywords === []) {
             Context::load();
@@ -158,7 +158,7 @@ class Lexer
      *
      * @param string $delimiter the new delimiter
      */
-    public function setDelimiter($delimiter): void
+    public function setDelimiter(string $delimiter): void
     {
         $this->delimiter = $delimiter;
         $this->delimiterLen = strlen($delimiter);
@@ -383,7 +383,7 @@ class Lexer
      *
      * @throws LexerException throws the exception, if strict mode is enabled.
      */
-    public function error($msg, $str = '', $pos = 0, $code = 0): void
+    public function error(string $msg, string $str = '', int $pos = 0, int $code = 0): void
     {
         $error = new LexerException(
             Translator::gettext($msg),
@@ -873,7 +873,7 @@ class Lexer
      *
      * @throws LexerException
      */
-    public function parseString($quote = ''): Token|null
+    public function parseString(string $quote = ''): Token|null
     {
         $token = $this->str[$this->last];
         $flags = Context::isString($token);

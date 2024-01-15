@@ -326,7 +326,7 @@ class Formatter
      *
      * @param TokensList $list the list of tokens
      */
-    public function formatList($list): string
+    public function formatList(TokensList $list): string
     {
         /**
          * The query to be returned.
@@ -636,7 +636,7 @@ class Formatter
      *
      * @param Token $token the token to be printed
      */
-    public function toString($token): string
+    public function toString(Token $token): string
     {
         $text = $token->token;
         static $prev;
@@ -697,7 +697,7 @@ class Formatter
      *
      * @return string the formatted string
      */
-    public static function format($query, array $options = []): string
+    public static function format(string $query, array $options = []): string
     {
         $lexer = new Lexer($query);
         $formatter = new self($options);
@@ -712,7 +712,7 @@ class Formatter
      *
      * @param TokensList $list the list of tokens
      */
-    public static function getGroupLength($list): int
+    public static function getGroupLength(TokensList $list): int
     {
         /**
          * The number of opening brackets found.
@@ -758,7 +758,7 @@ class Formatter
      *
      * @psalm-return 1|2|false
      */
-    public static function isClause($token): int|false
+    public static function isClause(Token $token): int|false
     {
         if (
             ($token->type === TokenType::Keyword && isset(Parser::STATEMENT_PARSERS[$token->keyword]))

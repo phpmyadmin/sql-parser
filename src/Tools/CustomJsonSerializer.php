@@ -30,6 +30,7 @@ class CustomJsonSerializer extends JsonSerializer
      *
      * @return array<string,mixed>
      */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints
     protected function extractObjectData($value, $ref, $properties): array
     {
         $data = [];

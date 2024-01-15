@@ -31,7 +31,7 @@ class LexerException extends Exception
      * @param int    $pos  the position of the character
      * @param int    $code the code of this error
      */
-    public function __construct($msg = '', $ch = '', $pos = 0, $code = 0)
+    public function __construct(string $msg = '', string $ch = '', int $pos = 0, int $code = 0)
     {
         parent::__construct($msg, $code);
         $this->ch = $ch;

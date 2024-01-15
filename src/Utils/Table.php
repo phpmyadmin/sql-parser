@@ -94,7 +94,7 @@ class Table
      *  expr?: mixed
      * }>
      */
-    public static function getFields($statement): array
+    public static function getFields(CreateStatement $statement): array
     {
         if (empty($statement->fields) || (! is_array($statement->fields)) || (! $statement->options->has('TABLE'))) {
             return [];
