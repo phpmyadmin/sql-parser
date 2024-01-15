@@ -17,7 +17,7 @@ class TransactionStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'START TRANSACTION;SET  time_zone = "+00:00";',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -27,9 +27,7 @@ class TransactionStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function transactionProvider(): array
     {
         return [

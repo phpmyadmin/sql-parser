@@ -267,7 +267,7 @@ final class AlterOperation implements Component
         OptionsArray|null $options = null,
         Expression|string|null $field = null,
         array|null $partitions = null,
-        public array $unknown = []
+        public array $unknown = [],
     ) {
         $this->partitions = $partitions;
         $this->options = $options;
@@ -370,7 +370,7 @@ final class AlterOperation implements Component
                     [
                         'breakOnAlias' => true,
                         'parseField' => 'column',
-                    ]
+                    ],
                 );
                 if ($ret->field === null) {
                     // No field was read. We go back one token so the next
@@ -417,7 +417,7 @@ final class AlterOperation implements Component
                             // a start to new statement, but have not found a delimiter between them
                             $parser->error(
                                 'A new statement was found, but no delimiter between it and the previous one.',
-                                $token
+                                $token,
                             );
                             break;
                         }
@@ -481,7 +481,7 @@ final class AlterOperation implements Component
                     $ret->partitions = ArrayObj::parse(
                         $parser,
                         $list,
-                        ['type' => PartitionDefinition::class]
+                        ['type' => PartitionDefinition::class],
                     );
                 }
             }

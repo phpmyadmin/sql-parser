@@ -14,7 +14,7 @@ class PartitionDefinitionTest extends TestCase
     {
         $component = PartitionDefinition::parse(
             new Parser(),
-            $this->getTokensList('PARTITION p0 VALUES LESS THAN(1990)')
+            $this->getTokensList('PARTITION p0 VALUES LESS THAN(1990)'),
         );
         $this->assertFalse($component->isSubpartition);
         $this->assertEquals('p0', $component->name);
@@ -26,7 +26,7 @@ class PartitionDefinitionTest extends TestCase
     {
         $component = PartitionDefinition::parse(
             new Parser(),
-            $this->getTokensList('PARTITION 2017_12 VALUES LESS THAN (\'2018-01-01 00:00:00\') ENGINE = MyISAM')
+            $this->getTokensList('PARTITION 2017_12 VALUES LESS THAN (\'2018-01-01 00:00:00\') ENGINE = MyISAM'),
         );
         $this->assertFalse($component->isSubpartition);
         $this->assertEquals('2017_12', $component->name);

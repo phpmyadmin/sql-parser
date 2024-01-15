@@ -15,9 +15,7 @@ class AnalyzeStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function analyzeProvider(): array
     {
         return [

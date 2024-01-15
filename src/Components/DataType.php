@@ -80,7 +80,7 @@ final class DataType implements Component
     public function __construct(
         string|null $name = null,
         array $parameters = [],
-        OptionsArray|null $options = null
+        OptionsArray|null $options = null,
     ) {
         $this->name = $name;
         $this->parameters = $parameters;

@@ -11,9 +11,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 class RoutineTest extends TestCase
 {
-    /**
-     * @param string[] $expected
-     */
+    /** @param string[] $expected */
     #[DataProvider('getReturnTypeProvider')]
     public function testGetReturnType(string $def, array $expected): void
     {
@@ -94,9 +92,7 @@ class RoutineTest extends TestCase
         ];
     }
 
-    /**
-     * @param string[] $expected
-     */
+    /** @param string[] $expected */
     #[DataProvider('getParameterProvider')]
     public function testGetParameter(string $def, array $expected): void
     {

@@ -138,7 +138,7 @@ final class ArrayObj implements Component
                 $ret[] = $options['type']::parse(
                     $parser,
                     $list,
-                    empty($options['typeOptions']) ? [] : $options['typeOptions']
+                    empty($options['typeOptions']) ? [] : $options['typeOptions'],
                 );
             }
         }
@@ -170,9 +170,7 @@ final class ArrayObj implements Component
         return '(' . implode(', ', $this->values) . ')';
     }
 
-    /**
-     * @param ArrayObj[] $component the component to be built
-     */
+    /** @param ArrayObj[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

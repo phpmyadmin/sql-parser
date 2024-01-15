@@ -34,6 +34,7 @@ class LexerException extends Exception
     public function __construct(string $msg = '', string $ch = '', int $pos = 0, int $code = 0)
     {
         parent::__construct($msg, $code);
+
         $this->ch = $ch;
         $this->pos = $pos;
     }

@@ -95,9 +95,7 @@ class ContextTest extends TestCase
         Context::load('');
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function contextNamesProvider(): array
     {
         return [
@@ -119,9 +117,7 @@ class ContextTest extends TestCase
         $this->assertFalse(Context::load('Foo'));
     }
 
-    /**
-     * @param int|string $mode
-     */
+    /** @param int|string $mode */
     #[DataProvider('providerForTestMode')]
     public function testMode($mode, int $expected): void
     {
@@ -176,11 +172,11 @@ class ContextTest extends TestCase
     public function testModeWithCombinedModes(): void
     {
         Context::setMode(
-            Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ANSI_QUOTES | Context::SQL_MODE_IGNORE_SPACE
+            Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ANSI_QUOTES | Context::SQL_MODE_IGNORE_SPACE,
         );
         $this->assertSame(
             Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ANSI_QUOTES | Context::SQL_MODE_IGNORE_SPACE,
-            Context::getMode()
+            Context::getMode(),
         );
         $this->assertTrue(Context::hasMode(Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_IGNORE_SPACE));
         $this->assertTrue(Context::hasMode(Context::SQL_MODE_ANSI_QUOTES));
@@ -199,7 +195,7 @@ class ContextTest extends TestCase
         Context::setMode('REAL_AS_FLOAT,ANSI_QUOTES,IGNORE_SPACE');
         $this->assertSame(
             Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_ANSI_QUOTES | Context::SQL_MODE_IGNORE_SPACE,
-            Context::getMode()
+            Context::getMode(),
         );
         $this->assertTrue(Context::hasMode(Context::SQL_MODE_REAL_AS_FLOAT | Context::SQL_MODE_IGNORE_SPACE));
         $this->assertTrue(Context::hasMode(Context::SQL_MODE_ANSI_QUOTES));

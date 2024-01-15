@@ -134,9 +134,9 @@ final class OptionsArray implements Component
                             Translator::gettext('This option conflicts with "%1$s".'),
                             is_array($ret->options[$lastOptionId])
                             ? $ret->options[$lastOptionId]['name']
-                            : $ret->options[$lastOptionId]
+                            : $ret->options[$lastOptionId],
                         ),
-                        $token
+                        $token,
                     );
                     $lastOptionId = $lastAssignedId++;
                 }
@@ -201,7 +201,7 @@ final class OptionsArray implements Component
                 $ret->options[$lastOptionId]['expr'] = Expression::parse(
                     $parser,
                     $list,
-                    empty($lastOption[2]) ? [] : $lastOption[2]
+                    empty($lastOption[2]) ? [] : $lastOption[2],
                 );
                 if ($ret->options[$lastOptionId]['expr'] !== null) {
                     $ret->options[$lastOptionId]['value']
@@ -249,9 +249,9 @@ final class OptionsArray implements Component
             $parser->error(
                 sprintf(
                     'Value/Expression for the option %1$s was expected.',
-                    $ret->options[$lastOptionId]['name']
+                    $ret->options[$lastOptionId]['name'],
                 ),
-                $list->tokens[$list->idx - 1]
+                $list->tokens[$list->idx - 1],
             );
         }
 

@@ -15,9 +15,7 @@ class SetStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function setProvider(): array
     {
         return [

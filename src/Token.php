@@ -190,7 +190,7 @@ class Token
                         $str,
                         ! empty($str[1]) && ($str[1] === '@') ? 2 : 1,
                         mb_strlen($str),
-                        'UTF-8'
+                        'UTF-8',
                     );
                 }
 
@@ -226,7 +226,7 @@ class Token
                 '\n',
                 '\t',
             ],
-            $this->token
+            $this->token,
         );
     }
 }

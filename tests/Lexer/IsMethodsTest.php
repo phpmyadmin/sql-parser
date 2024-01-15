@@ -18,11 +18,11 @@ class IsMethodsTest extends TestCase
 
         $this->assertEquals(
             1 | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED | Token::FLAG_KEYWORD_KEY,
-            Context::isKeyword('PRIMARY KEY')
+            Context::isKeyword('PRIMARY KEY'),
         );
         $this->assertEquals(
             1 | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
-            Context::isKeyword('CHARACTER SET')
+            Context::isKeyword('CHARACTER SET'),
         );
 
         $this->assertEquals(1 | Token::FLAG_KEYWORD_RESERVED, Context::isKeyword('FROM', true));

@@ -11,9 +11,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 
 use function array_merge;
 
-/**
- * @psalm-import-type QueryFlagsType from Query
- */
+/** @psalm-import-type QueryFlagsType from Query */
 class QueryTest extends TestCase
 {
     /**
@@ -310,7 +308,7 @@ class QueryTest extends TestCase
                 'select_from' => false,
                 'union' => false,
             ],
-            Query::getAll('')
+            Query::getAll(''),
         );
 
         $query = 'SELECT *, actor.actor_id, sakila2.film.*
@@ -333,9 +331,9 @@ class QueryTest extends TestCase
                             'sakila2',
                         ],
                     ],
-                ]
+                ],
             ),
-            Query::getAll($query)
+            Query::getAll($query),
         );
 
         $query = 'SELECT * FROM sakila.actor, film';
@@ -357,9 +355,9 @@ class QueryTest extends TestCase
                             null,
                         ],
                     ],
-                ]
+                ],
             ),
-            Query::getAll($query)
+            Query::getAll($query),
         );
 
         $query = 'SELECT a.actor_id FROM sakila.actor AS a, film';
@@ -377,9 +375,9 @@ class QueryTest extends TestCase
                             'sakila',
                         ],
                     ],
-                ]
+                ],
             ),
-            Query::getAll($query)
+            Query::getAll($query),
         );
 
         $query = 'SELECT CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END';
@@ -392,22 +390,20 @@ class QueryTest extends TestCase
                     'statement' => $parser->statements[0],
                     'select_expr' => ['CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END'],
                     'select_tables' => [],
-                ]
+                ],
             ),
-            Query::getAll($query)
+            Query::getAll($query),
         );
     }
 
-    /**
-     * @param string[] $expected
-     */
+    /** @param string[] $expected */
     #[DataProvider('getTablesProvider')]
     public function testGetTables(string $query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertEquals(
             $expected,
-            Query::getTables($parser->statements[0])
+            Query::getTables($parser->statements[0]),
         );
     }
 
@@ -476,7 +472,7 @@ class QueryTest extends TestCase
             'WHERE city_id < 1 /* test */' .
             'ORDER BY city_id ASC ' .
             'LIMIT 0, 1 ' .
-            'INTO OUTFILE "/dev/null"'
+            'INTO OUTFILE "/dev/null"',
         );
         $this->assertEquals(
             '0, 1 INTO OUTFILE "/dev/null"',
@@ -484,8 +480,8 @@ class QueryTest extends TestCase
                 $parser->statements[0],
                 $parser->list,
                 'LIMIT',
-                0
-            )
+                0,
+            ),
         );
         // Assert it returns all clauses between FROM and LIMIT
         $this->assertEquals(
@@ -494,8 +490,8 @@ class QueryTest extends TestCase
                 $parser->statements[0],
                 $parser->list,
                 'FROM',
-                'LIMIT'
-            )
+                'LIMIT',
+            ),
         );
         // Assert it returns all clauses between SELECT and LIMIT
         $this->assertEquals(
@@ -504,8 +500,8 @@ class QueryTest extends TestCase
                 $parser->statements[0],
                 $parser->list,
                 'LIMIT',
-                'SELECT'
-            )
+                'SELECT',
+            ),
         );
 
         /* Assertion 2 */
@@ -513,31 +509,31 @@ class QueryTest extends TestCase
             'DELETE FROM `renewal` ' .
             'WHERE number = "1DB" AND actionDate <= CURRENT_DATE() ' .
             'ORDER BY id ASC ' .
-            'LIMIT 1'
+            'LIMIT 1',
         );
         $this->assertEquals(
             'number = "1DB" AND actionDate <= CURRENT_DATE()',
             Query::getClause(
                 $parser->statements[0],
                 $parser->list,
-                'WHERE'
-            )
+                'WHERE',
+            ),
         );
         $this->assertEquals(
             '1',
             Query::getClause(
                 $parser->statements[0],
                 $parser->list,
-                'LIMIT'
-            )
+                'LIMIT',
+            ),
         );
         $this->assertEquals(
             'id ASC',
             Query::getClause(
                 $parser->statements[0],
                 $parser->list,
-                'ORDER BY'
-            )
+                'ORDER BY',
+            ),
         );
 
         /* Assertion 3 */
@@ -545,31 +541,31 @@ class QueryTest extends TestCase
             'UPDATE `renewal` SET `some_column` = 1 ' .
             'WHERE number = "1DB" AND actionDate <= CURRENT_DATE() ' .
             'ORDER BY id ASC ' .
-            'LIMIT 1'
+            'LIMIT 1',
         );
         $this->assertEquals(
             'number = "1DB" AND actionDate <= CURRENT_DATE()',
             Query::getClause(
                 $parser->statements[0],
                 $parser->list,
-                'WHERE'
-            )
+                'WHERE',
+            ),
         );
         $this->assertEquals(
             '1',
             Query::getClause(
                 $parser->statements[0],
                 $parser->list,
-                'LIMIT'
-            )
+                'LIMIT',
+            ),
         );
         $this->assertEquals(
             'id ASC',
             Query::getClause(
                 $parser->statements[0],
                 $parser->list,
-                'ORDER BY'
-            )
+                'ORDER BY',
+            ),
         );
     }
 
@@ -581,13 +577,13 @@ class QueryTest extends TestCase
             Query::replaceClause(
                 $parser->statements[0],
                 $parser->list,
-                'WHERE film_id > 0'
-            )
+                'WHERE film_id > 0',
+            ),
         );
 
         $parser = new Parser(
             'select supplier.city, supplier.id from supplier '
-            . 'union select customer.city, customer.id from customer'
+            . 'union select customer.city, customer.id from customer',
         );
         $this->assertEquals(
             'select supplier.city, supplier.id from supplier '
@@ -596,8 +592,8 @@ class QueryTest extends TestCase
             Query::replaceClause(
                 $parser->statements[0],
                 $parser->list,
-                'ORDER BY city'
-            )
+                'ORDER BY city',
+            ),
         );
     }
 
@@ -611,8 +607,8 @@ class QueryTest extends TestCase
                 $parser->list,
                 'SELECT SQL_CALC_FOUND_ROWS',
                 null,
-                true
-            )
+                true,
+            ),
         );
     }
 
@@ -625,8 +621,8 @@ class QueryTest extends TestCase
                 $parser->statements[0],
                 $parser->list,
                 'ORDER BY',
-                ''
-            )
+                '',
+            ),
         );
     }
 
@@ -644,8 +640,8 @@ class QueryTest extends TestCase
                         'WHERE',
                         'WHERE film_id > 0',
                     ],
-                ]
-            )
+                ],
+            ),
         );
 
         $parser = new Parser(
@@ -654,7 +650,7 @@ class QueryTest extends TestCase
             'FROM `city` ' .
             'WHERE city_id < 1 ' .
             'ORDER BY city_id ASC ' .
-            'LIMIT 0, 1 '
+            'LIMIT 0, 1 ',
         );
         $this->assertEquals(
             'SELECT c.city_id, c.country_id ' .
@@ -678,8 +674,8 @@ class QueryTest extends TestCase
                         'LIMIT',
                         'LIMIT 0, 10',
                     ],
-                ]
-            )
+                ],
+            ),
         );
     }
 

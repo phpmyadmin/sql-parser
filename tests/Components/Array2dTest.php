@@ -20,7 +20,7 @@ class Array2dTest extends TestCase
                 1,
                 2,
             ],
-            $arrays[0]->values
+            $arrays[0]->values,
         );
     }
 
@@ -29,7 +29,7 @@ class Array2dTest extends TestCase
         $arrays = Array2d::parse(new Parser(), $this->getTokensList('(1, 2), (3, 4), (5, 6)'));
         $this->assertEquals(
             '(1, 2), (3, 4), (5, 6)',
-            ArrayObj::buildAll($arrays)
+            ArrayObj::buildAll($arrays),
         );
     }
 
@@ -56,7 +56,7 @@ class Array2dTest extends TestCase
         $this->assertCount(1, $parser->errors);
         $this->assertEquals(
             'An opening bracket followed by a set of values was expected.',
-            $parser->errors[0]->getMessage()
+            $parser->errors[0]->getMessage(),
         );
     }
 
@@ -67,7 +67,7 @@ class Array2dTest extends TestCase
         $this->assertCount(1, $parser->errors);
         $this->assertEquals(
             'An opening bracket followed by a set of values was expected.',
-            $parser->errors[0]->getMessage()
+            $parser->errors[0]->getMessage(),
         );
     }
 
@@ -78,7 +78,7 @@ class Array2dTest extends TestCase
         $this->assertCount(1, $parser->errors);
         $this->assertEquals(
             'An opening bracket followed by a set of values was expected.',
-            $parser->errors[0]->getMessage()
+            $parser->errors[0]->getMessage(),
         );
     }
 
@@ -89,7 +89,7 @@ class Array2dTest extends TestCase
         $this->assertCount(1, $parser->errors);
         $this->assertEquals(
             '2 values were expected, but found 1.',
-            $parser->errors[0]->getMessage()
+            $parser->errors[0]->getMessage(),
         );
     }
 }

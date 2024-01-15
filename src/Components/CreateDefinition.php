@@ -154,7 +154,7 @@ final class CreateDefinition implements Component
         OptionsArray|null $options = null,
         DataType|Key|null $type = null,
         bool $isConstraint = false,
-        Reference|null $references = null
+        Reference|null $references = null,
     ) {
         $this->name = $name;
         $this->options = $options;
@@ -247,7 +247,7 @@ final class CreateDefinition implements Component
                             'A symbol name was expected! '
                             . 'A reserved keyword can not be used '
                             . 'as a column name without backquotes.',
-                            $token
+                            $token,
                         );
 
                         return $ret;
@@ -340,9 +340,7 @@ final class CreateDefinition implements Component
         return trim($tmp);
     }
 
-    /**
-     * @param CreateDefinition[] $component the component to be built
-     */
+    /** @param CreateDefinition[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return "(\n  " . implode(",\n  ", $component) . "\n)";

@@ -94,7 +94,7 @@ final class RenameOperation implements Component
                     [
                         'breakOnAlias' => true,
                         'parseField' => 'table',
-                    ]
+                    ],
                 );
                 if (empty($expr->old)) {
                     $parser->error('The old name of the table was expected.', $token);
@@ -115,7 +115,7 @@ final class RenameOperation implements Component
                     [
                         'breakOnAlias' => true,
                         'parseField' => 'table',
-                    ]
+                    ],
                 );
                 if (empty($expr->new)) {
                     $parser->error('The new name of the table was expected.', $token);
@@ -152,9 +152,7 @@ final class RenameOperation implements Component
         return $this->old . ' TO ' . $this->new;
     }
 
-    /**
-     * @param RenameOperation[] $component the component to be built
-     */
+    /** @param RenameOperation[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

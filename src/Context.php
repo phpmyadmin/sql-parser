@@ -624,9 +624,7 @@ abstract class Context
         }
     }
 
-    /**
-     * @psalm-suppress MixedReturnStatement, MixedInferredReturnType Is caused by the LSB of the constants
-     */
+    /** @psalm-suppress MixedReturnStatement, MixedInferredReturnType Is caused by the LSB of the constants */
     private static function getModeFromString(string $mode): int
     {
         return match ($mode) {

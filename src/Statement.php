@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use AllowDynamicProperties;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use Stringable;
 
@@ -21,7 +22,7 @@ use function trim;
  *
  * Abstract statement definition.
  */
-#[\AllowDynamicProperties]
+#[AllowDynamicProperties]
 abstract class Statement implements Stringable
 {
     /**
@@ -339,7 +340,7 @@ abstract class Statement implements Stringable
                     // delimiter was found between them.
                     $parser->error(
                         'A new statement was found, but no delimiter between it and the previous one.',
-                        $token
+                        $token,
                     );
                     break;
                 }
@@ -359,7 +360,7 @@ abstract class Statement implements Stringable
                     $this->groupOptions = OptionsArray::parse(
                         $parser,
                         $list,
-                        Statements\SelectStatement::STATEMENT_GROUP_OPTIONS
+                        Statements\SelectStatement::STATEMENT_GROUP_OPTIONS,
                     );
                 } elseif (
                     $this instanceof Statements\SelectStatement
@@ -370,7 +371,7 @@ abstract class Statement implements Stringable
                     $this->endOptions = OptionsArray::parse(
                         $parser,
                         $list,
-                        Statements\SelectStatement::STATEMENT_END_OPTIONS
+                        Statements\SelectStatement::STATEMENT_END_OPTIONS,
                     );
                 } elseif (
                     $this instanceof Statements\SetStatement
@@ -381,7 +382,7 @@ abstract class Statement implements Stringable
                     $this->endOptions = OptionsArray::parse(
                         $parser,
                         $list,
-                        Statements\SetStatement::STATEMENT_END_OPTIONS
+                        Statements\SetStatement::STATEMENT_END_OPTIONS,
                     );
                 } else {
                     // There is no parser for this keyword and isn't the beginning

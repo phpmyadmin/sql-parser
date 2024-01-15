@@ -77,9 +77,7 @@ final class Condition implements Component
      */
     public $expr;
 
-    /**
-     * @param string $expr the condition or the operator
-     */
+    /** @param string $expr the condition or the operator */
     public function __construct(string|null $expr = null)
     {
         $this->expr = trim((string) $expr);
@@ -222,9 +220,7 @@ final class Condition implements Component
         return $this->expr;
     }
 
-    /**
-     * @param Condition[] $component the component to be built
-     */
+    /** @param Condition[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(' ', $component);

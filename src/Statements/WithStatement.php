@@ -324,7 +324,7 @@ final class WithStatement extends Statement
 
             return new ParserException(
                 Translator::gettext('A closing bracket was expected.'),
-                $token
+                $token,
             );
         }
 

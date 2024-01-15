@@ -96,9 +96,7 @@ final class LockExpression implements Component
         return $this->table . ' ' . $this->type;
     }
 
-    /**
-     * @param LockExpression[] $component the component to be built
-     */
+    /** @param LockExpression[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

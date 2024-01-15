@@ -88,9 +88,9 @@ final class Array2d implements Component
                         sprintf(
                             Translator::gettext('%1$d values were expected, but found %2$d.'),
                             $count,
-                            $arrCount
+                            $arrCount,
                         ),
-                        $token
+                        $token,
                     );
                 }
 

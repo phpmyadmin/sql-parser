@@ -15,9 +15,7 @@ class DeleteStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function deleteProvider(): array
     {
         return [

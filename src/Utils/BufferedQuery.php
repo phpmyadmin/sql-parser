@@ -96,7 +96,7 @@ class BufferedQuery
                 // Whether a delimiter should be added at the end of the statement.
                 'add_delimiter' => false,
             ],
-            $options
+            $options,
         );
 
         $this->query = $query;
@@ -330,7 +330,7 @@ class BufferedQuery
                         // Appending the `DELIMITER` statement that was just
                         // found to the current statement.
                         $ret = trim(
-                            $this->current . ' ' . substr($this->query, $iBak, $i - $iBak)
+                            $this->current . ' ' . substr($this->query, $iBak, $i - $iBak),
                         );
                     }
 

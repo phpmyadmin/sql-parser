@@ -15,9 +15,7 @@ class ExplainStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function explainProvider(): array
     {
         return [

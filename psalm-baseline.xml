@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.18.0@b113f3ed0259fd6e212d87c3df80eec95a6abf19">
+<files psalm-version="5.19.0@06b71be009a6bd6d81b9811855d6629b9fe90e1b">
   <file src="src/Components/AlterOperation.php">
     <PossiblyNullPropertyAssignmentValue>
       <code>$options</code>
@@ -8,7 +8,7 @@
       <code><![CDATA[ArrayObj::parse(
                         $parser,
                         $list,
-                        ['type' => PartitionDefinition::class]
+                        ['type' => PartitionDefinition::class],
                     )]]></code>
     </PropertyTypeCoercion>
   </file>
@@ -20,7 +20,7 @@
       <code><![CDATA[$options['type']::parse(
                     $parser,
                     $list,
-                    empty($options['typeOptions']) ? [] : $options['typeOptions']
+                    empty($options['typeOptions']) ? [] : $options['typeOptions'],
                 )]]></code>
     </MixedMethodCall>
     <MixedOperand>
@@ -374,14 +374,14 @@
                         [
                             'parenthesesDelimited' => true,
                             'breakOnAlias' => true,
-                        ]
+                        ],
                     )]]></code>
     </PossiblyNullPropertyAssignmentValue>
     <PropertyTypeCoercion>
       <code><![CDATA[ArrayObj::parse(
                         $parser,
                         $list,
-                        ['type' => self::class]
+                        ['type' => self::class],
                     )]]></code>
     </PropertyTypeCoercion>
     <UnusedVariable>
@@ -401,7 +401,7 @@
                     [
                         'parseField' => 'table',
                         'breakOnAlias' => true,
-                    ]
+                    ],
                 )]]></code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
@@ -415,7 +415,7 @@
                     [
                         'breakOnAlias' => true,
                         'parseField' => 'table',
-                    ]
+                    ],
                 )]]></code>
       <code><![CDATA[Expression::parse(
                     $parser,
@@ -423,7 +423,7 @@
                     [
                         'breakOnAlias' => true,
                         'parseField' => 'table',
-                    ]
+                    ],
                 )]]></code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
@@ -780,7 +780,7 @@
       <code><![CDATA[ArrayObj::parse(
                                 $parser,
                                 $list,
-                                ['type' => PartitionDefinition::class]
+                                ['type' => PartitionDefinition::class],
                             )]]></code>
       <code>ArrayObj::parse($parser, $list)</code>
     </PropertyTypeCoercion>

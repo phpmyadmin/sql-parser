@@ -108,7 +108,7 @@ final class Key implements Component
         string|null $name = null,
         array $columns = [],
         string|null $type = null,
-        OptionsArray|null $options = null
+        OptionsArray|null $options = null,
     ) {
         $this->name = $name;
         $this->columns = $columns;

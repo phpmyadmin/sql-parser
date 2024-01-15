@@ -71,9 +71,7 @@ class UtfString implements ArrayAccess, Stringable
      */
     public $charLen = 0;
 
-    /**
-     * @param string $str the string
-     */
+    /** @param string $str the string */
     public function __construct(string $str)
     {
         $this->str = $str;

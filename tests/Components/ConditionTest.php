@@ -20,7 +20,7 @@ class ConditionTest extends TestCase
     {
         $component = Condition::parse(
             new Parser(),
-            $this->getTokensList('(id BETWEEN 10 AND 20) OR (id BETWEEN 30 AND 40)')
+            $this->getTokensList('(id BETWEEN 10 AND 20) OR (id BETWEEN 30 AND 40)'),
         );
         $this->assertEquals($component[0]->expr, '(id BETWEEN 10 AND 20)');
         $this->assertEquals($component[1]->expr, 'OR');

@@ -26,7 +26,7 @@ class LexerTest extends TestCase
             sprintf('%2$s #%1$d', 2, 'error'),
             'bar',
             3,
-            4
+            4,
         );
 
         $this->assertEquals(
@@ -34,7 +34,7 @@ class LexerTest extends TestCase
             [
                 new LexerException('error #1', 'foo', 1, 2),
                 new LexerException('error #2', 'bar', 3, 4),
-            ]
+            ],
         );
     }
 
@@ -54,9 +54,7 @@ class LexerTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function lexProvider(): array
     {
         return [

@@ -15,7 +15,7 @@ class CreateDefinitionTest extends TestCase
     {
         $component = CreateDefinition::parse(
             new Parser(),
-            $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str))')
+            $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str))'),
         );
         $this->assertEquals('str', $component[0]->name);
         $this->assertEquals('FULLTEXT INDEX', $component[1]->key->type);
@@ -27,7 +27,7 @@ class CreateDefinitionTest extends TestCase
     {
         $component = CreateDefinition::parse(
             new Parser(),
-            $this->getTokensList('(str TEXT NOT NULL INVISIBLE)')
+            $this->getTokensList('(str TEXT NOT NULL INVISIBLE)'),
         );
         $this->assertEquals('str', $component[0]->name);
         $this->assertEquals('TEXT', $component[0]->type->name);
@@ -40,13 +40,13 @@ class CreateDefinitionTest extends TestCase
         $parser = new Parser();
         $component = CreateDefinition::parse(
             $parser,
-            $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str)')
+            $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str)'),
         );
         $this->assertCount(2, $component);
 
         $this->assertEquals(
             'A closing bracket was expected.',
-            $parser->errors[0]->getMessage()
+            $parser->errors[0]->getMessage(),
         );
     }
 
@@ -55,12 +55,12 @@ class CreateDefinitionTest extends TestCase
         $parser = new Parser();
         CreateDefinition::parse(
             $parser,
-            $this->getTokensList(')')
+            $this->getTokensList(')'),
         );
 
         $this->assertEquals(
             'An opening bracket was expected.',
-            $parser->errors[0]->getMessage()
+            $parser->errors[0]->getMessage(),
         );
     }
 
@@ -72,14 +72,14 @@ class CreateDefinitionTest extends TestCase
             '`customer_id` smallint(5) unsigned NOT NULL,' .
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) ' .
             'REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE' .
-            ') ENGINE=InnoDB"'
+            ') ENGINE=InnoDB"',
         );
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
         $this->assertIsArray($parser->statements[0]->fields);
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) ' .
             'REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
-            $parser->statements[0]->fields[1]->build()
+            $parser->statements[0]->fields[1]->build(),
         );
     }
 
@@ -92,14 +92,14 @@ class CreateDefinitionTest extends TestCase
             '`customer_data` longtext CHARACTER SET utf8mb4 CHARSET utf8mb4_bin NOT NULL ' .
             'CHECK (json_valid(customer_data)),CONSTRAINT `fk_payment_customer` FOREIGN KEY ' .
             '(`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE' .
-            ') ENGINE=InnoDB"'
+            ') ENGINE=InnoDB"',
         );
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
         $this->assertIsArray($parser->statements[0]->fields);
         $this->assertEquals(
             'CONSTRAINT `fk_payment_customer` FOREIGN KEY (`customer_id`) ' .
             'REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE',
-            $parser->statements[0]->fields[2]->build()
+            $parser->statements[0]->fields[2]->build(),
         );
     }
 
@@ -119,21 +119,21 @@ class CreateDefinitionTest extends TestCase
             . '  PRIMARY KEY (`id`)'
             . ') ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ;'
             . ''
-            . 'ALTER TABLE `searches` ADD `admins_only` BOOLEAN NOT NULL DEFAULT FALSE AFTER `show_separators`;'
+            . 'ALTER TABLE `searches` ADD `admins_only` BOOLEAN NOT NULL DEFAULT FALSE AFTER `show_separators`;',
         );
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[1]);
         $this->assertIsArray($parser->statements[1]->fields);
         $this->assertEquals(
             '`public_name` varchar(120) COLLATE utf8_unicode_ci NOT NULL',
-            $parser->statements[1]->fields[2]->build()
+            $parser->statements[1]->fields[2]->build(),
         );
         $this->assertEquals(
             '`show_separators` tinyint(1) NOT NULL DEFAULT \'0\'',
-            $parser->statements[1]->fields[5]->build()
+            $parser->statements[1]->fields[5]->build(),
         );
         $this->assertEquals(
             '`show_separators_two` tinyint(1) NOT NULL DEFAULT FALSE',
-            $parser->statements[1]->fields[6]->build()
+            $parser->statements[1]->fields[6]->build(),
         );
     }
 
@@ -146,13 +146,13 @@ class CreateDefinitionTest extends TestCase
             '`customer_data` longtext CHARACTER SET utf8mb4 CHARSET utf8mb4_bin NOT NULL ' .
             'CHECK (json_valid(customer_data)),CONSTRAINT `fk_payment_customer` FOREIGN KEY ' .
             '(`customer_id`) REFERENCES `customer` (`customer_id`) ON UPDATE CASCADE' .
-            ') ENGINE=InnoDB"'
+            ') ENGINE=InnoDB"',
         );
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
         $this->assertIsArray($parser->statements[0]->fields);
         $this->assertEquals(
             '`customer_id` smallint(5) UNSIGNED NOT NULL INVISIBLE',
-            $parser->statements[0]->fields[0]->build()
+            $parser->statements[0]->fields[0]->build(),
         );
     }
 

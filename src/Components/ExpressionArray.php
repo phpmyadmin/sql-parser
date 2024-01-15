@@ -124,9 +124,7 @@ final class ExpressionArray implements Component
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
 
-    /**
-     * @param Expression[] $component the component to be built
-     */
+    /** @param Expression[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

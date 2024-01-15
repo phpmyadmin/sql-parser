@@ -38,7 +38,7 @@ class Translator
 
             // Set locale
             self::$loader->setlocale(
-                self::$loader->detectlocale()
+                self::$loader->detectlocale(),
             );
 
             // Set default text domain

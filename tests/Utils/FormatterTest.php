@@ -243,9 +243,7 @@ class FormatterTest extends TestCase
         ];
     }
 
-    /**
-     * @param array<string, bool> $options
-     */
+    /** @param array<string, bool> $options */
     #[DataProvider('formatQueriesProviders')]
     public function testFormat(string $query, string $text, string $cli, string $html, array $options = []): void
     {
@@ -253,21 +251,21 @@ class FormatterTest extends TestCase
         $this->assertEquals(
             $text,
             Formatter::format($query, ['type' => 'text'] + $options),
-            'Text formatting failed.'
+            'Text formatting failed.',
         );
 
         // Test CLI format
         $this->assertEquals(
             $cli,
             Formatter::format($query, ['type' => 'cli'] + $options),
-            'CLI formatting failed.'
+            'CLI formatting failed.',
         );
 
         // Test HTML format
         $this->assertEquals(
             $html,
             Formatter::format($query, ['type' => 'html'] + $options),
-            'HTML formatting failed.'
+            'HTML formatting failed.',
         );
     }
 

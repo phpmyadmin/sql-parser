@@ -114,7 +114,7 @@ final class SetOperation implements Component
                 $tmp = Expression::parse(
                     $parser,
                     $list,
-                    ['breakOnAlias' => true]
+                    ['breakOnAlias' => true],
                 );
                 if ($tmp === null) {
                     $parser->error('Missing expression.', $token);
@@ -145,9 +145,7 @@ final class SetOperation implements Component
         return $this->column . ' = ' . $this->value;
     }
 
-    /**
-     * @param SetOperation[] $component the component to be built
-     */
+    /** @param SetOperation[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

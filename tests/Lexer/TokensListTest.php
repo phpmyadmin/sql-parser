@@ -26,6 +26,7 @@ class TokensListTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
+
         $this->tokens = [
             new Token('SELECT', TokenType::Keyword),
             new Token(' ', TokenType::Whitespace),
@@ -111,11 +112,11 @@ class TokensListTest extends TestCase
         $list = new TokensList($this->tokens);
         $this->assertEquals($this->tokens[4], $list->getNextOfTypeAndFlag(
             TokenType::Keyword,
-            Token::FLAG_KEYWORD_RESERVED
+            Token::FLAG_KEYWORD_RESERVED,
         ));
         $this->assertEquals($this->tokens[8], $list->getNextOfTypeAndFlag(
             TokenType::Keyword,
-            Token::FLAG_KEYWORD_RESERVED
+            Token::FLAG_KEYWORD_RESERVED,
         ));
         $this->assertNull($list->getNextOfTypeAndFlag(TokenType::Keyword, Token::FLAG_KEYWORD_RESERVED));
     }

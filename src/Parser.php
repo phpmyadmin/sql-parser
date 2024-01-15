@@ -639,7 +639,7 @@ class Parser
         $error = new ParserException(
             Translator::gettext($msg),
             $token,
-            $code
+            $code,
         );
 
         if ($this->strict) {

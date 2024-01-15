@@ -19,7 +19,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 2 */
@@ -30,7 +30,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 3 */
@@ -41,7 +41,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 4 */
@@ -52,7 +52,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET NAMES \'utf8\'  COLLATE \'utf8_general_ci\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 5 */
@@ -63,7 +63,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET NAMES \'utf8\'  DEFAULT',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 6 */
@@ -74,7 +74,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET  sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 7 */
@@ -85,7 +85,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET SESSION sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 8 */
@@ -96,7 +96,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET GLOBAL sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 9 */
@@ -107,7 +107,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET SESSION sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 10 */
@@ -118,7 +118,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET GLOBAL sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 11 */
@@ -129,7 +129,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET  @@sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 12 */
@@ -140,7 +140,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET PERSIST sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 13 */
@@ -151,7 +151,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET PERSIST_ONLY sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 14 */
@@ -162,7 +162,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET PERSIST sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 15 */
@@ -173,7 +173,7 @@ class SetStatementTest extends TestCase
 
         $this->assertEquals(
             'SET PERSIST_ONLY sql_mode = \'TRADITIONAL\'',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 }

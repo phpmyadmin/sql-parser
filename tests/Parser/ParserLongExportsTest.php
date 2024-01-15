@@ -107,9 +107,7 @@ SQL;
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function exportFileProvider(): array
     {
         return [
