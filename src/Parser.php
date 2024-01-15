@@ -354,24 +354,20 @@ class Parser
 
     /**
      * The list of tokens that are parsed.
-     *
-     * @var TokensList|null
      */
-    public $list;
+    public TokensList|null $list = null;
 
     /**
      * List of statements parsed.
      *
      * @var Statement[]
      */
-    public $statements = [];
+    public array $statements = [];
 
     /**
      * The number of opened brackets.
-     *
-     * @var int
      */
-    public $brackets = 0;
+    public int $brackets = 0;
 
     /**
      * @param string|UtfString|TokensList|null $list   the list of tokens to be parsed
