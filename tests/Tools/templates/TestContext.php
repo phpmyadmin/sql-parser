@@ -30,7 +30,7 @@ class TestContext extends Context
      * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
-    public static $keywords = [
+    public static array $keywords = [
         'NO_FLAG' => 1,
 
         'RESERVED' => 3,

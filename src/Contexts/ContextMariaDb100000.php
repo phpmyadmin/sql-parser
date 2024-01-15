@@ -30,7 +30,7 @@ class ContextMariaDb100000 extends Context
      * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
-    public static $keywords = [
+    public static array $keywords = [
         'AT' => 1, 'DO' => 1, 'IO' => 1, 'NO' => 1, 'XA' => 1,
         'ANY' => 1, 'CPU' => 1, 'END' => 1, 'IPC' => 1, 'NDB' => 1, 'NEW' => 1,
         'ONE' => 1, 'ROW' => 1,
