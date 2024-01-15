@@ -14,15 +14,13 @@ class ParserException extends Exception
 {
     /**
      * The token that produced this error.
-     *
-     * @var Token
      */
-    public $token;
+    public Token|null $token;
 
     /**
-     * @param string $msg   the message of this exception
-     * @param Token  $token the token that produced this exception
-     * @param int    $code  the code of this error
+     * @param string     $msg   the message of this exception
+     * @param Token|null $token the token that produced this exception
+     * @param int        $code  the code of this error
      */
     public function __construct(string $msg = '', Token|null $token = null, int $code = 0)
     {

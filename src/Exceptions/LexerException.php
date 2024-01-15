@@ -13,17 +13,13 @@ class LexerException extends Exception
 {
     /**
      * The character that produced this error.
-     *
-     * @var string
      */
-    public $ch;
+    public string $ch;
 
     /**
      * The index of the character that produced this error.
-     *
-     * @var int
      */
-    public $pos;
+    public int $pos;
 
     /**
      * @param string $msg  the message of this exception
