@@ -10,8 +10,7 @@ use function file_get_contents;
 
 class UtfStringBench
 {
-    /** @var string */
-    private $testContents;
+    private string $testContents;
 
     /**
      * @BeforeMethods("setUp")
