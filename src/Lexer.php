@@ -239,7 +239,7 @@ class Lexer
                 $pos = $this->last + 1;
 
                 // Parsing the delimiter.
-                $this->delimiter = null;
+                $this->delimiter = '';
                 $delimiterLen = 0;
                 while (
                     ++$this->last < $this->len
@@ -250,7 +250,7 @@ class Lexer
                     ++$delimiterLen;
                 }
 
-                if (empty($this->delimiter)) {
+                if ($this->delimiter === '') {
                     $this->error('Expected delimiter.', '', $this->last);
                     $this->delimiter = ';';
                 }
