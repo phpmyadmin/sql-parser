@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\MoTranslator\Loader;
+use PhpMyAdmin\MoTranslator\Translator as MoTranslator;
 
 use function class_exists;
 
@@ -15,24 +16,20 @@ class Translator
 {
     /**
      * The MoTranslator loader object.
-     *
-     * @var Loader
      */
-    private static $loader;
+    private static Loader $loader;
 
     /**
      * The MoTranslator translator object.
-     *
-     * @var \PhpMyAdmin\MoTranslator\Translator
      */
-    private static $translator;
+    private static MoTranslator $translator;
 
     /**
      * Loads translator.
      */
     public static function load(): void
     {
-        if (self::$loader === null) {
+        if (! isset(self::$loader)) {
             // Create loader object
             self::$loader = new Loader();
 
@@ -48,7 +45,7 @@ class Translator
             self::$loader->bindtextdomain('sqlparser', __DIR__ . '/../locale/');
         }
 
-        if (self::$translator !== null) {
+        if (isset(self::$translator)) {
             return;
         }
 
