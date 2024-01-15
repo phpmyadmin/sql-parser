@@ -46,7 +46,7 @@ class TestGenerator
      * @param string $query the query to be analyzed
      * @param string $type  test's type (may be `lexer` or `parser`)
      *
-     * @return array<string, string|Lexer|Parser|array<string, array<int, array<int, int|string|Token>>>|null>
+     * @return array<string, string|Lexer|Parser|array<string, array<int, array<int, int|string|Token|null>>>|null>
      */
     public static function generate(string $query, string $type = 'parser'): array
     {

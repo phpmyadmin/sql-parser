@@ -371,11 +371,6 @@ parameters:
 			path: src/Context.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Exceptions\\\\ParserException\\:\\:\\$token \\(PhpMyAdmin\\\\SqlParser\\\\Token\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
-			count: 1
-			path: src/Exceptions/ParserException.php
-
-		-
 			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
 			count: 2
 			path: src/Lexer.php
@@ -709,6 +704,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$str of class PhpMyAdmin\\\\SqlParser\\\\Lexer constructor expects PhpMyAdmin\\\\SqlParser\\\\UtfString\\|string, string\\|false given\\.$#"
 			count: 2
 			path: src/Utils/CLI.php
+
+		-
+			message: "#^Cannot access property \\$position on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Utils/Error.php
+
+		-
+			message: "#^Cannot access property \\$token on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Utils/Error.php
 
 		-
 			message: "#^Argument of an invalid type array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string supplied for foreach, only iterables are supported\\.$#"

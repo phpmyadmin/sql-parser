@@ -56,7 +56,7 @@ abstract class TestCase extends BaseTestCase
      * @psalm-return (
      *     $obj is Lexer
      *     ? list<array{string, string, int, int}>
-     *     : list<array{string, Token, int}>
+     *     : list<array{string, Token|null, int}>
      * )
      */
     public function getErrorsAsArray($obj): array

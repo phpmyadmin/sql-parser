@@ -22,7 +22,7 @@ class ParserException extends Exception
      * @param Token|null $token the token that produced this exception
      * @param int        $code  the code of this error
      */
-    public function __construct(string $msg = '', Token|null $token = null, int $code = 0)
+    public function __construct(string $msg, Token|null $token, int $code = 0)
     {
         parent::__construct($msg, $code);
 
