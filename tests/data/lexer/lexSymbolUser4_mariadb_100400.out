@@ -2,6 +2,8 @@
     "query": "ALTER USER 'user'@'hostname' IDENTIFIED VIA mysql_native_password BY 'password';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER USER 'user'@'hostname' IDENTIFIED VIA mysql_native_password BY 'password';",
         "len": 80,
         "last": 80,
@@ -190,9 +192,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

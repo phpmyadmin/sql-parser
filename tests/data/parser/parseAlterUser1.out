@@ -2,6 +2,8 @@
     "query": "ALTER USER trevor REQUIRE NONE;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER USER trevor REQUIRE NONE;",
         "len": 31,
         "last": 31,
@@ -142,12 +144,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -193,9 +195,7 @@
                 "last": 9
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

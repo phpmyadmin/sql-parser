@@ -2,6 +2,8 @@
     "query": "SELECT * FROM alumnos WHERE id = IF(id = 1, id, nombre) AND id not in (SELECT id FROM alumnos)",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT * FROM alumnos WHERE id = IF(id = 1, id, nombre) AND id not in (SELECT id FROM alumnos)",
         "len": 94,
         "last": 94,
@@ -520,12 +522,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -602,9 +604,7 @@
                 "last": 43
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

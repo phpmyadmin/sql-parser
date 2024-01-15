@@ -2,6 +2,8 @@
     "query": "ALTER TABLE trips PARTITION BY RANGE (MONTH(trip_date))\n(\n    PARTITION p01 VALUES LESS THAN (02),\n    PARTITION p02 VALUES LESS THAN (03),\n    PARTITION p03 VALUES LESS THAN (04),\n    PARTITION p04 VALUES LESS THAN (05),\n    PARTITION p05 VALUES LESS THAN (06),\n    PARTITION p06 VALUES LESS THAN (07),\n    PARTITION p07 VALUES LESS THAN (08),\n    PARTITION p08 VALUES LESS THAN (09),\n    PARTITION p09 VALUES LESS THAN (10),\n    PARTITION p10 VALUES LESS THAN (11),\n    PARTITION p11 VALUES LESS THAN (12),\n    PARTITION p12 VALUES LESS THAN (13),\n    PARTITION pmaxval VALUES LESS THAN MAXVALUE\n);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER TABLE trips PARTITION BY RANGE (MONTH(trip_date))\n(\n    PARTITION p01 VALUES LESS THAN (02),\n    PARTITION p02 VALUES LESS THAN (03),\n    PARTITION p03 VALUES LESS THAN (04),\n    PARTITION p04 VALUES LESS THAN (05),\n    PARTITION p05 VALUES LESS THAN (06),\n    PARTITION p06 VALUES LESS THAN (07),\n    PARTITION p07 VALUES LESS THAN (08),\n    PARTITION p08 VALUES LESS THAN (09),\n    PARTITION p09 VALUES LESS THAN (10),\n    PARTITION p10 VALUES LESS THAN (11),\n    PARTITION p11 VALUES LESS THAN (12),\n    PARTITION p12 VALUES LESS THAN (13),\n    PARTITION pmaxval VALUES LESS THAN MAXVALUE\n);",
         "len": 600,
         "last": 600,
@@ -2093,12 +2095,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -2898,9 +2900,7 @@
                 "last": 186
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

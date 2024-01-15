@@ -2,6 +2,8 @@
     "query": "ALTER TABLE t MODIFY x INT INVISIBLE, MODIFY y INT, MODIFY z INT NOT NULL DEFAULT 4;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER TABLE t MODIFY x INT INVISIBLE, MODIFY y INT, MODIFY z INT NOT NULL DEFAULT 4;\n",
         "len": 85,
         "last": 85,
@@ -421,12 +423,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -554,9 +556,7 @@
                 "last": 33
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

@@ -2,6 +2,8 @@
     "query": "DESCRIBE Shop N__e;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DESCRIBE Shop N__e;",
         "len": 19,
         "last": 19,
@@ -98,12 +100,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -121,9 +123,7 @@
                 "last": 4
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

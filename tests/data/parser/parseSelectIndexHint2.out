@@ -2,6 +2,8 @@
     "query": "SELECT  * FROM address USE INDEX (idx_fk_city_id) FORCE KEY FOR GROUP BY (a, b,c) WHERE city_id<0",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT  * FROM address USE INDEX (idx_fk_city_id) FORCE KEY FOR GROUP BY (a, b,c) WHERE city_id<0",
         "len": 97,
         "last": 97,
@@ -454,12 +456,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -558,9 +560,7 @@
                 ]
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

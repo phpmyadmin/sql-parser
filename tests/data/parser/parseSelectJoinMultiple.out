@@ -2,6 +2,8 @@
     "query": "SELECT * FROM Orders NATURAL JOIN Items_Orders NATURAL JOIN Items\nWHERE customer= 'username'",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT * FROM Orders NATURAL JOIN Items_Orders NATURAL JOIN Items\nWHERE customer= 'username'",
         "len": 92,
         "last": 92,
@@ -278,12 +280,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -378,9 +380,7 @@
                 "last": 21
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

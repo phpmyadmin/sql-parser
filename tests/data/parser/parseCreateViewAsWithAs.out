@@ -2,6 +2,8 @@
     "query": "-- create first view\nCREATE VIEW withclause AS\n\nWITH cte AS (\n  SELECT p.name, p.shape\n  FROM gis_all as p\n)\n\nSELECT cte.*\nFROM cte\nCROSS JOIN gis_all;\n-- create second view\nCREATE VIEW withclause2 AS\n\nWITH cte AS (\n  SELECT p.name, p.shape\n  FROM gis_all as p\n), cte2 AS (\n  SELECT p.name as n2, p.shape as sh2\n  FROM gis_all as p\n)\n\nSELECT cte.*,cte2.*\nFROM cte,cte2\nCROSS JOIN gis_all;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "-- create first view\nCREATE VIEW withclause AS\n\nWITH cte AS (\n  SELECT p.name, p.shape\n  FROM gis_all as p\n)\n\nSELECT cte.*\nFROM cte\nCROSS JOIN gis_all;\n-- create second view\nCREATE VIEW withclause2 AS\n\nWITH cte AS (\n  SELECT p.name, p.shape\n  FROM gis_all as p\n), cte2 AS (\n  SELECT p.name as n2, p.shape as sh2\n  FROM gis_all as p\n)\n\nSELECT cte.*,cte2.*\nFROM cte,cte2\nCROSS JOIN gis_all;",
         "len": 388,
         "last": 388,
@@ -1675,12 +1677,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1708,6 +1710,8 @@
                             "columns": [],
                             "statement": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                                "strict": false,
+                                "errors": [],
                                 "list": {
                                     "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                                     "count": 20,
@@ -1833,14 +1837,14 @@
                                         "last": 19
                                     }
                                 ],
-                                "brackets": 0,
-                                "strict": false,
-                                "errors": []
+                                "brackets": 0
                             }
                         }
                     },
                     "cteStatementParser": {
                         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                        "strict": false,
+                        "errors": [],
                         "list": {
                             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                             "count": 111,
@@ -2268,6 +2272,8 @@
                                             "columns": [],
                                             "statement": {
                                                 "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                                                "strict": false,
+                                                "errors": [],
                                                 "list": {
                                                     "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                                                     "count": 20,
@@ -2393,9 +2399,7 @@
                                                         "last": 19
                                                     }
                                                 ],
-                                                "brackets": 0,
-                                                "strict": false,
-                                                "errors": []
+                                                "brackets": 0
                                             }
                                         },
                                         "cte2": {
@@ -2404,6 +2408,8 @@
                                             "columns": [],
                                             "statement": {
                                                 "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                                                "strict": false,
+                                                "errors": [],
                                                 "list": {
                                                     "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                                                     "count": 28,
@@ -2553,14 +2559,14 @@
                                                         "last": 27
                                                     }
                                                 ],
-                                                "brackets": 0,
-                                                "strict": false,
-                                                "errors": []
+                                                "brackets": 0
                                             }
                                         }
                                     },
                                     "cteStatementParser": {
                                         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                                        "strict": false,
+                                        "errors": [],
                                         "list": {
                                             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                                             "count": 21,
@@ -2716,9 +2722,7 @@
                                                 "last": 18
                                             }
                                         ],
-                                        "brackets": 0,
-                                        "strict": false,
-                                        "errors": []
+                                        "brackets": 0
                                     },
                                     "options": {
                                         "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -2748,9 +2752,7 @@
                                 "last": 109
                             }
                         ],
-                        "brackets": 0,
-                        "strict": false,
-                        "errors": []
+                        "brackets": 0
                     },
                     "options": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -2780,9 +2782,7 @@
                 "last": 148
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

@@ -2,6 +2,8 @@
     "query": "CREATE OR REPLACE TABLE t1 (v1 INT)\n  PARTITION BY KEY (v1)\n  PARTITIONS 2;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE OR REPLACE TABLE t1 (v1 INT)\n  PARTITION BY KEY (v1)\n  PARTITIONS 2;",
         "len": 75,
         "last": 75,
@@ -322,12 +324,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -394,9 +396,7 @@
                 "last": 25
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

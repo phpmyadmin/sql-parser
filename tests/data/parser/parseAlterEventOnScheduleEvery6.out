@@ -2,6 +2,8 @@
     "query": "ALTER EVENT my_event ON SCHEDULE\n  EVERY 2 WEEK\n  STARTS CURRENT_TIMESTAMP\n  ENDS '2099-12-30 23:12:01' + INTERVAL 1 DAY;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER EVENT my_event ON SCHEDULE\n  EVERY 2 WEEK\n  STARTS CURRENT_TIMESTAMP\n  ENDS '2099-12-30 23:12:01' + INTERVAL 1 DAY;\n",
         "len": 122,
         "last": 122,
@@ -379,12 +381,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -470,9 +472,7 @@
                 "last": 29
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

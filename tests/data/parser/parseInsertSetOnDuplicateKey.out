@@ -2,6 +2,8 @@
     "query": "INSERT INTO `a` (`value`) SET `value` = '123' ON DUPLICATE KEY UPDATE `value` = '1234'",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "INSERT INTO `a` (`value`) SET `value` = '123' ON DUPLICATE KEY UPDATE `value` = '1234'",
         "len": 86,
         "last": 86,
@@ -377,12 +379,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -435,9 +437,7 @@
                 "last": 30
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

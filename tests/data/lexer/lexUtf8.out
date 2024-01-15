@@ -2,6 +2,8 @@
     "query": "select * from école",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": {
             "@type": "PhpMyAdmin\\SqlParser\\UtfString",
             "str": "select * from école",
@@ -118,9 +120,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

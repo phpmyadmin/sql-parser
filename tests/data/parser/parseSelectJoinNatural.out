@@ -2,6 +2,8 @@
     "query": "SELECT id,aval1,cval1\nFROM table111\nNATURAL JOIN table113",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT id,aval1,cval1\nFROM table111\nNATURAL JOIN table113",
         "len": 57,
         "last": 57,
@@ -199,12 +201,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -293,9 +295,7 @@
                 "last": 14
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

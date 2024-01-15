@@ -2,6 +2,8 @@
     "query": "-- No option in ALTER EVENT.\nALTER EVENT my_event;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "-- No option in ALTER EVENT.\nALTER EVENT my_event;\n",
         "len": 51,
         "last": 51,
@@ -133,12 +135,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -166,9 +168,7 @@
                 "last": 7
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

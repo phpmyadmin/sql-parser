@@ -2,6 +2,8 @@
     "query": "CREATE VIEW  `employees_view` AS\nSELECT *\nFROM\n    `employees`\nWHERE\n    `employees`.`gender` = 'M'\nUNION\nSELECT *\nFROM\n    `employees`\nWHERE\n    `employees`.`gender` = 'F';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE VIEW  `employees_view` AS\nSELECT *\nFROM\n    `employees`\nWHERE\n    `employees`.`gender` = 'M'\nUNION\nSELECT *\nFROM\n    `employees`\nWHERE\n    `employees`.`gender` = 'F';",
         "len": 173,
         "last": 173,
@@ -542,12 +544,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -702,9 +704,7 @@
                 "last": 45
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

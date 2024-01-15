@@ -2,6 +2,8 @@
     "query": "INSERT INTO aa SET  = INET6_ATON('::ffff:8.8.8.8')",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "INSERT INTO aa SET  = INET6_ATON('::ffff:8.8.8.8')",
         "len": 50,
         "last": 50,
@@ -190,12 +192,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -240,9 +242,7 @@
                 "last": 13
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

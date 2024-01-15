@@ -2,6 +2,8 @@
     "query": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase /* */ when 1=1 then \"Some\" when 2=1 then \"Other\" end /* */ foo FROM a;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "select (SELECT name FROM mysql.help_category WHERE help_category_id = 1) as name,\ncase /* */ when 1=1 then \"Some\" when 2=1 then \"Other\" end /* */ foo FROM a;",
         "len": 157,
         "last": 157,
@@ -711,12 +713,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -816,9 +818,7 @@
                 "last": 59
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

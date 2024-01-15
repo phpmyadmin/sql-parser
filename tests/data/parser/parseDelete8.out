@@ -2,6 +2,8 @@
     "query": "DELETE IGNORE FROM t1 LIMIT 0, 25",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DELETE IGNORE FROM t1 LIMIT 0, 25",
         "len": 33,
         "last": 33,
@@ -190,12 +192,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -235,9 +237,7 @@
                 "last": 13
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

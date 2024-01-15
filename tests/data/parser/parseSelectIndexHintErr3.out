@@ -2,6 +2,8 @@
     "query": "SELECT * FROM address FORCE INDEX FOR abc (idx_fk_city_id);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT * FROM address FORCE INDEX FOR abc (idx_fk_city_id);",
         "len": 59,
         "last": 59,
@@ -254,12 +256,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -312,9 +314,7 @@
                 "index_hints": []
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

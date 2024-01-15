@@ -2,6 +2,8 @@
     "query": "-- missing comma between alter operations\nALTER TABLE `tbl` CHANGE `uid` `uid` INT( 10 ) UNSIGNED NOT NULL AUTO_INCREMENT CHANGE `field_1` `field_2` INT( 10 ) UNSIGNED NOT NULL",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "-- missing comma between alter operations\nALTER TABLE `tbl` CHANGE `uid` `uid` INT( 10 ) UNSIGNED NOT NULL AUTO_INCREMENT CHANGE `field_1` `field_2` INT( 10 ) UNSIGNED NOT NULL",
         "len": 176,
         "last": 176,
@@ -511,12 +513,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -612,9 +614,7 @@
                 "last": 43
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

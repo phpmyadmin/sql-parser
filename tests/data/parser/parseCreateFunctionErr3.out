@@ -2,6 +2,8 @@
     "query": "DELIMITER $$\nCREATE FUNCTION coincide\nEND;$$\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DELIMITER $$\nCREATE FUNCTION coincide\nEND;$$\n",
         "len": 45,
         "last": 45,
@@ -188,12 +190,12 @@
             ]
         },
         "delimiter": "$$",
-        "delimiterLen": 2,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 2
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -237,9 +239,7 @@
                 "last": 16
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

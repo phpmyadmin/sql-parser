@@ -2,6 +2,8 @@
     "query": "ALTER TABLE myTable RENAME COLUMN a TO b,\n                    RENAME COLUMN b TO c,\n                    RENAME COLUMN c TO d,\n                    RENAME COLUMN d TO a;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER TABLE myTable RENAME COLUMN a TO b,\n                    RENAME COLUMN b TO c,\n                    RENAME COLUMN c TO d,\n                    RENAME COLUMN d TO a;\n",
         "len": 168,
         "last": 168,
@@ -584,12 +586,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -730,9 +732,7 @@
                 "last": 48
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

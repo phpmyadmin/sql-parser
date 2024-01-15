@@ -2,6 +2,8 @@
     "query": "CREATE TABLE new_table (666 VARCHAR(50) DEFAULT NULL);\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE new_table (666 VARCHAR(50) DEFAULT NULL);\n",
         "len": 55,
         "last": 55,
@@ -256,12 +258,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -305,9 +307,7 @@
                 "last": 10
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

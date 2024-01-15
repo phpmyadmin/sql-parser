@@ -2,6 +2,8 @@
     "query": "INSERT INTO table_name WITH cte (col1) AS ( INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value3) ) SELECT col1 FROM cte ON DUPLICATE KEY UPDATE col_name = 3",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "INSERT INTO table_name WITH cte (col1) AS ( INSERT INTO table_name (column1, column2, column3) VALUES (value1, value2, value3) ) SELECT col1 FROM cte ON DUPLICATE KEY UPDATE col_name = 3",
         "len": 186,
         "last": 186,
@@ -795,12 +797,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -963,9 +965,7 @@
                 "last": 55
             }
         ],
-        "brackets": 1,
-        "strict": false,
-        "errors": []
+        "brackets": 1
     },
     "errors": {
         "lexer": [],

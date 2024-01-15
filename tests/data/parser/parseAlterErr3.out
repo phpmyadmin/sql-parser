@@ -2,6 +2,8 @@
     "query": "-- missing comma between alter operations\nALTER TABLE `database`.`table` MODIFY `field` INT(11) AUTO_INCREMENT PRIMARY KEY;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "-- missing comma between alter operations\nALTER TABLE `database`.`table` MODIFY `field` INT(11) AUTO_INCREMENT PRIMARY KEY;\n",
         "len": 124,
         "last": 124,
@@ -302,12 +304,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -382,9 +384,7 @@
                 "last": 22
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

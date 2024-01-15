@@ -2,6 +2,8 @@
     "query": "SELECT * FROM foo WHERE\nSELECT * FROM foo WHERE\n\nSTART TRANSACTION;\n\nCREATE TABLE `tb` (`uid` INT UNSIGNED NOT NULL\n`position` INT NOT NULL,\nPRIMARY KEY ( `uid` ) ,\nINDEX ( `position` )\n) ENGINE = InnoDB;\n\nCOMMIT;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT * FROM foo WHERE\nSELECT * FROM foo WHERE\n\nSTART TRANSACTION;\n\nCREATE TABLE `tb` (`uid` INT UNSIGNED NOT NULL\n`position` INT NOT NULL,\nPRIMARY KEY ( `uid` ) ,\nINDEX ( `position` )\n) ENGINE = InnoDB;\n\nCOMMIT;",
         "len": 213,
         "last": 213,
@@ -850,12 +852,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1045,9 +1047,7 @@
                 "last": 20
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

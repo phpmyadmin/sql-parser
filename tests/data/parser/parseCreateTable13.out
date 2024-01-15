@@ -2,6 +2,8 @@
     "query": "CREATE TABLE autos (\n    auto_id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY,\n    make VARCHAR(128),\n    year INTEGER,\n    mileage INTEGER\n);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE autos (\n    auto_id INT UNSIGNED NOT NULL AUTO_INCREMENT KEY,\n    make VARCHAR(128),\n    year INTEGER,\n    mileage INTEGER\n);",
         "len": 138,
         "last": 138,
@@ -476,12 +478,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -618,9 +620,7 @@
                 "last": 39
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

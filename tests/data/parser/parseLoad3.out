@@ -2,6 +2,8 @@
     "query": "LOAD DATA INFILE 'employee3.txt' INTO TABLE employee FIELDS TERMINATED BY ',' ENCLOSED BY '\"';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "LOAD DATA INFILE 'employee3.txt' INTO TABLE employee FIELDS TERMINATED BY ',' ENCLOSED BY '\"';",
         "len": 94,
         "last": 94,
@@ -276,12 +278,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -361,9 +363,7 @@
                 "last": 20
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

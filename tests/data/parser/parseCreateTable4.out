@@ -2,6 +2,8 @@
     "query": "CREATE TABLE ts(id INT, purchased DATE)\nPARTITION BY /* comment */ RANGE(YEAR(purchased))\nPARTITIONS 3\nSUBPARTITION BY HASH(TO_DAYS(purchased))\nSUBPARTITIONS 2(\nPARTITION p0\nVALUES LESS THAN(1990)(\n    SUBPARTITION s0,\n    SUBPARTITION s1\n),\nPARTITION p1\nVALUES LESS THAN(2000)(\n    SUBPARTITION s2,\n    SUBPARTITION s3\n),\nPARTITION p2\nVALUES LESS THAN MAXVALUE(\n    SUBPARTITION s4,\n    SUBPARTITION s5\n)\n);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE ts(id INT, purchased DATE)\nPARTITION BY /* comment */ RANGE(YEAR(purchased))\nPARTITIONS 3\nSUBPARTITION BY HASH(TO_DAYS(purchased))\nSUBPARTITIONS 2(\nPARTITION p0\nVALUES LESS THAN(1990)(\n    SUBPARTITION s0,\n    SUBPARTITION s1\n),\nPARTITION p1\nVALUES LESS THAN(2000)(\n    SUBPARTITION s2,\n    SUBPARTITION s3\n),\nPARTITION p2\nVALUES LESS THAN MAXVALUE(\n    SUBPARTITION s4,\n    SUBPARTITION s5\n)\n);",
         "len": 408,
         "last": 408,
@@ -1347,12 +1349,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1911,9 +1913,7 @@
                 "last": 117
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

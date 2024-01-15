@@ -2,6 +2,8 @@
     "query": "CREATE TABLE `mytable` (\n    `id` int(11) NOT NULL,\n    `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP\n);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE `mytable` (\n    `id` int(11) NOT NULL,\n    `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP\n);",
         "len": 119,
         "last": 119,
@@ -399,12 +401,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -514,9 +516,7 @@
                 "last": 32
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

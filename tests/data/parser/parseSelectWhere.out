@@ -2,6 +2,8 @@
     "query": "SELECT * FROM film WHERE film_id = 10 OR film_id >= 20;\nSELECT * FROM film WHERE (film_id < 10) || (film_id > 20);\nSELECT * FROM film WHERE `film_id` != 10 AND `film_id` <= 20;\nSELECT * FROM film WHERE `film`.`film_id` <> 10 && `film`.`film_id` <= 20;\nSELECT * FROM film WHERE film.film_id < 20 XOR film.rating = 'PG-13';\nSELECT * FROM film WHERE /* film_id = */ film_id = 10;\nSELECT * FROM film WHERE NOT film_id > 10;\nSELECT * FROM film WHERE ! (film_id > 10);\nSELECT * FROM film WHERE description IS NULL;\nSELECT * FROM film WHERE description IS NOT NULL;\nSELECT * FROM film WHERE film_id BETWEEN 10 AND 20;\nSELECT * FROM film WHERE film_id NOT BETWEEN 10 AND 20;\nSELECT * FROM film WHERE film_id IN (3,5,7);\nSELECT * FROM film WHERE rating = UPPER('pg');\nSELECT * FROM film WHERE rating SOUNDS LIKE 'PG';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT * FROM film WHERE film_id = 10 OR film_id >= 20;\nSELECT * FROM film WHERE (film_id < 10) || (film_id > 20);\nSELECT * FROM film WHERE `film_id` != 10 AND `film_id` <= 20;\nSELECT * FROM film WHERE `film`.`film_id` <> 10 && `film`.`film_id` <= 20;\nSELECT * FROM film WHERE film.film_id < 20 XOR film.rating = 'PG-13';\nSELECT * FROM film WHERE /* film_id = */ film_id = 10;\nSELECT * FROM film WHERE NOT film_id > 10;\nSELECT * FROM film WHERE ! (film_id > 10);\nSELECT * FROM film WHERE description IS NULL;\nSELECT * FROM film WHERE description IS NOT NULL;\nSELECT * FROM film WHERE film_id BETWEEN 10 AND 20;\nSELECT * FROM film WHERE film_id NOT BETWEEN 10 AND 20;\nSELECT * FROM film WHERE film_id IN (3,5,7);\nSELECT * FROM film WHERE rating = UPPER('pg');\nSELECT * FROM film WHERE rating SOUNDS LIKE 'PG';",
         "len": 808,
         "last": 808,
@@ -3727,12 +3729,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -4642,9 +4644,7 @@
                 "last": 333
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

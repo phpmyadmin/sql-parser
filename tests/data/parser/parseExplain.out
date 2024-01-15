@@ -2,6 +2,8 @@
     "query": "EXPLAIN SELECT * FROM test;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "EXPLAIN SELECT * FROM test;",
         "len": 27,
         "last": 27,
@@ -144,12 +146,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -158,6 +160,8 @@
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
                 "bodyParser": {
                     "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                    "strict": false,
+                    "errors": [],
                     "list": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                         "count": 9,
@@ -240,9 +244,7 @@
                             "last": 6
                         }
                     ],
-                    "brackets": 0,
-                    "strict": false,
-                    "errors": []
+                    "brackets": 0
                 },
                 "statementAlias": "EXPLAIN",
                 "connectionId": null,
@@ -257,9 +259,7 @@
                 "last": 10
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

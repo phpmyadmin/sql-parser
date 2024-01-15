@@ -2,6 +2,8 @@
     "query": "PURGE BINARY LOGS TO 'mysql.bin' INTO;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "PURGE BINARY LOGS TO 'mysql.bin' INTO;",
         "len": 38,
         "last": 38,
@@ -164,12 +166,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -193,9 +195,7 @@
                 "last": 11
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

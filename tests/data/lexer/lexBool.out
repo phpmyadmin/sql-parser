@@ -2,6 +2,8 @@
     "query": "SELECT true, FalSe",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT true, FalSe",
         "len": 18,
         "last": 18,
@@ -100,9 +102,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

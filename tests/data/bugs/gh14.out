@@ -2,6 +2,8 @@
     "query": "ALTER TABLE\n    `actor` MODIFY `actor_id` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT,\n    AUTO_INCREMENT = 201;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER TABLE\n    `actor` MODIFY `actor_id` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT,\n    AUTO_INCREMENT = 201;",
         "len": 113,
         "last": 113,
@@ -344,12 +346,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -447,9 +449,7 @@
                 "last": 27
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

@@ -2,6 +2,8 @@
     "query": "CREATE VIEW myView (vid, vfirstname) AS\nSELECT id, first_name FROM employee WHERE id = 1;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE VIEW myView (vid, vfirstname) AS\nSELECT id, first_name FROM employee WHERE id = 1;",
         "len": 89,
         "last": 89,
@@ -410,12 +412,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -524,9 +526,7 @@
                 "last": 33
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

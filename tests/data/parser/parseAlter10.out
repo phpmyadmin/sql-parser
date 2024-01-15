@@ -2,6 +2,8 @@
     "query": "ALTER TABLE `database`.`table` MODIFY `field` INT(11) AUTO_INCREMENT PRIMARY KEY;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER TABLE `database`.`table` MODIFY `field` INT(11) AUTO_INCREMENT PRIMARY KEY;",
         "len": 81,
         "last": 81,
@@ -267,12 +269,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -347,9 +349,7 @@
                 "last": 20
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

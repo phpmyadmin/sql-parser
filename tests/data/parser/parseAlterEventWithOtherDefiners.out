@@ -2,6 +2,8 @@
     "query": "ALTER DEFINER = 'user' EVENT my_event ENABLE;\nALTER DEFINER = `user` EVENT my_event ENABLE;\nALTER DEFINER = user@host EVENT my_event ENABLE;\nALTER DEFINER = 'user'@'host' EVENT my_event ENABLE;\nALTER DEFINER = `user`@`host` EVENT my_event ENABLE;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER DEFINER = 'user' EVENT my_event ENABLE;\nALTER DEFINER = `user` EVENT my_event ENABLE;\nALTER DEFINER = user@host EVENT my_event ENABLE;\nALTER DEFINER = 'user'@'host' EVENT my_event ENABLE;\nALTER DEFINER = `user`@`host` EVENT my_event ENABLE;\n",
         "len": 247,
         "last": 247,
@@ -874,12 +876,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1135,9 +1137,7 @@
                 "last": 74
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

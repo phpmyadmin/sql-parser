@@ -2,6 +2,8 @@
     "query": "ALTER USER 'jeffrey'@'localhost'\n  IDENTIFIED BY 'new_password' PASSWORD EXPIRE;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER USER 'jeffrey'@'localhost'\n  IDENTIFIED BY 'new_password' PASSWORD EXPIRE;",
         "len": 80,
         "last": 80,
@@ -210,12 +212,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -280,9 +282,7 @@
                 "last": 15
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

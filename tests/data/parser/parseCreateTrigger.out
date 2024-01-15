@@ -2,6 +2,8 @@
     "query": "CREATE TRIGGER ins_sum BEFORE INSERT ON account\nFOR EACH ROW BEGIN SET @sum = @sum + NEW.amount END",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TRIGGER ins_sum BEFORE INSERT ON account\nFOR EACH ROW BEGIN SET @sum = @sum + NEW.amount END",
         "len": 99,
         "last": 99,
@@ -399,12 +401,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -512,9 +514,7 @@
                 "last": 33
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

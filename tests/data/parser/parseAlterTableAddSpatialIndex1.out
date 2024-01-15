@@ -2,6 +2,8 @@
     "query": "ALTER TABLE testtable ADD SPATIAL INDEX(`mypoint`), ALGORITHM=INPLACE, LOCK=SHARED;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER TABLE testtable ADD SPATIAL INDEX(`mypoint`), ALGORITHM=INPLACE, LOCK=SHARED;",
         "len": 83,
         "last": 83,
@@ -289,12 +291,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -382,9 +384,7 @@
                 "last": 22
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

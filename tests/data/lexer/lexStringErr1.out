@@ -2,6 +2,8 @@
     "query": "SELECT 'foo', \"bar\", \"foo\\\\ bar",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT 'foo', \"bar\", \"foo\\\\ bar",
         "len": 31,
         "last": 32,
@@ -133,9 +135,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

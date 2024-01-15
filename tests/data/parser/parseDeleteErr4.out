@@ -2,6 +2,8 @@
     "query": "DELETE QUICK FROM table1, table2.* table1 AS `t1` USING table2 AS `t2` WHERE 1=1 ORDER BY id ASC",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DELETE QUICK FROM table1, table2.* table1 AS `t1` USING table2 AS `t2` WHERE 1=1 ORDER BY id ASC",
         "len": 96,
         "last": 96,
@@ -456,12 +458,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -525,9 +527,7 @@
                 "last": 32
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

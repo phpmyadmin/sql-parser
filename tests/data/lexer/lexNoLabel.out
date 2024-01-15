@@ -2,6 +2,8 @@
     "query": "SELECT wins FROM players WHERE auth = '[U1:123456789]' LIMIT 1\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT wins FROM players WHERE auth = '[U1:123456789]' LIMIT 1\n",
         "len": 63,
         "last": 63,
@@ -258,9 +260,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

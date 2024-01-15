@@ -2,6 +2,8 @@
     "query": "ALTER TABLE `api_tab_user` CHANGE `rank_id` `rank_id` INT(4) NOT NULL DEFAULT '4';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER TABLE `api_tab_user` CHANGE `rank_id` `rank_id` INT(4) NOT NULL DEFAULT '4';",
         "len": 82,
         "last": 82,
@@ -291,12 +293,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -383,9 +385,7 @@
                 "last": 22
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

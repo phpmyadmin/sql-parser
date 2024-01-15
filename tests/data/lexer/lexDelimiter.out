@@ -2,6 +2,8 @@
     "query": "DELIMITER GO\nSELECT a,b FROM foo GO\nSELECT * FROM bar",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DELIMITER GO\nSELECT a,b FROM foo GO\nSELECT * FROM bar",
         "len": 53,
         "last": 53,
@@ -287,9 +289,7 @@
             ]
         },
         "delimiter": "GO",
-        "delimiterLen": 2,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 2
     },
     "parser": null,
     "errors": {

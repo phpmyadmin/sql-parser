@@ -2,6 +2,8 @@
     "query": "-- extraneous comma\nUPDATE\n    users\nSET\n    username = \"Dan\",\n    id=155,\nWHERE 1 = 1;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "-- extraneous comma\nUPDATE\n    users\nSET\n    username = \"Dan\",\n    id=155,\nWHERE 1 = 1;",
         "len": 87,
         "last": 87,
@@ -348,12 +350,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -403,9 +405,7 @@
                 "last": 26
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

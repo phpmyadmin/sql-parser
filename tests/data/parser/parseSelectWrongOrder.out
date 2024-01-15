@@ -2,6 +2,8 @@
     "query": "SELECT pid, name2 FROM tablename LIMIT 10 WHERE pid = 20",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT pid, name2 FROM tablename LIMIT 10 WHERE pid = 20",
         "len": 56,
         "last": 56,
@@ -278,12 +280,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -358,9 +360,7 @@
                 "last": 21
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

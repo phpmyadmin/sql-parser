@@ -2,6 +2,8 @@
     "query": "SELECT pid, name2 FROM tablename WHERE pid = 20\n/* LOCK IN SHARE MODE end_option */ LOCK IN SHARE MODE",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT pid, name2 FROM tablename WHERE pid = 20\n/* LOCK IN SHARE MODE end_option */ LOCK IN SHARE MODE",
         "len": 102,
         "last": 102,
@@ -280,12 +282,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -361,9 +363,7 @@
                 "last": 21
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

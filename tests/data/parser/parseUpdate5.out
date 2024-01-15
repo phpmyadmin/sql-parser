@@ -2,6 +2,8 @@
     "query": "update user u left join user_detail ud on u.id = ud.user_id set ud.ip ='33' where u.id = 1",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "update user u left join user_detail ud on u.id = ud.user_id set ud.ip ='33' where u.id = 1",
         "len": 90,
         "last": 90,
@@ -500,12 +502,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -582,9 +584,7 @@
                 "last": 41
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

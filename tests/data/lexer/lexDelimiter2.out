@@ -2,6 +2,8 @@
     "query": "DELIMTER //\nSELECT a,b FROM test //\nSELECT * FROM bar //",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DELIMTER //\nSELECT a,b FROM test //\nSELECT * FROM bar //",
         "len": 56,
         "last": 56,
@@ -342,9 +344,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

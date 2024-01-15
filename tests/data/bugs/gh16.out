@@ -2,6 +2,8 @@
     "query": "CREATE TABLE `jos_core_acl_aro` (\n  `id` int(11) NOT NULL,\n  `section_value` varchar(240) NOT NULL DEFAULT '0',\n  `value` varchar(240) NOT NULL DEFAULT '',\n  `order_value` int(11) NOT NULL DEFAULT '0',\n  `name` varchar(255) NOT NULL DEFAULT '',\n  `hidden` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`id`),\n  UNIQUE KEY `jos_section_value_value_aro` (`section_value`(100),`value`(15)) USING BTREE,\n  KEY `jos_gacl_hidden_aro` (`hidden`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE `jos_core_acl_aro` (\n  `id` int(11) NOT NULL,\n  `section_value` varchar(240) NOT NULL DEFAULT '0',\n  `value` varchar(240) NOT NULL DEFAULT '',\n  `order_value` int(11) NOT NULL DEFAULT '0',\n  `name` varchar(255) NOT NULL DEFAULT '',\n  `hidden` int(11) NOT NULL DEFAULT '0',\n  PRIMARY KEY (`id`),\n  UNIQUE KEY `jos_section_value_value_aro` (`section_value`(100),`value`(15)) USING BTREE,\n  KEY `jos_gacl_hidden_aro` (`hidden`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1",
         "len": 476,
         "last": 476,
@@ -1503,12 +1505,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1872,9 +1874,7 @@
                 "last": 133
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

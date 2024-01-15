@@ -2,6 +2,8 @@
     "query": "DELIMITER abcdefghijklmnopqrstuvwxyz\nSELECT 1 abcdefghijklmnopqrstuvwxyz\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DELIMITER abcdefghijklmnopqrstuvwxyz\nSELECT 1 abcdefghijklmnopqrstuvwxyz\n",
         "len": 73,
         "last": 73,
@@ -166,9 +168,7 @@
             ]
         },
         "delimiter": "abcdefghijklmno",
-        "delimiterLen": 15,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 15
     },
     "parser": null,
     "errors": {

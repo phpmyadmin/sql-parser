@@ -2,6 +2,8 @@
     "query": "LOAD DATA INFILE '/tmp/test.txt' IGNORE\nINTO TABLE test\nCHARACTER SET 'utf8'\nCOLUMNS TERMINATED BY ','\nLINES TERMINATED BY ';'\nIGNORE 1 LINES\n(col1, col2)\nSET @a = 1;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "LOAD DATA INFILE '/tmp/test.txt' IGNORE\nINTO TABLE test\nCHARACTER SET 'utf8'\nCOLUMNS TERMINATED BY ','\nLINES TERMINATED BY ';'\nIGNORE 1 LINES\n(col1, col2)\nSET @a = 1;",
         "len": 166,
         "last": 166,
@@ -601,12 +603,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -725,9 +727,7 @@
                 "last": 49
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

@@ -2,6 +2,8 @@
     "query": "SELECT 1 + 2",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT 1 + 2",
         "len": 12,
         "last": 12,
@@ -111,9 +113,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

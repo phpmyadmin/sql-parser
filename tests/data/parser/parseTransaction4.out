@@ -2,6 +2,8 @@
     "query": "\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "\nSTART TRANSACTION;\nSET time_zone = \"+00:00\";\n",
         "len": 46,
         "last": 46,
@@ -179,12 +181,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -222,9 +224,7 @@
                 "last": 1
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],
