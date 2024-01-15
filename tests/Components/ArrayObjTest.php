@@ -32,7 +32,7 @@ class ArrayObjTest extends TestCase
             [
                 'type' => Expression::class,
                 'typeOptions' => ['breakOnParentheses' => true],
-            ]
+            ],
         );
         $this->assertInstanceOf(Expression::class, $components[0]);
         $this->assertInstanceOf(Expression::class, $components[1]);
@@ -46,9 +46,7 @@ class ArrayObjTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function parseProvider(): array
     {
         return [

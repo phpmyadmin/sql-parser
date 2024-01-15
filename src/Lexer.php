@@ -389,7 +389,7 @@ class Lexer
             Translator::gettext($msg),
             $str,
             $pos,
-            $code
+            $code,
         );
 
         if ($this->strict) {
@@ -906,10 +906,10 @@ class Lexer
             $this->error(
                 sprintf(
                     Translator::gettext('Ending quote %1$s was expected.'),
-                    $quote
+                    $quote,
                 ),
                 '',
-                $this->last
+                $this->last,
             );
         } else {
             $token .= $this->str[$this->last];

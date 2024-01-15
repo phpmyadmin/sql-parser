@@ -138,7 +138,7 @@ class TestGenerator
         string $input,
         string $output,
         string|null $debug = null,
-        bool $ansi = false
+        bool $ansi = false,
     ): void {
         // Support query types: `lexer` / `parser`.
         if (! in_array($type, ['lexer', 'parser'])) {
@@ -182,7 +182,7 @@ class TestGenerator
 
         $encoded = (string) json_encode(
             json_decode($encoded),
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION | JSON_UNESCAPED_SLASHES
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION | JSON_UNESCAPED_SLASHES,
         );
 
         // Remove the project path from .out file, it changes for each dev
@@ -249,7 +249,7 @@ class TestGenerator
                         $inputFile,
                         $outputFile,
                         $debugFile,
-                        str_contains($inputFile, 'ansi')
+                        str_contains($inputFile, 'ansi'),
                     );
                 } else {
                     echo sprintf("Test for %s already built!\n", $inputFile);

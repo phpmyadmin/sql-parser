@@ -60,9 +60,7 @@ class CLI
         return getopt($opt, $long);
     }
 
-    /**
-     * @return string[]|false[]|false
-     */
+    /** @return string[]|false[]|false */
     public function parseHighlight(): array|false
     {
         $longopts = [
@@ -118,7 +116,7 @@ class CLI
         if (isset($params['q'])) {
             echo Formatter::format(
                 $params['q'],
-                ['type' => $params['f']]
+                ['type' => $params['f']],
             );
             echo "\n";
 
@@ -137,9 +135,7 @@ class CLI
         echo "       cat file.sql | lint-query\n";
     }
 
-    /**
-     * @return string[]|false[]|false
-     */
+    /** @return string[]|false[]|false */
     public function parseLint(): array|false
     {
         $longopts = [
@@ -214,9 +210,7 @@ class CLI
         echo "       cat file.sql | tokenize-query\n";
     }
 
-    /**
-     * @return string[]|false[]|false
-     */
+    /** @return string[]|false[]|false */
     public function parseTokenize(): array|false
     {
         $longopts = [

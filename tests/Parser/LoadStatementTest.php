@@ -24,9 +24,7 @@ class LoadStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function loadProvider(): array
     {
         return [

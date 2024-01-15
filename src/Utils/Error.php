@@ -76,7 +76,7 @@ class Error
      */
     public static function format(
         array $errors,
-        string $format = '#%1$d: %2$s (near "%4$s" at position %5$d)'
+        string $format = '#%1$d: %2$s (near "%4$s" at position %5$d)',
     ): array {
         $ret = [];
 
@@ -88,7 +88,7 @@ class Error
                 $err[0],
                 $err[1],
                 htmlspecialchars((string) $err[2]),
-                $err[3]
+                $err[3],
             );
         }
 

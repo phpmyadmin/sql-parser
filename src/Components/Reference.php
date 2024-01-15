@@ -116,7 +116,7 @@ final class Reference implements Component
                     [
                         'parseField' => 'table',
                         'breakOnAlias' => true,
-                    ]
+                    ],
                 );
                 $state = 1;
             } elseif ($state === 1) {
@@ -139,7 +139,7 @@ final class Reference implements Component
         return trim(
             $this->table
             . ' (' . implode(', ', Context::escapeAll($this->columns)) . ') '
-            . $this->options
+            . $this->options,
         );
     }
 

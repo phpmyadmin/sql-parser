@@ -190,7 +190,7 @@ class InsertStatement extends Statement
                 $this->into = IntoKeyword::parse(
                     $parser,
                     $list,
-                    ['fromInsert' => true]
+                    ['fromInsert' => true],
                 );
 
                 $state = 1;

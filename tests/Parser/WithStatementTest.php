@@ -18,9 +18,7 @@ class WithStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function parseWith(): array
     {
         return [

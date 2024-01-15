@@ -15,9 +15,7 @@ class BugsTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function bugProvider(): array
     {
         return [

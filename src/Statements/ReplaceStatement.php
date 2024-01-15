@@ -149,7 +149,7 @@ class ReplaceStatement extends Statement
                 $this->into = IntoKeyword::parse(
                     $parser,
                     $list,
-                    ['fromReplace' => true]
+                    ['fromReplace' => true],
                 );
 
                 $state = 1;

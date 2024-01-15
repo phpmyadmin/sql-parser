@@ -15,9 +15,7 @@ class ReplaceStatementTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function replaceProvider(): array
     {
         return [

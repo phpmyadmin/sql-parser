@@ -48,8 +48,8 @@ class MaintenanceStatement extends Statement
             OptionsArray::parse(
                 $parser,
                 $list,
-                static::$statementOptions
-            )
+                static::$statementOptions,
+            ),
         );
     }
 }

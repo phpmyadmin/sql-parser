@@ -532,7 +532,7 @@ class CreateStatement extends Statement
             [
                 'parseField' => $fieldName,
                 'breakOnAlias' => true,
-            ]
+            ],
         );
 
         if ($this->name === null) {
@@ -581,7 +581,7 @@ class CreateStatement extends Statement
                     [
                         'parseField' => 'table',
                         'breakOnAlias' => true,
-                    ]
+                    ],
                 );
                 // The 'LIKE' keyword was found, but no table_name was found next to it
                 if ($this->like === null) {
@@ -680,7 +680,7 @@ class CreateStatement extends Statement
                             $this->partitions = ArrayObj::parse(
                                 $parser,
                                 $list,
-                                ['type' => PartitionDefinition::class]
+                                ['type' => PartitionDefinition::class],
                             );
                         }
 
@@ -766,7 +766,7 @@ class CreateStatement extends Statement
                 [
                     'parseField' => 'table',
                     'breakOnAlias' => true,
-                ]
+                ],
             );
             ++$list->idx;
 

@@ -616,7 +616,7 @@ class Query
         TokensList $list,
         string $clause,
         int|string $type = 0,
-        bool $skipFirst = true
+        bool $skipFirst = true,
     ): string {
         /**
          * The index of the current clause.
@@ -748,7 +748,7 @@ class Query
         TokensList $list,
         string $old,
         string|null $new = null,
-        bool $onlyType = false
+        bool $onlyType = false,
     ): string {
         // TODO: Update the tokens list and the statement.
 

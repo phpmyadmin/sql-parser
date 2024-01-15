@@ -37,9 +37,7 @@ class LockExpressionTest extends TestCase
         $this->assertEquals($errors[0][0], $error);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function parseErrProvider(): array
     {
         return [
@@ -66,7 +64,7 @@ class LockExpressionTest extends TestCase
         ];
         $this->assertEquals(
             LockExpression::buildAll($component),
-            'table1 AS `t1` READ LOCAL, table2 LOW_PRIORITY WRITE'
+            'table1 AS `t1` READ LOCAL, table2 LOW_PRIORITY WRITE',
         );
     }
 }

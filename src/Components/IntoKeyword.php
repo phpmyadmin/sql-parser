@@ -118,7 +118,7 @@ final class IntoKeyword implements Component
         array|null $columns = null,
         array|null $values = null,
         OptionsArray|null $fieldsOptions = null,
-        bool|null $fieldsKeyword = null
+        bool|null $fieldsKeyword = null,
     ) {
         $this->type = $type;
         $this->dest = $dest;
@@ -195,7 +195,7 @@ final class IntoKeyword implements Component
                         [
                             'parseField' => 'table',
                             'breakOnAlias' => true,
-                        ]
+                        ],
                     );
                 } else {
                     $ret->values = ExpressionArray::parse($parser, $list);

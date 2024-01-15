@@ -21,7 +21,7 @@ class LoadStatementTest extends TestCase
         $this->assertEquals(
             'LOAD DATA CONCURRENT INFILE '
             . '\'employee1.txt\' INTO TABLE employee',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 2 */
@@ -36,7 +36,7 @@ class LoadStatementTest extends TestCase
             'LOAD DATA  INFILE \'/tmp/test.txt\' '
             . 'INTO TABLE test FIELDS TERMINATED BY '
             . '\',\' IGNORE 1 LINES',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 3 */
@@ -51,7 +51,7 @@ class LoadStatementTest extends TestCase
             'LOAD DATA  INFILE \'employee3.txt\' '
             . 'INTO TABLE employee FIELDS TERMINATED BY '
             . '\',\' ENCLOSED BY \'"\'',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 4 */
@@ -72,7 +72,7 @@ class LoadStatementTest extends TestCase
             . 'COLUMNS TERMINATED BY \',\' '
             . 'LINES TERMINATED BY \';\' '
             . 'IGNORE 1 LINES (col1, col2) SET @a = 1',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 5 */
@@ -85,7 +85,7 @@ class LoadStatementTest extends TestCase
         $this->assertEquals(
             'LOAD DATA  INFILE \'/tmp/test.txt\' REPLACE '
             . 'INTO TABLE test COLUMNS TERMINATED BY \',\' IGNORE 1 ROWS',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 6 */
@@ -102,7 +102,7 @@ class LoadStatementTest extends TestCase
             . 'INTO TABLE test PARTITION (p0, p1, p2) CHARACTER SET \'utf8\' '
             . 'COLUMNS TERMINATED BY \',\' LINES TERMINATED BY \';\' '
             . 'IGNORE 1 LINES (col1, col2) SET @a = 1',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 }

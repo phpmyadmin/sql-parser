@@ -370,10 +370,10 @@ PHP;
                             $directory . '_common.txt',
                             $directory . '_functions' . $file,
                             $directory . $file,
-                        ]
+                        ],
                     ),
-                ]
-            )
+                ],
+            ),
         );
     }
 

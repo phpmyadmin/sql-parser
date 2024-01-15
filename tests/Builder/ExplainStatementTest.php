@@ -17,7 +17,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'EXPLAIN SELECT * FROM test',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 2 */
@@ -26,7 +26,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'EXPLAIN ANALYZE SELECT * FROM tablename',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 3 */
@@ -35,7 +35,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'DESC ANALYZE SELECT * FROM tablename',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 4 */
@@ -44,7 +44,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'ANALYZE SELECT * FROM tablename',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 5 */
@@ -53,7 +53,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'DESCRIBE `tablename`',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 6 */
@@ -62,7 +62,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'DESC FOR CONNECTION 458',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 7 */
@@ -71,7 +71,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'EXPLAIN FORMAT=TREE SELECT * FROM db',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 8 */
@@ -80,7 +80,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'DESCRIBE `tablename` `colname`',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 9 */
@@ -89,7 +89,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'DESCRIBE `tablename` `col%me`',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 9 */
@@ -98,7 +98,7 @@ class ExplainStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'DESCRIBE `db`.`tablename` `col%me`',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 }

@@ -24,7 +24,7 @@ class TransactionStatementTest extends TestCase
             'SELECT @A:=SUM(salary) FROM table1 WHERE type=1;' .
             'UPDATE table2 SET summary = @A WHERE type=1;' .
             'COMMIT',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 }

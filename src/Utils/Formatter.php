@@ -78,9 +78,7 @@ class Formatter
         'VALUES' => true,
     ];
 
-    /**
-     * @param array<string, bool|string|array<int, array<string, int|string>>> $options the formatting options
-     */
+    /** @param array<string, bool|string|array<int, array<string, int|string>>> $options the formatting options */
     public function __construct(array $options = [])
     {
         $this->options = $this->getMergedOptions($options);
@@ -97,7 +95,7 @@ class Formatter
     {
         $options = array_merge(
             $this->getDefaultOptions(),
-            $options
+            $options,
         );
 
         if (isset($options['formats'])) {
@@ -627,7 +625,7 @@ class Formatter
                 '\x1E',
                 '\x1F',
             ],
-            $string
+            $string,
         );
     }
 

@@ -14,7 +14,7 @@ class ParameterDefinitionTest extends TestCase
     {
         $component = ParameterDefinition::parse(
             new Parser(),
-            $this->getTokensList('(a INT, b INT')
+            $this->getTokensList('(a INT, b INT'),
         );
         $this->assertEquals('a', $component[0]->name);
         $this->assertEquals('b', $component[1]->name);
@@ -25,7 +25,7 @@ class ParameterDefinitionTest extends TestCase
         $parser = new Parser();
         $component = ParameterDefinition::parse(
             $parser,
-            $this->getTokensList('CREATE DEFINER=`root`@`%` PROCEDURE `foo`( $bar int )')
+            $this->getTokensList('CREATE DEFINER=`root`@`%` PROCEDURE `foo`( $bar int )'),
         );
         $this->assertEquals('$bar', $component[0]->name);
     }

@@ -15,9 +15,7 @@ use const PHP_BINARY;
 
 class CLITest extends TestCase
 {
-    /**
-     * @param array<string, bool|string>|false $getopt
-     */
+    /** @param array<string, bool|string>|false $getopt */
     private function getCLI($getopt): CLI
     {
         $cli = $this->createPartialMock(CLI::class, ['getopt']);
@@ -26,9 +24,7 @@ class CLITest extends TestCase
         return $cli;
     }
 
-    /**
-     * @param array<string, bool|string>|false $getopt
-     */
+    /** @param array<string, bool|string>|false $getopt */
     private function getCLIStdIn(string $input, $getopt): CLI
     {
         $cli = $this->createPartialMock(CLI::class, ['getopt', 'readStdin']);
@@ -48,13 +44,11 @@ class CLITest extends TestCase
         $cli = new CLI();
         $this->assertEquals(
             $cli->getopt('', []),
-            []
+            [],
         );
     }
 
-    /**
-     * @param array<string, bool|string>|false $getopt
-     */
+    /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('highlightParamsProvider')]
     public function testRunHighlight($getopt, string $output, int $result): void
     {
@@ -126,9 +120,7 @@ class CLITest extends TestCase
         ];
     }
 
-    /**
-     * @param array<string, bool|string>|false $getopt
-     */
+    /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('highlightParamsStdInProvider')]
     public function testRunHighlightStdIn(string $input, $getopt, string $output, int $result): void
     {
@@ -193,9 +185,7 @@ class CLITest extends TestCase
         ];
     }
 
-    /**
-     * @param array<string, bool|string>|false $getopt
-     */
+    /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('lintParamsStdInProvider')]
     public function testRunLintFromStdIn(string $input, $getopt, string $output, int $result): void
     {
@@ -257,9 +247,7 @@ class CLITest extends TestCase
         ];
     }
 
-    /**
-     * @param array<string, bool|string>|false $getopt
-     */
+    /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('lintParamsProvider')]
     public function testRunLint($getopt, string $output, int $result): void
     {
@@ -323,9 +311,7 @@ class CLITest extends TestCase
         ];
     }
 
-    /**
-     * @param array<string, bool|string>|false $getopt
-     */
+    /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('tokenizeParamsProvider')]
     public function testRunTokenize($getopt, string $output, int $result): void
     {
@@ -377,9 +363,7 @@ class CLITest extends TestCase
         ];
     }
 
-    /**
-     * @param array<string, bool|string>|false $getopt
-     */
+    /** @param array<string, bool|string>|false $getopt */
     #[DataProvider('tokenizeParamsStdInProvider')]
     public function testRunTokenizeStdIn(string $input, $getopt, string $output, int $result): void
     {

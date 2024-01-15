@@ -28,9 +28,7 @@ class LimitTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function parseProvider(): array
     {
         return [

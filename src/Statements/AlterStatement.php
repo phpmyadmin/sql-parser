@@ -84,7 +84,7 @@ class AlterStatement extends Statement
             [
                 'parseField' => 'table',
                 'breakOnAlias' => true,
-            ]
+            ],
         );
         ++$list->idx; // Skipping field.
 
@@ -151,7 +151,7 @@ class AlterStatement extends Statement
         return trim(
             'ALTER ' . $this->options->build()
             . ' ' . $this->table->build()
-            . ' ' . implode(', ', $tmp)
+            . ' ' . implode(', ', $tmp),
         );
     }
 }

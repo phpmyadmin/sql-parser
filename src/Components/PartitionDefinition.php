@@ -193,7 +193,7 @@ final class PartitionDefinition implements Component
                         [
                             'parenthesesDelimited' => true,
                             'breakOnAlias' => true,
-                        ]
+                        ],
                     );
                 }
 
@@ -206,7 +206,7 @@ final class PartitionDefinition implements Component
                     $ret->subpartitions = ArrayObj::parse(
                         $parser,
                         $list,
-                        ['type' => self::class]
+                        ['type' => self::class],
                     );
                     ++$list->idx;
                 }
@@ -232,13 +232,11 @@ final class PartitionDefinition implements Component
             'PARTITION ' . $this->name
             . (empty($this->type) ? '' : ' VALUES ' . $this->type . ' ' . $this->expr . ' ')
             . (! empty($this->options) && ! empty($this->type) ? '' : ' ')
-            . $this->options . $subpartitions
+            . $this->options . $subpartitions,
         );
     }
 
-    /**
-     * @param PartitionDefinition[] $component the component to be built
-     */
+    /** @param PartitionDefinition[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return "(\n" . implode(",\n", $component) . "\n)";

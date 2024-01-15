@@ -19,7 +19,7 @@ class KeyTest extends TestCase
     {
         $component = Key::parse(
             new Parser(),
-            $this->getTokensList('')
+            $this->getTokensList(''),
         );
         $this->assertNull($component->type);
         $this->assertNull($component->options);
@@ -28,7 +28,7 @@ class KeyTest extends TestCase
         $this->assertSame([], $component->columns);
         $this->assertSame(
             '()',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -36,7 +36,7 @@ class KeyTest extends TestCase
     {
         $component = Key::parse(
             new Parser(),
-            $this->getTokensList('KEY `alias_type_idx` (`alias_type`),')
+            $this->getTokensList('KEY `alias_type_idx` (`alias_type`),'),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('alias_type_idx', $component->name);
@@ -45,7 +45,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type']], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type`)',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -53,7 +53,7 @@ class KeyTest extends TestCase
     {
         $component = Key::parse(
             new Parser(),
-            $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10)),')
+            $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10)),'),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('alias_type_idx', $component->name);
@@ -62,7 +62,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'length' => 10]], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type`(10))',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -70,7 +70,7 @@ class KeyTest extends TestCase
     {
         $component = Key::parse(
             new Parser(),
-            $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10) ASC),')
+            $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10) ASC),'),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('alias_type_idx', $component->name);
@@ -79,7 +79,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'length' => 10, 'order' => 'ASC']], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type`(10) ASC)',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -87,7 +87,7 @@ class KeyTest extends TestCase
     {
         $component = Key::parse(
             new Parser(),
-            $this->getTokensList('KEY `alias_type_idx` (`alias_type` desc),')
+            $this->getTokensList('KEY `alias_type_idx` (`alias_type` desc),'),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('alias_type_idx', $component->name);
@@ -96,7 +96,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'order' => 'DESC']], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type` DESC)',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -104,7 +104,7 @@ class KeyTest extends TestCase
     {
         $component = Key::parse(
             new Parser(),
-            $this->getTokensList('KEY `alias_type_idx` (`alias_type` DESC),')
+            $this->getTokensList('KEY `alias_type_idx` (`alias_type` DESC),'),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('alias_type_idx', $component->name);
@@ -113,7 +113,7 @@ class KeyTest extends TestCase
         $this->assertSame([['name' => 'alias_type', 'order' => 'DESC']], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type` DESC)',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -121,7 +121,7 @@ class KeyTest extends TestCase
     {
         $component = Key::parse(
             new Parser(),
-            $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10)) COMMENT \'my comment\',')
+            $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10)) COMMENT \'my comment\','),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('alias_type_idx', $component->name);
@@ -133,13 +133,13 @@ class KeyTest extends TestCase
                     'expr' => '\'my comment\'',
                     'value' => 'my comment',
                 ],
-            ]
+            ],
         ), $component->options);
         $this->assertNull($component->expr);
         $this->assertSame([['name' => 'alias_type', 'length' => 10]], $component->columns);
         $this->assertSame(
             'KEY `alias_type_idx` (`alias_type`(10)) COMMENT \'my comment\'',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -152,8 +152,8 @@ class KeyTest extends TestCase
                 // Only ENGINE_ATTRIBUTE gives a not supported error but is still a valid syntax
                 'KEY `alias_type_idx` (`alias_type`(10))'
                 . ' COMMENT \'my comment\' VISIBLE KEY_BLOCK_SIZE=1'
-                . ' INVISIBLE ENGINE_ATTRIBUTE \'foo\' SECONDARY_ENGINE_ATTRIBUTE=\'bar\' USING BTREE,'
-            )
+                . ' INVISIBLE ENGINE_ATTRIBUTE \'foo\' SECONDARY_ENGINE_ATTRIBUTE=\'bar\' USING BTREE,',
+            ),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('alias_type_idx', $component->name);
@@ -191,7 +191,7 @@ class KeyTest extends TestCase
                     'expr' => '\'bar\'',
                     'value' => 'bar',
                 ],
-            ]
+            ],
         ), $component->options);
         $this->assertNull($component->expr);
         $this->assertSame([['name' => 'alias_type', 'length' => 10]], $component->columns);
@@ -202,8 +202,8 @@ class KeyTest extends TestCase
         $component = Key::parse(
             new Parser(),
             $this->getTokensList(
-                'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))),'
-            )
+                'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))),',
+            ),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('updated_tz_ind2', $component->name);
@@ -214,7 +214,7 @@ class KeyTest extends TestCase
         $this->assertSame([], $component->columns);
         $this->assertSame(
             'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))) ',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -225,8 +225,8 @@ class KeyTest extends TestCase
             $this->getTokensList(
                 'KEY `updated_tz_ind2`'
                 . ' ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')))'
-                . ' COMMENT \'my comment\','
-            )
+                . ' COMMENT \'my comment\',',
+            ),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('updated_tz_ind2', $component->name);
@@ -238,7 +238,7 @@ class KeyTest extends TestCase
                     'expr' => '\'my comment\'',
                     'value' => 'my comment',
                 ],
-            ]
+            ],
         ), $component->options);
         $expr = new Expression('(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))');
         $expr->function = 'convert_tz';
@@ -248,7 +248,7 @@ class KeyTest extends TestCase
             'KEY `updated_tz_ind2`'
             . ' ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')))'
             . ' COMMENT \'my comment\'',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -259,13 +259,13 @@ class KeyTest extends TestCase
             $parser,
             $this->getTokensList(
                 'KEY `updated_tz_ind2` (()convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')))'
-                . ' COMMENT \'my comment\','
-            )
+                . ' COMMENT \'my comment\',',
+            ),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('updated_tz_ind2', $component->name);
         $this->assertEquals(new OptionsArray(
-            []
+            [],
         ), $component->options);
         $t = new Token('convert_tz', TokenType::Keyword, 33);
         $t->position = 25;
@@ -273,7 +273,7 @@ class KeyTest extends TestCase
         $this->assertEquals([
             new ParserException(
                 'Unexpected token.',
-                $t
+                $t,
             ),
         ], $parser->errors);
         $expr = new Expression('(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))');
@@ -282,7 +282,7 @@ class KeyTest extends TestCase
         $this->assertSame([], $component->columns);
         $this->assertSame(
             'KEY `updated_tz_ind2` (()(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')) ',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -297,8 +297,8 @@ class KeyTest extends TestCase
                 . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')), '
                 . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\'))'
                 . ')'
-                . ' COMMENT \'my comment\','
-            )
+                . ' COMMENT \'my comment\',',
+            ),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('updated_tz_ind2', $component->name);
@@ -310,12 +310,12 @@ class KeyTest extends TestCase
                     'expr' => '\'my comment\'',
                     'value' => 'my comment',
                 ],
-            ]
+            ],
         ), $component->options);
         $this->assertSame([], $parser->errors);
         $expr = new Expression(
             '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')),'
-            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\'))'
+            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\'))',
         );
         $expr->function = 'convert_tz';
         $this->assertEquals($expr, $component->expr);
@@ -324,7 +324,7 @@ class KeyTest extends TestCase
             'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')),'
             . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\'))'
             . ') COMMENT \'my comment\'',
-            $component->build()
+            $component->build(),
         );
     }
 
@@ -340,8 +340,8 @@ class KeyTest extends TestCase
                 . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\')), '
                 . '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'RU\'))'
                 . ')'
-                . ' COMMENT \'my comment\','
-            )
+                . ' COMMENT \'my comment\',',
+            ),
         );
         $this->assertEquals('KEY', $component->type);
         $this->assertEquals('updated_tz_ind2', $component->name);
@@ -353,12 +353,12 @@ class KeyTest extends TestCase
                     'expr' => '\'my comment\'',
                     'value' => 'my comment',
                 ],
-            ]
+            ],
         ), $component->options);
         $expr = new Expression(
             '(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')),'
             . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\')),'
-            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'RU\'))'
+            . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'RU\'))',
         );
         $expr->function = 'convert_tz';
         $this->assertEquals($expr, $component->expr);
@@ -369,7 +369,7 @@ class KeyTest extends TestCase
             . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'FR\')),'
             . ' (convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'RU\'))'
             . ') COMMENT \'my comment\'',
-            $component->build()
+            $component->build(),
         );
     }
 }

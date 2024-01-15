@@ -88,7 +88,7 @@ class AlterStatementTest extends TestCase
             "ALTER TABLE t1 ADD PARTITION (\n" .
             "PARTITION p3 VALUES LESS THAN (2002)\n" .
             ')',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser('ALTER TABLE p PARTITION BY LINEAR KEY ALGORITHM=2 (id) PARTITIONS 32;');
@@ -96,7 +96,7 @@ class AlterStatementTest extends TestCase
 
         $this->assertEquals(
             'ALTER TABLE p PARTITION BY  LINEAR KEY ALGORITHM=2 (id) PARTITIONS 32',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser('ALTER TABLE t1 DROP PARTITION p0, p1;');
@@ -104,7 +104,7 @@ class AlterStatementTest extends TestCase
 
         $this->assertEquals(
             'ALTER TABLE t1 DROP PARTITION  p0, p1',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser(
@@ -123,7 +123,7 @@ class AlterStatementTest extends TestCase
             . ' PARTITION p11 VALUES LESS THAN (12),' . "\n"
             . ' PARTITION p12 VALUES LESS THAN (13),' . "\n"
             . ' PARTITION pmaxval VALUES LESS THAN MAXVALUE' . "\n"
-            . ');'
+            . ');',
         );
         $stmt = $parser->statements[0];
 
@@ -143,7 +143,7 @@ class AlterStatementTest extends TestCase
             . 'PARTITION p12 VALUES LESS THAN (13),' . "\n"
             . 'PARTITION pmaxval VALUES LESS THAN MAXVALUE' . "\n"
             . ')',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -155,9 +155,7 @@ class AlterStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
     }
 
-    /**
-     * @return Generator<string, array{string}>
-     */
+    /** @return Generator<string, array{string}> */
     public static function provideBuilderForRenameColumn(): Generator
     {
         $query = 'ALTER TABLE myTable RENAME COLUMN a TO b';

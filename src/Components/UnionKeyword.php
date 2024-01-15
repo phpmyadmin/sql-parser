@@ -36,9 +36,7 @@ final class UnionKeyword implements Component
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
 
-    /**
-     * @param UnionKeyword[][] $component the component to be built
-     */
+    /** @param UnionKeyword[][] $component the component to be built */
     public static function buildAll(array $component): string
     {
         $tmp = [];

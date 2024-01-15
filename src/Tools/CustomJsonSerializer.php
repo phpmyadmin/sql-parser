@@ -43,7 +43,7 @@ class CustomJsonSerializer extends JsonSerializer
                 $propRef = $ref->getProperty($property);
                 $propRef->setAccessible(true);
                 $data[$property] = $propRef->getValue($value);
-            } catch (ReflectionException $e) {
+            } catch (ReflectionException) {
                 $data[$property] = $value->$property;
             }
         }

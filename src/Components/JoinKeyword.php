@@ -82,7 +82,7 @@ final class JoinKeyword implements Component
         string|null $type = null,
         Expression|null $expr = null,
         array|null $on = null,
-        ArrayObj|null $using = null
+        ArrayObj|null $using = null,
     ) {
         $this->type = $type;
         $this->expr = $expr;
@@ -206,9 +206,7 @@ final class JoinKeyword implements Component
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
 
-    /**
-     * @param JoinKeyword[] $component the component to be built
-     */
+    /** @param JoinKeyword[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         $ret = [];

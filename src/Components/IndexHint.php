@@ -48,7 +48,7 @@ final class IndexHint implements Component
         string|null $type = null,
         string|null $indexOrKey = null,
         string|null $for = null,
-        array $indexes = []
+        array $indexes = [],
     ) {
         $this->type = $type;
         $this->indexOrKey = $indexOrKey;
@@ -186,9 +186,7 @@ final class IndexHint implements Component
         return $ret . Expression::buildAll($this->indexes);
     }
 
-    /**
-     * @param IndexHint[] $component the component to be built
-     */
+    /** @param IndexHint[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(' ', $component);

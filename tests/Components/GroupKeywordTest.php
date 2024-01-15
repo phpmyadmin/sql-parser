@@ -15,9 +15,7 @@ use function is_array;
 
 class GroupKeywordTest extends TestCase
 {
-    /**
-     * @return Generator<string, array{GroupKeyword|array<GroupKeyword>, string}>
-     */
+    /** @return Generator<string, array{GroupKeyword|array<GroupKeyword>, string}> */
     public static function provideExpressions(): Generator
     {
         yield 'With no expression at all' => [[], ''];
@@ -53,9 +51,7 @@ class GroupKeywordTest extends TestCase
         ];
     }
 
-    /**
-     * @param GroupKeyword|array<GroupKeyword> $component
-     */
+    /** @param GroupKeyword|array<GroupKeyword> $component */
     #[DataProvider('provideExpressions')]
     public function testBuild($component, string $expected): void
     {
@@ -71,9 +67,7 @@ class GroupKeywordTest extends TestCase
         return new GroupKeyword(new Expression($string));
     }
 
-    /**
-     * @return array<GroupKeyword>
-     */
+    /** @return array<GroupKeyword> */
     private static function makeComponentsFrom(string ...$string): array
     {
         return array_map([self::class, 'makeComponentFrom'], $string);

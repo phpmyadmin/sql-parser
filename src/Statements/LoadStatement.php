@@ -265,7 +265,7 @@ class LoadStatement extends Statement
                 $this->fileName = Expression::parse(
                     $parser,
                     $list,
-                    ['parseField' => 'file']
+                    ['parseField' => 'file'],
                 );
                 $state = 1;
             } elseif ($state === 1) {

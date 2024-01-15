@@ -120,9 +120,7 @@ final class OrderKeyword implements Component
         return $this->expr . ' ' . $this->type;
     }
 
-    /**
-     * @param OrderKeyword[] $component the component to be built
-     */
+    /** @param OrderKeyword[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

@@ -27,9 +27,7 @@ final class GroupKeyword implements Component
      */
     public $expr;
 
-    /**
-     * @param Expression $expr the expression that we are sorting by
-     */
+    /** @param Expression $expr the expression that we are sorting by */
     public function __construct(Expression|null $expr = null)
     {
         $this->expr = $expr;
@@ -115,9 +113,7 @@ final class GroupKeyword implements Component
         return trim((string) $this->expr);
     }
 
-    /**
-     * @param GroupKeyword[] $component the component to be built
-     */
+    /** @param GroupKeyword[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

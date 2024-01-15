@@ -23,9 +23,7 @@ class ParserTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function parseProvider(): array
     {
         return [
@@ -40,7 +38,7 @@ class ParserTest extends TestCase
         $parser = new Parser('SELECT 1; FROM');
         $this->assertEquals(
             'Unrecognized statement type.',
-            $parser->errors[0]->getMessage()
+            $parser->errors[0]->getMessage(),
         );
     }
 
@@ -49,7 +47,7 @@ class ParserTest extends TestCase
         $parser = new Parser('SELECT 1 FROM foo PARTITION(bar, baz) AS');
         $this->assertEquals(
             'Unrecognized keyword.',
-            $parser->errors[0]->getMessage()
+            $parser->errors[0]->getMessage(),
         );
     }
 
@@ -67,7 +65,7 @@ class ParserTest extends TestCase
             [
                 new ParserException('error #1', new Token('foo'), 1),
                 new ParserException('error #2', new Token('bar'), 2),
-            ]
+            ],
         );
     }
 

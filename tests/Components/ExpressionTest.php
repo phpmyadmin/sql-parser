@@ -49,9 +49,7 @@ class ExpressionTest extends TestCase
         $this->assertEquals($errors[0][0], $error);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function parseErrProvider(): array
     {
         return [
@@ -88,13 +86,11 @@ class ExpressionTest extends TestCase
         ];
         $this->assertEquals(
             Expression::buildAll($component),
-            '1 + 2 AS `three`, 1 + 3 AS `four`'
+            '1 + 2 AS `three`, 1 + 3 AS `four`',
         );
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function mysqlCommandsProvider(): array
     {
         return [

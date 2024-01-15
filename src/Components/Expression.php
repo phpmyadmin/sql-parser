@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
+use AllowDynamicProperties;
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
@@ -21,7 +22,7 @@ use function trim;
  * Parses a reference to an expression (column, table or database name, function
  * call, mathematical expression, etc.).
  */
-#[\AllowDynamicProperties]
+#[AllowDynamicProperties]
 final class Expression implements Component
 {
     /**
@@ -114,7 +115,7 @@ final class Expression implements Component
         string|null $database = null,
         string|null $table = null,
         string|null $column = null,
-        string|null $alias = null
+        string|null $alias = null,
     ) {
         if (($column === null) && ($alias === null)) {
             $this->expr = $database; // case 1
@@ -476,9 +477,7 @@ final class Expression implements Component
         return $ret;
     }
 
-    /**
-     * @param Expression[] $component the component to be built
-     */
+    /** @param Expression[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

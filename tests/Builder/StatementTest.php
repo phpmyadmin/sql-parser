@@ -38,7 +38,7 @@ class StatementTest extends TestCase
             'FROM `film`, `actor` ' .
             'WHERE film_id > 10 OR actor.age > 25 ' .
             'LIMIT 10, 1',
-            (string) $stmt
+            (string) $stmt,
         );
     }
 

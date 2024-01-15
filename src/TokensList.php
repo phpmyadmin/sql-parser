@@ -33,9 +33,7 @@ class TokensList implements ArrayAccess
      */
     public $idx = 0;
 
-    /**
-     * @param Token[] $tokens The array of tokens.
-     */
+    /** @param Token[] $tokens The array of tokens. */
     public function __construct(public array $tokens = [])
     {
         $this->count = count($tokens);

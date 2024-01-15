@@ -15,9 +15,7 @@ class ParameterTest extends TestCase
         $this->runParserTest($test);
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function parameterProvider(): array
     {
         return [

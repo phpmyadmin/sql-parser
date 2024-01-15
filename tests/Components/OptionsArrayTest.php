@@ -22,7 +22,7 @@ class OptionsArrayTest extends TestCase
                     'var',
                 ],
                 'C' => 3,
-            ]
+            ],
         );
         $this->assertEquals(
             [
@@ -35,7 +35,7 @@ class OptionsArrayTest extends TestCase
                 ],
                 3 => 'C',
             ],
-            $component->options
+            $component->options,
         );
     }
 
@@ -54,7 +54,7 @@ class OptionsArrayTest extends TestCase
                     2,
                     'var',
                 ],
-            ]
+            ],
         );
         $this->assertEquals('(3 + 5)', (string) $component->has('SUM', true));
         $this->assertEquals('8', $component->has('RESULT'));
@@ -72,7 +72,7 @@ class OptionsArrayTest extends TestCase
                     'var',
                 ],
                 'C' => 3,
-            ]
+            ],
         );
         $this->assertTrue($component->has('A'));
         $this->assertEquals('test', $component->has('B'));
@@ -99,7 +99,7 @@ class OptionsArrayTest extends TestCase
                     'var',
                 ],
                 'C' => 3,
-            ]
+            ],
         );
         $this->assertEquals('test', $component->has('B'));
         $component->remove('B');
@@ -124,11 +124,11 @@ class OptionsArrayTest extends TestCase
                     'value' => '42',
                     'equals' => true,
                 ],
-            ]
+            ],
         );
         $this->assertEquals(
             $component->build(),
-            'ALL SQL_CALC_FOUND_ROWS MAX_STATEMENT_TIME=42'
+            'ALL SQL_CALC_FOUND_ROWS MAX_STATEMENT_TIME=42',
         );
     }
 }

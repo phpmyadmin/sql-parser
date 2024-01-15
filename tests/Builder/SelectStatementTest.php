@@ -20,7 +20,7 @@ class SelectStatementTest extends TestCase
         $this->assertEquals(
             'SELECT * FROM t1 LEFT JOIN (t2, t3, t4) '
             . 'ON (t2.a=t1.a AND t3.b=t1.b AND t4.c=t1.c)',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser('SELECT NULL IS NULL');
@@ -56,7 +56,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             'SELECT 1 UNION SELECT 2',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -94,7 +94,7 @@ class SelectStatementTest extends TestCase
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
             . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
-            . 'ORDER BY scb.id DESC LIMIT 0,300'
+            . 'ORDER BY scb.id DESC LIMIT 0,300',
         );
         $stmt = $parser->statements[0];
 
@@ -103,7 +103,7 @@ class SelectStatementTest extends TestCase
             . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
             . 'ORDER BY scb.id DESC LIMIT 0, 300',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -113,7 +113,7 @@ class SelectStatementTest extends TestCase
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
             . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
-            . 'ORDER BY scb.id LIMIT 0,300'
+            . 'ORDER BY scb.id LIMIT 0,300',
         );
         $stmt = $parser->statements[0];
 
@@ -122,7 +122,7 @@ class SelectStatementTest extends TestCase
             . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
             . 'ORDER BY scb.id ASC LIMIT 0, 300',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -132,7 +132,7 @@ class SelectStatementTest extends TestCase
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
             . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
-            . 'ORDER BY scb.id DESC, scb.order LIMIT 0,300'
+            . 'ORDER BY scb.id DESC, scb.order LIMIT 0,300',
         );
         $stmt = $parser->statements[0];
 
@@ -141,7 +141,7 @@ class SelectStatementTest extends TestCase
             . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
             . 'ORDER BY scb.id DESC, scb.order ASC LIMIT 0, 300',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -151,7 +151,7 @@ class SelectStatementTest extends TestCase
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
             . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
-            . 'ORDER BY scb.id DESC, YEAR(scb.dob) LIMIT 0,300'
+            . 'ORDER BY scb.id DESC, YEAR(scb.dob) LIMIT 0,300',
         );
         $stmt = $parser->statements[0];
 
@@ -160,7 +160,7 @@ class SelectStatementTest extends TestCase
             . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' GROUP BY sgu.id '
             . 'ORDER BY scb.id DESC, YEAR(scb.dob) ASC LIMIT 0, 300',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -170,7 +170,7 @@ class SelectStatementTest extends TestCase
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
             . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' '
-            . 'GROUP BY scb.id, YEAR(scb.dob) LIMIT 0,300'
+            . 'GROUP BY scb.id, YEAR(scb.dob) LIMIT 0,300',
         );
         $stmt = $parser->statements[0];
 
@@ -179,7 +179,7 @@ class SelectStatementTest extends TestCase
             . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' '
             . 'GROUP BY scb.id, YEAR(scb.dob) LIMIT 0, 300',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -189,7 +189,7 @@ class SelectStatementTest extends TestCase
             'SELECT sgu.id, sgu.email_address FROM `sf_guard_user` sgu '
             . 'RIGHT JOIN `student_course_booking` scb ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' '
-            . 'GROUP BY scb.id ASC, YEAR(scb.dob) DESC LIMIT 0,300'
+            . 'GROUP BY scb.id ASC, YEAR(scb.dob) DESC LIMIT 0,300',
         );
         $stmt = $parser->statements[0];
 
@@ -201,7 +201,7 @@ class SelectStatementTest extends TestCase
             . 'RIGHT JOIN `student_course_booking` AS `scb` ON sgu.id = scb.user_id '
             . 'WHERE `has_found_course` = \'1\' '
             . 'GROUP BY scb.id, YEAR(scb.dob) LIMIT 0, 300',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -211,7 +211,7 @@ class SelectStatementTest extends TestCase
             'SELECT * FROM `world_borders` ORDER BY CASE '
             . 'WHEN REGION = 2 THEN 99 '
             . 'WHEN REGION > 3 THEN REGION+1 '
-            . 'ELSE 100 END LIMIT 0,300'
+            . 'ELSE 100 END LIMIT 0,300',
         );
         $stmt = $parser->statements[0];
 
@@ -220,7 +220,7 @@ class SelectStatementTest extends TestCase
             . 'WHEN REGION = 2 THEN 99 '
             . 'WHEN REGION > 3 THEN REGION+1 '
             . 'ELSE 100 END ASC LIMIT 0, 300',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -230,7 +230,7 @@ class SelectStatementTest extends TestCase
             'SELECT * FROM `world_borders` GROUP BY CASE '
             . 'WHEN REGION = 2 THEN 99 '
             . 'WHEN REGION > 3 THEN REGION+1 '
-            . 'ELSE 100 END LIMIT 0,300'
+            . 'ELSE 100 END LIMIT 0,300',
         );
         $stmt = $parser->statements[0];
 
@@ -239,7 +239,7 @@ class SelectStatementTest extends TestCase
             . 'WHEN REGION = 2 THEN 99 '
             . 'WHEN REGION > 3 THEN REGION+1 '
             . 'ELSE 100 END LIMIT 0, 300',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -252,7 +252,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 2 */
@@ -262,7 +262,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -278,7 +278,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -290,7 +290,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -302,7 +302,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -314,7 +314,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -326,7 +326,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -338,7 +338,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             $query,
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -350,7 +350,7 @@ class SelectStatementTest extends TestCase
 
         $this->assertEquals(
             'SELECT first_name FROM `actor` LIMIT 1, 2',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 }

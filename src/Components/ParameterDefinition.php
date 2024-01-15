@@ -147,13 +147,11 @@ final class ParameterDefinition implements Component
         }
 
         return trim(
-            $tmp . Context::escape($this->name) . ' ' . $this->type
+            $tmp . Context::escape($this->name) . ' ' . $this->type,
         );
     }
 
-    /**
-     * @param ParameterDefinition[] $component the component to be built
-     */
+    /** @param ParameterDefinition[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return '(' . implode(', ', $component) . ')';

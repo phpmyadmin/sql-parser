@@ -26,7 +26,7 @@ class CreateStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'CREATE USER "jeffrey"@"localhost" IDENTIFIED BY "mypass"',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -35,14 +35,14 @@ class CreateStatementTest extends TestCase
         // CREATE DATABASE ...
         $parser = new Parser(
             'CREATE DATABASE `mydb` ' .
-            'DEFAULT CHARACTER SET = utf8 DEFAULT COLLATE = utf8_general_ci'
+            'DEFAULT CHARACTER SET = utf8 DEFAULT COLLATE = utf8_general_ci',
         );
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
             'CREATE DATABASE `mydb` ' .
             'DEFAULT CHARACTER SET=utf8 DEFAULT COLLATE=utf8_general_ci',
-            $stmt->build()
+            $stmt->build(),
         );
 
         // CREATE SCHEMA ...
@@ -52,7 +52,7 @@ class CreateStatementTest extends TestCase
         $this->assertEquals(
             'CREATE SCHEMA `mydb` ' .
             'DEFAULT CHARACTER SET=utf8 DEFAULT COLLATE=utf8_general_ci',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -61,7 +61,7 @@ class CreateStatementTest extends TestCase
         $parser = new Parser(
             'CREATE TABLE IF NOT EXISTS t1 (' .
             " c1 int(11) NOT NULL DEFAULT '0' COMMENT 'xxx'" .
-            ') ENGINE=MyISAM'
+            ') ENGINE=MyISAM',
         );
         $stmt = $parser->statements[0];
 
@@ -69,7 +69,7 @@ class CreateStatementTest extends TestCase
             "CREATE TABLE IF NOT EXISTS t1 (\n" .
             "  `c1` int(11) NOT NULL DEFAULT '0' COMMENT 'xxx'\n" .
             ') ENGINE=MyISAM',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -80,7 +80,7 @@ class CreateStatementTest extends TestCase
         $this->assertEquals(
             // TODO: fix with https://github.com/phpmyadmin/sql-parser/issues/256
             "CREATE TABLE tab1 (\n  `col1` timestamp DEFAULT NULL\n) ",
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -90,7 +90,7 @@ class CreateStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals(
             "CREATE TABLE users (\n  `user_id` int\n) PAGE_COMPRESSED=1 PAGE_COMPRESSION_LEVEL=9",
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -99,7 +99,7 @@ class CreateStatementTest extends TestCase
         $parser = new Parser(
             'CREATE TABLE IF NOT EXISTS t1 (' .
             " c1 varchar(11) NOT NULL DEFAULT '0' COLLATE 'utf8_czech_ci' COMMENT 'xxx'" .
-            ') ENGINE=MyISAM'
+            ') ENGINE=MyISAM',
         );
         $stmt = $parser->statements[0];
 
@@ -107,7 +107,7 @@ class CreateStatementTest extends TestCase
             "CREATE TABLE IF NOT EXISTS t1 (\n" .
             "  `c1` varchar(11) NOT NULL DEFAULT '0' COLLATE 'utf8_czech_ci' COMMENT 'xxx'\n" .
             ') ENGINE=MyISAM',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -117,7 +117,7 @@ class CreateStatementTest extends TestCase
             'CREATE TABLE `wp_audio` (' .
             " `somedata` int(11) DEFAULT NULL COMMENT 'ma data', " .
             " `someinfo` int(11) DEFAULT NULL COMMENT 'ma info' " .
-            ' )'
+            ' )',
         );
         $stmt = $parser->statements[0];
 
@@ -126,7 +126,7 @@ class CreateStatementTest extends TestCase
             "  `somedata` int(11) DEFAULT NULL COMMENT 'ma data',\n" .
             "  `someinfo` int(11) DEFAULT NULL COMMENT 'ma info'\n" .
             ') ',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -141,12 +141,12 @@ class CreateStatementTest extends TestCase
             new CreateDefinition(
                 'id',
                 new OptionsArray(['NOT NULL', 'AUTO_INCREMENT']),
-                new DataType('INT', [11], new OptionsArray(['UNSIGNED']))
+                new DataType('INT', [11], new OptionsArray(['UNSIGNED'])),
             ),
             new CreateDefinition(
                 '',
                 null,
-                new Key('', [['name' => 'id']], 'PRIMARY KEY')
+                new Key('', [['name' => 'id']], 'PRIMARY KEY'),
             ),
         ];
 
@@ -155,7 +155,7 @@ class CreateStatementTest extends TestCase
             "  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,\n" .
             "  PRIMARY KEY (`id`)\n" .
             ') ',
-            $stmt->build()
+            $stmt->build(),
         );
 
         /* Assertion 2 */
@@ -193,7 +193,7 @@ class CreateStatementTest extends TestCase
         $parser = new Parser(
             'CREATE table table_name WITH' .
             ' cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 )' .
-            ' SELECT col1 FROM cte'
+            ' SELECT col1 FROM cte',
         );
         $stmt = $parser->statements[0];
 
@@ -201,7 +201,7 @@ class CreateStatementTest extends TestCase
             'CREATE TABLE table_name WITH' .
             ' cte(col1) AS (SELECT 1 UNION ALL SELECT 2)' .
             ' SELECT col1 FROM cte',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -252,9 +252,7 @@ class CreateStatementTest extends TestCase
         $this->assertEquals($query, $parser->statements[0]->build());
     }
 
-    /**
-     * @return string[][]
-     */
+    /** @return string[][] */
     public static function partitionQueriesProvider(): array
     {
         return [
@@ -316,7 +314,7 @@ EOT
         $parser = new Parser(
             'CREATE OR REPLACE VIEW xviewmytable  AS SELECT mytable.id '
             . 'AS id, mytable.personid AS personid FROM mytable '
-            . 'WHERE (mytable.birth > \'1990-01-19\') GROUP BY mytable.personid  ;'
+            . 'WHERE (mytable.birth > \'1990-01-19\') GROUP BY mytable.personid  ;',
         );
         $stmt = $parser->statements[0];
 
@@ -324,50 +322,50 @@ EOT
             'CREATE OR REPLACE VIEW xviewmytable  AS SELECT mytable.id '
             . 'AS `id`, mytable.personid AS `personid` FROM mytable '
             . 'WHERE (mytable.birth > \'1990-01-19\') GROUP BY mytable.personid ',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser(
             'CREATE VIEW myView (vid, vfirstname) AS ' .
-            'SELECT id, first_name FROM employee WHERE id = 1'
+            'SELECT id, first_name FROM employee WHERE id = 1',
         );
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
             'CREATE VIEW myView (vid, vfirstname) AS  ' .
             'SELECT id, first_name FROM employee WHERE id = 1 ',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser(
             'CREATE OR REPLACE VIEW myView (vid, vfirstname) AS ' .
-            'SELECT id, first_name FROM employee WHERE id = 1'
+            'SELECT id, first_name FROM employee WHERE id = 1',
         );
         $stmt = $parser->statements[0];
 
         $this->assertEquals(
             'CREATE OR REPLACE VIEW myView (vid, vfirstname) AS  ' .
             'SELECT id, first_name FROM employee WHERE id = 1 ',
-            $stmt->build()
+            $stmt->build(),
         );
 
         // Assert the builder can build wrong syntax select expressions
         $parser = new Parser(
             'CREATE OR REPLACE VIEW myView (vid, vfirstname) AS ' .
-            'SELECT id, first_name, FROMzz employee WHERE id = 1'
+            'SELECT id, first_name, FROMzz employee WHERE id = 1',
         );
         $stmt = $parser->statements[0];
         $this->assertEquals(
             'CREATE OR REPLACE VIEW myView (vid, vfirstname) AS  ' .
             'SELECT id, first_name, FROMzz employee WHERE id = 1 ',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser(
             'CREATE OR REPLACE VIEW myView (vid, vfirstname) AS ' .
             'SELECT id, first_name, FROMzz employee WHERE id = 1 ' .
             'UNION ' .
-            'SELECT id, first_name, FROMzz employee WHERE id = 2 '
+            'SELECT id, first_name, FROMzz employee WHERE id = 2 ',
         );
         $stmt = $parser->statements[0];
 
@@ -376,7 +374,7 @@ EOT
             'SELECT id, first_name, FROMzz employee WHERE id = 1 ' .
             'UNION ' .
             'SELECT id, first_name, FROMzz employee WHERE id = 2  ',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser('CREATE VIEW `view_programlevelpartner`  AS SELECT `p`.`country_id`'
@@ -385,7 +383,7 @@ EOT
         $this->assertEquals(
             'CREATE VIEW `view_programlevelpartner`  AS SELECT `p`.`country_id`'
             . ' AS `country_id` FROM `program_level_partner` AS `p` ORDER BY `p`.`id` ASC ',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser('CREATE VIEW `view_zg_bycountry`  AS '
@@ -394,7 +392,7 @@ EOT
         $this->assertEquals(
             'CREATE VIEW `view_zg_bycountry`  AS '
             . 'SELECT `d`.`zg_id` FROM `view_zg_value` AS `d` GROUP BY `d`.`ind_id` ',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser('CREATE view view_name AS WITH  aa(col1)'
@@ -403,7 +401,7 @@ EOT
         $this->assertEquals(
             'CREATE view view_name  AS WITH aa(col1)'
             . ' AS (SELECT 1 UNION ALL SELECT 2) SELECT col1 FROM cte AS `d`  ',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -419,7 +417,7 @@ EOT
             . "\n"
             . 'SELECT cte.*' . "\n"
             . 'FROM cte' . "\n"
-            . 'CROSS JOIN gis_all;'
+            . 'CROSS JOIN gis_all;',
         );
         $stmt = $parser->statements[0];
 
@@ -432,7 +430,7 @@ EOT
             . 'SELECT cte.* '
             . 'FROM cte '
             . 'CROSS JOIN gis_all ',
-            $stmt->build()
+            $stmt->build(),
         );
         $parser = new Parser(
             'CREATE VIEW withclause2 AS' . "\n"
@@ -447,7 +445,7 @@ EOT
             . "\n"
             . 'SELECT cte.*,cte2.*' . "\n"
             . 'FROM cte,cte2' . "\n"
-            . 'CROSS JOIN gis_all;'
+            . 'CROSS JOIN gis_all;',
         );
         $stmt = $parser->statements[0];
 
@@ -463,7 +461,7 @@ EOT
             . ' SELECT cte.*, cte2.* '
             . 'FROM cte, cte2'
             . ' CROSS JOIN gis_all ',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -472,7 +470,7 @@ EOT
         $parser = new Parser(
             'CREATE DEFINER=`root`@`%`'
             . ' PROCEDURE `test2`(IN `_var` INT) DETERMINISTIC'
-            . ' MODIFIES SQL DATA SELECT _var'
+            . ' MODIFIES SQL DATA SELECT _var',
         );
 
         /** @var CreateStatement $stmt */
@@ -482,13 +480,13 @@ EOT
             'CREATE DEFINER=`root`@`%`'
             . ' PROCEDURE `test2` (IN `_var` INT)  DETERMINISTIC'
             . ' MODIFIES SQL DATA SELECT _var',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $parser = new Parser(
             'CREATE DEFINER=`root`@`%`'
             . ' PROCEDURE `test2`(IN `_var` INT) NOT DETERMINISTIC NO SQL'
-            . ' SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var'
+            . ' SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var',
         );
 
         /** @var CreateStatement $stmt */
@@ -498,35 +496,35 @@ EOT
             'CREATE DEFINER=`root`@`%`'
             . ' PROCEDURE `test2` (IN `_var` INT)  NOT DETERMINISTIC NO SQL'
             . ' SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $this->assertFalse($stmt->entityOptions->isEmpty());
         $this->assertFalse($stmt->options->isEmpty());
         $this->assertSame(
             'DEFINER=`root`@`%` PROCEDURE',
-            $stmt->options->__toString()
+            $stmt->options->__toString(),
         );
 
         $this->assertSame(
             '`test2`',
-            $stmt->name->__toString()
+            $stmt->name->__toString(),
         );
 
         $this->assertNotNull($stmt->parameters);
         $this->assertSame(
             '(IN `_var` INT)',
-            ParameterDefinition::buildAll($stmt->parameters)
+            ParameterDefinition::buildAll($stmt->parameters),
         );
 
         $this->assertSame(
             'NOT DETERMINISTIC NO SQL SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER',
-            $stmt->entityOptions->__toString()
+            $stmt->entityOptions->__toString(),
         );
 
         $this->assertSame(
             'SELECT _var',
-            TokensList::buildFromArray($stmt->body)
+            TokensList::buildFromArray($stmt->body),
         );
     }
 
@@ -563,7 +561,7 @@ EOT
             . '    ELSE' . "\n"
             . '      RETURN TRUE;' . "\n"
             . '    END IF;' . "\n"
-            . 'END'
+            . 'END',
         );
 
         /** @var CreateStatement $stmt */
@@ -600,7 +598,7 @@ EOT
             . '      RETURN TRUE;' . "\n"
             . '    END IF;' . "\n"
             . 'END',
-            $stmt->build()
+            $stmt->build(),
         );
 
         $this->assertFalse($stmt->entityOptions->isEmpty());
@@ -608,23 +606,23 @@ EOT
 
         $this->assertSame(
             'DEFINER=`root`@`localhost` FUNCTION',
-            $stmt->options->__toString()
+            $stmt->options->__toString(),
         );
 
         $this->assertSame(
             '`inventory_in_stock`',
-            $stmt->name->__toString()
+            $stmt->name->__toString(),
         );
 
         $this->assertNotNull($stmt->parameters);
         $this->assertSame(
             '(`p_inventory_id` INT)',
-            ParameterDefinition::buildAll($stmt->parameters)
+            ParameterDefinition::buildAll($stmt->parameters),
         );
 
         $this->assertSame(
             'READS SQL DATA COMMENT \'My best function written by a friend\'\'s friend\'',
-            $stmt->entityOptions->__toString()
+            $stmt->entityOptions->__toString(),
         );
 
         $this->assertSame(
@@ -654,7 +652,7 @@ EOT
             . '      RETURN TRUE;' . "\n"
             . '    END IF;' . "\n"
             . 'END',
-            TokensList::buildFromArray($stmt->body)
+            TokensList::buildFromArray($stmt->body),
         );
     }
 
@@ -685,7 +683,7 @@ EOT
         $this->assertEquals(
             'CREATE TRIGGER ins_sum BEFORE INSERT ON account ' .
             'FOR EACH ROW SET @sum = @sum + NEW.amount',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -698,7 +696,7 @@ EOT
             'DECLARE name VARCHAR DEFAULT ""; ' .
             'SELECT name INTO name FROM employees WHERE id = i; ' .
             'RETURN name; ' .
-            'END'
+            'END',
         );
         $stmt = $parser->statements[0];
 
@@ -709,7 +707,7 @@ EOT
             'SELECT name INTO name FROM employees WHERE id = i; ' .
             'RETURN name; ' .
             'END',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -718,7 +716,7 @@ EOT
         $parser = new Parser('CREATE TABLE new_tbl SELECT * FROM orig_tbl');
         $this->assertEquals(
             'CREATE TABLE new_tbl SELECT * FROM orig_tbl',
-            $parser->statements[0]->build()
+            $parser->statements[0]->build(),
         );
     }
 
@@ -735,7 +733,7 @@ CREATE TABLE `entries` (
     KEY `entries__ug2` (`fk_ug_id` ASC),
     KEY `33` (`id` ASC, `fk_ug_id` DESC)
 ) /*!50100 TABLESPACE `innodb_system` */ ENGINE=InnoDB AUTO_INCREMENT=4465 DEFAULT CHARSET=utf8
-SQL
+SQL,
         );
 
         /** @var CreateStatement $stmt */
@@ -756,14 +754,14 @@ SQL;
         $this->assertIsArray($stmt->fields);
         $this->assertEquals(
             $tableBody,
-            CreateDefinition::buildAll($stmt->fields)
+            CreateDefinition::buildAll($stmt->fields),
         );
 
         $this->assertEquals(
             'CREATE TABLE `entries` '
             . $tableBody
             . ' ENGINE=InnoDB AUTO_INCREMENT=4465 DEFAULT CHARSET=utf8 TABLESPACE `innodb_system`',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 
@@ -812,7 +810,7 @@ CREATE TABLE `page_rebuild_control` (
     KEY `updated_tz_ind_two_indexes` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')), (convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'FR'))) COMMENT 'bar\'s',
     KEY `updated_tz_ind` ((convert_tz(`cache_updated`,_utf8mb4'GMT',_utf8mb4'GB')))
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-SQL
+SQL,
         );
         // phpcs:enable
 
@@ -856,14 +854,14 @@ SQL;
         $this->assertIsArray($stmt->fields);
         $this->assertEquals(
             $tableBody,
-            CreateDefinition::buildAll($stmt->fields)
+            CreateDefinition::buildAll($stmt->fields),
         );
 
         $this->assertEquals(
             'CREATE TABLE `page_rebuild_control` '
             . $tableBody
             . ' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci',
-            $stmt->build()
+            $stmt->build(),
         );
     }
 }
