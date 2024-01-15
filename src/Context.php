@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use PhpMyAdmin\SqlParser\Contexts\ContextMySql50700;
+
 use function class_exists;
 use function explode;
 use function in_array;
@@ -44,20 +46,15 @@ abstract class Context
     public const OPERATOR_MAX_LENGTH = 4;
 
     /**
-     * The name of the default content.
-     */
-    public static string $defaultContext = '\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700';
-
-    /**
      * The name of the loaded context.
      */
-    public static string $loadedContext = '\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700';
+    public static string $loadedContext = ContextMySql50700::class;
 
     /**
      * The prefix concatenated to the context name when an incomplete class name
      * is specified.
      */
-    public static string $contextPrefix = '\\PhpMyAdmin\\SqlParser\\Contexts\\Context';
+    public static string $contextPrefix = 'PhpMyAdmin\\SqlParser\\Contexts\\Context';
 
     /**
      * List of keywords.
@@ -521,17 +518,17 @@ abstract class Context
      */
     public static function load(string $context = ''): bool
     {
-        if (empty($context)) {
-            $context = self::$defaultContext;
-        }
-
-        if ($context[0] !== '\\') {
-            // Short context name (must be formatted into class name).
-            $context = self::$contextPrefix . $context;
+        if ($context === '') {
+            $context = ContextMySql50700::class;
         }
 
         if (! class_exists($context)) {
-            return false;
+            if (! class_exists(self::$contextPrefix . $context)) {
+                return false;
+            }
+
+            // Short context name (must be formatted into class name).
+            $context = self::$contextPrefix . $context;
         }
 
         self::$loadedContext = $context;
