@@ -66,49 +66,37 @@ class Lexer
 
     /**
      * The string to be parsed.
-     *
-     * @var string|UtfString
      */
-    public $str = '';
+    public string|UtfString $str = '';
 
     /**
      * The length of `$str`.
      *
      * By storing its length, a lot of time is saved, because parsing methods
      * would call `strlen` everytime.
-     *
-     * @var int
      */
-    public $len = 0;
+    public int $len = 0;
 
     /**
      * The index of the last parsed character.
-     *
-     * @var int
      */
-    public $last = 0;
+    public int $last = 0;
 
     /**
      * Tokens extracted from given strings.
-     *
-     * @var TokensList
      */
-    public $list;
+    public TokensList $list;
 
     /**
      * The default delimiter. This is used, by default, in all new instances.
-     *
-     * @var string
      */
-    public static $defaultDelimiter = ';';
+    public static string $defaultDelimiter = ';';
 
     /**
      * Statements delimiter.
      * This may change during lexing.
-     *
-     * @var string
      */
-    public $delimiter;
+    public string $delimiter;
 
     /**
      * The length of the delimiter.
@@ -116,10 +104,8 @@ class Lexer
      * Because `parseDelimiter` can be called a lot, it would perform a lot of
      * calls to `strlen`, which might affect performance when the delimiter is
      * big.
-     *
-     * @var int
      */
-    public $delimiterLen;
+    public int $delimiterLen;
 
     /**
      * @param string|UtfString $str       the query to be lexed
@@ -253,7 +239,7 @@ class Lexer
                 $pos = $this->last + 1;
 
                 // Parsing the delimiter.
-                $this->delimiter = null;
+                $this->delimiter = '';
                 $delimiterLen = 0;
                 while (
                     ++$this->last < $this->len
@@ -264,7 +250,7 @@ class Lexer
                     ++$delimiterLen;
                 }
 
-                if (empty($this->delimiter)) {
+                if ($this->delimiter === '') {
                     $this->error('Expected delimiter.', '', $this->last);
                     $this->delimiter = ';';
                 }
