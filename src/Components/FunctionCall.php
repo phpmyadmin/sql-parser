@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -14,7 +15,7 @@ use function is_array;
 /**
  * Parses a function call.
  */
-final class FunctionCall implements Component
+final class FunctionCall implements Component, Parseable
 {
     /**
      * The name of this function.

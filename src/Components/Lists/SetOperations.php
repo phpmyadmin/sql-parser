@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components\Lists;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -18,7 +19,7 @@ use function trim;
 /**
  * `SET` keyword parser.
  */
-final class SetOperations
+final class SetOperations implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context

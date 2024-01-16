@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -13,7 +14,7 @@ use PhpMyAdmin\SqlParser\TokenType;
 /**
  * `LIMIT` keyword parser.
  */
-final class Limit implements Component
+final class Limit implements Component, Parseable
 {
     /**
      * The number of rows skipped.

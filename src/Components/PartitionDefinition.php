@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -17,7 +18,7 @@ use function trim;
  *
  * Used for parsing `CREATE TABLE` statement.
  */
-final class PartitionDefinition implements Component
+final class PartitionDefinition implements Component, Parseable
 {
     /**
      * All field options.

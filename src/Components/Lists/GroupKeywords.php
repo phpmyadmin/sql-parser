@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components\Lists;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\GroupKeyword;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -15,7 +16,7 @@ use function implode;
 /**
  * `GROUP BY` keyword parser.
  */
-final class GroupKeywords
+final class GroupKeywords implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context

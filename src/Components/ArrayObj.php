@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -16,7 +17,7 @@ use function trim;
 /**
  * Parses an array.
  */
-final class ArrayObj implements Component
+final class ArrayObj implements Component, Parseable
 {
     /**
      * The array that contains the unprocessed value of each token.

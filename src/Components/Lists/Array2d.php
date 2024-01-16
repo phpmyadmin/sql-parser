@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components\Lists;
 
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -17,7 +18,7 @@ use function sprintf;
 /**
  * `VALUES` keyword parser.
  */
-final class Array2d
+final class Array2d implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context

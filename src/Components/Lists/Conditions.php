@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components\Lists;
 
 use PhpMyAdmin\SqlParser\Components\Condition;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -17,7 +18,7 @@ use function trim;
 /**
  * `WHERE` keyword parser.
  */
-final class Conditions
+final class Conditions implements Parseable
 {
     /**
      * Logical operators that can be used to delimit expressions.

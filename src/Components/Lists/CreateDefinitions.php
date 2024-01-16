@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\Reference;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -21,7 +22,7 @@ use function implode;
  *
  * Used for parsing `CREATE TABLE` statement.
  */
-final class CreateDefinitions
+final class CreateDefinitions implements Parseable
 {
     /**
      * All field options.

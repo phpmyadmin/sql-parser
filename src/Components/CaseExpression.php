@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Components\Lists\Conditions;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -17,7 +18,7 @@ use function count;
 /**
  * Parses a reference to a CASE expression.
  */
-final class CaseExpression implements Component
+final class CaseExpression implements Component, Parseable
 {
     /**
      * The value to be compared.

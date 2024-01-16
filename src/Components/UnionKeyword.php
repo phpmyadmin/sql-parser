@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Translator;
@@ -15,7 +16,7 @@ use function implode;
 /**
  * `UNION` keyword builder.
  */
-final class UnionKeyword implements Component
+final class UnionKeyword implements Component, Parseable
 {
     /**
      * Parses the tokens contained in the given list in the context of the given parser.
@@ -26,7 +27,7 @@ final class UnionKeyword implements Component
      *
      * @throws RuntimeException not implemented yet.
      */
-    public static function parse(Parser $parser, TokensList $list, array $options = []): mixed
+    public static function parse(Parser $parser, TokensList $list, array $options = []): never
     {
         throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }

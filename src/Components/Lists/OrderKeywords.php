@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components\Lists;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -15,7 +16,7 @@ use function implode;
 /**
  * `ORDER BY` keyword parser.
  */
-final class OrderKeywords
+final class OrderKeywords implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context

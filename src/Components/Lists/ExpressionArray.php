@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Components\Lists;
 use PhpMyAdmin\SqlParser\Components\CaseExpression;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -21,7 +22,7 @@ use function substr;
 /**
  * Parses a list of expressions delimited by a comma.
  */
-final class ExpressionArray
+final class ExpressionArray implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context

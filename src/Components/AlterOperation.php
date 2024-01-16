@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -19,7 +20,7 @@ use function trim;
 /**
  * Parses an alter operation.
  */
-final class AlterOperation implements Component
+final class AlterOperation implements Component, Parseable
 {
     /**
      * All database options.

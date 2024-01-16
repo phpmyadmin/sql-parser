@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components\Lists;
 
 use PhpMyAdmin\SqlParser\Components\IndexHint;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -14,7 +15,7 @@ use function implode;
 /**
  * Parses an Index hint.
  */
-final class IndexHints
+final class IndexHints implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components\Lists;
 
 use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -15,7 +16,7 @@ use function implode;
 /**
  * The definition of a parameter of a function or procedure.
  */
-final class ParameterDefinitions
+final class ParameterDefinitions implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context
