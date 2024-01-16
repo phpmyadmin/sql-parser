@@ -246,6 +246,26 @@ parameters:
 			path: src/Components/Lists/ParameterDefinitions.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Components/Lists/RenameOperations.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
+			count: 1
+			path: src/Components/Lists/RenameOperations.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Components/Lists/RenameOperations.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
+			count: 2
+			path: src/Components/Lists/RenameOperations.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
@@ -362,22 +382,12 @@ parameters:
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: src/Components/RenameOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
 			count: 1
 			path: src/Components/RenameOperation.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: src/Components/RenameOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
-			count: 2
+			count: 1
 			path: src/Components/RenameOperation.php
 
 		-
@@ -731,7 +741,7 @@ parameters:
 			path: src/Statements/PurgeStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Lists\\\\RenameOperations\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/RenameStatement.php
 

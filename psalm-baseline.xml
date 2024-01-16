@@ -324,6 +324,32 @@
       <code>$options</code>
     </UnusedParam>
   </file>
+  <file src="src/Components/Lists/RenameOperations.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expression::parse(
+                    $parser,
+                    $list,
+                    [
+                        'breakOnAlias' => true,
+                        'parseField' => 'table',
+                    ],
+                )]]></code>
+      <code><![CDATA[Expression::parse(
+                    $parser,
+                    $list,
+                    [
+                        'breakOnAlias' => true,
+                        'parseField' => 'table',
+                    ],
+                )]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->old)]]></code>
+    </RedundantConditionGivenDocblockType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
+  </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
       <code>$table</code>
@@ -498,32 +524,7 @@
     <PossiblyNullPropertyAssignmentValue>
       <code>$new</code>
       <code>$old</code>
-      <code><![CDATA[Expression::parse(
-                    $parser,
-                    $list,
-                    [
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ],
-                )]]></code>
-      <code><![CDATA[Expression::parse(
-                    $parser,
-                    $list,
-                    [
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ],
-                )]]></code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 3</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->old)]]></code>
-    </RedundantConditionGivenDocblockType>
-    <UnusedParam>
-      <code>$options</code>
-    </UnusedParam>
   </file>
   <file src="src/Components/SetOperation.php">
     <PossiblyNullPropertyAssignmentValue>

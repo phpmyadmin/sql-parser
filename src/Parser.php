@@ -298,7 +298,7 @@ class Parser
             'field' => 'procedure',
         ],
         'RENAME' => [
-            'class' => Components\RenameOperation::class,
+            'class' => Components\Lists\RenameOperations::class,
             'field' => 'renames',
         ],
         'REPAIR' => [

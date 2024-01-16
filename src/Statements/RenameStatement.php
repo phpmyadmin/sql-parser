@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
+use PhpMyAdmin\SqlParser\Components\Lists\RenameOperations;
 use PhpMyAdmin\SqlParser\Components\RenameOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
@@ -47,6 +48,6 @@ class RenameStatement extends Statement
 
     public function build(): string
     {
-        return 'RENAME TABLE ' . RenameOperation::buildAll($this->renames);
+        return 'RENAME TABLE ' . RenameOperations::buildAll($this->renames);
     }
 }
