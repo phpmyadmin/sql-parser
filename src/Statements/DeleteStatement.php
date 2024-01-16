@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\ExpressionArray;
 use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
+use PhpMyAdmin\SqlParser\Components\Lists\Conditions;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Parser;
@@ -173,7 +174,7 @@ class DeleteStatement extends Statement
         }
 
         if ($this->where !== null && $this->where !== []) {
-            $ret .= ' WHERE ' . Condition::buildAll($this->where);
+            $ret .= ' WHERE ' . Conditions::buildAll($this->where);
         }
 
         if ($this->order !== null && $this->order !== []) {
@@ -278,7 +279,7 @@ class DeleteStatement extends Statement
                                 break;
                             case 'WHERE':
                                 ++$list->idx; // Skip 'WHERE'
-                                $this->where = Condition::parse($parser, $list);
+                                $this->where = Conditions::parse($parser, $list);
                                 $state = 4;
                                 break;
                             case 'ORDER BY':
@@ -309,7 +310,7 @@ class DeleteStatement extends Statement
                 }
 
                 ++$list->idx; // Skip 'WHERE'
-                $this->where = Condition::parse($parser, $list);
+                $this->where = Conditions::parse($parser, $list);
                 $state = 4;
             } elseif ($state === 4) {
                 if ($multiTable === true && $token->type === TokenType::Keyword) {

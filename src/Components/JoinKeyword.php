@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Components\Lists\Conditions;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -178,7 +179,7 @@ final class JoinKeyword implements Component
                     }
                 }
             } elseif ($state === 3) {
-                $expr->on = Condition::parse($parser, $list);
+                $expr->on = Conditions::parse($parser, $list);
                 $ret[] = $expr;
                 $expr = new static();
                 $state = 0;
@@ -211,7 +212,7 @@ final class JoinKeyword implements Component
         foreach ($component as $c) {
             $ret[] = array_search($c->type, self::JOINS) . ' ' . $c->expr
                 . (! empty($c->on)
-                    ? ' ON ' . Condition::buildAll($c->on) : '')
+                    ? ' ON ' . Conditions::buildAll($c->on) : '')
                 . (! empty($c->using)
                     ? ' USING ' . $c->using->build() : '');
         }

@@ -204,7 +204,7 @@ class Parser
             'field' => 'group',
         ],
         'HAVING' => [
-            'class' => Components\Condition::class,
+            'class' => Components\Lists\Conditions::class,
             'field' => 'having',
         ],
         'IGNORE' => [
@@ -342,7 +342,7 @@ class Parser
             'field' => 'values',
         ],
         'WHERE' => [
-            'class' => Components\Condition::class,
+            'class' => Components\Lists\Conditions::class,
             'field' => 'where',
         ],
     ];

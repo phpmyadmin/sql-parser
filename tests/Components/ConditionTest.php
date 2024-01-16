@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Components\Condition;
+use PhpMyAdmin\SqlParser\Components\Lists\Conditions;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
@@ -12,13 +12,13 @@ class ConditionTest extends TestCase
 {
     public function testParse(): void
     {
-        $component = Condition::parse(new Parser(), $this->getTokensList('/* id = */ id = 10'));
+        $component = Conditions::parse(new Parser(), $this->getTokensList('/* id = */ id = 10'));
         $this->assertEquals($component[0]->expr, 'id = 10');
     }
 
     public function testParseBetween(): void
     {
-        $component = Condition::parse(
+        $component = Conditions::parse(
             new Parser(),
             $this->getTokensList('(id BETWEEN 10 AND 20) OR (id BETWEEN 30 AND 40)'),
         );
