@@ -134,8 +134,6 @@ final class PartitionDefinition implements Component
          *      5 ----------------------[ options ]--------------------> 6
          *
          *      6 ------------------[ subpartitions ]------------------> (END)
-         *
-         * @var int
          */
         $state = 0;
 

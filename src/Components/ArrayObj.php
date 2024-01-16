@@ -55,29 +55,21 @@ final class ArrayObj implements Component
 
         /**
          * The last raw expression.
-         *
-         * @var string
          */
         $lastRaw = '';
 
         /**
          * The last value.
-         *
-         * @var string
          */
         $lastValue = '';
 
         /**
          * Counts brackets.
-         *
-         * @var int
          */
         $brackets = 0;
 
         /**
          * Last separator (bracket or comma).
-         *
-         * @var bool
          */
         $isCommaLast = false;
 

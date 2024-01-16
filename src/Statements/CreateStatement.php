@@ -580,8 +580,6 @@ class CreateStatement extends Statement
                 /**
                  * The field that is being filled (`partitionBy` or
                  * `subpartitionBy`).
-                 *
-                 * @var string
                  */
                 $field = null;
 
@@ -589,8 +587,6 @@ class CreateStatement extends Statement
                  * The number of brackets. `false` means no bracket was found
                  * previously. At least one bracket is required to validate the
                  * expression.
-                 *
-                 * @var int|bool
                  */
                 $brackets = false;
 

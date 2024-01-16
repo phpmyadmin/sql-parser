@@ -66,8 +66,6 @@ final class RenameOperation implements Component
          *
          *      3 ------------------------[ , ]------------------------> 0
          *      3 -----------------------[ else ]----------------------> (END)
-         *
-         * @var int
          */
         $state = 0;
 

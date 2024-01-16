@@ -78,8 +78,6 @@ final class IndexHint implements Component
          *      2 -------------------- [ expr_list ] --------------------> 0
          *      3 -------------- [ JOIN/GROUP BY/ORDER BY ] -------------> 4
          *      4 -------------------- [ expr_list ] --------------------> 0
-         *
-         * @var int
          */
         $state = 0;
 

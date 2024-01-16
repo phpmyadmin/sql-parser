@@ -98,8 +98,6 @@ final class Condition implements Component
 
         /**
          * Counts brackets.
-         *
-         * @var int
          */
         $brackets = 0;
 
@@ -109,8 +107,6 @@ final class Condition implements Component
          * It is required to keep track of them because their structure contains
          * the keyword `AND`, which is also an operator that delimits
          * expressions.
-         *
-         * @var bool
          */
         $betweenBefore = false;
 

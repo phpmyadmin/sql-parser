@@ -286,8 +286,6 @@ final class AlterOperation implements Component
 
         /**
          * Counts brackets.
-         *
-         * @var int
          */
         $brackets = 0;
 
@@ -303,15 +301,11 @@ final class AlterOperation implements Component
          *      1 -------------[ PARTITION / PARTITION BY ]------------> 3
          *
          *      2 -------------------------[ , ]-----------------------> 0
-         *
-         * @var int
          */
         $state = 0;
 
         /**
          * partition state.
-         *
-         * @var int
          */
         $partitionState = 0;
 

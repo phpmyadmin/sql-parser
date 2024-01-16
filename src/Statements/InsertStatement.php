@@ -147,8 +147,6 @@ class InsertStatement extends Statement
          *      1 -------------------------[ VALUES/VALUE/SET/SELECT ]-----------------------> 2
          *
          *      2 -------------------------[ ON DUPLICATE KEY UPDATE ]-----------------------> 3
-         *
-         * @var int
          */
         $state = 0;
 

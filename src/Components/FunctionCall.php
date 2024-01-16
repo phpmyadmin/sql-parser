@@ -61,8 +61,6 @@ final class FunctionCall implements Component
          *      0 ----------------------[ name ]-----------------------> 1
          *
          *      1 --------------------[ parameters ]-------------------> (END)
-         *
-         * @var int
          */
         $state = 0;
 

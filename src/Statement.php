@@ -99,8 +99,6 @@ abstract class Statement implements Stringable
     {
         /**
          * Query to be returned.
-         *
-         * @var string
          */
         $query = '';
 
@@ -124,8 +122,6 @@ abstract class Statement implements Stringable
         foreach ($clauses as $clause) {
             /**
              * The name of the clause.
-             *
-             * @var string
              */
             $name = $clause[0];
 
@@ -133,23 +129,17 @@ abstract class Statement implements Stringable
              * The type of the clause.
              *
              * @see Statement::$clauses
-             *
-             * @var int
              */
             $type = $clause[1];
 
             /**
              * The builder (parser) of this clause.
-             *
-             * @var Component
              */
             $class = Parser::KEYWORD_PARSERS[$name]['class'];
 
             /**
              * The name of the field that is used as source for the builder.
              * Same field is used to store the result of parsing.
-             *
-             * @var string
              */
             $field = Parser::KEYWORD_PARSERS[$name]['field'];
 
@@ -281,15 +271,11 @@ abstract class Statement implements Stringable
 
             /**
              * The name of the class that is used for parsing.
-             *
-             * @var Component|null
              */
             $class = null;
 
             /**
              * The name of the field where the result of the parsing is stored.
-             *
-             * @var string
              */
             $field = null;
 
@@ -474,8 +460,6 @@ abstract class Statement implements Stringable
          * For tracking JOIN clauses in a query
          *   = 0 - JOIN not found till now
          *   > 0 - Index of first JOIN clause in the statement.
-         *
-         * @var int
          */
         $minJoin = 0;
 
@@ -485,8 +469,6 @@ abstract class Statement implements Stringable
          *   > 0 - Index of last JOIN clause
          *         (which appears together with other JOINs)
          *         in the statement.
-         *
-         * @var int
          */
         $maxJoin = 0;
 

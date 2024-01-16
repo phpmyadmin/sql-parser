@@ -62,8 +62,6 @@ final class OrderKeyword implements Component
          *
          *      1 ------------------------[ , ]------------------------> 0
          *      1 -------------------[ ASC / DESC ]--------------------> 1
-         *
-         * @var int
          */
         $state = 0;
 

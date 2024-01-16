@@ -55,8 +55,6 @@ class PurgeStatement extends Statement
 
         /**
          * The state of the parser.
-         *
-         * @var int
          */
         $state = 0;
 
