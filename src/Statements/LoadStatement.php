@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Statements;
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Lists\ExpressionArray;
+use PhpMyAdmin\SqlParser\Components\Lists\SetOperations;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
@@ -189,7 +190,7 @@ class LoadStatement extends Statement
         }
 
         if ($this->set !== null && $this->set !== []) {
-            $ret .= ' SET ' . SetOperation::buildAll($this->set);
+            $ret .= ' SET ' . SetOperations::buildAll($this->set);
         }
 
         return $ret;
@@ -357,7 +358,7 @@ class LoadStatement extends Statement
             case 7:
                 if ($token->keyword === 'SET') {
                     ++$list->idx;
-                    $this->set = SetOperation::parse($parser, $list);
+                    $this->set = SetOperations::parse($parser, $list);
 
                     return 8;
                 }

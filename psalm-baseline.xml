@@ -350,6 +350,17 @@
       <code>$options</code>
     </UnusedParam>
   </file>
+  <file src="src/Components/Lists/SetOperations.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[$tmp->expr]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition>
+      <code><![CDATA[$token->value === ',']]></code>
+    </RedundantCondition>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
+  </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
       <code>$table</code>
@@ -525,18 +536,6 @@
       <code>$new</code>
       <code>$old</code>
     </PossiblyNullPropertyAssignmentValue>
-  </file>
-  <file src="src/Components/SetOperation.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[$tmp->expr]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 1</code>
-      <code><![CDATA[$token->value === ',']]></code>
-    </RedundantCondition>
-    <UnusedParam>
-      <code>$options</code>
-    </UnusedParam>
   </file>
   <file src="src/Context.php">
     <InvalidPropertyAssignmentValue>

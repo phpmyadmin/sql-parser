@@ -312,7 +312,7 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'SET' => [
-            'class' => Components\SetOperation::class,
+            'class' => Components\Lists\SetOperations::class,
             'field' => 'set',
         ],
         'SELECT' => [

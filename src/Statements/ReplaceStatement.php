@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Statements;
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Components\Lists\Array2d;
+use PhpMyAdmin\SqlParser\Components\Lists\SetOperations;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
@@ -85,7 +86,7 @@ class ReplaceStatement extends Statement
         if ($this->values !== null && $this->values !== []) {
             $ret .= ' VALUES ' . ArrayObj::buildAll($this->values);
         } elseif ($this->set !== null && $this->set !== []) {
-            $ret .= ' SET ' . SetOperation::buildAll($this->set);
+            $ret .= ' SET ' . SetOperations::buildAll($this->set);
         } elseif ($this->select !== null && strlen((string) $this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
@@ -160,7 +161,7 @@ class ReplaceStatement extends Statement
                 } elseif ($token->keyword === 'SET') {
                     ++$list->idx; // skip SET
 
-                    $this->set = SetOperation::parse($parser, $list);
+                    $this->set = SetOperations::parse($parser, $list);
                 } elseif ($token->keyword === 'SELECT') {
                     $this->select = new SelectStatement($parser, $list);
                 } else {
