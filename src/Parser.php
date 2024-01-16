@@ -131,23 +131,23 @@ class Parser
         ],
 
         'INTERSECT' => [
-            'class' => Components\UnionKeyword::class,
+            'class' => Components\Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
         'EXCEPT' => [
-            'class' => Components\UnionKeyword::class,
+            'class' => Components\Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
         'UNION' => [
-            'class' => Components\UnionKeyword::class,
+            'class' => Components\Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
         'UNION ALL' => [
-            'class' => Components\UnionKeyword::class,
+            'class' => Components\Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
         'UNION DISTINCT' => [
-            'class' => Components\UnionKeyword::class,
+            'class' => Components\Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
 
