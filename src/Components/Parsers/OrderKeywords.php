@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Components\Lists;
+namespace PhpMyAdmin\SqlParser\Components\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\GroupKeyword;
+use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -14,22 +14,22 @@ use PhpMyAdmin\SqlParser\TokenType;
 use function implode;
 
 /**
- * `GROUP BY` keyword parser.
+ * `ORDER BY` keyword parser.
  */
-final class GroupKeywords implements Parseable
+final class OrderKeywords implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context
      * @param TokensList           $list    the list of tokens that are being parsed
      * @param array<string, mixed> $options parameters for parsing
      *
-     * @return GroupKeyword[]
+     * @return OrderKeyword[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = []): array
     {
         $ret = [];
 
-        $expr = new GroupKeyword();
+        $expr = new OrderKeyword();
 
         /**
          * The state of the parser.
@@ -73,7 +73,7 @@ final class GroupKeywords implements Parseable
                         $ret[] = $expr;
                     }
 
-                    $expr = new GroupKeyword();
+                    $expr = new OrderKeyword();
                     $state = 0;
                 } else {
                     break;
@@ -91,7 +91,7 @@ final class GroupKeywords implements Parseable
         return $ret;
     }
 
-    /** @param GroupKeyword[] $component the component to be built */
+    /** @param OrderKeyword[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

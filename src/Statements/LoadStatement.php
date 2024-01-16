@@ -6,9 +6,9 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\Lists\ExpressionArray;
-use PhpMyAdmin\SqlParser\Components\Lists\SetOperations;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Components\Parsers\ExpressionArray;
+use PhpMyAdmin\SqlParser\Components\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;

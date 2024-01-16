@@ -7,7 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 use Generator;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\GroupKeyword;
-use PhpMyAdmin\SqlParser\Components\Lists\GroupKeywords;
+use PhpMyAdmin\SqlParser\Components\Parsers\GroupKeywords;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 

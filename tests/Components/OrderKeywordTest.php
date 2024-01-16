@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\Lists\OrderKeywords;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Components\Parsers\OrderKeywords;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class OrderKeywordTest extends TestCase

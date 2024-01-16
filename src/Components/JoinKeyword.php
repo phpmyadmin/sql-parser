@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
-use PhpMyAdmin\SqlParser\Components\Lists\Conditions;
+use PhpMyAdmin\SqlParser\Components\Parsers\Conditions;
 
 use function array_search;
 

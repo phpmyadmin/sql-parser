@@ -227,119 +227,6 @@
       <code><![CDATA[$ret->rowCount]]></code>
     </MixedAssignment>
   </file>
-  <file src="src/Components/Lists/Array2d.php">
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Components/Lists/CreateDefinitions.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->name]]></code>
-      <code><![CDATA[$expr->name]]></code>
-    </MixedAssignment>
-  </file>
-  <file src="src/Components/Lists/ExpressionArray.php">
-    <InvalidReturnStatement>
-      <code>$ret</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>Expression[]</code>
-    </InvalidReturnType>
-    <PossiblyNullArgument>
-      <code>$expr</code>
-      <code>$expr</code>
-      <code>$expr</code>
-    </PossiblyNullArgument>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Components/Lists/GroupKeywords.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>Expression::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Components/Lists/IndexHints.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->type]]></code>
-    </MixedAssignment>
-  </file>
-  <file src="src/Components/Lists/JoinKeywords.php">
-    <MixedArrayOffset>
-      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
-      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
-    </MixedArrayOffset>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObj::parse($parser, $list)</code>
-    </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse($parser, $list, ['field' => 'table'])]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <TypeDoesNotContainType>
-      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
-      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
-    </TypeDoesNotContainType>
-    <UnusedVariable>
-      <code>$state</code>
-      <code>$state</code>
-      <code>$state</code>
-    </UnusedVariable>
-  </file>
-  <file src="src/Components/Lists/OrderKeywords.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>Expression::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Components/Lists/ParameterDefinitions.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->name]]></code>
-    </MixedAssignment>
-    <PossiblyNullPropertyAssignmentValue>
-      <code>DataType::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[isset($expr->name)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Components/Lists/RenameOperations.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse(
-                    $parser,
-                    $list,
-                    [
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ],
-                )]]></code>
-      <code><![CDATA[Expression::parse(
-                    $parser,
-                    $list,
-                    [
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ],
-                )]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->old)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Components/Lists/SetOperations.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[$tmp->expr]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code><![CDATA[$token->value === ',']]></code>
-    </RedundantCondition>
-  </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
       <code>$table</code>
@@ -446,6 +333,119 @@
       <code>$name</code>
       <code>$type</code>
     </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="src/Components/Parsers/Array2d.php">
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Components/Parsers/CreateDefinitions.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->name]]></code>
+      <code><![CDATA[$expr->name]]></code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Components/Parsers/ExpressionArray.php">
+    <InvalidReturnStatement>
+      <code>$ret</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code>Expression[]</code>
+    </InvalidReturnType>
+    <PossiblyNullArgument>
+      <code>$expr</code>
+      <code>$expr</code>
+      <code>$expr</code>
+    </PossiblyNullArgument>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Components/Parsers/GroupKeywords.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code>Expression::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Components/Parsers/IndexHints.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->type]]></code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Components/Parsers/JoinKeywords.php">
+    <MixedArrayOffset>
+      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
+      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
+    </MixedArrayOffset>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code>ArrayObj::parse($parser, $list)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expression::parse($parser, $list, ['field' => 'table'])]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <TypeDoesNotContainType>
+      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
+      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
+    </TypeDoesNotContainType>
+    <UnusedVariable>
+      <code>$state</code>
+      <code>$state</code>
+      <code>$state</code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Components/Parsers/OrderKeywords.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code>Expression::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Components/Parsers/ParameterDefinitions.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->name]]></code>
+    </MixedAssignment>
+    <PossiblyNullPropertyAssignmentValue>
+      <code>DataType::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[isset($expr->name)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Components/Parsers/RenameOperations.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expression::parse(
+                    $parser,
+                    $list,
+                    [
+                        'breakOnAlias' => true,
+                        'parseField' => 'table',
+                    ],
+                )]]></code>
+      <code><![CDATA[Expression::parse(
+                    $parser,
+                    $list,
+                    [
+                        'breakOnAlias' => true,
+                        'parseField' => 'table',
+                    ],
+                )]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->old)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Components/Parsers/SetOperations.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[$tmp->expr]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition>
+      <code><![CDATA[$token->value === ',']]></code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/PartitionDefinition.php">
     <MissingConstructor>

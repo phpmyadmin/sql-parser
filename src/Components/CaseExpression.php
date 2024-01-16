@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
-use PhpMyAdmin\SqlParser\Components\Lists\Conditions;
+use PhpMyAdmin\SqlParser\Components\Parsers\Conditions;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;

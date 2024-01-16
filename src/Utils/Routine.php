@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Utils;
 
 use PhpMyAdmin\SqlParser\Components\DataType;
-use PhpMyAdmin\SqlParser\Components\Lists\ParameterDefinitions;
+use PhpMyAdmin\SqlParser\Components\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;

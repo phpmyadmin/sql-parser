@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Components\Lists\ParameterDefinitions;
+use PhpMyAdmin\SqlParser\Components\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
