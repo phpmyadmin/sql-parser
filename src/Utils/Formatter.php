@@ -328,36 +328,26 @@ class Formatter
     {
         /**
          * The query to be returned.
-         *
-         * @var string
          */
         $ret = '';
 
         /**
          * The indentation level.
-         *
-         * @var int
          */
         $indent = 0;
 
         /**
          * Whether the line ended.
-         *
-         * @var bool
          */
         $lineEnded = false;
 
         /**
          * Whether current group is short (no linebreaks).
-         *
-         * @var bool
          */
         $shortGroup = false;
 
         /**
          * The name of the last clause.
-         *
-         * @var string
          */
         $lastClause = '';
 
@@ -375,15 +365,11 @@ class Formatter
 
         /**
          * Whether clause's options were formatted.
-         *
-         * @var bool
          */
         $formattedOptions = false;
 
         /**
          * Previously parsed token.
-         *
-         * @var Token|null
          */
         $prev = null;
 
@@ -717,15 +703,11 @@ class Formatter
          * This counter starts at one because by the time this function called,
          * the list already advanced one position and the opening bracket was
          * already parsed.
-         *
-         * @var int
          */
         $count = 1;
 
         /**
          * The length of this group.
-         *
-         * @var int
          */
         $length = 0;
 

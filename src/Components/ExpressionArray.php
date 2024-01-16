@@ -46,8 +46,6 @@ final class ExpressionArray implements Component
          *
          *      1 ------------------------[ , ]------------------------> 0
          *      1 -----------------------[ else ]----------------------> (END)
-         *
-         * @var int
          */
         $state = 0;
 

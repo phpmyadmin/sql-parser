@@ -88,8 +88,6 @@ final class Reference implements Component
          *      1 ---------------------[ columns ]--------------------> 2
          *
          *      2 ---------------------[ options ]--------------------> (END)
-         *
-         * @var int
          */
         $state = 0;
 

@@ -404,29 +404,21 @@ class Parser
     {
         /**
          * Last transaction.
-         *
-         * @var TransactionStatement
          */
         $lastTransaction = null;
 
         /**
          * Last parsed statement.
-         *
-         * @var Statement
          */
         $lastStatement = null;
 
         /**
          * Union's type or false for no union.
-         *
-         * @var bool|string
          */
         $unionType = false;
 
         /**
          * The index of the last token from the last statement.
-         *
-         * @var int
          */
         $prevLastIdx = -1;
 
@@ -518,15 +510,11 @@ class Parser
 
             /**
              * The name of the class that is used for parsing.
-             *
-             * @var string
              */
             $class = self::STATEMENT_PARSERS[$statementName ?? $token->keyword];
 
             /**
              * Processed statement.
-             *
-             * @var Statement
              */
             $statement = new $class($this, $this->list);
 

@@ -33,8 +33,6 @@ final class Array2d implements Component
 
         /**
          * The number of values in each set.
-         *
-         * @var int
          */
         $count = -1;
 
@@ -47,8 +45,6 @@ final class Array2d implements Component
          *
          *      1 ------------------------[ , ]------------------------> 0
          *      1 -----------------------[ else ]----------------------> (END)
-         *
-         * @var int
          */
         $state = 0;
 

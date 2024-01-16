@@ -117,8 +117,6 @@ class BufferedQuery
          * This is statically defined because it is not used outside anywhere
          * outside this method and there is probably a (minor) performance
          * improvement to it.
-         *
-         * @var int
          */
         static $i = 0;
 
@@ -128,8 +126,6 @@ class BufferedQuery
 
         /**
          * The length of the buffer.
-         *
-         * @var int
          */
         $len = strlen($this->query);
 

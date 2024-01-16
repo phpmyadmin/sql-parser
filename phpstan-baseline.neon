@@ -76,17 +76,17 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
+			message: "#^Comparison operation \"\\<\" between int\\<1, max\\> and 0 is always false\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 3
 			path: src/Components/Expression.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$subquery \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\SqlParser\\\\Token and null will always evaluate to false\\.$#"
 			count: 1
 			path: src/Components/Expression.php
 
@@ -176,7 +176,7 @@ parameters:
 			path: src/Components/JoinKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns \\(array\\<array\\{name\\?\\: string, length\\?\\: int, order\\?\\: string\\}\\>\\) does not accept non\\-empty\\-array\\<array\\<string, mixed\\>\\>\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns \\(array\\<array\\{name\\?\\: string, length\\?\\: int, order\\?\\: string\\}\\>\\) does not accept non\\-empty\\-array\\<array\\<'length'\\|'name'\\|'order', mixed\\>\\>\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
@@ -406,12 +406,17 @@ parameters:
 			path: src/Parser.php
 
 		-
-			message: "#^Parameter \\#2 \\$list of method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:validateClauseOrder\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
-			count: 3
+			message: "#^Instantiated class  not found\\.$#"
+			count: 1
 			path: src/Parser.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$union \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\) does not accept array\\<array\\<int, bool\\|PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\|string\\>\\|PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\.$#"
+			message: "#^Parameter \\#2 \\$list of method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:validateClauseOrder\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
+			count: 2
+			path: src/Parser.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$union \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\) does not accept array\\<array\\<int, PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\|string\\>\\|PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\.$#"
 			count: 1
 			path: src/Parser.php
 
@@ -421,7 +426,112 @@ parameters:
 			path: src/Parser.php
 
 		-
-			message: "#^Call to an undefined static method PhpMyAdmin\\\\SqlParser\\\\Component\\:\\:buildAll\\(\\)\\.$#"
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$call\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$endOptions\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$expr\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$fields\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$from\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$group\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$groupOptions\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$having\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$index_hints\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$into\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$join\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$limit\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$order\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$partition\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$procedure\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$renames\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$set\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$table\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$tables\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$union\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$values\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -432,6 +542,11 @@ parameters:
 
 		-
 			message: "#^Offset 'field' does not exist on array\\{\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\Array2d', field\\: 'values'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\ArrayObj', field\\: 'partition'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\Condition', field\\: 'having'\\|'where'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\Expression', field\\: 'table', options\\: array\\{parseField\\: 'table'\\}\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\ExpressionArray', field\\: 'expr'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\ExpressionArray', field\\: 'fields'\\|'tables', options\\: array\\{parseField\\: 'table'\\}\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\ExpressionArray', field\\: 'from', options\\: array\\{field\\: 'table'\\}\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\FunctionCall', field\\: 'call'\\|'procedure'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\GroupKeyword', field\\: 'group'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\IndexHint', field\\: 'index_hints'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\IntoKeyword', field\\: 'into'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\JoinKeyword', field\\: 'join'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\Limit', field\\: 'limit'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\OptionsArray', field\\: 'endOptions'\\|'groupOptions'\\|'options'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\OrderKeyword', field\\: 'order'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\RenameOperation', field\\: 'renames'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\SetOperation', field\\: 'set'\\}\\|array\\{class\\: 'PhpMyAdmin\\\\\\\\SqlParser\\\\\\\\Components\\\\\\\\UnionKeyword', field\\: 'union'\\}\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -567,6 +682,11 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Statements/LoadStatement.php
+
+		-
+			message: "#^Comparison operation \"\\>\\=\" between int\\<3, max\\> and 3 is always true\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 

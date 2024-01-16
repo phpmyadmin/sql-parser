@@ -114,8 +114,6 @@ class ReplaceStatement extends Statement
          *      0 ---------------------------------[ INTO ]----------------------------------> 1
          *
          *      1 -------------------------[ VALUES/VALUE/SET/SELECT ]-----------------------> 2
-         *
-         * @var int
          */
         $state = 0;
 

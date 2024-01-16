@@ -78,15 +78,11 @@ final class CaseExpression implements Component
 
         /**
          * State of parser.
-         *
-         * @var int
          */
         $state = 0;
 
         /**
          * Syntax type (type 0 or type 1).
-         *
-         * @var int
          */
         $type = 0;
 

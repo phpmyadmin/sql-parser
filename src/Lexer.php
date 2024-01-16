@@ -394,8 +394,6 @@ class Lexer
 
         /**
          * Value to be returned.
-         *
-         * @var Token
          */
         $ret = null;
 
@@ -406,8 +404,6 @@ class Lexer
 
         /**
          * Whether last parsed character is a whitespace.
-         *
-         * @var bool
          */
         $lastSpace = false;
 
@@ -454,8 +450,6 @@ class Lexer
 
         /**
          * Value to be returned.
-         *
-         * @var Token
          */
         $ret = null;
 
@@ -498,8 +492,6 @@ class Lexer
 
         /**
          * Value to be returned.
-         *
-         * @var Token
          */
         $ret = null;
 

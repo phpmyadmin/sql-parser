@@ -620,23 +620,17 @@ class Query
     ): string {
         /**
          * The index of the current clause.
-         *
-         * @var int
          */
         $currIdx = 0;
 
         /**
          * The count of brackets.
          * We keep track of them so we won't insert the clause in a subquery.
-         *
-         * @var int
          */
         $brackets = 0;
 
         /**
          * The string to be returned.
-         *
-         * @var string
          */
         $ret = '';
 
@@ -652,8 +646,6 @@ class Query
 
         /**
          * The type of this clause.
-         *
-         * @var string
          */
         $clauseType = $lexer->list->getNextOfType(TokenType::Keyword)->keyword;
 
@@ -787,8 +779,6 @@ class Query
 
         /**
          * Value to be returned.
-         *
-         * @var string
          */
         $ret = '';
 
@@ -833,15 +823,11 @@ class Query
 
         /**
          * Whether a full statement was found.
-         *
-         * @var bool
          */
         $fullStatement = false;
 
         /**
          * The first full statement.
-         *
-         * @var string
          */
         $statement = '';
 
@@ -897,8 +883,6 @@ class Query
         /**
          * The count of brackets.
          * We keep track of them so we won't insert the clause in a subquery.
-         *
-         * @var int
          */
         $brackets = 0;
 

@@ -58,22 +58,16 @@ class TestGenerator
         /**
          * Parsed used for analyzing the query.
          * A new instance of parser is generated only if the test requires.
-         *
-         * @var Parser
          */
         $parser = $type === 'parser' ? new Parser($lexer->list) : null;
 
         /**
          * Lexer's errors.
-         *
-         * @var array<int, array<int, int|string>>
          */
         $lexerErrors = [];
 
         /**
          * Parser's errors.
-         *
-         * @var array<int, array<int, int|string|Token>>
          */
         $parserErrors = [];
 
@@ -147,8 +141,6 @@ class TestGenerator
 
         /**
          * The query that is used to generate the test.
-         *
-         * @var string
          */
         $query = file_get_contents($input);
 

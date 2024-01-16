@@ -84,8 +84,6 @@ class ExplainStatement extends Statement
          *      2 --------------[ tablename / STATEMENT / FOR CONNECTION ]---------------------> 2
          *
          *      3 -----------------------------[ tablename ]-----------------------------------> 3
-         *
-         * @var int
          */
         $state = 0;
 

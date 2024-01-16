@@ -118,8 +118,6 @@ final class JoinKeyword implements Component
          *      3 --------------------[ conditions ]-------------------> 0
          *
          *      4 ----------------------[ columns ]--------------------> 0
-         *
-         * @var int
          */
         $state = 0;
 

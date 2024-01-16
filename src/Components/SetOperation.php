@@ -65,15 +65,11 @@ final class SetOperation implements Component
          *      0 ---------------------[ = or := ]---------------------> 1
          *      1 -----------------------[ value ]---------------------> 1
          *      1 ------------------------[ , ]------------------------> 0
-         *
-         * @var int
          */
         $state = 0;
 
         /**
          * Token when the parser has seen the latest comma
-         *
-         * @var Token
          */
         $commaLastSeenAt = null;
 

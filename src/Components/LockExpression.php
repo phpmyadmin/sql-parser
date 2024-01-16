@@ -47,8 +47,6 @@ final class LockExpression implements Component
          *      0 ---------------- [ tbl_name ] -----------------> 1
          *      1 ---------------- [ lock_type ] ----------------> 2
          *      2 -------------------- [ , ] --------------------> break
-         *
-         * @var int
          */
         $state = 0;
 
@@ -116,8 +114,6 @@ final class LockExpression implements Component
          *      0 ---------------- [ WRITE ] ----------------> 3
          *      1 ---------------- [ LOCAL ] ----------------> 3
          *      2 ---------------- [ WRITE ] ----------------> 3
-         *
-         * @var int
          */
         $state = 0;
 

@@ -104,8 +104,6 @@ final class DataType implements Component
          *      0 -------------------[ data type ]--------------------> 1
          *
          *      1 ----------------[ size and options ]----------------> 2
-         *
-         * @var int
          */
         $state = 0;
 

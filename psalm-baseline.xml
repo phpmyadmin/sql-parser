@@ -11,6 +11,15 @@
                         ['type' => PartitionDefinition::class],
                     )]]></code>
     </PropertyTypeCoercion>
+    <RedundantCondition>
+      <code>$partitionState === 2</code>
+      <code>$state === 3</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Components/Array2d.php">
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/ArrayObj.php">
     <MixedAssignment>
@@ -78,6 +87,9 @@
     <PossiblyNullOperand>
       <code><![CDATA[$this->options]]></code>
     </PossiblyNullOperand>
+    <RedundantCondition>
+      <code>$state === 5</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/DataType.php">
     <PossiblyInvalidPropertyFetch>
@@ -88,11 +100,11 @@
       <code>$name</code>
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/Expression.php">
-    <DocblockTypeContradiction>
-      <code>$prev[0] === null</code>
-    </DocblockTypeContradiction>
     <MixedArrayOffset>
       <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
       <code><![CDATA[self::ALLOWED_KEYWORDS[$token->keyword]]]></code>
@@ -113,10 +125,9 @@
       <code><![CDATA[$ret->expr]]></code>
       <code><![CDATA[$ret->expr]]></code>
     </PossiblyNullOperand>
-    <RedundantConditionGivenDocblockType>
-      <code>$prev[1] !== null</code>
-      <code><![CDATA[empty($ret->function) && ($prev[1] !== null)]]></code>
-    </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$brackets < 0]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/Components/ExpressionArray.php">
     <InvalidReturnStatement>
@@ -130,9 +141,9 @@
       <code>$expr</code>
       <code>$expr</code>
     </PossiblyNullArgument>
-    <PossiblyUnusedMethod>
-      <code>buildAll</code>
-    </PossiblyUnusedMethod>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/FunctionCall.php">
     <MixedOperand>
@@ -145,6 +156,9 @@
       <code><![CDATA[$this->name]]></code>
       <code><![CDATA[$this->parameters]]></code>
     </PossiblyNullOperand>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/GroupKeyword.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -154,6 +168,9 @@
     <PossiblyUnusedProperty>
       <code>$type</code>
     </PossiblyUnusedProperty>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/IndexHint.php">
     <MixedAssignment>
@@ -163,9 +180,6 @@
       <code><![CDATA[$this->indexOrKey]]></code>
       <code><![CDATA[$this->type]]></code>
     </PossiblyNullOperand>
-    <PossiblyUnusedMethod>
-      <code>buildAll</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Components/IntoKeyword.php">
     <MixedArgument>
@@ -203,11 +217,9 @@
       <code>$using</code>
       <code><![CDATA[Expression::parse($parser, $list, ['field' => 'table'])]]></code>
     </PossiblyNullPropertyAssignmentValue>
-    <UnusedVariable>
-      <code>$state</code>
-      <code>$state</code>
-      <code>$state</code>
-    </UnusedVariable>
+    <RedundantCondition>
+      <code>$state === 4</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/Key.php">
     <MixedAssignment>
@@ -216,6 +228,9 @@
       <code><![CDATA[$ret->name]]></code>
       <code><![CDATA[$ret->type]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$ret->columns]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyNullOperand>
       <code><![CDATA[$ret->expr]]></code>
       <code><![CDATA[$this->options]]></code>
@@ -226,9 +241,9 @@
       <code>$name</code>
       <code>$type</code>
     </PossiblyNullPropertyAssignmentValue>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$ret->columns]]></code>
-    </PropertyTypeCoercion>
+    <RedundantCondition>
+      <code>$state === 5</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/Limit.php">
     <MixedAssignment>
@@ -332,6 +347,9 @@
       <code>$expr</code>
       <code>Expression::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/ParameterDefinition.php">
     <MixedAssignment>
@@ -343,6 +361,9 @@
       <code>$type</code>
       <code>DataType::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition>
+      <code>$state === 3</code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[isset($expr->name)]]></code>
     </RedundantConditionGivenDocblockType>
@@ -380,6 +401,9 @@
                         ['type' => self::class],
                     )]]></code>
     </PropertyTypeCoercion>
+    <RedundantCondition>
+      <code>$state === 6</code>
+    </RedundantCondition>
     <UnusedVariable>
       <code>$idx</code>
     </UnusedVariable>
@@ -400,6 +424,9 @@
                     ],
                 )]]></code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition>
+      <code>$state === 2</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/RenameOperation.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -422,19 +449,18 @@
                     ],
                 )]]></code>
     </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition>
+      <code>$state === 3</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/SetOperation.php">
     <PossiblyNullPropertyAssignmentValue>
       <code><![CDATA[$tmp->expr]]></code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantCondition>
+      <code>$state === 1</code>
       <code><![CDATA[$token->value === ',']]></code>
     </RedundantCondition>
-  </file>
-  <file src="src/Components/UnionKeyword.php">
-    <PossiblyUnusedMethod>
-      <code>buildAll</code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="src/Context.php">
     <InvalidPropertyAssignmentValue>
@@ -624,17 +650,53 @@
       <code><![CDATA[self::STATEMENT_PARSERS[$statementName ?? $token->keyword]]]></code>
       <code><![CDATA[self::STATEMENT_PARSERS[$token->keyword]]]></code>
     </MixedArrayOffset>
+    <MixedMethodCall>
+      <code>validateClauseOrder</code>
+    </MixedMethodCall>
+    <PossiblyNullArgument>
+      <code>$list</code>
+      <code>$list</code>
+      <code><![CDATA[$token->token]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess>
+      <code><![CDATA[$list->tokens[$list->idx]]]></code>
+    </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$list->tokens]]></code>
+      <code>self::STATEMENT_PARSERS</code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$list->idx]]></code>
       <code><![CDATA[$list->idx]]></code>
       <code>$prevLastIdx</code>
     </PossiblyNullOperand>
+    <PossiblyNullPropertyAssignment>
+      <code>$list</code>
+      <code>$list</code>
+    </PossiblyNullPropertyAssignment>
     <PossiblyNullPropertyAssignmentValue>
       <code>$lastIdx</code>
     </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$list->count]]></code>
+      <code><![CDATA[$list->idx]]></code>
+      <code><![CDATA[$list->tokens]]></code>
+      <code><![CDATA[$token->keyword]]></code>
+      <code><![CDATA[$token->token]]></code>
+      <code><![CDATA[$token->type]]></code>
+      <code><![CDATA[$token->value]]></code>
+    </PossiblyNullPropertyFetch>
+    <PossiblyNullReference>
+      <code>getNextOfType</code>
+      <code>getNextOfType</code>
+      <code>getNextOfType</code>
+    </PossiblyNullReference>
+    <PropertyTypeCoercion>
+      <code><![CDATA[$lastTransaction->statements]]></code>
+      <code><![CDATA[$this->statements]]></code>
+      <code><![CDATA[$this->statements]]></code>
+      <code><![CDATA[$this->statements]]></code>
+    </PropertyTypeCoercion>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$list = &$this->list]]></code>
     </UnsupportedPropertyReferenceUsage>
@@ -644,6 +706,19 @@
       <code>$built[$field]</code>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
     </InvalidArgument>
+    <MixedArgument>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[$this->$field]]></code>
+    </MixedArgument>
     <MixedArrayOffset>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
@@ -674,6 +749,10 @@
     </PossiblyUnusedReturnValue>
     <UndefinedMethod>
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
+      <code><![CDATA[$class::buildAll($this->$field)]]></code>
+      <code><![CDATA[$class::buildAll($this->$field)]]></code>
+      <code><![CDATA[$class::buildAll($this->$field)]]></code>
+      <code><![CDATA[$class::buildAll($this->$field)]]></code>
     </UndefinedMethod>
     <UnusedForeachValue>
       <code>$index</code>
@@ -697,6 +776,9 @@
       <code>build</code>
       <code>build</code>
     </PossiblyNullReference>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Statements/AnalyzeStatement.php">
     <PossiblyUnusedProperty>
@@ -723,10 +805,10 @@
     <MixedOperand>
       <code><![CDATA[$this->$field]]></code>
     </MixedOperand>
-    <PossiblyInvalidOperand>
+    <PossiblyFalseOperand>
       <code>$brackets</code>
       <code>$brackets</code>
-    </PossiblyInvalidOperand>
+    </PossiblyFalseOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$this->parameters]]></code>
     </PossiblyNullArgument>
@@ -806,6 +888,9 @@
     <PropertyNotSetInConstructor>
       <code>$statementAlias</code>
     </PropertyNotSetInConstructor>
+    <RedundantCondition>
+      <code>$state === 3</code>
+    </RedundantCondition>
   </file>
   <file src="src/Statements/InsertStatement.php">
     <PossiblyNullOperand>
@@ -820,6 +905,9 @@
     <MixedArgument>
       <code><![CDATA[$token->value]]></code>
     </MixedArgument>
+    <NoValue>
+      <code>$state</code>
+    </NoValue>
     <PossiblyInvalidPropertyAssignmentValue>
       <code>ArrayObj::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
@@ -835,6 +923,17 @@
       <code><![CDATA[$nextToken->token]]></code>
       <code><![CDATA[$nextToken->type]]></code>
     </PossiblyNullPropertyFetch>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+    <TypeDoesNotContainType>
+      <code>$state === 2</code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Statements/LockStatement.php">
+    <RedundantCondition>
+      <code>$state === 2</code>
+    </RedundantCondition>
   </file>
   <file src="src/Statements/MaintenanceStatement.php">
     <PossiblyNullReference>
@@ -930,6 +1029,9 @@
       <code><![CDATA[$this->withers]]></code>
       <code><![CDATA[$this->withers]]></code>
     </PossiblyNullArrayOffset>
+    <RedundantCondition>
+      <code>$state === 5</code>
+    </RedundantCondition>
   </file>
   <file src="src/Tools/ContextGenerator.php">
     <PossiblyInvalidArgument>
@@ -976,6 +1078,101 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Utils/BufferedQuery.php">
+    <MixedArgument>
+      <code>$i</code>
+      <code>$i</code>
+      <code><![CDATA[$i + $this->delimiterLen]]></code>
+      <code>$i - $iBak</code>
+      <code>$iBak</code>
+      <code><![CDATA[$this->query[$i + 2]]]></code>
+      <code><![CDATA[$this->query[$i + 9]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+    </MixedArgument>
+    <MixedArrayOffset>
+      <code><![CDATA[$this->query[$i + 1]]]></code>
+      <code><![CDATA[$this->query[$i + 1]]]></code>
+      <code><![CDATA[$this->query[$i + 1]]]></code>
+      <code><![CDATA[$this->query[$i + 1]]]></code>
+      <code><![CDATA[$this->query[$i + 2]]]></code>
+      <code><![CDATA[$this->query[$i + 2]]]></code>
+      <code><![CDATA[$this->query[$i + 2]]]></code>
+      <code><![CDATA[$this->query[$i + 2]]]></code>
+      <code><![CDATA[$this->query[$i + 3]]]></code>
+      <code><![CDATA[$this->query[$i + 3]]]></code>
+      <code><![CDATA[$this->query[$i + 4]]]></code>
+      <code><![CDATA[$this->query[$i + 4]]]></code>
+      <code><![CDATA[$this->query[$i + 5]]]></code>
+      <code><![CDATA[$this->query[$i + 5]]]></code>
+      <code><![CDATA[$this->query[$i + 6]]]></code>
+      <code><![CDATA[$this->query[$i + 6]]]></code>
+      <code><![CDATA[$this->query[$i + 7]]]></code>
+      <code><![CDATA[$this->query[$i + 7]]]></code>
+      <code><![CDATA[$this->query[$i + 8]]]></code>
+      <code><![CDATA[$this->query[$i + 8]]]></code>
+      <code><![CDATA[$this->query[$i + 9]]]></code>
+      <code><![CDATA[$this->query[$i - 1]]]></code>
+      <code><![CDATA[$this->query[$i++]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+      <code><![CDATA[$this->query[++$i]]]></code>
+    </MixedArrayOffset>
+    <MixedAssignment>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$iBak</code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code>$i</code>
+      <code><![CDATA[$i + 1 < $len ? $this->query[++$i] : '']]></code>
+      <code><![CDATA[$this->query[$i++]]]></code>
+      <code><![CDATA[$this->query[$i]]]></code>
+    </MixedOperand>
     <PossiblyNullOperand>
       <code><![CDATA[$this->status]]></code>
     </PossiblyNullOperand>
@@ -1084,10 +1281,15 @@
       <code>int</code>
     </InvalidNullableReturnType>
     <MixedArrayOffset>
+      <code>$clauses[$clauseType]</code>
       <code><![CDATA[$clauses[$token->keyword]]]></code>
       <code><![CDATA[$clauses[$token->keyword]]]></code>
     </MixedArrayOffset>
+    <MixedArrayTypeCoercion>
+      <code>$clauses[$clauseType]</code>
+    </MixedArrayTypeCoercion>
     <MixedAssignment>
+      <code>$clauseType</code>
       <code>$expr</code>
       <code>$expressions[]</code>
       <code>$rename</code>

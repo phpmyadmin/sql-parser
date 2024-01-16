@@ -127,8 +127,6 @@ final class Key implements Component
 
         /**
          * Last parsed column.
-         *
-         * @var array<string,mixed>
          */
         $lastColumn = [];
 
@@ -147,8 +145,6 @@ final class Key implements Component
          *      3 ---------------------[ column length ]------------------> 2
          *      2 ---------------------[ options ]------------------------> 4
          *      5 ---------------------[ expression ]---------------------> 4
-         *
-         * @var int
          */
         $state = 0;
 

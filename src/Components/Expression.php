@@ -166,36 +166,26 @@ final class Expression implements Component
 
         /**
          * Whether current tokens make an expression or a table reference.
-         *
-         * @var bool
          */
         $isExpr = false;
 
         /**
          * Whether a period was previously found.
-         *
-         * @var bool
          */
         $dot = false;
 
         /**
          * Whether an alias is expected. Is 2 if `AS` keyword was found.
-         *
-         * @var bool
          */
         $alias = false;
 
         /**
          * Counts brackets.
-         *
-         * @var int
          */
         $brackets = 0;
 
         /**
          * Keeps track of the last two previous tokens.
-         *
-         * @var Token[]
          */
         $prev = [
             null,

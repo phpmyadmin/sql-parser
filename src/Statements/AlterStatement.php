@@ -94,8 +94,6 @@ class AlterStatement extends Statement
          *      0 -----------------[ alter operation ]-----------------> 1
          *
          *      1 -------------------------[ , ]-----------------------> 0
-         *
-         * @var int
          */
         $state = 0;
 

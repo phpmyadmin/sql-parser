@@ -78,8 +78,6 @@ final class ParameterDefinition implements Component
          *
          *      3 ------------------------[ , ]-----------------------> 1
          *      3 ------------------------[ ) ]-----------------------> (END)
-         *
-         * @var int
          */
         $state = 0;
 

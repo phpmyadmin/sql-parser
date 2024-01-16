@@ -148,8 +148,6 @@ final class IntoKeyword implements Component
          *      1 ------------------------[ ( ]------------------------> (END)
          *
          *      2 ---------------------[ filename ]--------------------> 1
-         *
-         * @var int
          */
         $state = 0;
 

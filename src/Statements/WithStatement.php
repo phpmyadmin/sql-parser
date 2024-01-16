@@ -86,8 +86,6 @@ final class WithStatement extends Statement
          *      4 ------------------ [ , ] ------------------> 1
          *
          *      4 ----- [ SELECT/UPDATE/DELETE/INSERT ] -----> 5
-         *
-         * @var int
          */
         $state = 0;
         $wither = null;

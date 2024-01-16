@@ -44,8 +44,6 @@ final class OptionsArray implements Component
 
         /**
          * The ID that will be assigned to duplicate options.
-         *
-         * @var int
          */
         $lastAssignedId = count($options) + 1;
 
@@ -56,15 +54,11 @@ final class OptionsArray implements Component
 
         /**
          * The index of the option that was processed last time.
-         *
-         * @var int
          */
         $lastOptionId = 0;
 
         /**
          * Counts brackets.
-         *
-         * @var int
          */
         $brackets = 0;
 
@@ -78,8 +72,6 @@ final class OptionsArray implements Component
          *      1 -------------------[ = (optional) ]------------------> 2
          *
          *      2 ----------------------[ value ]----------------------> 0
-         *
-         * @var int
          */
         $state = 0;
 
