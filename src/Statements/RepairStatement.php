@@ -19,7 +19,7 @@ class RepairStatement extends MaintenanceStatement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'TABLE' => 1,
 
         'NO_WRITE_TO_BINLOG' => 2,

@@ -18,14 +18,12 @@ class TruncateStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = ['TABLE' => 1];
+    public static array $statementOptions = ['TABLE' => 1];
 
     /**
      * The name of the truncated table.
-     *
-     * @var Expression|null
      */
-    public $table;
+    public Expression|null $table = null;
 
     /**
      * Special build method for truncate statement as Statement::build would return empty string.

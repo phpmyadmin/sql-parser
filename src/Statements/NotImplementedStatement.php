@@ -22,7 +22,7 @@ class NotImplementedStatement extends Statement
      *
      * @var Token[]
      */
-    public $unknown = [];
+    public array $unknown = [];
 
     public function build(): string
     {

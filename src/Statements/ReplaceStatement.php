@@ -46,17 +46,15 @@ class ReplaceStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'LOW_PRIORITY' => 1,
         'DELAYED' => 1,
     ];
 
     /**
      * Tables used as target for this statement.
-     *
-     * @var IntoKeyword|null
      */
-    public $into;
+    public IntoKeyword|null $into = null;
 
     /**
      * Values to be replaced.
@@ -76,10 +74,8 @@ class ReplaceStatement extends Statement
     /**
      * If SELECT clause is present
      * holds the SelectStatement.
-     *
-     * @var SelectStatement|null
      */
-    public $select;
+    public SelectStatement|null $select = null;
 
     public function build(): string
     {

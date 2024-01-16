@@ -45,7 +45,7 @@ abstract class Statement implements Stringable
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [];
+    public static array $statementOptions = [];
 
     /**
      * The clauses of this statement, in order.
@@ -60,30 +60,24 @@ abstract class Statement implements Stringable
      * @var array<string, array<int, int|string>>
      * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
-    public static $clauses = [];
+    public static array $clauses = [];
 
     /**
      * The options of this query.
      *
      * @see Statement::$statementOptions
-     *
-     * @var OptionsArray|null
      */
-    public $options;
+    public OptionsArray|null $options = null;
 
     /**
      * The index of the first token used in this statement.
-     *
-     * @var int|null
      */
-    public $first;
+    public int|null $first = null;
 
     /**
      * The index of the last token used in this statement.
-     *
-     * @var int|null
      */
-    public $last;
+    public int|null $last = null;
 
     /**
      * @param Parser|null     $parser the instance that requests parsing

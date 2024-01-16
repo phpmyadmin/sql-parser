@@ -33,48 +33,36 @@ class ExplainStatement extends Statement
 
     /**
      * The parser of the statement to be explained
-     *
-     * @var Parser|null
      */
-    public $bodyParser = null;
+    public Parser|null $bodyParser = null;
 
     /**
      * The statement alias, could be any of the following:
      * - {EXPLAIN | DESCRIBE | DESC}
      * - {EXPLAIN | DESCRIBE | DESC} ANALYZE
      * - ANALYZE
-     *
-     * @var string
      */
-    public $statementAlias;
+    public string $statementAlias;
 
     /**
      * The connection identifier, if used.
-     *
-     * @var int|null
      */
-    public $connectionId = null;
+    public int|null $connectionId = null;
 
     /**
      * The explained database for the table's name, if used.
-     *
-     * @var string|null
      */
-    public $explainedDatabase = null;
+    public string|null $explainedDatabase = null;
 
     /**
      * The explained table's name, if used.
-     *
-     * @var string|null
      */
-    public $explainedTable = null;
+    public string|null $explainedTable = null;
 
     /**
      * The explained column's name, if used.
-     *
-     * @var string|null
      */
-    public $explainedColumn = null;
+    public string|null $explainedColumn = null;
 
     /**
      * @param Parser     $parser the instance that requests parsing
@@ -227,8 +215,8 @@ class ExplainStatement extends Statement
                     continue;
                 }
 
-                if ($this->explainedColumn === null) {
-                    $this->explainedColumn = $token->value;
+                if ($this->explainedColumn === null && $token->value !== null) {
+                    $this->explainedColumn = (string) $token->value;
                 }
             }
         }

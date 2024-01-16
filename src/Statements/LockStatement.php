@@ -22,15 +22,13 @@ class LockStatement extends Statement
      *
      * @var LockExpression[]
      */
-    public $locked = [];
+    public array $locked = [];
 
     /**
      * Whether it's a LOCK statement
      * if false, it's an UNLOCK statement
-     *
-     * @var bool
      */
-    public $isLock = true;
+    public bool $isLock = true;
 
     /**
      * @param Parser     $parser the instance that requests parsing
