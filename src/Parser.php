@@ -116,11 +116,6 @@ class Parser
      */
     public const KEYWORD_PARSERS = [
         // This is not a proper keyword and was added here to help the
-        // formatter.
-        'PARTITION BY' => [],
-        'SUBPARTITION BY' => [],
-
-        // This is not a proper keyword and was added here to help the
         // builder.
         '_OPTIONS' => [
             'class' => Components\OptionsArray::class,

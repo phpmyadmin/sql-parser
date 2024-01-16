@@ -286,7 +286,7 @@ abstract class Statement implements Stringable
             $options = [];
 
             // Looking for duplicated clauses.
-            if (! empty(Parser::KEYWORD_PARSERS[$token->value]) || ! empty(Parser::STATEMENT_PARSERS[$token->value])) {
+            if (isset(Parser::KEYWORD_PARSERS[$token->value]) || ! empty(Parser::STATEMENT_PARSERS[$token->value])) {
                 if (! empty($parsedClauses[$token->value])) {
                     $parser->error('This type of clause was previously parsed.', $token);
                     break;
@@ -300,7 +300,7 @@ abstract class Statement implements Stringable
             // but it might be the beginning of a statement of truncate,
             // so let the value use the keyword field for truncate type.
             $tokenValue = in_array($token->keyword, ['TRUNCATE']) ? $token->keyword : $token->value;
-            if (! empty(Parser::KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
+            if (isset(Parser::KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
                 $class = Parser::KEYWORD_PARSERS[$tokenValue]['class'];
                 $field = Parser::KEYWORD_PARSERS[$tokenValue]['field'];
                 if (! empty(Parser::KEYWORD_PARSERS[$tokenValue]['options'])) {
