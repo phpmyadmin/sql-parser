@@ -187,36 +187,18 @@
     <DocblockTypeContradiction>
       <code><![CDATA['']]></code>
     </DocblockTypeContradiction>
-    <MixedArrayOffset>
-      <code><![CDATA[self::JOINS[$token->keyword]]]></code>
-      <code><![CDATA[self::JOINS[$token->keyword]]]></code>
-    </MixedArrayOffset>
     <PossiblyFalseOperand>
-      <code><![CDATA[array_search($c->type, self::JOINS)]]></code>
+      <code><![CDATA[array_search($this->type, self::JOINS)]]></code>
     </PossiblyFalseOperand>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObj::parse($parser, $list)</code>
-    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullPropertyAssignmentValue>
       <code>$expr</code>
       <code>$on</code>
       <code>$type</code>
       <code>$using</code>
-      <code><![CDATA[Expression::parse($parser, $list, ['field' => 'table'])]]></code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 4</code>
-    </RedundantCondition>
     <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($c->using)]]></code>
+      <code><![CDATA[! empty($this->using)]]></code>
     </RedundantConditionGivenDocblockType>
-    <TypeDoesNotContainType>
-      <code><![CDATA[empty(self::JOINS[$token->keyword])]]></code>
-      <code><![CDATA[empty(self::JOINS[$token->keyword])]]></code>
-    </TypeDoesNotContainType>
-    <UnusedParam>
-      <code>$options</code>
-    </UnusedParam>
   </file>
   <file src="src/Components/Key.php">
     <MixedAssignment>
@@ -291,9 +273,30 @@
     <MixedAssignment>
       <code><![CDATA[$expr->type]]></code>
     </MixedAssignment>
-    <PossiblyUnusedMethod>
-      <code>buildAll</code>
-    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Components/Lists/JoinKeywords.php">
+    <MixedArrayOffset>
+      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
+      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
+    </MixedArrayOffset>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code>ArrayObj::parse($parser, $list)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expression::parse($parser, $list, ['field' => 'table'])]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <TypeDoesNotContainType>
+      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
+      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
+    </TypeDoesNotContainType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
+    <UnusedVariable>
+      <code>$state</code>
+      <code>$state</code>
+      <code>$state</code>
+    </UnusedVariable>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>

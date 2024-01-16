@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Components\Lists\Conditions;
 use PhpMyAdmin\SqlParser\Components\Lists\ExpressionArray;
+use PhpMyAdmin\SqlParser\Components\Lists\JoinKeywords;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Parser;
@@ -166,7 +167,7 @@ class DeleteStatement extends Statement
         }
 
         if ($this->join !== null && $this->join !== []) {
-            $ret .= ' ' . JoinKeyword::buildAll($this->join);
+            $ret .= ' ' . JoinKeywords::buildAll($this->join);
         }
 
         if ($this->using !== null && $this->using !== []) {
@@ -265,7 +266,7 @@ class DeleteStatement extends Statement
                 if ($token->type === TokenType::Keyword) {
                     if (stripos($token->keyword, 'JOIN') !== false) {
                         ++$list->idx;
-                        $this->join = JoinKeyword::parse($parser, $list);
+                        $this->join = JoinKeywords::parse($parser, $list);
 
                         // remain in state = 2
                     } else {

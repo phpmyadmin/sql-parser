@@ -182,7 +182,7 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'CROSS JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'DROP' => [
@@ -216,15 +216,15 @@ class Parser
             'field' => 'into',
         ],
         'JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'LEFT JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'LEFT OUTER JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'ON' => [
@@ -233,47 +233,47 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'RIGHT JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'RIGHT OUTER JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'INNER JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'FULL JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'FULL OUTER JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL LEFT JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL RIGHT JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL LEFT OUTER JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL RIGHT OUTER JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'STRAIGHT_JOIN' => [
-            'class' => Components\JoinKeyword::class,
+            'class' => Components\Lists\JoinKeywords::class,
             'field' => 'join',
         ],
         'LIMIT' => [
