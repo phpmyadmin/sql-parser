@@ -556,11 +556,6 @@
       <code>ContextMySql80100</code>
     </UnusedClass>
   </file>
-  <file src="src/Exceptions/ParserException.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$token</code>
-    </PossiblyNullPropertyAssignmentValue>
-  </file>
   <file src="src/Lexer.php">
     <LoopInvalidation>
       <code><![CDATA[$this->last]]></code>
@@ -1029,6 +1024,10 @@
       <code>$err[1]</code>
       <code>$err[3]</code>
     </PossiblyNullArgument>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$err->token->position]]></code>
+      <code><![CDATA[$err->token->token]]></code>
+    </PossiblyNullPropertyFetch>
     <RedundantConditionGivenDocblockType>
       <code>$obj instanceof Parser</code>
     </RedundantConditionGivenDocblockType>
