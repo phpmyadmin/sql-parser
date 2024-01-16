@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Key;
+use PhpMyAdmin\SqlParser\Components\Lists\CreateDefinitions;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 use PhpMyAdmin\SqlParser\Parser;
@@ -754,7 +755,7 @@ SQL;
         $this->assertIsArray($stmt->fields);
         $this->assertEquals(
             $tableBody,
-            CreateDefinition::buildAll($stmt->fields),
+            CreateDefinitions::buildAll($stmt->fields),
         );
 
         $this->assertEquals(
@@ -854,7 +855,7 @@ SQL;
         $this->assertIsArray($stmt->fields);
         $this->assertEquals(
             $tableBody,
-            CreateDefinition::buildAll($stmt->fields),
+            CreateDefinitions::buildAll($stmt->fields),
         );
 
         $this->assertEquals(

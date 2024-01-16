@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\Expression;
+use PhpMyAdmin\SqlParser\Components\Lists\CreateDefinitions;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
@@ -380,7 +381,7 @@ class CreateStatement extends Statement
         $fields = '';
         if ($this->fields !== null && $this->fields !== []) {
             if (is_array($this->fields)) {
-                $fields = CreateDefinition::buildAll($this->fields) . ' ';
+                $fields = CreateDefinitions::buildAll($this->fields) . ' ';
             } else {
                 $fields = $this->fields->build();
             }
@@ -568,7 +569,7 @@ class CreateStatement extends Statement
                     $parser->error('A table name was expected.', $list->tokens[$list->idx]);
                 }
             } else {
-                $this->fields = CreateDefinition::parse($parser, $list);
+                $this->fields = CreateDefinitions::parse($parser, $list);
                 if ($this->fields === []) {
                     $parser->error('At least one column definition was expected.', $list->tokens[$list->idx]);
                 }

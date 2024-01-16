@@ -87,19 +87,9 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Components/CreateDefinition.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->name]]></code>
-      <code><![CDATA[$expr->name]]></code>
-    </MixedAssignment>
     <PossiblyNullOperand>
       <code><![CDATA[$this->options]]></code>
     </PossiblyNullOperand>
-    <RedundantCondition>
-      <code>$state === 5</code>
-    </RedundantCondition>
-    <UnusedParam>
-      <code>$options</code>
-    </UnusedParam>
   </file>
   <file src="src/Components/DataType.php">
     <PossiblyInvalidPropertyFetch>
@@ -292,6 +282,12 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
+  </file>
+  <file src="src/Components/Lists/CreateDefinitions.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->name]]></code>
+      <code><![CDATA[$expr->name]]></code>
+    </MixedAssignment>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
