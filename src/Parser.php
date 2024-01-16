@@ -334,11 +334,11 @@ class Parser
             'field' => 'index_hints',
         ],
         'VALUE' => [
-            'class' => Components\Array2d::class,
+            'class' => Components\Lists\Array2d::class,
             'field' => 'values',
         ],
         'VALUES' => [
-            'class' => Components\Array2d::class,
+            'class' => Components\Lists\Array2d::class,
             'field' => 'values',
         ],
         'WHERE' => [

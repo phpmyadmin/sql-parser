@@ -2,15 +2,14 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Components;
+namespace PhpMyAdmin\SqlParser\Components\Lists;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Translator;
-use RuntimeException;
 
 use function count;
 use function sprintf;
@@ -18,7 +17,7 @@ use function sprintf;
 /**
  * `VALUES` keyword parser.
  */
-final class Array2d implements Component
+final class Array2d
 {
     /**
      * @param Parser               $parser  the parser that serves as context
@@ -108,15 +107,5 @@ final class Array2d implements Component
         --$list->idx;
 
         return $ret;
-    }
-
-    public function build(): string
-    {
-        throw new RuntimeException(Translator::gettext('Not implemented yet.'));
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }
