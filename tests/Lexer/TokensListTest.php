@@ -18,7 +18,7 @@ class TokensListTest extends TestCase
      *
      * @var Token[]
      */
-    public $tokens;
+    public array $tokens;
 
     /**
      * Test setup.

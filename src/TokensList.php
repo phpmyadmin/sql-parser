@@ -21,17 +21,13 @@ class TokensList implements ArrayAccess
 {
     /**
      * The count of tokens.
-     *
-     * @var int
      */
-    public $count = 0;
+    public int $count = 0;
 
     /**
      * The index of the next token to be returned.
-     *
-     * @var int
      */
-    public $idx = 0;
+    public int $idx = 0;
 
     /** @param Token[] $tokens The array of tokens. */
     public function __construct(public array $tokens = [])

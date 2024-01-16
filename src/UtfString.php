@@ -33,43 +33,33 @@ class UtfString implements ArrayAccess, Stringable
 {
     /**
      * The raw, multi-byte string.
-     *
-     * @var string
      */
-    public $str = '';
+    public string $str = '';
 
     /**
      * The index of current byte.
      *
      * For ASCII strings, the byte index is equal to the character index.
-     *
-     * @var int
      */
-    public $byteIdx = 0;
+    public int $byteIdx = 0;
 
     /**
      * The index of current character.
      *
      * For non-ASCII strings, some characters occupy more than one byte and
      * the character index will have a lower value than the byte index.
-     *
-     * @var int
      */
-    public $charIdx = 0;
+    public int $charIdx = 0;
 
     /**
      * The length of the string (in bytes).
-     *
-     * @var int
      */
-    public $byteLen = 0;
+    public int $byteLen = 0;
 
     /**
      * The length of the string (in characters).
-     *
-     * @var int
      */
-    public $charLen = 0;
+    public int $charLen = 0;
 
     /** @param string $str the string */
     public function __construct(string $str)
