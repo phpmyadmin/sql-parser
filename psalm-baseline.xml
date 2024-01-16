@@ -784,9 +784,6 @@
                             )]]></code>
       <code>ArrayObj::parse($parser, $list)</code>
     </PropertyTypeCoercion>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[$this->fields instanceof ArrayObj]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Statements/DeleteStatement.php">
     <MixedArgument>
@@ -825,7 +822,6 @@
   <file src="src/Statements/ExplainStatement.php">
     <MixedAssignment>
       <code><![CDATA[$this->connectionId]]></code>
-      <code><![CDATA[$this->explainedColumn]]></code>
       <code><![CDATA[$this->explainedDatabase]]></code>
       <code><![CDATA[$this->explainedTable]]></code>
     </MixedAssignment>
@@ -880,9 +876,6 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Statements/PurgeStatement.php">
-    <ImplicitToStringCast>
-      <code>Expression::parse($parser, $list, [])</code>
-    </ImplicitToStringCast>
     <MixedAssignment>
       <code><![CDATA[$this->endOption]]></code>
       <code><![CDATA[$this->logType]]></code>

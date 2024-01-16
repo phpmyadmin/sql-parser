@@ -215,8 +215,8 @@ class ExplainStatement extends Statement
                     continue;
                 }
 
-                if ($this->explainedColumn === null) {
-                    $this->explainedColumn = $token->value;
+                if ($this->explainedColumn === null && $token->value !== null) {
+                    $this->explainedColumn = (string) $token->value;
                 }
             }
         }

@@ -556,12 +556,12 @@ parameters:
 			path: src/Statements/ExplainStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$connectionId \\(int\\|null\\) does not accept mixed\\.$#"
+			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Statements/ExplainStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$explainedColumn \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$connectionId \\(int\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Statements/ExplainStatement.php
 
@@ -604,11 +604,6 @@ parameters:
 			message: "#^Cannot call method merge\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Statements/MaintenanceStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$endExpr \\(string\\|null\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Statements/PurgeStatement.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$endOption \\(string\\|null\\) does not accept mixed\\.$#"

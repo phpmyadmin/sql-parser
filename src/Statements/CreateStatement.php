@@ -378,10 +378,10 @@ class CreateStatement extends Statement
     public function build(): string
     {
         $fields = '';
-        if (! empty($this->fields)) {
+        if ($this->fields !== null && $this->fields !== []) {
             if (is_array($this->fields)) {
                 $fields = CreateDefinition::buildAll($this->fields) . ' ';
-            } elseif ($this->fields instanceof ArrayObj) {
+            } else {
                 $fields = $this->fields->build();
             }
         }
@@ -569,7 +569,7 @@ class CreateStatement extends Statement
                 }
             } else {
                 $this->fields = CreateDefinition::parse($parser, $list);
-                if (empty($this->fields)) {
+                if ($this->fields === []) {
                     $parser->error('At least one column definition was expected.', $list->tokens[$list->idx]);
                 }
 

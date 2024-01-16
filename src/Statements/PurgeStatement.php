@@ -35,7 +35,7 @@ class PurgeStatement extends Statement
     /**
      * The end expr of this query.
      */
-    public string|null $endExpr = null;
+    public Expression|null $endExpr = null;
 
     public function build(): string
     {
