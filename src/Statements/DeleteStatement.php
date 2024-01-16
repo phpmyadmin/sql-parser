@@ -62,42 +62,41 @@ class DeleteStatement extends Statement
      *
      * @see Statement::$clauses
      *
-     * @var array<string, array<int, int|string>>
-     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
+     * @var array<string, array{non-empty-string, int-mask-of<self::ADD_*>}>
      */
     public static array $clauses = [
         'DELETE' => [
             'DELETE',
-            2,
+            Statement::ADD_KEYWORD,
         ],
         // Used for options.
         '_OPTIONS' => [
             '_OPTIONS',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'FROM' => [
             'FROM',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'PARTITION' => [
             'PARTITION',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'USING' => [
             'USING',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'WHERE' => [
             'WHERE',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'ORDER BY' => [
             'ORDER BY',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'LIMIT' => [
             'LIMIT',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
     ];
 

@@ -20,17 +20,16 @@ class SetStatement extends Statement
      *
      * @see Statement::$clauses
      *
-     * @var array<string, array<int, int|string>>
-     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
+     * @var array<string, array{non-empty-string, int-mask-of<self::ADD_*>}>
      */
     public static array $clauses = [
         'SET' => [
             'SET',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         '_END_OPTIONS' => [
             '_END_OPTIONS',
-            1,
+            Statement::ADD_CLAUSE,
         ],
     ];
 

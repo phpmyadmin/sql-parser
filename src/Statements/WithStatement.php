@@ -37,22 +37,21 @@ final class WithStatement extends Statement
      *
      * @see Statement::$clauses
      *
-     * @var array<string, array<int, int|string>>
-     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
+     * @var array<string, array{non-empty-string, int-mask-of<self::ADD_*>}>
      */
     public static array $clauses = [
         'WITH' => [
             'WITH',
-            2,
+            Statement::ADD_KEYWORD,
         ],
         // Used for options.
         '_OPTIONS' => [
             '_OPTIONS',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'AS' => [
             'AS',
-            2,
+            Statement::ADD_KEYWORD,
         ],
     ];
 
