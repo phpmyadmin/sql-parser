@@ -136,22 +136,6 @@
       <code><![CDATA[$brackets < 0]]></code>
     </TypeDoesNotContainType>
   </file>
-  <file src="src/Components/ExpressionArray.php">
-    <InvalidReturnStatement>
-      <code>$ret</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>Expression[]</code>
-    </InvalidReturnType>
-    <PossiblyNullArgument>
-      <code>$expr</code>
-      <code>$expr</code>
-      <code>$expr</code>
-    </PossiblyNullArgument>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
-  </file>
   <file src="src/Components/FunctionCall.php">
     <MixedOperand>
       <code><![CDATA[$token->value]]></code>
@@ -288,6 +272,22 @@
       <code><![CDATA[$expr->name]]></code>
       <code><![CDATA[$expr->name]]></code>
     </MixedAssignment>
+  </file>
+  <file src="src/Components/Lists/ExpressionArray.php">
+    <InvalidReturnStatement>
+      <code>$ret</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code>Expression[]</code>
+    </InvalidReturnType>
+    <PossiblyNullArgument>
+      <code>$expr</code>
+      <code>$expr</code>
+      <code>$expr</code>
+    </PossiblyNullArgument>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>

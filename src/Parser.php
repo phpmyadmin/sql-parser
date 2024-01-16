@@ -158,12 +158,12 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'ANALYZE' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'BACKUP' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
@@ -172,12 +172,12 @@ class Parser
             'field' => 'call',
         ],
         'CHECK' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'CHECKSUM' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
@@ -186,7 +186,7 @@ class Parser
             'field' => 'join',
         ],
         'DROP' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'fields',
             'options' => ['parseField' => 'table'],
         ],
@@ -195,7 +195,7 @@ class Parser
             'field' => 'index_hints',
         ],
         'FROM' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'from',
             'options' => ['field' => 'table'],
         ],
@@ -281,7 +281,7 @@ class Parser
             'field' => 'limit',
         ],
         'OPTIMIZE' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
@@ -302,12 +302,12 @@ class Parser
             'field' => 'renames',
         ],
         'REPAIR' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'RESTORE' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
@@ -316,7 +316,7 @@ class Parser
             'field' => 'set',
         ],
         'SELECT' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'expr',
         ],
         'TRUNCATE' => [
@@ -325,7 +325,7 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'UPDATE' => [
-            'class' => Components\ExpressionArray::class,
+            'class' => Components\Lists\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
