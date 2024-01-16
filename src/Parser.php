@@ -286,7 +286,7 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'ORDER BY' => [
-            'class' => Components\OrderKeyword::class,
+            'class' => Components\Lists\OrderKeywords::class,
             'field' => 'order',
         ],
         'PARTITION' => [

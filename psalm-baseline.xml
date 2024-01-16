@@ -298,6 +298,22 @@
       <code>$state</code>
     </UnusedVariable>
   </file>
+  <file src="src/Components/Lists/OrderKeywords.php">
+    <MixedInferredReturnType>
+      <code>OrderKeyword[]</code>
+      <code>string</code>
+    </MixedInferredReturnType>
+    <UndefinedDocblockClass>
+      <code>OrderKeyword[]</code>
+      <code>OrderKeyword[]</code>
+    </UndefinedDocblockClass>
+    <UnusedParam>
+      <code>$component</code>
+      <code>$list</code>
+      <code>$options</code>
+      <code>$parser</code>
+    </UnusedParam>
+  </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
       <code>$table</code>
@@ -394,20 +410,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/OrderKeyword.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$expr</code>
-      <code>Expression::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-    </RedundantConditionGivenDocblockType>
-    <UnusedParam>
-      <code>$options</code>
-    </UnusedParam>
+    <ParseError>
+      <code><![CDATA[<<]]></code>
+    </ParseError>
   </file>
   <file src="src/Components/ParameterDefinition.php">
     <MixedAssignment>
@@ -968,6 +973,10 @@
     <PossiblyUnusedProperty>
       <code>$partition</code>
     </PossiblyUnusedProperty>
+    <UndefinedDocblockClass>
+      <code>array|null</code>
+      <code>public array|null $order = null;</code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/Statements/DropStatement.php">
     <PossiblyUnusedProperty>
@@ -1084,6 +1093,10 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->join)]]></code>
     </RiskyTruthyFalsyComparison>
+    <UndefinedDocblockClass>
+      <code>array|null</code>
+      <code>public array|null $order = null;</code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/Statements/SetStatement.php">
     <PossiblyNullArgument>
@@ -1122,6 +1135,10 @@
       <code>$set</code>
       <code>$where</code>
     </PossiblyUnusedProperty>
+    <UndefinedDocblockClass>
+      <code>array|null</code>
+      <code>public array|null $order = null;</code>
+    </UndefinedDocblockClass>
   </file>
   <file src="src/Statements/WithStatement.php">
     <MixedArgument>
@@ -1614,6 +1631,18 @@
       <code>assertNotNull</code>
       <code>assertNotNull</code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="tests/Components/OrderKeywordTest.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[[
+                    new OrderKeyword(new Expression('a'), 'ASC'),
+                    new OrderKeyword(new Expression('b'), 'DESC'),
+                ]]]></code>
+    </MixedArgumentTypeCoercion>
+    <UndefinedClass>
+      <code>OrderKeyword</code>
+      <code>OrderKeyword</code>
+    </UndefinedClass>
   </file>
   <file src="tests/Components/PartitionDefinitionTest.php">
     <PossiblyInvalidPropertyFetch>

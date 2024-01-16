@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Components\Lists\Conditions;
 use PhpMyAdmin\SqlParser\Components\Lists\ExpressionArray;
 use PhpMyAdmin\SqlParser\Components\Lists\JoinKeywords;
+use PhpMyAdmin\SqlParser\Components\Lists\OrderKeywords;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Parser;
@@ -179,7 +180,7 @@ class DeleteStatement extends Statement
         }
 
         if ($this->order !== null && $this->order !== []) {
-            $ret .= ' ORDER BY ' . OrderKeyword::buildAll($this->order);
+            $ret .= ' ORDER BY ' . OrderKeywords::buildAll($this->order);
         }
 
         if ($this->limit !== null && strlen((string) $this->limit) > 0) {
@@ -285,7 +286,7 @@ class DeleteStatement extends Statement
                                 break;
                             case 'ORDER BY':
                                 ++$list->idx; // Skip 'ORDER BY'
-                                $this->order = OrderKeyword::parse($parser, $list);
+                                $this->order = OrderKeywords::parse($parser, $list);
                                 $state = 5;
                                 break;
                             case 'LIMIT':
@@ -323,7 +324,7 @@ class DeleteStatement extends Statement
                     switch ($token->keyword) {
                         case 'ORDER BY':
                             ++$list->idx; // Skip 'ORDER  BY'
-                            $this->order = OrderKeyword::parse($parser, $list);
+                            $this->order = OrderKeywords::parse($parser, $list);
                             $state = 5;
                             break;
                         case 'LIMIT':
