@@ -2,6 +2,8 @@
     "query": "SELECT casein_pipe, email_cp, name_first_cp, name_last_cp, purpose_pipe\nFROM (tbl_comp_person INNER JOIN `tbl_pipelist` ON tbl_comp_person.IDp = tbl_pipelist.IDp)\nWHERE casein_pipe > '2016-03-01' AND  `campaign_id_pipe` = 24569 AND `weeksonlist_pipe` = 1\nORDER BY `tbl_pipelist`.`casein_pipe` ASC",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT casein_pipe, email_cp, name_first_cp, name_last_cp, purpose_pipe\nFROM (tbl_comp_person INNER JOIN `tbl_pipelist` ON tbl_comp_person.IDp = tbl_pipelist.IDp)\nWHERE casein_pipe > '2016-03-01' AND  `campaign_id_pipe` = 24569 AND `weeksonlist_pipe` = 1\nORDER BY `tbl_pipelist`.`casein_pipe` ASC",
         "len": 296,
         "last": 296,
@@ -785,8 +787,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -799,12 +801,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -949,9 +951,7 @@
                 "last": 68
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

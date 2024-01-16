@@ -2,6 +2,8 @@
     "query": "call e;call f",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "call e;call f",
         "len": 13,
         "last": 13,
@@ -97,8 +99,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@9"
@@ -109,12 +111,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -142,9 +144,7 @@
                 "last": 6
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

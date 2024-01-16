@@ -2,6 +2,8 @@
     "query": "CREATE DATABASE IF NOT EXISTS pma DEFAULT CHARSET 'utf8';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE DATABASE IF NOT EXISTS pma DEFAULT CHARSET 'utf8';",
         "len": 57,
         "last": 57,
@@ -154,8 +156,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@18"
@@ -166,12 +168,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -223,9 +225,7 @@
                 "last": 10
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

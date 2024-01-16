@@ -2,6 +2,8 @@
     "query": "DELIMITER $$\nCREATE FUNCTION F_TEST(uid INT)\nBEGIN\n    DECLARE username VARCHAR DEFAULT \"\";\n    SELECT username INTO username FROM users WHERE ID = uid;\n    RETURN username;\nEND",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DELIMITER $$\nCREATE FUNCTION F_TEST(uid INT)\nBEGIN\n    DECLARE username VARCHAR DEFAULT \"\";\n    SELECT username INTO username FROM users WHERE ID = uid;\n    RETURN username;\nEND",
         "len": 177,
         "last": 177,
@@ -629,8 +631,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@7"
@@ -641,12 +643,12 @@
             ]
         },
         "delimiter": "$$",
-        "delimiterLen": 2,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 2
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -821,9 +823,7 @@
                 "last": 55
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

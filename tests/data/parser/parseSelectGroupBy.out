@@ -2,6 +2,8 @@
     "query": "SELECT * FROM movie GROUP BY title;\nSELECT * FROM movie GROUP BY 1;\nSELECT * FROM movie GROUP BY year, title;\nSELECT * FROM movie GROUP BY year WITH ROLLUP;\nSELECT * FROM movie GROUP BY year, title WITH ROLLUP;\nSELECT * FROM movie GROUP BY year, title WITH ROLLUP ORDER BY year ASC LIMIT 0, 2;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT * FROM movie GROUP BY title;\nSELECT * FROM movie GROUP BY 1;\nSELECT * FROM movie GROUP BY year, title;\nSELECT * FROM movie GROUP BY year WITH ROLLUP;\nSELECT * FROM movie GROUP BY year, title WITH ROLLUP;\nSELECT * FROM movie GROUP BY year, title WITH ROLLUP ORDER BY year ASC LIMIT 0, 2;\n",
         "len": 294,
         "last": 294,
@@ -1190,8 +1192,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@18"
@@ -1202,12 +1204,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1655,9 +1657,7 @@
                 "last": 103
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

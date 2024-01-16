@@ -2,6 +2,8 @@
     "query": "DELETE LOW_PRIORITY\n/* */\nFROM\n    `test`.users\nWHERE\n    `id`<3 AND (username=\"Dan\" or username=\"Paul\")\nORDER BY\n    id\n;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DELETE LOW_PRIORITY\n/* */\nFROM\n    `test`.users\nWHERE\n    `id`<3 AND (username=\"Dan\" or username=\"Paul\")\nORDER BY\n    id\n;",
         "len": 122,
         "last": 122,
@@ -437,8 +439,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@47"
@@ -449,12 +451,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -544,9 +546,7 @@
                 "last": 35
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

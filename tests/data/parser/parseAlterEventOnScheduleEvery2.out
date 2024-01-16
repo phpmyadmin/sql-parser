@@ -2,6 +2,8 @@
     "query": "ALTER EVENT my_event ON SCHEDULE\n  EVERY 2 WEEK + INTERVAL 4 HOUR;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER EVENT my_event ON SCHEDULE\n  EVERY 2 WEEK + INTERVAL 4 HOUR;\n",
         "len": 67,
         "last": 67,
@@ -277,8 +279,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@29"
@@ -289,12 +291,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -350,9 +352,7 @@
                 "last": 21
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

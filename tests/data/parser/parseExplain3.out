@@ -2,6 +2,8 @@
     "query": "EXPLAIN ANALYZE SELECT first_name, last_name, SUM(amount) AS total FROM staff INNER JOIN payment ON staff.staff_id = payment.staff_id AND payment_date LIKE '2005-08%' GROUP BY first_name, last_name;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "EXPLAIN ANALYZE SELECT first_name, last_name, SUM(amount) AS total FROM staff INNER JOIN payment ON staff.staff_id = payment.staff_id AND payment_date LIKE '2005-08%' GROUP BY first_name, last_name;",
         "len": 198,
         "last": 198,
@@ -640,8 +642,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@63"
@@ -652,12 +654,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -666,6 +668,8 @@
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
                 "bodyParser": {
                     "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                    "strict": false,
+                    "errors": [],
                     "list": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                         "count": 53,
@@ -972,9 +976,7 @@
                             "last": 50
                         }
                     ],
-                    "brackets": 0,
-                    "strict": false,
-                    "errors": []
+                    "brackets": 0
                 },
                 "statementAlias": "EXPLAIN ANALYZE",
                 "connectionId": null,
@@ -989,9 +991,7 @@
                 "last": 56
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

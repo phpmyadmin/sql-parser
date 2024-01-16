@@ -2,6 +2,8 @@
     "query": "CREATE TABLE `autos8` (\n    `auto_id` int(10) UNSIGNED NOT NULL UNIQUE KEY,\n    `make` varchar(128) DEFAULT NULL,\n    `year` int(11) DEFAULT NULL,\n    `mileage` int(11) DEFAULT NULL,\n    `city` point NOT NULL,\n    SPATIAL INDEX `city_index` (`city`)\n) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE `autos8` (\n    `auto_id` int(10) UNSIGNED NOT NULL UNIQUE KEY,\n    `make` varchar(128) DEFAULT NULL,\n    `year` int(11) DEFAULT NULL,\n    `mileage` int(11) DEFAULT NULL,\n    `city` point NOT NULL,\n    SPATIAL INDEX `city_index` (`city`)\n) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_general_ci;",
         "len": 323,
         "last": 323,
@@ -1049,8 +1051,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@101"
@@ -1061,12 +1063,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1321,9 +1323,7 @@
                 "last": 92
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

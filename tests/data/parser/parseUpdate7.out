@@ -2,6 +2,8 @@
     "query": "UPDATE customer_table c\n\n  INNER JOIN\n      employee_table e\n      ON c.city_id = e.city_id\n  LEFT JOIN\n      anyother_table a\n      ON a.someID = e.someID\n\nSET c.active = \"Yes\"\nWHERE c.city = \"New york\";",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "UPDATE customer_table c\n\n  INNER JOIN\n      employee_table e\n      ON c.city_id = e.city_id\n  LEFT JOIN\n      anyother_table a\n      ON a.someID = e.someID\n\nSET c.active = \"Yes\"\nWHERE c.city = \"New york\";",
         "len": 204,
         "last": 204,
@@ -706,8 +708,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@69"
@@ -718,12 +720,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -827,9 +829,7 @@
                 "last": 60
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

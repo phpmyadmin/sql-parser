@@ -2,6 +2,8 @@
     "query": "CREATE VIEW `t3` as SELECT `t1` IS NOT NULL AS `is_not_null` FROM `test3`;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE VIEW `t3` as SELECT `t1` IS NOT NULL AS `is_not_null` FROM `test3`;\n",
         "len": 75,
         "last": 75,
@@ -295,8 +297,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@29"
@@ -307,12 +309,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -398,9 +400,7 @@
                 "last": 23
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

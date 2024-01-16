@@ -2,6 +2,8 @@
     "query": "CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`\nSQL SECURITY DEFINER VIEW `test_view`  AS\nselect `email_content`.`content_id` AS `content_id`,\n`email_content`.`brand_id` AS `brand_id` from `email_content`;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`\nSQL SECURITY DEFINER VIEW `test_view`  AS\nselect `email_content`.`content_id` AS `content_id`,\n`email_content`.`brand_id` AS `brand_id` from `email_content`;",
         "len": 211,
         "last": 211,
@@ -495,8 +497,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@49"
@@ -507,12 +509,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -635,9 +637,7 @@
                 "last": 42
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

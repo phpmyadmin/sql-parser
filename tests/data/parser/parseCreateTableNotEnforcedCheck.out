@@ -2,6 +2,8 @@
     "query": "CREATE TABLE IF NOT EXISTS employees_check (FirstName varchar(30) CHECK (FirstName REGEXP '^T' AND FirstName REGEXP 'r$') NOT ENFORCED);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE IF NOT EXISTS employees_check (FirstName varchar(30) CHECK (FirstName REGEXP '^T' AND FirstName REGEXP 'r$') NOT ENFORCED);",
         "len": 136,
         "last": 136,
@@ -455,8 +457,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@47"
@@ -467,12 +469,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -559,9 +561,7 @@
                 "last": 38
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

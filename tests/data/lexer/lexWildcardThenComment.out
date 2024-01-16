@@ -2,6 +2,8 @@
     "query": "SELECT */* comment */\n\nSELECT /* comment */*\n\nSELECT 2*/* comment */3\n\nSELECT 2/* comment */*3\n\nSELECT */*\ncomment\non\nmultiple\nlines\n*/FROM\n\nDELETE foo.*/* foo */ USING\n\nDELETE foo.*/* foo */,bar.*/*bar*/ USING\n\nSELECT `*`/*with comment*/ AS star_field\n\nSELECT `*`,*/*with comment*/\n\nDELETE a.*/*multi\nline /* with C open tag\ncomment inside */ USING\n\nSELECT 2*/* operator */3 + 3/* operator */*2,/* start wildcard */*/* end wildcard */\n\nSELECT `*`/*a*/*/*b*/`*`\n\n-- invalid queries\n/* SELECT */*",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT */* comment */\n\nSELECT /* comment */*\n\nSELECT 2*/* comment */3\n\nSELECT 2/* comment */*3\n\nSELECT */*\ncomment\non\nmultiple\nlines\n*/FROM\n\nDELETE foo.*/* foo */ USING\n\nDELETE foo.*/* foo */,bar.*/*bar*/ USING\n\nSELECT `*`/*with comment*/ AS star_field\n\nSELECT `*`,*/*with comment*/\n\nDELETE a.*/*multi\nline /* with C open tag\ncomment inside */ USING\n\nSELECT 2*/* operator */3 + 3/* operator */*2,/* start wildcard */*/* end wildcard */\n\nSELECT `*`/*a*/*/*b*/`*`\n\n-- invalid queries\n/* SELECT */*",
         "len": 495,
         "last": 495,
@@ -1214,8 +1216,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -1228,9 +1230,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

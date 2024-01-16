@@ -282,7 +282,7 @@ class Lexer
         }
 
         // Adding a final delimiter to mark the ending.
-        $list->tokens[$list->count++] = new Token(null, TokenType::Delimiter);
+        $list->tokens[$list->count++] = new Token('', TokenType::Delimiter);
 
         // Saving the tokens list.
         $this->list = $list;
@@ -360,7 +360,7 @@ class Lexer
                 && ($next->type !== TokenType::Operator
                     || ! in_array($next->value, self::OPERATOR_NAME_INDICATORS, true)
                 )
-                && ($next->value !== null)
+                && ($next->value !== '')
             ) {
                 continue;
             }
@@ -915,7 +915,7 @@ class Lexer
             $token .= $this->str[$this->last];
         }
 
-        return new Token($token, TokenType::String, $flags);
+        return new Token($token, TokenType::String, $flags ?? Token::FLAG_NONE);
     }
 
     /**

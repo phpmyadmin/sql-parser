@@ -2,6 +2,8 @@
     "query": "CREATE TABLE `trips` (\n    `id` bigint(20) UNSIGNED NOT NULL COMMENT 'Unique trip Id',\n    `trip_code` int(11) UNSIGNED NOT NULL COMMENT 'Trip code',\n    `trip_category` int(11) UNSIGNED NOT NULL COMMENT 'Trip category',\n    `trip_date` date NOT NULL COMMENT 'The trip date'\n) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'The trips' PARTITION BY LIST(trip_category) SUBPARTITION BY HASH(DAY(trip_date)) SUBPARTITIONS 31 (\n    PARTITION p1\n    VALUES\n        IN(1),\n        PARTITION p2\n    VALUES\n        IN(2),\n        PARTITION p3\n    VALUES\n        IN(3),\n        PARTITION p4\n    VALUES\n        IN(4),\n        PARTITION p5\n    VALUES\n        IN(5),\n        PARTITION p6\n    VALUES\n        IN(6),\n        PARTITION p7\n    VALUES\n        IN(7),\n        PARTITION p8\n    VALUES\n        IN(8),\n        PARTITION p9\n    VALUES\n        IN(9),\n        PARTITION p10\n    VALUES\n        IN(10),\n        PARTITION p11\n    VALUES\n        IN(11),\n        PARTITION p12\n    VALUES\n        IN(12),\n        PARTITION p13\n    VALUES\n        IN(13),\n        PARTITION p14\n    VALUES\n        IN(14),\n        PARTITION p15\n    VALUES\n        IN(15),\n        PARTITION p16\n    VALUES\n        IN(16),\n        PARTITION p17\n    VALUES\n        IN(17),\n        PARTITION p18\n    VALUES\n        IN(18),\n        PARTITION p19\n    VALUES\n        IN(19),\n        PARTITION p20\n    VALUES\n        IN(20),\n        PARTITION p21\n    VALUES\n        IN(21),\n        PARTITION p22\n    VALUES\n        IN(22),\n        PARTITION p23\n    VALUES\n        IN(23),\n        PARTITION p24\n    VALUES\n        IN(24),\n        PARTITION p25\n    VALUES\n        IN(25),\n        PARTITION p26\n    VALUES\n        IN(26),\n        PARTITION p27\n    VALUES\n        IN(27),\n        PARTITION p28\n    VALUES\n        IN(28),\n        PARTITION p29\n    VALUES\n        IN(29),\n        PARTITION p30\n    VALUES\n        IN(30),\n        PARTITION p31\n    VALUES\n        IN(31)\n);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE `trips` (\n    `id` bigint(20) UNSIGNED NOT NULL COMMENT 'Unique trip Id',\n    `trip_code` int(11) UNSIGNED NOT NULL COMMENT 'Trip code',\n    `trip_category` int(11) UNSIGNED NOT NULL COMMENT 'Trip category',\n    `trip_date` date NOT NULL COMMENT 'The trip date'\n) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'The trips' PARTITION BY LIST(trip_category) SUBPARTITION BY HASH(DAY(trip_date)) SUBPARTITIONS 31 (\n    PARTITION p1\n    VALUES\n        IN(1),\n        PARTITION p2\n    VALUES\n        IN(2),\n        PARTITION p3\n    VALUES\n        IN(3),\n        PARTITION p4\n    VALUES\n        IN(4),\n        PARTITION p5\n    VALUES\n        IN(5),\n        PARTITION p6\n    VALUES\n        IN(6),\n        PARTITION p7\n    VALUES\n        IN(7),\n        PARTITION p8\n    VALUES\n        IN(8),\n        PARTITION p9\n    VALUES\n        IN(9),\n        PARTITION p10\n    VALUES\n        IN(10),\n        PARTITION p11\n    VALUES\n        IN(11),\n        PARTITION p12\n    VALUES\n        IN(12),\n        PARTITION p13\n    VALUES\n        IN(13),\n        PARTITION p14\n    VALUES\n        IN(14),\n        PARTITION p15\n    VALUES\n        IN(15),\n        PARTITION p16\n    VALUES\n        IN(16),\n        PARTITION p17\n    VALUES\n        IN(17),\n        PARTITION p18\n    VALUES\n        IN(18),\n        PARTITION p19\n    VALUES\n        IN(19),\n        PARTITION p20\n    VALUES\n        IN(20),\n        PARTITION p21\n    VALUES\n        IN(21),\n        PARTITION p22\n    VALUES\n        IN(22),\n        PARTITION p23\n    VALUES\n        IN(23),\n        PARTITION p24\n    VALUES\n        IN(24),\n        PARTITION p25\n    VALUES\n        IN(25),\n        PARTITION p26\n    VALUES\n        IN(26),\n        PARTITION p27\n    VALUES\n        IN(27),\n        PARTITION p28\n    VALUES\n        IN(28),\n        PARTITION p29\n    VALUES\n        IN(29),\n        PARTITION p30\n    VALUES\n        IN(30),\n        PARTITION p31\n    VALUES\n        IN(31)\n);",
         "len": 1957,
         "last": 1957,
@@ -5396,8 +5398,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@497"
@@ -5408,12 +5410,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -7441,9 +7443,7 @@
                 "last": 486
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

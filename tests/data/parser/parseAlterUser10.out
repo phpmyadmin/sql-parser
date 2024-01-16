@@ -2,6 +2,8 @@
     "query": "ALTER USER 'bob'@'localhost' IDENTIFIED WITH mysql_native_password USING PASSWORD('vp8LAf4#wu2V&Wi*iJWC#3KPotsHzx3u');\n\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER USER 'bob'@'localhost' IDENTIFIED WITH mysql_native_password USING PASSWORD('vp8LAf4#wu2V&Wi*iJWC#3KPotsHzx3u');\n\n",
         "len": 120,
         "last": 120,
@@ -224,8 +226,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@25"
@@ -236,12 +238,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -306,9 +308,7 @@
                 "last": 16
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

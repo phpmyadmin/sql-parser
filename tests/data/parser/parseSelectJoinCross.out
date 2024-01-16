@@ -2,6 +2,8 @@
     "query": "SELECT table112.id,table112.bval1,table112.bval2,\ntable111.id,table111.aval1\nFROM table112\nCROSS JOIN table111",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT table112.id,table112.bval1,table112.bval2,\ntable111.id,table111.aval1\nFROM table112\nCROSS JOIN table111",
         "len": 110,
         "last": 110,
@@ -350,8 +352,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -364,12 +366,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -478,9 +480,7 @@
                 "last": 29
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

@@ -2,6 +2,8 @@
     "query": "CREATE TABLE table1 (\n    a INT NOT NULL,\n    b VARCHAR(32),\n    c INT AS (a mod 10) VIRTUAL,\n    d VARCHAR(5) AS (left(b,5)) PERSISTENT\n);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE table1 (\n    a INT NOT NULL,\n    b VARCHAR(32),\n    c INT AS (a mod 10) VIRTUAL,\n    d VARCHAR(5) AS (left(b,5)) PERSISTENT\n);",
         "len": 139,
         "last": 139,
@@ -706,8 +708,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@69"
@@ -718,12 +720,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -892,9 +894,7 @@
                 "last": 61
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

@@ -2,6 +2,8 @@
     "query": "ALTER EVENT my_event ON SCHEDULE\n  AT '2023-01-01 01:23:45' + INTERVAL 1 DAY;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER EVENT my_event ON SCHEDULE\n  AT '2023-01-01 01:23:45' + INTERVAL 1 DAY;\n",
         "len": 78,
         "last": 78,
@@ -257,8 +259,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@28"
@@ -269,12 +271,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -330,9 +332,7 @@
                 "last": 19
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

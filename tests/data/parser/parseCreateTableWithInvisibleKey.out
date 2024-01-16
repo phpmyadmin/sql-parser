@@ -2,6 +2,8 @@
     "query": "CREATE TABLE `animes_comments` (\n  `anime_comment_id` bigint unsigned NOT NULL AUTO_INCREMENT,\n  `anime_id` bigint unsigned NOT NULL,\n  `user_id` bigint unsigned NOT NULL,\n  `comment_text` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,\n  `comment_at` datetime DEFAULT NULL,\n  PRIMARY KEY (`anime_comment_id`),\n  KEY `animes_comments_animes_fk` (`anime_id`) invisible,\n  KEY `animes_comments_users_fk` (`user_id`),\n  KEY `comment_at_idx` (`comment_at`) ,\n  CONSTRAINT `animes_comments_animes_fk` FOREIGN KEY (`anime_id`) REFERENCES `animes` (`anime_id`) ON DELETE CASCADE ON UPDATE RESTRICT,\n  CONSTRAINT `animes_comments_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT)",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE `animes_comments` (\n  `anime_comment_id` bigint unsigned NOT NULL AUTO_INCREMENT,\n  `anime_id` bigint unsigned NOT NULL,\n  `user_id` bigint unsigned NOT NULL,\n  `comment_text` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,\n  `comment_at` datetime DEFAULT NULL,\n  PRIMARY KEY (`anime_comment_id`),\n  KEY `animes_comments_animes_fk` (`anime_id`) invisible,\n  KEY `animes_comments_users_fk` (`user_id`),\n  KEY `comment_at_idx` (`comment_at`) ,\n  CONSTRAINT `animes_comments_animes_fk` FOREIGN KEY (`anime_id`) REFERENCES `animes` (`anime_id`) ON DELETE CASCADE ON UPDATE RESTRICT,\n  CONSTRAINT `animes_comments_users_fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE RESTRICT)",
         "len": 730,
         "last": 730,
@@ -1696,8 +1698,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -1710,12 +1712,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -2123,9 +2125,7 @@
                 "last": 152
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

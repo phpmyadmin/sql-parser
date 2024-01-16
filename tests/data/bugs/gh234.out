@@ -2,6 +2,8 @@
     "query": "ALTER TABLE `mail_template` CHANGE COLUMN `mtpl_group` `mtpl_group` ENUM('ORDER') NULL DEFAULT NULL ;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "ALTER TABLE `mail_template` CHANGE COLUMN `mtpl_group` `mtpl_group` ENUM('ORDER') NULL DEFAULT NULL ;",
         "len": 101,
         "last": 101,
@@ -310,8 +312,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@33"
@@ -322,12 +324,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -418,9 +420,7 @@
                 "last": 25
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

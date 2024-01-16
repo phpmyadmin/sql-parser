@@ -2,6 +2,8 @@
     "query": "SELECT a\ninto outfile '/tmp/temp.data'\nfields terminated by ',' enclosed by '\"' ESCAPED BY '$'\nFROM sometable",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT a\ninto outfile '/tmp/temp.data'\nfields terminated by ',' enclosed by '\"' ESCAPED BY '$'\nFROM sometable",
         "len": 109,
         "last": 109,
@@ -317,8 +319,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -331,12 +333,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -446,9 +448,7 @@
                 "last": 26
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

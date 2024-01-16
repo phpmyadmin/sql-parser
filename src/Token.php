@@ -64,10 +64,8 @@ class Token
 
     /**
      * The token it its raw string representation.
-     *
-     * @var string
      */
-    public $token;
+    public string $token;
 
     /**
      * The value this token contains (i.e. token after some evaluation).
@@ -90,10 +88,8 @@ class Token
 
     /**
      * The flags of this token.
-     *
-     * @var int
      */
-    public $flags;
+    public int $flags;
 
     /**
      * The position in the initial string where this token started.
@@ -110,7 +106,7 @@ class Token
      * @param TokenType $type  the type of the token
      * @param int       $flags the flags of the token
      */
-    public function __construct($token, TokenType $type = TokenType::None, $flags = 0)
+    public function __construct(string $token, TokenType $type = TokenType::None, int $flags = self::FLAG_NONE)
     {
         $this->token = $token;
         $this->type = $type;

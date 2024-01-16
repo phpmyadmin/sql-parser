@@ -2,6 +2,8 @@
     "query": "-- missing comma between alter operations\nALTER TABLE tb_foo CHANGE inmsg inmsg date NULL AFTER outmsg2 CHANGE inmsg2 inmsg2 time NULL AFTER inmsg;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "-- missing comma between alter operations\nALTER TABLE tb_foo CHANGE inmsg inmsg date NULL AFTER outmsg2 CHANGE inmsg2 inmsg2 time NULL AFTER inmsg;\n",
         "len": 148,
         "last": 148,
@@ -429,8 +431,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@42"
@@ -441,12 +443,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -527,9 +529,7 @@
                 "last": 35
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

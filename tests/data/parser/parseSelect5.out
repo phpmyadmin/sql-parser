@@ -2,6 +2,8 @@
     "query": "SELECT c1, c2, c3\n   /* Subquery in FROM list */\n   FROM (SELECT C1, c2, c3 FROM test2) t1\n   WHERE RIGHT(name, 2) = 'AB';\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT c1, c2, c3\n   /* Subquery in FROM list */\n   FROM (SELECT C1, c2, c3 FROM test2) t1\n   WHERE RIGHT(name, 2) = 'AB';\n",
         "len": 123,
         "last": 123,
@@ -545,8 +547,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@55"
@@ -557,12 +559,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -644,9 +646,7 @@
                 "last": 44
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

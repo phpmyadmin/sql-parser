@@ -2,6 +2,8 @@
     "query": "DESC REPLACE INTO test VALUES (1, 'Old', '2014-08-20 18:47:00');",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "DESC REPLACE INTO test VALUES (1, 'Old', '2014-08-20 18:47:00');",
         "len": 64,
         "last": 64,
@@ -246,8 +248,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@28"
@@ -258,12 +260,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -272,6 +274,8 @@
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
                 "bodyParser": {
                     "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                    "strict": false,
+                    "errors": [],
                     "list": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                         "count": 19,
@@ -383,9 +387,7 @@
                             "last": 16
                         }
                     ],
-                    "brackets": 0,
-                    "strict": false,
-                    "errors": []
+                    "brackets": 0
                 },
                 "statementAlias": "DESC",
                 "connectionId": null,
@@ -400,9 +402,7 @@
                 "last": 20
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

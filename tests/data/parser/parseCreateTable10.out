@@ -2,6 +2,8 @@
     "query": "CREATE TABLE `trips2` (\n    `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY COMMENT 'Unique trip Id',\n    `trip_code` int(11) UNSIGNED NOT NULL COMMENT 'Trip code',\n    `trip_category` int(11) UNSIGNED NOT NULL COMMENT 'Trip category',\n    `trip_date` date NOT NULL COMMENT 'The trip date'\n) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'The trips';",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE TABLE `trips2` (\n    `id` bigint(20) UNSIGNED NOT NULL PRIMARY KEY COMMENT 'Unique trip Id',\n    `trip_code` int(11) UNSIGNED NOT NULL COMMENT 'Trip code',\n    `trip_category` int(11) UNSIGNED NOT NULL COMMENT 'Trip category',\n    `trip_date` date NOT NULL COMMENT 'The trip date'\n) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'The trips';",
         "len": 383,
         "last": 383,
@@ -1062,8 +1064,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@103"
@@ -1074,12 +1076,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1278,9 +1280,7 @@
                 "last": 93
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

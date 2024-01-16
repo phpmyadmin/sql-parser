@@ -2,6 +2,8 @@
     "query": "SELECT ALL DISTINCT MAX_STATEMENT_TIME = 10\n    1 + 2 AS result,\n    @idx,\n    id,\n    test.`users`.username AS\nFROM\n    `test`.users\n    PARTITION (p1, p2)\nWHERE\n    id > 0\nORDER BY\n    username DESC,\n    id\nLIMIT 2, 3;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT ALL DISTINCT MAX_STATEMENT_TIME = 10\n    1 + 2 AS result,\n    @idx,\n    id,\n    test.`users`.username AS\nFROM\n    `test`.users\n    PARTITION (p1, p2)\nWHERE\n    id > 0\nORDER BY\n    username DESC,\n    id\nLIMIT 2, 3;",
         "len": 220,
         "last": 220,
@@ -862,8 +864,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@84"
@@ -874,12 +876,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -1022,9 +1024,7 @@
                 "last": 74
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

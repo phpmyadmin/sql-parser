@@ -2,6 +2,8 @@
     "query": "CREATE table table_name WITH cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 ) SELECT col1 FROM cte",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "CREATE table table_name WITH cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 ) SELECT col1 FROM cte",
         "len": 95,
         "last": 95,
@@ -429,8 +431,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -443,12 +445,12 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": {
         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "strict": false,
+        "errors": [],
         "list": {
             "@type": "@1"
         },
@@ -486,6 +488,8 @@
                             ],
                             "statement": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                                "strict": false,
+                                "errors": [],
                                 "list": {
                                     "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                                     "count": 11,
@@ -602,14 +606,14 @@
                                         "last": 10
                                     }
                                 ],
-                                "brackets": 0,
-                                "strict": false,
-                                "errors": []
+                                "brackets": 0
                             }
                         }
                     },
                     "cteStatementParser": {
                         "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                        "strict": false,
+                        "errors": [],
                         "list": {
                             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                             "count": 8,
@@ -689,9 +693,7 @@
                                 "last": 6
                             }
                         ],
-                        "brackets": 0,
-                        "strict": false,
-                        "errors": []
+                        "brackets": 0
                     },
                     "options": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
@@ -721,9 +723,7 @@
                 "last": 36
             }
         ],
-        "brackets": 0,
-        "strict": false,
-        "errors": []
+        "brackets": 0
     },
     "errors": {
         "lexer": [],

@@ -2,6 +2,8 @@
     "query": "# comment\nSELECT /*!50000 STRAIGHT_JOIN */ col1 FROM table1, table2 /* select query */\n-- comment\n-- comment 2",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "# comment\nSELECT /*!50000 STRAIGHT_JOIN */ col1 FROM table1, table2 /* select query */\n-- comment\n-- comment 2",
         "len": 110,
         "last": 111,
@@ -286,8 +288,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -300,9 +302,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {

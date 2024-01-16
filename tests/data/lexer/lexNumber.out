@@ -2,6 +2,8 @@
     "query": "SELECT 12, 34, 5.67, 0x89, -10, --11, +12, .15, 0xFFa, 0xfFA, +0xfFA, -0xFFa, -0xfFA, 1e-10, 1e10, .5e10, b'10';\n-- invalid numbers\nSELECT 12ex10, b'15', 0XFfA, -0XFfA, +0XFfA;",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "strict": false,
+        "errors": [],
         "str": "SELECT 12, 34, 5.67, 0x89, -10, --11, +12, .15, 0xFFa, 0xfFA, +0xfFA, -0xFFa, -0xfFA, 1e-10, 1e10, .5e10, b'10';\n-- invalid numbers\nSELECT 12ex10, b'15', 0XFfA, -0XFfA, +0XFfA;",
         "len": 176,
         "last": 176,
@@ -842,8 +844,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": null,
-                    "value": null,
+                    "token": "",
+                    "value": "",
                     "keyword": null,
                     "type": {
                         "@type": "@58"
@@ -854,9 +856,7 @@
             ]
         },
         "delimiter": ";",
-        "delimiterLen": 1,
-        "strict": false,
-        "errors": []
+        "delimiterLen": 1
     },
     "parser": null,
     "errors": {
