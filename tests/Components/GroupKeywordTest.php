@@ -53,7 +53,7 @@ class GroupKeywordTest extends TestCase
 
     /** @param GroupKeyword|array<GroupKeyword> $component */
     #[DataProvider('provideExpressions')]
-    public function testBuild($component, string $expected): void
+    public function testBuild(GroupKeyword|array $component, string $expected): void
     {
         if (is_array($component)) {
             $this->assertSame($expected, GroupKeyword::buildAll($component));
