@@ -35,7 +35,7 @@ class Formatter
      *
      * @var array<string, bool|string|array<int, array<string, int|string>>>
      */
-    public $options;
+    public array $options;
 
     /**
      * Clauses that are usually short.
@@ -55,7 +55,7 @@ class Formatter
      *
      * @var array<string, bool>
      */
-    public static $shortClauses = [
+    public static array $shortClauses = [
         'CREATE' => true,
         'INSERT' => true,
     ];
@@ -67,7 +67,7 @@ class Formatter
      *
      * @var array<string, bool>
      */
-    public static $inlineClauses = [
+    public static array $inlineClauses = [
         'CREATE' => true,
         'INTO' => true,
         'LIMIT' => true,

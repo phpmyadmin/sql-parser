@@ -38,10 +38,8 @@ class BufferedQuery
      * The query that is being processed.
      *
      * This field can be modified just by appending to it!
-     *
-     * @var string
      */
-    public $query = '';
+    public string $query = '';
 
     /**
      * The options of this parser.
@@ -49,35 +47,27 @@ class BufferedQuery
      * @var array<string, bool|string>
      * @psalm-var array{delimiter?: non-empty-string, parse_delimiter?: bool, add_delimiter?: bool}
      */
-    public $options = [];
+    public array $options = [];
 
     /**
      * The last delimiter used.
-     *
-     * @var string
      */
-    public $delimiter;
+    public string $delimiter;
 
     /**
      * The length of the delimiter.
-     *
-     * @var int
      */
-    public $delimiterLen;
+    public int $delimiterLen;
 
     /**
      * The current status of the parser.
-     *
-     * @var int|null
      */
-    public $status;
+    public int|null $status = null;
 
     /**
      * The last incomplete query that was extracted.
-     *
-     * @var string
      */
-    public $current = '';
+    public string $current = '';
 
     /**
      * @param string                     $query   the query to be parsed

@@ -77,7 +77,7 @@ class Query
      *
      * @var string[]
      */
-    public static $functions = [
+    public static array $functions = [
         'SUM',
         'AVG',
         'STD',
@@ -120,7 +120,7 @@ class Query
      *   union: false
      * }
      */
-    public static $allFlags = [
+    public static array $allFlags = [
         /*
          * select ... DISTINCT ...
          */
