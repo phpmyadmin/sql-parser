@@ -31,7 +31,7 @@ class CreateStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         // CREATE TABLE
         'TEMPORARY' => 1,
 
@@ -279,10 +279,8 @@ class CreateStatement extends Statement
      * @see CreateStatement::TABLE_OPTIONS
      * @see CreateStatement::FUNCTION_OPTIONS
      * @see CreateStatement::TRIGGER_OPTIONS
-     *
-     * @var OptionsArray|null
      */
-    public $entityOptions;
+    public OptionsArray|null $entityOptions = null;
 
     /**
      * If `CREATE TABLE`, a list of columns and keys.
@@ -292,7 +290,7 @@ class CreateStatement extends Statement
      *
      * @var CreateDefinition[]|ArrayObj|null
      */
-    public $fields;
+    public array|ArrayObj|null $fields = null;
 
     /**
      * If `CREATE TABLE WITH`.
@@ -300,82 +298,64 @@ class CreateStatement extends Statement
      * If `CREATE VIEW AS WITH`.
      *
      * Used by `CREATE TABLE`, `CREATE VIEW`
-     *
-     * @var WithStatement|null
      */
-    public $with;
+    public WithStatement|null $with = null;
 
     /**
      * If `CREATE TABLE ... SELECT`.
      * If `CREATE VIEW AS ` ... SELECT`.
      *
      * Used by `CREATE TABLE`, `CREATE VIEW`
-     *
-     * @var SelectStatement|null
      */
-    public $select;
+    public SelectStatement|null $select = null;
 
     /**
      * If `CREATE TABLE ... LIKE`.
      *
      * Used by `CREATE TABLE`
-     *
-     * @var Expression|null
      */
-    public $like;
+    public Expression|null $like = null;
 
     /**
      * Expression used for partitioning.
-     *
-     * @var string|null
      */
-    public $partitionBy;
+    public string|null $partitionBy = null;
 
     /**
      * The number of partitions.
-     *
-     * @var int|null
      */
-    public $partitionsNum;
+    public int|null $partitionsNum = null;
 
     /**
      * Expression used for subpartitioning.
-     *
-     * @var string|null
      */
-    public $subpartitionBy;
+    public string|null $subpartitionBy = null;
 
     /**
      * The number of subpartitions.
-     *
-     * @var int|null
      */
-    public $subpartitionsNum;
+    public int|null $subpartitionsNum = null;
 
     /**
      * The partition of the new table.
      *
      * @var PartitionDefinition[]|null
      */
-    public $partitions;
+    public array|null $partitions = null;
 
     /**
      * If `CREATE TRIGGER` the name of the table.
      *
      * Used by `CREATE TRIGGER`.
-     *
-     * @var Expression|null
      */
-    public $table;
+    public Expression|null $table = null;
 
     /**
      * The return data type of this routine.
      *
      * Used by `CREATE FUNCTION`.
-     *
-     * @var DataType|null
      */
-    public $return;
+    public DataType|null $return = null;
 
     /**
      * The parameters of this routine.
@@ -384,7 +364,7 @@ class CreateStatement extends Statement
      *
      * @var ParameterDefinition[]|null
      */
-    public $parameters;
+    public array|null $parameters = null;
 
     /**
      * The body of this function or procedure.

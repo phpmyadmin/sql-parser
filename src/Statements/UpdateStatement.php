@@ -36,7 +36,7 @@ class UpdateStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'LOW_PRIORITY' => 1,
         'IGNORE' => 2,
     ];
@@ -49,7 +49,7 @@ class UpdateStatement extends Statement
      * @var array<string, array<int, int|string>>
      * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
-    public static $clauses = [
+    public static array $clauses = [
         'UPDATE' => [
             'UPDATE',
             2,
@@ -99,40 +99,38 @@ class UpdateStatement extends Statement
      *
      * @var Expression[]|null
      */
-    public $tables;
+    public array|null $tables = null;
 
     /**
      * The updated values.
      *
      * @var SetOperation[]|null
      */
-    public $set;
+    public array|null $set = null;
 
     /**
      * Conditions used for filtering each row of the result set.
      *
      * @var Condition[]|null
      */
-    public $where;
+    public array|null $where = null;
 
     /**
      * Specifies the order of the rows in the result set.
      *
      * @var OrderKeyword[]|null
      */
-    public $order;
+    public array|null $order = null;
 
     /**
      * Conditions used for limiting the size of the result set.
-     *
-     * @var Limit|null
      */
-    public $limit;
+    public Limit|null $limit = null;
 
     /**
      * Joins.
      *
      * @var JoinKeyword[]|null
      */
-    public $join;
+    public array|null $join = null;
 }

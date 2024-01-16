@@ -25,24 +25,20 @@ class TransactionStatement extends Statement
 
     /**
      * The type of this query.
-     *
-     * @var int|null
      */
-    public $type;
+    public int|null $type = null;
 
     /**
      * The list of statements in this transaction.
      *
      * @var Statement[]|null
      */
-    public $statements;
+    public array|null $statements = null;
 
     /**
      * The ending transaction statement which may be a `COMMIT` or a `ROLLBACK`.
-     *
-     * @var TransactionStatement|null
      */
-    public $end;
+    public TransactionStatement|null $end = null;
 
     /**
      * Options for this query.
@@ -50,7 +46,7 @@ class TransactionStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'START TRANSACTION' => 1,
         'BEGIN' => 1,
         'COMMIT' => 1,

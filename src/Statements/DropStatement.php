@@ -18,7 +18,7 @@ class DropStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'DATABASE' => 1,
         'EVENT' => 1,
         'FUNCTION' => 1,
@@ -45,7 +45,7 @@ class DropStatement extends Statement
      * @var array<string, array<int, int|string>>
      * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
-    public static $clauses = [
+    public static array $clauses = [
         'DROP' => [
             'DROP',
             2,
@@ -71,12 +71,10 @@ class DropStatement extends Statement
      *
      * @var Expression[]|null
      */
-    public $fields;
+    public array|null $fields = null;
 
     /**
      * Table of the dropped index.
-     *
-     * @var Expression|null
      */
-    public $table;
+    public Expression|null $table = null;
 }

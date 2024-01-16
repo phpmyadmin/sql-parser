@@ -30,7 +30,7 @@ final class WithStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = ['RECURSIVE' => 1];
+    public static array $statementOptions = ['RECURSIVE' => 1];
 
     /**
      * The clauses of this statement, in order.
@@ -40,7 +40,7 @@ final class WithStatement extends Statement
      * @var array<string, array<int, int|string>>
      * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
-    public static $clauses = [
+    public static array $clauses = [
         'WITH' => [
             'WITH',
             2,
@@ -57,14 +57,12 @@ final class WithStatement extends Statement
     ];
 
     /** @var WithKeyword[] */
-    public $withers = [];
+    public array $withers = [];
 
     /**
      * holds the CTE parser.
-     *
-     * @var Parser|null
      */
-    public $cteStatementParser;
+    public Parser|null $cteStatementParser = null;
 
     /**
      * @param Parser     $parser the instance that requests parsing

@@ -23,7 +23,7 @@ class SetStatement extends Statement
      * @var array<string, array<int, int|string>>
      * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
-    public static $clauses = [
+    public static array $clauses = [
         'SET' => [
             'SET',
             3,
@@ -40,7 +40,7 @@ class SetStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'CHARSET' => [
             3,
             'var',
@@ -77,26 +77,22 @@ class SetStatement extends Statement
 
     /**
      * Options used in current statement.
-     *
-     * @var OptionsArray|null
      */
-    public $options;
+    public OptionsArray|null $options = null;
 
     /**
      * The end options of this query.
      *
      * @see SetStatement::STATEMENT_END_OPTIONS
-     *
-     * @var OptionsArray|null
      */
-    public $endOptions;
+    public OptionsArray|null $endOptions = null;
 
     /**
      * The updated values.
      *
      * @var SetOperation[]|null
      */
-    public $set;
+    public array|null $set = null;
 
     public function build(): string
     {

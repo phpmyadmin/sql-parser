@@ -51,7 +51,7 @@ class DeleteStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'LOW_PRIORITY' => 1,
         'QUICK' => 2,
         'IGNORE' => 3,
@@ -65,7 +65,7 @@ class DeleteStatement extends Statement
      * @var array<string, array<int, int|string>>
      * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
      */
-    public static $clauses = [
+    public static array $clauses = [
         'DELETE' => [
             'DELETE',
             2,
@@ -131,10 +131,8 @@ class DeleteStatement extends Statement
 
     /**
      * Partitions used as source for this statement.
-     *
-     * @var ArrayObj|null
      */
-    public $partition;
+    public ArrayObj|null $partition = null;
 
     /**
      * Conditions used for filtering each row of the result set.
@@ -152,10 +150,8 @@ class DeleteStatement extends Statement
 
     /**
      * Conditions used for limiting the size of the result set.
-     *
-     * @var Limit|null
      */
-    public $limit;
+    public Limit|null $limit = null;
 
     public function build(): string
     {

@@ -22,17 +22,15 @@ class AlterStatement extends Statement
 {
     /**
      * Table affected.
-     *
-     * @var Expression|null
      */
-    public $table;
+    public Expression|null $table = null;
 
     /**
      * Column affected by this statement.
      *
      * @var AlterOperation[]|null
      */
-    public $altered = [];
+    public array|null $altered = [];
 
     /**
      * Options of this statement.
@@ -40,7 +38,7 @@ class AlterStatement extends Statement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'ONLINE' => 1,
         'OFFLINE' => 1,
         'IGNORE' => 2,

@@ -15,7 +15,7 @@ class ShowStatement extends NotImplementedStatement
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $statementOptions = [
+    public static array $statementOptions = [
         'CREATE' => 1,
         'AUTHORS' => 2,
         'BINARY' => 2,

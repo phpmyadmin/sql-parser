@@ -24,24 +24,18 @@ class PurgeStatement extends Statement
 {
     /**
      * The type of logs
-     *
-     * @var string|null
      */
-    public $logType;
+    public string|null $logType = null;
 
     /**
      * The end option of this query.
-     *
-     * @var string|null
      */
-    public $endOption;
+    public string|null $endOption = null;
 
     /**
      * The end expr of this query.
-     *
-     * @var string|null
      */
-    public $endExpr;
+    public string|null $endExpr = null;
 
     public function build(): string
     {
