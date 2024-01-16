@@ -154,21 +154,10 @@
   <file src="src/Components/GroupKeyword.php">
     <PossiblyNullPropertyAssignmentValue>
       <code>$expr</code>
-      <code>Expression::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyUnusedProperty>
       <code>$type</code>
     </PossiblyUnusedProperty>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-    </RedundantConditionGivenDocblockType>
-    <UnusedParam>
-      <code>$options</code>
-    </UnusedParam>
   </file>
   <file src="src/Components/IndexHint.php">
     <MixedAssignment>
@@ -288,6 +277,18 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
+  </file>
+  <file src="src/Components/Lists/GroupKeywords.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code>Expression::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+    </RedundantConditionGivenDocblockType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>

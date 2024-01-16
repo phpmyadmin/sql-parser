@@ -200,7 +200,7 @@ class Parser
             'options' => ['field' => 'table'],
         ],
         'GROUP BY' => [
-            'class' => Components\GroupKeyword::class,
+            'class' => Components\Lists\GroupKeywords::class,
             'field' => 'group',
         ],
         'HAVING' => [
