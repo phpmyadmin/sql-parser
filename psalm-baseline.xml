@@ -984,12 +984,10 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/Translator.php">
-    <DocblockTypeContradiction>
-      <code>self::$loader === null</code>
-    </DocblockTypeContradiction>
-    <RedundantConditionGivenDocblockType>
-      <code>self::$translator !== null</code>
-    </RedundantConditionGivenDocblockType>
+    <RedundantPropertyInitializationCheck>
+      <code>isset(self::$loader)</code>
+      <code>isset(self::$translator)</code>
+    </RedundantPropertyInitializationCheck>
   </file>
   <file src="src/UtfString.php">
     <PossiblyUnusedProperty>
