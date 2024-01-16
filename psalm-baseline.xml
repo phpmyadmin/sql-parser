@@ -160,9 +160,6 @@
     </PossiblyUnusedProperty>
   </file>
   <file src="src/Components/IndexHint.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->type]]></code>
-    </MixedAssignment>
     <PossiblyNullOperand>
       <code><![CDATA[$this->indexOrKey]]></code>
       <code><![CDATA[$this->type]]></code>
@@ -289,6 +286,14 @@
     <UnusedParam>
       <code>$options</code>
     </UnusedParam>
+  </file>
+  <file src="src/Components/Lists/IndexHints.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->type]]></code>
+    </MixedAssignment>
+    <PossiblyUnusedMethod>
+      <code>buildAll</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>

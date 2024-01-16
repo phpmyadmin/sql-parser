@@ -96,11 +96,6 @@ parameters:
 			path: src/Components/GroupKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$type \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/IndexHint.php
-
-		-
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
@@ -214,6 +209,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
 			count: 2
 			path: src/Components/Lists/GroupKeywords.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$type \\(string\\|null\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/Lists/IndexHints.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"

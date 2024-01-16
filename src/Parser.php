@@ -191,7 +191,7 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'FORCE' => [
-            'class' => Components\IndexHint::class,
+            'class' => Components\Lists\IndexHints::class,
             'field' => 'index_hints',
         ],
         'FROM' => [
@@ -208,7 +208,7 @@ class Parser
             'field' => 'having',
         ],
         'IGNORE' => [
-            'class' => Components\IndexHint::class,
+            'class' => Components\Lists\IndexHints::class,
             'field' => 'index_hints',
         ],
         'INTO' => [
@@ -330,7 +330,7 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'USE' => [
-            'class' => Components\IndexHint::class,
+            'class' => Components\Lists\IndexHints::class,
             'field' => 'index_hints',
         ],
         'VALUE' => [
