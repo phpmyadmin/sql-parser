@@ -69,17 +69,13 @@ class Token
 
     /**
      * The value this token contains (i.e. token after some evaluation).
-     *
-     * @var mixed
      */
-    public $value;
+    public mixed $value;
 
     /**
      * The keyword value this token contains, always uppercase.
-     *
-     * @var mixed|string|null
      */
-    public $keyword = null;
+    public mixed $keyword = null;
 
     /**
      * The type of this token.
@@ -96,10 +92,8 @@ class Token
      *
      * The position is counted in chars, not bytes, so you should
      * use mb_* functions to properly handle utf-8 multibyte chars.
-     *
-     * @var int|null
      */
-    public $position;
+    public int|null $position = null;
 
     /**
      * @param string    $token the value of the token
