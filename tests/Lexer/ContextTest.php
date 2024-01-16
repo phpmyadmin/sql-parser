@@ -20,13 +20,12 @@ class ContextTest extends TestCase
     public function testLoad(): void
     {
         // Default context is 5.7.0.
-        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
+        $this->assertEquals('PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$loadedContext);
         $this->assertArrayHasKey('STORED', Context::$keywords);
         $this->assertArrayNotHasKey('AUTHORS', Context::$keywords);
 
         // Restoring context.
-        Context::load('');
-        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700', Context::$defaultContext);
+        Context::load();
         $this->assertArrayHasKey('STORED', Context::$keywords);
         $this->assertArrayNotHasKey('AUTHORS', Context::$keywords);
     }
@@ -39,12 +38,12 @@ class ContextTest extends TestCase
     {
         $this->assertEquals($expected, Context::loadClosest($context));
         if ($expected !== null) {
-            $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\Context' . $expected, Context::$loadedContext);
+            $this->assertEquals('PhpMyAdmin\\SqlParser\\Contexts\\Context' . $expected, Context::$loadedContext);
             $this->assertTrue(class_exists(Context::$loadedContext));
         }
 
         // Restoring context.
-        Context::load('');
+        Context::load();
     }
 
     /**
@@ -89,10 +88,10 @@ class ContextTest extends TestCase
     public function testLoadAll(string $context): void
     {
         Context::load($context);
-        $this->assertEquals('\\PhpMyAdmin\\SqlParser\\Contexts\\Context' . $context, Context::$loadedContext);
+        $this->assertEquals('PhpMyAdmin\\SqlParser\\Contexts\\Context' . $context, Context::$loadedContext);
 
         // Restoring context.
-        Context::load('');
+        Context::load();
     }
 
     /** @return string[][] */

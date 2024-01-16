@@ -42,7 +42,7 @@ class ContextGenerator
      *
      * @var array<string, int>
      */
-    public static $labelsFlags = [
+    public static array $labelsFlags = [
         '(R)' => 2, // reserved
         '(D)' => 8, // data type
         '(K)' => 16, // keyword
@@ -54,7 +54,7 @@ class ContextGenerator
      *
      * @var array<string, string>
      */
-    public static $links = [
+    public static array $links = [
         'MySql50000' => 'https://dev.mysql.com/doc/refman/5.0/en/keywords.html',
         'MySql50100' => 'https://dev.mysql.com/doc/refman/5.1/en/keywords.html',
         'MySql50500' => 'https://dev.mysql.com/doc/refman/5.5/en/keywords.html',
@@ -121,7 +121,7 @@ class %2$s extends Context
      * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
-    public static $keywords = [
+    public static array $keywords = [
 %4$s    ];
 }
 

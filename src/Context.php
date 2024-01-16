@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use PhpMyAdmin\SqlParser\Contexts\ContextMySql50700;
+
 use function class_exists;
 use function explode;
 use function in_array;
@@ -44,26 +46,15 @@ abstract class Context
     public const OPERATOR_MAX_LENGTH = 4;
 
     /**
-     * The name of the default content.
-     *
-     * @var string
-     */
-    public static $defaultContext = '\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700';
-
-    /**
      * The name of the loaded context.
-     *
-     * @var string
      */
-    public static $loadedContext = '\\PhpMyAdmin\\SqlParser\\Contexts\\ContextMySql50700';
+    public static string $loadedContext = ContextMySql50700::class;
 
     /**
      * The prefix concatenated to the context name when an incomplete class name
      * is specified.
-     *
-     * @var string
      */
-    public static $contextPrefix = '\\PhpMyAdmin\\SqlParser\\Contexts\\Context';
+    public static string $contextPrefix = 'PhpMyAdmin\\SqlParser\\Contexts\\Context';
 
     /**
      * List of keywords.
@@ -83,14 +74,14 @@ abstract class Context
      * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
-    public static $keywords = [];
+    public static array $keywords = [];
 
     /**
      * List of operators and their flags.
      *
      * @var array<string, int>
      */
-    public static $operators = [
+    public static array $operators = [
         // Some operators (*, =) may have ambiguous flags, because they depend on
         // the context they are being used in.
         // For example: 1. SELECT * FROM table; # SQL specific (wildcard)
@@ -144,10 +135,8 @@ abstract class Context
      *
      * @link https://dev.mysql.com/doc/refman/en/sql-mode.html
      * @link https://mariadb.com/kb/en/sql-mode/
-     *
-     * @var int
      */
-    public static $mode = self::SQL_MODE_NONE;
+    public static int $mode = self::SQL_MODE_NONE;
 
     public const SQL_MODE_NONE = 0;
 
@@ -529,17 +518,17 @@ abstract class Context
      */
     public static function load(string $context = ''): bool
     {
-        if (empty($context)) {
-            $context = self::$defaultContext;
-        }
-
-        if ($context[0] !== '\\') {
-            // Short context name (must be formatted into class name).
-            $context = self::$contextPrefix . $context;
+        if ($context === '') {
+            $context = ContextMySql50700::class;
         }
 
         if (! class_exists($context)) {
-            return false;
+            if (! class_exists(self::$contextPrefix . $context)) {
+                return false;
+            }
+
+            // Short context name (must be formatted into class name).
+            $context = self::$contextPrefix . $context;
         }
 
         self::$loadedContext = $context;
