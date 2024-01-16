@@ -178,10 +178,6 @@
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[ArrayObj::parse($parser, $list)->values]]></code>
     </PossiblyInvalidPropertyFetch>
-    <PossiblyNullArgument>
-      <code><![CDATA[$token->keyword]]></code>
-      <code><![CDATA[$token->keyword]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$this->dest]]></code>
     </PossiblyNullOperand>
@@ -431,9 +427,9 @@
     <PossiblyNullPropertyAssignmentValue>
       <code><![CDATA[$tmp->expr]]></code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
+    <RedundantCondition>
       <code><![CDATA[$token->value === ',']]></code>
-    </RedundantConditionGivenDocblockType>
+    </RedundantCondition>
   </file>
   <file src="src/Components/UnionKeyword.php">
     <PossiblyUnusedMethod>
@@ -630,7 +626,6 @@
     </MixedArrayOffset>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$list->tokens]]></code>
-      <code>self::STATEMENT_PARSERS</code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$list->idx]]></code>
@@ -783,9 +778,6 @@
       <code><![CDATA[$fromExpr->column]]></code>
       <code><![CDATA[$fromExpr->table]]></code>
     </MixedPropertyFetch>
-    <PossiblyNullArgument>
-      <code><![CDATA[$token->keyword]]></code>
-    </PossiblyNullArgument>
     <PossiblyNullIterator>
       <code><![CDATA[$this->from]]></code>
     </PossiblyNullIterator>
@@ -1095,10 +1087,6 @@
       <code><![CDATA[$clauses[$token->keyword]]]></code>
       <code><![CDATA[$clauses[$token->keyword]]]></code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$clauses[$token->keyword]]]></code>
-      <code><![CDATA[$clauses[$token->keyword]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code>$expr</code>
       <code>$expressions[]</code>
