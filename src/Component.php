@@ -17,15 +17,6 @@ use Stringable;
 interface Component extends Stringable
 {
     /**
-     * Parses the tokens contained in the given list in the context of the given parser.
-     *
-     * @param Parser               $parser  the parser that serves as context
-     * @param TokensList           $list    the list of tokens that are being parsed
-     * @param array<string, mixed> $options parameters for parsing
-     */
-    public static function parse(Parser $parser, TokensList $list, array $options = []): mixed;
-
-    /**
      * Builds the string representation of a component of this type.
      *
      * In other words, this function represents the inverse function of {@see Component::parse()}.

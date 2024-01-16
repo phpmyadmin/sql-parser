@@ -19,11 +19,6 @@
       <code><![CDATA[empty($ret->field)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Components/Array2d.php">
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
-  </file>
   <file src="src/Components/ArrayObj.php">
     <MixedAssignment>
       <code>$ret[]</code>
@@ -82,6 +77,9 @@
       <code><![CDATA[empty($ret->alias)]]></code>
       <code><![CDATA[empty($ret->alias)]]></code>
     </RiskyTruthyFalsyComparison>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/Condition.php">
     <PossiblyUnusedProperty>
@@ -99,6 +97,9 @@
     <RedundantCondition>
       <code>$state === 5</code>
     </RedundantCondition>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/DataType.php">
     <PossiblyInvalidPropertyFetch>
@@ -112,6 +113,9 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/Expression.php">
     <MixedArrayOffset>
@@ -175,6 +179,9 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/GroupKeyword.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -191,6 +198,9 @@
       <code><![CDATA[! empty($expr->expr)]]></code>
       <code><![CDATA[! empty($expr->expr)]]></code>
     </RedundantConditionGivenDocblockType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/IndexHint.php">
     <MixedAssignment>
@@ -250,6 +260,9 @@
       <code><![CDATA[empty(self::JOINS[$token->keyword])]]></code>
       <code><![CDATA[empty(self::JOINS[$token->keyword])]]></code>
     </TypeDoesNotContainType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/Key.php">
     <MixedAssignment>
@@ -274,12 +287,20 @@
     <RedundantCondition>
       <code>$state === 5</code>
     </RedundantCondition>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/Limit.php">
     <MixedAssignment>
       <code><![CDATA[$ret->offset]]></code>
       <code><![CDATA[$ret->rowCount]]></code>
     </MixedAssignment>
+  </file>
+  <file src="src/Components/Lists/Array2d.php">
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
@@ -289,6 +310,9 @@
     <PossiblyNullPropertyAssignmentValue>
       <code><![CDATA[Expression::parse($parser, $list, ['parseField' => 'table'])]]></code>
     </PossiblyNullPropertyAssignmentValue>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/OptionsArray.php">
     <MixedArgument>
@@ -388,6 +412,9 @@
       <code><![CDATA[! empty($expr->expr)]]></code>
       <code><![CDATA[! empty($expr->expr)]]></code>
     </RedundantConditionGivenDocblockType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/ParameterDefinition.php">
     <MixedAssignment>
@@ -405,6 +432,9 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[isset($expr->name)]]></code>
     </RedundantConditionGivenDocblockType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/PartitionDefinition.php">
     <MissingConstructor>
@@ -445,6 +475,9 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($this->options)]]></code>
     </RedundantConditionGivenDocblockType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
     <UnusedVariable>
       <code>$idx</code>
     </UnusedVariable>
@@ -468,6 +501,9 @@
     <RedundantCondition>
       <code>$state === 2</code>
     </RedundantCondition>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/RenameOperation.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -496,6 +532,9 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($expr->old)]]></code>
     </RedundantConditionGivenDocblockType>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Components/SetOperation.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -505,6 +544,9 @@
       <code>$state === 1</code>
       <code><![CDATA[$token->value === ',']]></code>
     </RedundantCondition>
+    <UnusedParam>
+      <code>$options</code>
+    </UnusedParam>
   </file>
   <file src="src/Context.php">
     <InvalidPropertyAssignmentValue>
