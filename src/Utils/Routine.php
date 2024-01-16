@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Utils;
 
 use PhpMyAdmin\SqlParser\Components\DataType;
-use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Components\Lists\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
@@ -64,7 +64,7 @@ class Routine
         $lexer = new Lexer('(' . $param . ')');
 
         // A dummy parser is used for error reporting.
-        $param = ParameterDefinition::parse(new Parser(), $lexer->list);
+        $param = ParameterDefinitions::parse(new Parser(), $lexer->list);
 
         if ($param === []) {
             return [

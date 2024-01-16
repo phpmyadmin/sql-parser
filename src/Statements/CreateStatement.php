@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Lists\CreateDefinitions;
+use PhpMyAdmin\SqlParser\Components\Lists\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
@@ -480,7 +481,7 @@ class CreateStatement extends Statement
             return 'CREATE '
                 . $this->options->build() . ' '
                 . $this->name->build() . ' '
-                . ParameterDefinition::buildAll($this->parameters) . ' '
+                . ParameterDefinitions::buildAll($this->parameters) . ' '
                 . $tmp . ' ' . $this->entityOptions->build() . ' '
                 . TokensList::buildFromArray($this->body);
         }
@@ -666,7 +667,7 @@ class CreateStatement extends Statement
                 }
             }
         } elseif ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
-            $this->parameters = ParameterDefinition::parse($parser, $list);
+            $this->parameters = ParameterDefinitions::parse($parser, $list);
             if ($this->options->has('FUNCTION')) {
                 $prevToken = $token;
                 $token = $list->getNextOfType(TokenType::Keyword);

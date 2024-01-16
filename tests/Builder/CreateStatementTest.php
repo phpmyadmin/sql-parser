@@ -9,8 +9,8 @@ use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\Lists\CreateDefinitions;
+use PhpMyAdmin\SqlParser\Components\Lists\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
-use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
@@ -515,7 +515,7 @@ EOT
         $this->assertNotNull($stmt->parameters);
         $this->assertSame(
             '(IN `_var` INT)',
-            ParameterDefinition::buildAll($stmt->parameters),
+            ParameterDefinitions::buildAll($stmt->parameters),
         );
 
         $this->assertSame(
@@ -618,7 +618,7 @@ EOT
         $this->assertNotNull($stmt->parameters);
         $this->assertSame(
             '(`p_inventory_id` INT)',
-            ParameterDefinition::buildAll($stmt->parameters),
+            ParameterDefinitions::buildAll($stmt->parameters),
         );
 
         $this->assertSame(

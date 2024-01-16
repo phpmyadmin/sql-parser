@@ -231,6 +231,21 @@ parameters:
 			path: src/Components/Lists/OrderKeywords.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Components/Lists/ParameterDefinitions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) in isset\\(\\) is not nullable\\.$#"
+			count: 1
+			path: src/Components/Lists/ParameterDefinitions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
+			count: 1
+			path: src/Components/Lists/ParameterDefinitions.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
@@ -296,23 +311,13 @@ parameters:
 			path: src/Components/ParameterDefinition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/ParameterDefinition.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Components/ParameterDefinition.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 2
+			count: 1
 			path: src/Components/ParameterDefinition.php
 
 		-
@@ -611,7 +616,7 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
+			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Lists\\\\ParameterDefinitions\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 

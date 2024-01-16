@@ -299,19 +299,29 @@
     </UnusedVariable>
   </file>
   <file src="src/Components/Lists/OrderKeywords.php">
-    <MixedInferredReturnType>
-      <code>OrderKeyword[]</code>
-      <code>string</code>
-    </MixedInferredReturnType>
-    <UndefinedDocblockClass>
-      <code>OrderKeyword[]</code>
-      <code>OrderKeyword[]</code>
-    </UndefinedDocblockClass>
+    <PossiblyNullPropertyAssignmentValue>
+      <code>Expression::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+    </RedundantConditionGivenDocblockType>
     <UnusedParam>
-      <code>$component</code>
-      <code>$list</code>
       <code>$options</code>
-      <code>$parser</code>
+    </UnusedParam>
+  </file>
+  <file src="src/Components/Lists/ParameterDefinitions.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->name]]></code>
+    </MixedAssignment>
+    <PossiblyNullPropertyAssignmentValue>
+      <code>DataType::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[isset($expr->name)]]></code>
+    </RedundantConditionGivenDocblockType>
+    <UnusedParam>
+      <code>$options</code>
     </UnusedParam>
   </file>
   <file src="src/Components/LockExpression.php">
@@ -410,29 +420,16 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/OrderKeyword.php">
-    <ParseError>
-      <code><![CDATA[<<]]></code>
-    </ParseError>
+    <PossiblyNullPropertyAssignmentValue>
+      <code>$expr</code>
+    </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/ParameterDefinition.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->name]]></code>
-    </MixedAssignment>
     <PossiblyNullPropertyAssignmentValue>
       <code>$inOut</code>
       <code>$name</code>
       <code>$type</code>
-      <code>DataType::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 3</code>
-    </RedundantCondition>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[isset($expr->name)]]></code>
-    </RedundantConditionGivenDocblockType>
-    <UnusedParam>
-      <code>$options</code>
-    </UnusedParam>
   </file>
   <file src="src/Components/PartitionDefinition.php">
     <MissingConstructor>
@@ -973,10 +970,6 @@
     <PossiblyUnusedProperty>
       <code>$partition</code>
     </PossiblyUnusedProperty>
-    <UndefinedDocblockClass>
-      <code>array|null</code>
-      <code>public array|null $order = null;</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="src/Statements/DropStatement.php">
     <PossiblyUnusedProperty>
@@ -1093,10 +1086,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->join)]]></code>
     </RiskyTruthyFalsyComparison>
-    <UndefinedDocblockClass>
-      <code>array|null</code>
-      <code>public array|null $order = null;</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="src/Statements/SetStatement.php">
     <PossiblyNullArgument>
@@ -1135,10 +1124,6 @@
       <code>$set</code>
       <code>$where</code>
     </PossiblyUnusedProperty>
-    <UndefinedDocblockClass>
-      <code>array|null</code>
-      <code>public array|null $order = null;</code>
-    </UndefinedDocblockClass>
   </file>
   <file src="src/Statements/WithStatement.php">
     <MixedArgument>
@@ -1631,18 +1616,6 @@
       <code>assertNotNull</code>
       <code>assertNotNull</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="tests/Components/OrderKeywordTest.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[[
-                    new OrderKeyword(new Expression('a'), 'ASC'),
-                    new OrderKeyword(new Expression('b'), 'DESC'),
-                ]]]></code>
-    </MixedArgumentTypeCoercion>
-    <UndefinedClass>
-      <code>OrderKeyword</code>
-      <code>OrderKeyword</code>
-    </UndefinedClass>
   </file>
   <file src="tests/Components/PartitionDefinitionTest.php">
     <PossiblyInvalidPropertyFetch>
