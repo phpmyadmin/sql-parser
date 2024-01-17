@@ -2,6 +2,8 @@
 
 ## [5.9.x] - YYYY-MM-DD
 
+- Add `bin/sql-parser` executable file (#517)
+
 ## [5.8.2] - 2023-09-19
 
 - Fix a regression with the ALTER operation (#511)
