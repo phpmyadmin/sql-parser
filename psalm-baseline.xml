@@ -84,15 +84,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/Condition.php">
-    <MixedArrayOffset>
-      <code><![CDATA[self::ALLOWED_KEYWORDS[$token->value]]]></code>
-    </MixedArrayOffset>
     <PossiblyUnusedProperty>
       <code>$isOperator</code>
     </PossiblyUnusedProperty>
-    <TypeDoesNotContainType>
-      <code><![CDATA[empty(self::ALLOWED_KEYWORDS[$token->value])]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Components/CreateDefinition.php">
     <MixedAssignment>
@@ -122,7 +116,6 @@
   <file src="src/Components/Expression.php">
     <MixedArrayOffset>
       <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
-      <code><![CDATA[self::ALLOWED_KEYWORDS[$token->keyword]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$field</code>
@@ -150,7 +143,6 @@
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[$brackets < 0]]></code>
-      <code><![CDATA[empty(self::ALLOWED_KEYWORDS[$token->keyword])]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/Components/ExpressionArray.php">

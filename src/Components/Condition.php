@@ -34,26 +34,26 @@ final class Condition implements Component
      * List of allowed reserved keywords in conditions.
      */
     private const ALLOWED_KEYWORDS = [
-        'ALL' => 1,
-        'AND' => 1,
-        'BETWEEN' => 1,
-        'COLLATE' => 1,
-        'EXISTS' => 1,
-        'IF' => 1,
-        'IN' => 1,
-        'INTERVAL' => 1,
-        'IS' => 1,
-        'LIKE' => 1,
-        'MATCH' => 1,
-        'NOT IN' => 1,
-        'NOT NULL' => 1,
-        'NOT' => 1,
-        'NULL' => 1,
-        'OR' => 1,
-        'REGEXP' => 1,
-        'RLIKE' => 1,
-        'SOUNDS' => 1,
-        'XOR' => 1,
+        'ALL',
+        'AND',
+        'BETWEEN',
+        'COLLATE',
+        'EXISTS',
+        'IF',
+        'IN',
+        'INTERVAL',
+        'IS',
+        'LIKE',
+        'MATCH',
+        'NOT IN',
+        'NOT NULL',
+        'NOT',
+        'NULL',
+        'OR',
+        'REGEXP',
+        'RLIKE',
+        'SOUNDS',
+        'XOR',
     ];
 
     /**
@@ -165,7 +165,7 @@ final class Condition implements Component
                     $betweenBefore = true;
                 }
 
-                if (($brackets === 0) && empty(self::ALLOWED_KEYWORDS[$token->value])) {
+                if ($brackets === 0 && ! in_array($token->value, self::ALLOWED_KEYWORDS, true)) {
                     break;
                 }
             }

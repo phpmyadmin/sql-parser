@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 
 use function implode;
+use function in_array;
 use function rtrim;
 use function strlen;
 use function trim;
@@ -29,22 +30,22 @@ final class Expression implements Component
      * List of allowed reserved keywords in expressions.
      */
     private const ALLOWED_KEYWORDS = [
-        'AND' => 1,
-        'AS' => 1,
-        'BETWEEN' => 1,
-        'CASE' => 1,
-        'DUAL' => 1,
-        'DIV' => 1,
-        'IS' => 1,
-        'MOD' => 1,
-        'NOT' => 1,
-        'NOT NULL' => 1,
-        'NULL' => 1,
-        'OR' => 1,
-        'OVER' => 1,
-        'REGEXP' => 1,
-        'RLIKE' => 1,
-        'XOR' => 1,
+        'AND',
+        'AS',
+        'BETWEEN',
+        'CASE',
+        'DUAL',
+        'DIV',
+        'IS',
+        'MOD',
+        'NOT',
+        'NOT NULL',
+        'NULL',
+        'OR',
+        'OVER',
+        'REGEXP',
+        'RLIKE',
+        'XOR',
     ];
 
     /**
@@ -231,7 +232,7 @@ final class Expression implements Component
                 ) {
                     $isExpr = true;
                 } elseif (($token->flags & Token::FLAG_KEYWORD_RESERVED) && ($brackets === 0)) {
-                    if (empty(self::ALLOWED_KEYWORDS[$token->keyword])) {
+                    if (! in_array($token->keyword, self::ALLOWED_KEYWORDS, true)) {
                         // A reserved keyword that is not allowed in the
                         // expression was found so the expression must have
                         // ended and a new clause is starting.
