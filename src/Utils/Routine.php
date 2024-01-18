@@ -66,7 +66,7 @@ class Routine
         // A dummy parser is used for error reporting.
         $param = ParameterDefinition::parse(new Parser(), $lexer->list);
 
-        if (empty($param[0])) {
+        if ($param === []) {
             return [
                 '',
                 '',

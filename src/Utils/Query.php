@@ -473,7 +473,7 @@ class Query
     {
         $parser = new Parser($query);
 
-        if (empty($parser->statements[0])) {
+        if ($parser->statements === []) {
             return static::getFlags(null, true);
         }
 

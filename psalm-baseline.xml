@@ -762,7 +762,6 @@
   <file src="src/Statement.php">
     <DocblockTypeContradiction>
       <code><![CDATA[empty(static::$clauses[$token->value])]]></code>
-      <code><![CDATA[empty(static::$statementOptions[$token->value])]]></code>
     </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
@@ -788,7 +787,6 @@
       <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
       <code><![CDATA[Parser::STATEMENT_PARSERS[$token->value]]]></code>
       <code><![CDATA[static::$clauses[$token->value]]]></code>
-      <code><![CDATA[static::$statementOptions[$token->value]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$tokenValue</code>
@@ -1382,9 +1380,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Query.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[empty($parser->statements[0])]]></code>
-    </DocblockTypeContradiction>
     <InvalidNullableReturnType>
       <code>int</code>
     </InvalidNullableReturnType>
@@ -1454,9 +1449,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Routine.php">
-    <DocblockTypeContradiction>
-      <code>empty($param[0])</code>
-    </DocblockTypeContradiction>
     <MixedArgumentTypeCoercion>
       <code>$options</code>
       <code>$options</code>
