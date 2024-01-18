@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.19.0@06b71be009a6bd6d81b9811855d6629b9fe90e1b">
+<files psalm-version="5.20.0@3f284e96c9d9be6fe6b15c79416e1d1903dcfef4">
   <file src="src/Components/AlterOperation.php">
     <PossiblyNullPropertyAssignmentValue>
       <code>$options</code>
@@ -15,6 +15,9 @@
       <code>$partitionState === 2</code>
       <code>$state === 3</code>
     </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($ret->field)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/Array2d.php">
     <RedundantCondition>
@@ -51,6 +54,9 @@
       <code><![CDATA[$ret->values]]></code>
       <code><![CDATA[$ret->values]]></code>
     </PossiblyInvalidPropertyFetch>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($options['typeOptions'])]]></code>
+    </RiskyTruthyFalsyComparison>
     <UndefinedMethod>
       <code>$ret</code>
     </UndefinedMethod>
@@ -70,6 +76,12 @@
     <MixedOperand>
       <code><![CDATA[$token->value]]></code>
     </MixedOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $token->flags & Token::FLAG_SYMBOL_VARIABLE]]></code>
+      <code><![CDATA[$this->alias]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/Condition.php">
     <MixedArrayOffset>
@@ -78,6 +90,9 @@
     <PossiblyUnusedProperty>
       <code>$isOperator</code>
     </PossiblyUnusedProperty>
+    <TypeDoesNotContainType>
+      <code><![CDATA[empty(self::ALLOWED_KEYWORDS[$token->value])]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/Components/CreateDefinition.php">
     <MixedAssignment>
@@ -125,8 +140,17 @@
       <code><![CDATA[$ret->expr]]></code>
       <code><![CDATA[$ret->expr]]></code>
     </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->database)]]></code>
+      <code><![CDATA[empty($ret->subquery)]]></code>
+      <code><![CDATA[empty($this->alias)]]></code>
+    </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[$brackets < 0]]></code>
+      <code><![CDATA[empty(self::ALLOWED_KEYWORDS[$token->keyword])]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/Components/ExpressionArray.php">
@@ -171,6 +195,10 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/IndexHint.php">
     <MixedAssignment>
@@ -195,6 +223,9 @@
     <PossiblyNullOperand>
       <code><![CDATA[$this->dest]]></code>
     </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->columns)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/JoinKeyword.php">
     <DocblockTypeContradiction>
@@ -220,6 +251,13 @@
     <RedundantCondition>
       <code>$state === 4</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($c->using)]]></code>
+    </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainType>
+      <code><![CDATA[empty(self::JOINS[$token->keyword])]]></code>
+      <code><![CDATA[empty(self::JOINS[$token->keyword])]]></code>
+    </TypeDoesNotContainType>
   </file>
   <file src="src/Components/Key.php">
     <MixedAssignment>
@@ -341,6 +379,10 @@
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$ret->options[$lastOptionId]['expr']->expr]]></code>
     </PossiblyNullPropertyFetch>
+    <RiskyTruthyFalsyComparison>
+      <code>$lastOption</code>
+      <code>empty($lastOption[2])</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/OrderKeyword.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -350,6 +392,10 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/ParameterDefinition.php">
     <MixedAssignment>
@@ -404,6 +450,9 @@
     <RedundantCondition>
       <code>$state === 6</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($this->options)]]></code>
+    </RedundantConditionGivenDocblockType>
     <UnusedVariable>
       <code>$idx</code>
     </UnusedVariable>
@@ -452,6 +501,9 @@
     <RedundantCondition>
       <code>$state === 3</code>
     </RedundantCondition>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->old)]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/SetOperation.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -472,6 +524,10 @@
     <MixedAssignment>
       <code>self::$keywords</code>
     </MixedAssignment>
+    <RiskyTruthyFalsyComparison>
+      <code>empty($flag)</code>
+      <code>static::isKeyword($str, true)</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Contexts/ContextMariaDb100000.php">
     <UnusedClass>
@@ -638,6 +694,16 @@
       <code><![CDATA[$next->value]]></code>
       <code><![CDATA[$next->value]]></code>
     </PossiblyNullPropertyFetch>
+    <RiskyTruthyFalsyComparison>
+      <code>! $flags</code>
+      <code>! $flags</code>
+      <code>! $flags</code>
+      <code>! $flags</code>
+      <code>Context::isComment($token)</code>
+      <code>Context::isComment($token)</code>
+      <code>Context::isComment($token, $end)</code>
+      <code>empty($delimiter)</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Parser.php">
     <InvalidPropertyAssignmentValue>
@@ -702,8 +768,11 @@
     </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="src/Statement.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[empty(static::$clauses[$token->value])]]></code>
+      <code><![CDATA[empty(static::$statementOptions[$token->value])]]></code>
+    </DocblockTypeContradiction>
     <InvalidArgument>
-      <code>$built[$field]</code>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
     </InvalidArgument>
     <MixedArgument>
@@ -747,6 +816,15 @@
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
+    <RedundantCondition>
+      <code><![CDATA[! empty($parsedClauses[$token->value])]]></code>
+    </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! stripos($clauseType, 'JOIN')]]></code>
+      <code><![CDATA[empty(Parser::KEYWORD_PARSERS[$tokenValue]['options'])]]></code>
+      <code><![CDATA[stripos($clauseType, 'JOIN')]]></code>
+      <code><![CDATA[stripos($clauseType, 'JOIN')]]></code>
+    </RiskyTruthyFalsyComparison>
     <UndefinedMethod>
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
@@ -843,6 +921,14 @@
                             )]]></code>
       <code>ArrayObj::parse($parser, $list)</code>
     </PropertyTypeCoercion>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->partitionBy)]]></code>
+      <code><![CDATA[empty($this->partitionBy)]]></code>
+      <code><![CDATA[empty($this->partitions)]]></code>
+      <code><![CDATA[empty($this->partitionsNum)]]></code>
+      <code><![CDATA[empty($this->subpartitionBy)]]></code>
+      <code><![CDATA[empty($this->subpartitionsNum)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Statements/DeleteStatement.php">
     <MixedArgument>
@@ -891,6 +977,9 @@
     <RedundantCondition>
       <code>$state === 3</code>
     </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$this->connectionId]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Statements/InsertStatement.php">
     <PossiblyNullOperand>
@@ -979,6 +1068,9 @@
       <code>$indexHints</code>
       <code>$partition</code>
     </PossiblyUnusedProperty>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->join)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Statements/SetStatement.php">
     <PossiblyNullArgument>
@@ -1065,6 +1157,11 @@
       <code>$debugFile</code>
       <code>$debugFile</code>
     </PossiblyNullArgument>
+    <RiskyTruthyFalsyComparison>
+      <code>empty($debug)</code>
+      <code><![CDATA[empty($parser->errors)]]></code>
+      <code>empty($query)</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Translator.php">
     <RedundantPropertyInitializationCheck>
@@ -1193,6 +1290,14 @@
       <code><![CDATA[$params['q']]]></code>
       <code><![CDATA[$params['q']]]></code>
     </PossiblyFalseArgument>
+    <PossiblyUnusedMethod>
+      <code>run</code>
+    </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code>$stdIn</code>
+      <code>$stdIn</code>
+      <code>$stdIn</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Error.php">
     <PossiblyNullArgument>
@@ -1275,8 +1380,19 @@
     <PossiblyInvalidIterator>
       <code><![CDATA[$this->options['formats']]]></code>
     </PossiblyInvalidIterator>
+    <RiskyTruthyFalsyComparison>
+      <code>$lineEnded</code>
+      <code><![CDATA[$this->options['clause_newline']]]></code>
+      <code><![CDATA[$this->options['parts_newline']]]></code>
+      <code><![CDATA[$this->options['parts_newline']]]></code>
+      <code><![CDATA[$this->options['parts_newline']]]></code>
+      <code><![CDATA[$this->options['remove_comments']]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Query.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[empty($parser->statements[0])]]></code>
+    </DocblockTypeContradiction>
     <InvalidNullableReturnType>
       <code>int</code>
     </InvalidNullableReturnType>
@@ -1334,8 +1450,21 @@
       <code>has</code>
       <code>has</code>
     </PossiblyNullReference>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($expr->subquery)]]></code>
+      <code><![CDATA[empty($statement->group)]]></code>
+      <code><![CDATA[empty($statement->group)]]></code>
+      <code><![CDATA[empty($statement->having)]]></code>
+      <code><![CDATA[empty($statement->having)]]></code>
+      <code><![CDATA[empty($statement->join)]]></code>
+      <code><![CDATA[empty($statement->join)]]></code>
+      <code><![CDATA[empty($statement->order)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Routine.php">
+    <DocblockTypeContradiction>
+      <code>empty($param[0])</code>
+    </DocblockTypeContradiction>
     <MixedArgumentTypeCoercion>
       <code>$options</code>
       <code>$options</code>
@@ -1354,6 +1483,9 @@
       <code>$options[]</code>
       <code><![CDATA[$retval['opts'][$idx][]]]></code>
     </MixedAssignment>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($statement->parameters)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Table.php">
     <MixedArgument>
@@ -1381,6 +1513,10 @@
       <code>has</code>
       <code>has</code>
     </PossiblyNullReference>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($statement->fields)]]></code>
+      <code><![CDATA[empty($statement->fields)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="tests/Builder/AlterStatementTest.php">
     <PossiblyUnusedMethod>
@@ -1648,6 +1784,9 @@
     <PossiblyUnusedMethod>
       <code>extractProvider</code>
     </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code>$stmt</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="tests/Utils/CLITest.php">
     <PossiblyUnusedMethod>
