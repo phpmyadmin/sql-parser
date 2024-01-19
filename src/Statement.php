@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use Stringable;
 
 use function array_flip;
+use function array_key_exists;
 use function array_keys;
 use function in_array;
 use function is_array;
@@ -201,7 +202,7 @@ abstract class Statement implements Stringable
          * For statements that do not have any options this is set to `true` by
          * default.
          */
-        $parsedOptions = empty(static::$statementOptions);
+        $parsedOptions = static::$statementOptions === [];
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -326,7 +327,7 @@ abstract class Statement implements Stringable
                 }
 
                 if (! $parsedOptions) {
-                    if (empty(static::$statementOptions[$token->value])) {
+                    if (! array_key_exists((string) $token->value, static::$statementOptions)) {
                         // Skipping keyword because if it is not a option.
                         ++$list->idx;
                     }

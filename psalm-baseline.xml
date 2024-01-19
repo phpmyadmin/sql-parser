@@ -84,15 +84,9 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/Condition.php">
-    <MixedArrayOffset>
-      <code><![CDATA[self::ALLOWED_KEYWORDS[$token->value]]]></code>
-    </MixedArrayOffset>
     <PossiblyUnusedProperty>
       <code>$isOperator</code>
     </PossiblyUnusedProperty>
-    <TypeDoesNotContainType>
-      <code><![CDATA[empty(self::ALLOWED_KEYWORDS[$token->value])]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Components/CreateDefinition.php">
     <MixedAssignment>
@@ -122,7 +116,6 @@
   <file src="src/Components/Expression.php">
     <MixedArrayOffset>
       <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
-      <code><![CDATA[self::ALLOWED_KEYWORDS[$token->keyword]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$field</code>
@@ -150,7 +143,6 @@
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[$brackets < 0]]></code>
-      <code><![CDATA[empty(self::ALLOWED_KEYWORDS[$token->keyword])]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/Components/ExpressionArray.php">
@@ -770,7 +762,6 @@
   <file src="src/Statement.php">
     <DocblockTypeContradiction>
       <code><![CDATA[empty(static::$clauses[$token->value])]]></code>
-      <code><![CDATA[empty(static::$statementOptions[$token->value])]]></code>
     </DocblockTypeContradiction>
     <InvalidArgument>
       <code><![CDATA[$parsedClauses[$token->value]]]></code>
@@ -796,7 +787,6 @@
       <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
       <code><![CDATA[Parser::STATEMENT_PARSERS[$token->value]]]></code>
       <code><![CDATA[static::$clauses[$token->value]]]></code>
-      <code><![CDATA[static::$statementOptions[$token->value]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code>$tokenValue</code>
@@ -1390,9 +1380,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Query.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[empty($parser->statements[0])]]></code>
-    </DocblockTypeContradiction>
     <InvalidNullableReturnType>
       <code>int</code>
     </InvalidNullableReturnType>
@@ -1462,9 +1449,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Routine.php">
-    <DocblockTypeContradiction>
-      <code>empty($param[0])</code>
-    </DocblockTypeContradiction>
     <MixedArgumentTypeCoercion>
       <code>$options</code>
       <code>$options</code>
