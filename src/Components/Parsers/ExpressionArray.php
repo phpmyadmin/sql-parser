@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Components;
+namespace PhpMyAdmin\SqlParser\Components\Parsers;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Components\CaseExpression;
+use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
-use PhpMyAdmin\SqlParser\Translator;
-use RuntimeException;
 
 use function count;
 use function implode;
@@ -22,7 +22,7 @@ use function substr;
 /**
  * Parses a list of expressions delimited by a comma.
  */
-final class ExpressionArray implements Component
+final class ExpressionArray implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context
@@ -117,19 +117,9 @@ final class ExpressionArray implements Component
         return $ret;
     }
 
-    public function build(): string
-    {
-        throw new RuntimeException(Translator::gettext('Not implemented yet.'));
-    }
-
     /** @param Expression[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

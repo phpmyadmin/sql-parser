@@ -7,11 +7,14 @@ namespace PhpMyAdmin\SqlParser\Statements;
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Condition;
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\ExpressionArray;
 use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Components\Parsers\Conditions;
+use PhpMyAdmin\SqlParser\Components\Parsers\ExpressionArray;
+use PhpMyAdmin\SqlParser\Components\Parsers\JoinKeywords;
+use PhpMyAdmin\SqlParser\Components\Parsers\OrderKeywords;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -165,7 +168,7 @@ class DeleteStatement extends Statement
         }
 
         if ($this->join !== null && $this->join !== []) {
-            $ret .= ' ' . JoinKeyword::buildAll($this->join);
+            $ret .= ' ' . JoinKeywords::buildAll($this->join);
         }
 
         if ($this->using !== null && $this->using !== []) {
@@ -173,11 +176,11 @@ class DeleteStatement extends Statement
         }
 
         if ($this->where !== null && $this->where !== []) {
-            $ret .= ' WHERE ' . Condition::buildAll($this->where);
+            $ret .= ' WHERE ' . Conditions::buildAll($this->where);
         }
 
         if ($this->order !== null && $this->order !== []) {
-            $ret .= ' ORDER BY ' . OrderKeyword::buildAll($this->order);
+            $ret .= ' ORDER BY ' . OrderKeywords::buildAll($this->order);
         }
 
         if ($this->limit !== null && strlen((string) $this->limit) > 0) {
@@ -264,7 +267,7 @@ class DeleteStatement extends Statement
                 if ($token->type === TokenType::Keyword) {
                     if (stripos($token->keyword, 'JOIN') !== false) {
                         ++$list->idx;
-                        $this->join = JoinKeyword::parse($parser, $list);
+                        $this->join = JoinKeywords::parse($parser, $list);
 
                         // remain in state = 2
                     } else {
@@ -278,12 +281,12 @@ class DeleteStatement extends Statement
                                 break;
                             case 'WHERE':
                                 ++$list->idx; // Skip 'WHERE'
-                                $this->where = Condition::parse($parser, $list);
+                                $this->where = Conditions::parse($parser, $list);
                                 $state = 4;
                                 break;
                             case 'ORDER BY':
                                 ++$list->idx; // Skip 'ORDER BY'
-                                $this->order = OrderKeyword::parse($parser, $list);
+                                $this->order = OrderKeywords::parse($parser, $list);
                                 $state = 5;
                                 break;
                             case 'LIMIT':
@@ -309,7 +312,7 @@ class DeleteStatement extends Statement
                 }
 
                 ++$list->idx; // Skip 'WHERE'
-                $this->where = Condition::parse($parser, $list);
+                $this->where = Conditions::parse($parser, $list);
                 $state = 4;
             } elseif ($state === 4) {
                 if ($multiTable === true && $token->type === TokenType::Keyword) {
@@ -321,7 +324,7 @@ class DeleteStatement extends Statement
                     switch ($token->keyword) {
                         case 'ORDER BY':
                             ++$list->idx; // Skip 'ORDER  BY'
-                            $this->order = OrderKeyword::parse($parser, $list);
+                            $this->order = OrderKeywords::parse($parser, $list);
                             $state = 5;
                             break;
                         case 'LIMIT':

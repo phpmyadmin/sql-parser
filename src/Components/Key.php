@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -18,7 +19,7 @@ use function trim;
  *
  * Used for parsing `CREATE TABLE` statement.
  */
-final class Key implements Component
+final class Key implements Component, Parseable
 {
     /**
      * All key options.

@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Components\Parsers\Conditions;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -16,7 +18,7 @@ use function count;
 /**
  * Parses a reference to a CASE expression.
  */
-final class CaseExpression implements Component
+final class CaseExpression implements Component, Parseable
 {
     /**
      * The value to be compared.
@@ -104,7 +106,7 @@ final class CaseExpression implements Component
                     switch ($token->keyword) {
                         case 'WHEN':
                             ++$list->idx; // Skip 'WHEN'
-                            $newCondition = Condition::parse($parser, $list);
+                            $newCondition = Conditions::parse($parser, $list);
                             $type = 1;
                             $state = 1;
                             $ret->conditions[] = $newCondition;
@@ -264,7 +266,7 @@ final class CaseExpression implements Component
             $valuesCount = count($this->conditions);
             $resultsCount = count($this->results);
             for ($i = 0; $i < $valuesCount && $i < $resultsCount; ++$i) {
-                $ret .= 'WHEN ' . Condition::buildAll($this->conditions[$i]) . ' ';
+                $ret .= 'WHEN ' . Conditions::buildAll($this->conditions[$i]) . ' ';
                 $ret .= 'THEN ' . $this->results[$i] . ' ';
             }
         }

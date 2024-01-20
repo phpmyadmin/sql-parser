@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Components\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
@@ -12,7 +12,7 @@ class ParameterDefinitionTest extends TestCase
 {
     public function testParse(): void
     {
-        $component = ParameterDefinition::parse(
+        $component = ParameterDefinitions::parse(
             new Parser(),
             $this->getTokensList('(a INT, b INT'),
         );
@@ -23,7 +23,7 @@ class ParameterDefinitionTest extends TestCase
     public function testParseComplex(): void
     {
         $parser = new Parser();
-        $component = ParameterDefinition::parse(
+        $component = ParameterDefinitions::parse(
             $parser,
             $this->getTokensList('CREATE DEFINER=`root`@`%` PROCEDURE `foo`( $bar int )'),
         );

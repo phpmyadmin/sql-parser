@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Components\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Statement;
 
@@ -96,7 +97,7 @@ class SetStatement extends Statement
     public function build(): string
     {
         $ret = 'SET ' . $this->options->build()
-            . ' ' . SetOperation::buildAll($this->set)
+            . ' ' . SetOperations::buildAll($this->set)
             . ' ' . ($this->endOptions?->build() ?? '');
 
         return trim($ret);

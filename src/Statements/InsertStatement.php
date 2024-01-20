@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Components\Array2d;
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Components\Parsers\Array2d;
+use PhpMyAdmin\SqlParser\Components\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
@@ -113,13 +114,13 @@ class InsertStatement extends Statement
         if ($this->values !== null && $this->values !== []) {
             $ret .= ' VALUES ' . ArrayObj::buildAll($this->values);
         } elseif ($this->set !== null && $this->set !== []) {
-            $ret .= ' SET ' . SetOperation::buildAll($this->set);
+            $ret .= ' SET ' . SetOperations::buildAll($this->set);
         } elseif ($this->select !== null && strlen((string) $this->select) > 0) {
             $ret .= ' ' . $this->select->build();
         }
 
         if ($this->onDuplicateSet !== null && $this->onDuplicateSet !== []) {
-            $ret .= ' ON DUPLICATE KEY UPDATE ' . SetOperation::buildAll($this->onDuplicateSet);
+            $ret .= ' ON DUPLICATE KEY UPDATE ' . SetOperations::buildAll($this->onDuplicateSet);
         }
 
         return $ret;
@@ -199,7 +200,7 @@ class InsertStatement extends Statement
                 } elseif ($token->keyword === 'SET') {
                     ++$list->idx; // skip SET
 
-                    $this->set = SetOperation::parse($parser, $list);
+                    $this->set = SetOperations::parse($parser, $list);
                 } elseif ($token->keyword === 'SELECT') {
                     $this->select = new SelectStatement($parser, $list);
                 } elseif ($token->keyword === 'WITH') {
@@ -231,7 +232,7 @@ class InsertStatement extends Statement
 
                 if ($miniState === 5) {
                     ++$list->idx;
-                    $this->onDuplicateSet = SetOperation::parse($parser, $list);
+                    $this->onDuplicateSet = SetOperations::parse($parser, $list);
                     $state = 3;
                 }
             }

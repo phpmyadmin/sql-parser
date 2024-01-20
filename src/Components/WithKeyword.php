@@ -6,8 +6,6 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Translator;
 use RuntimeException;
 
 /**
@@ -27,20 +25,6 @@ final class WithKeyword implements Component
     public function __construct(string $name)
     {
         $this->name = $name;
-    }
-
-    /**
-     * Parses the tokens contained in the given list in the context of the given parser.
-     *
-     * @param Parser               $parser  the parser that serves as context
-     * @param TokensList           $list    the list of tokens that are being parsed
-     * @param array<string, mixed> $options parameters for parsing
-     *
-     * @throws RuntimeException not implemented yet.
-     */
-    public static function parse(Parser $parser, TokensList $list, array $options = []): mixed
-    {
-        throw new RuntimeException(Translator::gettext('Not implemented yet.'));
     }
 
     public function build(): string

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Components\CreateDefinition;
+use PhpMyAdmin\SqlParser\Components\Parsers\CreateDefinitions;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
@@ -13,7 +13,7 @@ class CreateDefinitionTest extends TestCase
 {
     public function testParse(): void
     {
-        $component = CreateDefinition::parse(
+        $component = CreateDefinitions::parse(
             new Parser(),
             $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str))'),
         );
@@ -25,7 +25,7 @@ class CreateDefinitionTest extends TestCase
 
     public function testParse2(): void
     {
-        $component = CreateDefinition::parse(
+        $component = CreateDefinitions::parse(
             new Parser(),
             $this->getTokensList('(str TEXT NOT NULL INVISIBLE)'),
         );
@@ -38,7 +38,7 @@ class CreateDefinitionTest extends TestCase
     public function testParseErr1(): void
     {
         $parser = new Parser();
-        $component = CreateDefinition::parse(
+        $component = CreateDefinitions::parse(
             $parser,
             $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str)'),
         );
@@ -53,7 +53,7 @@ class CreateDefinitionTest extends TestCase
     public function testParseErr2(): void
     {
         $parser = new Parser();
-        CreateDefinition::parse(
+        CreateDefinitions::parse(
             $parser,
             $this->getTokensList(')'),
         );

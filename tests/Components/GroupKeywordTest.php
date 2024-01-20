@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 use Generator;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\GroupKeyword;
+use PhpMyAdmin\SqlParser\Components\Parsers\GroupKeywords;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -56,7 +57,7 @@ class GroupKeywordTest extends TestCase
     public function testBuild(GroupKeyword|array $component, string $expected): void
     {
         if (is_array($component)) {
-            $this->assertSame($expected, GroupKeyword::buildAll($component));
+            $this->assertSame($expected, GroupKeywords::buildAll($component));
         } else {
             $this->assertSame($expected, $component->build());
         }

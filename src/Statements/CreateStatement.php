@@ -10,6 +10,8 @@ use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Components\Parsers\CreateDefinitions;
+use PhpMyAdmin\SqlParser\Components\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
@@ -380,7 +382,7 @@ class CreateStatement extends Statement
         $fields = '';
         if ($this->fields !== null && $this->fields !== []) {
             if (is_array($this->fields)) {
-                $fields = CreateDefinition::buildAll($this->fields) . ' ';
+                $fields = CreateDefinitions::buildAll($this->fields) . ' ';
             } else {
                 $fields = $this->fields->build();
             }
@@ -479,7 +481,7 @@ class CreateStatement extends Statement
             return 'CREATE '
                 . $this->options->build() . ' '
                 . $this->name->build() . ' '
-                . ParameterDefinition::buildAll($this->parameters) . ' '
+                . ParameterDefinitions::buildAll($this->parameters) . ' '
                 . $tmp . ' ' . $this->entityOptions->build() . ' '
                 . TokensList::buildFromArray($this->body);
         }
@@ -568,7 +570,7 @@ class CreateStatement extends Statement
                     $parser->error('A table name was expected.', $list->tokens[$list->idx]);
                 }
             } else {
-                $this->fields = CreateDefinition::parse($parser, $list);
+                $this->fields = CreateDefinitions::parse($parser, $list);
                 if ($this->fields === []) {
                     $parser->error('At least one column definition was expected.', $list->tokens[$list->idx]);
                 }
@@ -665,7 +667,7 @@ class CreateStatement extends Statement
                 }
             }
         } elseif ($this->options->has('PROCEDURE') || $this->options->has('FUNCTION')) {
-            $this->parameters = ParameterDefinition::parse($parser, $list);
+            $this->parameters = ParameterDefinitions::parse($parser, $list);
             if ($this->options->has('FUNCTION')) {
                 $prevToken = $token;
                 $token = $list->getNextOfType(TokenType::Keyword);

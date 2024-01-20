@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -14,7 +15,7 @@ use function implode;
 /**
  * Parses a reference to a LOCK expression.
  */
-final class LockExpression implements Component
+final class LockExpression implements Component, Parseable
 {
     /**
      * The table to be locked.

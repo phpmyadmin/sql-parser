@@ -8,6 +8,7 @@ use AllowDynamicProperties;
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -24,7 +25,7 @@ use function trim;
  * call, mathematical expression, etc.).
  */
 #[AllowDynamicProperties]
-final class Expression implements Component
+final class Expression implements Component, Parseable
 {
     /**
      * List of allowed reserved keywords in expressions.

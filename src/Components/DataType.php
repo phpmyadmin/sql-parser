@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -18,7 +19,7 @@ use function trim;
 /**
  * Parses a data type.
  */
-final class DataType implements Component
+final class DataType implements Component, Parseable
 {
     /**
      * All data type options.

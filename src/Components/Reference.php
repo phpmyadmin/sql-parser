@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -16,7 +17,7 @@ use function trim;
 /**
  * `REFERENCES` keyword parser.
  */
-final class Reference implements Component
+final class Reference implements Component, Parseable
 {
     /**
      * All references options.
