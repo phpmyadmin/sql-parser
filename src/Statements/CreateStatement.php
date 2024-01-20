@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\CreateDefinitions;
 use PhpMyAdmin\SqlParser\Parsers\DataTypes;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Parsers\PartitionDefinitions;
@@ -512,7 +513,7 @@ class CreateStatement extends Statement
         $fieldName = $isDatabase ? 'database' : 'table';
 
         // Parsing the field name.
-        $this->name = Expression::parse(
+        $this->name = Expressions::parse(
             $parser,
             $list,
             [
@@ -561,7 +562,7 @@ class CreateStatement extends Statement
             } elseif ($token->type === TokenType::Keyword && $token->keyword === 'LIKE') {
                 /* CREATE TABLE `new_tbl` LIKE 'orig_tbl' */
                 $list->idx = $nextidx;
-                $this->like = Expression::parse(
+                $this->like = Expressions::parse(
                     $parser,
                     $list,
                     [
@@ -662,7 +663,7 @@ class CreateStatement extends Statement
                             $this->partitions = ArrayObjs::parse(
                                 $parser,
                                 $list,
-                                ['type' => PartitionDefinition::class],
+                                ['type' => PartitionDefinitions::class],
                             );
                         }
 
@@ -742,7 +743,7 @@ class CreateStatement extends Statement
             ++$list->idx; // Skipping `ON`.
 
             // Parsing the name of the table.
-            $this->table = Expression::parse(
+            $this->table = Expressions::parse(
                 $parser,
                 $list,
                 [

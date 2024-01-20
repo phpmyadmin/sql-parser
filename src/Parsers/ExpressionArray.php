@@ -81,7 +81,7 @@ final class ExpressionArray implements Parseable
                 if ($token->type === TokenType::Keyword && $token->value === 'CASE') {
                     $expr = CaseExpressions::parse($parser, $list, $options);
                 } else {
-                    $expr = Expression::parse($parser, $list, $options);
+                    $expr = Expressions::parse($parser, $list, $options);
                 }
 
                 if ($expr === null) {

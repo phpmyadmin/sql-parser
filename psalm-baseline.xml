@@ -27,36 +27,9 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/Expression.php">
-    <MixedArrayOffset>
-      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code>$field</code>
-      <code><![CDATA[$options['field']]]></code>
-      <code><![CDATA[$ret->alias]]></code>
-      <code><![CDATA[$ret->alias]]></code>
-      <code><![CDATA[$ret->alias]]></code>
-      <code><![CDATA[$ret->subquery]]></code>
-    </MixedAssignment>
-    <PossiblyNullOperand>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-    </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($ret->alias)]]></code>
-      <code><![CDATA[empty($ret->alias)]]></code>
-      <code><![CDATA[empty($ret->alias)]]></code>
-      <code><![CDATA[empty($ret->database)]]></code>
-      <code><![CDATA[empty($ret->subquery)]]></code>
       <code><![CDATA[empty($this->alias)]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$brackets < 0]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Components/FunctionCall.php">
     <PossiblyNullOperand>
@@ -458,7 +431,7 @@
       <code><![CDATA[ArrayObjs::parse(
                         $parser,
                         $list,
-                        ['type' => PartitionDefinition::class],
+                        ['type' => PartitionDefinitions::class],
                     )]]></code>
     </PropertyTypeCoercion>
     <RedundantCondition>
@@ -563,6 +536,37 @@
       <code>$state === 1</code>
     </RedundantCondition>
   </file>
+  <file src="src/Parsers/Expressions.php">
+    <MixedArrayOffset>
+      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
+    </MixedArrayOffset>
+    <MixedAssignment>
+      <code>$field</code>
+      <code><![CDATA[$options['field']]]></code>
+      <code><![CDATA[$ret->alias]]></code>
+      <code><![CDATA[$ret->alias]]></code>
+      <code><![CDATA[$ret->alias]]></code>
+      <code><![CDATA[$ret->subquery]]></code>
+    </MixedAssignment>
+    <PossiblyNullOperand>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+    </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->database)]]></code>
+      <code><![CDATA[empty($ret->subquery)]]></code>
+    </RiskyTruthyFalsyComparison>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$brackets < 0]]></code>
+    </TypeDoesNotContainType>
+  </file>
   <file src="src/Parsers/FunctionCalls.php">
     <MixedOperand>
       <code><![CDATA[$token->value]]></code>
@@ -576,7 +580,7 @@
   </file>
   <file src="src/Parsers/GroupKeywords.php">
     <PossiblyNullPropertyAssignmentValue>
-      <code>Expression::parse($parser, $list)</code>
+      <code>Expressions::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($expr->expr)]]></code>
@@ -609,7 +613,7 @@
       <code>ArrayObjs::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse($parser, $list, ['field' => 'table'])]]></code>
+      <code><![CDATA[Expressions::parse($parser, $list, ['field' => 'table'])]]></code>
     </PossiblyNullPropertyAssignmentValue>
     <TypeDoesNotContainType>
       <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
@@ -628,7 +632,7 @@
     </MixedPropertyTypeCoercion>
     <PossiblyNullOperand>
       <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[Expression::parse($parser, $list, ['parenthesesDelimited' => true])]]></code>
+      <code><![CDATA[Expressions::parse($parser, $list, ['parenthesesDelimited' => true])]]></code>
     </PossiblyNullOperand>
     <RedundantCondition>
       <code>$state === 5</code>
@@ -642,7 +646,7 @@
   </file>
   <file src="src/Parsers/LockExpressions.php">
     <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse($parser, $list, ['parseField' => 'table'])]]></code>
+      <code><![CDATA[Expressions::parse($parser, $list, ['parseField' => 'table'])]]></code>
     </PossiblyNullPropertyAssignmentValue>
     <PossiblyUnusedMethod>
       <code>buildAll</code>
@@ -723,7 +727,7 @@
   </file>
   <file src="src/Parsers/OrderKeywords.php">
     <PossiblyNullPropertyAssignmentValue>
-      <code>Expression::parse($parser, $list)</code>
+      <code>Expressions::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($expr->expr)]]></code>
@@ -750,7 +754,7 @@
       <code><![CDATA[$ret->name]]></code>
     </MixedOperand>
     <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse(
+      <code><![CDATA[Expressions::parse(
                         $parser,
                         $list,
                         [
@@ -778,7 +782,7 @@
       <code><![CDATA[ArrayObjs::parse($parser, $list)->values]]></code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse(
+      <code><![CDATA[Expressions::parse(
                     $parser,
                     $list,
                     [
@@ -790,7 +794,7 @@
   </file>
   <file src="src/Parsers/RenameOperations.php">
     <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse(
+      <code><![CDATA[Expressions::parse(
                     $parser,
                     $list,
                     [
@@ -798,7 +802,7 @@
                         'parseField' => 'table',
                     ],
                 )]]></code>
-      <code><![CDATA[Expression::parse(
+      <code><![CDATA[Expressions::parse(
                     $parser,
                     $list,
                     [
@@ -961,7 +965,7 @@
       <code><![CDATA[ArrayObjs::parse(
                                 $parser,
                                 $list,
-                                ['type' => PartitionDefinition::class],
+                                ['type' => PartitionDefinitions::class],
                             )]]></code>
       <code>ArrayObjs::parse($parser, $list)</code>
     </PropertyTypeCoercion>

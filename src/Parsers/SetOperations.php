@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -85,7 +84,7 @@ final class SetOperations implements Parseable
                     $commaLastSeenAt = $token;
                 }
             } else {
-                $tmp = Expression::parse(
+                $tmp = Expressions::parse(
                     $parser,
                     $list,
                     ['breakOnAlias' => true],

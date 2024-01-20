@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\LockExpression;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -56,7 +55,7 @@ final class LockExpressions implements Parseable
             }
 
             if ($state === 0) {
-                $ret->table = Expression::parse($parser, $list, ['parseField' => 'table']);
+                $ret->table = Expressions::parse($parser, $list, ['parseField' => 'table']);
                 $state = 1;
             } elseif ($state === 1) {
                 // parse lock type

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -144,7 +143,7 @@ final class PartitionDefinitions implements Parseable
                 if ($token->value === 'MAXVALUE') {
                     $ret->expr = $token->value;
                 } else {
-                    $ret->expr = Expression::parse(
+                    $ret->expr = Expressions::parse(
                         $parser,
                         $list,
                         [

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Reference;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -73,7 +72,7 @@ final class References implements Parseable
             }
 
             if ($state === 0) {
-                $ret->table = Expression::parse(
+                $ret->table = Expressions::parse(
                     $parser,
                     $list,
                     [

@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\TokensList;
 
@@ -156,7 +157,7 @@ final class IntoKeyword implements Component
         }
 
         if (isset($this->values)) {
-            return Expression::buildAll($this->values);
+            return Expressions::buildAll($this->values);
         }
 
         $ret = 'OUTFILE "' . $this->dest . '"';

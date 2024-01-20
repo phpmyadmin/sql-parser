@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -181,7 +180,7 @@ final class Keys implements Parseable
                             $ret->expr = '';
                         }
 
-                        $ret->expr .= Expression::parse($parser, $list, ['parenthesesDelimited' => true]);
+                        $ret->expr .= Expressions::parse($parser, $list, ['parenthesesDelimited' => true]);
                         continue;
                     }
                     // Another unexpected operator was found

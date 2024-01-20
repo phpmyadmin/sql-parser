@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -180,7 +179,7 @@ final class OptionsArrays implements Parseable
             }
 
             if ($lastOption[1] === 'expr' || $lastOption[1] === 'expr=') {
-                $ret->options[$lastOptionId]['expr'] = Expression::parse(
+                $ret->options[$lastOptionId]['expr'] = Expressions::parse(
                     $parser,
                     $list,
                     empty($lastOption[2]) ? [] : $lastOption[2],

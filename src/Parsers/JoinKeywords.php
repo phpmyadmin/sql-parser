@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -80,7 +79,7 @@ final class JoinKeywords implements Parseable
                 $expr->type = JoinKeyword::JOINS[$token->keyword];
                 $state = 1;
             } elseif ($state === 1) {
-                $expr->expr = Expression::parse($parser, $list, ['field' => 'table']);
+                $expr->expr = Expressions::parse($parser, $list, ['field' => 'table']);
                 $state = 2;
             } elseif ($state === 2) {
                 if ($token->type === TokenType::Keyword) {

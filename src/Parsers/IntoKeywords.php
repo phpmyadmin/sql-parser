@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\IntoKeyword;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -76,7 +75,7 @@ final class IntoKeywords implements Parseable
                     || (isset($options['fromReplace'])
                     && $options['fromReplace'])
                 ) {
-                    $ret->dest = Expression::parse(
+                    $ret->dest = Expressions::parse(
                         $parser,
                         $list,
                         [

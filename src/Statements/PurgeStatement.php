@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -90,7 +91,7 @@ class PurgeStatement extends Statement
                     break;
                 case 3:
                     // parse `expr`
-                    $this->endExpr = Expression::parse($parser, $list, []);
+                    $this->endExpr = Expressions::parse($parser, $list, []);
                     break;
                 default:
                     $parser->error('Unexpected token.', $token);

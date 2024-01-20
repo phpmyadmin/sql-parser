@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\CaseExpression;
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
@@ -61,7 +60,7 @@ final class CaseExpressions implements Parseable
                             break;
                         case 'ELSE':
                             ++$list->idx; // Skip 'ELSE'
-                            $ret->elseResult = Expression::parse($parser, $list);
+                            $ret->elseResult = Expressions::parse($parser, $list);
                             $state = 0; // last clause of CASE expression
                             break;
                         case 'END':
@@ -73,7 +72,7 @@ final class CaseExpressions implements Parseable
                             break 2;
                     }
                 } else {
-                    $ret->value = Expression::parse($parser, $list);
+                    $ret->value = Expressions::parse($parser, $list);
                     $type = 0;
                     $state = 1;
                 }
@@ -83,13 +82,13 @@ final class CaseExpressions implements Parseable
                         switch ($token->keyword) {
                             case 'WHEN':
                                 ++$list->idx; // Skip 'WHEN'
-                                $newValue = Expression::parse($parser, $list);
+                                $newValue = Expressions::parse($parser, $list);
                                 $state = 2;
                                 $ret->compareValues[] = $newValue;
                                 break;
                             case 'ELSE':
                                 ++$list->idx; // Skip 'ELSE'
-                                $ret->elseResult = Expression::parse($parser, $list);
+                                $ret->elseResult = Expressions::parse($parser, $list);
                                 $state = 0; // last clause of CASE expression
                                 break;
                             case 'END':
@@ -103,7 +102,7 @@ final class CaseExpressions implements Parseable
                     }
                 } elseif ($token->type === TokenType::Keyword && $token->keyword === 'THEN') {
                     ++$list->idx; // Skip 'THEN'
-                    $newResult = Expression::parse($parser, $list);
+                    $newResult = Expressions::parse($parser, $list);
                     $state = 0;
                     $ret->results[] = $newResult;
                 } elseif ($token->type === TokenType::Keyword) {
@@ -114,7 +113,7 @@ final class CaseExpressions implements Parseable
                 if ($type === 0) {
                     if ($token->type === TokenType::Keyword && $token->keyword === 'THEN') {
                         ++$list->idx; // Skip 'THEN'
-                        $newResult = Expression::parse($parser, $list);
+                        $newResult = Expressions::parse($parser, $list);
                         $ret->results[] = $newResult;
                         $state = 1;
                     } elseif ($token->type === TokenType::Keyword) {

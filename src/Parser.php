@@ -153,7 +153,7 @@ class Parser
 
         // Actual clause parsers.
         'ALTER' => [
-            'class' => Components\Expression::class,
+            'class' => Parsers\Expressions::class,
             'field' => 'table',
             'options' => ['parseField' => 'table'],
         ],
@@ -228,7 +228,7 @@ class Parser
             'field' => 'join',
         ],
         'ON' => [
-            'class' => Components\Expression::class,
+            'class' => Parsers\Expressions::class,
             'field' => 'table',
             'options' => ['parseField' => 'table'],
         ],
@@ -320,7 +320,7 @@ class Parser
             'field' => 'expr',
         ],
         'TRUNCATE' => [
-            'class' => Components\Expression::class,
+            'class' => Parsers\Expressions::class,
             'field' => 'table',
             'options' => ['parseField' => 'table'],
         ],

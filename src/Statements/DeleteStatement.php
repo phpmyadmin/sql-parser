@@ -13,6 +13,7 @@ use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\Conditions;
 use PhpMyAdmin\SqlParser\Parsers\ExpressionArray;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Parsers\JoinKeywords;
 use PhpMyAdmin\SqlParser\Parsers\Limits;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
@@ -161,11 +162,11 @@ class DeleteStatement extends Statement
         $ret = 'DELETE ' . $this->options->build();
 
         if ($this->columns !== null && $this->columns !== []) {
-            $ret .= ' ' . Expression::buildAll($this->columns);
+            $ret .= ' ' . Expressions::buildAll($this->columns);
         }
 
         if ($this->from !== null && $this->from !== []) {
-            $ret .= ' FROM ' . Expression::buildAll($this->from);
+            $ret .= ' FROM ' . Expressions::buildAll($this->from);
         }
 
         if ($this->join !== null && $this->join !== []) {
@@ -173,7 +174,7 @@ class DeleteStatement extends Statement
         }
 
         if ($this->using !== null && $this->using !== []) {
-            $ret .= ' USING ' . Expression::buildAll($this->using);
+            $ret .= ' USING ' . Expressions::buildAll($this->using);
         }
 
         if ($this->where !== null && $this->where !== []) {

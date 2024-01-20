@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\AlterOperation;
-use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
@@ -317,7 +315,7 @@ final class AlterOperations implements Parseable
                     $list->getPrevious(); // in order to check whether it's partition or partition by.
                 }
             } elseif ($state === 1) {
-                $ret->field = Expression::parse(
+                $ret->field = Expressions::parse(
                     $parser,
                     $list,
                     [
@@ -434,7 +432,7 @@ final class AlterOperations implements Parseable
                     $ret->partitions = ArrayObjs::parse(
                         $parser,
                         $list,
-                        ['type' => PartitionDefinition::class],
+                        ['type' => PartitionDefinitions::class],
                     );
                 }
             }

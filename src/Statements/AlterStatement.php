@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Components\AlterOperation;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\AlterOperations;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -77,7 +78,7 @@ class AlterStatement extends Statement
         ++$list->idx;
 
         // Parsing affected table.
-        $this->table = Expression::parse(
+        $this->table = Expressions::parse(
             $parser,
             $list,
             [

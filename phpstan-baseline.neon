@@ -16,21 +16,6 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
-			message: "#^Comparison operation \"\\<\" between int\\<1, max\\> and 0 is always false\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 3
-			path: src/Components/Expression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$subquery \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/Expression.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Components/GroupKeyword.php
@@ -261,6 +246,21 @@ parameters:
 			path: src/Parsers/ExpressionArray.php
 
 		-
+			message: "#^Comparison operation \"\\<\" between int\\<1, max\\> and 0 is always false\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
+			count: 3
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$subquery \\(string\\|null\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/FunctionCalls.php
@@ -371,7 +371,7 @@ parameters:
 			path: src/Parsers/OptionsArrays.php
 
 		-
-			message: "#^Parameter \\#3 \\$options of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:parse\\(\\) expects array\\<string, mixed\\>, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$options of static method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\Expressions\\:\\:parse\\(\\) expects array\\<string, mixed\\>, mixed given\\.$#"
 			count: 1
 			path: src/Parsers/OptionsArrays.php
 

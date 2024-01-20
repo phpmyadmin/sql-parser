@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\ExpressionArray;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Statement;
@@ -188,7 +189,7 @@ class LoadStatement extends Statement
         }
 
         if ($this->columnNamesOrUserVariables !== null && $this->columnNamesOrUserVariables !== []) {
-            $ret .= ' ' . Expression::buildAll($this->columnNamesOrUserVariables);
+            $ret .= ' ' . Expressions::buildAll($this->columnNamesOrUserVariables);
         }
 
         if ($this->set !== null && $this->set !== []) {
@@ -243,7 +244,7 @@ class LoadStatement extends Statement
                 }
 
                 ++$list->idx;
-                $this->fileName = Expression::parse(
+                $this->fileName = Expressions::parse(
                     $parser,
                     $list,
                     ['parseField' => 'file'],
@@ -264,7 +265,7 @@ class LoadStatement extends Statement
                 }
 
                 ++$list->idx;
-                $this->table = Expression::parse($parser, $list, ['parseField' => 'table', 'breakOnAlias' => true]);
+                $this->table = Expressions::parse($parser, $list, ['parseField' => 'table', 'breakOnAlias' => true]);
                 $state = 3;
             } elseif ($state >= 3 && $state <= 7) {
                 if ($token->type === TokenType::Keyword) {
@@ -324,7 +325,7 @@ class LoadStatement extends Statement
             case 4:
                 if ($token->keyword === 'CHARACTER SET') {
                     ++$list->idx;
-                    $this->charsetName = Expression::parse($parser, $list);
+                    $this->charsetName = Expressions::parse($parser, $list);
 
                     return 5;
                 }
@@ -342,7 +343,7 @@ class LoadStatement extends Statement
                 if ($token->keyword === 'IGNORE') {
                     ++$list->idx;
 
-                    $this->ignoreNumber = Expression::parse($parser, $list);
+                    $this->ignoreNumber = Expressions::parse($parser, $list);
                     $nextToken = $list->getNextOfType(TokenType::Keyword);
 
                     if (
