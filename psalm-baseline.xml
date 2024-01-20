@@ -118,9 +118,6 @@
       <code>$table</code>
       <code>$type</code>
     </MissingConstructor>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse($parser, $list, ['parseField' => 'table'])]]></code>
-    </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/OptionsArray.php">
     <MixedArgument>
@@ -734,6 +731,14 @@
       <code><![CDATA[$ret->offset]]></code>
       <code><![CDATA[$ret->rowCount]]></code>
     </MixedAssignment>
+  </file>
+  <file src="src/Parsers/LockExpressions.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expression::parse($parser, $list, ['parseField' => 'table'])]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyUnusedMethod>
+      <code>buildAll</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Parsers/OrderKeywords.php">
     <PossiblyNullPropertyAssignmentValue>

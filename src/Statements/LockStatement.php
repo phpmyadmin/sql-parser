@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\LockExpression;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\LockExpressions;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -97,7 +98,7 @@ class LockStatement extends Statement
                     break;
                 }
 
-                $this->locked[] = LockExpression::parse($parser, $list);
+                $this->locked[] = LockExpressions::parse($parser, $list);
                 $state = 2;
             } elseif ($state === 2) {
                 if ($token->value === ',') {

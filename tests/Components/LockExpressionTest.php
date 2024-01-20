@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 
 use PhpMyAdmin\SqlParser\Components\LockExpression;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\LockExpressions;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -13,7 +14,7 @@ class LockExpressionTest extends TestCase
 {
     public function testParse(): void
     {
-        $component = LockExpression::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL'));
+        $component = LockExpressions::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL'));
         $this->assertNotNull($component->table);
         $this->assertEquals($component->table->table, 'table1');
         $this->assertEquals($component->table->alias, 't1');
@@ -22,7 +23,7 @@ class LockExpressionTest extends TestCase
 
     public function testParse2(): void
     {
-        $component = LockExpression::parse(new Parser(), $this->getTokensList('table1 LOW_PRIORITY WRITE'));
+        $component = LockExpressions::parse(new Parser(), $this->getTokensList('table1 LOW_PRIORITY WRITE'));
         $this->assertNotNull($component->table);
         $this->assertEquals($component->table->table, 'table1');
         $this->assertEquals($component->type, 'LOW_PRIORITY WRITE');
@@ -32,7 +33,7 @@ class LockExpressionTest extends TestCase
     public function testParseErr(string $expr, string $error): void
     {
         $parser = new Parser();
-        LockExpression::parse($parser, $this->getTokensList($expr));
+        LockExpressions::parse($parser, $this->getTokensList($expr));
         $errors = $this->getErrorsAsArray($parser);
         $this->assertEquals($errors[0][0], $error);
     }
@@ -59,8 +60,8 @@ class LockExpressionTest extends TestCase
     public function testBuildAll(): void
     {
         $component = [
-            LockExpression::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL')),
-            LockExpression::parse(new Parser(), $this->getTokensList('table2 LOW_PRIORITY WRITE')),
+            LockExpressions::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL')),
+            LockExpressions::parse(new Parser(), $this->getTokensList('table2 LOW_PRIORITY WRITE')),
         ];
         $this->assertEquals(
             LockExpression::buildAll($component),
