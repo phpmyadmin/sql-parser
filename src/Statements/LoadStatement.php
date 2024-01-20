@@ -262,7 +262,7 @@ class LoadStatement extends Statement
                 }
 
                 ++$list->idx;
-                $this->table = Expression::parse($parser, $list, ['parseField' => 'table']);
+                $this->table = Expression::parse($parser, $list, ['parseField' => 'table', 'breakOnAlias' => true]);
                 $state = 3;
             } elseif ($state >= 3 && $state <= 7) {
                 if ($token->type === TokenType::Keyword) {

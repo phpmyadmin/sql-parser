@@ -34,6 +34,20 @@ class ErrorTest extends TestCase
         );
     }
 
+    public function testGetWithNullToken(): void
+    {
+        $lexer = new Lexer('LOCK TABLES table1 AS `t1` LOCAL');
+        $parser = new Parser($lexer->list);
+        $this->assertSame(
+            [
+                ['An alias was previously found.', 0, 'LOCAL', 27],
+                ['Unexpected keyword.', 0, 'LOCAL', 27],
+                ['Unexpected end of LOCK expression.', 0, '', null],
+            ],
+            Error::get([$lexer, $parser]),
+        );
+    }
+
     public function testFormat(): void
     {
         $this->assertEquals(
