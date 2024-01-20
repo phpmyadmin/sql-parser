@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
-use PhpMyAdmin\SqlParser\Components\Parsers\Conditions;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\Conditions;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ConditionTest extends TestCase

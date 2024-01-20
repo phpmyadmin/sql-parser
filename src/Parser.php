@@ -131,23 +131,23 @@ class Parser
         ],
 
         'INTERSECT' => [
-            'class' => Components\Parsers\UnionKeywords::class,
+            'class' => Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
         'EXCEPT' => [
-            'class' => Components\Parsers\UnionKeywords::class,
+            'class' => Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
         'UNION' => [
-            'class' => Components\Parsers\UnionKeywords::class,
+            'class' => Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
         'UNION ALL' => [
-            'class' => Components\Parsers\UnionKeywords::class,
+            'class' => Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
         'UNION DISTINCT' => [
-            'class' => Components\Parsers\UnionKeywords::class,
+            'class' => Parsers\UnionKeywords::class,
             'field' => 'union',
         ],
 
@@ -158,12 +158,12 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'ANALYZE' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'BACKUP' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
@@ -172,43 +172,43 @@ class Parser
             'field' => 'call',
         ],
         'CHECK' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'CHECKSUM' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'CROSS JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'DROP' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'fields',
             'options' => ['parseField' => 'table'],
         ],
         'FORCE' => [
-            'class' => Components\Parsers\IndexHints::class,
+            'class' => Parsers\IndexHints::class,
             'field' => 'index_hints',
         ],
         'FROM' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'from',
             'options' => ['field' => 'table'],
         ],
         'GROUP BY' => [
-            'class' => Components\Parsers\GroupKeywords::class,
+            'class' => Parsers\GroupKeywords::class,
             'field' => 'group',
         ],
         'HAVING' => [
-            'class' => Components\Parsers\Conditions::class,
+            'class' => Parsers\Conditions::class,
             'field' => 'having',
         ],
         'IGNORE' => [
-            'class' => Components\Parsers\IndexHints::class,
+            'class' => Parsers\IndexHints::class,
             'field' => 'index_hints',
         ],
         'INTO' => [
@@ -216,15 +216,15 @@ class Parser
             'field' => 'into',
         ],
         'JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'LEFT JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'LEFT OUTER JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'ON' => [
@@ -233,47 +233,47 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'RIGHT JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'RIGHT OUTER JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'INNER JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'FULL JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'FULL OUTER JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL LEFT JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL RIGHT JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL LEFT OUTER JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'NATURAL RIGHT OUTER JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'STRAIGHT_JOIN' => [
-            'class' => Components\Parsers\JoinKeywords::class,
+            'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
         'LIMIT' => [
@@ -281,12 +281,12 @@ class Parser
             'field' => 'limit',
         ],
         'OPTIMIZE' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'ORDER BY' => [
-            'class' => Components\Parsers\OrderKeywords::class,
+            'class' => Parsers\OrderKeywords::class,
             'field' => 'order',
         ],
         'PARTITION' => [
@@ -298,25 +298,25 @@ class Parser
             'field' => 'procedure',
         ],
         'RENAME' => [
-            'class' => Components\Parsers\RenameOperations::class,
+            'class' => Parsers\RenameOperations::class,
             'field' => 'renames',
         ],
         'REPAIR' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'RESTORE' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'SET' => [
-            'class' => Components\Parsers\SetOperations::class,
+            'class' => Parsers\SetOperations::class,
             'field' => 'set',
         ],
         'SELECT' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'expr',
         ],
         'TRUNCATE' => [
@@ -325,24 +325,24 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'UPDATE' => [
-            'class' => Components\Parsers\ExpressionArray::class,
+            'class' => Parsers\ExpressionArray::class,
             'field' => 'tables',
             'options' => ['parseField' => 'table'],
         ],
         'USE' => [
-            'class' => Components\Parsers\IndexHints::class,
+            'class' => Parsers\IndexHints::class,
             'field' => 'index_hints',
         ],
         'VALUE' => [
-            'class' => Components\Parsers\Array2d::class,
+            'class' => Parsers\Array2d::class,
             'field' => 'values',
         ],
         'VALUES' => [
-            'class' => Components\Parsers\Array2d::class,
+            'class' => Parsers\Array2d::class,
             'field' => 'values',
         ],
         'WHERE' => [
-            'class' => Components\Parsers\Conditions::class,
+            'class' => Parsers\Conditions::class,
             'field' => 'where',
         ],
     ];
