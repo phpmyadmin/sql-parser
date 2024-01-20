@@ -7,13 +7,14 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Reference;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\References;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class ReferenceTest extends TestCase
 {
     public function testParse(): void
     {
-        $component = Reference::parse(new Parser(), $this->getTokensList('tbl (id)'));
+        $component = References::parse(new Parser(), $this->getTokensList('tbl (id)'));
         $this->assertEquals('tbl', $component->table->table);
         $this->assertEquals(['id'], $component->columns);
     }

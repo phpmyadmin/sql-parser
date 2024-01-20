@@ -378,24 +378,10 @@
     </UnusedVariable>
   </file>
   <file src="src/Components/Reference.php">
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[ArrayObj::parse($parser, $list)->values]]></code>
-    </PossiblyInvalidPropertyFetch>
     <PossiblyNullPropertyAssignmentValue>
       <code>$options</code>
       <code>$table</code>
-      <code><![CDATA[Expression::parse(
-                    $parser,
-                    $list,
-                    [
-                        'parseField' => 'table',
-                        'breakOnAlias' => true,
-                    ],
-                )]]></code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 2</code>
-    </RedundantCondition>
   </file>
   <file src="src/Components/RenameOperation.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -752,6 +738,21 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[isset($expr->name)]]></code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Parsers/References.php">
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[ArrayObj::parse($parser, $list)->values]]></code>
+    </PossiblyInvalidPropertyFetch>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expression::parse(
+                    $parser,
+                    $list,
+                    [
+                        'parseField' => 'table',
+                        'breakOnAlias' => true,
+                    ],
+                )]]></code>
+    </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Parsers/RenameOperations.php">
     <PossiblyNullPropertyAssignmentValue>

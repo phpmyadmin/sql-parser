@@ -8,7 +8,6 @@ use PhpMyAdmin\SqlParser\Components\CreateDefinition;
 use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
-use PhpMyAdmin\SqlParser\Components\Reference;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
@@ -204,7 +203,7 @@ final class CreateDefinitions implements Parseable
             } elseif ($state === 4) {
                 if ($token->type === TokenType::Keyword && $token->keyword === 'REFERENCES') {
                     ++$list->idx; // Skipping keyword 'REFERENCES'.
-                    $expr->references = Reference::parse($parser, $list);
+                    $expr->references = References::parse($parser, $list);
                 } else {
                     --$list->idx;
                 }
