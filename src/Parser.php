@@ -277,7 +277,7 @@ class Parser
             'field' => 'join',
         ],
         'LIMIT' => [
-            'class' => Components\Limit::class,
+            'class' => Parsers\Limits::class,
             'field' => 'limit',
         ],
         'OPTIMIZE' => [

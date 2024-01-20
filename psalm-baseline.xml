@@ -113,12 +113,6 @@
       <code>$type</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
-  <file src="src/Components/Limit.php">
-    <MixedAssignment>
-      <code><![CDATA[$ret->offset]]></code>
-      <code><![CDATA[$ret->rowCount]]></code>
-    </MixedAssignment>
-  </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
       <code>$table</code>
@@ -734,6 +728,12 @@
     <RedundantCondition>
       <code>$state === 5</code>
     </RedundantCondition>
+  </file>
+  <file src="src/Parsers/Limits.php">
+    <MixedAssignment>
+      <code><![CDATA[$ret->offset]]></code>
+      <code><![CDATA[$ret->rowCount]]></code>
+    </MixedAssignment>
   </file>
   <file src="src/Parsers/OrderKeywords.php">
     <PossiblyNullPropertyAssignmentValue>

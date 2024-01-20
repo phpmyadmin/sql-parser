@@ -71,16 +71,6 @@ parameters:
 			path: src/Components/Key.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$offset \\(int\\|string\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/Limit.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$rowCount \\(int\\|string\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/Limit.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Components/LockExpression.php
@@ -399,6 +389,16 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Parsers/Keys.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$offset \\(int\\|string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/Limits.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$rowCount \\(int\\|string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/Limits.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"

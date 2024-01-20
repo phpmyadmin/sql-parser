@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\Conditions;
 use PhpMyAdmin\SqlParser\Parsers\ExpressionArray;
 use PhpMyAdmin\SqlParser\Parsers\JoinKeywords;
+use PhpMyAdmin\SqlParser\Parsers\Limits;
 use PhpMyAdmin\SqlParser\Parsers\OrderKeywords;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -291,7 +292,7 @@ class DeleteStatement extends Statement
                                 break;
                             case 'LIMIT':
                                 ++$list->idx; // Skip 'LIMIT'
-                                $this->limit = Limit::parse($parser, $list);
+                                $this->limit = Limits::parse($parser, $list);
                                 $state = 6;
                                 break;
                             default:
@@ -329,7 +330,7 @@ class DeleteStatement extends Statement
                             break;
                         case 'LIMIT':
                             ++$list->idx; // Skip 'LIMIT'
-                            $this->limit = Limit::parse($parser, $list);
+                            $this->limit = Limits::parse($parser, $list);
                             $state = 6;
                             break;
                         default:
@@ -345,7 +346,7 @@ class DeleteStatement extends Statement
                     }
 
                     ++$list->idx; // Skip 'LIMIT'
-                    $this->limit = Limit::parse($parser, $list);
+                    $this->limit = Limits::parse($parser, $list);
                     $state = 6;
                 }
             }
