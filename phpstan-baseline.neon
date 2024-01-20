@@ -61,22 +61,7 @@ parameters:
 			path: src/Components/JoinKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns \\(array\\<array\\{name\\?\\: string, length\\?\\: int, order\\?\\: string\\}\\>\\) does not accept non\\-empty\\-array\\<array\\<'length'\\|'name'\\|'order', mixed\\>\\>\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/Key.php
 
@@ -399,6 +384,21 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/JoinKeywords.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns \\(array\\<array\\{name\\?\\: string, length\\?\\: int, order\\?\\: string\\}\\>\\) does not accept non\\-empty\\-array\\<array\\<'length'\\|'name'\\|'order', mixed\\>\\>\\.$#"
+			count: 1
+			path: src/Parsers/Keys.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/Keys.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/Keys.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"

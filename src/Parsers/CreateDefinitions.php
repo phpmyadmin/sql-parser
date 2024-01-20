@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
-use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -164,7 +163,7 @@ final class CreateDefinitions implements Parseable
                 if ($token->type === TokenType::Keyword && $token->keyword === 'CONSTRAINT') {
                     $expr->isConstraint = true;
                 } elseif (($token->type === TokenType::Keyword) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
-                    $expr->key = Key::parse($parser, $list);
+                    $expr->key = Keys::parse($parser, $list);
                     $state = 4;
                 } elseif ($token->type === TokenType::Symbol || $token->type === TokenType::None) {
                     $expr->name = $token->value;

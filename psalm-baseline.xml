@@ -104,28 +104,14 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/Key.php">
-    <MixedAssignment>
-      <code><![CDATA[$lastColumn['length']]]></code>
-      <code><![CDATA[$lastColumn['name']]]></code>
-      <code><![CDATA[$ret->name]]></code>
-      <code><![CDATA[$ret->type]]></code>
-    </MixedAssignment>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[$ret->columns]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyNullOperand>
-      <code><![CDATA[$ret->expr]]></code>
       <code><![CDATA[$this->options]]></code>
       <code><![CDATA[$this->options]]></code>
-      <code><![CDATA[Expression::parse($parser, $list, ['parenthesesDelimited' => true])]]></code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyAssignmentValue>
       <code>$name</code>
       <code>$type</code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 5</code>
-    </RedundantCondition>
   </file>
   <file src="src/Components/Limit.php">
     <MixedAssignment>
@@ -730,6 +716,24 @@
       <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
       <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
     </TypeDoesNotContainType>
+  </file>
+  <file src="src/Parsers/Keys.php">
+    <MixedAssignment>
+      <code><![CDATA[$lastColumn['length']]]></code>
+      <code><![CDATA[$lastColumn['name']]]></code>
+      <code><![CDATA[$ret->name]]></code>
+      <code><![CDATA[$ret->type]]></code>
+    </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$ret->columns]]></code>
+    </MixedPropertyTypeCoercion>
+    <PossiblyNullOperand>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[Expression::parse($parser, $list, ['parenthesesDelimited' => true])]]></code>
+    </PossiblyNullOperand>
+    <RedundantCondition>
+      <code>$state === 5</code>
+    </RedundantCondition>
   </file>
   <file src="src/Parsers/OrderKeywords.php">
     <PossiblyNullPropertyAssignmentValue>
