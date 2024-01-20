@@ -237,11 +237,7 @@ class AlterOperation extends Component
         'ON COMPLETION PRESERVE' => 5,
         'ON COMPLETION NOT PRESERVE' => 5,
         'RENAME' => 6,
-        'TO' => [
-            7,
-            'expr',
-            ['parseField' => 'table'],
-        ],
+        'TO' => [7, 'expr', ['parseField' => 'table', 'breakOnAlias' => true]],
         'ENABLE' => 8,
         'DISABLE' => 8,
         'DISABLE ON SLAVE' => 8,
