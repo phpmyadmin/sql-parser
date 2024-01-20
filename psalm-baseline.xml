@@ -21,17 +21,10 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Components/DataType.php">
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$parameters->raw]]></code>
-      <code><![CDATA[$parameters->values]]></code>
-    </PossiblyInvalidPropertyFetch>
     <PossiblyNullPropertyAssignmentValue>
       <code>$name</code>
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
   </file>
   <file src="src/Components/Expression.php">
     <MixedArrayOffset>
@@ -679,6 +672,15 @@
       <code><![CDATA[$expr->name]]></code>
     </MixedAssignment>
   </file>
+  <file src="src/Parsers/DataTypes.php">
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[$parameters->raw]]></code>
+      <code><![CDATA[$parameters->values]]></code>
+    </PossiblyInvalidPropertyFetch>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+  </file>
   <file src="src/Parsers/ExpressionArray.php">
     <InvalidReturnStatement>
       <code>$ret</code>
@@ -739,7 +741,7 @@
       <code><![CDATA[$expr->name]]></code>
     </MixedAssignment>
     <PossiblyNullPropertyAssignmentValue>
-      <code>DataType::parse($parser, $list)</code>
+      <code>DataTypes::parse($parser, $list)</code>
     </PossiblyNullPropertyAssignmentValue>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[isset($expr->name)]]></code>

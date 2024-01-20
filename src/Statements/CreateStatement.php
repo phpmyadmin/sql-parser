@@ -14,6 +14,7 @@ use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\CreateDefinitions;
+use PhpMyAdmin\SqlParser\Parsers\DataTypes;
 use PhpMyAdmin\SqlParser\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
@@ -676,7 +677,7 @@ class CreateStatement extends Statement
                     $parser->error('A "RETURNS" keyword was expected.', $token ?? $prevToken);
                 } else {
                     ++$list->idx;
-                    $this->return = DataType::parse($parser, $list);
+                    $this->return = DataTypes::parse($parser, $list);
                 }
             }
 

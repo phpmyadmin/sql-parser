@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\DataType;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -80,7 +79,7 @@ final class ParameterDefinitions implements Parseable
                     $state = 2;
                 }
             } elseif ($state === 2) {
-                $expr->type = DataType::parse($parser, $list);
+                $expr->type = DataTypes::parse($parser, $list);
                 $state = 3;
             } else {
                 $ret[] = $expr;
