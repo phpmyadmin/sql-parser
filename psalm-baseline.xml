@@ -161,39 +161,12 @@
       <code>$subpartitions</code>
       <code>$type</code>
     </MissingConstructor>
-    <MixedAssignment>
-      <code><![CDATA[$ret->name]]></code>
-      <code><![CDATA[$ret->type]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$ret->name]]></code>
-    </MixedOperand>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse(
-                        $parser,
-                        $list,
-                        [
-                            'parenthesesDelimited' => true,
-                            'breakOnAlias' => true,
-                        ],
-                    )]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyTypeCoercion>
-      <code><![CDATA[ArrayObjs::parse(
-                        $parser,
-                        $list,
-                        ['type' => self::class],
-                    )]]></code>
-    </PropertyTypeCoercion>
-    <RedundantCondition>
-      <code>$state === 6</code>
-    </RedundantCondition>
+    <PossiblyUnusedProperty>
+      <code>$partitionOptions</code>
+    </PossiblyUnusedProperty>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($this->options)]]></code>
     </RedundantConditionGivenDocblockType>
-    <UnusedVariable>
-      <code>$idx</code>
-    </UnusedVariable>
   </file>
   <file src="src/Components/Reference.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -767,6 +740,38 @@
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[isset($expr->name)]]></code>
     </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Parsers/PartitionDefinitions.php">
+    <MixedAssignment>
+      <code><![CDATA[$ret->name]]></code>
+      <code><![CDATA[$ret->type]]></code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$ret->name]]></code>
+    </MixedOperand>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expression::parse(
+                        $parser,
+                        $list,
+                        [
+                            'parenthesesDelimited' => true,
+                            'breakOnAlias' => true,
+                        ],
+                    )]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyTypeCoercion>
+      <code><![CDATA[ArrayObjs::parse(
+                        $parser,
+                        $list,
+                        ['type' => self::class],
+                    )]]></code>
+    </PropertyTypeCoercion>
+    <RedundantCondition>
+      <code>$state === 6</code>
+    </RedundantCondition>
+    <UnusedVariable>
+      <code>$idx</code>
+    </UnusedVariable>
   </file>
   <file src="src/Parsers/References.php">
     <PossiblyInvalidPropertyFetch>

@@ -17,6 +17,7 @@ use PhpMyAdmin\SqlParser\Parsers\CreateDefinitions;
 use PhpMyAdmin\SqlParser\Parsers\DataTypes;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Parsers\ParameterDefinitions;
+use PhpMyAdmin\SqlParser\Parsers\PartitionDefinitions;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -439,7 +440,7 @@ class CreateStatement extends Statement
             }
 
             if (! empty($this->partitions)) {
-                $partition .= "\n" . PartitionDefinition::buildAll($this->partitions);
+                $partition .= "\n" . PartitionDefinitions::buildAll($this->partitions);
             }
 
             return 'CREATE '

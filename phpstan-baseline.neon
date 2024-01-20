@@ -96,27 +96,7 @@ parameters:
 			path: src/Components/ParameterDefinition.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/PartitionDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/PartitionDefinition.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
-			path: src/Components/PartitionDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$subpartitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Components/PartitionDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/PartitionDefinition.php
 
@@ -424,6 +404,26 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
 			count: 1
 			path: src/Parsers/ParameterDefinitions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Parsers/PartitionDefinitions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/PartitionDefinitions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$subpartitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Parsers/PartitionDefinitions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/PartitionDefinitions.php
 
 		-
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"

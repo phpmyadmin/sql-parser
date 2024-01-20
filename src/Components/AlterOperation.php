@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parsers\PartitionDefinitions;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
@@ -73,7 +74,7 @@ final class AlterOperation implements Component
         $ret .= $afterFieldsOptions . TokensList::buildFromArray($this->unknown);
 
         if (isset($this->partitions)) {
-            $ret .= PartitionDefinition::buildAll($this->partitions);
+            $ret .= PartitionDefinitions::buildAll($this->partitions);
         }
 
         return trim($ret);
