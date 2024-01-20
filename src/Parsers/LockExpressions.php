@@ -10,8 +10,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 
-use function implode;
-
 /**
  * Parses a reference to a LOCK expression.
  */
@@ -74,12 +72,6 @@ final class LockExpressions implements Parseable
         --$list->idx;
 
         return $ret;
-    }
-
-    /** @param LockExpression[] $component the component to be built */
-    public static function buildAll(array $component): string
-    {
-        return implode(', ', $component);
     }
 
     private static function parseLockType(Parser $parser, TokensList $list): string
