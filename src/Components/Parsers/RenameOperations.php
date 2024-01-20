@@ -98,7 +98,7 @@ final class RenameOperations implements Parseable
                 }
 
                 $state = 3;
-            } elseif ($state === 3) {
+            } else {
                 if (($token->type !== TokenType::Operator) || ($token->value !== ',')) {
                     break;
                 }

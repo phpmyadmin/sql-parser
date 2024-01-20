@@ -62,7 +62,7 @@ final class GroupKeywords implements Parseable
             if ($state === 0) {
                 $expr->expr = Expression::parse($parser, $list);
                 $state = 1;
-            } elseif ($state === 1) {
+            } else {
                 if (
                     ($token->type === TokenType::Keyword)
                     && (($token->keyword === 'ASC') || ($token->keyword === 'DESC'))

@@ -84,7 +84,7 @@ final class SetOperations implements Parseable
                 } elseif ($token->value === ',') {
                     $commaLastSeenAt = $token;
                 }
-            } elseif ($state === 1) {
+            } else {
                 $tmp = Expression::parse(
                     $parser,
                     $list,

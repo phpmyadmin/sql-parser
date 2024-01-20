@@ -82,7 +82,7 @@ final class ParameterDefinitions implements Parseable
             } elseif ($state === 2) {
                 $expr->type = DataType::parse($parser, $list);
                 $state = 3;
-            } elseif ($state === 3) {
+            } else {
                 $ret[] = $expr;
                 $expr = new ParameterDefinition();
                 if ($token->value === ',') {

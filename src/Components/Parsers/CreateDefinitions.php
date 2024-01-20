@@ -210,7 +210,7 @@ final class CreateDefinitions implements Parseable
                 }
 
                 $state = 5;
-            } elseif ($state === 5) {
+            } else {
                 if (! empty($expr->type) || ! empty($expr->key)) {
                     $ret[] = $expr;
                 }

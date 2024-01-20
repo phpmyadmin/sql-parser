@@ -111,7 +111,7 @@ final class JoinKeywords implements Parseable
                 $ret[] = $expr;
                 $expr = new JoinKeyword();
                 $state = 0;
-            } elseif ($state === 4) {
+            } else {
                 $expr->using = ArrayObj::parse($parser, $list);
                 $ret[] = $expr;
                 $expr = new JoinKeyword();
