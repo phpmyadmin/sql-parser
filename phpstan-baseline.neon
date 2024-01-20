@@ -36,21 +36,6 @@ parameters:
 			path: src/Components/GroupKeyword.php
 
 		-
-			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) expects string, mixed given\\.$#"
-			count: 2
-			path: src/Components/IntoKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Components/JoinKeyword.php
@@ -389,6 +374,21 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$type \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Parsers/IndexHints.php
+
+		-
+			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Parsers/IntoKeywords.php
+
+		-
+			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/Parsers/IntoKeywords.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/IntoKeywords.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"

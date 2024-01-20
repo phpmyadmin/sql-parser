@@ -79,16 +79,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Components/IntoKeyword.php">
-    <MixedArgument>
-      <code><![CDATA[$token->keyword]]></code>
-      <code><![CDATA[$token->keyword]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$ret->dest]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[ArrayObjs::parse($parser, $list)->values]]></code>
-    </PossiblyInvalidPropertyFetch>
     <PossiblyNullOperand>
       <code><![CDATA[$this->dest]]></code>
     </PossiblyNullOperand>
@@ -712,6 +702,18 @@
     <MixedAssignment>
       <code><![CDATA[$expr->type]]></code>
     </MixedAssignment>
+  </file>
+  <file src="src/Parsers/IntoKeywords.php">
+    <MixedArgument>
+      <code><![CDATA[$token->keyword]]></code>
+      <code><![CDATA[$token->keyword]]></code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$ret->dest]]></code>
+    </MixedAssignment>
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[ArrayObjs::parse($parser, $list)->values]]></code>
+    </PossiblyInvalidPropertyFetch>
   </file>
   <file src="src/Parsers/JoinKeywords.php">
     <MixedArrayOffset>

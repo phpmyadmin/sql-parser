@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\Array2d;
 use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
+use PhpMyAdmin\SqlParser\Parsers\IntoKeywords;
 use PhpMyAdmin\SqlParser\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -142,7 +143,7 @@ class ReplaceStatement extends Statement
                 }
 
                 ++$list->idx;
-                $this->into = IntoKeyword::parse(
+                $this->into = IntoKeywords::parse(
                     $parser,
                     $list,
                     ['fromReplace' => true],

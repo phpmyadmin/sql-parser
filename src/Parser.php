@@ -212,7 +212,7 @@ class Parser
             'field' => 'index_hints',
         ],
         'INTO' => [
-            'class' => Components\IntoKeyword::class,
+            'class' => Parsers\IntoKeywords::class,
             'field' => 'into',
         ],
         'JOIN' => [
