@@ -83,144 +83,143 @@ class SelectStatement extends Statement
      *
      * @see Statement::$clauses
      *
-     * @var array<string, array<int, int|string>>
-     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
+     * @var array<string, array{non-empty-string, int-mask-of<self::ADD_*>}>
      */
     public static array $clauses = [
         'SELECT' => [
             'SELECT',
-            2,
+            Statement::ADD_KEYWORD,
         ],
         // Used for options.
         '_OPTIONS' => [
             '_OPTIONS',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         // Used for selected expressions.
         '_SELECT' => [
             'SELECT',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'INTO' => [
             'INTO',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'FROM' => [
             'FROM',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'FORCE' => [
             'FORCE',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'USE' => [
             'USE',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'IGNORE' => [
             'IGNORE',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'PARTITION' => [
             'PARTITION',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
 
         'JOIN' => [
             'JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'FULL JOIN' => [
             'FULL JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'INNER JOIN' => [
             'INNER JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'LEFT JOIN' => [
             'LEFT JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'LEFT OUTER JOIN' => [
             'LEFT OUTER JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'RIGHT JOIN' => [
             'RIGHT JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'RIGHT OUTER JOIN' => [
             'RIGHT OUTER JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'NATURAL JOIN' => [
             'NATURAL JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'NATURAL LEFT JOIN' => [
             'NATURAL LEFT JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'NATURAL RIGHT JOIN' => [
             'NATURAL RIGHT JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'NATURAL LEFT OUTER JOIN' => [
             'NATURAL LEFT OUTER JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'NATURAL RIGHT OUTER JOIN' => [
             'NATURAL RIGHT JOIN',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'WHERE' => [
             'WHERE',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'GROUP BY' => [
             'GROUP BY',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         '_GROUP_OPTIONS' => [
             '_GROUP_OPTIONS',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'HAVING' => [
             'HAVING',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'ORDER BY' => [
             'ORDER BY',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'LIMIT' => [
             'LIMIT',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'PROCEDURE' => [
             'PROCEDURE',
-            3,
+            Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
         ],
         'UNION' => [
             'UNION',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'EXCEPT' => [
             'EXCEPT',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         'INTERSECT' => [
             'INTERSECT',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         '_END_OPTIONS' => [
             '_END_OPTIONS',
-            1,
+            Statement::ADD_CLAUSE,
         ],
         // These are available only when `UNION` is present.
-        // 'ORDER BY'                      => ['ORDER BY', 3],
-        // 'LIMIT'                         => ['LIMIT', 3],
+        // 'ORDER BY'                      => ['ORDER BY', Statement::ADD_CLAUSE|Statement::ADD_KEYWORD],
+        // 'LIMIT'                         => ['LIMIT', Statement::ADD_CLAUSE|Statement::ADD_KEYWORD],
     ];
 
     /**
@@ -321,8 +320,7 @@ class SelectStatement extends Statement
     /**
      * Gets the clauses of this statement.
      *
-     * @return array<string, array<int, int|string>>
-     * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
+     * @return array<string, array{non-empty-string, int-mask-of<Statement::ADD_*>}>
      */
     public function getClauses(): array
     {
@@ -334,11 +332,11 @@ class SelectStatement extends Statement
             unset($clauses['ORDER BY'], $clauses['LIMIT']);
             $clauses['ORDER BY'] = [
                 'ORDER BY',
-                3,
+                Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
             ];
             $clauses['LIMIT'] = [
                 'LIMIT',
-                3,
+                Statement::ADD_CLAUSE | Statement::ADD_KEYWORD,
             ];
 
             return $clauses;

@@ -78,6 +78,11 @@ class Formatter
         'VALUES' => true,
     ];
 
+    private const FORMATTERS = [
+        'PARTITION BY',
+        'SUBPARTITION BY',
+    ];
+
     /** @param array<string, bool|string|array<int, array<string, int|string>>> $options the formatting options */
     public function __construct(array $options = [])
     {
@@ -747,7 +752,11 @@ class Formatter
             return 2;
         }
 
-        if ($token->type === TokenType::Keyword && isset(Parser::KEYWORD_PARSERS[$token->keyword])) {
+        if (
+            $token->type === TokenType::Keyword && (
+            in_array($token->keyword, self::FORMATTERS, true) || isset(Parser::KEYWORD_PARSERS[$token->keyword])
+            )
+        ) {
             return 1;
         }
 

@@ -48,18 +48,13 @@ abstract class Statement implements Stringable
      */
     public static array $statementOptions = [];
 
+    protected const ADD_CLAUSE = 1;
+    protected const ADD_KEYWORD = 2;
+
     /**
      * The clauses of this statement, in order.
      *
-     * The value attributed to each clause is used by the builder and it may
-     * have one of the following values:
-     *
-     *     - 1 = 01 - add the clause only
-     *     - 2 = 10 - add the keyword
-     *     - 3 = 11 - add both the keyword and the clause
-     *
-     * @var array<string, array<int, int|string>>
-     * @psalm-var array<string, array{non-empty-string, (1|2|3)}>
+     * @var array<string, array{non-empty-string, int-mask-of<self::ADD_*>}>
      */
     public static array $clauses = [];
 
@@ -115,29 +110,7 @@ abstract class Statement implements Stringable
          */
         $built = [];
 
-        /**
-         * Statement's clauses.
-         */
-        $clauses = $this->getClauses();
-
-        foreach ($clauses as $clause) {
-            /**
-             * The name of the clause.
-             */
-            $name = $clause[0];
-
-            /**
-             * The type of the clause.
-             *
-             * @see Statement::$clauses
-             */
-            $type = $clause[1];
-
-            /**
-             * The builder (parser) of this clause.
-             */
-            $class = Parser::KEYWORD_PARSERS[$name]['class'];
-
+        foreach ($this->getClauses() as [$name, $type]) {
             /**
              * The name of the field that is used as source for the builder.
              * Same field is used to store the result of parsing.
@@ -150,7 +123,7 @@ abstract class Statement implements Stringable
             }
 
             // Checking if this field was already built.
-            if ($type & 1) {
+            if ($type & self::ADD_CLAUSE) {
                 if (! empty($built[$field])) {
                     continue;
                 }
@@ -159,16 +132,17 @@ abstract class Statement implements Stringable
             }
 
             // Checking if the name of the clause should be added.
-            if ($type & 2) {
+            if ($type & self::ADD_KEYWORD) {
                 $query = trim($query) . ' ' . $name;
             }
 
             // Checking if the result of the builder should be added.
-            if (! ($type & 1)) {
+            if (! ($type & self::ADD_CLAUSE)) {
                 continue;
             }
 
             if (is_array($this->$field)) {
+                $class = Parser::KEYWORD_PARSERS[$name]['class'];
                 $query = trim($query) . ' ' . $class::buildAll($this->$field);
             } else {
                 $query = trim($query) . ' ' . $this->$field->build();
@@ -286,7 +260,7 @@ abstract class Statement implements Stringable
             $options = [];
 
             // Looking for duplicated clauses.
-            if (! empty(Parser::KEYWORD_PARSERS[$token->value]) || ! empty(Parser::STATEMENT_PARSERS[$token->value])) {
+            if (isset(Parser::KEYWORD_PARSERS[$token->value]) || ! empty(Parser::STATEMENT_PARSERS[$token->value])) {
                 if (! empty($parsedClauses[$token->value])) {
                     $parser->error('This type of clause was previously parsed.', $token);
                     break;
@@ -300,7 +274,7 @@ abstract class Statement implements Stringable
             // but it might be the beginning of a statement of truncate,
             // so let the value use the keyword field for truncate type.
             $tokenValue = in_array($token->keyword, ['TRUNCATE']) ? $token->keyword : $token->value;
-            if (! empty(Parser::KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
+            if (isset(Parser::KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
                 $class = Parser::KEYWORD_PARSERS[$tokenValue]['class'];
                 $field = Parser::KEYWORD_PARSERS[$tokenValue]['field'];
                 if (! empty(Parser::KEYWORD_PARSERS[$tokenValue]['options'])) {
@@ -419,8 +393,7 @@ abstract class Statement implements Stringable
     /**
      * Gets the clauses of this statement.
      *
-     * @return array<string, array<int, int|string>>
-     * @psalm-return array<string, array{non-empty-string, (1|2|3)}>
+     * @return array<string, array{non-empty-string, int-mask-of<Statement::ADD_*>}>
      */
     public function getClauses(): array
     {
