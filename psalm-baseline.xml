@@ -59,19 +59,10 @@
     </TypeDoesNotContainType>
   </file>
   <file src="src/Components/FunctionCall.php">
-    <MixedOperand>
-      <code><![CDATA[$token->value]]></code>
-    </MixedOperand>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObjs::parse($parser, $list)</code>
-    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullOperand>
       <code><![CDATA[$this->name]]></code>
       <code><![CDATA[$this->parameters]]></code>
     </PossiblyNullOperand>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
   </file>
   <file src="src/Components/GroupKeyword.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -693,6 +684,17 @@
       <code>$expr</code>
       <code>$expr</code>
     </PossiblyNullArgument>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Parsers/FunctionCalls.php">
+    <MixedOperand>
+      <code><![CDATA[$token->value]]></code>
+    </MixedOperand>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code>ArrayObjs::parse($parser, $list)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>

@@ -168,7 +168,7 @@ class Parser
             'options' => ['parseField' => 'table'],
         ],
         'CALL' => [
-            'class' => Components\FunctionCall::class,
+            'class' => Parsers\FunctionCalls::class,
             'field' => 'call',
         ],
         'CHECK' => [
@@ -294,7 +294,7 @@ class Parser
             'field' => 'partition',
         ],
         'PROCEDURE' => [
-            'class' => Components\FunctionCall::class,
+            'class' => Parsers\FunctionCalls::class,
             'field' => 'procedure',
         ],
         'RENAME' => [
