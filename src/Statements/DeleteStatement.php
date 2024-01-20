@@ -9,13 +9,13 @@ use PhpMyAdmin\SqlParser\Components\Condition;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\Conditions;
 use PhpMyAdmin\SqlParser\Parsers\ExpressionArray;
 use PhpMyAdmin\SqlParser\Parsers\JoinKeywords;
 use PhpMyAdmin\SqlParser\Parsers\Limits;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Parsers\OrderKeywords;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -200,7 +200,7 @@ class DeleteStatement extends Statement
         ++$list->idx; // Skipping `DELETE`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
+        $this->options = OptionsArrays::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         /**

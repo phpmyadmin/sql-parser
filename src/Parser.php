@@ -118,15 +118,15 @@ class Parser
         // This is not a proper keyword and was added here to help the
         // builder.
         '_OPTIONS' => [
-            'class' => Components\OptionsArray::class,
+            'class' => Parsers\OptionsArrays::class,
             'field' => 'options',
         ],
         '_END_OPTIONS' => [
-            'class' => Components\OptionsArray::class,
+            'class' => Parsers\OptionsArrays::class,
             'field' => 'endOptions',
         ],
         '_GROUP_OPTIONS' => [
-            'class' => Components\OptionsArray::class,
+            'class' => Parsers\OptionsArrays::class,
             'field' => 'groupOptions',
         ],
 

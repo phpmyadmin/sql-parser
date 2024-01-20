@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\CreateDefinitions;
 use PhpMyAdmin\SqlParser\Parsers\DataTypes;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
@@ -503,7 +504,7 @@ class CreateStatement extends Statement
         ++$list->idx; // Skipping `CREATE`.
 
         // Parsing options.
-        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
+        $this->options = OptionsArrays::parse($parser, $list, static::$statementOptions);
         ++$list->idx; // Skipping last option.
 
         $isDatabase = $this->options->has('DATABASE') || $this->options->has('SCHEMA');
@@ -535,7 +536,7 @@ class CreateStatement extends Statement
         }
 
         if ($isDatabase) {
-            $this->entityOptions = OptionsArray::parse($parser, $list, self::DATABASE_OPTIONS);
+            $this->entityOptions = OptionsArrays::parse($parser, $list, self::DATABASE_OPTIONS);
         } elseif ($this->options->has('TABLE')) {
             if (($token->type === TokenType::Keyword) && ($token->keyword === 'SELECT')) {
                 /* CREATE TABLE ... SELECT */
@@ -579,7 +580,7 @@ class CreateStatement extends Statement
 
                 ++$list->idx;
 
-                $this->entityOptions = OptionsArray::parse($parser, $list, self::TABLE_OPTIONS);
+                $this->entityOptions = OptionsArrays::parse($parser, $list, self::TABLE_OPTIONS);
 
                 /**
                  * The field that is being filled (`partitionBy` or
@@ -683,7 +684,7 @@ class CreateStatement extends Statement
 
             ++$list->idx;
 
-            $this->entityOptions = OptionsArray::parse($parser, $list, self::FUNCTION_OPTIONS);
+            $this->entityOptions = OptionsArrays::parse($parser, $list, self::FUNCTION_OPTIONS);
             ++$list->idx;
 
             for (; $list->idx < $list->count; ++$list->idx) {
@@ -733,7 +734,7 @@ class CreateStatement extends Statement
             }
         } elseif ($this->options->has('TRIGGER')) {
             // Parsing the time and the event.
-            $this->entityOptions = OptionsArray::parse($parser, $list, self::TRIGGER_OPTIONS);
+            $this->entityOptions = OptionsArrays::parse($parser, $list, self::TRIGGER_OPTIONS);
             ++$list->idx;
 
             $list->getNextOfTypeAndValue(TokenType::Keyword, 'ON');

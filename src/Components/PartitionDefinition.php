@@ -8,6 +8,7 @@ use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 
@@ -199,7 +200,7 @@ final class PartitionDefinition implements Component, Parseable
 
                 $state = 5;
             } elseif ($state === 5) {
-                $ret->options = OptionsArray::parse($parser, $list, static::$partitionOptions);
+                $ret->options = OptionsArrays::parse($parser, $list, static::$partitionOptions);
                 $state = 6;
             } elseif ($state === 6) {
                 if (($token->type === TokenType::Operator) && ($token->value === '(')) {

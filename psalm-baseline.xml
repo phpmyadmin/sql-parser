@@ -125,50 +125,11 @@
       <code>$option</code>
       <code><![CDATA[$option['name']]]></code>
       <code><![CDATA[$option['name']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['name']]]></code>
-      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
-      <code><![CDATA[is_array($ret->options[$lastOptionId])
-                            ? $ret->options[$lastOptionId]['name']
-                            : $ret->options[$lastOptionId]]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$options</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code>$lastOption[1]</code>
-      <code>$lastOption[1]</code>
-      <code>$lastOption[2]</code>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['name']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$ret->options[$lastOptionId]['equals']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-    </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code>$lastOption</code>
-      <code>$lastOptionId</code>
       <code>$option</code>
       <code>$option</code>
       <code>$option</code>
@@ -177,33 +138,7 @@
     <MixedOperand>
       <code><![CDATA[! empty($option['expr']) ? $option['expr'] : $option['value']]]></code>
       <code><![CDATA[$option['name']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
     </MixedOperand>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-    </MixedPropertyTypeCoercion>
-    <PossiblyNullArgument>
-      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code>$lastOption[1]</code>
-      <code>$lastOption[2]</code>
-    </PossiblyNullArrayAccess>
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']->expr]]></code>
-    </PossiblyNullPropertyFetch>
-    <RiskyTruthyFalsyComparison>
-      <code>$lastOption</code>
-      <code>empty($lastOption[2])</code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/OrderKeyword.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -739,6 +674,79 @@
     <PossiblyUnusedMethod>
       <code>buildAll</code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Parsers/OptionsArrays.php">
+    <MixedArgument>
+      <code><![CDATA[$ret->options[$lastOptionId]['name']]]></code>
+      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
+      <code><![CDATA[is_array($ret->options[$lastOptionId])
+                            ? $ret->options[$lastOptionId]['name']
+                            : $ret->options[$lastOptionId]]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code>$lastOption[1]</code>
+      <code>$lastOption[1]</code>
+      <code>$lastOption[2]</code>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['name']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$ret->options[$lastOptionId]['equals']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+    </MixedArrayOffset>
+    <MixedArrayTypeCoercion>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment>
+      <code>$lastOption</code>
+      <code>$lastOptionId</code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
+    </MixedOperand>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+    </MixedPropertyTypeCoercion>
+    <PossiblyNullArgument>
+      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess>
+      <code>$lastOption[1]</code>
+      <code>$lastOption[2]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']->expr]]></code>
+    </PossiblyNullPropertyFetch>
+    <RiskyTruthyFalsyComparison>
+      <code>$lastOption</code>
+      <code>empty($lastOption[2])</code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Parsers/OrderKeywords.php">
     <PossiblyNullPropertyAssignmentValue>

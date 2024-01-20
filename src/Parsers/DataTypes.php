@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\DataType;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
@@ -86,7 +85,7 @@ final class DataTypes implements Parseable
                         $parameters->raw : $parameters->values;
                 }
 
-                $ret->options = OptionsArray::parse($parser, $list, self::DATA_TYPE_OPTIONS);
+                $ret->options = OptionsArrays::parse($parser, $list, self::DATA_TYPE_OPTIONS);
                 ++$list->idx;
                 break;
             }

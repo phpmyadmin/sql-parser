@@ -6,9 +6,9 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\AlterOperation;
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\AlterOperations;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -66,7 +66,7 @@ class AlterStatement extends Statement
     public function parse(Parser $parser, TokensList $list): void
     {
         ++$list->idx; // Skipping `ALTER`.
-        $parsedOptions = OptionsArray::parse($parser, $list, static::$statementOptions);
+        $parsedOptions = OptionsArrays::parse($parser, $list, static::$statementOptions);
         if ($parsedOptions->isEmpty()) {
             $parser->error('Unrecognized alter operation.', $list->tokens[$list->idx]);
 

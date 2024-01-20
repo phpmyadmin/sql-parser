@@ -71,53 +71,8 @@ parameters:
 			path: src/Components/Key.php
 
 		-
-			message: "#^Cannot access offset 'equals' on mixed\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Cannot access offset 'expr' on mixed\\.$#"
-			count: 2
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Cannot access offset 'value' on mixed\\.$#"
-			count: 2
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 2
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Cannot access offset 2 on mixed\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
 			message: "#^Parameter \\#2 \\$string2 of function strcasecmp expects string, mixed given\\.$#"
 			count: 2
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Parameter \\#3 \\$options of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:parse\\(\\) expects array\\<string, mixed\\>, mixed given\\.$#"
-			count: 1
-			path: src/Components/OptionsArray.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, mixed\\>\\) does not accept array\\<int\\|string, mixed\\>\\.$#"
-			count: 8
 			path: src/Components/OptionsArray.php
 
 		-
@@ -399,6 +354,51 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
 			count: 1
 			path: src/Parsers/LockExpressions.php
+
+		-
+			message: "#^Cannot access offset 'equals' on mixed\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Cannot access offset 'expr' on mixed\\.$#"
+			count: 2
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Cannot access offset 'name' on mixed\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Cannot access offset 'value' on mixed\\.$#"
+			count: 2
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Cannot access offset 1 on mixed\\.$#"
+			count: 2
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Cannot access offset 2 on mixed\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Parameter \\#3 \\$options of static method PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:parse\\(\\) expects array\\<string, mixed\\>, mixed given\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, mixed\\>\\) does not accept array\\<int\\|string, mixed\\>\\.$#"
+			count: 8
+			path: src/Parsers/OptionsArrays.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"

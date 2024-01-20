@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\ExpressionArray;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -206,7 +207,7 @@ class LoadStatement extends Statement
         ++$list->idx; // Skipping `LOAD DATA`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
+        $this->options = OptionsArrays::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         /**
@@ -297,12 +298,12 @@ class LoadStatement extends Statement
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
             // parse field options
-            $this->fieldsOptions = OptionsArray::parse($parser, $list, self::STATEMENT_FIELDS_OPTIONS);
+            $this->fieldsOptions = OptionsArrays::parse($parser, $list, self::STATEMENT_FIELDS_OPTIONS);
 
             $this->fieldsKeyword = $keyword;
         } else {
             // parse line options
-            $this->linesOptions = OptionsArray::parse($parser, $list, self::STATEMENT_LINES_OPTIONS);
+            $this->linesOptions = OptionsArrays::parse($parser, $list, self::STATEMENT_LINES_OPTIONS);
         }
     }
 

@@ -6,7 +6,6 @@ namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\AlterOperation;
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -296,7 +295,7 @@ final class AlterOperations implements Parseable
             }
 
             if ($state === 0) {
-                $ret->options = OptionsArray::parse($parser, $list, $options);
+                $ret->options = OptionsArrays::parse($parser, $list, $options);
 
                 // Not only when aliasing but also when parsing the body of an event, we just list the tokens of the
                 // body in the unknown tokens list, as they define their own statements.
@@ -335,7 +334,7 @@ final class AlterOperations implements Parseable
                 // If the operation is a RENAME COLUMN, now we have detected the field to rename, we need to parse
                 // again the options to get the new name of the column.
                 if ($ret->options->has('RENAME') && $ret->options->has('COLUMN')) {
-                    $nextOptions = OptionsArray::parse($parser, $list, $options);
+                    $nextOptions = OptionsArrays::parse($parser, $list, $options);
                     $ret->options->merge($nextOptions);
                 }
 

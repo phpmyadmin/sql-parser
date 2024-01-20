@@ -6,7 +6,6 @@ namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Key;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -158,7 +157,7 @@ final class Keys implements Parseable
                     $lastColumn['length'] = $token->value;
                 }
             } elseif ($state === 4) {
-                $ret->options = OptionsArray::parse($parser, $list, self::KEY_OPTIONS);
+                $ret->options = OptionsArrays::parse($parser, $list, self::KEY_OPTIONS);
                 ++$list->idx;
                 break;
             } elseif ($state === 5) {

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\Reference;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -87,7 +86,7 @@ final class References implements Parseable
                 $ret->columns = ArrayObjs::parse($parser, $list)->values;
                 $state = 2;
             } else {
-                $ret->options = OptionsArray::parse($parser, $list, self::REFERENCES_OPTIONS);
+                $ret->options = OptionsArrays::parse($parser, $list, self::REFERENCES_OPTIONS);
                 ++$list->idx;
                 break;
             }

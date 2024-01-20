@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\CreateDefinition;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
@@ -196,7 +195,7 @@ final class CreateDefinitions implements Parseable
                 $expr->type = DataTypes::parse($parser, $list);
                 $state = 3;
             } elseif ($state === 3) {
-                $expr->options = OptionsArray::parse($parser, $list, self::FIELD_OPTIONS);
+                $expr->options = OptionsArrays::parse($parser, $list, self::FIELD_OPTIONS);
                 $state = 4;
             } elseif ($state === 4) {
                 if ($token->type === TokenType::Keyword && $token->keyword === 'REFERENCES') {

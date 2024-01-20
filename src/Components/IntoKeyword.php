@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
@@ -137,12 +138,12 @@ final class IntoKeyword implements Component
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
             // parse field options
-            $this->fieldsOptions = OptionsArray::parse($parser, $list, self::STATEMENT_FIELDS_OPTIONS);
+            $this->fieldsOptions = OptionsArrays::parse($parser, $list, self::STATEMENT_FIELDS_OPTIONS);
 
             $this->fieldsKeyword = ($keyword === 'FIELDS');
         } else {
             // parse line options
-            $this->linesOptions = OptionsArray::parse($parser, $list, self::STATEMENT_LINES_OPTIONS);
+            $this->linesOptions = OptionsArrays::parse($parser, $list, self::STATEMENT_LINES_OPTIONS);
         }
     }
 
