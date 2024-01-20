@@ -6,21 +6,6 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$compareValues \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\>\\.$#"
-			count: 1
-			path: src/Components/CaseExpression.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$results \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\>\\.$#"
-			count: 2
-			path: src/Components/CaseExpression.php
-
-		-
 			message: "#^Cannot access property \\$raw on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/DataType.php
@@ -349,6 +334,21 @@ parameters:
 			message: "#^Cannot call static method parse\\(\\) on mixed\\.$#"
 			count: 1
 			path: src/Parsers/ArrayObjs.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
+			count: 1
+			path: src/Parsers/CaseExpressions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$compareValues \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\>\\.$#"
+			count: 1
+			path: src/Parsers/CaseExpressions.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$results \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\>\\.$#"
+			count: 2
+			path: src/Parsers/CaseExpressions.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"

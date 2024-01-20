@@ -6,25 +6,8 @@
     </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/CaseExpression.php">
-    <InvalidOperand>
-      <code><![CDATA[! $token->flags]]></code>
-    </InvalidOperand>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$ret->compareValues]]></code>
-      <code><![CDATA[$ret->results]]></code>
-      <code><![CDATA[$ret->results]]></code>
-    </InvalidPropertyAssignmentValue>
-    <MixedAssignment>
-      <code><![CDATA[$ret->alias]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$token->value]]></code>
-    </MixedOperand>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $token->flags & Token::FLAG_SYMBOL_VARIABLE]]></code>
       <code><![CDATA[$this->alias]]></code>
-      <code><![CDATA[empty($ret->alias)]]></code>
-      <code><![CDATA[empty($ret->alias)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/Condition.php">
@@ -668,6 +651,27 @@
     <UndefinedMethod>
       <code>$ret</code>
     </UndefinedMethod>
+  </file>
+  <file src="src/Parsers/CaseExpressions.php">
+    <InvalidOperand>
+      <code><![CDATA[! $token->flags]]></code>
+    </InvalidOperand>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$ret->compareValues]]></code>
+      <code><![CDATA[$ret->results]]></code>
+      <code><![CDATA[$ret->results]]></code>
+    </InvalidPropertyAssignmentValue>
+    <MixedAssignment>
+      <code><![CDATA[$ret->alias]]></code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$token->value]]></code>
+    </MixedOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $token->flags & Token::FLAG_SYMBOL_VARIABLE]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Parsers/CreateDefinitions.php">
     <MixedAssignment>

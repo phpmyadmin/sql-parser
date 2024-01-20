@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\CaseExpressions;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -257,7 +258,7 @@ final class Expression implements Component, Parseable
                     if ($token->keyword === 'CASE') {
                         // For a use of CASE like
                         // 'SELECT a = CASE .... END, b=1, `id`, ... FROM ...'
-                        $tempCaseExpr = CaseExpression::parse($parser, $list);
+                        $tempCaseExpr = CaseExpressions::parse($parser, $list);
                         $ret->expr .= $tempCaseExpr->build();
                         $isExpr = true;
                         continue;

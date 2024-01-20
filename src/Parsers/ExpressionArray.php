@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\CaseExpression;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parseable;
@@ -80,7 +79,7 @@ final class ExpressionArray implements Parseable
 
             if ($state === 0) {
                 if ($token->type === TokenType::Keyword && $token->value === 'CASE') {
-                    $expr = CaseExpression::parse($parser, $list, $options);
+                    $expr = CaseExpressions::parse($parser, $list, $options);
                 } else {
                     $expr = Expression::parse($parser, $list, $options);
                 }

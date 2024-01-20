@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 
 use PhpMyAdmin\SqlParser\Components\CaseExpression;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\CaseExpressions;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class CaseExpressionTest extends TestCase
@@ -13,7 +14,7 @@ class CaseExpressionTest extends TestCase
     public function testParseBuild(): void
     {
         $caseExprQuery = 'case 1 when 1 then "Some" else "Other" end';
-        $component = CaseExpression::parse(
+        $component = CaseExpressions::parse(
             new Parser(),
             $this->getTokensList($caseExprQuery),
         );
@@ -26,7 +27,7 @@ class CaseExpressionTest extends TestCase
     public function testParseBuild2(): void
     {
         $caseExprQuery = 'case when 1=1 then "India" else "Other" end';
-        $component = CaseExpression::parse(
+        $component = CaseExpressions::parse(
             new Parser(),
             $this->getTokensList($caseExprQuery),
         );
@@ -40,7 +41,7 @@ class CaseExpressionTest extends TestCase
     {
         $caseExprQuery = 'case 1 when 1 then "Some" '
             . 'when 2 then "SomeOther" else "Other" end';
-        $component = CaseExpression::parse(
+        $component = CaseExpressions::parse(
             new Parser(),
             $this->getTokensList($caseExprQuery),
         );
@@ -54,7 +55,7 @@ class CaseExpressionTest extends TestCase
     {
         $caseExprQuery = 'case 1 when 1 then "Some" '
             . 'when 2 then "SomeOther" end';
-        $component = CaseExpression::parse(
+        $component = CaseExpressions::parse(
             new Parser(),
             $this->getTokensList($caseExprQuery),
         );
@@ -68,7 +69,7 @@ class CaseExpressionTest extends TestCase
     {
         $caseExprQuery = 'case when 1=1 then "Some" '
             . 'when 1=2 then "SomeOther" else "Other" end';
-        $component = CaseExpression::parse(
+        $component = CaseExpressions::parse(
             new Parser(),
             $this->getTokensList($caseExprQuery),
         );
@@ -82,7 +83,7 @@ class CaseExpressionTest extends TestCase
     {
         $caseExprQuery = 'case when 1=1 then "Some" '
             . 'when 1=2 then "SomeOther" end';
-        $component = CaseExpression::parse(
+        $component = CaseExpressions::parse(
             new Parser(),
             $this->getTokensList($caseExprQuery),
         );
@@ -96,7 +97,7 @@ class CaseExpressionTest extends TestCase
     {
         $caseExprQuery = 'case when 1=1 then "Some" '
             . 'when 1=2 then "SomeOther" end AS foo';
-        $component = CaseExpression::parse(
+        $component = CaseExpressions::parse(
             new Parser(),
             $this->getTokensList($caseExprQuery),
         );
@@ -110,7 +111,7 @@ class CaseExpressionTest extends TestCase
     {
         $caseExprQuery = 'case when 1=1 then "Some" '
             . 'when 1=2 then "SomeOther" end foo';
-        $component = CaseExpression::parse(
+        $component = CaseExpressions::parse(
             new Parser(),
             $this->getTokensList($caseExprQuery),
         );
