@@ -273,7 +273,10 @@ class Expression extends Component
                     }
 
                     $isExpr = true;
-                } elseif ($brackets === 0 && strlen((string) $ret->expr) > 0 && ! $alias) {
+                } elseif (
+                    $brackets === 0 && strlen((string) $ret->expr) > 0 && ! $alias
+                    && ($ret->table === null || $ret->table === '')
+                ) {
                     /* End of expression */
                     break;
                 }

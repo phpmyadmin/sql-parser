@@ -1,10 +1,10 @@
 {
-    "query": "begin;\nSELECT * FROM `tablename`\ncommit;\n",
+    "query": "begin;\nSELECT * FROM `tablename`;\ncommit;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "begin;\nSELECT * FROM `tablename`\ncommit;\n",
-        "len": 41,
-        "last": 41,
+        "str": "begin;\nSELECT * FROM `tablename`;\ncommit;\n",
+        "len": 42,
+        "last": 42,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -100,12 +100,21 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 32
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 32
+                    "position": 33
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -114,7 +123,7 @@
                     "keyword": "COMMIT",
                     "type": 1,
                     "flags": 1,
-                    "position": 33
+                    "position": 34
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -123,7 +132,7 @@
                     "keyword": null,
                     "type": 9,
                     "flags": 0,
-                    "position": 39
+                    "position": 40
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -132,7 +141,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 40
+                    "position": 41
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -144,8 +153,8 @@
                     "position": null
                 }
             ],
-            "count": 15,
-            "idx": 15
+            "count": 16,
+            "idx": 16
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -202,7 +211,7 @@
                     "options": []
                 },
                 "first": 1,
-                "last": 10
+                "last": 9
             }
         ],
         "brackets": 0,
@@ -211,14 +220,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "A new statement was found, but no delimiter between it and the previous one.",
-                {
-                    "@type": "@13"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

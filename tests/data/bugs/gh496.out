@@ -384,11 +384,22 @@
                             "table": "two",
                             "column": null,
                             "expr": "two",
-                            "alias": null,
+                            "alias": "io",
                             "function": null,
                             "subquery": null
                         },
-                        "on": null,
+                        "on": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
+                                "identifiers": [
+                                    "io",
+                                    "id",
+                                    "i"
+                                ],
+                                "isOperator": false,
+                                "expr": "io.id = i.id"
+                            }
+                        ],
                         "using": null
                     }
                 ],
@@ -399,17 +410,7 @@
                     "options": []
                 },
                 "first": 0,
-                "last": 33,
-                "table": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                    "database": "io",
-                    "table": "id",
-                    "column": null,
-                    "expr": "io.id",
-                    "alias": null,
-                    "function": null,
-                    "subquery": null
-                }
+                "last": 33
             }
         ],
         "brackets": 0,
@@ -418,42 +419,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized keyword.",
-                {
-                    "@type": "@23"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@31"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@33"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@34"
-                },
-                0
-            ],
-            [
-                "Unexpected token.",
-                {
-                    "@type": "@35"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
