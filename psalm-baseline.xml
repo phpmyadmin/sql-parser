@@ -4,20 +4,6 @@
     <PossiblyNullPropertyAssignmentValue>
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
-    <PropertyTypeCoercion>
-      <code><![CDATA[ArrayObj::parse(
-                        $parser,
-                        $list,
-                        ['type' => PartitionDefinition::class],
-                    )]]></code>
-    </PropertyTypeCoercion>
-    <RedundantCondition>
-      <code>$partitionState === 2</code>
-      <code>$state === 3</code>
-    </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($ret->field)]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/ArrayObj.php">
     <MixedAssignment>
@@ -661,6 +647,22 @@
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$list = &$this->list]]></code>
     </UnsupportedPropertyReferenceUsage>
+  </file>
+  <file src="src/Parsers/AlterOperations.php">
+    <PropertyTypeCoercion>
+      <code><![CDATA[ArrayObj::parse(
+                        $parser,
+                        $list,
+                        ['type' => PartitionDefinition::class],
+                    )]]></code>
+    </PropertyTypeCoercion>
+    <RedundantCondition>
+      <code>$partitionState === 2</code>
+      <code>$state === 3</code>
+    </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($ret->field)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Parsers/Array2d.php">
     <RedundantCondition>
