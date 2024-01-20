@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -26,7 +27,7 @@ class ArrayObjTest extends TestCase
 
     public function testParseType(): void
     {
-        $components = ArrayObj::parse(
+        $components = ArrayObjs::parse(
             new Parser(),
             $this->getTokensList('(1 + 2, 3 + 4)'),
             [

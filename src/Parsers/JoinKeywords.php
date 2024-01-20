@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Parseable;
@@ -112,7 +111,7 @@ final class JoinKeywords implements Parseable
                 $expr = new JoinKeyword();
                 $state = 0;
             } else {
-                $expr->using = ArrayObj::parse($parser, $list);
+                $expr->using = ArrayObjs::parse($parser, $list);
                 $ret[] = $expr;
                 $expr = new JoinKeyword();
                 $state = 0;

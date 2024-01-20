@@ -75,7 +75,7 @@ final class Array2d implements Parseable
                 }
 
                 /** @var ArrayObj $arr */
-                $arr = ArrayObj::parse($parser, $list, $options);
+                $arr = ArrayObjs::parse($parser, $list, $options);
                 $arrCount = count($arr->values);
                 if ($count === -1) {
                     $count = $arrCount;

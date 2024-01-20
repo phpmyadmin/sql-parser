@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\ExpressionArray;
 use PhpMyAdmin\SqlParser\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Statement;
@@ -313,7 +314,7 @@ class LoadStatement extends Statement
             case 3:
                 if ($token->keyword === 'PARTITION') {
                     ++$list->idx;
-                    $this->partition = ArrayObj::parse($parser, $list);
+                    $this->partition = ArrayObjs::parse($parser, $list);
 
                     return 4;
                 }

@@ -5,43 +5,6 @@
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
-  <file src="src/Components/ArrayObj.php">
-    <MixedAssignment>
-      <code>$ret[]</code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$options['type']::parse(
-                    $parser,
-                    $list,
-                    empty($options['typeOptions']) ? [] : $options['typeOptions'],
-                )]]></code>
-    </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$token->value]]></code>
-    </MixedOperand>
-    <MixedReturnTypeCoercion>
-      <code>$ret</code>
-      <code>ArrayObj|Component[]</code>
-    </MixedReturnTypeCoercion>
-    <PossiblyInvalidPropertyAssignment>
-      <code>$ret</code>
-      <code>$ret</code>
-      <code>$ret</code>
-      <code>$ret</code>
-    </PossiblyInvalidPropertyAssignment>
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$ret->raw]]></code>
-      <code><![CDATA[$ret->raw]]></code>
-      <code><![CDATA[$ret->values]]></code>
-      <code><![CDATA[$ret->values]]></code>
-    </PossiblyInvalidPropertyFetch>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($options['typeOptions'])]]></code>
-    </RiskyTruthyFalsyComparison>
-    <UndefinedMethod>
-      <code>$ret</code>
-    </UndefinedMethod>
-  </file>
   <file src="src/Components/CaseExpression.php">
     <InvalidOperand>
       <code><![CDATA[! $token->flags]]></code>
@@ -124,7 +87,7 @@
       <code><![CDATA[$token->value]]></code>
     </MixedOperand>
     <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObj::parse($parser, $list)</code>
+      <code>ArrayObjs::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullOperand>
       <code><![CDATA[$this->name]]></code>
@@ -157,7 +120,7 @@
       <code><![CDATA[$ret->dest]]></code>
     </MixedAssignment>
     <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[ArrayObj::parse($parser, $list)->values]]></code>
+      <code><![CDATA[ArrayObjs::parse($parser, $list)->values]]></code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullOperand>
       <code><![CDATA[$this->dest]]></code>
@@ -347,7 +310,7 @@
                     )]]></code>
     </PossiblyNullPropertyAssignmentValue>
     <PropertyTypeCoercion>
-      <code><![CDATA[ArrayObj::parse(
+      <code><![CDATA[ArrayObjs::parse(
                         $parser,
                         $list,
                         ['type' => self::class],
@@ -650,7 +613,7 @@
   </file>
   <file src="src/Parsers/AlterOperations.php">
     <PropertyTypeCoercion>
-      <code><![CDATA[ArrayObj::parse(
+      <code><![CDATA[ArrayObjs::parse(
                         $parser,
                         $list,
                         ['type' => PartitionDefinition::class],
@@ -668,6 +631,43 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
+  </file>
+  <file src="src/Parsers/ArrayObjs.php">
+    <MixedAssignment>
+      <code>$ret[]</code>
+    </MixedAssignment>
+    <MixedMethodCall>
+      <code><![CDATA[$options['type']::parse(
+                    $parser,
+                    $list,
+                    empty($options['typeOptions']) ? [] : $options['typeOptions'],
+                )]]></code>
+    </MixedMethodCall>
+    <MixedOperand>
+      <code><![CDATA[$token->value]]></code>
+    </MixedOperand>
+    <MixedReturnTypeCoercion>
+      <code>$ret</code>
+      <code>ArrayObj|Component[]</code>
+    </MixedReturnTypeCoercion>
+    <PossiblyInvalidPropertyAssignment>
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+    </PossiblyInvalidPropertyAssignment>
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[$ret->raw]]></code>
+      <code><![CDATA[$ret->raw]]></code>
+      <code><![CDATA[$ret->values]]></code>
+      <code><![CDATA[$ret->values]]></code>
+    </PossiblyInvalidPropertyFetch>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($options['typeOptions'])]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UndefinedMethod>
+      <code>$ret</code>
+    </UndefinedMethod>
   </file>
   <file src="src/Parsers/CreateDefinitions.php">
     <MixedAssignment>
@@ -711,7 +711,7 @@
       <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
     </MixedArrayOffset>
     <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObj::parse($parser, $list)</code>
+      <code>ArrayObjs::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullPropertyAssignmentValue>
       <code><![CDATA[Expression::parse($parser, $list, ['field' => 'table'])]]></code>
@@ -743,7 +743,7 @@
   </file>
   <file src="src/Parsers/References.php">
     <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[ArrayObj::parse($parser, $list)->values]]></code>
+      <code><![CDATA[ArrayObjs::parse($parser, $list)->values]]></code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullPropertyAssignmentValue>
       <code><![CDATA[Expression::parse(
@@ -926,12 +926,12 @@
       <code>has</code>
     </PossiblyNullReference>
     <PropertyTypeCoercion>
-      <code><![CDATA[ArrayObj::parse(
+      <code><![CDATA[ArrayObjs::parse(
                                 $parser,
                                 $list,
                                 ['type' => PartitionDefinition::class],
                             )]]></code>
-      <code>ArrayObj::parse($parser, $list)</code>
+      <code>ArrayObjs::parse($parser, $list)</code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->partitionBy)]]></code>
@@ -1010,7 +1010,7 @@
       <code>$state</code>
     </NoValue>
     <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObj::parse($parser, $list)</code>
+      <code>ArrayObjs::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullOperand>
       <code><![CDATA[$this->fieldsOptions]]></code>

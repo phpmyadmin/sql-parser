@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\ExpressionArray;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -204,7 +205,7 @@ final class IntoKeyword implements Component, Parseable
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === TokenType::Operator) && ($token->value === '(')) {
-                    $ret->columns = ArrayObj::parse($parser, $list)->values;
+                    $ret->columns = ArrayObjs::parse($parser, $list)->values;
                     ++$list->idx;
                 }
 

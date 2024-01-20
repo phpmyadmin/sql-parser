@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 
@@ -91,7 +92,7 @@ final class FunctionCall implements Component, Parseable
 
                 $ret->name .= $token->value;
             } elseif ($state === 1) {
-                    $ret->parameters = ArrayObj::parse($parser, $list);
+                    $ret->parameters = ArrayObjs::parse($parser, $list);
                 break;
             }
         }

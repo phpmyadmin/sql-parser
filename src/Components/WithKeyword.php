@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use RuntimeException;
 
 /**
@@ -36,7 +37,7 @@ final class WithKeyword implements Component
         $str = $this->name;
 
         if ($this->columns) {
-            $str .= ArrayObj::buildAll($this->columns);
+            $str .= ArrayObjs::buildAll($this->columns);
         }
 
         $str .= ' AS (';

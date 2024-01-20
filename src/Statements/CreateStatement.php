@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
 use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\CreateDefinitions;
 use PhpMyAdmin\SqlParser\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Statement;
@@ -655,7 +656,7 @@ class CreateStatement extends Statement
                         }
                     } elseif (($token->type === TokenType::Operator) && ($token->value === '(')) {
                         if (! empty($this->partitionBy)) {
-                            $this->partitions = ArrayObj::parse(
+                            $this->partitions = ArrayObjs::parse(
                                 $parser,
                                 $list,
                                 ['type' => PartitionDefinition::class],
@@ -699,7 +700,7 @@ class CreateStatement extends Statement
             // Parsing columns list.
             if (($token->type === TokenType::Operator) && ($token->value === '(')) {
                 --$list->idx; // getNext() also goes forward one field.
-                $this->fields = ArrayObj::parse($parser, $list);
+                $this->fields = ArrayObjs::parse($parser, $list);
                 ++$list->idx; // Skipping last token from the array.
                 $list->getNext();
             }

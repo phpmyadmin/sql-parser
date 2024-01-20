@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\AlterOperation;
-use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\PartitionDefinition;
@@ -433,7 +432,7 @@ final class AlterOperations implements Parseable
                         $ret->field .= $token->type === TokenType::Whitespace ? ' ' : $token->token;
                     }
                 } elseif ($partitionState === 2) {
-                    $ret->partitions = ArrayObj::parse(
+                    $ret->partitions = ArrayObjs::parse(
                         $parser,
                         $list,
                         ['type' => PartitionDefinition::class],

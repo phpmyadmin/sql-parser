@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Components\GroupKeyword;
 use PhpMyAdmin\SqlParser\Parsers\GroupKeywords;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
+
 use function array_map;
 use function is_array;
 

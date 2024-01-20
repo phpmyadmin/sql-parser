@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\Array2d;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -112,7 +113,7 @@ class InsertStatement extends Statement
         $ret = trim($ret) . ' INTO ' . $this->into;
 
         if ($this->values !== null && $this->values !== []) {
-            $ret .= ' VALUES ' . ArrayObj::buildAll($this->values);
+            $ret .= ' VALUES ' . ArrayObjs::buildAll($this->values);
         } elseif ($this->set !== null && $this->set !== []) {
             $ret .= ' SET ' . SetOperations::buildAll($this->set);
         } elseif ($this->select !== null && strlen((string) $this->select) > 0) {

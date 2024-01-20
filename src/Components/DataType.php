@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -128,7 +129,7 @@ final class DataType implements Component, Parseable
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === TokenType::Operator) && ($token->value === '(')) {
-                    $parameters = ArrayObj::parse($parser, $list);
+                    $parameters = ArrayObjs::parse($parser, $list);
                     ++$list->idx;
                     $ret->parameters = ($ret->name === 'ENUM') || ($ret->name === 'SET') ?
                         $parameters->raw : $parameters->values;

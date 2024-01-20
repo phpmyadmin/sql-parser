@@ -290,7 +290,7 @@ class Parser
             'field' => 'order',
         ],
         'PARTITION' => [
-            'class' => Components\ArrayObj::class,
+            'class' => Parsers\ArrayObjs::class,
             'field' => 'partition',
         ],
         'PROCEDURE' => [

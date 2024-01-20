@@ -6,26 +6,6 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Cannot access an offset on array\\<int\\<0, max\\>, mixed\\>\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Cannot access property \\$raw on array\\<int\\<0, max\\>, mixed\\>\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
-			count: 2
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Cannot access property \\$values on array\\<int\\<0, max\\>, mixed\\>\\|static\\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\)\\.$#"
-			count: 2
-			path: src/Components/ArrayObj.php
-
-		-
-			message: "#^Cannot call static method parse\\(\\) on mixed\\.$#"
-			count: 1
-			path: src/Components/ArrayObj.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Components/CaseExpression.php
@@ -349,6 +329,26 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$partitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/AlterOperations.php
+
+		-
+			message: "#^Cannot access an offset on array\\<int\\<0, max\\>, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 1
+			path: src/Parsers/ArrayObjs.php
+
+		-
+			message: "#^Cannot access property \\$raw on array\\<int\\<0, max\\>, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 2
+			path: src/Parsers/ArrayObjs.php
+
+		-
+			message: "#^Cannot access property \\$values on array\\<int\\<0, max\\>, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			count: 2
+			path: src/Parsers/ArrayObjs.php
+
+		-
+			message: "#^Cannot call static method parse\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Parsers/ArrayObjs.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
