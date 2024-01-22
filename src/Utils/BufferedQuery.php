@@ -117,6 +117,8 @@ class BufferedQuery
          * This is statically defined because it is not used outside anywhere
          * outside this method and there is probably a (minor) performance
          * improvement to it.
+         *
+         * @var int $i
          */
         static $i = 0;
 
