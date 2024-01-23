@@ -21,41 +21,6 @@ parameters:
 			path: src/Components/GroupKeyword.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$on \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Condition\\>\\|null\\.$#"
-			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\.$#"
-			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
-			path: src/Components/JoinKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/Key.php
-
-		-
 			message: "#^Parameter \\#2 \\$string2 of function strcasecmp expects string, mixed given\\.$#"
 			count: 2
 			path: src/Components/OptionsArray.php
@@ -296,12 +261,7 @@ parameters:
 			path: src/Parsers/IntoKeywords.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Parsers/JoinKeywords.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/JoinKeywords.php
 
@@ -311,12 +271,12 @@ parameters:
 			path: src/Parsers/Keys.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Parsers/Keys.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\|null\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Parsers/Keys.php
 
@@ -929,119 +889,4 @@ parameters:
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
 			count: 2
 			path: src/Utils/Table.php
-
-		-
-			message: "#^Cannot call method __toString\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Cannot call method __toString\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 4
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Cannot call method isEmpty\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 4
-			path: tests/Builder/CreateStatementTest.php
-
-		-
-			message: "#^Cannot access offset 0 on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: tests/Components/ArrayObjTest.php
-
-		-
-			message: "#^Cannot access property \\$name on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot access property \\$name on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\|null\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot access property \\$type on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\|null\\.$#"
-			count: 1
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 2
-			path: tests/Components/CreateDefinitionTest.php
-
-		-
-			message: "#^Cannot access property \\$alias on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: tests/Components/ExpressionTest.php
-
-		-
-			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 4
-			path: tests/Components/ExpressionTest.php
-
-		-
-			message: "#^Cannot access property \\$table on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 2
-			path: tests/Components/ExpressionTest.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: tests/Components/OptionsArrayTest.php
-
-		-
-			message: "#^Cannot access property \\$expr on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\.$#"
-			count: 2
-			path: tests/Components/PartitionDefinitionTest.php
-
-		-
-			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: tests/Parser/LoadStatementTest.php
-
-		-
-			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Statement\\>\\|null supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: tests/Parser/ParserLongExportsTest.php
-
-		-
-			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: tests/Parser/SelectStatementTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
-			count: 9
-			path: tests/Utils/QueryTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
-			count: 4
-			path: tests/Utils/QueryTest.php
-
-		-
-			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClauses\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
-			count: 3
-			path: tests/Utils/QueryTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getParameters\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
-			count: 1
-			path: tests/Utils/RoutineTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
-			count: 1
-			path: tests/Utils/TableTest.php
-
-		-
-			message: "#^Parameter \\#1 \\$statement of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getForeignKeys\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement, PhpMyAdmin\\\\SqlParser\\\\Statement given\\.$#"
-			count: 1
-			path: tests/Utils/TableTest.php
-
-		-
-			message: "#^Expression \"\\$str1\\[\\$i\\]\" on a separate line does not do anything\\.$#"
-			count: 1
-			path: tests/benchmarks/UtfStringBench.php
 

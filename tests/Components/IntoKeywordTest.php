@@ -13,8 +13,8 @@ class IntoKeywordTest extends TestCase
     public function testParse(): void
     {
         $component = IntoKeywords::parse(new Parser(), $this->getTokensList('OUTFILE "/tmp/outfile.txt"'));
-        $this->assertEquals($component->type, 'OUTFILE');
-        $this->assertEquals($component->dest, '/tmp/outfile.txt');
+        $this->assertEquals('OUTFILE', $component->type);
+        $this->assertEquals('/tmp/outfile.txt', $component->dest);
     }
 
     public function testBuild(): void
@@ -38,6 +38,6 @@ class IntoKeywordTest extends TestCase
     public function testParseErr1(): void
     {
         $component = IntoKeywords::parse(new Parser(), $this->getTokensList('OUTFILE;'));
-        $this->assertEquals($component->type, 'OUTFILE');
+        $this->assertEquals('OUTFILE', $component->type);
     }
 }

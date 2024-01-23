@@ -13,13 +13,13 @@ class LimitTest extends TestCase
     public function testBuildWithoutOffset(): void
     {
         $component = new Limit(1);
-        $this->assertEquals($component->build(), '0, 1');
+        $this->assertEquals('0, 1', $component->build());
     }
 
     public function testBuildWithOffset(): void
     {
         $component = new Limit(1, 2);
-        $this->assertEquals($component->build(), '2, 1');
+        $this->assertEquals('2, 1', $component->build());
     }
 
     #[DataProvider('parseProvider')]

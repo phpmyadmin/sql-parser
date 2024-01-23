@@ -10,7 +10,7 @@ use function file_get_contents;
 
 class UtfStringBench
 {
-    private string $testContents;
+    private string $testContents = '';
 
     /**
      * @BeforeMethods("setUp")
@@ -23,7 +23,8 @@ class UtfStringBench
     {
         $str1 = new UtfString($this->testContents);
         for ($i = 0; $i < $str1->length(); $i++) {
-            $str1[$i];// Make offset offsetGet work
+            // @phpstan-ignore-next-line
+            $str1[$i]; // Make offset offsetGet work
         }
     }
 

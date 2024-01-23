@@ -19,8 +19,8 @@ class CaseExpressionTest extends TestCase
             $this->getTokensList($caseExprQuery),
         );
         $this->assertEquals(
-            $component->build(),
             'CASE 1 WHEN 1 THEN "Some" ELSE "Other" END',
+            $component->build(),
         );
     }
 
@@ -32,8 +32,8 @@ class CaseExpressionTest extends TestCase
             $this->getTokensList($caseExprQuery),
         );
         $this->assertEquals(
-            $component->build(),
             'CASE WHEN 1=1 THEN "India" ELSE "Other" END',
+            $component->build(),
         );
     }
 
@@ -46,8 +46,8 @@ class CaseExpressionTest extends TestCase
             $this->getTokensList($caseExprQuery),
         );
         $this->assertEquals(
-            $component->build(),
             'CASE 1 WHEN 1 THEN "Some" WHEN 2 THEN "SomeOther" ELSE "Other" END',
+            $component->build(),
         );
     }
 
@@ -60,8 +60,8 @@ class CaseExpressionTest extends TestCase
             $this->getTokensList($caseExprQuery),
         );
         $this->assertEquals(
-            $component->build(),
             'CASE 1 WHEN 1 THEN "Some" WHEN 2 THEN "SomeOther" END',
+            $component->build(),
         );
     }
 
@@ -74,8 +74,8 @@ class CaseExpressionTest extends TestCase
             $this->getTokensList($caseExprQuery),
         );
         $this->assertEquals(
-            $component->build(),
             'CASE WHEN 1=1 THEN "Some" WHEN 1=2 THEN "SomeOther" ELSE "Other" END',
+            $component->build(),
         );
     }
 
@@ -88,8 +88,8 @@ class CaseExpressionTest extends TestCase
             $this->getTokensList($caseExprQuery),
         );
         $this->assertEquals(
-            $component->build(),
             'CASE WHEN 1=1 THEN "Some" WHEN 1=2 THEN "SomeOther" END',
+            $component->build(),
         );
     }
 
@@ -102,8 +102,8 @@ class CaseExpressionTest extends TestCase
             $this->getTokensList($caseExprQuery),
         );
         $this->assertEquals(
-            $component->build(),
             'CASE WHEN 1=1 THEN "Some" WHEN 1=2 THEN "SomeOther" END AS `foo`',
+            $component->build(),
         );
     }
 
@@ -116,8 +116,8 @@ class CaseExpressionTest extends TestCase
             $this->getTokensList($caseExprQuery),
         );
         $this->assertEquals(
-            $component->build(),
             'CASE WHEN 1=1 THEN "Some" WHEN 1=2 THEN "SomeOther" END AS `foo`',
+            $component->build(),
         );
     }
 

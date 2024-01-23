@@ -15,30 +15,36 @@ class ExpressionTest extends TestCase
     public function testParse(): void
     {
         $component = Expressions::parse(new Parser(), $this->getTokensList('IF(film_id > 0, film_id, film_id)'));
-        $this->assertEquals($component->expr, 'IF(film_id > 0, film_id, film_id)');
+        $this->assertNotNull($component);
+        $this->assertEquals('IF(film_id > 0, film_id, film_id)', $component->expr);
     }
 
     public function testParse2(): void
     {
         $component = Expressions::parse(new Parser(), $this->getTokensList('col`test`'));
-        $this->assertEquals($component->expr, 'col');
+        $this->assertNotNull($component);
+        $this->assertEquals('col', $component->expr);
     }
 
     public function testParse3(): void
     {
         $component = Expressions::parse(new Parser(), $this->getTokensList('col xx'));
-        $this->assertEquals($component->alias, 'xx');
+        $this->assertNotNull($component);
+        $this->assertEquals('xx', $component->alias);
 
         $component = Expressions::parse(new Parser(), $this->getTokensList('col y'));
-        $this->assertEquals($component->alias, 'y');
+        $this->assertNotNull($component);
+        $this->assertEquals('y', $component->alias);
 
         $component = Expressions::parse(new Parser(), $this->getTokensList('avg.col FROM (SELECT ev.col FROM ev)'));
-        $this->assertEquals($component->table, 'avg');
-        $this->assertEquals($component->expr, 'avg.col');
+        $this->assertNotNull($component);
+        $this->assertEquals('avg', $component->table);
+        $this->assertEquals('avg.col', $component->expr);
 
         $component = Expressions::parse(new Parser(), $this->getTokensList('x.id FROM (SELECT a.id FROM a) x'));
-        $this->assertEquals($component->table, 'x');
-        $this->assertEquals($component->expr, 'x.id');
+        $this->assertNotNull($component);
+        $this->assertEquals('x', $component->table);
+        $this->assertEquals('x.id', $component->expr);
     }
 
     #[DataProvider('parseErrProvider')]
@@ -47,7 +53,7 @@ class ExpressionTest extends TestCase
         $parser = new Parser();
         Expressions::parse($parser, $this->getTokensList($expr));
         $errors = $this->getErrorsAsArray($parser);
-        $this->assertEquals($errors[0][0], $error);
+        $this->assertEquals($error, $errors[0][0]);
     }
 
     /** @return string[][] */
@@ -86,8 +92,8 @@ class ExpressionTest extends TestCase
             new Expression('1 + 3', 'four'),
         ];
         $this->assertEquals(
-            Expressions::buildAll($component),
             '1 + 2 AS `three`, 1 + 3 AS `four`',
+            Expressions::buildAll($component),
         );
     }
 

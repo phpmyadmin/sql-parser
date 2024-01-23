@@ -14,13 +14,13 @@ class OrderKeywordTest extends TestCase
     public function testBuildAll(): void
     {
         $this->assertEquals(
+            'a ASC, b DESC',
             OrderKeywords::buildAll(
                 [
                     new OrderKeyword(new Expression('a'), 'ASC'),
                     new OrderKeyword(new Expression('b'), 'DESC'),
                 ],
             ),
-            'a ASC, b DESC',
         );
     }
 }

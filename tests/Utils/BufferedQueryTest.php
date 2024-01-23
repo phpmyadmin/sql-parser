@@ -9,6 +9,7 @@ use PhpMyAdmin\SqlParser\Utils\BufferedQuery;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 use function count;
+use function is_string;
 use function str_split;
 
 class BufferedQueryTest extends TestCase
@@ -44,7 +45,7 @@ class BufferedQueryTest extends TestCase
         while ($i < $count) {
             $stmt = $bq->extract();
 
-            if ($stmt) {
+            if (is_string($stmt) && $stmt !== '') {
                 $statements[] = $stmt;
             } else {
                 $bq->query .= $chunks[$i++];

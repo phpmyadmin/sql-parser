@@ -61,11 +61,11 @@ class ParserTest extends TestCase
         $parser->error(sprintf('%2$s #%1$d', 2, 'error'), new Token('bar'), 2);
 
         $this->assertEquals(
-            $parser->errors,
             [
                 new ParserException('error #1', new Token('foo'), 1),
                 new ParserException('error #2', new Token('bar'), 2),
             ],
+            $parser->errors,
         );
     }
 

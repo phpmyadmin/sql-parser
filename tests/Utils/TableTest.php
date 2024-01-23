@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Table;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -27,6 +28,7 @@ class TableTest extends TestCase
     public function testGetForeignKeys(string $query, array $expected): void
     {
         $parser = new Parser($query);
+        $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
         $this->assertEquals($expected, Table::getForeignKeys($parser->statements[0]));
     }
 
@@ -151,6 +153,7 @@ class TableTest extends TestCase
     public function testGetFields(string $query, array $expected): void
     {
         $parser = new Parser($query);
+        $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
         $this->assertEquals($expected, Table::getFields($parser->statements[0]));
     }
 

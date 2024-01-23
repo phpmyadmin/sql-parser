@@ -13,6 +13,6 @@ class RenameOperationTest extends TestCase
     public function testBuildAll(): void
     {
         $component = RenameOperations::parse(new Parser(), $this->getTokensList('a TO b, c TO d'));
-        $this->assertEquals(RenameOperations::buildAll($component), 'a TO b, c TO d');
+        $this->assertEquals('a TO b, c TO d', RenameOperations::buildAll($component));
     }
 }
