@@ -117,7 +117,7 @@ class PurgeStatement extends Statement
      * @param Token    $token            token to be parsed
      * @param string[] $expectedKeywords array of possibly expected keywords at this point
      */
-    private static function parseExpectedKeyword(Parser $parser, Token $token, array $expectedKeywords): mixed
+    private static function parseExpectedKeyword(Parser $parser, Token $token, array $expectedKeywords): string|null
     {
         if ($token->type === TokenType::Keyword) {
             if (in_array($token->keyword, $expectedKeywords)) {

@@ -86,6 +86,11 @@ parameters:
 			path: src/Lexer.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Token\\:\\:\\$keyword \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
 			message: "#^Strict comparison using \\=\\=\\= between non\\-empty\\-array\\<non\\-empty\\-string, int\\> and array\\{\\} will always evaluate to false\\.$#"
 			count: 1
 			path: src/Lexer.php
@@ -156,7 +161,7 @@ parameters:
 			path: src/Parsers/ArrayObjs.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/CaseExpressions.php
 
@@ -171,7 +176,7 @@ parameters:
 			path: src/Parsers/CaseExpressions.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 2
 			path: src/Parsers/CreateDefinitions.php
 
@@ -182,11 +187,6 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Parsers/DataTypes.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
 			count: 1
 			path: src/Parsers/DataTypes.php
 
@@ -216,13 +216,8 @@ parameters:
 			path: src/Parsers/Expressions.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 3
-			path: src/Parsers/Expressions.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$subquery \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
 			path: src/Parsers/Expressions.php
 
 		-
@@ -251,12 +246,12 @@ parameters:
 			path: src/Parsers/IntoKeywords.php
 
 		-
-			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: src/Parsers/IntoKeywords.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/IntoKeywords.php
 
@@ -266,27 +261,27 @@ parameters:
 			path: src/Parsers/JoinKeywords.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns \\(array\\<array\\{name\\?\\: string, length\\?\\: int, order\\?\\: string\\}\\>\\) does not accept non\\-empty\\-array\\<array\\<'length'\\|'name'\\|'order', mixed\\>\\>\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$columns \\(array\\<array\\{name\\?\\: string, length\\?\\: int, order\\?\\: string\\}\\>\\) does not accept non\\-empty\\-array\\<array\\<'length'\\|'name'\\|'order', bool\\|float\\|int\\|string\\>\\>\\.$#"
 			count: 1
 			path: src/Parsers/Keys.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$name \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/Keys.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/Keys.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$offset \\(int\\|string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$offset \\(int\\|string\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/Limits.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$rowCount \\(int\\|string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$rowCount \\(int\\|string\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/Limits.php
 
@@ -351,7 +346,7 @@ parameters:
 			path: src/Parsers/OrderKeywords.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/ParameterDefinitions.php
 
@@ -371,7 +366,7 @@ parameters:
 			path: src/Parsers/PartitionDefinitions.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$name \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$name \\(string\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/PartitionDefinitions.php
 
@@ -381,7 +376,7 @@ parameters:
 			path: src/Parsers/PartitionDefinitions.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$type \\(string\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$type \\(string\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/PartitionDefinitions.php
 
@@ -531,11 +526,6 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 1
-			path: src/Statement.php
-
-		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Statement.php
@@ -606,12 +596,12 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitionsNum \\(int\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$partitionsNum \\(int\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
 
@@ -626,7 +616,7 @@ parameters:
 			path: src/Statements/DeleteStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$haystack of function stripos expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
 
@@ -641,22 +631,17 @@ parameters:
 			path: src/Statements/ExplainStatement.php
 
 		-
-			message: "#^Cannot cast mixed to string\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$connectionId \\(int\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Statements/ExplainStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$connectionId \\(int\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$explainedDatabase \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Statements/ExplainStatement.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$explainedDatabase \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Statements/ExplainStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$explainedTable \\(string\\|null\\) does not accept mixed\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$explainedTable \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Statements/ExplainStatement.php
 
@@ -681,7 +666,7 @@ parameters:
 			path: src/Statements/LoadStatement.php
 
 		-
-			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseFileOptions\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Statements\\\\LoadStatement\\:\\:parseFileOptions\\(\\) expects string, bool\\|float\\|int\\|string given\\.$#"
 			count: 1
 			path: src/Statements/LoadStatement.php
 
@@ -694,16 +679,6 @@ parameters:
 			message: "#^Cannot call method merge\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Statements/MaintenanceStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$endOption \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Statements/PurgeStatement.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\PurgeStatement\\:\\:\\$logType \\(string\\|null\\) does not accept mixed\\.$#"
-			count: 1
-			path: src/Statements/PurgeStatement.php
 
 		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\RenameOperations\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null given\\.$#"
@@ -736,7 +711,7 @@ parameters:
 			path: src/Statements/TransactionStatement.php
 
 		-
-			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword constructor expects string, mixed given\\.$#"
+			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword constructor expects string, bool\\|float\\|int\\|string given\\.$#"
 			count: 1
 			path: src/Statements/WithStatement.php
 
@@ -813,11 +788,6 @@ parameters:
 		-
 			message: "#^Binary operation \"\\.\" between array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string and string results in an error\\.$#"
 			count: 1
-			path: src/Utils/Formatter.php
-
-		-
-			message: "#^Cannot cast mixed to string\\.$#"
-			count: 2
 			path: src/Utils/Formatter.php
 
 		-
