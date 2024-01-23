@@ -14,6 +14,7 @@ class JoinKeywordTest extends TestCase
     {
         $component = JoinKeywords::parse(new Parser(), $this->getTokensList('JOIN a'));
         $this->assertCount(1, $component);
+        $this->assertNotNull($component[0]->expr);
         $this->assertEquals('a', $component[0]->expr->expr);
         $this->assertNull($component[0]->on);
         $this->assertNull($component[0]->using);
@@ -23,8 +24,10 @@ class JoinKeywordTest extends TestCase
     {
         $component = JoinKeywords::parse(new Parser(), $this->getTokensList('JOIN table2 USING (id)'));
         $this->assertCount(1, $component);
+        $this->assertNotNull($component[0]->expr);
         $this->assertEquals('table2', $component[0]->expr->expr);
         $this->assertNull($component[0]->on);
+        $this->assertNotNull($component[0]->using);
         $this->assertEquals(['id'], $component[0]->using->values);
     }
 

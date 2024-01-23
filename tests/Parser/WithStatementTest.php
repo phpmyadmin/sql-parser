@@ -127,7 +127,7 @@ SQL;
         $this->assertCount(0, $lexerErrors);
         $parser = new Parser($lexer->list);
         $parserErrors = $this->getErrorsAsArray($parser);
-        $this->assertEquals($parserErrors[0][0], 'A closing bracket was expected.');
+        $this->assertEquals('A closing bracket was expected.', $parserErrors[0][0]);
     }
 
     public function testBuildBadWithKeyword(): void

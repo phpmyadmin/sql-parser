@@ -18,6 +18,7 @@ class CreateDefinitionTest extends TestCase
             $this->getTokensList('(str TEXT, FULLTEXT INDEX indx (str))'),
         );
         $this->assertEquals('str', $component[0]->name);
+        $this->assertNotNull($component[1]->key);
         $this->assertEquals('FULLTEXT INDEX', $component[1]->key->type);
         $this->assertEquals('indx', $component[1]->key->name);
         $this->assertEquals('FULLTEXT INDEX `indx` (`str`)', (string) $component[1]);
@@ -30,7 +31,9 @@ class CreateDefinitionTest extends TestCase
             $this->getTokensList('(str TEXT NOT NULL INVISIBLE)'),
         );
         $this->assertEquals('str', $component[0]->name);
+        $this->assertNotNull($component[0]->type);
         $this->assertEquals('TEXT', $component[0]->type->name);
+        $this->assertNotNull($component[0]->options);
         $this->assertTrue($component[0]->options->has('INVISIBLE'));
         $this->assertTrue($component[0]->options->has('NOT NULL'));
     }

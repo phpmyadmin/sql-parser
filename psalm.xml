@@ -25,4 +25,13 @@
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
+
+    <issueHandlers>
+        <UnusedClass>
+            <errorLevel type="suppress">
+                <file name="tests/benchmarks/UtfStringBench.php"/>
+                <file name="tests/Tools/templates/TestContext.php"/>
+            </errorLevel>
+        </UnusedClass>
+    </issueHandlers>
 </psalm>

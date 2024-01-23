@@ -71,6 +71,6 @@ class GroupKeywordTest extends TestCase
     /** @return array<GroupKeyword> */
     private static function makeComponentsFrom(string ...$string): array
     {
-        return array_map([self::class, 'makeComponentFrom'], $string);
+        return array_map(self::makeComponentFrom(...), $string);
     }
 }

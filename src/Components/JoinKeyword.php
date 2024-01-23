@@ -40,38 +40,38 @@ final class JoinKeyword implements Component
      *
      * @see JoinKeyword::JOINS
      *
-     * @var string
+     * @var string|null
      */
     public $type;
 
     /**
      * Join expression.
      *
-     * @var Expression
+     * @var Expression|null
      */
     public $expr;
 
     /**
      * Join conditions.
      *
-     * @var Condition[]
+     * @var Condition[]|null
      */
     public $on;
 
     /**
      * Columns in Using clause.
      *
-     * @var ArrayObj
+     * @var ArrayObj|null
      */
     public $using;
 
     /**
      * @see JoinKeyword::JOINS
      *
-     * @param string      $type  Join type
-     * @param Expression  $expr  join expression
-     * @param Condition[] $on    join conditions
-     * @param ArrayObj    $using columns joined
+     * @param string|null      $type  Join type
+     * @param Expression|null  $expr  join expression
+     * @param Condition[]|null $on    join conditions
+     * @param ArrayObj|null    $using columns joined
      */
     public function __construct(
         string|null $type = null,

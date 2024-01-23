@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
+use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
@@ -57,7 +58,9 @@ class OptionsArrayTest extends TestCase
                 ],
             ],
         );
-        $this->assertEquals('(3 + 5)', (string) $component->has('SUM', true));
+        $sumValue = $component->has('SUM', true);
+        $this->assertInstanceOf(Expression::class, $sumValue);
+        $this->assertEquals('(3 + 5)', (string) $sumValue);
         $this->assertEquals('8', $component->has('RESULT'));
     }
 
@@ -87,7 +90,7 @@ class OptionsArrayTest extends TestCase
         $component = new OptionsArray(['a', 'b', 'c']);
         $this->assertTrue($component->remove('b'));
         $this->assertFalse($component->remove('d'));
-        $this->assertEquals($component->options, [0 => 'a', 2 => 'c']);
+        $this->assertEquals([0 => 'a', 2 => 'c'], $component->options);
 
         /* Assertion 2 */
         $component = OptionsArrays::parse(
@@ -111,7 +114,7 @@ class OptionsArrayTest extends TestCase
     {
         $component = new OptionsArray(['a']);
         $component->merge(new OptionsArray(['b', 'c']));
-        $this->assertEquals($component->options, ['a', 'b', 'c']);
+        $this->assertEquals(['a', 'b', 'c'], $component->options);
     }
 
     public function testBuild(): void
@@ -128,8 +131,8 @@ class OptionsArrayTest extends TestCase
             ],
         );
         $this->assertEquals(
-            $component->build(),
             'ALL SQL_CALC_FOUND_ROWS MAX_STATEMENT_TIME=42',
+            $component->build(),
         );
     }
 }

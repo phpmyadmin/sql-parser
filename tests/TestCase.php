@@ -65,12 +65,12 @@ abstract class TestCase extends BaseTestCase
         if ($obj instanceof Lexer) {
             /** @var LexerException $err */
             foreach ($obj->errors as $err) {
-                $ret[] = [$err->getMessage(), $err->ch, $err->pos, (int) $err->getCode()];
+                $ret[] = [$err->getMessage(), $err->ch, $err->pos, $err->getCode()];
             }
-        } elseif ($obj instanceof Parser) {
+        } else {
             /** @var ParserException $err */
             foreach ($obj->errors as $err) {
-                $ret[] = [$err->getMessage(), $err->token, (int) $err->getCode()];
+                $ret[] = [$err->getMessage(), $err->token, $err->getCode()];
             }
         }
 
@@ -112,8 +112,8 @@ abstract class TestCase extends BaseTestCase
         $this->assertIsArray($data['errors']);
         $this->assertArrayHasKey('lexer', $data['errors']);
         $this->assertArrayHasKey('parser', $data['errors']);
-        $this->assertIsArray($data['errors']['lexer']);
-        $this->assertIsArray($data['errors']['parser']);
+        $this->assertIsList($data['errors']['lexer']);
+        $this->assertIsList($data['errors']['parser']);
 
         $data['query'] = file_get_contents('tests/data/' . $name . '.in');
         $this->assertIsString($data['query']);

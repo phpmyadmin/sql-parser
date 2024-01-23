@@ -64,6 +64,7 @@ SQL;
         $collectedSetStatements = [];
         foreach ($parser->statements as $statement) {
             if ($statement instanceof TransactionStatement) {
+                $this->assertNotNull($statement->statements);
                 foreach ($statement->statements as $transactionStatement) {
                     if (! $transactionStatement instanceof SetStatement) {
                         continue;

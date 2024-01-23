@@ -15,6 +15,7 @@ class LoadStatementTest extends TestCase
         $data = $this->getData('parser/parseLoad1');
         $parser = new Parser($data['query']);
         $stmt = $parser->statements[0];
+        $this->assertNotNull($stmt->options);
         $this->assertEquals(10, $stmt->options->has('CONCURRENT'));
     }
 

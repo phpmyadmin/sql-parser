@@ -474,6 +474,7 @@ class QueryTest extends TestCase
             'LIMIT 0, 1 ' .
             'INTO OUTFILE "/dev/null"',
         );
+        $this->assertNotNull($parser->list);
         $this->assertEquals(
             '0, 1 INTO OUTFILE "/dev/null"',
             Query::getClause(
@@ -511,6 +512,7 @@ class QueryTest extends TestCase
             'ORDER BY id ASC ' .
             'LIMIT 1',
         );
+        $this->assertNotNull($parser->list);
         $this->assertEquals(
             'number = "1DB" AND actionDate <= CURRENT_DATE()',
             Query::getClause(
@@ -543,6 +545,7 @@ class QueryTest extends TestCase
             'ORDER BY id ASC ' .
             'LIMIT 1',
         );
+        $this->assertNotNull($parser->list);
         $this->assertEquals(
             'number = "1DB" AND actionDate <= CURRENT_DATE()',
             Query::getClause(
@@ -572,6 +575,7 @@ class QueryTest extends TestCase
     public function testReplaceClause(): void
     {
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10;');
+        $this->assertNotNull($parser->list);
         $this->assertEquals(
             'SELECT *, (SELECT 1) FROM film WHERE film_id > 0 LIMIT 0, 10',
             Query::replaceClause(
@@ -585,6 +589,7 @@ class QueryTest extends TestCase
             'select supplier.city, supplier.id from supplier '
             . 'union select customer.city, customer.id from customer',
         );
+        $this->assertNotNull($parser->list);
         $this->assertEquals(
             'select supplier.city, supplier.id from supplier '
             . 'union select customer.city, customer.id from customer'
@@ -600,6 +605,7 @@ class QueryTest extends TestCase
     public function testReplaceClauseOnlyKeyword(): void
     {
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10');
+        $this->assertNotNull($parser->list);
         $this->assertEquals(
             ' SELECT SQL_CALC_FOUND_ROWS *, (SELECT 1) FROM film LIMIT 0, 10',
             Query::replaceClause(
@@ -615,6 +621,7 @@ class QueryTest extends TestCase
     public function testReplaceNonExistingPart(): void
     {
         $parser = new Parser('ALTER TABLE `sale_mast` OPTIMIZE PARTITION p3');
+        $this->assertNotNull($parser->list);
         $this->assertEquals(
             '  ALTER TABLE `sale_mast` OPTIMIZE PARTITION p3',
             Query::replaceClause(
@@ -629,6 +636,7 @@ class QueryTest extends TestCase
     public function testReplaceClauses(): void
     {
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10;');
+        $this->assertNotNull($parser->list);
         $this->assertSame('', Query::replaceClauses($parser->statements[0], $parser->list, []));
         $this->assertEquals(
             'SELECT *, (SELECT 1) FROM film WHERE film_id > 0 LIMIT 0, 10',
@@ -652,6 +660,7 @@ class QueryTest extends TestCase
             'ORDER BY city_id ASC ' .
             'LIMIT 0, 1 ',
         );
+        $this->assertNotNull($parser->list);
         $this->assertEquals(
             'SELECT c.city_id, c.country_id ' .
             'INTO OUTFILE "/dev/null" ' .
@@ -686,6 +695,7 @@ class QueryTest extends TestCase
         [$statement, $query, $delimiter] = Query::getFirstStatement($query, $delimiter);
         $this->assertNull($statement);
         $this->assertEquals('USE saki', $query);
+        $this->assertNull($delimiter);
 
         $query = 'USE sakila; ' .
             '/*test comment*/' .
@@ -710,5 +720,7 @@ class QueryTest extends TestCase
 
         [$statement, $query, $delimiter] = Query::getFirstStatement($query, $delimiter);
         $this->assertEquals('SELECT * FROM actor WHERE last_name = "abc"$$', $statement);
+        $this->assertSame('', $query);
+        $this->assertSame('$$', $delimiter);
     }
 }

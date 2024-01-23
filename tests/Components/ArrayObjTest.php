@@ -36,10 +36,11 @@ class ArrayObjTest extends TestCase
                 'typeOptions' => ['breakOnParentheses' => true],
             ],
         );
+        $this->assertIsArray($components);
         $this->assertInstanceOf(Expression::class, $components[0]);
         $this->assertInstanceOf(Expression::class, $components[1]);
-        $this->assertEquals($components[0]->expr, '1 + 2');
-        $this->assertEquals($components[1]->expr, '3 + 4');
+        $this->assertEquals('1 + 2', $components[0]->expr);
+        $this->assertEquals('3 + 4', $components[1]->expr);
     }
 
     #[DataProvider('parseProvider')]

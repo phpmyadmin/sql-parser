@@ -474,8 +474,8 @@ EOT
             . ' MODIFIES SQL DATA SELECT _var',
         );
 
-        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
+        $this->assertInstanceOf(CreateStatement::class, $stmt);
 
         $this->assertSame(
             'CREATE DEFINER=`root`@`%`'
@@ -490,8 +490,8 @@ EOT
             . ' SQL SECURITY INVOKER NO SQL SQL SECURITY INVOKER SELECT _var',
         );
 
-        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
+        $this->assertInstanceOf(CreateStatement::class, $stmt);
 
         $this->assertSame(
             'CREATE DEFINER=`root`@`%`'
@@ -500,13 +500,16 @@ EOT
             $stmt->build(),
         );
 
+        $this->assertNotNull($stmt->entityOptions);
         $this->assertFalse($stmt->entityOptions->isEmpty());
+        $this->assertNotNull($stmt->options);
         $this->assertFalse($stmt->options->isEmpty());
         $this->assertSame(
             'DEFINER=`root`@`%` PROCEDURE',
             $stmt->options->__toString(),
         );
 
+        $this->assertNotNull($stmt->name);
         $this->assertSame(
             '`test2`',
             $stmt->name->__toString(),
@@ -565,8 +568,8 @@ EOT
             . 'END',
         );
 
-        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
+        $this->assertInstanceOf(CreateStatement::class, $stmt);
 
         $this->assertSame(
             'CREATE DEFINER=`root`@`localhost`'
@@ -602,7 +605,9 @@ EOT
             $stmt->build(),
         );
 
+        $this->assertNotNull($stmt->entityOptions);
         $this->assertFalse($stmt->entityOptions->isEmpty());
+        $this->assertNotNull($stmt->options);
         $this->assertFalse($stmt->options->isEmpty());
 
         $this->assertSame(
@@ -610,6 +615,7 @@ EOT
             $stmt->options->__toString(),
         );
 
+        $this->assertNotNull($stmt->name);
         $this->assertSame(
             '`inventory_in_stock`',
             $stmt->name->__toString(),
@@ -737,8 +743,8 @@ CREATE TABLE `entries` (
 SQL,
         );
 
-        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
+        $this->assertInstanceOf(CreateStatement::class, $stmt);
 
         $tableBody = <<<'SQL'
 (
@@ -815,8 +821,8 @@ SQL,
         );
         // phpcs:enable
 
-        /** @var CreateStatement $stmt */
         $stmt = $parser->statements[0];
+        $this->assertInstanceOf(CreateStatement::class, $stmt);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $tableBody = <<<'SQL'

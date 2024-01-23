@@ -60,31 +60,25 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/JoinKeyword.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA['']]></code>
-    </DocblockTypeContradiction>
     <PossiblyFalseOperand>
       <code><![CDATA[array_search($this->type, self::JOINS)]]></code>
     </PossiblyFalseOperand>
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$expr</code>
-      <code>$on</code>
-      <code>$type</code>
-      <code>$using</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($this->using)]]></code>
-    </RedundantConditionGivenDocblockType>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->expr]]></code>
+    </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->on)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/Key.php">
     <PossiblyNullOperand>
       <code><![CDATA[$this->options]]></code>
       <code><![CDATA[$this->options]]></code>
+      <code><![CDATA[$this->type]]></code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$name</code>
-      <code>$type</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->name)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
@@ -612,9 +606,9 @@
     <PossiblyInvalidPropertyAssignmentValue>
       <code>ArrayObjs::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expressions::parse($parser, $list, ['field' => 'table'])]]></code>
-    </PossiblyNullPropertyAssignmentValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($expr->type)]]></code>
+    </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
       <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
@@ -1394,6 +1388,7 @@
       <code>has</code>
     </PossiblyNullReference>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($expr->function)]]></code>
       <code><![CDATA[empty($expr->subquery)]]></code>
       <code><![CDATA[empty($statement->group)]]></code>
       <code><![CDATA[empty($statement->group)]]></code>
@@ -1464,14 +1459,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Builder/CreateStatementTest.php">
-    <PossiblyNullReference>
-      <code>__toString</code>
-      <code>__toString</code>
-      <code>isEmpty</code>
-      <code>isEmpty</code>
-      <code>isEmpty</code>
-      <code>isEmpty</code>
-    </PossiblyNullReference>
     <PossiblyUnusedMethod>
       <code>partitionQueriesProvider</code>
     </PossiblyUnusedMethod>
@@ -1485,32 +1472,8 @@
     <PossiblyUnusedMethod>
       <code>parseProvider</code>
     </PossiblyUnusedMethod>
-    <UndefinedMethod>
-      <code>$components</code>
-      <code>$components</code>
-    </UndefinedMethod>
-  </file>
-  <file src="tests/Components/CreateDefinitionTest.php">
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$component[0]->type->name]]></code>
-      <code><![CDATA[$component[1]->key->name]]></code>
-      <code><![CDATA[$component[1]->key->type]]></code>
-    </PossiblyNullPropertyFetch>
-    <PossiblyNullReference>
-      <code>has</code>
-    </PossiblyNullReference>
   </file>
   <file src="tests/Components/ExpressionTest.php">
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$component->alias]]></code>
-      <code><![CDATA[$component->alias]]></code>
-      <code><![CDATA[$component->expr]]></code>
-      <code><![CDATA[$component->expr]]></code>
-      <code><![CDATA[$component->expr]]></code>
-      <code><![CDATA[$component->expr]]></code>
-      <code><![CDATA[$component->table]]></code>
-      <code><![CDATA[$component->table]]></code>
-    </PossiblyNullPropertyFetch>
     <PossiblyUnusedMethod>
       <code>mysqlCommandsProvider</code>
       <code>parseErrProvider</code>
@@ -1521,19 +1484,6 @@
       <code>provideExpressions</code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/Components/JoinKeywordTest.php">
-    <DocblockTypeContradiction>
-      <code>assertNull</code>
-      <code>assertNull</code>
-      <code>assertNull</code>
-    </DocblockTypeContradiction>
-  </file>
-  <file src="tests/Components/KeyTest.php">
-    <DocblockTypeContradiction>
-      <code>assertNull</code>
-      <code>assertNull</code>
-    </DocblockTypeContradiction>
-  </file>
   <file src="tests/Components/LimitTest.php">
     <PossiblyUnusedMethod>
       <code>parseProvider</code>
@@ -1543,16 +1493,6 @@
     <PossiblyUnusedMethod>
       <code>parseErrProvider</code>
     </PossiblyUnusedMethod>
-    <RedundantConditionGivenDocblockType>
-      <code>assertNotNull</code>
-      <code>assertNotNull</code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="tests/Components/PartitionDefinitionTest.php">
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$component->expr->expr]]></code>
-      <code><![CDATA[$component->expr->expr]]></code>
-    </PossiblyInvalidPropertyFetch>
   </file>
   <file src="tests/Lexer/ContextTest.php">
     <PossiblyUnusedMethod>
@@ -1622,9 +1562,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Parser/LoadStatementTest.php">
-    <PossiblyNullReference>
-      <code>has</code>
-    </PossiblyNullReference>
     <PossiblyUnusedMethod>
       <code>loadProvider</code>
     </PossiblyUnusedMethod>
@@ -1635,12 +1572,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Parser/ParserLongExportsTest.php">
-    <MixedAssignment>
-      <code>$transactionStatement</code>
-    </MixedAssignment>
-    <PossiblyNullIterator>
-      <code><![CDATA[$statement->statements]]></code>
-    </PossiblyNullIterator>
     <PossiblyUnusedMethod>
       <code>exportFileProvider</code>
     </PossiblyUnusedMethod>
@@ -1671,9 +1602,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Parser/SelectStatementTest.php">
-    <PossiblyNullReference>
-      <code>has</code>
-    </PossiblyNullReference>
     <PossiblyUnusedMethod>
       <code>selectProvider</code>
     </PossiblyUnusedMethod>
@@ -1710,23 +1638,11 @@
      *   errors: array{lexer: list<array{string, string, int, int}>, parser: list<array{string, Token, int}>}
      * }]]></code>
     </InvalidReturnType>
-    <RedundantCast>
-      <code><![CDATA[(int) $err->getCode()]]></code>
-      <code><![CDATA[(int) $err->getCode()]]></code>
-    </RedundantCast>
-  </file>
-  <file src="tests/Tools/templates/TestContext.php">
-    <UnusedClass>
-      <code>TestContext</code>
-    </UnusedClass>
   </file>
   <file src="tests/Utils/BufferedQueryTest.php">
     <PossiblyUnusedMethod>
       <code>extractProvider</code>
     </PossiblyUnusedMethod>
-    <RiskyTruthyFalsyComparison>
-      <code>$stmt</code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="tests/Utils/CLITest.php">
     <PossiblyUnusedMethod>
@@ -1744,36 +1660,14 @@
       <code>formatQueriesProviders</code>
       <code>mergeFormatsProvider</code>
     </PossiblyUnusedMethod>
-    <UnusedMethodCall>
-      <code>setAccessible</code>
-    </UnusedMethodCall>
   </file>
   <file src="tests/Utils/QueryTest.php">
-    <PossiblyNullArgument>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-      <code><![CDATA[$parser->list]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code>getFlagsProvider</code>
       <code>getTablesProvider</code>
     </PossiblyUnusedMethod>
-    <UnusedVariable>
-      <code>$delimiter</code>
-      <code>$delimiter</code>
-      <code>$query</code>
-    </UnusedVariable>
   </file>
   <file src="tests/Utils/RoutineTest.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$parser->statements[0]]]></code>
-    </ArgumentTypeCoercion>
     <PossiblyUnusedMethod>
       <code>getParameterProvider</code>
       <code>getParametersProvider</code>
@@ -1781,21 +1675,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Utils/TableTest.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$parser->statements[0]]]></code>
-      <code><![CDATA[$parser->statements[0]]]></code>
-    </ArgumentTypeCoercion>
     <PossiblyUnusedMethod>
       <code>getFieldsProvider</code>
       <code>getForeignKeysProvider</code>
     </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/benchmarks/UtfStringBench.php">
-    <MissingConstructor>
-      <code>$testContents</code>
-    </MissingConstructor>
-    <UnusedClass>
-      <code>UtfStringBench</code>
-    </UnusedClass>
   </file>
 </files>

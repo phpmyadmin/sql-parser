@@ -15,18 +15,16 @@ class LockExpressionTest extends TestCase
     public function testParse(): void
     {
         $component = LockExpressions::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL'));
-        $this->assertNotNull($component->table);
-        $this->assertEquals($component->table->table, 'table1');
-        $this->assertEquals($component->table->alias, 't1');
-        $this->assertEquals($component->type, 'READ LOCAL');
+        $this->assertEquals('table1', $component->table->table);
+        $this->assertEquals('t1', $component->table->alias);
+        $this->assertEquals('READ LOCAL', $component->type);
     }
 
     public function testParse2(): void
     {
         $component = LockExpressions::parse(new Parser(), $this->getTokensList('table1 LOW_PRIORITY WRITE'));
-        $this->assertNotNull($component->table);
-        $this->assertEquals($component->table->table, 'table1');
-        $this->assertEquals($component->type, 'LOW_PRIORITY WRITE');
+        $this->assertEquals('table1', $component->table->table);
+        $this->assertEquals('LOW_PRIORITY WRITE', $component->type);
     }
 
     #[DataProvider('parseErrProvider')]
@@ -35,7 +33,7 @@ class LockExpressionTest extends TestCase
         $parser = new Parser();
         LockExpressions::parse($parser, $this->getTokensList($expr));
         $errors = $this->getErrorsAsArray($parser);
-        $this->assertEquals($errors[0][0], $error);
+        $this->assertEquals($error, $errors[0][0]);
     }
 
     /** @return string[][] */
@@ -64,8 +62,8 @@ class LockExpressionTest extends TestCase
             LockExpressions::parse(new Parser(), $this->getTokensList('table2 LOW_PRIORITY WRITE')),
         ];
         $this->assertEquals(
-            LockExpression::buildAll($component),
             'table1 AS `t1` READ LOCAL, table2 LOW_PRIORITY WRITE',
+            LockExpression::buildAll($component),
         );
     }
 }

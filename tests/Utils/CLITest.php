@@ -43,8 +43,8 @@ class CLITest extends TestCase
     {
         $cli = new CLI();
         $this->assertEquals(
-            $cli->getopt('', []),
             [],
+            $cli->getopt('', []),
         );
     }
 

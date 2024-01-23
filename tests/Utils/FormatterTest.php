@@ -54,7 +54,6 @@ class FormatterTest extends TestCase
         ];
 
         $reflectionMethod = new ReflectionMethod($formatter, 'getMergedOptions');
-        $reflectionMethod->setAccessible(true);
         $this->assertEquals($expectedOptions, $reflectionMethod->invoke($formatter, $overridingOptions));
     }
 
