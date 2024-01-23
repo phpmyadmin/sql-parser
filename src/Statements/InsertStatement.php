@@ -6,11 +6,13 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\IntoKeyword;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
-use PhpMyAdmin\SqlParser\Components\Parsers\Array2d;
-use PhpMyAdmin\SqlParser\Components\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\Array2d;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
+use PhpMyAdmin\SqlParser\Parsers\IntoKeywords;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
+use PhpMyAdmin\SqlParser\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -112,7 +114,7 @@ class InsertStatement extends Statement
         $ret = trim($ret) . ' INTO ' . $this->into;
 
         if ($this->values !== null && $this->values !== []) {
-            $ret .= ' VALUES ' . ArrayObj::buildAll($this->values);
+            $ret .= ' VALUES ' . ArrayObjs::buildAll($this->values);
         } elseif ($this->set !== null && $this->set !== []) {
             $ret .= ' SET ' . SetOperations::buildAll($this->set);
         } elseif ($this->select !== null && strlen((string) $this->select) > 0) {
@@ -135,7 +137,7 @@ class InsertStatement extends Statement
         ++$list->idx; // Skipping `INSERT`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
+        $this->options = OptionsArrays::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         /**
@@ -180,7 +182,7 @@ class InsertStatement extends Statement
                 }
 
                 ++$list->idx;
-                $this->into = IntoKeyword::parse(
+                $this->into = IntoKeywords::parse(
                     $parser,
                     $list,
                     ['fromInsert' => true],

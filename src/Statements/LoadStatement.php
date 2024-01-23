@@ -7,10 +7,13 @@ namespace PhpMyAdmin\SqlParser\Statements;
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
-use PhpMyAdmin\SqlParser\Components\Parsers\ExpressionArray;
-use PhpMyAdmin\SqlParser\Components\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
+use PhpMyAdmin\SqlParser\Parsers\ExpressionArray;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
+use PhpMyAdmin\SqlParser\Parsers\SetOperations;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -186,7 +189,7 @@ class LoadStatement extends Statement
         }
 
         if ($this->columnNamesOrUserVariables !== null && $this->columnNamesOrUserVariables !== []) {
-            $ret .= ' ' . Expression::buildAll($this->columnNamesOrUserVariables);
+            $ret .= ' ' . Expressions::buildAll($this->columnNamesOrUserVariables);
         }
 
         if ($this->set !== null && $this->set !== []) {
@@ -205,7 +208,7 @@ class LoadStatement extends Statement
         ++$list->idx; // Skipping `LOAD DATA`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
+        $this->options = OptionsArrays::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         /**
@@ -241,7 +244,7 @@ class LoadStatement extends Statement
                 }
 
                 ++$list->idx;
-                $this->fileName = Expression::parse(
+                $this->fileName = Expressions::parse(
                     $parser,
                     $list,
                     ['parseField' => 'file'],
@@ -262,7 +265,7 @@ class LoadStatement extends Statement
                 }
 
                 ++$list->idx;
-                $this->table = Expression::parse($parser, $list, ['parseField' => 'table', 'breakOnAlias' => true]);
+                $this->table = Expressions::parse($parser, $list, ['parseField' => 'table', 'breakOnAlias' => true]);
                 $state = 3;
             } elseif ($state >= 3 && $state <= 7) {
                 if ($token->type === TokenType::Keyword) {
@@ -296,12 +299,12 @@ class LoadStatement extends Statement
 
         if ($keyword === 'FIELDS' || $keyword === 'COLUMNS') {
             // parse field options
-            $this->fieldsOptions = OptionsArray::parse($parser, $list, self::STATEMENT_FIELDS_OPTIONS);
+            $this->fieldsOptions = OptionsArrays::parse($parser, $list, self::STATEMENT_FIELDS_OPTIONS);
 
             $this->fieldsKeyword = $keyword;
         } else {
             // parse line options
-            $this->linesOptions = OptionsArray::parse($parser, $list, self::STATEMENT_LINES_OPTIONS);
+            $this->linesOptions = OptionsArrays::parse($parser, $list, self::STATEMENT_LINES_OPTIONS);
         }
     }
 
@@ -313,7 +316,7 @@ class LoadStatement extends Statement
             case 3:
                 if ($token->keyword === 'PARTITION') {
                     ++$list->idx;
-                    $this->partition = ArrayObj::parse($parser, $list);
+                    $this->partition = ArrayObjs::parse($parser, $list);
 
                     return 4;
                 }
@@ -322,7 +325,7 @@ class LoadStatement extends Statement
             case 4:
                 if ($token->keyword === 'CHARACTER SET') {
                     ++$list->idx;
-                    $this->charsetName = Expression::parse($parser, $list);
+                    $this->charsetName = Expressions::parse($parser, $list);
 
                     return 5;
                 }
@@ -340,7 +343,7 @@ class LoadStatement extends Statement
                 if ($token->keyword === 'IGNORE') {
                     ++$list->idx;
 
-                    $this->ignoreNumber = Expression::parse($parser, $list);
+                    $this->ignoreNumber = Expressions::parse($parser, $list);
                     $nextToken = $list->getNextOfType(TokenType::Keyword);
 
                     if (

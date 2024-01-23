@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
 
 /**
  * Parses an Index hint.
@@ -58,7 +59,7 @@ final class IndexHint implements Component
             $ret .= 'FOR ' . $this->for . ' ';
         }
 
-        return $ret . Expression::buildAll($this->indexes);
+        return $ret . Expressions::buildAll($this->indexes);
     }
 
     public function __toString(): string

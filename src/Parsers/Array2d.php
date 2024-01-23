@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Components\Parsers;
+namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
 use PhpMyAdmin\SqlParser\Parseable;
@@ -75,7 +75,7 @@ final class Array2d implements Parseable
                 }
 
                 /** @var ArrayObj $arr */
-                $arr = ArrayObj::parse($parser, $list, $options);
+                $arr = ArrayObjs::parse($parser, $list, $options);
                 $arrCount = count($arr->values);
                 if ($count === -1) {
                     $count = $arrCount;

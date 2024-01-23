@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use AllowDynamicProperties;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use Stringable;
 
 use function array_flip;
@@ -306,13 +307,13 @@ abstract class Statement implements Stringable
                         ++$list->idx;
                     }
 
-                    $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
+                    $this->options = OptionsArrays::parse($parser, $list, static::$statementOptions);
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
                 if ($this instanceof Statements\SelectStatement && $token->value === 'WITH ROLLUP') {
                     // Handle group options in Select statement
-                    $this->groupOptions = OptionsArray::parse(
+                    $this->groupOptions = OptionsArrays::parse(
                         $parser,
                         $list,
                         Statements\SelectStatement::STATEMENT_GROUP_OPTIONS,
@@ -323,7 +324,7 @@ abstract class Statement implements Stringable
                         || $token->value === 'LOCK IN SHARE MODE')
                 ) {
                     // Handle special end options in Select statement
-                    $this->endOptions = OptionsArray::parse(
+                    $this->endOptions = OptionsArrays::parse(
                         $parser,
                         $list,
                         Statements\SelectStatement::STATEMENT_END_OPTIONS,
@@ -334,7 +335,7 @@ abstract class Statement implements Stringable
                         || $token->value === 'DEFAULT')
                 ) {
                     // Handle special end options in SET statement
-                    $this->endOptions = OptionsArray::parse(
+                    $this->endOptions = OptionsArrays::parse(
                         $parser,
                         $list,
                         Statements\SetStatement::STATEMENT_END_OPTIONS,

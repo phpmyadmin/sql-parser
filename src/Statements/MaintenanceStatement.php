@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -45,7 +45,7 @@ class MaintenanceStatement extends Statement
         // Finally, we parse here [some more options] and that's all.
         ++$list->idx;
         $this->options->merge(
-            OptionsArray::parse(
+            OptionsArrays::parse(
                 $parser,
                 $list,
                 static::$statementOptions,

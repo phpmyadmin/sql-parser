@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
-use PhpMyAdmin\SqlParser\Components\Parsers\Array2d;
 use PhpMyAdmin\SqlParser\Components\WithKeyword;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\Array2d;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -92,7 +92,7 @@ final class WithStatement extends Statement
         ++$list->idx; // Skipping `WITH`.
 
         // parse any options if provided
-        $this->options = OptionsArray::parse($parser, $list, static::$statementOptions);
+        $this->options = OptionsArrays::parse($parser, $list, static::$statementOptions);
         ++$list->idx;
 
         for (; $list->idx < $list->count; ++$list->idx) {

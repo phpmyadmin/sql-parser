@@ -2,52 +2,53 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Components\Parsers;
+namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\CaseExpression;
-use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Exceptions\ParserException;
+use PhpMyAdmin\SqlParser\Components\SetOperation;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 
-use function count;
 use function implode;
-use function preg_match;
-use function strlen;
-use function substr;
+use function in_array;
+use function trim;
 
 /**
- * Parses a list of expressions delimited by a comma.
+ * `SET` keyword parser.
  */
-final class ExpressionArray implements Parseable
+final class SetOperations implements Parseable
 {
     /**
      * @param Parser               $parser  the parser that serves as context
      * @param TokensList           $list    the list of tokens that are being parsed
      * @param array<string, mixed> $options parameters for parsing
      *
-     * @return Expression[]
-     *
-     * @throws ParserException
+     * @return SetOperation[]
      */
     public static function parse(Parser $parser, TokensList $list, array $options = []): array
     {
         $ret = [];
+
+        $expr = new SetOperation();
 
         /**
          * The state of the parser.
          *
          * Below are the states of the parser.
          *
-         *      0 ----------------------[ array ]---------------------> 1
-         *
+         *      0 ---------------------[ col_name ]--------------------> 0
+         *      0 ---------------------[ = or := ]---------------------> 1
+         *      1 -----------------------[ value ]---------------------> 1
          *      1 ------------------------[ , ]------------------------> 0
-         *      1 -----------------------[ else ]----------------------> (END)
          */
         $state = 0;
+
+        /**
+         * Token when the parser has seen the latest comma
+         */
+        $commaLastSeenAt = null;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -65,59 +66,54 @@ final class ExpressionArray implements Parseable
                 continue;
             }
 
+            // No keyword is expected.
             if (
                 ($token->type === TokenType::Keyword)
                 && ($token->flags & Token::FLAG_KEYWORD_RESERVED)
-                && ((~$token->flags & Token::FLAG_KEYWORD_FUNCTION))
-                && ($token->value !== 'DUAL')
-                && ($token->value !== 'NULL')
-                && ($token->value !== 'CASE')
-                && ($token->value !== 'NOT')
+                && ($state === 0)
             ) {
-                // No keyword is expected.
                 break;
             }
 
             if ($state === 0) {
-                if ($token->type === TokenType::Keyword && $token->value === 'CASE') {
-                    $expr = CaseExpression::parse($parser, $list, $options);
-                } else {
-                    $expr = Expression::parse($parser, $list, $options);
+                if (in_array($token->token, ['=', ':='], true)) {
+                    $state = 1;
+                } elseif ($token->value !== ',') {
+                    $expr->column .= $token->token;
+                } elseif ($token->value === ',') {
+                    $commaLastSeenAt = $token;
                 }
-
-                if ($expr === null) {
+            } else {
+                $tmp = Expressions::parse(
+                    $parser,
+                    $list,
+                    ['breakOnAlias' => true],
+                );
+                if ($tmp === null) {
+                    $parser->error('Missing expression.', $token);
                     break;
                 }
 
+                $expr->column = trim($expr->column);
+                $expr->value = $tmp->expr;
                 $ret[] = $expr;
-                $state = 1;
-            } elseif ($state === 1) {
-                if ($token->value !== ',') {
-                    break;
-                }
-
+                $expr = new SetOperation();
                 $state = 0;
+                $commaLastSeenAt = null;
             }
-        }
-
-        if ($state === 0) {
-            $parser->error('An expression was expected.', $list->tokens[$list->idx]);
         }
 
         --$list->idx;
-        $retIndex = count($ret) - 1;
-        if (isset($ret[$retIndex])) {
-            $expr = $ret[$retIndex]->expr;
-            if (preg_match('/\s*--\s.*$/', $expr, $matches)) {
-                $found = $matches[0];
-                $ret[$retIndex]->expr = substr($expr, 0, strlen($expr) - strlen($found));
-            }
+
+        // We saw a comma, but didn't see a column-value pair after it
+        if ($commaLastSeenAt !== null) {
+            $parser->error('Unexpected token.', $commaLastSeenAt);
         }
 
         return $ret;
     }
 
-    /** @param Expression[] $component the component to be built */
+    /** @param SetOperation[] $component the component to be built */
     public static function buildAll(array $component): string
     {
         return implode(', ', $component);

@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Components\Parsers;
+namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -60,7 +59,7 @@ final class OrderKeywords implements Parseable
             }
 
             if ($state === 0) {
-                $expr->expr = Expression::parse($parser, $list);
+                $expr->expr = Expressions::parse($parser, $list);
                 $state = 1;
             } else {
                 if (

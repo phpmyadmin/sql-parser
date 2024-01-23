@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Components\Parsers;
+namespace PhpMyAdmin\SqlParser\Parsers;
 
-use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\RenameOperation;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
@@ -64,7 +63,7 @@ final class RenameOperations implements Parseable
             }
 
             if ($state === 0) {
-                $expr->old = Expression::parse(
+                $expr->old = Expressions::parse(
                     $parser,
                     $list,
                     [
@@ -85,7 +84,7 @@ final class RenameOperations implements Parseable
 
                 $state = 2;
             } elseif ($state === 2) {
-                $expr->new = Expression::parse(
+                $expr->new = Expressions::parse(
                     $parser,
                     $list,
                     [

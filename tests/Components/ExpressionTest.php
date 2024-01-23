@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -13,29 +14,29 @@ class ExpressionTest extends TestCase
 {
     public function testParse(): void
     {
-        $component = Expression::parse(new Parser(), $this->getTokensList('IF(film_id > 0, film_id, film_id)'));
+        $component = Expressions::parse(new Parser(), $this->getTokensList('IF(film_id > 0, film_id, film_id)'));
         $this->assertEquals($component->expr, 'IF(film_id > 0, film_id, film_id)');
     }
 
     public function testParse2(): void
     {
-        $component = Expression::parse(new Parser(), $this->getTokensList('col`test`'));
+        $component = Expressions::parse(new Parser(), $this->getTokensList('col`test`'));
         $this->assertEquals($component->expr, 'col');
     }
 
     public function testParse3(): void
     {
-        $component = Expression::parse(new Parser(), $this->getTokensList('col xx'));
+        $component = Expressions::parse(new Parser(), $this->getTokensList('col xx'));
         $this->assertEquals($component->alias, 'xx');
 
-        $component = Expression::parse(new Parser(), $this->getTokensList('col y'));
+        $component = Expressions::parse(new Parser(), $this->getTokensList('col y'));
         $this->assertEquals($component->alias, 'y');
 
-        $component = Expression::parse(new Parser(), $this->getTokensList('avg.col FROM (SELECT ev.col FROM ev)'));
+        $component = Expressions::parse(new Parser(), $this->getTokensList('avg.col FROM (SELECT ev.col FROM ev)'));
         $this->assertEquals($component->table, 'avg');
         $this->assertEquals($component->expr, 'avg.col');
 
-        $component = Expression::parse(new Parser(), $this->getTokensList('x.id FROM (SELECT a.id FROM a) x'));
+        $component = Expressions::parse(new Parser(), $this->getTokensList('x.id FROM (SELECT a.id FROM a) x'));
         $this->assertEquals($component->table, 'x');
         $this->assertEquals($component->expr, 'x.id');
     }
@@ -44,7 +45,7 @@ class ExpressionTest extends TestCase
     public function testParseErr(string $expr, string $error): void
     {
         $parser = new Parser();
-        Expression::parse($parser, $this->getTokensList($expr));
+        Expressions::parse($parser, $this->getTokensList($expr));
         $errors = $this->getErrorsAsArray($parser);
         $this->assertEquals($errors[0][0], $error);
     }
@@ -85,7 +86,7 @@ class ExpressionTest extends TestCase
             new Expression('1 + 3', 'four'),
         ];
         $this->assertEquals(
-            Expression::buildAll($component),
+            Expressions::buildAll($component),
             '1 + 2 AS `three`, 1 + 3 AS `four`',
         );
     }

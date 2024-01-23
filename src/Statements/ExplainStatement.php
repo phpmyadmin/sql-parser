@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -149,7 +149,7 @@ class ExplainStatement extends Statement
                 }
             } elseif ($state === 1) {
                 // Parsing options.
-                $this->options = OptionsArray::parse($parser, $list, self::OPTIONS);
+                $this->options = OptionsArrays::parse($parser, $list, self::OPTIONS);
                 $state = 2;
             } elseif ($state === 2) {
                 $currIdx = $list->idx;

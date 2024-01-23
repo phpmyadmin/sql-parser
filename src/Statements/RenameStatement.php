@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Statements;
 
-use PhpMyAdmin\SqlParser\Components\Parsers\RenameOperations;
 use PhpMyAdmin\SqlParser\Components\RenameOperation;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\RenameOperations;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;

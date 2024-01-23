@@ -6,13 +6,14 @@ namespace PhpMyAdmin\SqlParser\Tests\Components;
 
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class OptionsArrayTest extends TestCase
 {
     public function testParse(): void
     {
-        $component = OptionsArray::parse(
+        $component = OptionsArrays::parse(
             new Parser(),
             $this->getTokensList('A B = /*comment*/ (test) C'),
             [
@@ -41,7 +42,7 @@ class OptionsArrayTest extends TestCase
 
     public function testParseExpr(): void
     {
-        $component = OptionsArray::parse(
+        $component = OptionsArrays::parse(
             new Parser(),
             $this->getTokensList('SUM = (3 + 5) RESULT = 8'),
             [
@@ -62,7 +63,7 @@ class OptionsArrayTest extends TestCase
 
     public function testHas(): void
     {
-        $component = OptionsArray::parse(
+        $component = OptionsArrays::parse(
             new Parser(),
             $this->getTokensList('A B = /*comment*/ (test) C'),
             [
@@ -89,7 +90,7 @@ class OptionsArrayTest extends TestCase
         $this->assertEquals($component->options, [0 => 'a', 2 => 'c']);
 
         /* Assertion 2 */
-        $component = OptionsArray::parse(
+        $component = OptionsArrays::parse(
             new Parser(),
             $this->getTokensList('A B = /*comment*/ (test) C'),
             [

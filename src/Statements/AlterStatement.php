@@ -6,8 +6,10 @@ namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\AlterOperation;
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\AlterOperations;
+use PhpMyAdmin\SqlParser\Parsers\Expressions;
+use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -65,7 +67,7 @@ class AlterStatement extends Statement
     public function parse(Parser $parser, TokensList $list): void
     {
         ++$list->idx; // Skipping `ALTER`.
-        $parsedOptions = OptionsArray::parse($parser, $list, static::$statementOptions);
+        $parsedOptions = OptionsArrays::parse($parser, $list, static::$statementOptions);
         if ($parsedOptions->isEmpty()) {
             $parser->error('Unrecognized alter operation.', $list->tokens[$list->idx]);
 
@@ -76,7 +78,7 @@ class AlterStatement extends Statement
         ++$list->idx;
 
         // Parsing affected table.
-        $this->table = Expression::parse(
+        $this->table = Expressions::parse(
             $parser,
             $list,
             [
@@ -116,18 +118,18 @@ class AlterStatement extends Statement
             if ($state === 0) {
                 $options = [];
                 if ($this->options->has('DATABASE')) {
-                    $options = AlterOperation::DATABASE_OPTIONS;
+                    $options = AlterOperations::DATABASE_OPTIONS;
                 } elseif ($this->options->has('TABLE')) {
-                    $options = AlterOperation::TABLE_OPTIONS;
+                    $options = AlterOperations::TABLE_OPTIONS;
                 } elseif ($this->options->has('VIEW')) {
-                    $options = AlterOperation::VIEW_OPTIONS;
+                    $options = AlterOperations::VIEW_OPTIONS;
                 } elseif ($this->options->has('USER')) {
-                    $options = AlterOperation::USER_OPTIONS;
+                    $options = AlterOperations::USER_OPTIONS;
                 } elseif ($this->options->has('EVENT')) {
-                    $options = AlterOperation::EVENT_OPTIONS;
+                    $options = AlterOperations::EVENT_OPTIONS;
                 }
 
-                $this->altered[] = AlterOperation::parse($parser, $list, $options);
+                $this->altered[] = AlterOperations::parse($parser, $list, $options);
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === TokenType::Operator) && ($token->value === ',')) {

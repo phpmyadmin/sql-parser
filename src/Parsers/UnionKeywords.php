@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\SqlParser\Components\Parsers;
+namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;

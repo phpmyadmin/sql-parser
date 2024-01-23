@@ -4,78 +4,10 @@
     <PossiblyNullPropertyAssignmentValue>
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
-    <PropertyTypeCoercion>
-      <code><![CDATA[ArrayObj::parse(
-                        $parser,
-                        $list,
-                        ['type' => PartitionDefinition::class],
-                    )]]></code>
-    </PropertyTypeCoercion>
-    <RedundantCondition>
-      <code>$partitionState === 2</code>
-      <code>$state === 3</code>
-    </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($ret->field)]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
-  <file src="src/Components/ArrayObj.php">
-    <MixedAssignment>
-      <code>$ret[]</code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[$options['type']::parse(
-                    $parser,
-                    $list,
-                    empty($options['typeOptions']) ? [] : $options['typeOptions'],
-                )]]></code>
-    </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$token->value]]></code>
-    </MixedOperand>
-    <MixedReturnTypeCoercion>
-      <code>$ret</code>
-      <code>ArrayObj|Component[]</code>
-    </MixedReturnTypeCoercion>
-    <PossiblyInvalidPropertyAssignment>
-      <code>$ret</code>
-      <code>$ret</code>
-      <code>$ret</code>
-      <code>$ret</code>
-    </PossiblyInvalidPropertyAssignment>
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$ret->raw]]></code>
-      <code><![CDATA[$ret->raw]]></code>
-      <code><![CDATA[$ret->values]]></code>
-      <code><![CDATA[$ret->values]]></code>
-    </PossiblyInvalidPropertyFetch>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($options['typeOptions'])]]></code>
-    </RiskyTruthyFalsyComparison>
-    <UndefinedMethod>
-      <code>$ret</code>
-    </UndefinedMethod>
   </file>
   <file src="src/Components/CaseExpression.php">
-    <InvalidOperand>
-      <code><![CDATA[! $token->flags]]></code>
-    </InvalidOperand>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$ret->compareValues]]></code>
-      <code><![CDATA[$ret->results]]></code>
-      <code><![CDATA[$ret->results]]></code>
-    </InvalidPropertyAssignmentValue>
-    <MixedAssignment>
-      <code><![CDATA[$ret->alias]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$token->value]]></code>
-    </MixedOperand>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $token->flags & Token::FLAG_SYMBOL_VARIABLE]]></code>
       <code><![CDATA[$this->alias]]></code>
-      <code><![CDATA[empty($ret->alias)]]></code>
-      <code><![CDATA[empty($ret->alias)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/Condition.php">
@@ -89,64 +21,21 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Components/DataType.php">
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$parameters->raw]]></code>
-      <code><![CDATA[$parameters->values]]></code>
-    </PossiblyInvalidPropertyFetch>
     <PossiblyNullPropertyAssignmentValue>
       <code>$name</code>
       <code>$options</code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
   </file>
   <file src="src/Components/Expression.php">
-    <MixedArrayOffset>
-      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code>$field</code>
-      <code><![CDATA[$options['field']]]></code>
-      <code><![CDATA[$ret->alias]]></code>
-      <code><![CDATA[$ret->alias]]></code>
-      <code><![CDATA[$ret->alias]]></code>
-      <code><![CDATA[$ret->subquery]]></code>
-    </MixedAssignment>
-    <PossiblyNullOperand>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-      <code><![CDATA[$ret->expr]]></code>
-    </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($ret->alias)]]></code>
-      <code><![CDATA[empty($ret->alias)]]></code>
-      <code><![CDATA[empty($ret->alias)]]></code>
-      <code><![CDATA[empty($ret->database)]]></code>
-      <code><![CDATA[empty($ret->subquery)]]></code>
       <code><![CDATA[empty($this->alias)]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$brackets < 0]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Components/FunctionCall.php">
-    <MixedOperand>
-      <code><![CDATA[$token->value]]></code>
-    </MixedOperand>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObj::parse($parser, $list)</code>
-    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullOperand>
       <code><![CDATA[$this->name]]></code>
       <code><![CDATA[$this->parameters]]></code>
     </PossiblyNullOperand>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
   </file>
   <file src="src/Components/GroupKeyword.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -163,16 +52,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Components/IntoKeyword.php">
-    <MixedArgument>
-      <code><![CDATA[$token->keyword]]></code>
-      <code><![CDATA[$token->keyword]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$ret->dest]]></code>
-    </MixedAssignment>
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[ArrayObj::parse($parser, $list)->values]]></code>
-    </PossiblyInvalidPropertyFetch>
     <PossiblyNullOperand>
       <code><![CDATA[$this->dest]]></code>
     </PossiblyNullOperand>
@@ -198,43 +77,20 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Components/Key.php">
-    <MixedAssignment>
-      <code><![CDATA[$lastColumn['length']]]></code>
-      <code><![CDATA[$lastColumn['name']]]></code>
-      <code><![CDATA[$ret->name]]></code>
-      <code><![CDATA[$ret->type]]></code>
-    </MixedAssignment>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[$ret->columns]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyNullOperand>
-      <code><![CDATA[$ret->expr]]></code>
       <code><![CDATA[$this->options]]></code>
       <code><![CDATA[$this->options]]></code>
-      <code><![CDATA[Expression::parse($parser, $list, ['parenthesesDelimited' => true])]]></code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyAssignmentValue>
       <code>$name</code>
       <code>$type</code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 5</code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Components/Limit.php">
-    <MixedAssignment>
-      <code><![CDATA[$ret->offset]]></code>
-      <code><![CDATA[$ret->rowCount]]></code>
-    </MixedAssignment>
   </file>
   <file src="src/Components/LockExpression.php">
     <MissingConstructor>
       <code>$table</code>
       <code>$type</code>
     </MissingConstructor>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse($parser, $list, ['parseField' => 'table'])]]></code>
-    </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Components/OptionsArray.php">
     <MixedArgument>
@@ -242,50 +98,11 @@
       <code>$option</code>
       <code><![CDATA[$option['name']]]></code>
       <code><![CDATA[$option['name']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['name']]]></code>
-      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
-      <code><![CDATA[is_array($ret->options[$lastOptionId])
-                            ? $ret->options[$lastOptionId]['name']
-                            : $ret->options[$lastOptionId]]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code>$options</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code>$lastOption[1]</code>
-      <code>$lastOption[1]</code>
-      <code>$lastOption[2]</code>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['name']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$ret->options[$lastOptionId]['equals']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
-    </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-    </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code>$lastOption</code>
-      <code>$lastOptionId</code>
       <code>$option</code>
       <code>$option</code>
       <code>$option</code>
@@ -294,33 +111,7 @@
     <MixedOperand>
       <code><![CDATA[! empty($option['expr']) ? $option['expr'] : $option['value']]]></code>
       <code><![CDATA[$option['name']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
-      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
     </MixedOperand>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-      <code><![CDATA[$ret->options]]></code>
-    </MixedPropertyTypeCoercion>
-    <PossiblyNullArgument>
-      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
-    </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code>$lastOption[1]</code>
-      <code>$lastOption[2]</code>
-    </PossiblyNullArrayAccess>
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$ret->options[$lastOptionId]['expr']->expr]]></code>
-    </PossiblyNullPropertyFetch>
-    <RiskyTruthyFalsyComparison>
-      <code>$lastOption</code>
-      <code>empty($lastOption[2])</code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/OrderKeyword.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -334,114 +125,6 @@
       <code>$type</code>
     </PossiblyNullPropertyAssignmentValue>
   </file>
-  <file src="src/Components/Parsers/Array2d.php">
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Components/Parsers/CreateDefinitions.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->name]]></code>
-      <code><![CDATA[$expr->name]]></code>
-    </MixedAssignment>
-  </file>
-  <file src="src/Components/Parsers/ExpressionArray.php">
-    <InvalidReturnStatement>
-      <code>$ret</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code>Expression[]</code>
-    </InvalidReturnType>
-    <PossiblyNullArgument>
-      <code>$expr</code>
-      <code>$expr</code>
-      <code>$expr</code>
-    </PossiblyNullArgument>
-    <RedundantCondition>
-      <code>$state === 1</code>
-    </RedundantCondition>
-  </file>
-  <file src="src/Components/Parsers/GroupKeywords.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>Expression::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Components/Parsers/IndexHints.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->type]]></code>
-    </MixedAssignment>
-  </file>
-  <file src="src/Components/Parsers/JoinKeywords.php">
-    <MixedArrayOffset>
-      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
-      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
-    </MixedArrayOffset>
-    <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObj::parse($parser, $list)</code>
-    </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse($parser, $list, ['field' => 'table'])]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <TypeDoesNotContainType>
-      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
-      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
-    </TypeDoesNotContainType>
-  </file>
-  <file src="src/Components/Parsers/OrderKeywords.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>Expression::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Components/Parsers/ParameterDefinitions.php">
-    <MixedAssignment>
-      <code><![CDATA[$expr->name]]></code>
-    </MixedAssignment>
-    <PossiblyNullPropertyAssignmentValue>
-      <code>DataType::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[isset($expr->name)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Components/Parsers/RenameOperations.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse(
-                    $parser,
-                    $list,
-                    [
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ],
-                )]]></code>
-      <code><![CDATA[Expression::parse(
-                    $parser,
-                    $list,
-                    [
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ],
-                )]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->old)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Components/Parsers/SetOperations.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[$tmp->expr]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code><![CDATA[$token->value === ',']]></code>
-    </RedundantCondition>
-  </file>
   <file src="src/Components/PartitionDefinition.php">
     <MissingConstructor>
       <code>$expr</code>
@@ -451,59 +134,18 @@
       <code>$subpartitions</code>
       <code>$type</code>
     </MissingConstructor>
-    <MixedAssignment>
-      <code><![CDATA[$ret->name]]></code>
-      <code><![CDATA[$ret->type]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$ret->name]]></code>
-    </MixedOperand>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expression::parse(
-                        $parser,
-                        $list,
-                        [
-                            'parenthesesDelimited' => true,
-                            'breakOnAlias' => true,
-                        ],
-                    )]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <PropertyTypeCoercion>
-      <code><![CDATA[ArrayObj::parse(
-                        $parser,
-                        $list,
-                        ['type' => self::class],
-                    )]]></code>
-    </PropertyTypeCoercion>
-    <RedundantCondition>
-      <code>$state === 6</code>
-    </RedundantCondition>
+    <PossiblyUnusedProperty>
+      <code>$partitionOptions</code>
+    </PossiblyUnusedProperty>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[! empty($this->options)]]></code>
     </RedundantConditionGivenDocblockType>
-    <UnusedVariable>
-      <code>$idx</code>
-    </UnusedVariable>
   </file>
   <file src="src/Components/Reference.php">
-    <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[ArrayObj::parse($parser, $list)->values]]></code>
-    </PossiblyInvalidPropertyFetch>
     <PossiblyNullPropertyAssignmentValue>
       <code>$options</code>
       <code>$table</code>
-      <code><![CDATA[Expression::parse(
-                    $parser,
-                    $list,
-                    [
-                        'parseField' => 'table',
-                        'breakOnAlias' => true,
-                    ],
-                )]]></code>
     </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code>$state === 2</code>
-    </RedundantCondition>
   </file>
   <file src="src/Components/RenameOperation.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -784,6 +426,400 @@
       <code><![CDATA[$list = &$this->list]]></code>
     </UnsupportedPropertyReferenceUsage>
   </file>
+  <file src="src/Parsers/AlterOperations.php">
+    <PropertyTypeCoercion>
+      <code><![CDATA[ArrayObjs::parse(
+                        $parser,
+                        $list,
+                        ['type' => PartitionDefinitions::class],
+                    )]]></code>
+    </PropertyTypeCoercion>
+    <RedundantCondition>
+      <code>$partitionState === 2</code>
+      <code>$state === 3</code>
+    </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($ret->field)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Parsers/Array2d.php">
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Parsers/ArrayObjs.php">
+    <MixedAssignment>
+      <code>$ret[]</code>
+    </MixedAssignment>
+    <MixedMethodCall>
+      <code><![CDATA[$options['type']::parse(
+                    $parser,
+                    $list,
+                    empty($options['typeOptions']) ? [] : $options['typeOptions'],
+                )]]></code>
+    </MixedMethodCall>
+    <MixedOperand>
+      <code><![CDATA[$token->value]]></code>
+    </MixedOperand>
+    <MixedReturnTypeCoercion>
+      <code>$ret</code>
+      <code>ArrayObj|Component[]</code>
+    </MixedReturnTypeCoercion>
+    <PossiblyInvalidPropertyAssignment>
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+      <code>$ret</code>
+    </PossiblyInvalidPropertyAssignment>
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[$ret->raw]]></code>
+      <code><![CDATA[$ret->raw]]></code>
+      <code><![CDATA[$ret->values]]></code>
+      <code><![CDATA[$ret->values]]></code>
+    </PossiblyInvalidPropertyFetch>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($options['typeOptions'])]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UndefinedMethod>
+      <code>$ret</code>
+    </UndefinedMethod>
+  </file>
+  <file src="src/Parsers/CaseExpressions.php">
+    <InvalidOperand>
+      <code><![CDATA[! $token->flags]]></code>
+    </InvalidOperand>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[$ret->compareValues]]></code>
+      <code><![CDATA[$ret->results]]></code>
+      <code><![CDATA[$ret->results]]></code>
+    </InvalidPropertyAssignmentValue>
+    <MixedAssignment>
+      <code><![CDATA[$ret->alias]]></code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$token->value]]></code>
+    </MixedOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[! $token->flags & Token::FLAG_SYMBOL_VARIABLE]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Parsers/CreateDefinitions.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->name]]></code>
+      <code><![CDATA[$expr->name]]></code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Parsers/DataTypes.php">
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[$parameters->raw]]></code>
+      <code><![CDATA[$parameters->values]]></code>
+    </PossiblyInvalidPropertyFetch>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Parsers/ExpressionArray.php">
+    <InvalidReturnStatement>
+      <code>$ret</code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code>Expression[]</code>
+    </InvalidReturnType>
+    <PossiblyNullArgument>
+      <code>$expr</code>
+      <code>$expr</code>
+      <code>$expr</code>
+    </PossiblyNullArgument>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Parsers/Expressions.php">
+    <MixedArrayOffset>
+      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->keyword]]]></code>
+    </MixedArrayOffset>
+    <MixedAssignment>
+      <code>$field</code>
+      <code><![CDATA[$options['field']]]></code>
+      <code><![CDATA[$ret->alias]]></code>
+      <code><![CDATA[$ret->alias]]></code>
+      <code><![CDATA[$ret->alias]]></code>
+      <code><![CDATA[$ret->subquery]]></code>
+    </MixedAssignment>
+    <PossiblyNullOperand>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[$ret->expr]]></code>
+    </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->alias)]]></code>
+      <code><![CDATA[empty($ret->database)]]></code>
+      <code><![CDATA[empty($ret->subquery)]]></code>
+    </RiskyTruthyFalsyComparison>
+    <TypeDoesNotContainType>
+      <code><![CDATA[$brackets < 0]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Parsers/FunctionCalls.php">
+    <MixedOperand>
+      <code><![CDATA[$token->value]]></code>
+    </MixedOperand>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code>ArrayObjs::parse($parser, $list)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <RedundantCondition>
+      <code>$state === 1</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Parsers/GroupKeywords.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code>Expressions::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Parsers/IndexHints.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->type]]></code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Parsers/IntoKeywords.php">
+    <MixedArgument>
+      <code><![CDATA[$token->keyword]]></code>
+      <code><![CDATA[$token->keyword]]></code>
+    </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$ret->dest]]></code>
+    </MixedAssignment>
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[ArrayObjs::parse($parser, $list)->values]]></code>
+    </PossiblyInvalidPropertyFetch>
+  </file>
+  <file src="src/Parsers/JoinKeywords.php">
+    <MixedArrayOffset>
+      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
+      <code><![CDATA[JoinKeyword::JOINS[$token->keyword]]]></code>
+    </MixedArrayOffset>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code>ArrayObjs::parse($parser, $list)</code>
+    </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expressions::parse($parser, $list, ['field' => 'table'])]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <TypeDoesNotContainType>
+      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
+      <code><![CDATA[empty(JoinKeyword::JOINS[$token->keyword])]]></code>
+    </TypeDoesNotContainType>
+  </file>
+  <file src="src/Parsers/Keys.php">
+    <MixedAssignment>
+      <code><![CDATA[$lastColumn['length']]]></code>
+      <code><![CDATA[$lastColumn['name']]]></code>
+      <code><![CDATA[$ret->name]]></code>
+      <code><![CDATA[$ret->type]]></code>
+    </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$ret->columns]]></code>
+    </MixedPropertyTypeCoercion>
+    <PossiblyNullOperand>
+      <code><![CDATA[$ret->expr]]></code>
+      <code><![CDATA[Expressions::parse($parser, $list, ['parenthesesDelimited' => true])]]></code>
+    </PossiblyNullOperand>
+    <RedundantCondition>
+      <code>$state === 5</code>
+    </RedundantCondition>
+  </file>
+  <file src="src/Parsers/Limits.php">
+    <MixedAssignment>
+      <code><![CDATA[$ret->offset]]></code>
+      <code><![CDATA[$ret->rowCount]]></code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Parsers/LockExpressions.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expressions::parse($parser, $list, ['parseField' => 'table'])]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="src/Parsers/OptionsArrays.php">
+    <MixedArgument>
+      <code><![CDATA[$ret->options[$lastOptionId]['name']]]></code>
+      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
+      <code><![CDATA[is_array($ret->options[$lastOptionId])
+                            ? $ret->options[$lastOptionId]['name']
+                            : $ret->options[$lastOptionId]]]></code>
+    </MixedArgument>
+    <MixedArrayAccess>
+      <code>$lastOption[1]</code>
+      <code>$lastOption[1]</code>
+      <code>$lastOption[2]</code>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['name']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$ret->options[$lastOptionId]['equals']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
+    </MixedArrayAssignment>
+    <MixedArrayOffset>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+    </MixedArrayOffset>
+    <MixedArrayTypeCoercion>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]]]></code>
+    </MixedArrayTypeCoercion>
+    <MixedAssignment>
+      <code>$lastOption</code>
+      <code>$lastOptionId</code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']]]></code>
+      <code><![CDATA[$ret->options[$lastOptionId]['value']]]></code>
+    </MixedOperand>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+      <code><![CDATA[$ret->options]]></code>
+    </MixedPropertyTypeCoercion>
+    <PossiblyNullArgument>
+      <code>empty($lastOption[2]) ? [] : $lastOption[2]</code>
+    </PossiblyNullArgument>
+    <PossiblyNullArrayAccess>
+      <code>$lastOption[1]</code>
+      <code>$lastOption[2]</code>
+    </PossiblyNullArrayAccess>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$ret->options[$lastOptionId]['expr']->expr]]></code>
+    </PossiblyNullPropertyFetch>
+    <RiskyTruthyFalsyComparison>
+      <code>$lastOption</code>
+      <code>empty($lastOption[2])</code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Parsers/OrderKeywords.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code>Expressions::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+      <code><![CDATA[! empty($expr->expr)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Parsers/ParameterDefinitions.php">
+    <MixedAssignment>
+      <code><![CDATA[$expr->name]]></code>
+    </MixedAssignment>
+    <PossiblyNullPropertyAssignmentValue>
+      <code>DataTypes::parse($parser, $list)</code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[isset($expr->name)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Parsers/PartitionDefinitions.php">
+    <MixedAssignment>
+      <code><![CDATA[$ret->name]]></code>
+      <code><![CDATA[$ret->type]]></code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$ret->name]]></code>
+    </MixedOperand>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expressions::parse(
+                        $parser,
+                        $list,
+                        [
+                            'parenthesesDelimited' => true,
+                            'breakOnAlias' => true,
+                        ],
+                    )]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <PropertyTypeCoercion>
+      <code><![CDATA[ArrayObjs::parse(
+                        $parser,
+                        $list,
+                        ['type' => self::class],
+                    )]]></code>
+    </PropertyTypeCoercion>
+    <RedundantCondition>
+      <code>$state === 6</code>
+    </RedundantCondition>
+    <UnusedVariable>
+      <code>$idx</code>
+    </UnusedVariable>
+  </file>
+  <file src="src/Parsers/References.php">
+    <PossiblyInvalidPropertyFetch>
+      <code><![CDATA[ArrayObjs::parse($parser, $list)->values]]></code>
+    </PossiblyInvalidPropertyFetch>
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expressions::parse(
+                    $parser,
+                    $list,
+                    [
+                        'parseField' => 'table',
+                        'breakOnAlias' => true,
+                    ],
+                )]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+  </file>
+  <file src="src/Parsers/RenameOperations.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[Expressions::parse(
+                    $parser,
+                    $list,
+                    [
+                        'breakOnAlias' => true,
+                        'parseField' => 'table',
+                    ],
+                )]]></code>
+      <code><![CDATA[Expressions::parse(
+                    $parser,
+                    $list,
+                    [
+                        'breakOnAlias' => true,
+                        'parseField' => 'table',
+                    ],
+                )]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[! empty($expr->old)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Parsers/SetOperations.php">
+    <PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[$tmp->expr]]></code>
+    </PossiblyNullPropertyAssignmentValue>
+    <RedundantCondition>
+      <code><![CDATA[$token->value === ',']]></code>
+    </RedundantCondition>
+  </file>
   <file src="src/Statement.php">
     <DocblockTypeContradiction>
       <code><![CDATA[empty(static::$clauses[$token->value])]]></code>
@@ -923,12 +959,12 @@
       <code>has</code>
     </PossiblyNullReference>
     <PropertyTypeCoercion>
-      <code><![CDATA[ArrayObj::parse(
+      <code><![CDATA[ArrayObjs::parse(
                                 $parser,
                                 $list,
-                                ['type' => PartitionDefinition::class],
+                                ['type' => PartitionDefinitions::class],
                             )]]></code>
-      <code>ArrayObj::parse($parser, $list)</code>
+      <code>ArrayObjs::parse($parser, $list)</code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->partitionBy)]]></code>
@@ -1007,7 +1043,7 @@
       <code>$state</code>
     </NoValue>
     <PossiblyInvalidPropertyAssignmentValue>
-      <code>ArrayObj::parse($parser, $list)</code>
+      <code>ArrayObjs::parse($parser, $list)</code>
     </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullOperand>
       <code><![CDATA[$this->fieldsOptions]]></code>

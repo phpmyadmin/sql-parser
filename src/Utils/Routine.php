@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Utils;
 
-use PhpMyAdmin\SqlParser\Components\DataType;
-use PhpMyAdmin\SqlParser\Components\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\DataTypes;
+use PhpMyAdmin\SqlParser\Parsers\ParameterDefinitions;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 
 use function implode;
@@ -30,7 +30,7 @@ class Routine
         $lexer = new Lexer($param);
 
         // A dummy parser is used for error reporting.
-        $type = DataType::parse(new Parser(), $lexer->list);
+        $type = DataTypes::parse(new Parser(), $lexer->list);
 
         if ($type === null) {
             return [

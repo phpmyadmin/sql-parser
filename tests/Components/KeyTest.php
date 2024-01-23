@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Components;
 
 use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Parsers\Keys;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokenType;
@@ -17,7 +17,7 @@ class KeyTest extends TestCase
 {
     public function testParse(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList(''),
         );
@@ -34,7 +34,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyWithoutOptions(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList('KEY `alias_type_idx` (`alias_type`),'),
         );
@@ -51,7 +51,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyWithLengthWithoutOptions(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10)),'),
         );
@@ -68,7 +68,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyWithLengthWithoutOptionsWithOrder(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10) ASC),'),
         );
@@ -85,7 +85,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyWithoutOptionsWithOrderLowercase(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList('KEY `alias_type_idx` (`alias_type` desc),'),
         );
@@ -102,7 +102,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyWithoutOptionsWithOrder(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList('KEY `alias_type_idx` (`alias_type` DESC),'),
         );
@@ -119,7 +119,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyWithLengthWithOptions(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList('KEY `alias_type_idx` (`alias_type`(10)) COMMENT \'my comment\','),
         );
@@ -145,7 +145,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyWithLengthWithAllOptions(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList(
                 // This is not a vary plausible example but it runs
@@ -199,7 +199,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyExpressionWithoutOptions(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList(
                 'KEY `updated_tz_ind2` ((convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))),',
@@ -220,7 +220,7 @@ class KeyTest extends TestCase
 
     public function testParseKeyExpressionWithOptions(): void
     {
-        $component = Key::parse(
+        $component = Keys::parse(
             new Parser(),
             $this->getTokensList(
                 'KEY `updated_tz_ind2`'
@@ -255,7 +255,7 @@ class KeyTest extends TestCase
     public function testParseKeyExpressionWithOptionsError(): void
     {
         $parser = new Parser();
-        $component = Key::parse(
+        $component = Keys::parse(
             $parser,
             $this->getTokensList(
                 'KEY `updated_tz_ind2` (()convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')))'
@@ -289,7 +289,7 @@ class KeyTest extends TestCase
     public function testParseKeyOneExpressionWithOptions(): void
     {
         $parser = new Parser();
-        $component = Key::parse(
+        $component = Keys::parse(
             $parser,
             $this->getTokensList(
                 'KEY `updated_tz_ind2`'
@@ -331,7 +331,7 @@ class KeyTest extends TestCase
     public function testParseKeyMultipleExpressionsWithOptions(): void
     {
         $parser = new Parser();
-        $component = Key::parse(
+        $component = Keys::parse(
             $parser,
             $this->getTokensList(
                 'KEY `updated_tz_ind2`'
