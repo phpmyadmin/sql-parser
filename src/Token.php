@@ -70,12 +70,12 @@ class Token
     /**
      * The value this token contains (i.e. token after some evaluation).
      */
-    public mixed $value;
+    public bool|float|int|string $value;
 
     /**
      * The keyword value this token contains, always uppercase.
      */
-    public mixed $keyword = null;
+    public string|null $keyword = null;
 
     /**
      * The type of this token.
@@ -109,11 +109,11 @@ class Token
     }
 
     /**
-     * Does little processing to the token to extract a value.
+     * Does a little processing to the token to extract a value.
      *
      * If no processing can be done it will return the initial string.
      */
-    public function extract(): mixed
+    public function extract(): bool|float|int|string
     {
         switch ($this->type) {
             case TokenType::Keyword:
@@ -195,9 +195,10 @@ class Token
                 }
 
                 return $str;
-        }
 
-        return $this->token;
+            default:
+                return $this->token;
+        }
     }
 
     /**
