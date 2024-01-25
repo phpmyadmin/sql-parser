@@ -1065,6 +1065,20 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Statements/SelectStatement.php">
+    <DocblockTypeContradiction>
+      <code><![CDATA[empty(static::$clauses[$token->value])]]></code>
+    </DocblockTypeContradiction>
+    <InvalidArgument>
+      <code><![CDATA[$parsedClauses[$token->value]]]></code>
+    </InvalidArgument>
+    <InvalidArrayOffset>
+      <code><![CDATA[$parsedClauses[$token->value]]]></code>
+      <code><![CDATA[$parsedClauses[$token->value]]]></code>
+      <code><![CDATA[Parser::KEYWORD_PARSERS[$token->value]]]></code>
+      <code>Parser::KEYWORD_PARSERS[$tokenValue]</code>
+      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->value]]]></code>
+      <code><![CDATA[static::$clauses[$token->value]]]></code>
+    </InvalidArrayOffset>
     <PossiblyNullArrayOffset>
       <code>$tables[$thisDb]</code>
     </PossiblyNullArrayOffset>
@@ -1074,8 +1088,12 @@
       <code>$indexHints</code>
       <code>$partition</code>
     </PossiblyUnusedProperty>
+    <RedundantCondition>
+      <code><![CDATA[! empty($parsedClauses[$token->value])]]></code>
+    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($this->join)]]></code>
+      <code><![CDATA[empty(Parser::KEYWORD_PARSERS[$tokenValue]['options'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Statements/SetStatement.php">
