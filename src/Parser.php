@@ -192,7 +192,7 @@ class Parser
         ],
         'FORCE' => [
             'class' => Parsers\IndexHints::class,
-            'field' => 'index_hints',
+            'field' => 'indexHints',
         ],
         'FROM' => [
             'class' => Parsers\ExpressionArray::class,
@@ -209,7 +209,7 @@ class Parser
         ],
         'IGNORE' => [
             'class' => Parsers\IndexHints::class,
-            'field' => 'index_hints',
+            'field' => 'indexHints',
         ],
         'INTO' => [
             'class' => Parsers\IntoKeywords::class,
@@ -331,7 +331,7 @@ class Parser
         ],
         'USE' => [
             'class' => Parsers\IndexHints::class,
-            'field' => 'index_hints',
+            'field' => 'indexHints',
         ],
         'VALUE' => [
             'class' => Parsers\Array2d::class,
