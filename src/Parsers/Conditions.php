@@ -57,6 +57,8 @@ final class Conditions implements Parseable
         'XOR',
     ];
 
+    private const COMPARISON_OPERATORS = ['=', '>=', '>', '<=', '<', '<>', '!='];
+
     /**
      * @param Parser               $parser  the parser that serves as context
      * @param TokensList           $list    the list of tokens that are being parsed
@@ -84,6 +86,9 @@ final class Conditions implements Parseable
          */
         $betweenBefore = false;
 
+        $hasSubQuery = false;
+        $subQueryBracket = 0;
+
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
@@ -104,7 +109,23 @@ final class Conditions implements Parseable
             // space character.
             if ($token->type === TokenType::Whitespace) {
                 $expr->expr .= ' ';
+                if ($expr->operator === '') {
+                    $expr->leftOperand .= ' ';
+                } else {
+                    $expr->rightOperand .= ' ';
+                }
+
                 continue;
+            }
+
+            if (
+                ! $hasSubQuery
+                && $token->keyword !== null && $token->type === TokenType::Keyword
+                && $brackets > 0
+                && (Parser::STATEMENT_PARSERS[$token->keyword] ?? '') !== ''
+            ) {
+                $hasSubQuery = true;
+                $subQueryBracket = $brackets;
             }
 
             // Conditions are delimited by logical operators.
@@ -115,7 +136,9 @@ final class Conditions implements Parseable
                 } else {
                     // The expression ended.
                     $expr->expr = trim($expr->expr);
-                    if (! empty($expr->expr)) {
+                    if ($expr->expr !== '') {
+                        $expr->leftOperand = trim($expr->leftOperand);
+                        $expr->rightOperand = trim($expr->rightOperand);
                         $ret[] = $expr;
                     }
 
@@ -152,11 +175,23 @@ final class Conditions implements Parseable
                         break;
                     }
 
+                    if ($subQueryBracket === $brackets) {
+                        $hasSubQuery = false;
+                    }
+
                     --$brackets;
+                } elseif (! $hasSubQuery && in_array($token->value, self::COMPARISON_OPERATORS, true)) {
+                    $expr->operator = $token->value;
                 }
             }
 
             $expr->expr .= $token->token;
+            if ($expr->operator === '') {
+                $expr->leftOperand .= $token->token;
+            } elseif ($expr->rightOperand !== '' || $expr->operator !== $token->value) {
+                $expr->rightOperand .= $token->token;
+            }
+
             if (
                 ($token->type !== TokenType::None)
                 && (($token->type !== TokenType::Keyword)
@@ -176,7 +211,9 @@ final class Conditions implements Parseable
 
         // Last iteration was not processed.
         $expr->expr = trim($expr->expr);
-        if (! empty($expr->expr)) {
+        if ($expr->expr !== '') {
+            $expr->leftOperand = trim($expr->leftOperand);
+            $expr->rightOperand = trim($expr->rightOperand);
             $ret[] = $expr;
         }
 

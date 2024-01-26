@@ -27,6 +27,10 @@ final class Condition implements Component
      */
     public string $expr;
 
+    public string $leftOperand = '';
+    public string $operator = '';
+    public string $rightOperand = '';
+
     /** @param string $expr the condition or the operator */
     public function __construct(string|null $expr = null)
     {

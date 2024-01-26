@@ -458,7 +458,10 @@
                             "username"
                         ],
                         "isOperator": false,
-                        "expr": "customer= 'username'"
+                        "expr": "customer= 'username'",
+                        "leftOperand": "customer",
+                        "operator": "=",
+                        "rightOperand": "'username'"
                     }
                 ],
                 "group": null,
@@ -508,7 +511,10 @@
                                     "id"
                                 ],
                                 "isOperator": false,
-                                "expr": "orders.item_id = items.id"
+                                "expr": "orders.item_id = items.id",
+                                "leftOperand": "orders.item_id",
+                                "operator": "=",
+                                "rightOperand": "items.id"
                             }
                         ],
                         "using": null

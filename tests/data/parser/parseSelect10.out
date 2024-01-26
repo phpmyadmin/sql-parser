@@ -357,7 +357,10 @@
                             "UPPER"
                         ],
                         "isOperator": false,
-                        "expr": "BINARY(my_column) != BINARY(UPPER(my_column))"
+                        "expr": "BINARY(my_column) != BINARY(UPPER(my_column))",
+                        "leftOperand": "BINARY(my_column)",
+                        "operator": "!=",
+                        "rightOperand": "BINARY(UPPER(my_column))"
                     }
                 ],
                 "group": null,

@@ -945,13 +945,19 @@
                                                 "payment"
                                             ],
                                             "isOperator": false,
-                                            "expr": "staff.staff_id = payment.staff_id"
+                                            "expr": "staff.staff_id = payment.staff_id",
+                                            "leftOperand": "staff.staff_id",
+                                            "operator": "=",
+                                            "rightOperand": "payment.staff_id"
                                         },
                                         {
                                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                             "identifiers": [],
                                             "isOperator": true,
-                                            "expr": "AND"
+                                            "expr": "AND",
+                                            "leftOperand": "",
+                                            "operator": "",
+                                            "rightOperand": ""
                                         },
                                         {
                                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -960,7 +966,10 @@
                                                 "2005-08%"
                                             ],
                                             "isOperator": false,
-                                            "expr": "payment_date LIKE '2005-08%'"
+                                            "expr": "payment_date LIKE '2005-08%'",
+                                            "leftOperand": "payment_date LIKE '2005-08%'",
+                                            "operator": "",
+                                            "rightOperand": ""
                                         }
                                     ],
                                     "using": null

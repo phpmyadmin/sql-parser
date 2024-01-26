@@ -11970,7 +11970,10 @@
                             "postid"
                         ],
                         "isOperator": false,
-                        "expr": "post.postid IN (0,3254399,3254508,3254743,3254817,3254969,3255328,3255582,3257603,3257873,3258126,3258150,3258254,3258272,3258311,3260767,3260770,3260776,3261180,3261263,3261317,3261318)"
+                        "expr": "post.postid IN (0,3254399,3254508,3254743,3254817,3254969,3255328,3255582,3257603,3257873,3258126,3258150,3258254,3258272,3258311,3260767,3260770,3260776,3261180,3261263,3261317,3261318)",
+                        "leftOperand": "post.postid IN (0,3254399,3254508,3254743,3254817,3254969,3255328,3255582,3257603,3257873,3258126,3258150,3258254,3258272,3258311,3260767,3260770,3260776,3261180,3261263,3261317,3261318)",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,
@@ -12018,7 +12021,10 @@
                                     "post"
                                 ],
                                 "isOperator": false,
-                                "expr": "(user.userid = post.userid)"
+                                "expr": "(user.userid = post.userid)",
+                                "leftOperand": "(user.userid",
+                                "operator": "=",
+                                "rightOperand": "post.userid)"
                             }
                         ],
                         "using": null
@@ -12045,7 +12051,10 @@
                                     "user"
                                 ],
                                 "isOperator": false,
-                                "expr": "(userfield.userid = user.userid)"
+                                "expr": "(userfield.userid = user.userid)",
+                                "leftOperand": "(userfield.userid",
+                                "operator": "=",
+                                "rightOperand": "user.userid)"
                             }
                         ],
                         "using": null
@@ -12072,7 +12081,10 @@
                                     "user"
                                 ],
                                 "isOperator": false,
-                                "expr": "(usertextfield.userid = user.userid)"
+                                "expr": "(usertextfield.userid = user.userid)",
+                                "leftOperand": "(usertextfield.userid",
+                                "operator": "=",
+                                "rightOperand": "user.userid)"
                             }
                         ],
                         "using": null
@@ -12099,7 +12111,10 @@
                                     "post"
                                 ],
                                 "isOperator": false,
-                                "expr": "(icon.iconid = post.iconid)"
+                                "expr": "(icon.iconid = post.iconid)",
+                                "leftOperand": "(icon.iconid",
+                                "operator": "=",
+                                "rightOperand": "post.iconid)"
                             }
                         ],
                         "using": null
@@ -12126,7 +12141,10 @@
                                     "user"
                                 ],
                                 "isOperator": false,
-                                "expr": "(avatar.avatarid = user.avatarid)"
+                                "expr": "(avatar.avatarid = user.avatarid)",
+                                "leftOperand": "(avatar.avatarid",
+                                "operator": "=",
+                                "rightOperand": "user.avatarid)"
                             }
                         ],
                         "using": null
@@ -12153,7 +12171,10 @@
                                     "user"
                                 ],
                                 "isOperator": false,
-                                "expr": "(customavatar.userid = user.userid)"
+                                "expr": "(customavatar.userid = user.userid)",
+                                "leftOperand": "(customavatar.userid",
+                                "operator": "=",
+                                "rightOperand": "user.userid)"
                             }
                         ],
                         "using": null
@@ -12180,7 +12201,10 @@
                                     "post"
                                 ],
                                 "isOperator": false,
-                                "expr": "(spamlog.postid = post.postid)"
+                                "expr": "(spamlog.postid = post.postid)",
+                                "leftOperand": "(spamlog.postid",
+                                "operator": "=",
+                                "rightOperand": "post.postid)"
                             }
                         ],
                         "using": null
@@ -12208,13 +12232,19 @@
                                     "primaryid"
                                 ],
                                 "isOperator": false,
-                                "expr": "(post.postid = deletionlog.primaryid"
+                                "expr": "(post.postid = deletionlog.primaryid",
+                                "leftOperand": "(post.postid",
+                                "operator": "=",
+                                "rightOperand": "deletionlog.primaryid"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -12224,7 +12254,10 @@
                                     "post"
                                 ],
                                 "isOperator": false,
-                                "expr": "deletionlog.type = 'post')"
+                                "expr": "deletionlog.type = 'post')",
+                                "leftOperand": "deletionlog.type",
+                                "operator": "=",
+                                "rightOperand": "'post')"
                             }
                         ],
                         "using": null
@@ -12251,7 +12284,10 @@
                                     "post"
                                 ],
                                 "isOperator": false,
-                                "expr": "(editlog.postid = post.postid)"
+                                "expr": "(editlog.postid = post.postid)",
+                                "leftOperand": "(editlog.postid",
+                                "operator": "=",
+                                "rightOperand": "post.postid)"
                             }
                         ],
                         "using": null
@@ -12278,13 +12314,19 @@
                                     "post"
                                 ],
                                 "isOperator": false,
-                                "expr": "(postparsed.postid = post.postid"
+                                "expr": "(postparsed.postid = post.postid",
+                                "leftOperand": "(postparsed.postid",
+                                "operator": "=",
+                                "rightOperand": "post.postid"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -12293,13 +12335,19 @@
                                     "styleid"
                                 ],
                                 "isOperator": false,
-                                "expr": "postparsed.styleid = 23"
+                                "expr": "postparsed.styleid = 23",
+                                "leftOperand": "postparsed.styleid",
+                                "operator": "=",
+                                "rightOperand": "23"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -12308,7 +12356,10 @@
                                     "languageid"
                                 ],
                                 "isOperator": false,
-                                "expr": "postparsed.languageid = 5)"
+                                "expr": "postparsed.languageid = 5)",
+                                "leftOperand": "postparsed.languageid",
+                                "operator": "=",
+                                "rightOperand": "5)"
                             }
                         ],
                         "using": null
@@ -12335,13 +12386,19 @@
                                     "user"
                                 ],
                                 "isOperator": false,
-                                "expr": "(sigparsed.userid = user.userid"
+                                "expr": "(sigparsed.userid = user.userid",
+                                "leftOperand": "(sigparsed.userid",
+                                "operator": "=",
+                                "rightOperand": "user.userid"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -12350,13 +12407,19 @@
                                     "styleid"
                                 ],
                                 "isOperator": false,
-                                "expr": "sigparsed.styleid = 23"
+                                "expr": "sigparsed.styleid = 23",
+                                "leftOperand": "sigparsed.styleid",
+                                "operator": "=",
+                                "rightOperand": "23"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -12365,7 +12428,10 @@
                                     "languageid"
                                 ],
                                 "isOperator": false,
-                                "expr": "sigparsed.languageid = 5)"
+                                "expr": "sigparsed.languageid = 5)",
+                                "leftOperand": "sigparsed.languageid",
+                                "operator": "=",
+                                "rightOperand": "5)"
                             }
                         ],
                         "using": null
@@ -12392,7 +12458,10 @@
                                     "post"
                                 ],
                                 "isOperator": false,
-                                "expr": "(sigpic.userid = post.userid)"
+                                "expr": "(sigpic.userid = post.userid)",
+                                "leftOperand": "(sigpic.userid",
+                                "operator": "=",
+                                "rightOperand": "post.userid)"
                             }
                         ],
                         "using": null
@@ -12420,7 +12489,10 @@
                                     "postid"
                                 ],
                                 "isOperator": false,
-                                "expr": "post_icon_list.post_id=post.postid"
+                                "expr": "post_icon_list.post_id=post.postid",
+                                "leftOperand": "post_icon_list.post_id",
+                                "operator": "=",
+                                "rightOperand": "post.postid"
                             }
                         ],
                         "using": null
@@ -12448,13 +12520,19 @@
                                     "postid"
                                 ],
                                 "isOperator": false,
-                                "expr": "(approvedlog.itemid=post.postid"
+                                "expr": "(approvedlog.itemid=post.postid",
+                                "leftOperand": "(approvedlog.itemid",
+                                "operator": "=",
+                                "rightOperand": "post.postid"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -12464,7 +12542,10 @@
                                     "postapprove"
                                 ],
                                 "isOperator": false,
-                                "expr": "approvedlog.action='postapprove')"
+                                "expr": "approvedlog.action='postapprove')",
+                                "leftOperand": "approvedlog.action",
+                                "operator": "=",
+                                "rightOperand": "'postapprove')"
                             }
                         ],
                         "using": null
@@ -12492,13 +12573,19 @@
                                     "postid"
                                 ],
                                 "isOperator": false,
-                                "expr": "(movedlog.itemid=post.postid"
+                                "expr": "(movedlog.itemid=post.postid",
+                                "leftOperand": "(movedlog.itemid",
+                                "operator": "=",
+                                "rightOperand": "post.postid"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -12508,7 +12595,10 @@
                                     "postmove"
                                 ],
                                 "isOperator": false,
-                                "expr": "movedlog.action='postmove')"
+                                "expr": "movedlog.action='postmove')",
+                                "leftOperand": "movedlog.action",
+                                "operator": "=",
+                                "rightOperand": "'postmove')"
                             }
                         ],
                         "using": null
@@ -12536,7 +12626,10 @@
                                     "postid"
                                 ],
                                 "isOperator": false,
-                                "expr": "scheduled_approval.post_id = post.postid"
+                                "expr": "scheduled_approval.post_id = post.postid",
+                                "leftOperand": "scheduled_approval.post_id",
+                                "operator": "=",
+                                "rightOperand": "post.postid"
                             }
                         ],
                         "using": null
@@ -12563,7 +12656,10 @@
                                     "post"
                                 ],
                                 "isOperator": false,
-                                "expr": "additional_user_data.userid=post.userid"
+                                "expr": "additional_user_data.userid=post.userid",
+                                "leftOperand": "additional_user_data.userid",
+                                "operator": "=",
+                                "rightOperand": "post.userid"
                             }
                         ],
                         "using": null
@@ -12591,7 +12687,10 @@
                                     "postid"
                                 ],
                                 "isOperator": false,
-                                "expr": "paid_post_activation.post_id = post.postid"
+                                "expr": "paid_post_activation.post_id = post.postid",
+                                "leftOperand": "paid_post_activation.post_id",
+                                "operator": "=",
+                                "rightOperand": "post.postid"
                             }
                         ],
                         "using": null
@@ -12619,7 +12718,10 @@
                                     "userid"
                                 ],
                                 "isOperator": false,
-                                "expr": "alm_Model_UserData.user_id=user.userid"
+                                "expr": "alm_Model_UserData.user_id=user.userid",
+                                "leftOperand": "alm_Model_UserData.user_id",
+                                "operator": "=",
+                                "rightOperand": "user.userid"
                             }
                         ],
                         "using": null

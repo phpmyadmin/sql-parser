@@ -760,7 +760,10 @@
                             "New york"
                         ],
                         "isOperator": false,
-                        "expr": "c.city = \"New york\""
+                        "expr": "c.city = \"New york\"",
+                        "leftOperand": "c.city",
+                        "operator": "=",
+                        "rightOperand": "\"New york\""
                     }
                 ],
                 "order": null,
@@ -788,7 +791,10 @@
                                     "e"
                                 ],
                                 "isOperator": false,
-                                "expr": "c.city_id = e.city_id"
+                                "expr": "c.city_id = e.city_id",
+                                "leftOperand": "c.city_id",
+                                "operator": "=",
+                                "rightOperand": "e.city_id"
                             }
                         ],
                         "using": null
@@ -815,7 +821,10 @@
                                     "e"
                                 ],
                                 "isOperator": false,
-                                "expr": "a.someID = e.someID"
+                                "expr": "a.someID = e.someID",
+                                "leftOperand": "a.someID",
+                                "operator": "=",
+                                "rightOperand": "e.someID"
                             }
                         ],
                         "using": null

@@ -545,13 +545,19 @@
                             "t2"
                         ],
                         "isOperator": false,
-                        "expr": "t1.id=t2.id"
+                        "expr": "t1.id=t2.id",
+                        "leftOperand": "t1.id",
+                        "operator": "=",
+                        "rightOperand": "t2.id"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -561,7 +567,10 @@
                             "t3"
                         ],
                         "isOperator": false,
-                        "expr": "t2.id=t3.id"
+                        "expr": "t2.id=t3.id",
+                        "leftOperand": "t2.id",
+                        "operator": "=",
+                        "rightOperand": "t3.id"
                     }
                 ],
                 "order": null,

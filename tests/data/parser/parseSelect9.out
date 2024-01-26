@@ -887,13 +887,19 @@
                             "2016-03-01"
                         ],
                         "isOperator": false,
-                        "expr": "casein_pipe > '2016-03-01'"
+                        "expr": "casein_pipe > '2016-03-01'",
+                        "leftOperand": "casein_pipe",
+                        "operator": ">",
+                        "rightOperand": "'2016-03-01'"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -901,13 +907,19 @@
                             "campaign_id_pipe"
                         ],
                         "isOperator": false,
-                        "expr": "`campaign_id_pipe` = 24569"
+                        "expr": "`campaign_id_pipe` = 24569",
+                        "leftOperand": "`campaign_id_pipe`",
+                        "operator": "=",
+                        "rightOperand": "24569"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -915,7 +927,10 @@
                             "weeksonlist_pipe"
                         ],
                         "isOperator": false,
-                        "expr": "`weeksonlist_pipe` = 1"
+                        "expr": "`weeksonlist_pipe` = 1",
+                        "leftOperand": "`weeksonlist_pipe`",
+                        "operator": "=",
+                        "rightOperand": "1"
                     }
                 ],
                 "group": null,

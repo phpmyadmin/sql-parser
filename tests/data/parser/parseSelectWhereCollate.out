@@ -394,13 +394,19 @@
                             "foo"
                         ],
                         "isOperator": false,
-                        "expr": "first_col = 'foo'"
+                        "expr": "first_col = 'foo'",
+                        "leftOperand": "first_col",
+                        "operator": "=",
+                        "rightOperand": "'foo'"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -410,7 +416,10 @@
                             "bar"
                         ],
                         "isOperator": false,
-                        "expr": "second_col COLLATE utf8_bin = 'bar'"
+                        "expr": "second_col COLLATE utf8_bin = 'bar'",
+                        "leftOperand": "second_col COLLATE utf8_bin",
+                        "operator": "=",
+                        "rightOperand": "'bar'"
                     }
                 ],
                 "group": null,

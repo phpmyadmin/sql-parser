@@ -3774,13 +3774,19 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "film_id = 10"
+                        "expr": "film_id = 10",
+                        "leftOperand": "film_id",
+                        "operator": "=",
+                        "rightOperand": "10"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "OR"
+                        "expr": "OR",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3788,7 +3794,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "film_id >= 20"
+                        "expr": "film_id >= 20",
+                        "leftOperand": "film_id",
+                        "operator": ">=",
+                        "rightOperand": "20"
                     }
                 ],
                 "group": null,
@@ -3843,13 +3852,19 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "(film_id < 10)"
+                        "expr": "(film_id < 10)",
+                        "leftOperand": "(film_id",
+                        "operator": "<",
+                        "rightOperand": "10)"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "||"
+                        "expr": "||",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3857,7 +3872,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "(film_id > 20)"
+                        "expr": "(film_id > 20)",
+                        "leftOperand": "(film_id",
+                        "operator": ">",
+                        "rightOperand": "20)"
                     }
                 ],
                 "group": null,
@@ -3912,13 +3930,19 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "`film_id` != 10"
+                        "expr": "`film_id` != 10",
+                        "leftOperand": "`film_id`",
+                        "operator": "!=",
+                        "rightOperand": "10"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3926,7 +3950,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "`film_id` <= 20"
+                        "expr": "`film_id` <= 20",
+                        "leftOperand": "`film_id`",
+                        "operator": "<=",
+                        "rightOperand": "20"
                     }
                 ],
                 "group": null,
@@ -3982,13 +4009,19 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "`film`.`film_id` <> 10"
+                        "expr": "`film`.`film_id` <> 10",
+                        "leftOperand": "`film`.`film_id`",
+                        "operator": "<>",
+                        "rightOperand": "10"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "&&"
+                        "expr": "&&",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3997,7 +4030,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "`film`.`film_id` <= 20"
+                        "expr": "`film`.`film_id` <= 20",
+                        "leftOperand": "`film`.`film_id`",
+                        "operator": "<=",
+                        "rightOperand": "20"
                     }
                 ],
                 "group": null,
@@ -4053,13 +4089,19 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "film.film_id < 20"
+                        "expr": "film.film_id < 20",
+                        "leftOperand": "film.film_id",
+                        "operator": "<",
+                        "rightOperand": "20"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "XOR"
+                        "expr": "XOR",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -4069,7 +4111,10 @@
                             "PG-13"
                         ],
                         "isOperator": false,
-                        "expr": "film.rating = 'PG-13'"
+                        "expr": "film.rating = 'PG-13'",
+                        "leftOperand": "film.rating",
+                        "operator": "=",
+                        "rightOperand": "'PG-13'"
                     }
                 ],
                 "group": null,
@@ -4124,7 +4169,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "film_id = 10"
+                        "expr": "film_id = 10",
+                        "leftOperand": "film_id",
+                        "operator": "=",
+                        "rightOperand": "10"
                     }
                 ],
                 "group": null,
@@ -4179,7 +4227,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "NOT film_id > 10"
+                        "expr": "NOT film_id > 10",
+                        "leftOperand": "NOT film_id",
+                        "operator": ">",
+                        "rightOperand": "10"
                     }
                 ],
                 "group": null,
@@ -4234,7 +4285,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "! (film_id > 10)"
+                        "expr": "! (film_id > 10)",
+                        "leftOperand": "! (film_id",
+                        "operator": ">",
+                        "rightOperand": "10)"
                     }
                 ],
                 "group": null,
@@ -4289,7 +4343,10 @@
                             "description"
                         ],
                         "isOperator": false,
-                        "expr": "description IS NULL"
+                        "expr": "description IS NULL",
+                        "leftOperand": "description IS NULL",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,
@@ -4344,7 +4401,10 @@
                             "description"
                         ],
                         "isOperator": false,
-                        "expr": "description IS NOT NULL"
+                        "expr": "description IS NOT NULL",
+                        "leftOperand": "description IS NOT NULL",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,
@@ -4399,7 +4459,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "film_id BETWEEN 10 AND 20"
+                        "expr": "film_id BETWEEN 10 AND 20",
+                        "leftOperand": "film_id BETWEEN 10 AND 20",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,
@@ -4454,7 +4517,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "film_id NOT BETWEEN 10 AND 20"
+                        "expr": "film_id NOT BETWEEN 10 AND 20",
+                        "leftOperand": "film_id NOT BETWEEN 10 AND 20",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,
@@ -4509,7 +4575,10 @@
                             "film_id"
                         ],
                         "isOperator": false,
-                        "expr": "film_id IN (3,5,7)"
+                        "expr": "film_id IN (3,5,7)",
+                        "leftOperand": "film_id IN (3,5,7)",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,
@@ -4566,7 +4635,10 @@
                             "pg"
                         ],
                         "isOperator": false,
-                        "expr": "rating = UPPER('pg')"
+                        "expr": "rating = UPPER('pg')",
+                        "leftOperand": "rating",
+                        "operator": "=",
+                        "rightOperand": "UPPER('pg')"
                     }
                 ],
                 "group": null,
@@ -4623,7 +4695,10 @@
                             "PG"
                         ],
                         "isOperator": false,
-                        "expr": "rating SOUNDS LIKE 'PG'"
+                        "expr": "rating SOUNDS LIKE 'PG'",
+                        "leftOperand": "rating SOUNDS LIKE 'PG'",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,
