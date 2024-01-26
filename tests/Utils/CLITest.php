@@ -16,7 +16,7 @@ use const PHP_BINARY;
 class CLITest extends TestCase
 {
     /** @param array<string, bool|string>|false $getopt */
-    private function getCLI($getopt): CLI
+    private function getCLI(array|false $getopt): CLI
     {
         $cli = $this->createPartialMock(CLI::class, ['getopt']);
         $cli->method('getopt')->willReturn($getopt);
@@ -25,7 +25,7 @@ class CLITest extends TestCase
     }
 
     /** @param array<string, bool|string>|false $getopt */
-    private function getCLIStdIn(string $input, $getopt): CLI
+    private function getCLIStdIn(string $input, array|false $getopt): CLI
     {
         $cli = $this->createPartialMock(CLI::class, ['getopt', 'readStdin']);
         $cli->method('getopt')->willReturn($getopt);

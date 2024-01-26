@@ -15,6 +15,7 @@ class ReferenceTest extends TestCase
     public function testParse(): void
     {
         $component = References::parse(new Parser(), $this->getTokensList('tbl (id)'));
+        $this->assertNotNull($component->table);
         $this->assertEquals('tbl', $component->table->table);
         $this->assertEquals(['id'], $component->columns);
     }

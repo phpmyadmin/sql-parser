@@ -53,56 +53,46 @@ final class IntoKeyword implements Component
 
     /**
      * Type of target (OUTFILE or SYMBOL).
-     *
-     * @var string|null
      */
-    public $type;
+    public string|null $type = null;
 
     /**
      * The destination, which can be a table or a file.
-     *
-     * @var string|Expression|null
      */
-    public $dest;
+    public string|Expression|null $dest = null;
 
     /**
      * The name of the columns.
      *
      * @var string[]|null
      */
-    public $columns;
+    public array|null $columns = null;
 
     /**
      * The values to be selected into (SELECT .. INTO @var1).
      *
      * @var Expression[]|null
      */
-    public $values;
+    public array|null $values = null;
 
     /**
      * Options for FIELDS/COLUMNS keyword.
      *
      * @see IntoKeyword::STATEMENT_FIELDS_OPTIONS
-     *
-     * @var OptionsArray|null
      */
-    public $fieldsOptions;
+    public OptionsArray|null $fieldsOptions = null;
 
     /**
      * Whether to use `FIELDS` or `COLUMNS` while building.
-     *
-     * @var bool|null
      */
-    public $fieldsKeyword;
+    public bool|null $fieldsKeyword = null;
 
     /**
      * Options for OPTIONS keyword.
      *
      * @see IntoKeyword::STATEMENT_LINES_OPTIONS
-     *
-     * @var OptionsArray|null
      */
-    public $linesOptions;
+    public OptionsArray|null $linesOptions = null;
 
     /**
      * @param string|null            $type          type of destination (may be OUTFILE)

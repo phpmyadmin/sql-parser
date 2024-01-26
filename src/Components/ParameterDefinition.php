@@ -16,29 +16,23 @@ final class ParameterDefinition implements Component
 {
     /**
      * The name of the new column.
-     *
-     * @var string
      */
-    public $name;
+    public string|null $name = null;
 
     /**
      * Parameter's direction (IN, OUT or INOUT).
-     *
-     * @var string
      */
-    public $inOut;
+    public string|null $inOut = null;
 
     /**
      * The data type of thew new column.
-     *
-     * @var DataType
      */
-    public $type;
+    public DataType|null $type = null;
 
     /**
-     * @param string   $name  parameter's name
-     * @param string   $inOut parameter's directional type (IN / OUT or None)
-     * @param DataType $type  parameter's type
+     * @param string|null   $name  parameter's name
+     * @param string|null   $inOut parameter's directional type (IN / OUT or None)
+     * @param DataType|null $type  parameter's type
      */
     public function __construct(string|null $name = null, string|null $inOut = null, DataType|null $type = null)
     {

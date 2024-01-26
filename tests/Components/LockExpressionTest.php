@@ -15,6 +15,7 @@ class LockExpressionTest extends TestCase
     public function testParse(): void
     {
         $component = LockExpressions::parse(new Parser(), $this->getTokensList('table1 AS t1 READ LOCAL'));
+        $this->assertNotNull($component->table);
         $this->assertEquals('table1', $component->table->table);
         $this->assertEquals('t1', $component->table->alias);
         $this->assertEquals('READ LOCAL', $component->type);
@@ -23,6 +24,7 @@ class LockExpressionTest extends TestCase
     public function testParse2(): void
     {
         $component = LockExpressions::parse(new Parser(), $this->getTokensList('table1 LOW_PRIORITY WRITE'));
+        $this->assertNotNull($component->table);
         $this->assertEquals('table1', $component->table->table);
         $this->assertEquals('LOW_PRIORITY WRITE', $component->type);
     }

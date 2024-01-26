@@ -17,29 +17,25 @@ final class Reference implements Component
 {
     /**
      * The referenced table.
-     *
-     * @var Expression
      */
-    public $table;
+    public Expression|null $table = null;
 
     /**
      * The referenced columns.
      *
      * @var string[]
      */
-    public $columns;
+    public array $columns;
 
     /**
      * The options of the referencing.
-     *
-     * @var OptionsArray
      */
-    public $options;
+    public OptionsArray|null $options = null;
 
     /**
-     * @param Expression   $table   the name of the table referenced
-     * @param string[]     $columns the columns referenced
-     * @param OptionsArray $options the options
+     * @param Expression|null   $table   the name of the table referenced
+     * @param string[]          $columns the columns referenced
+     * @param OptionsArray|null $options the options
      */
     public function __construct(Expression|null $table = null, array $columns = [], OptionsArray|null $options = null)
     {

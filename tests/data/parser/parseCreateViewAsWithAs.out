@@ -1706,7 +1706,6 @@
                     "withers": {
                         "cte": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
-                            "name": "cte",
                             "columns": [],
                             "statement": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Parser",
@@ -1838,7 +1837,8 @@
                                     }
                                 ],
                                 "brackets": 0
-                            }
+                            },
+                            "name": "cte"
                         }
                     },
                     "cteStatementParser": {
@@ -2268,7 +2268,6 @@
                                     "withers": {
                                         "cte": {
                                             "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
-                                            "name": "cte",
                                             "columns": [],
                                             "statement": {
                                                 "@type": "PhpMyAdmin\\SqlParser\\Parser",
@@ -2400,11 +2399,11 @@
                                                     }
                                                 ],
                                                 "brackets": 0
-                                            }
+                                            },
+                                            "name": "cte"
                                         },
                                         "cte2": {
                                             "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
-                                            "name": "cte2",
                                             "columns": [],
                                             "statement": {
                                                 "@type": "PhpMyAdmin\\SqlParser\\Parser",
@@ -2560,7 +2559,8 @@
                                                     }
                                                 ],
                                                 "brackets": 0
-                                            }
+                                            },
+                                            "name": "cte2"
                                         }
                                     },
                                     "cteStatementParser": {

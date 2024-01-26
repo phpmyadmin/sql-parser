@@ -15,17 +15,13 @@ final class FunctionCall implements Component
 {
     /**
      * The name of this function.
-     *
-     * @var string|null
      */
-    public $name;
+    public string|null $name = null;
 
     /**
      * The list of parameters.
-     *
-     * @var ArrayObj|null
      */
-    public $parameters;
+    public ArrayObj|null $parameters = null;
 
     /**
      * @param string|null            $name       the name of the function to be called

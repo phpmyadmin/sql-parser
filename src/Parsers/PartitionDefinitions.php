@@ -25,7 +25,7 @@ final class PartitionDefinitions implements Parseable
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $partitionOptions = [
+    public static array $partitionOptions = [
         'STORAGE ENGINE' => [
             1,
             'var',
@@ -115,7 +115,7 @@ final class PartitionDefinitions implements Parseable
                 $ret->isSubpartition = ($token->type === TokenType::Keyword) && ($token->keyword === 'SUBPARTITION');
                 $state = 1;
             } elseif ($state === 1) {
-                $ret->name = $token->value;
+                $ret->name = (string) $token->value;
 
                 // Looking ahead for a 'VALUES' keyword.
                 // Loop until the end of the partition name (delimited by a whitespace)

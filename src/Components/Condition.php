@@ -15,21 +15,17 @@ final class Condition implements Component
      *
      * @var array<int, mixed>
      */
-    public $identifiers = [];
+    public array $identifiers = [];
 
     /**
      * Whether this component is an operator.
-     *
-     * @var bool
      */
-    public $isOperator = false;
+    public bool $isOperator = false;
 
     /**
      * The condition.
-     *
-     * @var string
      */
-    public $expr;
+    public string $expr;
 
     /** @param string $expr the condition or the operator */
     public function __construct(string|null $expr = null)
