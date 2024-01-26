@@ -13,21 +13,17 @@ final class OrderKeyword implements Component
 {
     /**
      * The expression that is used for ordering.
-     *
-     * @var Expression
      */
-    public $expr;
+    public Expression|null $expr = null;
 
     /**
      * The order type.
-     *
-     * @var string
      */
-    public $type;
+    public string $type;
 
     /**
-     * @param Expression $expr the expression that we are sorting by
-     * @param string     $type the sorting type
+     * @param Expression|null $expr the expression that we are sorting by
+     * @param string          $type the sorting type
      */
     public function __construct(Expression|null $expr = null, string $type = 'ASC')
     {

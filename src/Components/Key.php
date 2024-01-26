@@ -19,10 +19,8 @@ final class Key implements Component
 {
     /**
      * The name of this key.
-     *
-     * @var string|null
      */
-    public $name;
+    public string|null $name = null;
 
     /**
      * The key columns
@@ -30,28 +28,22 @@ final class Key implements Component
      * @var array<int, array<string, int|string>>
      * @phpstan-var array{name?: string, length?: int, order?: string}[]
      */
-    public $columns;
+    public array $columns;
 
     /**
      * The type of this key.
-     *
-     * @var string|null
      */
-    public $type;
+    public string|null $type = null;
 
     /**
      * The expression if the Key is not using column names
-     *
-     * @var string|null
      */
-    public $expr = null;
+    public string|null $expr = null;
 
     /**
      * The options of this key or null if none where found.
-     *
-     * @var OptionsArray|null
      */
-    public $options;
+    public OptionsArray|null $options = null;
 
     /**
      * @param string|null                           $name    the name of the key

@@ -22,7 +22,7 @@ final class PartitionDefinition implements Component
      * @var array<string, int|array<int, int|string>>
      * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
-    public static $partitionOptions = [
+    public static array $partitionOptions = [
         'STORAGE ENGINE' => [
             1,
             'var',
@@ -63,45 +63,35 @@ final class PartitionDefinition implements Component
 
     /**
      * Whether this entry is a subpartition or a partition.
-     *
-     * @var bool
      */
-    public $isSubpartition;
+    public bool|null $isSubpartition = null;
 
     /**
      * The name of this partition.
-     *
-     * @var string
      */
-    public $name;
+    public string|null $name = null;
 
     /**
      * The type of this partition (what follows the `VALUES` keyword).
-     *
-     * @var string
      */
-    public $type;
+    public string|null $type = null;
 
     /**
      * The expression used to defined this partition.
-     *
-     * @var Expression|string
      */
-    public $expr;
+    public Expression|string|null $expr = null;
 
     /**
      * The subpartitions of this partition.
      *
-     * @var PartitionDefinition[]
+     * @var PartitionDefinition[]|null
      */
-    public $subpartitions;
+    public array|null $subpartitions = null;
 
     /**
      * The options of this field.
-     *
-     * @var OptionsArray
      */
-    public $options;
+    public OptionsArray|null $options = null;
 
     public function build(): string
     {

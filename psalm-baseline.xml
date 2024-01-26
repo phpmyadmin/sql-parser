@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="5.20.0@3f284e96c9d9be6fe6b15c79416e1d1903dcfef4">
   <file src="src/Components/AlterOperation.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$options</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullReference>
+      <code>has</code>
+    </PossiblyNullReference>
   </file>
   <file src="src/Components/CaseExpression.php">
     <RiskyTruthyFalsyComparison>
@@ -21,10 +21,13 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Components/DataType.php">
-    <PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->name]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
       <code>$name</code>
-      <code>$options</code>
-    </PossiblyNullPropertyAssignmentValue>
+      <code><![CDATA[$this->options]]></code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Components/Expression.php">
     <RiskyTruthyFalsyComparison>
@@ -38,9 +41,6 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Components/GroupKeyword.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$expr</code>
-    </PossiblyNullPropertyAssignmentValue>
     <PossiblyUnusedProperty>
       <code>$type</code>
     </PossiblyUnusedProperty>
@@ -81,10 +81,10 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/LockExpression.php">
-    <MissingConstructor>
-      <code>$table</code>
-      <code>$type</code>
-    </MissingConstructor>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->table]]></code>
+      <code><![CDATA[$this->type]]></code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Components/OptionsArray.php">
     <MixedArgument>
@@ -108,44 +108,49 @@
     </MixedOperand>
   </file>
   <file src="src/Components/OrderKeyword.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$expr</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->expr]]></code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Components/ParameterDefinition.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$inOut</code>
-      <code>$name</code>
-      <code>$type</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->name]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->type]]></code>
+    </PossiblyNullOperand>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->inOut)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/PartitionDefinition.php">
-    <MissingConstructor>
-      <code>$expr</code>
-      <code>$isSubpartition</code>
-      <code>$name</code>
-      <code>$options</code>
-      <code>$subpartitions</code>
-      <code>$type</code>
-    </MissingConstructor>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->expr]]></code>
+      <code><![CDATA[$this->name]]></code>
+      <code><![CDATA[$this->name]]></code>
+      <code><![CDATA[$this->options]]></code>
+      <code><![CDATA[$this->options]]></code>
+    </PossiblyNullOperand>
     <PossiblyUnusedProperty>
       <code>$partitionOptions</code>
     </PossiblyUnusedProperty>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($this->options)]]></code>
-    </RedundantConditionGivenDocblockType>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->subpartitions)]]></code>
+      <code><![CDATA[empty($this->type)]]></code>
+      <code><![CDATA[empty($this->type)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/Reference.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$options</code>
-      <code>$table</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->options]]></code>
+      <code><![CDATA[$this->table]]></code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Components/RenameOperation.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>$new</code>
-      <code>$old</code>
-    </PossiblyNullPropertyAssignmentValue>
+    <PossiblyNullOperand>
+      <code><![CDATA[$this->new]]></code>
+      <code><![CDATA[$this->old]]></code>
+    </PossiblyNullOperand>
   </file>
   <file src="src/Context.php">
     <InvalidPropertyAssignmentValue>
@@ -418,6 +423,10 @@
     </UnsupportedPropertyReferenceUsage>
   </file>
   <file src="src/Parsers/AlterOperations.php">
+    <PossiblyNullReference>
+      <code>has</code>
+      <code>isEmpty</code>
+    </PossiblyNullReference>
     <PropertyTypeCoercion>
       <code><![CDATA[ArrayObjs::parse(
                         $parser,
@@ -504,6 +513,9 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($ret->name)]]></code>
+    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Parsers/ExpressionArray.php">
     <InvalidReturnStatement>
@@ -536,6 +548,7 @@
     </PossiblyNullOperand>
     <PropertyTypeCoercion>
       <code><![CDATA[$prev[1]->value]]></code>
+      <code><![CDATA[$prev[1]->value]]></code>
       <code><![CDATA[$token->value]]></code>
       <code><![CDATA[$token->value]]></code>
     </PropertyTypeCoercion>
@@ -544,6 +557,7 @@
       <code><![CDATA[empty($ret->alias)]]></code>
       <code><![CDATA[empty($ret->alias)]]></code>
       <code><![CDATA[empty($ret->database)]]></code>
+      <code><![CDATA[empty($ret->function)]]></code>
       <code><![CDATA[empty($ret->subquery)]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
@@ -560,15 +574,6 @@
     <RedundantCondition>
       <code>$state === 1</code>
     </RedundantCondition>
-  </file>
-  <file src="src/Parsers/GroupKeywords.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>Expressions::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Parsers/IndexHints.php">
     <MixedAssignment>
@@ -618,11 +623,6 @@
       <code><![CDATA[$token->value]]></code>
       <code><![CDATA[$token->value]]></code>
     </PropertyTypeCoercion>
-  </file>
-  <file src="src/Parsers/LockExpressions.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expressions::parse($parser, $list, ['parseField' => 'table'])]]></code>
-    </PossiblyNullPropertyAssignmentValue>
   </file>
   <file src="src/Parsers/OptionsArrays.php">
     <MixedArgument>
@@ -697,39 +697,13 @@
       <code>empty($lastOption[2])</code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Parsers/OrderKeywords.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>Expressions::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-      <code><![CDATA[! empty($expr->expr)]]></code>
-    </RedundantConditionGivenDocblockType>
-  </file>
   <file src="src/Parsers/ParameterDefinitions.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code>DataTypes::parse($parser, $list)</code>
-    </PossiblyNullPropertyAssignmentValue>
     <PropertyTypeCoercion>
       <code><![CDATA[$token->value]]></code>
     </PropertyTypeCoercion>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[isset($expr->name)]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Parsers/PartitionDefinitions.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expressions::parse(
-                        $parser,
-                        $list,
-                        [
-                            'parenthesesDelimited' => true,
-                            'breakOnAlias' => true,
-                        ],
-                    )]]></code>
-    </PossiblyNullPropertyAssignmentValue>
     <PropertyTypeCoercion>
-      <code><![CDATA[$token->value]]></code>
       <code><![CDATA[$token->value]]></code>
       <code><![CDATA[ArrayObjs::parse(
                         $parser,
@@ -748,39 +722,6 @@
     <PossiblyInvalidPropertyFetch>
       <code><![CDATA[ArrayObjs::parse($parser, $list)->values]]></code>
     </PossiblyInvalidPropertyFetch>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expressions::parse(
-                    $parser,
-                    $list,
-                    [
-                        'parseField' => 'table',
-                        'breakOnAlias' => true,
-                    ],
-                )]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-  </file>
-  <file src="src/Parsers/RenameOperations.php">
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[Expressions::parse(
-                    $parser,
-                    $list,
-                    [
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ],
-                )]]></code>
-      <code><![CDATA[Expressions::parse(
-                    $parser,
-                    $list,
-                    [
-                        'breakOnAlias' => true,
-                        'parseField' => 'table',
-                    ],
-                )]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($expr->old)]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Parsers/SetOperations.php">
     <PossiblyNullPropertyAssignmentValue>
@@ -1359,6 +1300,24 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Routine.php">
+    <InvalidReturnStatement>
+      <code><![CDATA[[
+            $type->name,
+            implode(',', $type->parameters),
+            implode(' ', $options),
+        ]]]></code>
+      <code><![CDATA[[
+            empty($param->inOut) ? '' : $param->inOut,
+            $param->name,
+            $param->type->name,
+            implode(',', $param->type->parameters),
+            implode(' ', $options),
+        ]]]></code>
+    </InvalidReturnStatement>
+    <InvalidReturnType>
+      <code>string[]</code>
+      <code>string[]</code>
+    </InvalidReturnType>
     <MixedArgumentTypeCoercion>
       <code>$options</code>
       <code>$options</code>
@@ -1377,11 +1336,35 @@
       <code>$options[]</code>
       <code><![CDATA[$retval['opts'][$idx][]]]></code>
     </MixedAssignment>
+    <PossiblyNullArgument>
+      <code><![CDATA[$param->type->parameters]]></code>
+      <code><![CDATA[$param->type->parameters]]></code>
+    </PossiblyNullArgument>
+    <PossiblyNullIterator>
+      <code><![CDATA[$param->type->options->options]]></code>
+      <code><![CDATA[$param->type->options->options]]></code>
+      <code><![CDATA[$type->options->options]]></code>
+    </PossiblyNullIterator>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$param->type->name]]></code>
+      <code><![CDATA[$param->type->name]]></code>
+      <code><![CDATA[$param->type->options]]></code>
+      <code><![CDATA[$param->type->options]]></code>
+      <code><![CDATA[$param->type->options->options]]></code>
+      <code><![CDATA[$param->type->options->options]]></code>
+      <code><![CDATA[$param->type->parameters]]></code>
+      <code><![CDATA[$param->type->parameters]]></code>
+      <code><![CDATA[$type->options->options]]></code>
+    </PossiblyNullPropertyFetch>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($param->inOut)]]></code>
       <code><![CDATA[empty($statement->parameters)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Table.php">
+    <LessSpecificReturnStatement>
+      <code>$ret</code>
+    </LessSpecificReturnStatement>
     <MixedArgument>
       <code>$opt</code>
       <code>$opt</code>
@@ -1395,6 +1378,16 @@
       <code><![CDATA[$ret[$field->name]['default_value']]]></code>
       <code><![CDATA[$ret[$field->name]['expr']]]></code>
     </MixedAssignment>
+    <MoreSpecificReturnType>
+      <code><![CDATA[array<string, array{
+     *  type: string,
+     *  timestamp_not_null: bool,
+     *  default_value?: mixed,
+     *  default_current_timestamp?: true,
+     *  on_update_current_timestamp?: true,
+     *  expr?: mixed
+     * }>]]></code>
+    </MoreSpecificReturnType>
     <PossiblyNullArrayOffset>
       <code>$ret</code>
       <code>$ret</code>
@@ -1403,7 +1396,12 @@
       <code>$ret</code>
       <code>$ret</code>
     </PossiblyNullArrayOffset>
+    <PossiblyNullPropertyFetch>
+      <code><![CDATA[$field->references->table->database]]></code>
+      <code><![CDATA[$field->references->table->table]]></code>
+    </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
+      <code>has</code>
       <code>has</code>
       <code>has</code>
     </PossiblyNullReference>

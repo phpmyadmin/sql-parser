@@ -1307,7 +1307,6 @@
                 "withers": {
                     "categories": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
-                        "name": "categories",
                         "columns": [
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
@@ -1722,11 +1721,11 @@
                                 }
                             ],
                             "brackets": 0
-                        }
+                        },
+                        "name": "categories"
                     },
                     "foo": {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
-                        "name": "foo",
                         "columns": [],
                         "statement": {
                             "@type": "PhpMyAdmin\\SqlParser\\Parser",
@@ -1815,7 +1814,8 @@
                                 }
                             ],
                             "brackets": 0
-                        }
+                        },
+                        "name": "foo"
                     }
                 },
                 "cteStatementParser": {

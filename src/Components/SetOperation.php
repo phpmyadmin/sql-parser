@@ -10,17 +10,13 @@ final class SetOperation implements Component
 {
     /**
      * The name of the column that is being updated.
-     *
-     * @var string
      */
-    public $column;
+    public string $column;
 
     /**
      * The new value.
-     *
-     * @var string
      */
-    public $value;
+    public string $value;
 
     /**
      * @param string $column Field's name..

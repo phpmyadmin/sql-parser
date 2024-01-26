@@ -39,31 +39,25 @@ final class JoinKeyword implements Component
      * Type of this join.
      *
      * @see JoinKeyword::JOINS
-     *
-     * @var string|null
      */
-    public $type;
+    public string|null $type = null;
 
     /**
      * Join expression.
-     *
-     * @var Expression|null
      */
-    public $expr;
+    public Expression|null $expr = null;
 
     /**
      * Join conditions.
      *
      * @var Condition[]|null
      */
-    public $on;
+    public array|null $on = null;
 
     /**
      * Columns in Using clause.
-     *
-     * @var ArrayObj|null
      */
-    public $using;
+    public ArrayObj|null $using = null;
 
     /**
      * @see JoinKeyword::JOINS

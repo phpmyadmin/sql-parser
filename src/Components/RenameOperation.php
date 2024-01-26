@@ -13,21 +13,17 @@ final class RenameOperation implements Component
 {
     /**
      * The old table name.
-     *
-     * @var Expression
      */
-    public $old;
+    public Expression|null $old = null;
 
     /**
      * The new table name.
-     *
-     * @var Expression
      */
-    public $new;
+    public Expression|null $new = null;
 
     /**
-     * @param Expression $old old expression
-     * @param Expression $new new expression containing new name
+     * @param Expression|null $old old expression
+     * @param Expression|null $new new expression containing new name
      */
     public function __construct(Expression|null $old = null, Expression|null $new = null)
     {

@@ -13,17 +13,13 @@ final class Limit implements Component
 {
     /**
      * The number of rows skipped.
-     *
-     * @var int|string
      */
-    public $offset;
+    public int|string $offset;
 
     /**
      * The number of rows to be returned.
-     *
-     * @var int|string
      */
-    public $rowCount;
+    public int|string $rowCount;
 
     /**
      * @param int|string $rowCount the row count

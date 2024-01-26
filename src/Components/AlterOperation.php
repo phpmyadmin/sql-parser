@@ -18,27 +18,23 @@ final class AlterOperation implements Component
 {
     /**
      * Options of this operation.
-     *
-     * @var OptionsArray
      */
-    public $options;
+    public OptionsArray|null $options = null;
 
     /**
      * The altered field.
-     *
-     * @var Expression|string|null
      */
-    public $field;
+    public Expression|string|null $field = null;
 
     /**
      * The partitions.
      *
      * @var PartitionDefinition[]|null
      */
-    public $partitions;
+    public array|null $partitions = null;
 
     /**
-     * @param OptionsArray               $options    options of alter operation
+     * @param OptionsArray|null          $options    options of alter operation
      * @param Expression|string|null     $field      altered field
      * @param PartitionDefinition[]|null $partitions partitions definition found in the operation
      * @param Token[]                    $unknown    unparsed tokens found at the end of operation

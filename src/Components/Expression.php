@@ -19,52 +19,38 @@ final class Expression implements Component
 {
     /**
      * The name of this database.
-     *
-     * @var string|null
      */
-    public $database;
+    public string|null $database = null;
 
     /**
      * The name of this table.
-     *
-     * @var string|null
      */
-    public $table;
+    public string|null $table = null;
 
     /**
      * The name of the column.
-     *
-     * @var string|null
      */
-    public $column;
+    public string|null $column = null;
 
     /**
      * The sub-expression.
-     *
-     * @var string|null
      */
-    public $expr = '';
+    public string|null $expr = '';
 
     /**
      * The alias of this expression.
-     *
-     * @var string|null
      */
-    public $alias;
+    public string|null $alias = null;
 
     /**
      * The name of the function.
-     *
-     * @var mixed
      */
-    public $function;
+    public string|null $function = null;
 
     /**
      * The type of subquery.
-     *
-     * @var string|null
      */
-    public $subquery;
+    public string|null $subquery = null;
 
     /**
      * Syntax:

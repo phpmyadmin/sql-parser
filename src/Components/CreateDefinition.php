@@ -18,45 +18,33 @@ final class CreateDefinition implements Component
 {
     /**
      * The name of the new column.
-     *
-     * @var string|null
      */
-    public $name;
+    public string|null $name = null;
 
     /**
      * Whether this field is a constraint or not.
-     *
-     * @var bool|null
      */
-    public $isConstraint;
+    public bool|null $isConstraint = null;
 
     /**
      * The data type of thew new column.
-     *
-     * @var DataType|null
      */
-    public $type;
+    public DataType|null $type = null;
 
     /**
      * The key.
-     *
-     * @var Key|null
      */
-    public $key;
+    public Key|null $key = null;
 
     /**
      * The table that is referenced.
-     *
-     * @var Reference|null
      */
-    public $references;
+    public Reference|null $references = null;
 
     /**
      * The options of this field.
-     *
-     * @var OptionsArray|null
      */
-    public $options;
+    public OptionsArray|null $options = null;
 
     /**
      * @param string|null       $name         the name of the field

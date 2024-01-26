@@ -17,10 +17,8 @@ final class DataType implements Component
 {
     /**
      * The name of the data type.
-     *
-     * @var string
      */
-    public $name;
+    public string|null $name = null;
 
     /**
      * The parameters of this data type.
@@ -39,17 +37,15 @@ final class DataType implements Component
 
     /**
      * The options of this data type.
-     *
-     * @var OptionsArray
      */
-    public $options;
+    public OptionsArray|null $options = null;
 
     public bool $lowercase = false;
 
     /**
-     * @param string         $name       the name of this data type
-     * @param int[]|string[] $parameters the parameters (size or possible values)
-     * @param OptionsArray   $options    the options of this data type
+     * @param string|null       $name       the name of this data type
+     * @param int[]|string[]    $parameters the parameters (size or possible values)
+     * @param OptionsArray|null $options    the options of this data type
      */
     public function __construct(
         string|null $name = null,

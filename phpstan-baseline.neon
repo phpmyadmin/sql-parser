@@ -1,24 +1,24 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 2
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Cannot call method remove\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 3
+			path: src/Components/AlterOperation.php
+
+		-
+			message: "#^Cannot clone PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
+			message: "#^Parameter \\#1 \\$string of function strtolower expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Components/DataType.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/DataType.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/GroupKeyword.php
 
 		-
 			message: "#^Parameter \\#2 \\$string2 of function strcasecmp expects string, mixed given\\.$#"
@@ -26,49 +26,9 @@ parameters:
 			path: src/Components/OptionsArray.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/OrderKeyword.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$inOut \\(string\\) does not accept string\\|null\\.$#"
+			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
-			count: 1
-			path: src/Components/ParameterDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: src/Components/ParameterDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
-			path: src/Components/PartitionDefinition.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/Reference.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/RenameOperation.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Components/RenameOperation.php
 
 		-
 			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$keywords \\(non\\-empty\\-array\\<non\\-empty\\-string, int\\>\\) does not accept default value of type array\\{\\}\\.$#"
@@ -134,6 +94,21 @@ parameters:
 			message: "#^Strict comparison using \\=\\=\\= between non\\-empty\\-array\\<non\\-empty\\-string, int\\> and array\\{\\} will always evaluate to false\\.$#"
 			count: 1
 			path: src/Parser.php
+
+		-
+			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 2
+			path: src/Parsers/AlterOperations.php
+
+		-
+			message: "#^Cannot call method isEmpty\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Parsers/AlterOperations.php
+
+		-
+			message: "#^Cannot call method merge\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 1
+			path: src/Parsers/AlterOperations.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$partitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
@@ -221,19 +196,14 @@ parameters:
 			path: src/Parsers/Expressions.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$function \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/FunctionCalls.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Parsers/GroupKeywords.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\GroupKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
-			count: 2
-			path: src/Parsers/GroupKeywords.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$type \\(string\\|null\\) does not accept mixed\\.$#"
@@ -286,11 +256,6 @@ parameters:
 			path: src/Parsers/Limits.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\LockExpression\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Parsers/LockExpressions.php
-
-		-
 			message: "#^Cannot access offset 'equals' on mixed\\.$#"
 			count: 1
 			path: src/Parsers/OptionsArrays.php
@@ -336,47 +301,17 @@ parameters:
 			path: src/Parsers/OptionsArrays.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Parsers/OrderKeywords.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OrderKeyword\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
-			count: 2
-			path: src/Parsers/OrderKeywords.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) does not accept bool\\|float\\|int\\|string\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/ParameterDefinitions.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\) in isset\\(\\) is not nullable\\.$#"
-			count: 1
-			path: src/Parsers/ParameterDefinitions.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$type \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
-			count: 1
-			path: src/Parsers/ParameterDefinitions.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$expr \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$subpartitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/PartitionDefinitions.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$name \\(string\\) does not accept bool\\|float\\|int\\|string\\.$#"
-			count: 1
-			path: src/Parsers/PartitionDefinitions.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$subpartitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
-			count: 1
-			path: src/Parsers/PartitionDefinitions.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$type \\(string\\) does not accept bool\\|float\\|int\\|string\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\:\\:\\$type \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/PartitionDefinitions.php
 
@@ -384,31 +319,6 @@ parameters:
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/References.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Reference\\:\\:\\$table \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Parsers/References.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Parsers/RenameOperations.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$new \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
-			count: 1
-			path: src/Parsers/RenameOperations.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) does not accept PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Parsers/RenameOperations.php
-
-		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\:\\:\\$old \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\) in empty\\(\\) is not falsy\\.$#"
-			count: 2
-			path: src/Parsers/RenameOperations.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:\\$value \\(string\\) does not accept string\\|null\\.$#"
@@ -841,7 +751,37 @@ parameters:
 			path: src/Utils/Routine.php
 
 		-
+			message: "#^Cannot access property \\$name on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
+			count: 2
+			path: src/Utils/Routine.php
+
+		-
+			message: "#^Cannot access property \\$options on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
+			count: 2
+			path: src/Utils/Routine.php
+
+		-
+			message: "#^Cannot access property \\$options on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 3
+			path: src/Utils/Routine.php
+
+		-
+			message: "#^Cannot access property \\$parameters on PhpMyAdmin\\\\SqlParser\\\\Components\\\\DataType\\|null\\.$#"
+			count: 3
+			path: src/Utils/Routine.php
+
+		-
 			message: "#^Cannot assign new offset to array\\<int\\<0, max\\>, mixed\\>\\|string\\.$#"
+			count: 1
+			path: src/Utils/Routine.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getParameter\\(\\) should return array\\<string\\> but returns array\\<int, string\\|null\\>\\.$#"
+			count: 1
+			path: src/Utils/Routine.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Routine\\:\\:getReturnType\\(\\) should return array\\<string\\> but returns array\\<int, string\\|null\\>\\.$#"
 			count: 1
 			path: src/Utils/Routine.php
 
@@ -851,8 +791,23 @@ parameters:
 			path: src/Utils/Routine.php
 
 		-
+			message: "#^Cannot access property \\$database on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Utils/Table.php
+
+		-
+			message: "#^Cannot access property \\$table on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Utils/Table.php
+
+		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 2
+			count: 4
+			path: src/Utils/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) should return array\\<string, array\\{type\\: string, timestamp_not_null\\: bool, default_value\\?\\: mixed, default_current_timestamp\\?\\: true, on_update_current_timestamp\\?\\: true, expr\\?\\: mixed\\}\\> but returns array\\<string, array\\{default_current_timestamp\\?\\: true, default_value\\?\\: mixed, expr\\?\\: mixed, on_update_current_timestamp\\?\\: true, timestamp_not_null\\: bool, type\\: string\\|null\\}\\>\\.$#"
+			count: 1
 			path: src/Utils/Table.php
 
 		-

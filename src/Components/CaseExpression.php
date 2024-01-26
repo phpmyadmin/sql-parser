@@ -17,52 +17,44 @@ final class CaseExpression implements Component
 {
     /**
      * The value to be compared.
-     *
-     * @var Expression|null
      */
-    public $value;
+    public Expression|null $value = null;
 
     /**
      * The conditions in WHEN clauses.
      *
      * @var Condition[][]
      */
-    public $conditions = [];
+    public array $conditions = [];
 
     /**
      * The results matching with the WHEN clauses.
      *
      * @var Expression[]
      */
-    public $results = [];
+    public array $results = [];
 
     /**
      * The values to be compared against.
      *
      * @var Expression[]
      */
-    public $compareValues = [];
+    public array $compareValues = [];
 
     /**
      * The result in ELSE section of expr.
-     *
-     * @var Expression|null
      */
-    public $elseResult;
+    public Expression|null $elseResult = null;
 
     /**
      * The alias of this CASE statement.
-     *
-     * @var string|null
      */
-    public $alias;
+    public string|null $alias = null;
 
     /**
      * The sub-expression.
-     *
-     * @var string
      */
-    public $expr = '';
+    public string $expr = '';
 
     public function build(): string
     {

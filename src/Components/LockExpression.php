@@ -15,17 +15,13 @@ final class LockExpression implements Component
 {
     /**
      * The table to be locked.
-     *
-     * @var Expression
      */
-    public $table;
+    public Expression|null $table = null;
 
     /**
      * The type of lock to be applied.
-     *
-     * @var string
      */
-    public $type;
+    public string|null $type = null;
 
     public function build(): string
     {
