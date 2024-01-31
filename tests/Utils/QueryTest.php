@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 use function array_merge;
@@ -36,28 +37,28 @@ class QueryTest extends TestCase
                 'ALTER TABLE DROP col',
                 [
                     'reload' => true,
-                    'querytype' => 'ALTER',
+                    'querytype' => StatementType::Alter,
                 ],
             ],
             [
                 'CALL test()',
                 [
                     'is_procedure' => true,
-                    'querytype' => 'CALL',
+                    'querytype' => StatementType::Call,
                 ],
             ],
             [
                 'CREATE TABLE tbl (id INT)',
                 [
                     'reload' => true,
-                    'querytype' => 'CREATE',
+                    'querytype' => StatementType::Create,
                 ],
             ],
             [
                 'CHECK TABLE tbl',
                 [
                     'is_maint' => true,
-                    'querytype' => 'CHECK',
+                    'querytype' => StatementType::Check,
                 ],
             ],
             [
@@ -65,14 +66,14 @@ class QueryTest extends TestCase
                 [
                     'is_affected' => true,
                     'is_delete' => true,
-                    'querytype' => 'DELETE',
+                    'querytype' => StatementType::Delete,
                 ],
             ],
             [
                 'DROP VIEW v',
                 [
                     'reload' => true,
-                    'querytype' => 'DROP',
+                    'querytype' => StatementType::Drop,
                 ],
             ],
             [
@@ -80,14 +81,14 @@ class QueryTest extends TestCase
                 [
                     'drop_database' => true,
                     'reload' => true,
-                    'querytype' => 'DROP',
+                    'querytype' => StatementType::Drop,
                 ],
             ],
             [
                 'EXPLAIN tbl',
                 [
                     'is_explain' => true,
-                    'querytype' => 'EXPLAIN',
+                    'querytype' => StatementType::Explain,
                 ],
             ],
             [
@@ -95,7 +96,7 @@ class QueryTest extends TestCase
                 [
                     'is_affected' => true,
                     'is_insert' => true,
-                    'querytype' => 'LOAD',
+                    'querytype' => StatementType::Load,
                 ],
             ],
             [
@@ -103,7 +104,7 @@ class QueryTest extends TestCase
                 [
                     'is_affected' => true,
                     'is_insert' => true,
-                    'querytype' => 'INSERT',
+                    'querytype' => StatementType::Insert,
                 ],
             ],
             [
@@ -112,14 +113,14 @@ class QueryTest extends TestCase
                     'is_affected' => true,
                     'is_replace' => true,
                     'is_insert' => true,
-                    'querytype' => 'REPLACE',
+                    'querytype' => StatementType::Replace,
                 ],
             ],
             [
                 'SELECT 1',
                 [
                     'is_select' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -127,7 +128,7 @@ class QueryTest extends TestCase
                 [
                     'is_select' => true,
                     'select_from' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -138,7 +139,7 @@ class QueryTest extends TestCase
                     'select_from' => true,
                     'limit' => true,
                     'order' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -148,7 +149,7 @@ class QueryTest extends TestCase
                     'is_select' => true,
                     'select_from' => true,
                     'group' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -157,7 +158,7 @@ class QueryTest extends TestCase
                     'is_analyse' => true,
                     'is_select' => true,
                     'select_from' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -166,7 +167,7 @@ class QueryTest extends TestCase
                     'is_export' => true,
                     'is_select' => true,
                     'select_from' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -176,7 +177,7 @@ class QueryTest extends TestCase
                     'is_func' => true,
                     'is_select' => true,
                     'select_from' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -184,7 +185,7 @@ class QueryTest extends TestCase
                 [
                     'is_select' => true,
                     'is_subquery' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -194,7 +195,7 @@ class QueryTest extends TestCase
                     'select_from' => true,
                     'is_group' => true,
                     'having' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
@@ -203,49 +204,49 @@ class QueryTest extends TestCase
                     'is_select' => true,
                     'select_from' => true,
                     'join' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
                 'SHOW CREATE TABLE tbl',
                 [
                     'is_show' => true,
-                    'querytype' => 'SHOW',
+                    'querytype' => StatementType::Show,
                 ],
             ],
             [
                 'UPDATE tbl SET id = 1',
                 [
                     'is_affected' => true,
-                    'querytype' => 'UPDATE',
+                    'querytype' => StatementType::Update,
                 ],
             ],
             [
                 'ANALYZE TABLE tbl',
                 [
                     'is_maint' => true,
-                    'querytype' => 'ANALYZE',
+                    'querytype' => StatementType::Analyze,
                 ],
             ],
             [
                 'CHECKSUM TABLE tbl',
                 [
                     'is_maint' => true,
-                    'querytype' => 'CHECKSUM',
+                    'querytype' => StatementType::Checksum,
                 ],
             ],
             [
                 'OPTIMIZE TABLE tbl',
                 [
                     'is_maint' => true,
-                    'querytype' => 'OPTIMIZE',
+                    'querytype' => StatementType::Optimize,
                 ],
             ],
             [
                 'REPAIR TABLE tbl',
                 [
                     'is_maint' => true,
-                    'querytype' => 'REPAIR',
+                    'querytype' => StatementType::Repair,
                 ],
             ],
             [
@@ -258,20 +259,20 @@ class QueryTest extends TestCase
                     'limit' => true,
                     'order' => true,
                     'union' => true,
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT * FROM orders AS ord WHERE 1',
                 [
-                    'querytype' => 'SELECT',
+                    'querytype' => StatementType::Select,
                     'is_select' => true,
                     'select_from' => true,
                 ],
             ],
             [
                 'SET NAMES \'latin\'',
-                ['querytype' => 'SET'],
+                ['querytype' => StatementType::Set],
             ],
         ];
     }
@@ -303,7 +304,7 @@ class QueryTest extends TestCase
                 'limit' => false,
                 'offset' => false,
                 'order' => false,
-                'querytype' => false,
+                'querytype' => null,
                 'reload' => false,
                 'select_from' => false,
                 'union' => false,

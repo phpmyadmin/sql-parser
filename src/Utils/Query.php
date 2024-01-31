@@ -64,7 +64,7 @@ use function trim;
  *   limit?: bool,
  *   offset?: bool,
  *   order?: bool,
- *   querytype: ('ALTER'|'ANALYZE'|'CALL'|'CHECK'|'CHECKSUM'|'CREATE'|'DELETE'|'DROP'|'EXPLAIN'|'INSERT'|'LOAD'|'OPTIMIZE'|'REPAIR'|'REPLACE'|'SELECT'|'SET'|'SHOW'|'UPDATE'|false),
+ *   querytype: StatementType|null,
  *   reload?: bool,
  *   select_from?: bool,
  *   union?: bool
@@ -114,7 +114,7 @@ class Query
      *   limit: false,
      *   offset: false,
      *   order: false,
-     *   querytype: false,
+     *   querytype: null,
      *   reload: false,
      *   select_from: false,
      *   union: false
@@ -258,7 +258,7 @@ class Query
          * The type of the query (which is usually the first keyword of
          * the statement).
          */
-        'querytype' => false,
+        'querytype' => null,
 
         /*
          * Whether a page reload is required.
@@ -288,7 +288,7 @@ class Query
      */
     private static function getFlagsSelect(SelectStatement $statement, array $flags): array
     {
-        $flags['querytype'] = 'SELECT';
+        $flags['querytype'] = StatementType::Select;
         $flags['is_select'] = true;
 
         if ($statement->from !== []) {
@@ -364,72 +364,72 @@ class Query
      */
     public static function getFlags(Statement|null $statement, bool $all = false): array
     {
-        $flags = ['querytype' => false];
+        $flags = ['querytype' => null];
         if ($all) {
             $flags = self::$allFlags;
         }
 
         if ($statement instanceof AlterStatement) {
-            $flags['querytype'] = 'ALTER';
+            $flags['querytype'] = StatementType::Alter;
             $flags['reload'] = true;
         } elseif ($statement instanceof CreateStatement) {
-            $flags['querytype'] = 'CREATE';
+            $flags['querytype'] = StatementType::Create;
             $flags['reload'] = true;
         } elseif ($statement instanceof AnalyzeStatement) {
-            $flags['querytype'] = 'ANALYZE';
+            $flags['querytype'] = StatementType::Analyze;
             $flags['is_maint'] = true;
         } elseif ($statement instanceof CheckStatement) {
-            $flags['querytype'] = 'CHECK';
+            $flags['querytype'] = StatementType::Check;
             $flags['is_maint'] = true;
         } elseif ($statement instanceof ChecksumStatement) {
-            $flags['querytype'] = 'CHECKSUM';
+            $flags['querytype'] = StatementType::Checksum;
             $flags['is_maint'] = true;
         } elseif ($statement instanceof OptimizeStatement) {
-            $flags['querytype'] = 'OPTIMIZE';
+            $flags['querytype'] = StatementType::Optimize;
             $flags['is_maint'] = true;
         } elseif ($statement instanceof RepairStatement) {
-            $flags['querytype'] = 'REPAIR';
+            $flags['querytype'] = StatementType::Repair;
             $flags['is_maint'] = true;
         } elseif ($statement instanceof CallStatement) {
-            $flags['querytype'] = 'CALL';
+            $flags['querytype'] = StatementType::Call;
             $flags['is_procedure'] = true;
         } elseif ($statement instanceof DeleteStatement) {
-            $flags['querytype'] = 'DELETE';
+            $flags['querytype'] = StatementType::Delete;
             $flags['is_delete'] = true;
             $flags['is_affected'] = true;
         } elseif ($statement instanceof DropStatement) {
-            $flags['querytype'] = 'DROP';
+            $flags['querytype'] = StatementType::Drop;
             $flags['reload'] = true;
 
             if ($statement->options->has('DATABASE') || $statement->options->has('SCHEMA')) {
                 $flags['drop_database'] = true;
             }
         } elseif ($statement instanceof ExplainStatement) {
-            $flags['querytype'] = 'EXPLAIN';
+            $flags['querytype'] = StatementType::Explain;
             $flags['is_explain'] = true;
         } elseif ($statement instanceof InsertStatement) {
-            $flags['querytype'] = 'INSERT';
+            $flags['querytype'] = StatementType::Insert;
             $flags['is_affected'] = true;
             $flags['is_insert'] = true;
         } elseif ($statement instanceof LoadStatement) {
-            $flags['querytype'] = 'LOAD';
+            $flags['querytype'] = StatementType::Load;
             $flags['is_affected'] = true;
             $flags['is_insert'] = true;
         } elseif ($statement instanceof ReplaceStatement) {
-            $flags['querytype'] = 'REPLACE';
+            $flags['querytype'] = StatementType::Replace;
             $flags['is_affected'] = true;
             $flags['is_replace'] = true;
             $flags['is_insert'] = true;
         } elseif ($statement instanceof SelectStatement) {
             $flags = self::getFlagsSelect($statement, $flags);
         } elseif ($statement instanceof ShowStatement) {
-            $flags['querytype'] = 'SHOW';
+            $flags['querytype'] = StatementType::Show;
             $flags['is_show'] = true;
         } elseif ($statement instanceof UpdateStatement) {
-            $flags['querytype'] = 'UPDATE';
+            $flags['querytype'] = StatementType::Update;
             $flags['is_affected'] = true;
         } elseif ($statement instanceof SetStatement) {
-            $flags['querytype'] = 'SET';
+            $flags['querytype'] = StatementType::Set;
         }
 
         if (
