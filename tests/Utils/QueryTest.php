@@ -280,11 +280,11 @@ class QueryTest extends TestCase
     public function testGetFlagsWithEmptyString(): void
     {
         $statementInfo = Query::getAll('');
-        self::assertEquals(new Parser(''), $statementInfo['parser']);
-        self::assertNull($statementInfo['statement']);
-        self::assertSame([], $statementInfo['select_tables']);
-        self::assertSame([], $statementInfo['select_expr']);
-        $flags = $statementInfo['flags'];
+        self::assertEquals(new Parser(''), $statementInfo->parser);
+        self::assertNull($statementInfo->statement);
+        self::assertSame([], $statementInfo->selectTables);
+        self::assertSame([], $statementInfo->selectExpressions);
+        $flags = $statementInfo->flags;
         self::assertFalse($flags->distinct);
         self::assertFalse($flags->dropDatabase);
         self::assertFalse($flags->group);
@@ -323,47 +323,42 @@ class QueryTest extends TestCase
     {
         $query = 'SELECT *, actor.actor_id, sakila2.film.* FROM sakila2.city, sakila2.film, actor';
         $parser = new Parser($query);
-        $expected = [
-            'parser' => $parser,
-            'statement' => $parser->statements[0],
-            'flags' => Query::getFlags($parser->statements[0]),
-            'select_tables' => [['actor', null], ['film', 'sakila2']],
-            'select_expr' => ['*'],
-        ];
-        $this->assertEquals($expected, Query::getAll($query));
+        $statementInfo = Query::getAll($query);
+        self::assertEquals($parser, $statementInfo->parser);
+        self::assertEquals($parser->statements[0], $statementInfo->statement);
+        self::assertEquals(Query::getFlags($parser->statements[0]), $statementInfo->flags);
+        self::assertSame([['actor', null], ['film', 'sakila2']], $statementInfo->selectTables);
+        self::assertSame(['*'], $statementInfo->selectExpressions);
 
         $query = 'SELECT * FROM sakila.actor, film';
         $parser = new Parser($query);
-        $expected = [
-            'parser' => $parser,
-            'statement' => $parser->statements[0],
-            'flags' => Query::getFlags($parser->statements[0]),
-            'select_tables' => [['actor', 'sakila'], ['film', null]],
-            'select_expr' => ['*'],
-        ];
-        $this->assertEquals($expected, Query::getAll($query));
+        $statementInfo = Query::getAll($query);
+        self::assertEquals($parser, $statementInfo->parser);
+        self::assertEquals($parser->statements[0], $statementInfo->statement);
+        self::assertEquals(Query::getFlags($parser->statements[0]), $statementInfo->flags);
+        self::assertSame([['actor', 'sakila'], ['film', null]], $statementInfo->selectTables);
+        self::assertSame(['*'], $statementInfo->selectExpressions);
 
         $query = 'SELECT a.actor_id FROM sakila.actor AS a, film';
         $parser = new Parser($query);
-        $expected = [
-            'parser' => $parser,
-            'statement' => $parser->statements[0],
-            'flags' => Query::getFlags($parser->statements[0]),
-            'select_tables' => [['actor', 'sakila']],
-            'select_expr' => [],
-        ];
-        $this->assertEquals($expected, Query::getAll($query));
+        $statementInfo = Query::getAll($query);
+        self::assertEquals($parser, $statementInfo->parser);
+        self::assertEquals($parser->statements[0], $statementInfo->statement);
+        self::assertEquals(Query::getFlags($parser->statements[0]), $statementInfo->flags);
+        self::assertSame([['actor', 'sakila']], $statementInfo->selectTables);
+        self::assertSame([], $statementInfo->selectExpressions);
 
         $query = 'SELECT CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END';
         $parser = new Parser($query);
-        $expected = [
-            'parser' => $parser,
-            'statement' => $parser->statements[0],
-            'flags' => Query::getFlags($parser->statements[0]),
-            'select_tables' => [],
-            'select_expr' => ['CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END'],
-        ];
-        $this->assertEquals($expected, Query::getAll($query));
+        $statementInfo = Query::getAll($query);
+        self::assertEquals($parser, $statementInfo->parser);
+        self::assertEquals($parser->statements[0], $statementInfo->statement);
+        self::assertEquals(Query::getFlags($parser->statements[0]), $statementInfo->flags);
+        self::assertSame([], $statementInfo->selectTables);
+        self::assertSame(
+            ['CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END'],
+            $statementInfo->selectExpressions,
+        );
     }
 
     /** @param string[] $expected */

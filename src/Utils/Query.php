@@ -229,47 +229,19 @@ class Query
      * Parses a query and gets all information about it.
      *
      * @param string $query the query to be parsed
-     *
-     * @return array<string, bool|string> The array returned is the one returned by
-     *               `static::getFlags()`, with the following keys added:
-     *               - parser - the parser used to analyze the query;
-     *               - statement - the first statement resulted from parsing;
-     *               - select_tables - the real name of the tables selected;
-     *               if there are no table names in the `SELECT`
-     *               expressions, the table names are fetched from the
-     *               `FROM` expressions
-     *               - select_expr - selected expressions
-     * @psalm-return array{
-     *     parser: Parser,
-     *     statement: Statement|null,
-     *     flags: StatementFlags,
-     *     select_tables: array{string, string|null}[],
-     *     select_expr: (string|null)[],
-     * }
      */
-    public static function getAll(string $query): array
+    public static function getAll(string $query): StatementInfo
     {
         $parser = new Parser($query);
 
         if ($parser->statements === []) {
-            return [
-                'parser' => $parser,
-                'statement' => null,
-                'flags' => static::getFlags(null),
-                'select_tables' => [],
-                'select_expr' => [],
-            ];
+            return new StatementInfo($parser, null, static::getFlags(null), [], []);
         }
 
         $statement = $parser->statements[0];
-
-        $ret = [
-            'parser' => $parser,
-            'statement' => $statement,
-            'flags' => static::getFlags($statement),
-            'select_tables' => [],
-            'select_expr' => [],
-        ];
+        $flags = static::getFlags($statement);
+        $selectTables = [];
+        $selectExpressions = [];
 
         if ($statement instanceof SelectStatement) {
             // Finding tables' aliases and their associated real names.
@@ -300,18 +272,18 @@ class Query
                         ];
                     }
 
-                    if (! in_array($arr, $ret['select_tables'])) {
-                        $ret['select_tables'][] = $arr;
+                    if (! in_array($arr, $selectTables)) {
+                        $selectTables[] = $arr;
                     }
                 } else {
-                    $ret['select_expr'][] = $expr->expr;
+                    $selectExpressions[] = $expr->expr;
                 }
             }
 
             // If no tables names were found in the SELECT clause or if there
             // are expressions like * or COUNT(*), etc. tables names should be
             // extracted from the FROM clause.
-            if ($ret['select_tables'] === []) {
+            if ($selectTables === []) {
                 foreach ($statement->from as $expr) {
                     if (! isset($expr->table) || ($expr->table === '')) {
                         continue;
@@ -322,16 +294,16 @@ class Query
                         isset($expr->database) && ($expr->database !== '') ?
                             $expr->database : null,
                     ];
-                    if (in_array($arr, $ret['select_tables'])) {
+                    if (in_array($arr, $selectTables)) {
                         continue;
                     }
 
-                    $ret['select_tables'][] = $arr;
+                    $selectTables[] = $arr;
                 }
             }
         }
 
-        return $ret;
+        return new StatementInfo($parser, $statement, $flags, $selectTables, $selectExpressions);
     }
 
     /**
