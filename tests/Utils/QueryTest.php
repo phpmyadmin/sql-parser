@@ -7,29 +7,29 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Query;
+use PhpMyAdmin\SqlParser\Utils\StatementFlags;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-use function array_merge;
-
-/** @psalm-import-type QueryFlagsType from Query */
 class QueryTest extends TestCase
 {
     /**
-     * @param array<string, bool|string> $expected
-     * @psalm-param QueryFlagsType $expected
+     * @psalm-param non-empty-string $query
+     * @psalm-param array<key-of<properties-of<StatementFlags>>, bool|StatementType|null> $expected
      */
     #[DataProvider('getFlagsProvider')]
     public function testGetFlags(string $query, array $expected): void
     {
         $parser = new Parser($query);
-        $this->assertEquals($expected, Query::getFlags($parser->statements[0]));
+        $flags = new StatementFlags();
+        foreach ($expected as $property => $expectedValue) {
+            $flags->$property = $expectedValue;
+        }
+
+        $this->assertEquals($flags, Query::getFlags($parser->statements[0]));
     }
 
-    /**
-     * @return array<int, array<int, string|array<string, bool|string>>>
-     * @psalm-return list<array{non-empty-string, QueryFlagsType}>
-     */
+    /** @psalm-return list<array{non-empty-string, array<key-of<properties-of<StatementFlags>>, bool|StatementType|null>}> */
     public static function getFlagsProvider(): array
     {
         return [
@@ -37,216 +37,216 @@ class QueryTest extends TestCase
                 'ALTER TABLE DROP col',
                 [
                     'reload' => true,
-                    'querytype' => StatementType::Alter,
+                    'queryType' => StatementType::Alter,
                 ],
             ],
             [
                 'CALL test()',
                 [
-                    'is_procedure' => true,
-                    'querytype' => StatementType::Call,
+                    'isProcedure' => true,
+                    'queryType' => StatementType::Call,
                 ],
             ],
             [
                 'CREATE TABLE tbl (id INT)',
                 [
                     'reload' => true,
-                    'querytype' => StatementType::Create,
+                    'queryType' => StatementType::Create,
                 ],
             ],
             [
                 'CHECK TABLE tbl',
                 [
-                    'is_maint' => true,
-                    'querytype' => StatementType::Check,
+                    'isMaint' => true,
+                    'queryType' => StatementType::Check,
                 ],
             ],
             [
                 'DELETE FROM tbl',
                 [
-                    'is_affected' => true,
-                    'is_delete' => true,
-                    'querytype' => StatementType::Delete,
+                    'isAffected' => true,
+                    'isDelete' => true,
+                    'queryType' => StatementType::Delete,
                 ],
             ],
             [
                 'DROP VIEW v',
                 [
                     'reload' => true,
-                    'querytype' => StatementType::Drop,
+                    'queryType' => StatementType::Drop,
                 ],
             ],
             [
                 'DROP DATABASE db',
                 [
-                    'drop_database' => true,
+                    'dropDatabase' => true,
                     'reload' => true,
-                    'querytype' => StatementType::Drop,
+                    'queryType' => StatementType::Drop,
                 ],
             ],
             [
                 'EXPLAIN tbl',
                 [
-                    'is_explain' => true,
-                    'querytype' => StatementType::Explain,
+                    'isExplain' => true,
+                    'queryType' => StatementType::Explain,
                 ],
             ],
             [
                 'LOAD DATA INFILE \'/tmp/test.txt\' INTO TABLE test',
                 [
-                    'is_affected' => true,
-                    'is_insert' => true,
-                    'querytype' => StatementType::Load,
+                    'isAffected' => true,
+                    'isInsert' => true,
+                    'queryType' => StatementType::Load,
                 ],
             ],
             [
                 'INSERT INTO tbl VALUES (1)',
                 [
-                    'is_affected' => true,
-                    'is_insert' => true,
-                    'querytype' => StatementType::Insert,
+                    'isAffected' => true,
+                    'isInsert' => true,
+                    'queryType' => StatementType::Insert,
                 ],
             ],
             [
                 'REPLACE INTO tbl VALUES (2)',
                 [
-                    'is_affected' => true,
-                    'is_replace' => true,
-                    'is_insert' => true,
-                    'querytype' => StatementType::Replace,
+                    'isAffected' => true,
+                    'isReplace' => true,
+                    'isInsert' => true,
+                    'queryType' => StatementType::Replace,
                 ],
             ],
             [
                 'SELECT 1',
                 [
-                    'is_select' => true,
-                    'querytype' => StatementType::Select,
+                    'isSelect' => true,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT * FROM tbl',
                 [
-                    'is_select' => true,
-                    'select_from' => true,
-                    'querytype' => StatementType::Select,
+                    'isSelect' => true,
+                    'selectFrom' => true,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT DISTINCT * FROM tbl LIMIT 0, 10 ORDER BY id',
                 [
                     'distinct' => true,
-                    'is_select' => true,
-                    'select_from' => true,
+                    'isSelect' => true,
+                    'selectFrom' => true,
                     'limit' => true,
                     'order' => true,
-                    'querytype' => StatementType::Select,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT * FROM actor GROUP BY actor_id',
                 [
-                    'is_group' => true,
-                    'is_select' => true,
-                    'select_from' => true,
+                    'isGroup' => true,
+                    'isSelect' => true,
+                    'selectFrom' => true,
                     'group' => true,
-                    'querytype' => StatementType::Select,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT col1, col2 FROM table1 PROCEDURE ANALYSE(10, 2000);',
                 [
-                    'is_analyse' => true,
-                    'is_select' => true,
-                    'select_from' => true,
-                    'querytype' => StatementType::Select,
+                    'isAnalyse' => true,
+                    'isSelect' => true,
+                    'selectFrom' => true,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT * FROM tbl INTO OUTFILE "/tmp/export.txt"',
                 [
-                    'is_export' => true,
-                    'is_select' => true,
-                    'select_from' => true,
-                    'querytype' => StatementType::Select,
+                    'isExport' => true,
+                    'isSelect' => true,
+                    'selectFrom' => true,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT COUNT(id), SUM(id) FROM tbl',
                 [
-                    'is_count' => true,
-                    'is_func' => true,
-                    'is_select' => true,
-                    'select_from' => true,
-                    'querytype' => StatementType::Select,
+                    'isCount' => true,
+                    'isFunc' => true,
+                    'isSelect' => true,
+                    'selectFrom' => true,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT (SELECT "foo")',
                 [
-                    'is_select' => true,
-                    'is_subquery' => true,
-                    'querytype' => StatementType::Select,
+                    'isSelect' => true,
+                    'isSubQuery' => true,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT * FROM customer HAVING store_id = 2;',
                 [
-                    'is_select' => true,
-                    'select_from' => true,
-                    'is_group' => true,
+                    'isSelect' => true,
+                    'selectFrom' => true,
+                    'isGroup' => true,
                     'having' => true,
-                    'querytype' => StatementType::Select,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT * FROM table1 INNER JOIN table2 ON table1.id=table2.id;',
                 [
-                    'is_select' => true,
-                    'select_from' => true,
+                    'isSelect' => true,
+                    'selectFrom' => true,
                     'join' => true,
-                    'querytype' => StatementType::Select,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SHOW CREATE TABLE tbl',
                 [
-                    'is_show' => true,
-                    'querytype' => StatementType::Show,
+                    'isShow' => true,
+                    'queryType' => StatementType::Show,
                 ],
             ],
             [
                 'UPDATE tbl SET id = 1',
                 [
-                    'is_affected' => true,
-                    'querytype' => StatementType::Update,
+                    'isAffected' => true,
+                    'queryType' => StatementType::Update,
                 ],
             ],
             [
                 'ANALYZE TABLE tbl',
                 [
-                    'is_maint' => true,
-                    'querytype' => StatementType::Analyze,
+                    'isMaint' => true,
+                    'queryType' => StatementType::Analyze,
                 ],
             ],
             [
                 'CHECKSUM TABLE tbl',
                 [
-                    'is_maint' => true,
-                    'querytype' => StatementType::Checksum,
+                    'isMaint' => true,
+                    'queryType' => StatementType::Checksum,
                 ],
             ],
             [
                 'OPTIMIZE TABLE tbl',
                 [
-                    'is_maint' => true,
-                    'querytype' => StatementType::Optimize,
+                    'isMaint' => true,
+                    'queryType' => StatementType::Optimize,
                 ],
             ],
             [
                 'REPAIR TABLE tbl',
                 [
-                    'is_maint' => true,
-                    'querytype' => StatementType::Repair,
+                    'isMaint' => true,
+                    'queryType' => StatementType::Repair,
                 ],
             ],
             [
@@ -254,147 +254,116 @@ class QueryTest extends TestCase
                 'UNION ' .
                 '(SELECT a FROM t2 WHERE a=11 AND B=2 ORDER BY a LIMIT 10);',
                 [
-                    'is_select' => true,
-                    'select_from' => true,
+                    'isSelect' => true,
+                    'selectFrom' => true,
                     'limit' => true,
                     'order' => true,
                     'union' => true,
-                    'querytype' => StatementType::Select,
+                    'queryType' => StatementType::Select,
                 ],
             ],
             [
                 'SELECT * FROM orders AS ord WHERE 1',
                 [
-                    'querytype' => StatementType::Select,
-                    'is_select' => true,
-                    'select_from' => true,
+                    'queryType' => StatementType::Select,
+                    'isSelect' => true,
+                    'selectFrom' => true,
                 ],
             ],
             [
                 'SET NAMES \'latin\'',
-                ['querytype' => StatementType::Set],
+                ['queryType' => StatementType::Set],
             ],
         ];
     }
 
+    public function testGetFlagsWithEmptyString(): void
+    {
+        $statementInfo = Query::getAll('');
+        self::assertEquals(new Parser(''), $statementInfo['parser']);
+        self::assertNull($statementInfo['statement']);
+        self::assertSame([], $statementInfo['select_tables']);
+        self::assertSame([], $statementInfo['select_expr']);
+        $flags = $statementInfo['flags'];
+        self::assertFalse($flags->distinct);
+        self::assertFalse($flags->dropDatabase);
+        self::assertFalse($flags->group);
+        self::assertFalse($flags->having);
+        self::assertFalse($flags->isAffected);
+        self::assertFalse($flags->isAnalyse);
+        self::assertFalse($flags->isCount);
+        /** @psalm-suppress DeprecatedProperty */
+        self::assertFalse($flags->isDelete);
+        /** @psalm-suppress DeprecatedProperty */
+        self::assertFalse($flags->isExplain);
+        self::assertFalse($flags->isExport);
+        self::assertFalse($flags->isFunc);
+        self::assertFalse($flags->isGroup);
+        self::assertFalse($flags->isInsert);
+        self::assertFalse($flags->isMaint);
+        self::assertFalse($flags->isProcedure);
+        /** @psalm-suppress DeprecatedProperty */
+        self::assertFalse($flags->isReplace);
+        /** @psalm-suppress DeprecatedProperty */
+        self::assertFalse($flags->isSelect);
+        /** @psalm-suppress DeprecatedProperty */
+        self::assertFalse($flags->isShow);
+        self::assertFalse($flags->isSubQuery);
+        self::assertFalse($flags->join);
+        self::assertFalse($flags->limit);
+        self::assertFalse($flags->offset);
+        self::assertFalse($flags->order);
+        self::assertNull($flags->queryType);
+        self::assertFalse($flags->reload);
+        self::assertFalse($flags->selectFrom);
+        self::assertFalse($flags->union);
+    }
+
     public function testGetAll(): void
     {
-        $this->assertEquals(
-            [
-                'distinct' => false,
-                'drop_database' => false,
-                'group' => false,
-                'having' => false,
-                'is_affected' => false,
-                'is_analyse' => false,
-                'is_count' => false,
-                'is_delete' => false,
-                'is_explain' => false,
-                'is_export' => false,
-                'is_func' => false,
-                'is_group' => false,
-                'is_insert' => false,
-                'is_maint' => false,
-                'is_procedure' => false,
-                'is_replace' => false,
-                'is_select' => false,
-                'is_show' => false,
-                'is_subquery' => false,
-                'join' => false,
-                'limit' => false,
-                'offset' => false,
-                'order' => false,
-                'querytype' => null,
-                'reload' => false,
-                'select_from' => false,
-                'union' => false,
-            ],
-            Query::getAll(''),
-        );
-
-        $query = 'SELECT *, actor.actor_id, sakila2.film.*
-            FROM sakila2.city, sakila2.film, actor';
+        $query = 'SELECT *, actor.actor_id, sakila2.film.* FROM sakila2.city, sakila2.film, actor';
         $parser = new Parser($query);
-        $this->assertEquals(
-            array_merge(
-                Query::getFlags($parser->statements[0], true),
-                [
-                    'parser' => $parser,
-                    'statement' => $parser->statements[0],
-                    'select_expr' => ['*'],
-                    'select_tables' => [
-                        [
-                            'actor',
-                            null,
-                        ],
-                        [
-                            'film',
-                            'sakila2',
-                        ],
-                    ],
-                ],
-            ),
-            Query::getAll($query),
-        );
+        $expected = [
+            'parser' => $parser,
+            'statement' => $parser->statements[0],
+            'flags' => Query::getFlags($parser->statements[0]),
+            'select_tables' => [['actor', null], ['film', 'sakila2']],
+            'select_expr' => ['*'],
+        ];
+        $this->assertEquals($expected, Query::getAll($query));
 
         $query = 'SELECT * FROM sakila.actor, film';
         $parser = new Parser($query);
-        $this->assertEquals(
-            array_merge(
-                Query::getFlags($parser->statements[0], true),
-                [
-                    'parser' => $parser,
-                    'statement' => $parser->statements[0],
-                    'select_expr' => ['*'],
-                    'select_tables' => [
-                        [
-                            'actor',
-                            'sakila',
-                        ],
-                        [
-                            'film',
-                            null,
-                        ],
-                    ],
-                ],
-            ),
-            Query::getAll($query),
-        );
+        $expected = [
+            'parser' => $parser,
+            'statement' => $parser->statements[0],
+            'flags' => Query::getFlags($parser->statements[0]),
+            'select_tables' => [['actor', 'sakila'], ['film', null]],
+            'select_expr' => ['*'],
+        ];
+        $this->assertEquals($expected, Query::getAll($query));
 
         $query = 'SELECT a.actor_id FROM sakila.actor AS a, film';
         $parser = new Parser($query);
-        $this->assertEquals(
-            array_merge(
-                Query::getFlags($parser->statements[0], true),
-                [
-                    'parser' => $parser,
-                    'statement' => $parser->statements[0],
-                    'select_expr' => [],
-                    'select_tables' => [
-                        [
-                            'actor',
-                            'sakila',
-                        ],
-                    ],
-                ],
-            ),
-            Query::getAll($query),
-        );
+        $expected = [
+            'parser' => $parser,
+            'statement' => $parser->statements[0],
+            'flags' => Query::getFlags($parser->statements[0]),
+            'select_tables' => [['actor', 'sakila']],
+            'select_expr' => [],
+        ];
+        $this->assertEquals($expected, Query::getAll($query));
 
         $query = 'SELECT CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END';
         $parser = new Parser($query);
-        $this->assertEquals(
-            array_merge(
-                Query::getFlags($parser->statements[0], true),
-                [
-                    'parser' => $parser,
-                    'statement' => $parser->statements[0],
-                    'select_expr' => ['CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END'],
-                    'select_tables' => [],
-                ],
-            ),
-            Query::getAll($query),
-        );
+        $expected = [
+            'parser' => $parser,
+            'statement' => $parser->statements[0],
+            'flags' => Query::getFlags($parser->statements[0]),
+            'select_tables' => [],
+            'select_expr' => ['CASE WHEN 2 IS NULL THEN "this is true" ELSE "this is false" END'],
+        ];
+        $this->assertEquals($expected, Query::getAll($query));
     }
 
     /** @param string[] $expected */

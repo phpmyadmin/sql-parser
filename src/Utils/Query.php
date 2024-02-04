@@ -39,36 +39,6 @@ use function trim;
 
 /**
  * Statement utilities.
- *
- * @psalm-type QueryFlagsType = array{
- *   distinct?: bool,
- *   drop_database?: bool,
- *   group?: bool,
- *   having?: bool,
- *   is_affected?: bool,
- *   is_analyse?: bool,
- *   is_count?: bool,
- *   is_delete?: bool,
- *   is_explain?: bool,
- *   is_export?: bool,
- *   is_func?: bool,
- *   is_group?: bool,
- *   is_insert?: bool,
- *   is_maint?: bool,
- *   is_procedure?: bool,
- *   is_replace?: bool,
- *   is_select?: bool,
- *   is_show?: bool,
- *   is_subquery?: bool,
- *   join?: bool,
- *   limit?: bool,
- *   offset?: bool,
- *   order?: bool,
- *   querytype: StatementType|null,
- *   reload?: bool,
- *   select_from?: bool,
- *   union?: bool
- * }
  */
 class Query
 {
@@ -89,222 +59,31 @@ class Query
     ];
 
     /**
-     * @var array<string, false>
-     * @psalm-var array{
-     *   distinct: false,
-     *   drop_database: false,
-     *   group: false,
-     *   having: false,
-     *   is_affected: false,
-     *   is_analyse: false,
-     *   is_count: false,
-     *   is_delete: false,
-     *   is_explain: false,
-     *   is_export: false,
-     *   is_func: false,
-     *   is_group: false,
-     *   is_insert: false,
-     *   is_maint: false,
-     *   is_procedure: false,
-     *   is_replace: false,
-     *   is_select: false,
-     *   is_show: false,
-     *   is_subquery: false,
-     *   join: false,
-     *   limit: false,
-     *   offset: false,
-     *   order: false,
-     *   querytype: null,
-     *   reload: false,
-     *   select_from: false,
-     *   union: false
-     * }
-     */
-    public static array $allFlags = [
-        /*
-         * select ... DISTINCT ...
-         */
-        'distinct' => false,
-
-        /*
-         * drop ... DATABASE ...
-         */
-        'drop_database' => false,
-
-        /*
-         * ... GROUP BY ...
-         */
-        'group' => false,
-
-        /*
-         * ... HAVING ...
-         */
-        'having' => false,
-
-        /*
-         * INSERT ...
-         * or
-         * REPLACE ...
-         * or
-         * DELETE ...
-         */
-        'is_affected' => false,
-
-        /*
-         * select ... PROCEDURE ANALYSE( ... ) ...
-         */
-        'is_analyse' => false,
-
-        /*
-         * select COUNT( ... ) ...
-         */
-        'is_count' => false,
-
-        /*
-         * DELETE ...
-         */
-        'is_delete' => false, // @deprecated; use `querytype`
-
-        /*
-         * EXPLAIN ...
-         */
-        'is_explain' => false, // @deprecated; use `querytype`
-
-        /*
-         * select ... INTO OUTFILE ...
-         */
-        'is_export' => false,
-
-        /*
-         * select FUNC( ... ) ...
-         */
-        'is_func' => false,
-
-        /*
-         * select ... GROUP BY ...
-         * or
-         * select ... HAVING ...
-         */
-        'is_group' => false,
-
-        /*
-         * INSERT ...
-         * or
-         * REPLACE ...
-         * or
-         * LOAD DATA ...
-         */
-        'is_insert' => false,
-
-        /*
-         * ANALYZE ...
-         * or
-         * CHECK ...
-         * or
-         * CHECKSUM ...
-         * or
-         * OPTIMIZE ...
-         * or
-         * REPAIR ...
-         */
-        'is_maint' => false,
-
-        /*
-         * CALL ...
-         */
-        'is_procedure' => false,
-
-        /*
-         * REPLACE ...
-         */
-        'is_replace' => false, // @deprecated; use `querytype`
-
-        /*
-         * SELECT ...
-         */
-        'is_select' => false, // @deprecated; use `querytype`
-
-        /*
-         * SHOW ...
-         */
-        'is_show' => false, // @deprecated; use `querytype`
-
-        /*
-         * Contains a subquery.
-         */
-        'is_subquery' => false,
-
-        /*
-         * ... JOIN ...
-         */
-        'join' => false,
-
-        /*
-         * ... LIMIT ...
-         */
-        'limit' => false,
-
-        /*
-         * TODO
-         */
-        'offset' => false,
-
-        /*
-         * ... ORDER ...
-         */
-        'order' => false,
-
-        /*
-         * The type of the query (which is usually the first keyword of
-         * the statement).
-         */
-        'querytype' => null,
-
-        /*
-         * Whether a page reload is required.
-         */
-        'reload' => false,
-
-        /*
-         * SELECT ... FROM ...
-         */
-        'select_from' => false,
-
-        /*
-         * ... UNION ...
-         */
-        'union' => false,
-    ];
-
-    /**
      * Gets an array with flags select statement has.
      *
-     * @param SelectStatement            $statement the statement to be processed
-     * @param array<string, bool|string> $flags     flags set so far
-     * @psalm-param QueryFlagsType $flags
-     *
-     * @return array<string, bool|string>
-     * @psalm-return QueryFlagsType
+     * @param SelectStatement $statement the statement to be processed
+     * @param StatementFlags  $flags     flags set so far
      */
-    private static function getFlagsSelect(SelectStatement $statement, array $flags): array
+    private static function getFlagsSelect(SelectStatement $statement, StatementFlags $flags): void
     {
-        $flags['querytype'] = StatementType::Select;
-        $flags['is_select'] = true;
+        $flags->queryType = StatementType::Select;
+        /** @psalm-suppress DeprecatedProperty */
+        $flags->isSelect = true;
 
         if ($statement->from !== []) {
-            $flags['select_from'] = true;
+            $flags->selectFrom = true;
         }
 
         if ($statement->options->has('DISTINCT')) {
-            $flags['distinct'] = true;
+            $flags->distinct = true;
         }
 
         if (! empty($statement->group) || ! empty($statement->having)) {
-            $flags['is_group'] = true;
+            $flags->isGroup = true;
         }
 
         if (! empty($statement->into) && ($statement->into->type === 'OUTFILE')) {
-            $flags['is_export'] = true;
+            $flags->isExport = true;
         }
 
         $expressions = $statement->expr;
@@ -317,9 +96,9 @@ class Query
         foreach ($expressions as $expr) {
             if (! empty($expr->function)) {
                 if ($expr->function === 'COUNT') {
-                    $flags['is_count'] = true;
+                    $flags->isCount = true;
                 } elseif (in_array($expr->function, static::$functions)) {
-                    $flags['is_func'] = true;
+                    $flags->isFunc = true;
                 }
             }
 
@@ -327,109 +106,106 @@ class Query
                 continue;
             }
 
-            $flags['is_subquery'] = true;
+            $flags->isSubQuery = true;
         }
 
         if (! empty($statement->procedure) && ($statement->procedure->name === 'ANALYSE')) {
-            $flags['is_analyse'] = true;
+            $flags->isAnalyse = true;
         }
 
         if (! empty($statement->group)) {
-            $flags['group'] = true;
+            $flags->group = true;
         }
 
         if (! empty($statement->having)) {
-            $flags['having'] = true;
+            $flags->having = true;
         }
 
         if ($statement->union !== []) {
-            $flags['union'] = true;
+            $flags->union = true;
         }
 
-        if (! empty($statement->join)) {
-            $flags['join'] = true;
+        if (empty($statement->join)) {
+            return;
         }
 
-        return $flags;
+        $flags->join = true;
     }
 
     /**
      * Gets an array with flags this statement has.
      *
      * @param Statement|null $statement the statement to be processed
-     * @param bool           $all       if `false`, false values will not be included
-     *
-     * @return array<string, bool|string>
-     * @psalm-return QueryFlagsType
      */
-    public static function getFlags(Statement|null $statement, bool $all = false): array
+    public static function getFlags(Statement|null $statement): StatementFlags
     {
-        $flags = ['querytype' => null];
-        if ($all) {
-            $flags = self::$allFlags;
-        }
+        $flags = new StatementFlags();
 
         if ($statement instanceof AlterStatement) {
-            $flags['querytype'] = StatementType::Alter;
-            $flags['reload'] = true;
+            $flags->queryType = StatementType::Alter;
+            $flags->reload = true;
         } elseif ($statement instanceof CreateStatement) {
-            $flags['querytype'] = StatementType::Create;
-            $flags['reload'] = true;
+            $flags->queryType = StatementType::Create;
+            $flags->reload = true;
         } elseif ($statement instanceof AnalyzeStatement) {
-            $flags['querytype'] = StatementType::Analyze;
-            $flags['is_maint'] = true;
+            $flags->queryType = StatementType::Analyze;
+            $flags->isMaint = true;
         } elseif ($statement instanceof CheckStatement) {
-            $flags['querytype'] = StatementType::Check;
-            $flags['is_maint'] = true;
+            $flags->queryType = StatementType::Check;
+            $flags->isMaint = true;
         } elseif ($statement instanceof ChecksumStatement) {
-            $flags['querytype'] = StatementType::Checksum;
-            $flags['is_maint'] = true;
+            $flags->queryType = StatementType::Checksum;
+            $flags->isMaint = true;
         } elseif ($statement instanceof OptimizeStatement) {
-            $flags['querytype'] = StatementType::Optimize;
-            $flags['is_maint'] = true;
+            $flags->queryType = StatementType::Optimize;
+            $flags->isMaint = true;
         } elseif ($statement instanceof RepairStatement) {
-            $flags['querytype'] = StatementType::Repair;
-            $flags['is_maint'] = true;
+            $flags->queryType = StatementType::Repair;
+            $flags->isMaint = true;
         } elseif ($statement instanceof CallStatement) {
-            $flags['querytype'] = StatementType::Call;
-            $flags['is_procedure'] = true;
+            $flags->queryType = StatementType::Call;
+            $flags->isProcedure = true;
         } elseif ($statement instanceof DeleteStatement) {
-            $flags['querytype'] = StatementType::Delete;
-            $flags['is_delete'] = true;
-            $flags['is_affected'] = true;
+            $flags->queryType = StatementType::Delete;
+            /** @psalm-suppress DeprecatedProperty */
+            $flags->isDelete = true;
+            $flags->isAffected = true;
         } elseif ($statement instanceof DropStatement) {
-            $flags['querytype'] = StatementType::Drop;
-            $flags['reload'] = true;
+            $flags->queryType = StatementType::Drop;
+            $flags->reload = true;
 
             if ($statement->options->has('DATABASE') || $statement->options->has('SCHEMA')) {
-                $flags['drop_database'] = true;
+                $flags->dropDatabase = true;
             }
         } elseif ($statement instanceof ExplainStatement) {
-            $flags['querytype'] = StatementType::Explain;
-            $flags['is_explain'] = true;
+            $flags->queryType = StatementType::Explain;
+            /** @psalm-suppress DeprecatedProperty */
+            $flags->isExplain = true;
         } elseif ($statement instanceof InsertStatement) {
-            $flags['querytype'] = StatementType::Insert;
-            $flags['is_affected'] = true;
-            $flags['is_insert'] = true;
+            $flags->queryType = StatementType::Insert;
+            $flags->isAffected = true;
+            $flags->isInsert = true;
         } elseif ($statement instanceof LoadStatement) {
-            $flags['querytype'] = StatementType::Load;
-            $flags['is_affected'] = true;
-            $flags['is_insert'] = true;
+            $flags->queryType = StatementType::Load;
+            $flags->isAffected = true;
+            $flags->isInsert = true;
         } elseif ($statement instanceof ReplaceStatement) {
-            $flags['querytype'] = StatementType::Replace;
-            $flags['is_affected'] = true;
-            $flags['is_replace'] = true;
-            $flags['is_insert'] = true;
+            $flags->queryType = StatementType::Replace;
+            $flags->isAffected = true;
+            /** @psalm-suppress DeprecatedProperty */
+            $flags->isReplace = true;
+            $flags->isInsert = true;
         } elseif ($statement instanceof SelectStatement) {
-            $flags = self::getFlagsSelect($statement, $flags);
+            self::getFlagsSelect($statement, $flags);
         } elseif ($statement instanceof ShowStatement) {
-            $flags['querytype'] = StatementType::Show;
-            $flags['is_show'] = true;
+            $flags->queryType = StatementType::Show;
+            /** @psalm-suppress DeprecatedProperty */
+            $flags->isShow = true;
         } elseif ($statement instanceof UpdateStatement) {
-            $flags['querytype'] = StatementType::Update;
-            $flags['is_affected'] = true;
+            $flags->queryType = StatementType::Update;
+            $flags->isAffected = true;
         } elseif ($statement instanceof SetStatement) {
-            $flags['querytype'] = StatementType::Set;
+            $flags->queryType = StatementType::Set;
         }
 
         if (
@@ -438,11 +214,11 @@ class Query
             || ($statement instanceof DeleteStatement)
         ) {
             if (! empty($statement->limit)) {
-                $flags['limit'] = true;
+                $flags->limit = true;
             }
 
             if (! empty($statement->order)) {
-                $flags['order'] = true;
+                $flags->order = true;
             }
         }
 
@@ -463,10 +239,12 @@ class Query
      *               expressions, the table names are fetched from the
      *               `FROM` expressions
      *               - select_expr - selected expressions
-     * @psalm-return QueryFlagsType&array{
-     *      select_expr?: (string|null)[],
-     *      select_tables?: array{string, string|null}[],
-     *      statement?: Statement|null, parser?: Parser
+     * @psalm-return array{
+     *     parser: Parser,
+     *     statement: Statement|null,
+     *     flags: StatementFlags,
+     *     select_tables: array{string, string|null}[],
+     *     select_expr: (string|null)[],
      * }
      */
     public static function getAll(string $query): array
@@ -474,20 +252,26 @@ class Query
         $parser = new Parser($query);
 
         if ($parser->statements === []) {
-            return static::getFlags(null, true);
+            return [
+                'parser' => $parser,
+                'statement' => null,
+                'flags' => static::getFlags(null),
+                'select_tables' => [],
+                'select_expr' => [],
+            ];
         }
 
         $statement = $parser->statements[0];
 
-        $ret = static::getFlags($statement, true);
-
-        $ret['parser'] = $parser;
-        $ret['statement'] = $statement;
+        $ret = [
+            'parser' => $parser,
+            'statement' => $statement,
+            'flags' => static::getFlags($statement),
+            'select_tables' => [],
+            'select_expr' => [],
+        ];
 
         if ($statement instanceof SelectStatement) {
-            $ret['select_tables'] = [];
-            $ret['select_expr'] = [];
-
             // Finding tables' aliases and their associated real names.
             $tableAliases = [];
             foreach ($statement->from as $expr) {
