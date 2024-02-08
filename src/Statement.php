@@ -6,15 +6,20 @@ namespace PhpMyAdmin\SqlParser;
 
 use AllowDynamicProperties;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
+use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\Statements\SetStatement;
+use PhpMyAdmin\SqlParser\Utils\Query;
 use Stringable;
 
 use function array_flip;
 use function array_key_exists;
 use function array_keys;
-use function in_array;
 use function is_array;
-use function stripos;
+use function is_string;
+use function str_contains;
+use function strtoupper;
 use function trim;
 
 /**
@@ -79,6 +84,8 @@ abstract class Statement implements Stringable
     /**
      * @param Parser|null     $parser the instance that requests parsing
      * @param TokensList|null $list   the list of tokens to be parsed
+     *
+     * @throws ParserException
      */
     public function __construct(Parser|null $parser = null, TokensList|null $list = null)
     {
@@ -159,7 +166,7 @@ abstract class Statement implements Stringable
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      *
-     * @throws Exceptions\ParserException
+     * @throws ParserException
      */
     public function parse(Parser $parser, TokensList $list): void
     {
@@ -224,7 +231,7 @@ abstract class Statement implements Stringable
             // ON DUPLICATE KEY UPDATE ...
             // has to be parsed in parent statement (INSERT or REPLACE)
             // so look for it and break
-            if ($this instanceof Statements\SelectStatement && $token->value === 'ON') {
+            if ($this instanceof SelectStatement && $token->value === 'ON') {
                 ++$list->idx; // Skip ON
 
                 // look for ON DUPLICATE KEY UPDATE
@@ -261,8 +268,17 @@ abstract class Statement implements Stringable
             $options = [];
 
             // Looking for duplicated clauses.
-            if (isset(Parser::KEYWORD_PARSERS[$token->value]) || ! empty(Parser::STATEMENT_PARSERS[$token->value])) {
-                if (! empty($parsedClauses[$token->value])) {
+            if (
+                is_string($token->value)
+                && (
+                    isset(Parser::KEYWORD_PARSERS[$token->value])
+                    || (
+                        isset(Parser::STATEMENT_PARSERS[$token->value])
+                        && Parser::STATEMENT_PARSERS[$token->value] !== ''
+                    )
+                )
+            ) {
+                if (array_key_exists($token->value, $parsedClauses)) {
                     $parser->error('This type of clause was previously parsed.', $token);
                     break;
                 }
@@ -271,27 +287,27 @@ abstract class Statement implements Stringable
             }
 
             // Checking if this is the beginning of a clause.
-            // Fix Issue #221: As `truncate` is not a keyword
+            // Fix Issue #221: As `truncate` is not a keyword,
             // but it might be the beginning of a statement of truncate,
             // so let the value use the keyword field for truncate type.
-            $tokenValue = in_array($token->keyword, ['TRUNCATE']) ? $token->keyword : $token->value;
-            if (isset(Parser::KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
+            $tokenValue = $token->keyword === 'TRUNCATE' ? $token->keyword : $token->value;
+            if (is_string($tokenValue) && isset(Parser::KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
                 $class = Parser::KEYWORD_PARSERS[$tokenValue]['class'];
                 $field = Parser::KEYWORD_PARSERS[$tokenValue]['field'];
-                if (! empty(Parser::KEYWORD_PARSERS[$tokenValue]['options'])) {
+                if (isset(Parser::KEYWORD_PARSERS[$tokenValue]['options'])) {
                     $options = Parser::KEYWORD_PARSERS[$tokenValue]['options'];
                 }
             }
 
             // Checking if this is the beginning of the statement.
-            if (! empty(Parser::STATEMENT_PARSERS[$token->keyword])) {
-                if (
-                    ! empty(static::$clauses) // Undefined for some statements.
-                    && empty(static::$clauses[$token->value])
-                ) {
+            if (
+                isset(Parser::STATEMENT_PARSERS[$token->keyword])
+                && Parser::STATEMENT_PARSERS[$token->keyword] !== ''
+            ) {
+                if (static::$clauses !== [] && is_string($token->value) && ! isset(static::$clauses[$token->value])) {
                     // Some keywords (e.g. `SET`) may be the beginning of a
                     // statement and a clause.
-                    // If such keyword was found and it cannot be a clause of
+                    // If such keyword was found, and it cannot be a clause of
                     // this statement it means it is a new statement, but no
                     // delimiter was found between them.
                     $parser->error(
@@ -311,35 +327,27 @@ abstract class Statement implements Stringable
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
-                if ($this instanceof Statements\SelectStatement && $token->value === 'WITH ROLLUP') {
+                if ($this instanceof SelectStatement && $token->value === 'WITH ROLLUP') {
                     // Handle group options in Select statement
                     $this->groupOptions = OptionsArrays::parse(
                         $parser,
                         $list,
-                        Statements\SelectStatement::STATEMENT_GROUP_OPTIONS,
+                        SelectStatement::STATEMENT_GROUP_OPTIONS,
                     );
                 } elseif (
-                    $this instanceof Statements\SelectStatement
+                    $this instanceof SelectStatement
                     && ($token->value === 'FOR UPDATE'
                         || $token->value === 'LOCK IN SHARE MODE')
                 ) {
                     // Handle special end options in Select statement
-                    $this->endOptions = OptionsArrays::parse(
-                        $parser,
-                        $list,
-                        Statements\SelectStatement::STATEMENT_END_OPTIONS,
-                    );
+                    $this->endOptions = OptionsArrays::parse($parser, $list, SelectStatement::STATEMENT_END_OPTIONS);
                 } elseif (
-                    $this instanceof Statements\SetStatement
+                    $this instanceof SetStatement
                     && ($token->value === 'COLLATE'
                         || $token->value === 'DEFAULT')
                 ) {
                     // Handle special end options in SET statement
-                    $this->endOptions = OptionsArrays::parse(
-                        $parser,
-                        $list,
-                        Statements\SetStatement::STATEMENT_END_OPTIONS,
-                    );
+                    $this->endOptions = OptionsArrays::parse($parser, $list, SetStatement::STATEMENT_END_OPTIONS);
                 } else {
                     // There is no parser for this keyword and isn't the beginning
                     // of a statement (so no options) either.
@@ -419,7 +427,7 @@ abstract class Statement implements Stringable
      * @param Parser     $parser the instance that requests parsing
      * @param TokensList $list   the list of tokens to be parsed
      *
-     * @throws Exceptions\ParserException
+     * @throws ParserException
      */
     public function validateClauseOrder(Parser $parser, TokensList $list): bool
     {
@@ -449,12 +457,12 @@ abstract class Statement implements Stringable
 
         $error = 0;
         $lastIdx = 0;
-        foreach ($clauses as $clauseType => $index) {
-            $clauseStartIdx = Utils\Query::getClauseStartOffset($this, $list, $clauseType);
+        foreach (array_keys($clauses) as $clauseType) {
+            $clauseStartIdx = Query::getClauseStartOffset($this, $list, $clauseType);
 
             if (
                 $clauseStartIdx !== -1
-                && $this instanceof Statements\SelectStatement
+                && $this instanceof SelectStatement
                 && ($clauseType === 'FORCE'
                     || $clauseType === 'IGNORE'
                     || $clauseType === 'USE')
@@ -466,13 +474,14 @@ abstract class Statement implements Stringable
 
             // Handle ordering of Multiple Joins in a query
             if ($clauseStartIdx !== -1) {
-                if ($minJoin === 0 && stripos($clauseType, 'JOIN')) {
+                $containsJoinClause = str_contains(strtoupper($clauseType), 'JOIN');
+                if ($minJoin === 0 && $containsJoinClause) {
                     // First JOIN clause is detected
                     $minJoin = $maxJoin = $clauseStartIdx;
-                } elseif ($minJoin !== 0 && ! stripos($clauseType, 'JOIN')) {
+                } elseif ($minJoin !== 0 && ! $containsJoinClause) {
                     // After a previous JOIN clause, a non-JOIN clause has been detected
                     $maxJoin = $lastIdx;
-                } elseif ($maxJoin < $clauseStartIdx && stripos($clauseType, 'JOIN')) {
+                } elseif ($maxJoin < $clauseStartIdx && $containsJoinClause) {
                     $error = 1;
                 }
             }

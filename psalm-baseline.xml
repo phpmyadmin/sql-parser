@@ -732,20 +732,6 @@
     </RedundantCondition>
   </file>
   <file src="src/Statement.php">
-    <DocblockTypeContradiction>
-      <code><![CDATA[empty(static::$clauses[$token->value])]]></code>
-    </DocblockTypeContradiction>
-    <InvalidArgument>
-      <code><![CDATA[$parsedClauses[$token->value]]]></code>
-    </InvalidArgument>
-    <InvalidArrayOffset>
-      <code><![CDATA[$parsedClauses[$token->value]]]></code>
-      <code><![CDATA[$parsedClauses[$token->value]]]></code>
-      <code><![CDATA[Parser::KEYWORD_PARSERS[$token->value]]]></code>
-      <code>Parser::KEYWORD_PARSERS[$tokenValue]</code>
-      <code><![CDATA[Parser::STATEMENT_PARSERS[$token->value]]]></code>
-      <code><![CDATA[static::$clauses[$token->value]]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$this->$field]]></code>
       <code><![CDATA[$this->$field]]></code>
@@ -768,15 +754,6 @@
     <PossiblyUnusedReturnValue>
       <code>bool</code>
     </PossiblyUnusedReturnValue>
-    <RedundantCondition>
-      <code><![CDATA[! empty($parsedClauses[$token->value])]]></code>
-    </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! stripos($clauseType, 'JOIN')]]></code>
-      <code><![CDATA[empty(Parser::KEYWORD_PARSERS[$tokenValue]['options'])]]></code>
-      <code><![CDATA[stripos($clauseType, 'JOIN')]]></code>
-      <code><![CDATA[stripos($clauseType, 'JOIN')]]></code>
-    </RiskyTruthyFalsyComparison>
     <UndefinedMethod>
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
@@ -784,9 +761,6 @@
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
     </UndefinedMethod>
-    <UnusedForeachValue>
-      <code>$index</code>
-    </UnusedForeachValue>
   </file>
   <file src="src/Statements/AlterStatement.php">
     <MixedArgumentTypeCoercion>
