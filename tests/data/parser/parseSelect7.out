@@ -688,13 +688,19 @@
                                     "t1"
                                 ],
                                 "isOperator": false,
-                                "expr": "(t2.a=t1.a"
+                                "expr": "(t2.a=t1.a",
+                                "leftOperand": "(t2.a",
+                                "operator": "=",
+                                "rightOperand": "t1.a"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -704,13 +710,19 @@
                                     "t1"
                                 ],
                                 "isOperator": false,
-                                "expr": "t3.b=t1.b"
+                                "expr": "t3.b=t1.b",
+                                "leftOperand": "t3.b",
+                                "operator": "=",
+                                "rightOperand": "t1.b"
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [],
                                 "isOperator": true,
-                                "expr": "AND"
+                                "expr": "AND",
+                                "leftOperand": "",
+                                "operator": "",
+                                "rightOperand": ""
                             },
                             {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -720,7 +732,10 @@
                                     "t1"
                                 ],
                                 "isOperator": false,
-                                "expr": "t4.c=t1.c)"
+                                "expr": "t4.c=t1.c)",
+                                "leftOperand": "t4.c",
+                                "operator": "=",
+                                "rightOperand": "t1.c)"
                             }
                         ],
                         "using": null

@@ -2970,13 +2970,19 @@
                                         "Y"
                                     ],
                                     "isOperator": false,
-                                    "expr": "p.cc = 'Y'"
+                                    "expr": "p.cc = 'Y'",
+                                    "leftOperand": "p.cc",
+                                    "operator": "=",
+                                    "rightOperand": "'Y'"
                                 },
                                 {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                     "identifiers": [],
                                     "isOperator": true,
-                                    "expr": "AND"
+                                    "expr": "AND",
+                                    "leftOperand": "",
+                                    "operator": "",
+                                    "rightOperand": ""
                                 },
                                 {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -2985,7 +2991,10 @@
                                         "Found"
                                     ],
                                     "isOperator": false,
-                                    "expr": "dd = 'Found'"
+                                    "expr": "dd = 'Found'",
+                                    "leftOperand": "dd",
+                                    "operator": "=",
+                                    "rightOperand": "'Found'"
                                 }
                             ],
                             [
@@ -2997,13 +3006,19 @@
                                         ""
                                     ],
                                     "isOperator": false,
-                                    "expr": "p.cc = ''"
+                                    "expr": "p.cc = ''",
+                                    "leftOperand": "p.cc",
+                                    "operator": "=",
+                                    "rightOperand": "''"
                                 },
                                 {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                     "identifiers": [],
                                     "isOperator": true,
-                                    "expr": "AND"
+                                    "expr": "AND",
+                                    "leftOperand": "",
+                                    "operator": "",
+                                    "rightOperand": ""
                                 },
                                 {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3012,7 +3027,10 @@
                                         "Found"
                                     ],
                                     "isOperator": false,
-                                    "expr": "dd = 'Found'"
+                                    "expr": "dd = 'Found'",
+                                    "leftOperand": "dd",
+                                    "operator": "=",
+                                    "rightOperand": "'Found'"
                                 }
                             ]
                         ],
@@ -3064,7 +3082,10 @@
                                         "Found"
                                     ],
                                     "isOperator": false,
-                                    "expr": "dd = 'Found'"
+                                    "expr": "dd = 'Found'",
+                                    "leftOperand": "dd",
+                                    "operator": "=",
+                                    "rightOperand": "'Found'"
                                 }
                             ]
                         ],
@@ -3112,7 +3133,10 @@
                                         "2021-01-28"
                                     ],
                                     "isOperator": false,
-                                    "expr": "(SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an) > '2021-01-28'"
+                                    "expr": "(SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an) > '2021-01-28'",
+                                    "leftOperand": "(SELECT MAX(cd) from LSA act group by act.an having p.acn = act.an)",
+                                    "operator": ">",
+                                    "rightOperand": "'2021-01-28'"
                                 }
                             ],
                             [
@@ -3124,7 +3148,10 @@
                                         "2021-01-28"
                                     ],
                                     "isOperator": false,
-                                    "expr": "p.co < '2021-01-28'"
+                                    "expr": "p.co < '2021-01-28'",
+                                    "leftOperand": "p.co",
+                                    "operator": "<",
+                                    "rightOperand": "'2021-01-28'"
                                 }
                             ]
                         ],
@@ -3187,13 +3214,19 @@
                             "a"
                         ],
                         "isOperator": false,
-                        "expr": "p.a =1"
+                        "expr": "p.a =1",
+                        "leftOperand": "p.a",
+                        "operator": "=",
+                        "rightOperand": "1"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3202,13 +3235,19 @@
                             "mr"
                         ],
                         "isOperator": false,
-                        "expr": "p.mr = 1"
+                        "expr": "p.mr = 1",
+                        "leftOperand": "p.mr",
+                        "operator": "=",
+                        "rightOperand": "1"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3218,13 +3257,19 @@
                             "23"
                         ],
                         "isOperator": false,
-                        "expr": "p.sc<> '23'"
+                        "expr": "p.sc<> '23'",
+                        "leftOperand": "p.sc",
+                        "operator": "<>",
+                        "rightOperand": "'23'"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3234,13 +3279,19 @@
                             "TEXT"
                         ],
                         "isOperator": false,
-                        "expr": "qa.qt = 'TEXT'"
+                        "expr": "qa.qt = 'TEXT'",
+                        "leftOperand": "qa.qt",
+                        "operator": "=",
+                        "rightOperand": "'TEXT'"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3250,13 +3301,19 @@
                             "TEXT"
                         ],
                         "isOperator": false,
-                        "expr": "p.tl = \"TEXT\""
+                        "expr": "p.tl = \"TEXT\"",
+                        "leftOperand": "p.tl",
+                        "operator": "=",
+                        "rightOperand": "\"TEXT\""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -3265,7 +3322,10 @@
                             "a"
                         ],
                         "isOperator": false,
-                        "expr": "qa.a = 1"
+                        "expr": "qa.a = 1",
+                        "leftOperand": "qa.a",
+                        "operator": "=",
+                        "rightOperand": "1"
                     }
                 ],
                 "group": null,
@@ -3299,7 +3359,10 @@
                                     "ID"
                                 ],
                                 "isOperator": false,
-                                "expr": "qa.pi = p.ID"
+                                "expr": "qa.pi = p.ID",
+                                "leftOperand": "qa.pi",
+                                "operator": "=",
+                                "rightOperand": "p.ID"
                             }
                         ],
                         "using": null
@@ -3327,7 +3390,10 @@
                                     "an"
                                 ],
                                 "isOperator": false,
-                                "expr": "p.acn = act.an"
+                                "expr": "p.acn = act.an",
+                                "leftOperand": "p.acn",
+                                "operator": "=",
+                                "rightOperand": "act.an"
                             }
                         ],
                         "using": null

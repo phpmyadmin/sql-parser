@@ -486,13 +486,19 @@
                             "id"
                         ],
                         "isOperator": false,
-                        "expr": "`id`<3"
+                        "expr": "`id`<3",
+                        "leftOperand": "`id`",
+                        "operator": "<",
+                        "rightOperand": "3"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -501,13 +507,19 @@
                             "Dan"
                         ],
                         "isOperator": false,
-                        "expr": "(username=\"Dan\""
+                        "expr": "(username=\"Dan\"",
+                        "leftOperand": "(username",
+                        "operator": "=",
+                        "rightOperand": "\"Dan\""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "OR"
+                        "expr": "OR",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -516,7 +528,10 @@
                             "Paul"
                         ],
                         "isOperator": false,
-                        "expr": "username=\"Paul\")"
+                        "expr": "username=\"Paul\")",
+                        "leftOperand": "username",
+                        "operator": "=",
+                        "rightOperand": "\"Paul\")"
                     }
                 ],
                 "order": [

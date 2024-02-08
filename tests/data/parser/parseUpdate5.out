@@ -541,7 +541,10 @@
                             "id"
                         ],
                         "isOperator": false,
-                        "expr": "u.id = 1"
+                        "expr": "u.id = 1",
+                        "leftOperand": "u.id",
+                        "operator": "=",
+                        "rightOperand": "1"
                     }
                 ],
                 "order": null,
@@ -570,7 +573,10 @@
                                     "user_id"
                                 ],
                                 "isOperator": false,
-                                "expr": "u.id = ud.user_id"
+                                "expr": "u.id = ud.user_id",
+                                "leftOperand": "u.id",
+                                "operator": "=",
+                                "rightOperand": "ud.user_id"
                             }
                         ],
                         "using": null

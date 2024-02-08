@@ -478,7 +478,10 @@
                             "id"
                         ],
                         "isOperator": false,
-                        "expr": "right_tbl.id IS NULL"
+                        "expr": "right_tbl.id IS NULL",
+                        "leftOperand": "right_tbl.id IS NULL",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,
@@ -511,7 +514,10 @@
                                     "right_tbl"
                                 ],
                                 "isOperator": false,
-                                "expr": "left_tbl.id = right_tbl.id"
+                                "expr": "left_tbl.id = right_tbl.id",
+                                "leftOperand": "left_tbl.id",
+                                "operator": "=",
+                                "rightOperand": "right_tbl.id"
                             }
                         ],
                         "using": null

@@ -568,13 +568,19 @@
                             "nombre"
                         ],
                         "isOperator": false,
-                        "expr": "id = IF(id = 1, id, nombre)"
+                        "expr": "id = IF(id = 1, id, nombre)",
+                        "leftOperand": "id",
+                        "operator": "=",
+                        "rightOperand": "IF(id = 1, id, nombre)"
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
-                        "expr": "AND"
+                        "expr": "AND",
+                        "leftOperand": "",
+                        "operator": "",
+                        "rightOperand": ""
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
@@ -583,7 +589,10 @@
                             "alumnos"
                         ],
                         "isOperator": false,
-                        "expr": "id not in (SELECT id FROM alumnos)"
+                        "expr": "id not in (SELECT id FROM alumnos)",
+                        "leftOperand": "id not in (SELECT id FROM alumnos)",
+                        "operator": "",
+                        "rightOperand": ""
                     }
                 ],
                 "group": null,

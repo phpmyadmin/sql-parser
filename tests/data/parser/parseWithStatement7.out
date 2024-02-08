@@ -835,7 +835,10 @@
                                                 "cte"
                                             ],
                                             "isOperator": false,
-                                            "expr": "table2.col1=cte.col1"
+                                            "expr": "table2.col1=cte.col1",
+                                            "leftOperand": "table2.col1",
+                                            "operator": "=",
+                                            "rightOperand": "cte.col1"
                                         }
                                     ],
                                     "using": null
