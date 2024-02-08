@@ -1,6 +1,6 @@
 # Change Log
 
-## [5.9.x] - YYYY-MM-DD
+## [5.9.0] - 2024-01-20
 
 - Fix keywords not being recognized as table alias (#496)
 - Add `bin/sql-parser` executable file (#517)
