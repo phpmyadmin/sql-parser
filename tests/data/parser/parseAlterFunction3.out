@@ -234,48 +234,22 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": null,
-                            "column": "COMMENT",
-                            "expr": "COMMENT",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@10"
-                            },
-                            {
-                                "@type": "@11"
-                            },
-                            {
-                                "@type": "@12"
-                            },
-                            {
-                                "@type": "@13"
-                            },
-                            {
-                                "@type": "@14"
-                            },
-                            {
-                                "@type": "@15"
-                            },
-                            {
-                                "@type": "@16"
-                            },
-                            {
-                                "@type": "@17"
-                            },
-                            {
-                                "@type": "@18"
+                            "options": {
+                                "1": {
+                                    "name": "COMMENT",
+                                    "equals": false,
+                                    "expr": "\"test\"",
+                                    "value": "test"
+                                },
+                                "2": "LANGUAGE SQL",
+                                "3": "CONTAINS SQL",
+                                "4": "SQL SECURITY",
+                                "5": "DEFINER"
                             }
-                        ]
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
                     }
                 ],
                 "options": {
@@ -294,14 +268,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@19"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

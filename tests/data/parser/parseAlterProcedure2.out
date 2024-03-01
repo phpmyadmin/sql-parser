@@ -64,30 +64,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "LANGUAGE",
-                    "value": "LANGUAGE",
-                    "keyword": "LANGUAGE",
+                    "token": "LANGUAGE SQL",
+                    "value": "LANGUAGE SQL",
+                    "keyword": "LANGUAGE SQL",
                     "type": 1,
-                    "flags": 1,
+                    "flags": 7,
                     "position": 26
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 34
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SQL",
-                    "value": "SQL",
-                    "keyword": "SQL",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 35
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -117,8 +99,8 @@
                     "position": null
                 }
             ],
-            "count": 12,
-            "idx": 12
+            "count": 10,
+            "idx": 10
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -162,24 +144,13 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": null,
-                            "column": "LANGUAGE",
-                            "expr": "LANGUAGE",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@10"
+                            "options": {
+                                "2": "LANGUAGE SQL"
                             }
-                        ]
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
                     }
                 ],
                 "options": {
@@ -189,7 +160,7 @@
                     }
                 },
                 "first": 0,
-                "last": 9
+                "last": 7
             }
         ],
         "brackets": 0,
@@ -198,14 +169,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@11"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

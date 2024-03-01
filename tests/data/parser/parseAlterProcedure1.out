@@ -162,24 +162,18 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": null,
-                            "column": "COMMENT",
-                            "expr": "COMMENT",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@10"
+                            "options": {
+                                "1": {
+                                    "name": "COMMENT",
+                                    "equals": false,
+                                    "expr": "\"test\"",
+                                    "value": "test"
+                                }
                             }
-                        ]
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
                     }
                 ],
                 "options": {
@@ -198,14 +192,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@11"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }

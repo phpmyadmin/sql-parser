@@ -100,30 +100,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "LANGUAGE",
-                    "value": "LANGUAGE",
-                    "keyword": "LANGUAGE",
+                    "token": "LANGUAGE SQL",
+                    "value": "LANGUAGE SQL",
+                    "keyword": "LANGUAGE SQL",
                     "type": 1,
-                    "flags": 1,
+                    "flags": 7,
                     "position": 40
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 48
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SQL",
-                    "value": "SQL",
-                    "keyword": "SQL",
-                    "type": 1,
-                    "flags": 3,
-                    "position": 49
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -171,8 +153,8 @@
                     "position": null
                 }
             ],
-            "count": 18,
-            "idx": 18
+            "count": 16,
+            "idx": 16
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -216,42 +198,20 @@
                         },
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                            "options": []
-                        },
-                        "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                            "database": null,
-                            "table": null,
-                            "column": "COMMENT",
-                            "expr": "COMMENT",
-                            "alias": null,
-                            "function": null,
-                            "subquery": null
-                        },
-                        "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@10"
-                            },
-                            {
-                                "@type": "@11"
-                            },
-                            {
-                                "@type": "@12"
-                            },
-                            {
-                                "@type": "@13"
-                            },
-                            {
-                                "@type": "@14"
-                            },
-                            {
-                                "@type": "@15"
-                            },
-                            {
-                                "@type": "@16"
+                            "options": {
+                                "1": {
+                                    "name": "COMMENT",
+                                    "equals": false,
+                                    "expr": "\"test\"",
+                                    "value": "test"
+                                },
+                                "2": "LANGUAGE SQL",
+                                "3": "MODIFIES SQL DATA"
                             }
-                        ]
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
                     }
                 ],
                 "options": {
@@ -261,7 +221,7 @@
                     }
                 },
                 "first": 0,
-                "last": 15
+                "last": 13
             }
         ],
         "brackets": 0,
@@ -270,14 +230,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized alter operation.",
-                {
-                    "@type": "@17"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
