@@ -94,6 +94,18 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterEventWithOtherDefiners'],
             ['parser/parseAlterRenameColumn'],
             ['parser/parseAlterRenameColumns'],
+            ['parser/parseAlterFunction1'],
+            ['parser/parseAlterFunction2'],
+            ['parser/parseAlterFunction3'],
+            ['parser/parseAlterFunction4'],
+            ['parser/parseAlterFunction5'],
+            ['parser/parseAlterFunction6'],
+            ['parser/parseAlterProcedure1'],
+            ['parser/parseAlterProcedure2'],
+            ['parser/parseAlterProcedure3'],
+            ['parser/parseAlterProcedure4'],
+            ['parser/parseAlterProcedure5'],
+            ['parser/parseAlterProcedure6'],
         ];
     }
 }
