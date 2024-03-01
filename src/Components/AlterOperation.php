@@ -257,7 +257,7 @@ class AlterOperation extends Component
     public static $ROUTINE_OPTIONS = [
         'COMMENT' => [
             1,
-            'var'
+            'var',
         ],
         'LANGUAGE SQL' => 2,
         'CONTAINS SQL' => 3,
