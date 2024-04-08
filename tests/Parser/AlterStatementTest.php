@@ -45,6 +45,7 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterTablePartitionByRange1'],
             ['parser/parseAlterTablePartitionByRange2'],
             ['parser/parseAlterTableCoalescePartition'],
+            ['parser/parseAlterTableAddColumnWithCheck'],
             ['parser/parseAlterTableAddSpatialIndex1'],
             ['parser/parseAlterTableDropAddIndex1'],
             ['parser/parseAlterTableDropColumn1'],
