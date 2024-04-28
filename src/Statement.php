@@ -9,6 +9,7 @@ use Stringable;
 
 use function array_flip;
 use function array_keys;
+use function array_push;
 use function count;
 use function in_array;
 use function stripos;
@@ -455,6 +456,28 @@ abstract class Statement implements Stringable
     public function getClauses()
     {
         return static::$CLAUSES;
+    }
+
+    /**
+     * Gets the clause order of this statement as an array
+     * with clause as key and index as value.
+     *
+     * @return array<string, int>
+     */
+    public function getClauseOrder(): array
+    {
+        $clauses = [];
+        foreach (array_keys($this->getClauses()) as $key) {
+            if ($key === '_END_OPTIONS') {
+                if (static::$END_OPTIONS !== []) {
+                    array_push($clauses, ...array_keys(static::$END_OPTIONS));
+                }
+            } else {
+                $clauses[] = $key;
+            }
+        }
+
+        return array_flip($clauses);
     }
 
     /**
