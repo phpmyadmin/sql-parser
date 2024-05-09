@@ -1,0 +1,174 @@
+{
+    "query": "ALTER FUNCTION func_name LANGUAGE SQL;\n",
+    "lexer": {
+        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "str": "ALTER FUNCTION func_name LANGUAGE SQL;\n",
+        "len": 39,
+        "last": 39,
+        "list": {
+            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "tokens": [
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 5
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "FUNCTION",
+                    "value": "FUNCTION",
+                    "keyword": "FUNCTION",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 6
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 14
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "func_name",
+                    "value": "func_name",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 15
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 24
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "LANGUAGE SQL",
+                    "value": "LANGUAGE SQL",
+                    "keyword": "LANGUAGE SQL",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 25
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 37
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 38
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 10,
+            "idx": 10
+        },
+        "delimiter": ";",
+        "delimiterLen": 1,
+        "strict": false,
+        "errors": []
+    },
+    "parser": {
+        "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "list": {
+            "@type": "@1"
+        },
+        "statements": [
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                "table": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                    "database": null,
+                    "table": "func_name",
+                    "column": null,
+                    "expr": "func_name",
+                    "alias": null,
+                    "function": null,
+                    "subquery": null
+                },
+                "altered": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                        "ROUTINE_OPTIONS": {
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "LANGUAGE SQL": 2,
+                            "CONTAINS SQL": 3,
+                            "NO SQL": 3,
+                            "READS SQL DATA": 3,
+                            "MODIFIES SQL DATA": 3,
+                            "SQL SECURITY": 4,
+                            "DEFINER": 5,
+                            "INVOKER": 5
+                        },
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "2": "LANGUAGE SQL"
+                            }
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
+                    }
+                ],
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": {
+                        "3": "FUNCTION"
+                    }
+                },
+                "first": 0,
+                "last": 7
+            }
+        ],
+        "brackets": 0,
+        "strict": false,
+        "errors": []
+    },
+    "errors": {
+        "lexer": [],
+        "parser": []
+    }
+}

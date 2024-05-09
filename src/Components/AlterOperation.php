@@ -249,6 +249,27 @@ class AlterOperation extends Component
     ];
 
     /**
+     * All routine (procedure or function) options.
+     *
+     * @var array<string, int|array<int, int|string>>
+     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     */
+    public static $ROUTINE_OPTIONS = [
+        'COMMENT' => [
+            1,
+            'var',
+        ],
+        'LANGUAGE SQL' => 2,
+        'CONTAINS SQL' => 3,
+        'NO SQL' => 3,
+        'READS SQL DATA' => 3,
+        'MODIFIES SQL DATA' => 3,
+        'SQL SECURITY' => 4,
+        'DEFINER' => 5,
+        'INVOKER' => 5,
+    ];
+
+    /**
      * Options of this operation.
      *
      * @var OptionsArray
