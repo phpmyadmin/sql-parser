@@ -233,6 +233,21 @@ final class AlterOperations implements Parseable
     ];
 
     /**
+     * All routine (procedure or function) options.
+     */
+    public const ROUTINE_OPTIONS = [
+        'COMMENT' => [1, 'var'],
+        'LANGUAGE SQL' => 2,
+        'CONTAINS SQL' => 3,
+        'NO SQL' => 3,
+        'READS SQL DATA' => 3,
+        'MODIFIES SQL DATA' => 3,
+        'SQL SECURITY' => 4,
+        'DEFINER' => 5,
+        'INVOKER' => 5,
+    ];
+
+    /**
      * @param Parser               $parser  the parser that serves as context
      * @param TokensList           $list    the list of tokens that are being parsed
      * @param array<string, mixed> $options parameters for parsing

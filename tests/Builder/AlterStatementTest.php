@@ -190,4 +190,64 @@ class AlterStatementTest extends TestCase
         $stmt = $parser->statements[0];
         $this->assertEquals($query, $stmt->build());
     }
+
+    /** @return Generator<string, array{string}> */
+    public static function provideBuilderForAlterRoutine(): Generator
+    {
+        $query = 'ALTER FUNCTION func_name COMMENT "test"';
+
+        yield 'Function with only comment' => [$query];
+
+        $query = 'ALTER FUNCTION func_name LANGUAGE SQL';
+
+        yield 'Function with only language' => [$query];
+
+        $query = 'ALTER FUNCTION func_name COMMENT "test" LANGUAGE SQL CONTAINS SQL SQL SECURITY DEFINER';
+
+        yield 'Function with all options combinations #1' => [$query];
+
+        $query = 'ALTER FUNCTION func_name COMMENT "test" LANGUAGE SQL NO SQL SQL SECURITY INVOKER';
+
+        yield 'Function with all options combinations #2' => [$query];
+
+        $query = 'ALTER FUNCTION func_name COMMENT "test" LANGUAGE SQL READS SQL DATA';
+
+        yield 'Function with all remaining options #1' => [$query];
+
+        $query = 'ALTER FUNCTION func_name COMMENT "test" LANGUAGE SQL MODIFIES SQL DATA';
+
+        yield 'Function with all remaining options #2' => [$query];
+
+        $query = 'ALTER PROCEDURE func_name COMMENT "test"';
+
+        yield 'Procedure with only comment' => [$query];
+
+        $query = 'ALTER PROCEDURE proc_name LANGUAGE SQL';
+
+        yield 'Procedure with only language' => [$query];
+
+        $query = 'ALTER PROCEDURE proc_name COMMENT "test" LANGUAGE SQL CONTAINS SQL SQL SECURITY DEFINER';
+
+        yield 'Procedure with all options combinations #1' => [$query];
+
+        $query = 'ALTER PROCEDURE proc_name COMMENT "test" LANGUAGE SQL NO SQL SQL SECURITY INVOKER';
+
+        yield 'Procedure with all options combinations #2' => [$query];
+
+        $query = 'ALTER PROCEDURE proc_name COMMENT "test" LANGUAGE SQL READS SQL DATA';
+
+        yield 'Procedure with all remaining options #1' => [$query];
+
+        $query = 'ALTER PROCEDURE proc_name COMMENT "test" LANGUAGE SQL MODIFIES SQL DATA';
+
+        yield 'Procedure with all remaining options #2' => [$query];
+    }
+
+    /** @dataProvider provideBuilderForAlterRoutine */
+    public function testBuilderForAlterRoutine(string $query): void
+    {
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+        $this->assertEquals($query, $stmt->build());
+    }
 }

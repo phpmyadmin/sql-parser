@@ -127,6 +127,8 @@ class AlterStatement extends Statement
                     $options = AlterOperations::USER_OPTIONS;
                 } elseif ($this->options->has('EVENT')) {
                     $options = AlterOperations::EVENT_OPTIONS;
+                } elseif ($this->options->has('FUNCTION') || $this->options->has('PROCEDURE')) {
+                    $options = AlterOperations::ROUTINE_OPTIONS;
                 }
 
                 $this->altered[] = AlterOperations::parse($parser, $list, $options);
