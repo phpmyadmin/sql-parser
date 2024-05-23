@@ -253,51 +253,48 @@ class CreateStatementTest extends TestCase
         $this->assertEquals($query, $parser->statements[0]->build());
     }
 
-    /** @return string[][] */
-    public static function partitionQueriesProvider(): array
+    /** @psalm-return iterable<string, array{non-empty-string}> */
+    public static function partitionQueriesProvider(): iterable
     {
-        return [
-            [
-                'subparts' => <<<'EOT'
-CREATE TABLE `ts` (
-  `id` int(11) DEFAULT NULL,
-  `purchased` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
-PARTITION BY RANGE (YEAR(purchased))
-SUBPARTITION BY HASH (TO_DAYS(purchased))
-(
-PARTITION p0 VALUES LESS THAN (1990)  (
-SUBPARTITION s0 ENGINE=InnoDB,
-SUBPARTITION s1 ENGINE=InnoDB
-),
-PARTITION p1 VALUES LESS THAN (2000)  (
-SUBPARTITION s2 ENGINE=InnoDB,
-SUBPARTITION s3 ENGINE=InnoDB
-),
-PARTITION p2 VALUES LESS THAN MAXVALUE  (
-SUBPARTITION s4 ENGINE=InnoDB,
-SUBPARTITION s5 ENGINE=InnoDB
-)
-)
-EOT
-            ,
-            ],
-            [
-                'parts' => <<<'EOT'
-CREATE TABLE ptest (
-  `event_date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC
-PARTITION BY HASH (TO_DAYS(event_date))
-(
-PARTITION p0 ENGINE=InnoDB,
-PARTITION p1 ENGINE=InnoDB,
-PARTITION p2 ENGINE=InnoDB,
-PARTITION p3 ENGINE=InnoDB,
-PARTITION p4 ENGINE=InnoDB
-)
-EOT
-            ,
-            ],
+        yield 'subpartitions' => [
+            <<<'SQL'
+            CREATE TABLE `ts` (
+              `id` int(11) DEFAULT NULL,
+              `purchased` date DEFAULT NULL
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+            PARTITION BY RANGE (YEAR(purchased))
+            SUBPARTITION BY HASH (TO_DAYS(purchased))
+            (
+            PARTITION p0 VALUES LESS THAN (1990)  (
+            SUBPARTITION s0 ENGINE=InnoDB,
+            SUBPARTITION s1 ENGINE=InnoDB
+            ),
+            PARTITION p1 VALUES LESS THAN (2000)  (
+            SUBPARTITION s2 ENGINE=InnoDB,
+            SUBPARTITION s3 ENGINE=InnoDB
+            ),
+            PARTITION p2 VALUES LESS THAN MAXVALUE  (
+            SUBPARTITION s4 ENGINE=InnoDB,
+            SUBPARTITION s5 ENGINE=InnoDB
+            )
+            )
+            SQL,
+        ];
+
+        yield 'partitions' => [
+            <<<'SQL'
+            CREATE TABLE ptest (
+              `event_date` date NOT NULL
+            ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC
+            PARTITION BY HASH (TO_DAYS(event_date))
+            (
+            PARTITION p0 ENGINE=InnoDB,
+            PARTITION p1 ENGINE=InnoDB,
+            PARTITION p2 ENGINE=InnoDB,
+            PARTITION p3 ENGINE=InnoDB,
+            PARTITION p4 ENGINE=InnoDB
+            )
+            SQL,
         ];
     }
 
