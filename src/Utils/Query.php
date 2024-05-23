@@ -641,7 +641,7 @@ class Query
         /**
          * The clauses of this type of statement and their index.
          */
-        $clauses = array_flip(array_keys($statement->getClauses()));
+        $clauses = $statement->getClauseOrder();
 
         /**
          * Lexer used for lexing the clause.
