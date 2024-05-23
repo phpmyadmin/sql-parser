@@ -226,32 +226,6 @@ abstract class Statement implements Stringable
                 break;
             }
 
-            $lastIdx = $list->idx;
-
-            // ON DUPLICATE KEY UPDATE ...
-            // has to be parsed in parent statement (INSERT or REPLACE)
-            // so look for it and break
-            if ($this instanceof SelectStatement && $token->value === 'ON') {
-                ++$list->idx; // Skip ON
-
-                // look for ON DUPLICATE KEY UPDATE
-                $first = $list->getNextOfType(TokenType::Keyword);
-                $second = $list->getNextOfType(TokenType::Keyword);
-                $third = $list->getNextOfType(TokenType::Keyword);
-
-                if (
-                    $first && $second && $third
-                    && $first->value === 'DUPLICATE'
-                    && $second->value === 'KEY'
-                    && $third->value === 'UPDATE'
-                ) {
-                    $list->idx = $lastIdx;
-                    break;
-                }
-            }
-
-            $list->idx = $lastIdx;
-
             /**
              * The name of the class that is used for parsing.
              */
@@ -327,33 +301,15 @@ abstract class Statement implements Stringable
                     $parsedOptions = true;
                 }
             } elseif ($class === null) {
-                if ($this instanceof SelectStatement && $token->value === 'WITH ROLLUP') {
-                    // Handle group options in Select statement
-                    $this->groupOptions = OptionsArrays::parse(
-                        $parser,
-                        $list,
-                        SelectStatement::STATEMENT_GROUP_OPTIONS,
-                    );
-                } elseif (
-                    $this instanceof SelectStatement
-                    && ($token->value === 'FOR UPDATE'
-                        || $token->value === 'LOCK IN SHARE MODE')
-                ) {
-                    // Handle special end options in Select statement
-                    $this->endOptions = OptionsArrays::parse($parser, $list, SelectStatement::STATEMENT_END_OPTIONS);
-                } elseif (
-                    $this instanceof SetStatement
-                    && ($token->value === 'COLLATE'
-                        || $token->value === 'DEFAULT')
-                ) {
-                    // Handle special end options in SET statement
-                    $this->endOptions = OptionsArrays::parse($parser, $list, SetStatement::STATEMENT_END_OPTIONS);
-                } else {
+                if (! ($this instanceof SetStatement) || ($token->value !== 'COLLATE' && $token->value !== 'DEFAULT')) {
                     // There is no parser for this keyword and isn't the beginning
                     // of a statement (so no options) either.
                     $parser->error('Unrecognized keyword.', $token);
                     continue;
                 }
+
+                // Handle special end options in SET statement
+                $this->endOptions = OptionsArrays::parse($parser, $list, SetStatement::STATEMENT_END_OPTIONS);
             }
 
             $this->before($parser, $list, $token);
