@@ -422,7 +422,11 @@ class AlterOperation extends Component
                     } elseif (($token->value === ',') && ($brackets === 0)) {
                         break;
                     }
-                } elseif (! self::checkIfTokenQuotedSymbol($token) && $token->type !== Token::TYPE_STRING) {
+                } elseif (
+                    ! self::checkIfTokenQuotedSymbol($token) &&
+                    $token->type !== Token::TYPE_STRING &&
+                    $token->value !== 'CHECK'
+                ) {
                     if (isset(Parser::$STATEMENT_PARSERS[$arrayKey]) && Parser::$STATEMENT_PARSERS[$arrayKey] !== '') {
                         $list->idx++; // Ignore the current token
                         $nextToken = $list->getNext();
