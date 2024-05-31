@@ -153,7 +153,7 @@ class Condition extends Component
                 } else {
                     // The expression ended.
                     $expr->expr = trim($expr->expr);
-                    if (! empty($expr->expr)) {
+                    if ($expr->expr !== '') {
                         $ret[] = $expr;
                     }
 
@@ -214,7 +214,7 @@ class Condition extends Component
 
         // Last iteration was not processed.
         $expr->expr = trim($expr->expr);
-        if (! empty($expr->expr)) {
+        if ($expr->expr !== '') {
             $ret[] = $expr;
         }
 
