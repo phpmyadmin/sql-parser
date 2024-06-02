@@ -10,7 +10,9 @@ use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Tests\UtfStringSerializer;
 use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\UtfString;
 
 use function dirname;
 use function file_exists;
@@ -168,7 +170,9 @@ class TestGenerator
 
         // unset mode, reset to default every time, to be sure
         Context::setMode();
-        $serializer = new CustomJsonSerializer();
+        $serializer = new CustomJsonSerializer(null, [
+            UtfString::class => new UtfStringSerializer(),
+        ]);
         // Writing test's data.
         $encoded = $serializer->serialize($test);
 

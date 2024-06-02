@@ -1092,11 +1092,6 @@
       <code><![CDATA[isset(self::$translator)]]></code>
     </RedundantPropertyInitializationCheck>
   </file>
-  <file src="src/UtfString.php">
-    <PossiblyUnusedProperty>
-      <code><![CDATA[$byteLen]]></code>
-    </PossiblyUnusedProperty>
-  </file>
   <file src="src/Utils/BufferedQuery.php">
     <PossiblyNullOperand>
       <code><![CDATA[$this->status]]></code>
@@ -1566,6 +1561,12 @@
      *   errors: array{lexer: list<array{string, string, int, int}>, parser: list<array{string, Token, int}>}
      * }]]></code>
     </InvalidReturnType>
+  </file>
+  <file src="tests/UtfStringSerializer.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[serialize]]></code>
+      <code><![CDATA[unserialize]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/Utils/BufferedQueryTest.php">
     <PossiblyUnusedMethod>

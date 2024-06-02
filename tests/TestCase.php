@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Tools\CustomJsonSerializer;
+use PhpMyAdmin\SqlParser\UtfString;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 use function file_get_contents;
@@ -95,7 +96,9 @@ abstract class TestCase extends BaseTestCase
         $serializedData = file_get_contents('tests/data/' . $name . '.out');
         $this->assertIsString($serializedData);
 
-        $serializer = new CustomJsonSerializer();
+        $serializer = new CustomJsonSerializer(null, [
+            UtfString::class => new UtfStringSerializer(),
+        ]);
         $data = $serializer->unserialize($serializedData);
 
         $this->assertIsArray($data);
