@@ -139,21 +139,51 @@
         "list": {
             "@type": "@1"
         },
-        "statements": [],
+        "statements": [
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\TableStatement",
+                "from": [],
+                "order": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
+                        "expr": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": "fo",
+                            "column": "uuid",
+                            "expr": "`fo`.`uuid`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
+                        "type": "ASC"
+                    }
+                ],
+                "limit": null,
+                "union": [],
+                "options": null,
+                "first": 0,
+                "last": 10,
+                "tables": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                        "database": null,
+                        "table": "fo",
+                        "column": null,
+                        "expr": "`fo`",
+                        "alias": null,
+                        "function": null,
+                        "subquery": null
+                    }
+                ]
+            }
+        ],
         "brackets": 0,
         "strict": false,
         "errors": []
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "Unrecognized statement type.",
-                {
-                    "@type": "@2"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
