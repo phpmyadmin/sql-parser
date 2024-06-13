@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 22:46+0100\n"
-"PO-Revision-Date: 2023-07-29 06:03+0000\n"
-"Last-Translator: Liscott327 <liscott327@gmail.com>\n"
+"PO-Revision-Date: 2024-06-14 13:09+0000\n"
+"Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/"
 "phpmyadmin/sql-parser/zh_Hant/>\n"
 "Language: zh_TW\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.6-dev\n"
 
 #: src/Component.php:39 src/Component.php:59
 msgid "Not implemented yet."
@@ -25,7 +25,6 @@ msgid ""
 msgstr "找到新的陳述句，但與前一陳述句之間沒有分隔符。"
 
 #: src/Components/AlterOperation.php:427
-#, fuzzy
 msgid "Missing comma before start of a new alter operation."
 msgstr "在開始一個新的操作前缺少逗號。"
 
@@ -245,28 +244,20 @@ msgid "Unexpected keyword"
 msgstr "預期之外的關鍵字"
 
 #: src/Statements/WithStatement.php:118
-#, fuzzy
-#| msgid "The name of the entity was expected."
 msgid "The name of the CTE was expected."
-msgstr "預期要有實體名稱。"
+msgstr "預期常用資料表句式(CTE)要有名稱。"
 
 #: src/Statements/WithStatement.php:137
-#, fuzzy
-#| msgid "A \"RETURNS\" keyword was expected."
 msgid "AS keyword was expected."
-msgstr "預期要使用 \"RETURNS\" 關鍵字。"
+msgstr "預期要使用 \"AS\" 關鍵字。"
 
 #: src/Statements/WithStatement.php:149
-#, fuzzy
-#| msgid "The name of the entity was expected."
 msgid "Subquery of the CTE was expected."
-msgstr "預期要有實體名稱。"
+msgstr "預期常用資料表句式(CTE)要有子查詢。"
 
 #: src/Statements/WithStatement.php:266
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of the WITH CTE."
-msgstr "預期之外的陳述句開頭。"
+msgstr "常用資料表句式(CTE)的“WITH”預期之外結束。"
 
 #~ msgid "Unexpected end of Lock expression."
 #~ msgstr "預期之外的LOCK陳述式。"
