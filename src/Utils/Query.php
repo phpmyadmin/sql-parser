@@ -33,8 +33,10 @@ use PhpMyAdmin\SqlParser\TokenType;
 use function array_flip;
 use function array_keys;
 use function count;
+use function ctype_space;
 use function in_array;
 use function is_string;
+use function mb_substr;
 use function trim;
 
 /**
@@ -476,6 +478,29 @@ class Query
         return trim($ret);
     }
 
+    /** @param list<string> $parts */
+    private static function glueQueryPartsWithSpaces(array $parts): string
+    {
+        $statement = '';
+        foreach ($parts as $part) {
+            if ($part === '') {
+                continue;
+            }
+
+            if (
+                $statement !== '' &&
+                ! ctype_space(mb_substr($statement, -1)) &&
+                ! ctype_space(mb_substr($part, 0, 1))
+            ) {
+                $statement .= ' ';
+            }
+
+            $statement .= $part;
+        }
+
+        return $statement;
+    }
+
     /**
      * Builds a query by rebuilding the statement from the tokens list supplied
      * and replaces a clause.
@@ -500,18 +525,17 @@ class Query
     ): string {
         // TODO: Update the tokens list and the statement.
 
-        if ($new === null) {
-            $new = $old;
-        }
-
+        $parts = [
+            static::getClause($statement, $list, $old, -1, false),
+            $new ?? $old,
+        ];
         if ($onlyType) {
-            return static::getClause($statement, $list, $old, -1, false) . ' ' .
-                $new . ' ' . static::getClause($statement, $list, $old, 0) . ' ' .
-                static::getClause($statement, $list, $old, 1, false);
+            $parts[] = static::getClause($statement, $list, $old, 0);
         }
 
-        return static::getClause($statement, $list, $old, -1, false) . ' ' .
-            $new . ' ' . static::getClause($statement, $list, $old, 1, false);
+        $parts[] = static::getClause($statement, $list, $old, 1, false);
+
+        return self::glueQueryPartsWithSpaces($parts);
     }
 
     /**
@@ -533,33 +557,30 @@ class Query
             return '';
         }
 
-        /**
-         * Value to be returned.
-         */
-        $ret = '';
-
         // If there is only one clause, `replaceClause()` should be used.
         if ($count === 1) {
             return static::replaceClause($statement, $list, $ops[0][0], $ops[0][1]);
         }
 
         // Adding everything before first replacement.
-        $ret .= static::getClause($statement, $list, $ops[0][0], -1) . ' ';
+        $parts = [static::getClause($statement, $list, $ops[0][0], -1)];
 
         // Doing replacements.
         foreach ($ops as $i => $clause) {
-            $ret .= $clause[1] . ' ';
+            $parts[] = $clause[1];
 
             // Adding everything between this and next replacement.
             if ($i + 1 === $count) {
                 continue;
             }
 
-            $ret .= static::getClause($statement, $list, $clause[0], $ops[$i + 1][0]) . ' ';
+            $parts[] = static::getClause($statement, $list, $clause[0], $ops[$i + 1][0]);
         }
 
         // Adding everything after the last replacement.
-        return $ret . static::getClause($statement, $list, $ops[$count - 1][0], 1);
+        $parts[] = static::getClause($statement, $list, $ops[$count - 1][0], 1);
+
+        return self::glueQueryPartsWithSpaces($parts);
     }
 
     /**

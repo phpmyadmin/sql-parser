@@ -558,7 +558,7 @@ class QueryTest extends TestCase
         $this->assertEquals(
             'select supplier.city, supplier.id from supplier '
             . 'union select customer.city, customer.id from customer'
-            . ' ORDER BY city ',
+            . ' ORDER BY city',
             Query::replaceClause(
                 $parser->statements[0],
                 $parser->list,
@@ -572,7 +572,7 @@ class QueryTest extends TestCase
         $parser = new Parser('SELECT *, (SELECT 1) FROM film LIMIT 0, 10');
         $this->assertNotNull($parser->list);
         $this->assertEquals(
-            ' SELECT SQL_CALC_FOUND_ROWS *, (SELECT 1) FROM film LIMIT 0, 10',
+            'SELECT SQL_CALC_FOUND_ROWS *, (SELECT 1) FROM film LIMIT 0, 10',
             Query::replaceClause(
                 $parser->statements[0],
                 $parser->list,
@@ -588,7 +588,7 @@ class QueryTest extends TestCase
         $parser = new Parser('ALTER TABLE `sale_mast` OPTIMIZE PARTITION p3');
         $this->assertNotNull($parser->list);
         $this->assertEquals(
-            '  ALTER TABLE `sale_mast` OPTIMIZE PARTITION p3',
+            'ALTER TABLE `sale_mast` OPTIMIZE PARTITION p3',
             Query::replaceClause(
                 $parser->statements[0],
                 $parser->list,
@@ -629,9 +629,9 @@ class QueryTest extends TestCase
         $this->assertEquals(
             'SELECT c.city_id, c.country_id ' .
             'INTO OUTFILE "/dev/null" ' .
-            'FROM city AS c   ' .
+            'FROM city AS c ' .
             'ORDER BY city_id ASC ' .
-            'LIMIT 0, 10 ',
+            'LIMIT 0, 10',
             Query::replaceClauses(
                 $parser->statements[0],
                 $parser->list,
