@@ -36,6 +36,7 @@ use function array_keys;
 use function count;
 use function in_array;
 use function is_string;
+use function strtoupper;
 use function trim;
 
 /**
@@ -317,9 +318,10 @@ class Query
 
         foreach ($expressions as $expr) {
             if (! empty($expr->function)) {
-                if ($expr->function === 'COUNT') {
+                $function = strtoupper($expr->function);
+                if ($function === 'COUNT') {
                     $flags['is_count'] = true;
-                } elseif (in_array($expr->function, static::$FUNCTIONS)) {
+                } elseif (in_array($function, static::$FUNCTIONS, true)) {
                     $flags['is_func'] = true;
                 }
             }
