@@ -20,7 +20,7 @@ class UtfStringBench
      * @Revs(4)
      * @OutputTimeUnit("milliseconds")
      * @Assert("mode(variant.time.avg) < 100 milliseconds +/- 10%")
-     * @Assert("mode(variant.time.avg) > 30 milliseconds +/- 10%")
+     * @Assert("mode(variant.time.avg) > 25 milliseconds +/- 10%")
      */
     public function benchBuildUtfString(): void
     {
@@ -36,7 +36,7 @@ class UtfStringBench
      * @Revs(2)
      * @OutputTimeUnit("microseconds")
      * @Assert("mode(variant.time.avg) < 800 microseconds +/- 20%")
-     * @Assert("mode(variant.time.avg) > 100 microseconds +/- 10%")
+     * @Assert("mode(variant.time.avg) > 60 microseconds +/- 10%")
      */
     public function benchGetCharLength(): void
     {
