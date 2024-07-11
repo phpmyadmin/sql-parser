@@ -1,10 +1,10 @@
 {
-    "query": "KILL QUERY 1",
+    "query": "KILL",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "KILL QUERY 1",
-        "len": 12,
-        "last": 12,
+        "str": "KILL",
+        "len": 4,
+        "last": 4,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -19,42 +19,6 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 4
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "QUERY",
-                    "value": "QUERY",
-                    "keyword": "QUERY",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 5
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 10
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "1",
-                    "value": 1,
-                    "keyword": null,
-                    "type": 6,
-                    "flags": 0,
-                    "position": 11
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -63,8 +27,8 @@
                     "position": null
                 }
             ],
-            "count": 6,
-            "idx": 6
+            "count": 2,
+            "idx": 2
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -79,17 +43,15 @@
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\KillStatement",
-                "identifier": 1,
+                "identifier": null,
                 "IDKeywordUsed": false,
                 "parenthesisUsed": false,
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": {
-                        "2": "QUERY"
-                    }
+                    "options": []
                 },
                 "first": 0,
-                "last": 5
+                "last": 0
             }
         ],
         "brackets": 0,
@@ -98,6 +60,21 @@
     },
     "errors": {
         "lexer": [],
-        "parser": []
+        "parser": [
+            [
+                "Unexpected token.",
+                {
+                    "@type": "@3"
+                },
+                0
+            ],
+            [
+                "Unexpected end of the KILL statement.",
+                {
+                    "@type": "@3"
+                },
+                0
+            ]
+        ]
     }
 }
