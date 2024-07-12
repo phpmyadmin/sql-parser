@@ -46,9 +46,9 @@ class KillStatement extends Statement
     /**
      * Whether MariaDB ID keyword is used or not.
      *
-     * @psalm-var bool
+     * @var bool
      */
-    public $IDKeywordUsed = false;
+    public $idKeywordUsed = false;
 
     /**
      * Whether parenthesis used around the identifier or not
