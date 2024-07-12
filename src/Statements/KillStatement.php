@@ -105,7 +105,7 @@ class KillStatement extends Statement
                         $this->parenthesisUsed = true;
                         $state = 3;
                     } elseif ($prev && $token->value === 'ID' && $prev->value === 'QUERY') {
-                        $this->IDKeywordUsed = true;
+                        $this->idKeywordUsed = true;
                         $state = 0;
                     } else {
                         $parser->error('Unexpected token.', $token);
@@ -161,7 +161,7 @@ class KillStatement extends Statement
             $ret .= ' ' . OptionsArray::build($this->options);
         }
 
-        if ($this->IDKeywordUsed) {
+        if ($this->idKeywordUsed) {
             $ret .= ' ID';
         }
 
