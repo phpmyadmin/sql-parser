@@ -211,10 +211,6 @@ class Parser extends Core
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',
         ],
-        'KILL' => [
-            'class' => 'PhpMyAdmin\\SqlParser\\Components\\Expression',
-            'field' => 'processListId',
-        ],
         'LEFT JOIN' => [
             'class' => 'PhpMyAdmin\\SqlParser\\Components\\JoinKeyword',
             'field' => 'join',

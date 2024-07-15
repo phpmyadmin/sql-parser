@@ -1,10 +1,10 @@
 {
-    "query": "KILL CONNECTION 1",
+    "query": "KILL CONNECTION QUERY 1",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "KILL CONNECTION 1",
-        "len": 17,
-        "last": 17,
+        "str": "KILL CONNECTION QUERY 1",
+        "len": 23,
+        "last": 23,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -46,12 +46,30 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "QUERY",
+                    "value": "QUERY",
+                    "keyword": "QUERY",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 16
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 21
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
                     "type": 6,
                     "flags": 0,
-                    "position": 16
+                    "position": 22
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -63,8 +81,8 @@
                     "position": null
                 }
             ],
-            "count": 6,
-            "idx": 6
+            "count": 8,
+            "idx": 8
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -85,11 +103,12 @@
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
-                        "2": "CONNECTION"
+                        "2": "CONNECTION",
+                        "6": "QUERY"
                     }
                 },
                 "first": 0,
-                "last": 5
+                "last": 7
             }
         ],
         "brackets": 0,
@@ -98,6 +117,14 @@
     },
     "errors": {
         "lexer": [],
-        "parser": []
+        "parser": [
+            [
+                "This option conflicts with \"CONNECTION\".",
+                {
+                    "@type": "@6"
+                },
+                0
+            ]
+        ]
     }
 }
