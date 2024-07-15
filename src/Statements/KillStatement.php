@@ -53,7 +53,7 @@ class KillStatement extends Statement
     /**
      * Whether parenthesis used around the identifier or not
      *
-     * @psalm-var bool
+     * @var bool
      */
     public $parenthesisUsed = false;
 
