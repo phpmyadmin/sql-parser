@@ -182,6 +182,24 @@ class QueryTest extends TestCase
                 ],
             ],
             [
+                'SELECT count(*) FROM tbl',
+                [
+                    'is_count' => true,
+                    'is_select' => true,
+                    'select_from' => true,
+                    'querytype' => 'SELECT',
+                ],
+            ],
+            [
+                'SELECT sum(*) FROM tbl',
+                [
+                    'is_func' => true,
+                    'is_select' => true,
+                    'select_from' => true,
+                    'querytype' => 'SELECT',
+                ],
+            ],
+            [
                 'SELECT (SELECT "foo")',
                 [
                     'is_select' => true,
