@@ -2,7 +2,7 @@
 
 ## [6.0.x] - YYYY-MM-DD
 
-- Drop support for PHP 7.2, 7.3, 7.4 and 8.0
+- Drop support for PHP 7.2, 7.3, 7.4, 8.0 and 8.1
 - Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
 - Drop `USE_UTF_STRINGS` constant (#471)
 
