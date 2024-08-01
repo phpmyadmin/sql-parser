@@ -36,7 +36,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
           ini-values: memory_limit=-1
-          tools: composer:v2, infection
+          tools: composer:v2, infection:0.27.11
 
       - name: Get Composer cache directory
         id: composer-cache
