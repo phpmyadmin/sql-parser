@@ -25,6 +25,7 @@ class Token
     // Flags that describe the tokens in more detail.
     // All keywords must have flag 1 so `Context::isKeyword` method doesn't
     // require strict comparison.
+    public const FLAG_KEYWORD = 1;
     public const FLAG_KEYWORD_RESERVED = 2;
     public const FLAG_KEYWORD_COMPOSED = 4;
     public const FLAG_KEYWORD_DATA_TYPE = 8;
