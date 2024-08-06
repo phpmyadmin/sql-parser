@@ -64,6 +64,7 @@ class ContextGenerator
         'MySql80100' => 'https://dev.mysql.com/doc/refman/8.1/en/keywords.html',
         'MySql80200' => 'https://dev.mysql.com/doc/refman/8.2/en/keywords.html',
         'MySql80300' => 'https://dev.mysql.com/doc/refman/8.3/en/keywords.html',
+        'MySql80400' => 'https://dev.mysql.com/doc/refman/8.4/en/keywords.html',
         'MariaDb100000' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb100100' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb100200' => 'https://mariadb.com/kb/en/reserved-words/',
