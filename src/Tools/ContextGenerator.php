@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tools;
 
+use PhpMyAdmin\SqlParser\Token;
+
 use function array_map;
 use function array_merge;
 use function array_slice;
@@ -15,11 +17,9 @@ use function file_put_contents;
 use function implode;
 use function ksort;
 use function preg_match;
-use function round;
 use function scandir;
 use function sort;
 use function sprintf;
-use function str_repeat;
 use function str_replace;
 use function str_split;
 use function strlen;
@@ -43,10 +43,10 @@ class ContextGenerator
      * @var array<string, int>
      */
     public static $LABELS_FLAGS = [
-        '(R)' => 2, // reserved
-        '(D)' => 8, // data type
-        '(K)' => 16, // keyword
-        '(F)' => 32, // function name
+        '(R)' => Token::FLAG_KEYWORD_RESERVED,
+        '(D)' => Token::FLAG_KEYWORD_DATA_TYPE,
+        '(K)' => Token::FLAG_KEYWORD_KEY,
+        '(F)' => Token::FLAG_KEYWORD_FUNCTION,
     ];
 
     /**
@@ -84,6 +84,20 @@ class ContextGenerator
     ];
 
     /**
+     * Reversed const <=> int from {@see Token} class to write the constant name instead of its value.
+     *
+     * @var array<int, string>
+     */
+    private static $typesNumToConst = [
+        1 => 'Token::FLAG_KEYWORD',
+        2 => 'Token::FLAG_KEYWORD_RESERVED',
+        4 => 'Token::FLAG_KEYWORD_COMPOSED',
+        8 => 'Token::FLAG_KEYWORD_DATA_TYPE',
+        16 => 'Token::FLAG_KEYWORD_KEY',
+        32 => 'Token::FLAG_KEYWORD_FUNCTION',
+    ];
+
+    /**
      * The template of a context.
      *
      * Parameters:
@@ -117,9 +131,7 @@ class %2$s extends Context
      *
      * The value associated to each keyword represents its flags.
      *
-     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED
-     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
-     *      Token::FLAG_KEYWORD_FUNCTION
+     * @see Token
      *
      * @var array<string,int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
@@ -140,12 +152,9 @@ PHP;
     public static function sortWords(array &$arr)
     {
         ksort($arr);
-        foreach ($arr as &$wordsByLen) {
-            ksort($wordsByLen);
-            foreach ($wordsByLen as &$words) {
-                sort($words, SORT_STRING);
-            }
-        }
+        foreach ($arr as &$words) {
+            sort($words, SORT_STRING);
+        } unset($words);
 
         return $arr;
     }
@@ -159,17 +168,23 @@ PHP;
      */
     public static function readWords(array $files)
     {
-        $words = [];
-        foreach ($files as $file) {
-            $words = array_merge($words, file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
-        }
+        $wordsByFile = array_map(
+            static function (string $file): array {
+                return file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+            },
+            $files
+        );
+        $words = array_merge(...$wordsByFile);
 
         /** @var array<string, int> $types */
         $types = [];
 
         for ($i = 0, $count = count($words); $i !== $count; ++$i) {
-            $type = 1;
             $value = trim($words[$i]);
+            if ($value === '') {
+                continue;
+            }
+            $type = Token::FLAG_KEYWORD;
 
             // Reserved, data types, keys, functions, etc. keywords.
             foreach (static::$LABELS_FLAGS as $label => $flags) {
@@ -183,13 +198,8 @@ PHP;
 
             // Composed keyword.
             if (strstr($value, ' ') !== false) {
-                $type |= 2; // Reserved keyword.
-                $type |= 4; // Composed keyword.
-            }
-
-            $len = strlen($words[$i]);
-            if ($len === 0) {
-                continue;
+                $type |= Token::FLAG_KEYWORD_RESERVED;
+                $type |= Token::FLAG_KEYWORD_COMPOSED;
             }
 
             $value = strtoupper($value);
@@ -200,18 +210,10 @@ PHP;
             }
         }
 
+        // Prepare an array in a way to sort by type, then by word.
         $ret = [];
         foreach ($types as $word => $type) {
-            $len = strlen($word);
-            if (! isset($ret[$type])) {
-                $ret[$type] = [];
-            }
-
-            if (! isset($ret[$type][$len])) {
-                $ret[$type][$len] = [];
-            }
-
-            $ret[$type][$len][] = $word;
+            $ret[$type][] = $word;
         }
 
         return static::sortWords($ret);
@@ -220,53 +222,34 @@ PHP;
     /**
      * Prints an array of a words in PHP format.
      *
-     * @param array<int, array<int, array<int, string>>> $words  the list of words to be formatted
-     * @param int                                        $spaces the number of spaces that starts every line
-     * @param int                                        $line   the length of a line
-     *
-     * @return string
+     * @param array<int, list<string>> $words  the list of words to be formatted
      */
-    public static function printWords($words, $spaces = 8, $line = 140)
+    public static function printWords(array $words): string
     {
-        $typesCount = count($words);
         $ret = '';
-        $j = 0;
-
         foreach ($words as $type => $wordsByType) {
-            foreach ($wordsByType as $len => $wordsByLen) {
-                $count = round(($line - $spaces) / ($len + 9)); // strlen("'' => 1, ") = 9
-                $i = 0;
-
-                foreach ($wordsByLen as $word) {
-                    if ($i === 0) {
-                        $ret .= str_repeat(' ', $spaces);
-                    }
-
-                    $ret .= sprintf('\'%s\' => %s, ', $word, $type);
-                    if (++$i !== $count && ++$i <= $count) {
-                        continue;
-                    }
-
-                    $ret .= "\n";
-                    $i = 0;
-                }
-
-                if ($i === 0) {
-                    continue;
-                }
-
-                $ret .= "\n";
+            foreach ($wordsByType as $word) {
+                $ret .= sprintf("        '%s' => %s,\n", $word, self::numTypeToConst($type));
             }
-
-            if (++$j >= $typesCount) {
-                continue;
-            }
-
-            $ret .= "\n";
         }
+        return $ret;
+    }
 
-        // Trim trailing spaces and return.
-        return str_replace(" \n", "\n", $ret);
+    /**
+     * Convert a numeric value representing a set of const to a textual const value.
+     *
+     * @param int $type The numeric value.
+     * @return string The text to write considering the given numeric value.
+     */
+    private static function numTypeToConst(int $type): string
+    {
+        $matchingFlags = [];
+        foreach (self::$typesNumToConst as $num => $value) {
+            if ($type & $num) {
+                $matchingFlags[] = $value;
+            }
+        }
+        return implode(' | ', $matchingFlags);
     }
 
     /**
