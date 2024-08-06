@@ -1058,7 +1058,7 @@
       <code><![CDATA[$version[count($version) - 1]]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[static fn (int $num): bool => ($type & $num) === 1]]></code>
+      <code><![CDATA[static fn (int $num): bool => ($type & $num) !== 0]]></code>
     </MixedArgumentTypeCoercion>
   </file>
   <file src="src/Tools/CustomJsonSerializer.php">
