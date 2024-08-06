@@ -1,6 +1,6 @@
 # Context files
 
-This files are used to generate `src/Contexts/*.php` files.
+These files are used to generate `src/Contexts/*.php` files.
 You need to run `./tools/run_generators.sh` to generate/update them.
 The file `src/Tools/ContextGenerator.php` is responsible for building them.
 And the generated files are loaded and used by `src/Context.php`.
@@ -18,7 +18,7 @@ For example: `tests/data/parser/parseSelectOverAlias_mariadb_100600.in`.
 ## Files structure
 
 The file `tools/contexts/_common.txt` contains all the data
-that exists in all of the MariaDB and MySQL versions currently supported.
+that exists in all the MariaDB and MySQL versions currently supported.
 
 Each `tools/contexts/_functions[MariaDb|MySql]<versionint>.txt` contains the functions supported in this version.
 
