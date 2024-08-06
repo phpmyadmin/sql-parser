@@ -22,9 +22,7 @@ class ContextMySql80000 extends Context
      *
      * The value associated to each keyword represents its flags.
      *
-     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED
-     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
-     *      Token::FLAG_KEYWORD_FUNCTION
+     * @see Token
      *
      * @var array<string,int>
      * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>

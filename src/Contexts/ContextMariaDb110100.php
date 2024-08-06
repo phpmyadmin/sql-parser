@@ -22,9 +22,7 @@ class ContextMariaDb110100 extends Context
      *
      * The value associated to each keyword represents its flags.
      *
-     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED
-     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
-     *      Token::FLAG_KEYWORD_FUNCTION
+     * @see Token
      *
      * @var array<string,int>
      * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
@@ -216,7 +214,6 @@ class ContextMariaDb110100 extends Context
         'NO_WAIT' => Token::FLAG_KEYWORD,
         'NUMBER' => Token::FLAG_KEYWORD,
         'NVARCHAR' => Token::FLAG_KEYWORD,
-        'OFFSET' => Token::FLAG_KEYWORD,
         'ONE' => Token::FLAG_KEYWORD,
         'ONLY' => Token::FLAG_KEYWORD,
         'OPEN' => Token::FLAG_KEYWORD,
@@ -468,6 +465,7 @@ class ContextMariaDb110100 extends Context
         'NOT' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'NO_WRITE_TO_BINLOG' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'NULL' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
+        'OFFSET' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'ON' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'OPTIMIZE' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'OPTIMIZER_COSTS' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
@@ -500,6 +498,7 @@ class ContextMariaDb110100 extends Context
         'REVOKE' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'RLIKE' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'ROWS' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
+        'ROW_NUMBER' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'SCHEMAS' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'SECOND_MICROSECOND' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
         'SELECT' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
