@@ -27,11 +27,11 @@ class ContextGeneratorTest extends TestCase
 
     public function testSortWords(): void
     {
-        $wordsArray = ['41' => [['GEOMETRYCOLLECTION', 'DATE']], '35' => [['SCHEMA', 'REPEAT', 'VALUES']]];
+        $wordsArray = ['41' => ['GEOMETRYCOLLECTION', 'DATE'], '35' => ['SCHEMA', 'REPEAT', 'VALUES']];
         ContextGenerator::sortWords($wordsArray);
         $this->assertEquals([
-            '41' => ['0' => ['DATE', 'GEOMETRYCOLLECTION']],
-            '35' => ['0' => ['REPEAT', 'SCHEMA', 'VALUES']],
+            '41' => ['DATE', 'GEOMETRYCOLLECTION'],
+            '35' => ['REPEAT', 'SCHEMA', 'VALUES'],
         ], $wordsArray);
     }
 
@@ -41,14 +41,17 @@ class ContextGeneratorTest extends TestCase
         $readWords = ContextGenerator::readWords($testFiles);
         $this->assertEquals([
             Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [
-                8 => ['RESERVED'],
-                9 => ['RESERVED2','RESERVED3','RESERVED4','RESERVED5'],
+                'RESERVED',
+                'RESERVED2',
+                'RESERVED3',
+                'RESERVED4',
+                'RESERVED5',
             ],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION => [8 => ['FUNCTION']],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE => [8 => ['DATATYPE']],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_KEY => [7 => ['KEYWORD']],
-            Token::TYPE_KEYWORD => [7 => ['NO_FLAG']],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED | 4 => [16 => ['COMPOSED KEYWORD']],
+            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION => ['FUNCTION'],
+            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE => ['DATATYPE'],
+            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_KEY => ['KEYWORD'],
+            Token::TYPE_KEYWORD => ['NO_FLAG'],
+            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED => ['COMPOSED KEYWORD'],
         ], $readWords);
     }
 

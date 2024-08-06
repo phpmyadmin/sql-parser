@@ -22,25 +22,21 @@ class TestContext extends Context
      *
      * The value associated to each keyword represents its flags.
      *
-     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED
-     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
-     *      Token::FLAG_KEYWORD_FUNCTION
+     * @see Token
      *
      * @var array<string,int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
     public static $KEYWORDS = [
-        'NO_FLAG' => 1,
-
-        'RESERVED' => 3,
-        'RESERVED2' => 3, 'RESERVED3' => 3, 'RESERVED4' => 3, 'RESERVED5' => 3,
-
-        'COMPOSED KEYWORD' => 7,
-
-        'DATATYPE' => 9,
-
-        'KEYWORD' => 17,
-
-        'FUNCTION' => 33,
+        'NO_FLAG' => Token::FLAG_KEYWORD,
+        'RESERVED' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
+        'RESERVED2' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
+        'RESERVED3' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
+        'RESERVED4' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
+        'RESERVED5' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED,
+        'COMPOSED KEYWORD' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
+        'DATATYPE' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE,
+        'KEYWORD' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_KEY,
+        'FUNCTION' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
     ];
 }
