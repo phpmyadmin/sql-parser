@@ -13,9 +13,11 @@ use function array_slice;
 use function basename;
 use function count;
 use function dirname;
+use function end;
 use function file;
 use function file_put_contents;
 use function implode;
+use function intval;
 use function ksort;
 use function preg_match;
 use function scandir;
@@ -30,8 +32,6 @@ use function substr;
 use function trim;
 
 use const ARRAY_FILTER_USE_KEY;
-use const FILE_IGNORE_NEW_LINES;
-use const FILE_SKIP_EMPTY_LINES;
 use const SORT_STRING;
 
 /**
@@ -172,12 +172,8 @@ PHP;
      */
     public static function readWords(array $files): array
     {
-        $wordsByFile = array_map(
-            static fn (string $file): array => file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES),
-            $files,
-        );
         /** @psalm-var list<string> $words */
-        $words = array_merge(...$wordsByFile);
+        $words = array_merge(...array_map(file(...), $files));
 
         /** @var array<string, int> $types */
         $types = [];
@@ -285,7 +281,7 @@ PHP;
     {
         /* Split name and version */
         $parts = [];
-        if (preg_match('/([^[0-9]*)([0-9]*)/', $name, $parts) === false) {
+        if (preg_match('/^(\D+)(\d+)$/', $name, $parts) === 0) {
             return $name;
         }
 
@@ -303,10 +299,10 @@ PHP;
             $versionString = '0' . $versionString;
         }
 
-        $version = array_map('intval', str_split($versionString, 2));
+        $version = array_map(intval(...), str_split($versionString, 2));
         /* Remove trailing zero */
-        if ($version[count($version) - 1] === 0) {
-            $version = array_slice($version, 0, count($version) - 1);
+        if (end($version) === 0) {
+            $version = array_slice($version, 0, -1);
         }
 
         /* Create name */

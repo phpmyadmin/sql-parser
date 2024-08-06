@@ -1054,12 +1054,12 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Tools/ContextGenerator.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$version[count($version) - 1]]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[static fn (int $num): bool => ($type & $num) !== 0]]></code>
     </MixedArgumentTypeCoercion>
+    <PossiblyFalseArgument>
+      <code><![CDATA[array_map(file(...), $files)]]></code>
+    </PossiblyFalseArgument>
   </file>
   <file src="src/Tools/CustomJsonSerializer.php">
     <MixedAssignment>
