@@ -25,10 +25,9 @@ class ContextMySql80400 extends Context
      * @see Token
      *
      * @var array<string,int>
-     * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
-    public static array $keywords = [
+    public static $KEYWORDS = [
         'ACCOUNT' => Token::FLAG_KEYWORD,
         'ACTION' => Token::FLAG_KEYWORD,
         'AFTER' => Token::FLAG_KEYWORD,
@@ -552,7 +551,6 @@ class ContextMySql80400 extends Context
         'IF NOT EXISTS' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
         'INDEX DIRECTORY' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
         'INNER JOIN' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
-        'LANGUAGE SQL' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
         'LEFT JOIN' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
         'LEFT OUTER JOIN' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
         'LESS THAN' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED,
