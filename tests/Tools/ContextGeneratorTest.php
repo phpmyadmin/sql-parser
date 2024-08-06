@@ -40,18 +40,18 @@ class ContextGeneratorTest extends TestCase
         $testFiles = [getcwd() . '/tests/Tools/contexts/testContext.txt'];
         $readWords = ContextGenerator::readWords($testFiles);
         $this->assertEquals([
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [
                 'RESERVED',
                 'RESERVED2',
                 'RESERVED3',
                 'RESERVED4',
                 'RESERVED5',
             ],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_FUNCTION => ['FUNCTION'],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE => ['DATATYPE'],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_KEY => ['KEYWORD'],
-            Token::TYPE_KEYWORD => ['NO_FLAG'],
-            Token::TYPE_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED => ['COMPOSED KEYWORD'],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION => ['FUNCTION'],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE => ['DATATYPE'],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_KEY => ['KEYWORD'],
+            Token::FLAG_KEYWORD => ['NO_FLAG'],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED => ['COMPOSED KEYWORD'],
         ], $readWords);
     }
 
