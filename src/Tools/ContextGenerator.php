@@ -13,7 +13,7 @@ use function array_slice;
 use function basename;
 use function count;
 use function dirname;
-use function end;
+use function file;
 use function file_put_contents;
 use function implode;
 use function ksort;
@@ -171,8 +171,8 @@ PHP;
     {
         /** @psalm-var list<string> $words */
         $words = [];
-        foreach (array_map('file', $files) as $wordsByFile) {
-            $words = array_merge($words, $wordsByFile);
+        foreach ($files as $file) {
+            $words = array_merge($words, file($file));
         }
 
         /** @var array<string, int> $types */
@@ -229,21 +229,14 @@ PHP;
         $ret = '';
         foreach ($words as $type => $wordsByType) {
             foreach ($wordsByType as $word) {
-                $ret .= sprintf("        '%s' => %s,\n", $word, self::numTypeToConst($type));
+                $ret .= sprintf("        '%s' => %s,\n", $word, self::translateIntTypeToTextConstant($type));
             }
         }
 
         return $ret;
     }
 
-    /**
-     * Convert a numeric value representing a set of const to a textual const value.
-     *
-     * @param int $type The numeric value.
-     *
-     * @return string The text to write considering the given numeric value.
-     */
-    private static function numTypeToConst(int $type): string
+    private static function translateIntTypeToTextConstant(int $type): string
     {
         $matchingFlags = array_filter(
             self::$typesNumToConst,
@@ -310,7 +303,7 @@ PHP;
 
         $version = array_map('intval', str_split($versionString, 2));
         /* Remove trailing zero */
-        if (end($version) === 0) {
+        if ($version[count($version) - 1] === 0) {
             $version = array_slice($version, 0, -1);
         }
 
