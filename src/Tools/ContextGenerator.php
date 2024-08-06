@@ -170,7 +170,10 @@ PHP;
     public static function readWords(array $files)
     {
         /** @psalm-var list<string> $words */
-        $words = array_merge(...array_map('\\file', $files));
+        $words = [];
+        foreach (array_map('file', $files) as $wordsByFile) {
+            $words = array_merge($words, $wordsByFile);
+        }
 
         /** @var array<string, int> $types */
         $types = [];
@@ -305,7 +308,7 @@ PHP;
             $versionString = '0' . $versionString;
         }
 
-        $version = array_map('\\intval', str_split($versionString, 2));
+        $version = array_map('intval', str_split($versionString, 2));
         /* Remove trailing zero */
         if (end($version) === 0) {
             $version = array_slice($version, 0, -1);

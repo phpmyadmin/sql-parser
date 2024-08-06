@@ -656,9 +656,6 @@
   <file src="src/Contexts/ContextMySql80300.php">
     <PropertyTypeCoercion occurrences="1"/>
   </file>
-  <file src="src/Contexts/ContextMySql80400.php">
-    <PropertyTypeCoercion occurrences="1"/>
-  </file>
   <file src="src/Lexer.php">
     <LoopInvalidation occurrences="3">
       <code>$this-&gt;last</code>
@@ -1162,15 +1159,6 @@
     <RedundantConditionGivenDocblockType occurrences="1">
       <code>is_array($list)</code>
     </RedundantConditionGivenDocblockType>
-  </file>
-  <file src="src/Tools/ContextGenerator.php">
-    <PossiblyNullArgument occurrences="1">
-      <code>$options['keywords']</code>
-    </PossiblyNullArgument>
-    <RedundantCondition occurrences="2">
-      <code>++$i !== $count</code>
-      <code>++$i !== $count</code>
-    </RedundantCondition>
   </file>
   <file src="src/Tools/CustomJsonSerializer.php">
     <MixedAssignment occurrences="2">
