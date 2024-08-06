@@ -13,7 +13,7 @@ use function array_slice;
 use function basename;
 use function count;
 use function dirname;
-use function file;
+use function end;
 use function file_put_contents;
 use function implode;
 use function ksort;
@@ -169,14 +169,8 @@ PHP;
      */
     public static function readWords(array $files)
     {
-        $wordsByFile = array_map(
-            static function (string $file): array {
-                return file($file);
-            },
-            $files
-        );
         /** @psalm-var list<string> $words */
-        $words = array_merge(...$wordsByFile);
+        $words = array_merge(...array_map('\\file', $files));
 
         /** @var array<string, int> $types */
         $types = [];
@@ -290,7 +284,7 @@ PHP;
     {
         /* Split name and version */
         $parts = [];
-        if (preg_match('/([^[0-9]*)([0-9]*)/', $name, $parts) === false) {
+        if (preg_match('/^(\D+)(\d+)$/', $name, $parts) === 0) {
             return $name;
         }
 
@@ -311,10 +305,10 @@ PHP;
             $versionString = '0' . $versionString;
         }
 
-        $version = array_map('intval', str_split($versionString, 2));
+        $version = array_map('\\intval', str_split($versionString, 2));
         /* Remove trailing zero */
-        if ($version[count($version) - 1] === 0) {
-            $version = array_slice($version, 0, count($version) - 1);
+        if (end($version) === 0) {
+            $version = array_slice($version, 0, -1);
         }
 
         /* Create name */

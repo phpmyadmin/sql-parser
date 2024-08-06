@@ -15,6 +15,9 @@ class ContextGeneratorTest extends TestCase
 {
     public function testFormatName(): void
     {
+        $name = ContextGenerator::formatName('00InvalidFormat00');
+        $this->assertEquals('00InvalidFormat00', $name);
+
         $name = ContextGenerator::formatName('MySql80000');
         $this->assertEquals('MySQL 8.0', $name);
 
@@ -23,6 +26,9 @@ class ContextGeneratorTest extends TestCase
 
         $name = ContextGenerator::formatName('MariaDb100000');
         $this->assertEquals('MariaDB 10.0', $name);
+
+        $name = ContextGenerator::formatName('FutureDBMS45784012500');
+        $this->assertEquals('FutureDBMS 4.57.84.1.25', $name);
     }
 
     public function testSortWords(): void
