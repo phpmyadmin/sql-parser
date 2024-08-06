@@ -251,7 +251,7 @@ PHP;
     {
         $matchingFlags = array_filter(
             self::$typesNumToConst,
-            static fn (int $num): bool => ($type & $num) === 1,
+            static fn (int $num): bool => ($type & $num) !== 0,
             ARRAY_FILTER_USE_KEY,
         );
 
