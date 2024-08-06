@@ -15,6 +15,10 @@
 
     <rule ref="PhpMyAdmin"/>
 
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <exclude-pattern>src/Contexts/*</exclude-pattern>
+    </rule>
+
     <rule ref="SlevomatCodingStandard.ControlStructures.RequireSingleLineCondition"/>
     <rule ref="SlevomatCodingStandard.Functions.RequireSingleLineCall"/>
     <rule ref="SlevomatCodingStandard.Whitespaces.DuplicateSpaces">

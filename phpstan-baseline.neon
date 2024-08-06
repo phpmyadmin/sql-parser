@@ -746,12 +746,7 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
-			message: "#^Offset 'keywords' on array\\{name\\: string, class\\: string, link\\: string, keywords\\: array\\<int, array\\<int, array\\<int, string\\>\\>\\>\\} in isset\\(\\) always exists and is not nullable\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, array\\<int, string\\>\\|false given\\.$#"
+			message: "#^Anonymous function should return array but returns array<int, string>\\|false\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 

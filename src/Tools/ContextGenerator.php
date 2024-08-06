@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tools;
 
 use PhpMyAdmin\SqlParser\Token;
 
+use function array_filter;
 use function array_map;
 use function array_merge;
 use function array_slice;
@@ -28,6 +29,7 @@ use function strtoupper;
 use function substr;
 use function trim;
 
+use const ARRAY_FILTER_USE_KEY;
 use const FILE_IGNORE_NEW_LINES;
 use const FILE_SKIP_EMPTY_LINES;
 use const SORT_STRING;
@@ -147,16 +149,16 @@ PHP;
     /**
      * Sorts an array of words.
      *
-     * @param array<int, array<int, array<int, string>>> $arr
+     * @param array<int, list<string>> $arr
      *
-     * @return array<int, array<int, array<int, string>>>
+     * @return array<int, list<string>>
      */
     public static function sortWords(array &$arr): array
     {
         ksort($arr);
         foreach ($arr as &$words) {
             sort($words, SORT_STRING);
-        } unset($words);
+        }
 
         return $arr;
     }
@@ -164,16 +166,17 @@ PHP;
     /**
      * Reads a list of words and sorts it by type, length and keyword.
      *
-     * @param string[] $files
+     * @param list<string> $files
      *
-     * @return array<int, array<int, array<int, string>>>
+     * @return array<int, list<string>>
      */
     public static function readWords(array $files): array
     {
         $wordsByFile = array_map(
-            static fn(string $file): array => file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES),
+            static fn (string $file): array => file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES),
             $files,
         );
+        /** @psalm-var list<string> $words */
         $words = array_merge(...$wordsByFile);
 
         /** @var array<string, int> $types */
@@ -184,6 +187,7 @@ PHP;
             if ($value === '') {
                 continue;
             }
+
             $type = Token::FLAG_KEYWORD;
 
             // Reserved, data types, keys, functions, etc. keywords.
@@ -222,7 +226,7 @@ PHP;
     /**
      * Prints an array of a words in PHP format.
      *
-     * @param array<int, list<string>> $words  the list of words to be formatted
+     * @param array<int, list<string>> $words the list of words to be formatted
      */
     public static function printWords(array $words): string
     {
@@ -232,6 +236,7 @@ PHP;
                 $ret .= sprintf("        '%s' => %s,\n", $word, self::numTypeToConst($type));
             }
         }
+
         return $ret;
     }
 
@@ -239,35 +244,34 @@ PHP;
      * Convert a numeric value representing a set of const to a textual const value.
      *
      * @param int $type The numeric value.
+     *
      * @return string The text to write considering the given numeric value.
      */
     private static function numTypeToConst(int $type): string
     {
-        $matchingFlags = [];
-        foreach (self::$typesNumToConst as $num => $value) {
-            if ($type & $num) {
-                $matchingFlags[] = $value;
-            }
-        }
+        $matchingFlags = array_filter(
+            self::$typesNumToConst,
+            static fn (int $num): bool => ($type & $num) === 1,
+            ARRAY_FILTER_USE_KEY,
+        );
+
         return implode(' | ', $matchingFlags);
     }
 
     /**
      * Generates a context's class.
      *
-     * @param array<string, string|array<int, array<int, array<int, string>>>> $options the options for this context
+     * @param array<string, string|array<int, list<string>>> $options the options for this context
      * @psalm-param array{
      *   name: string,
      *   class: string,
      *   link: string,
-     *   keywords: array<int, array<int, array<int, string>>>
+     *   keywords: array<int, list<string>>
      * } $options
      */
     public static function generate(array $options): string
     {
-        if (isset($options['keywords'])) {
-            $options['keywords'] = static::printWords($options['keywords']);
-        }
+        $options['keywords'] = static::printWords($options['keywords']);
 
         return sprintf(self::TEMPLATE, $options['name'], $options['class'], $options['link'], $options['keywords']);
     }

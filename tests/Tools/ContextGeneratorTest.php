@@ -28,11 +28,11 @@ class ContextGeneratorTest extends TestCase
 
     public function testSortWords(): void
     {
-        $wordsArray = ['41' => [['GEOMETRYCOLLECTION', 'DATE']], '35' => [['SCHEMA', 'REPEAT', 'VALUES']]];
+        $wordsArray = ['41' => ['GEOMETRYCOLLECTION', 'DATE'], '35' => ['SCHEMA', 'REPEAT', 'VALUES']];
         ContextGenerator::sortWords($wordsArray);
         $this->assertEquals([
-            '41' => ['0' => ['DATE', 'GEOMETRYCOLLECTION']],
-            '35' => ['0' => ['REPEAT', 'SCHEMA', 'VALUES']],
+            '41' => ['DATE', 'GEOMETRYCOLLECTION'],
+            '35' => ['REPEAT', 'SCHEMA', 'VALUES'],
         ], $wordsArray);
     }
 
@@ -42,14 +42,17 @@ class ContextGeneratorTest extends TestCase
         $readWords = ContextGenerator::readWords($testFiles);
         $this->assertEquals([
             TokenType::Keyword->value | Token::FLAG_KEYWORD_RESERVED => [
-                8 => ['RESERVED'],
-                9 => ['RESERVED2','RESERVED3','RESERVED4','RESERVED5'],
+                'RESERVED',
+                'RESERVED2',
+                'RESERVED3',
+                'RESERVED4',
+                'RESERVED5',
             ],
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_FUNCTION => [8 => ['FUNCTION']],
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_DATA_TYPE => [8 => ['DATATYPE']],
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_KEY => [7 => ['KEYWORD']],
-            TokenType::Keyword->value => [7 => ['NO_FLAG']],
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_RESERVED | 4 => [16 => ['COMPOSED KEYWORD']],
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_FUNCTION => ['FUNCTION'],
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_DATA_TYPE => ['DATATYPE'],
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_KEY => ['KEYWORD'],
+            TokenType::Keyword->value => ['NO_FLAG'],
+            TokenType::Keyword->value | Token::FLAG_KEYWORD_RESERVED | 4 => ['COMPOSED KEYWORD'],
         ], $readWords);
     }
 
