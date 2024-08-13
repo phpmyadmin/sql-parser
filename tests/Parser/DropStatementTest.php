@@ -19,7 +19,7 @@ class DropStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function dropProvider(): array
+    public static function dropProvider(): array
     {
         return [
             ['parser/parseDrop'],

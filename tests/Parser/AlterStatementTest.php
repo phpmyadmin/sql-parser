@@ -19,7 +19,7 @@ class AlterStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function alterProvider(): array
+    public static function alterProvider(): array
     {
         return [
             ['parser/parseAlter'],

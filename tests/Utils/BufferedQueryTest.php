@@ -63,7 +63,7 @@ class BufferedQueryTest extends TestCase
      * @return array<int, array<int, int|string|string[]|bool[]>>
      * @psalm-return list<array{string, positive-int, array{parse_delimiter: bool, add_delimiter: bool}, string[]}>
      */
-    public function extractProvider(): array
+    public static function extractProvider(): array
     {
         $query =
             '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;' . "\n" .

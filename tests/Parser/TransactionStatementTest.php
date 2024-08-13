@@ -31,7 +31,7 @@ class TransactionStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function transactionProvider(): array
+    public static function transactionProvider(): array
     {
         return [
             ['parser/parseTransaction'],

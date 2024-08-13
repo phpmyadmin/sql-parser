@@ -66,7 +66,7 @@ class FormatterTest extends TestCase
      *     expected: list<array{type: int, flags: int, html: string, cli: string, function?: string}>
      * }>
      */
-    public function mergeFormatsProvider(): array
+    public static function mergeFormatsProvider(): array
     {
         // [default[], overriding[], expected[]]
         return [
@@ -282,7 +282,7 @@ class FormatterTest extends TestCase
      *     options?: array<string, bool>
      * }>
      */
-    public function formatQueriesProviders(): array
+    public static function formatQueriesProviders(): array
     {
         return [
             'empty' => [

@@ -19,7 +19,7 @@ class UpdateStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function updateProvider(): array
+    public static function updateProvider(): array
     {
         return [
             ['parser/parseUpdate1'],
