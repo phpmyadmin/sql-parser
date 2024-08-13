@@ -19,7 +19,7 @@ class ParameterTest extends TestCase
     /**
      * @return string[][]
      */
-    public function parameterProvider(): array
+    public static function parameterProvider(): array
     {
         return [
             ['misc/parseParameter'],

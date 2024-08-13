@@ -19,7 +19,7 @@ class SetStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function setProvider(): array
+    public static function setProvider(): array
     {
         return [
             ['parser/parseSetCharset'],

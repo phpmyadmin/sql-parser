@@ -34,7 +34,7 @@ class MiscTest extends TestCase
      *   tables: array<string, array{alias: (string|null), columns: array<string, string>}>
      * }>}>
      */
-    public function getAliasesProvider(): array
+    public static function getAliasesProvider(): array
     {
         return [
             [

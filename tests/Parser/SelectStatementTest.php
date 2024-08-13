@@ -28,7 +28,7 @@ class SelectStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function selectProvider(): array
+    public static function selectProvider(): array
     {
         return [
             ['parser/parseSelect2'],

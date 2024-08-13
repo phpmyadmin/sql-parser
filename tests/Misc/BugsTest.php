@@ -19,7 +19,7 @@ class BugsTest extends TestCase
     /**
      * @return string[][]
      */
-    public function bugProvider(): array
+    public static function bugProvider(): array
     {
         return [
             ['bugs/fuzz1'],

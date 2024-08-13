@@ -19,7 +19,7 @@ class ExplainStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function explainProvider(): array
+    public static function explainProvider(): array
     {
         return [
             ['parser/parseExplain'],

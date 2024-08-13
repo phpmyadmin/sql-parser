@@ -31,7 +31,7 @@ class QueryTest extends TestCase
      * @return array<int, array<int, string|array<string, bool|string>>>
      * @psalm-return list<array{non-empty-string, QueryFlagsType}>
      */
-    public function getFlagsProvider(): array
+    public static function getFlagsProvider(): array
     {
         return [
             [
@@ -416,7 +416,7 @@ class QueryTest extends TestCase
      * @return array<int, array<int, string|string[]>>
      * @psalm-return list<array{string, string[]}>
      */
-    public function getTablesProvider(): array
+    public static function getTablesProvider(): array
     {
         return [
             [

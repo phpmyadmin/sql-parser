@@ -98,7 +98,7 @@ class UtfStringTest extends TestCase
      * @return array<string, array<int, string|null>>
      * @psalm-return array<string, array{string, (string|null), (string|null)}>
      */
-    public function utf8StringsProvider(): array
+    public static function utf8StringsProvider(): array
     {
         return [
             'ascii' => [

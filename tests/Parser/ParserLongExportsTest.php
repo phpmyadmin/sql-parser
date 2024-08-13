@@ -111,7 +111,7 @@ SQL;
     /**
      * @return string[][]
      */
-    public function exportFileProvider(): array
+    public static function exportFileProvider(): array
     {
         return [
             ['parser/parsephpMyAdminExport1'],

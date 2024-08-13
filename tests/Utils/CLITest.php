@@ -67,7 +67,7 @@ class CLITest extends TestCase
      * @return array<int, array<int, int|string|array<string, bool|string>|false>>
      * @psalm-return list<array{(array<string, bool|string>|false), string, int}>
      */
-    public function highlightParamsProvider(): array
+    public static function highlightParamsProvider(): array
     {
         return [
             [
@@ -142,7 +142,7 @@ class CLITest extends TestCase
      * @return array<int, array<int, int|string|array<string, bool|string>|false>>
      * @psalm-return list<array{string, (array<string, bool|string>|false), string, int}>
      */
-    public function highlightParamsStdInProvider(): array
+    public static function highlightParamsStdInProvider(): array
     {
         return [
             [
@@ -210,7 +210,7 @@ class CLITest extends TestCase
      * @return array<int, array<int, int|string|array<string, bool|string>|false>>
      * @psalm-return list<array{string, (array<string, bool|string>|false), string, int}>
      */
-    public function lintParamsStdInProvider(): array
+    public static function lintParamsStdInProvider(): array
     {
         return [
             [
@@ -275,7 +275,7 @@ class CLITest extends TestCase
      * @return array<int, array<int, int|string|array<string, bool|string>|false>>
      * @psalm-return list<array{(array<string, bool|string>|false), string, int}>
      */
-    public function lintParamsProvider(): array
+    public static function lintParamsProvider(): array
     {
         return [
             [
@@ -342,7 +342,7 @@ class CLITest extends TestCase
      * @return array<int, array<int, int|string|array<string, bool|string>|false>>
      * @psalm-return list<array{(array<string, bool|string>|false), string, int}>
      */
-    public function tokenizeParamsProvider(): array
+    public static function tokenizeParamsProvider(): array
     {
         $result = "[TOKEN 0]\nType = 1\nFlags = 3\nValue = 'SELECT'\nToken = 'SELECT'\n\n"
             . "[TOKEN 1]\nType = 3\nFlags = 0\nValue = ' '\nToken = ' '\n\n"
@@ -397,7 +397,7 @@ class CLITest extends TestCase
      * @return array<int, array<int, int|string|array<string, bool|string>|false>>
      * @psalm-return list<array{string, (array<string, bool|string>|false), string, int}>
      */
-    public function tokenizeParamsStdInProvider(): array
+    public static function tokenizeParamsStdInProvider(): array
     {
         $result = "[TOKEN 0]\nType = 1\nFlags = 3\nValue = 'SELECT'\nToken = 'SELECT'\n\n"
             . "[TOKEN 1]\nType = 3\nFlags = 0\nValue = ' '\nToken = ' '\n\n"
@@ -448,7 +448,7 @@ class CLITest extends TestCase
      * @return array<int, array<int, int|string>>
      * @psalm-return list<array{string, int}>
      */
-    public function stdinParamsProvider(): array
+    public static function stdinParamsProvider(): array
     {
         $binPath = PHP_BINARY . ' ' . dirname(__DIR__, 2) . '/bin/';
 

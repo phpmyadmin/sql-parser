@@ -19,7 +19,7 @@ class InsertStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function insertProvider(): array
+    public static function insertProvider(): array
     {
         return [
             ['parser/parseInsert'],

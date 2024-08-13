@@ -42,7 +42,7 @@ class TableTest extends TestCase
      *   on_delete?: string
      * }>}>
      */
-    public function getForeignKeysProvider(): array
+    public static function getForeignKeysProvider(): array
     {
         return [
             [
@@ -166,7 +166,7 @@ class TableTest extends TestCase
      *   expr?: string
      * }>}>
      */
-    public function getFieldsProvider(): array
+    public static function getFieldsProvider(): array
     {
         return [
             [
