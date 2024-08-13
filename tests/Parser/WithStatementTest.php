@@ -23,7 +23,7 @@ class WithStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function parseWith(): array
+    public static function parseWith(): array
     {
         return [
             ['parser/parseWithStatement'],

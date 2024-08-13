@@ -41,7 +41,7 @@ class LockExpressionTest extends TestCase
     /**
      * @return string[][]
      */
-    public function parseErrProvider(): array
+    public static function parseErrProvider(): array
     {
         return [
             [

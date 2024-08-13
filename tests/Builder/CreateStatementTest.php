@@ -252,11 +252,9 @@ class CreateStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function partitionQueriesProvider(): array
+    public static function partitionQueriesProvider(): array
     {
-        return [
-            [
-                'subparts' => <<<EOT
+        $subPartitions = <<<EOT
 CREATE TABLE `ts` (
   `id` int(11) DEFAULT NULL,
   `purchased` date DEFAULT NULL
@@ -277,11 +275,9 @@ SUBPARTITION s4 ENGINE=InnoDB,
 SUBPARTITION s5 ENGINE=InnoDB
 )
 )
-EOT
-            ,
-            ],
-            [
-                'parts' => <<<EOT
+EOT;
+
+        $partitions = <<<EOT
 CREATE TABLE ptest (
   `event_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC
@@ -293,10 +289,9 @@ PARTITION p2 ENGINE=InnoDB,
 PARTITION p3 ENGINE=InnoDB,
 PARTITION p4 ENGINE=InnoDB
 )
-EOT
-            ,
-            ],
-        ];
+EOT;
+
+        return ['subpartitions' => [$subPartitions], 'partitions' => [$partitions]];
     }
 
     /**

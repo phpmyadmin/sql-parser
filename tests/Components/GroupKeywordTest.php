@@ -16,7 +16,7 @@ class GroupKeywordTest extends TestCase
     /**
      * @return Generator<string, array{GroupKeyword|array<GroupKeyword>, string}>
      */
-    public function provideExpressions(): Generator
+    public static function provideExpressions(): Generator
     {
         yield 'With no expression at all' => [[], ''];
 

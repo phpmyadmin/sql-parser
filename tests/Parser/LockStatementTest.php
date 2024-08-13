@@ -19,7 +19,7 @@ class LockStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function lockProvider(): array
+    public static function lockProvider(): array
     {
         return [
             ['parser/parseLock1'],

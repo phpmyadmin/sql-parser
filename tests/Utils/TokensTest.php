@@ -25,7 +25,7 @@ class TokensTest extends TestCase
      * @return array<int, array<int, string|array<string, string>[]|Token[]>>
      * @psalm-return list<array{string, list<array<string, string>>, Token[], string}>
      */
-    public function replaceTokensProvider(): array
+    public static function replaceTokensProvider(): array
     {
         return [
             [
@@ -57,7 +57,7 @@ class TokensTest extends TestCase
      * @return array<int, array<int, Token|bool|array<string, int|string>>>
      * @psalm-return list<array{Token, array<string, (int|string)>, bool}>
      */
-    public function matchProvider(): array
+    public static function matchProvider(): array
     {
         return [
             [

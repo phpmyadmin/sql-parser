@@ -24,7 +24,7 @@ class RoutineTest extends TestCase
      * @return array<int, array<int, string|array<int, string>>>
      * @psalm-return list<array{string, string[]}>
      */
-    public function getReturnTypeProvider(): array
+    public static function getReturnTypeProvider(): array
     {
         return [
             [
@@ -124,7 +124,7 @@ class RoutineTest extends TestCase
      * @return array<int, array<int, string|array<int, string>>>
      * @psalm-return list<array{string, string[]}>
      */
-    public function getParameterProvider(): array
+    public static function getParameterProvider(): array
     {
         return [
             [
@@ -242,7 +242,7 @@ class RoutineTest extends TestCase
      *   opts: string[]
      * }}>
      */
-    public function getParametersProvider(): array
+    public static function getParametersProvider(): array
     {
         return [
             [
