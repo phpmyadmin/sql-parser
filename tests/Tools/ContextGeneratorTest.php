@@ -6,7 +6,6 @@ namespace PhpMyAdmin\SqlParser\Tests\Tools;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Tools\ContextGenerator;
 
 use function file_get_contents;
@@ -16,6 +15,9 @@ class ContextGeneratorTest extends TestCase
 {
     public function testFormatName(): void
     {
+        $name = ContextGenerator::formatName('Invalid00Format00');
+        $this->assertEquals('Invalid00Format00', $name);
+
         $name = ContextGenerator::formatName('MySql80000');
         $this->assertEquals('MySQL 8.0', $name);
 
@@ -24,15 +26,18 @@ class ContextGeneratorTest extends TestCase
 
         $name = ContextGenerator::formatName('MariaDb100000');
         $this->assertEquals('MariaDB 10.0', $name);
+
+        $name = ContextGenerator::formatName('FutureDBMS45784012500');
+        $this->assertEquals('FutureDBMS 4.57.84.1.25', $name);
     }
 
     public function testSortWords(): void
     {
-        $wordsArray = ['41' => [['GEOMETRYCOLLECTION', 'DATE']], '35' => [['SCHEMA', 'REPEAT', 'VALUES']]];
+        $wordsArray = ['41' => ['GEOMETRYCOLLECTION', 'DATE'], '35' => ['SCHEMA', 'REPEAT', 'VALUES']];
         ContextGenerator::sortWords($wordsArray);
         $this->assertEquals([
-            '41' => ['0' => ['DATE', 'GEOMETRYCOLLECTION']],
-            '35' => ['0' => ['REPEAT', 'SCHEMA', 'VALUES']],
+            '41' => ['DATE', 'GEOMETRYCOLLECTION'],
+            '35' => ['REPEAT', 'SCHEMA', 'VALUES'],
         ], $wordsArray);
     }
 
@@ -41,15 +46,18 @@ class ContextGeneratorTest extends TestCase
         $testFiles = [getcwd() . '/tests/Tools/contexts/testContext.txt'];
         $readWords = ContextGenerator::readWords($testFiles);
         $this->assertEquals([
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_RESERVED => [
-                8 => ['RESERVED'],
-                9 => ['RESERVED2','RESERVED3','RESERVED4','RESERVED5'],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED => [
+                'RESERVED',
+                'RESERVED2',
+                'RESERVED3',
+                'RESERVED4',
+                'RESERVED5',
             ],
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_FUNCTION => [8 => ['FUNCTION']],
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_DATA_TYPE => [8 => ['DATATYPE']],
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_KEY => [7 => ['KEYWORD']],
-            TokenType::Keyword->value => [7 => ['NO_FLAG']],
-            TokenType::Keyword->value | Token::FLAG_KEYWORD_RESERVED | 4 => [16 => ['COMPOSED KEYWORD']],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION => ['FUNCTION'],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_DATA_TYPE => ['DATATYPE'],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_KEY => ['KEYWORD'],
+            Token::FLAG_KEYWORD => ['NO_FLAG'],
+            Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_RESERVED | Token::FLAG_KEYWORD_COMPOSED => ['COMPOSED KEYWORD'],
         ], $readWords);
     }
 

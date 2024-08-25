@@ -60,6 +60,7 @@ class Parser
         'BACKUP' => Statements\BackupStatement::class,
         'CHECK' => Statements\CheckStatement::class,
         'CHECKSUM' => Statements\ChecksumStatement::class,
+        'KILL' => Statements\KillStatement::class,
         'OPTIMIZE' => Statements\OptimizeStatement::class,
         'REPAIR' => Statements\RepairStatement::class,
         'RESTORE' => Statements\RestoreStatement::class,
@@ -218,6 +219,10 @@ class Parser
         'JOIN' => [
             'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
+        ],
+        'KILL' => [
+            'class' => Parsers\Expressions::class,
+            'field' => 'processListId',
         ],
         'LEFT JOIN' => [
             'class' => Parsers\JoinKeywords::class,

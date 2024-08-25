@@ -565,6 +565,16 @@ class QueryTest extends TestCase
                 'ORDER BY city',
             ),
         );
+
+        $parser = new Parser('SELECT * FROM `t` FOR UPDATE');
+        $this->assertEquals(
+            'SELECT * FROM `t` LIMIT 0, 25 FOR UPDATE',
+            Query::replaceClause(
+                $parser->statements[0],
+                $parser->list,
+                'LIMIT 0, 25',
+            ),
+        );
     }
 
     public function testReplaceClauseOnlyKeyword(): void

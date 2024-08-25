@@ -16,6 +16,7 @@ enum StatementType: string
     case Drop = 'DROP';
     case Explain = 'EXPLAIN';
     case Insert = 'INSERT';
+    case Kill = 'KILL';
     case Load = 'LOAD';
     case Optimize = 'OPTIMIZE';
     case Repair = 'REPAIR';

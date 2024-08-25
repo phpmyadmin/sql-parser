@@ -17,6 +17,7 @@ use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
 use PhpMyAdmin\SqlParser\Statements\DropStatement;
 use PhpMyAdmin\SqlParser\Statements\ExplainStatement;
 use PhpMyAdmin\SqlParser\Statements\InsertStatement;
+use PhpMyAdmin\SqlParser\Statements\KillStatement;
 use PhpMyAdmin\SqlParser\Statements\LoadStatement;
 use PhpMyAdmin\SqlParser\Statements\OptimizeStatement;
 use PhpMyAdmin\SqlParser\Statements\RenameStatement;
@@ -206,6 +207,8 @@ class Query
             $flags->isAffected = true;
         } elseif ($statement instanceof SetStatement) {
             $flags->queryType = StatementType::Set;
+        } elseif ($statement instanceof KillStatement) {
+            $flags->queryType = StatementType::Kill;
         }
 
         if (
@@ -393,7 +396,7 @@ class Query
         /**
          * The clauses of this type of statement and their index.
          */
-        $clauses = array_flip(array_keys($statement->getClauses()));
+        $clauses = $statement->getClauseOrder();
 
         /**
          * Lexer used for lexing the clause.

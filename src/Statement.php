@@ -16,6 +16,7 @@ use Stringable;
 use function array_flip;
 use function array_key_exists;
 use function array_keys;
+use function array_push;
 use function is_array;
 use function is_string;
 use function str_contains;
@@ -363,6 +364,30 @@ abstract class Statement implements Stringable
     public function getClauses(): array
     {
         return static::$clauses;
+    }
+
+    /**
+     * Gets the clause order of this statement as an array
+     * with clause as key and index as value.
+     *
+     * @return array<string, int>
+     */
+    public function getClauseOrder(): array
+    {
+        $clauses = [];
+        foreach (array_keys($this->getClauses()) as $key) {
+            if ($key === '_END_OPTIONS') {
+                // phpcs:ignore SlevomatCodingStandard.Classes.DisallowLateStaticBindingForConstants
+                if (static::STATEMENT_END_OPTIONS !== []) {
+                    // phpcs:ignore SlevomatCodingStandard.Classes.DisallowLateStaticBindingForConstants
+                    array_push($clauses, ...array_keys(static::STATEMENT_END_OPTIONS));
+                }
+            } else {
+                $clauses[] = $key;
+            }
+        }
+
+        return array_flip($clauses);
     }
 
     /**

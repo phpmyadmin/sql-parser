@@ -401,6 +401,11 @@ parameters:
 			path: src/Statement.php
 
 		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$processListId\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$renames\\.$#"
 			count: 1
 			path: src/Statement.php
@@ -432,6 +437,16 @@ parameters:
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Access to undefined constant static\\(PhpMyAdmin\\\\SqlParser\\\\Statement\\)\\:\\:STATEMENT_END_OPTIONS\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:getClauseOrder\\(\\) should return array\\<string, int\\> but returns array\\<int\\|string, int\\>\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -606,6 +621,11 @@ parameters:
 			path: src/Statements/SelectStatement.php
 
 		-
+			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$processListId\\.$#"
+			count: 1
+			path: src/Statements/SelectStatement.php
+
+		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$renames\\.$#"
 			count: 1
 			path: src/Statements/SelectStatement.php
@@ -742,11 +762,6 @@ parameters:
 
 		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Offset 'keywords' on array\\{name\\: string, class\\: string, link\\: string, keywords\\: array\\<int, array\\<int, array\\<int, string\\>\\>\\>\\} in isset\\(\\) always exists and is not nullable\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
@@ -929,4 +944,9 @@ parameters:
 			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
 			count: 2
 			path: src/Utils/Table.php
+
+		-
+			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
+			count: 1
+			path: tests/Utils/QueryTest.php
 

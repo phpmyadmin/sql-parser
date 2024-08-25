@@ -6,6 +6,11 @@
 - Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
 - Drop `USE_UTF_STRINGS` constant (#471)
 
+## [5.9.1] - 2024-08-13
+
+- Allow parsing ALTER TABLE statement with column check constraint (#554)
+- Add support for PHPUnit 10 (#573)
+
 ## [5.9.0] - 2024-01-20
 
 - Fix keywords not being recognized as table alias (#496)
@@ -567,3 +572,6 @@ __Breaking changes:__
 ## [1.0.0] - 2015-08-20
 
 * First release of this library.
+
+[5.9.1]: https://github.com/phpmyadmin/sql-parser/compare/5.9.0...5.9.1
+[5.9.0]: https://github.com/phpmyadmin/sql-parser/compare/5.8.2...5.9.0

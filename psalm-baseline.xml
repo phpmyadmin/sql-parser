@@ -292,6 +292,11 @@
       <code><![CDATA[ContextMySql80300]]></code>
     </UnusedClass>
   </file>
+  <file src="src/Contexts/ContextMySql80400.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMySql80400]]></code>
+    </UnusedClass>
+  </file>
   <file src="src/Lexer.php">
     <LoopInvalidation>
       <code><![CDATA[$this->last]]></code>
@@ -739,6 +744,7 @@
       <code><![CDATA[$this->$field]]></code>
       <code><![CDATA[$this->$field]]></code>
       <code><![CDATA[$this->$field]]></code>
+      <code><![CDATA[static::STATEMENT_END_OPTIONS]]></code>
     </MixedArgument>
     <MixedMethodCall>
       <code><![CDATA[build]]></code>
@@ -746,9 +752,17 @@
     <MixedOperand>
       <code><![CDATA[$this->$field->build()]]></code>
     </MixedOperand>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[array<string, int>]]></code>
+      <code><![CDATA[array_flip($clauses)]]></code>
+    </MixedReturnTypeCoercion>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
+    <UndefinedConstant>
+      <code><![CDATA[static::STATEMENT_END_OPTIONS]]></code>
+      <code><![CDATA[static::STATEMENT_END_OPTIONS]]></code>
+    </UndefinedConstant>
     <UndefinedMethod>
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
       <code><![CDATA[$class::buildAll($this->$field)]]></code>
@@ -1052,13 +1066,11 @@
     <InvalidArrayOffset>
       <code><![CDATA[$version[count($version) - 1]]]></code>
     </InvalidArrayOffset>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$options['keywords']]]></code>
-    </PossiblyInvalidArgument>
-    <RedundantCondition>
-      <code><![CDATA[++$i !== $count]]></code>
-      <code><![CDATA[++$i !== $count]]></code>
-    </RedundantCondition>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[static function (int $num) use ($type): bool {
+                return ($type & $num) !== 0;
+            }]]></code>
+    </MixedArgumentTypeCoercion>
   </file>
   <file src="src/Tools/CustomJsonSerializer.php">
     <MixedAssignment>
@@ -1492,6 +1504,11 @@
       <code><![CDATA[insertProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="tests/Parser/KillStatementTest.php">
+    <InvalidArgument>
+      <code><![CDATA[testBuildKill]]></code>
+    </InvalidArgument>
+  </file>
   <file src="tests/Parser/LoadStatementTest.php">
     <PossiblyUnusedMethod>
       <code><![CDATA[loadProvider]]></code>
@@ -1593,6 +1610,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Utils/QueryTest.php">
+    <PossiblyNullArgument>
+      <code><![CDATA[$parser->list]]></code>
+    </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[getFlagsProvider]]></code>
       <code><![CDATA[getTablesProvider]]></code>
