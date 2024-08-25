@@ -36,16 +36,16 @@ class Array2dTest extends TestCase
     {
         $parser = new Parser();
         Array2d::parse($parser, $this->getTokensList('(1, 2 +'));
-
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $this->assertCount(1, $parser->errors);
+        $this->assertEquals('A closing bracket was expected.', $parser->errors[0]->getMessage());
     }
 
     public function testParseErr2(): void
     {
         $parser = new Parser();
         Array2d::parse($parser, $this->getTokensList('(1, 2 TABLE'));
-
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $this->assertCount(1, $parser->errors);
+        $this->assertEquals('A closing bracket was expected.', $parser->errors[0]->getMessage());
     }
 
     public function testParseErr3(): void
