@@ -21,7 +21,7 @@ class KillStatementTest extends TestCase
     /**
      * @return string[][]
      */
-    public function killProvider(): array
+    public static function killProvider(): array
     {
         return [
             ['parser/parseKill'],
@@ -47,7 +47,7 @@ class KillStatementTest extends TestCase
      * @return array<int, array<int, string>>
      * @psalm-return list<list<string>>
      */
-    public function buildKillProvider(): array
+    public static function buildKillProvider(): array
     {
         return [
             ['KILL (SELECT 3 + 4)'],
