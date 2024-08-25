@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tools;
 
+use PhpMyAdmin\SqlParser\Token;
+
+use function array_filter;
 use function array_map;
 use function array_merge;
 use function array_slice;
@@ -15,11 +18,9 @@ use function file_put_contents;
 use function implode;
 use function ksort;
 use function preg_match;
-use function round;
 use function scandir;
 use function sort;
 use function sprintf;
-use function str_repeat;
 use function str_replace;
 use function str_split;
 use function strlen;
@@ -28,8 +29,7 @@ use function strtoupper;
 use function substr;
 use function trim;
 
-use const FILE_IGNORE_NEW_LINES;
-use const FILE_SKIP_EMPTY_LINES;
+use const ARRAY_FILTER_USE_KEY;
 use const SORT_STRING;
 
 /**
@@ -43,10 +43,10 @@ class ContextGenerator
      * @var array<string, int>
      */
     public static $LABELS_FLAGS = [
-        '(R)' => 2, // reserved
-        '(D)' => 8, // data type
-        '(K)' => 16, // keyword
-        '(F)' => 32, // function name
+        '(R)' => Token::FLAG_KEYWORD_RESERVED,
+        '(D)' => Token::FLAG_KEYWORD_DATA_TYPE,
+        '(K)' => Token::FLAG_KEYWORD_KEY,
+        '(F)' => Token::FLAG_KEYWORD_FUNCTION,
     ];
 
     /**
@@ -64,6 +64,7 @@ class ContextGenerator
         'MySql80100' => 'https://dev.mysql.com/doc/refman/8.1/en/keywords.html',
         'MySql80200' => 'https://dev.mysql.com/doc/refman/8.2/en/keywords.html',
         'MySql80300' => 'https://dev.mysql.com/doc/refman/8.3/en/keywords.html',
+        'MySql80400' => 'https://dev.mysql.com/doc/refman/8.4/en/keywords.html',
         'MariaDb100000' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb100100' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb100200' => 'https://mariadb.com/kb/en/reserved-words/',
@@ -81,6 +82,20 @@ class ContextGenerator
         'MariaDb110200' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb110300' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb110400' => 'https://mariadb.com/kb/en/reserved-words/',
+    ];
+
+    /**
+     * Reversed const <=> int from {@see Token} class to write the constant name instead of its value.
+     *
+     * @var array<int, string>
+     */
+    private static $typesNumToConst = [
+        1 => 'Token::FLAG_KEYWORD',
+        2 => 'Token::FLAG_KEYWORD_RESERVED',
+        4 => 'Token::FLAG_KEYWORD_COMPOSED',
+        8 => 'Token::FLAG_KEYWORD_DATA_TYPE',
+        16 => 'Token::FLAG_KEYWORD_KEY',
+        32 => 'Token::FLAG_KEYWORD_FUNCTION',
     ];
 
     /**
@@ -117,9 +132,7 @@ class %2$s extends Context
      *
      * The value associated to each keyword represents its flags.
      *
-     * @see Token::FLAG_KEYWORD_RESERVED Token::FLAG_KEYWORD_COMPOSED
-     *      Token::FLAG_KEYWORD_DATA_TYPE Token::FLAG_KEYWORD_KEY
-     *      Token::FLAG_KEYWORD_FUNCTION
+     * @see Token
      *
      * @var array<string,int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
@@ -133,18 +146,15 @@ PHP;
     /**
      * Sorts an array of words.
      *
-     * @param array<int, array<int, array<int, string>>> $arr
+     * @param array<int, list<string>> $arr
      *
-     * @return array<int, array<int, array<int, string>>>
+     * @return array<int, list<string>>
      */
     public static function sortWords(array &$arr)
     {
         ksort($arr);
-        foreach ($arr as &$wordsByLen) {
-            ksort($wordsByLen);
-            foreach ($wordsByLen as &$words) {
-                sort($words, SORT_STRING);
-            }
+        foreach ($arr as &$words) {
+            sort($words, SORT_STRING);
         }
 
         return $arr;
@@ -153,23 +163,28 @@ PHP;
     /**
      * Reads a list of words and sorts it by type, length and keyword.
      *
-     * @param string[] $files
+     * @param list<string> $files
      *
-     * @return array<int, array<int, array<int, string>>>
+     * @return array<int, list<string>>
      */
     public static function readWords(array $files)
     {
+        /** @psalm-var list<string> $words */
         $words = [];
         foreach ($files as $file) {
-            $words = array_merge($words, file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
+            $words = array_merge($words, file($file));
         }
 
         /** @var array<string, int> $types */
         $types = [];
 
         for ($i = 0, $count = count($words); $i !== $count; ++$i) {
-            $type = 1;
             $value = trim($words[$i]);
+            if ($value === '') {
+                continue;
+            }
+
+            $type = Token::FLAG_KEYWORD;
 
             // Reserved, data types, keys, functions, etc. keywords.
             foreach (static::$LABELS_FLAGS as $label => $flags) {
@@ -183,13 +198,8 @@ PHP;
 
             // Composed keyword.
             if (strstr($value, ' ') !== false) {
-                $type |= 2; // Reserved keyword.
-                $type |= 4; // Composed keyword.
-            }
-
-            $len = strlen($words[$i]);
-            if ($len === 0) {
-                continue;
+                $type |= Token::FLAG_KEYWORD_RESERVED;
+                $type |= Token::FLAG_KEYWORD_COMPOSED;
             }
 
             $value = strtoupper($value);
@@ -200,18 +210,10 @@ PHP;
             }
         }
 
+        // Prepare an array in a way to sort by type, then by word.
         $ret = [];
         foreach ($types as $word => $type) {
-            $len = strlen($word);
-            if (! isset($ret[$type])) {
-                $ret[$type] = [];
-            }
-
-            if (! isset($ret[$type][$len])) {
-                $ret[$type][$len] = [];
-            }
-
-            $ret[$type][$len][] = $word;
+            $ret[$type][] = $word;
         }
 
         return static::sortWords($ret);
@@ -220,73 +222,49 @@ PHP;
     /**
      * Prints an array of a words in PHP format.
      *
-     * @param array<int, array<int, array<int, string>>> $words  the list of words to be formatted
-     * @param int                                        $spaces the number of spaces that starts every line
-     * @param int                                        $line   the length of a line
-     *
-     * @return string
+     * @param array<int, list<string>> $words the list of words to be formatted
      */
-    public static function printWords($words, $spaces = 8, $line = 140)
+    public static function printWords(array $words): string
     {
-        $typesCount = count($words);
         $ret = '';
-        $j = 0;
-
         foreach ($words as $type => $wordsByType) {
-            foreach ($wordsByType as $len => $wordsByLen) {
-                $count = round(($line - $spaces) / ($len + 9)); // strlen("'' => 1, ") = 9
-                $i = 0;
-
-                foreach ($wordsByLen as $word) {
-                    if ($i === 0) {
-                        $ret .= str_repeat(' ', $spaces);
-                    }
-
-                    $ret .= sprintf('\'%s\' => %s, ', $word, $type);
-                    if (++$i !== $count && ++$i <= $count) {
-                        continue;
-                    }
-
-                    $ret .= "\n";
-                    $i = 0;
-                }
-
-                if ($i === 0) {
-                    continue;
-                }
-
-                $ret .= "\n";
+            foreach ($wordsByType as $word) {
+                $ret .= sprintf("        '%s' => %s,\n", $word, self::translateIntTypeToTextConstant($type));
             }
-
-            if (++$j >= $typesCount) {
-                continue;
-            }
-
-            $ret .= "\n";
         }
 
-        // Trim trailing spaces and return.
-        return str_replace(" \n", "\n", $ret);
+        return $ret;
+    }
+
+    private static function translateIntTypeToTextConstant(int $type): string
+    {
+        $matchingFlags = array_filter(
+            self::$typesNumToConst,
+            static function (int $num) use ($type): bool {
+                return ($type & $num) !== 0;
+            },
+            ARRAY_FILTER_USE_KEY
+        );
+
+        return implode(' | ', $matchingFlags);
     }
 
     /**
      * Generates a context's class.
      *
-     * @param array<string, string|array<int, array<int, array<int, string>>>> $options the options for this context
+     * @param array<string, string|array<int, list<string>>> $options the options for this context
      * @psalm-param array{
      *   name: string,
      *   class: string,
      *   link: string,
-     *   keywords: array<int, array<int, array<int, string>>>
+     *   keywords: array<int, list<string>>
      * } $options
      *
      * @return string
      */
     public static function generate($options)
     {
-        if (isset($options['keywords'])) {
-            $options['keywords'] = static::printWords($options['keywords']);
-        }
+        $options['keywords'] = static::printWords($options['keywords']);
 
         return sprintf(self::TEMPLATE, $options['name'], $options['class'], $options['link'], $options['keywords']);
     }
@@ -302,7 +280,7 @@ PHP;
     {
         /* Split name and version */
         $parts = [];
-        if (preg_match('/([^[0-9]*)([0-9]*)/', $name, $parts) === false) {
+        if (preg_match('/^(\D+)(\d+)$/', $name, $parts) === 0) {
             return $name;
         }
 
@@ -326,7 +304,7 @@ PHP;
         $version = array_map('intval', str_split($versionString, 2));
         /* Remove trailing zero */
         if ($version[count($version) - 1] === 0) {
-            $version = array_slice($version, 0, count($version) - 1);
+            $version = array_slice($version, 0, -1);
         }
 
         /* Create name */
