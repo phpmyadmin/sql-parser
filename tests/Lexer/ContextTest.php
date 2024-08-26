@@ -65,7 +65,7 @@ class ContextTest extends TestCase
                 'MySql50700',
             ],
             'MySQL fallback' => [
-                'MySql99999',
+                'MySql9897969594',
                 'MySql50700',
             ],
             'MariaDB match' => [
