@@ -1,5 +1,10 @@
 # Change Log
 
+## [5.10.0] - YYYY-MM-DD
+
+- Improve context files by using constants (#570)
+- Support parsing KILL statements (#556)
+
 ## [5.9.1] - 2024-08-13
 
 - Allow parsing ALTER TABLE statement with column check constraint (#554)
