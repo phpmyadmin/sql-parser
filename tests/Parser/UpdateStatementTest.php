@@ -30,6 +30,7 @@ class UpdateStatementTest extends TestCase
             ['parser/parseUpdate6'],
             ['parser/parseUpdate7'],
             ['parser/parseUpdateErr'],
+            ['parser/parseUpdateEmptySet'],
         ];
     }
 }
