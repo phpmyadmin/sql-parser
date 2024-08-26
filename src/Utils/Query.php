@@ -38,6 +38,7 @@ use function ctype_space;
 use function in_array;
 use function is_string;
 use function mb_substr;
+use function strtoupper;
 use function trim;
 
 /**
@@ -98,9 +99,10 @@ class Query
 
         foreach ($expressions as $expr) {
             if (! empty($expr->function)) {
-                if ($expr->function === 'COUNT') {
+                $function = strtoupper($expr->function);
+                if ($function === 'COUNT') {
                     $flags->isCount = true;
-                } elseif (in_array($expr->function, static::$functions)) {
+                } elseif (in_array($function, static::$functions, true)) {
                     $flags->isFunc = true;
                 }
             }

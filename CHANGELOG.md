@@ -6,6 +6,13 @@
 - Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
 - Drop `USE_UTF_STRINGS` constant (#471)
 
+## [5.10.0] - YYYY-MM-DD
+
+- Improve context files by using constants (#570)
+- Support parsing KILL statements (#556)
+- Fix query flags for lower-case functions (#564)
+- Allow using `::class` keyword to load a context (#571)
+
 ## [5.9.1] - 2024-08-13
 
 - Allow parsing ALTER TABLE statement with column check constraint (#554)

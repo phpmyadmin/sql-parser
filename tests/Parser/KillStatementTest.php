@@ -21,8 +21,14 @@ class KillStatementTest extends TestCase
     {
         return [
             ['parser/parseKill'],
+            ['parser/parseKill2'],
+            ['parser/parseKill3'],
             ['parser/parseKillConnection'],
             ['parser/parseKillQuery'],
+            ['parser/parseKillErr1'],
+            ['parser/parseKillErr2'],
+            ['parser/parseKillErr3'],
+            ['parser/parseKillErr4'],
         ];
     }
 
@@ -45,9 +51,17 @@ class KillStatementTest extends TestCase
     {
         return [
             ['KILL (SELECT 3 + 4)'],
-            ['KILL QUERY 3'],
-            ['KILL CONNECTION 3'],
-            ['KILL'],
+            ['KILL QUERY 4'],
+            ['KILL CONNECTION 5'],
+            ['KILL 6'],
+            ['KILL QUERY (SELECT 7)'],
+            ['KILL SOFT QUERY (SELECT 8)'],
+            ['KILL HARD 9'],
+            ['KILL USER 10'],
+            ['KILL SOFT (SELECT 1)'],
+            ['KILL (2)'],
+            ['KILL QUERY ID (2)'],
+            ['KILL QUERY ID (SELECT ID FROM INFORMATION_SCHEMA.PROCESSLIST LIMIT 0, 1)'],
         ];
     }
 }

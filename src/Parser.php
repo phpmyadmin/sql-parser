@@ -220,10 +220,6 @@ class Parser
             'class' => Parsers\JoinKeywords::class,
             'field' => 'join',
         ],
-        'KILL' => [
-            'class' => Parsers\Expressions::class,
-            'field' => 'processListId',
-        ],
         'LEFT JOIN' => [
             'class' => Parsers\JoinKeywords::class,
             'field' => 'join',

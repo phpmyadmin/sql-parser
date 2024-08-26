@@ -63,6 +63,7 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateTableEnforcedCheck'],
             ['parser/parseCreateTableNotEnforcedCheck'],
             ['parser/parseCreateTableWithInvisibleKey'],
+            ['parser/parseCreateTableWithParser'],
             ['parser/parseCreateTrigger'],
             ['parser/parseCreateUser1'],
             ['parser/parseCreateUser2'],

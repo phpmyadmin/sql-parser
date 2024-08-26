@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Lexer;
 
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\Contexts;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -62,7 +63,7 @@ class ContextTest extends TestCase
                 'MySql50700',
             ],
             'MySQL fallback' => [
-                'MySql99999',
+                'MySql9897969594',
                 'MySql50700',
             ],
             'MariaDB match' => [
@@ -104,10 +105,75 @@ class ContextTest extends TestCase
             ['MySql50600'],
             ['MySql50700'],
             ['MySql80000'],
+            ['MySql80100'],
+            ['MySql80200'],
+            ['MySql80300'],
+            ['MySql80400'],
+            ['MySql90000'],
             ['MariaDb100000'],
             ['MariaDb100100'],
             ['MariaDb100200'],
             ['MariaDb100300'],
+            ['MariaDb100400'],
+            ['MariaDb100500'],
+            ['MariaDb100600'],
+            ['MariaDb100700'],
+            ['MariaDb100800'],
+            ['MariaDb100900'],
+            ['MariaDb101000'],
+            ['MariaDb101100'],
+            ['MariaDb110000'],
+            ['MariaDb110100'],
+            ['MariaDb110200'],
+            ['MariaDb110300'],
+            ['MariaDb110400'],
+            ['MariaDb110500'],
+        ];
+    }
+
+    /** @dataProvider contextClassesProvider */
+    public function testLoadAllByClass(string $context): void
+    {
+        Context::load($context);
+        $this->assertEquals($context, Context::$loadedContext);
+
+        // Restoring context.
+        Context::load('');
+    }
+
+    /** @return string[][] */
+    public static function contextClassesProvider(): array
+    {
+        return [
+            [Contexts\ContextMySql50000::class],
+            [Contexts\ContextMySql50100::class],
+            [Contexts\ContextMySql50500::class],
+            [Contexts\ContextMySql50600::class],
+            [Contexts\ContextMySql50700::class],
+            [Contexts\ContextMySql80000::class],
+            [Contexts\ContextMySql80100::class],
+            [Contexts\ContextMySql80200::class],
+            [Contexts\ContextMySql80300::class],
+            [Contexts\ContextMySql80400::class],
+            [Contexts\ContextMySql90000::class],
+            [Contexts\ContextMariaDb100000::class],
+            [Contexts\ContextMariaDb100100::class],
+            [Contexts\ContextMariaDb100200::class],
+            [Contexts\ContextMariaDb100300::class],
+            [Contexts\ContextMariaDb100400::class],
+            [Contexts\ContextMariaDb100500::class],
+            [Contexts\ContextMariaDb100600::class],
+            [Contexts\ContextMariaDb100700::class],
+            [Contexts\ContextMariaDb100800::class],
+            [Contexts\ContextMariaDb100900::class],
+            [Contexts\ContextMariaDb101000::class],
+            [Contexts\ContextMariaDb101100::class],
+            [Contexts\ContextMariaDb110000::class],
+            [Contexts\ContextMariaDb110100::class],
+            [Contexts\ContextMariaDb110200::class],
+            [Contexts\ContextMariaDb110300::class],
+            [Contexts\ContextMariaDb110400::class],
+            [Contexts\ContextMariaDb110500::class],
         ];
     }
 

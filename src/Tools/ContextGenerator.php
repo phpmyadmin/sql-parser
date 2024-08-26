@@ -65,6 +65,7 @@ class ContextGenerator
         'MySql80200' => 'https://dev.mysql.com/doc/refman/8.2/en/keywords.html',
         'MySql80300' => 'https://dev.mysql.com/doc/refman/8.3/en/keywords.html',
         'MySql80400' => 'https://dev.mysql.com/doc/refman/8.4/en/keywords.html',
+        'MySql90000' => 'https://dev.mysql.com/doc/refman/9.0/en/keywords.html',
         'MariaDb100000' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb100100' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb100200' => 'https://mariadb.com/kb/en/reserved-words/',
@@ -82,6 +83,7 @@ class ContextGenerator
         'MariaDb110200' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb110300' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb110400' => 'https://mariadb.com/kb/en/reserved-words/',
+        'MariaDb110500' => 'https://mariadb.com/kb/en/reserved-words/',
     ];
 
     /**
