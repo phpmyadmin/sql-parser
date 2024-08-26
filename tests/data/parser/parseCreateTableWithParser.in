@@ -1,0 +1,5 @@
+CREATE TABLE `mytable` (
+  `column_one` VARCHAR(255) DEFAULT NULL,
+  FULLTEXT KEY `fulltext_index` (`column_one`) /*!50100 WITH PARSER `ngram` */,
+  CONSTRAINT `my_constraint_1` FOREIGN KEY (`column_one`) REFERENCES `other_table` (`column_two`) ON DELETE RESTRICT ON UPDATE RESTRICT
+)
