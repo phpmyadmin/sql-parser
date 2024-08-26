@@ -152,7 +152,7 @@ class ContextTest extends TestCase
     /**
      * @return string[][]
      */
-    public function contextClassesProvider(): array
+    public static function contextClassesProvider(): array
     {
         return [
             [Contexts\ContextMySql50000::class],
