@@ -5,6 +5,7 @@
 - Improve context files by using constants (#570)
 - Support parsing KILL statements (#556)
 - Fix query flags for lower-case functions (#564)
+- Allow using `::class` keyword to load a context (#571)
 
 ## [5.9.1] - 2024-08-13
 
