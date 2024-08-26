@@ -192,9 +192,9 @@
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "rank",
                     "value": "rank",
-                    "keyword": null,
-                    "type": 0,
-                    "flags": 0,
+                    "keyword": "RANK",
+                    "type": 1,
+                    "flags": 33,
                     "position": 64
                 },
                 {
@@ -509,7 +509,7 @@
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
-                        "column": "rank",
+                        "column": null,
                         "expr": "rank() over( partition by `products`.`pvalue` order by `products`.`pid` desc)",
                         "alias": "myrank",
                         "function": "rank",
