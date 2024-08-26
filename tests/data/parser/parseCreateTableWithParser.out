@@ -271,30 +271,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "WITH",
-                    "value": "WITH",
-                    "keyword": "WITH",
+                    "token": "WITH PARSER",
+                    "value": "WITH PARSER",
+                    "keyword": "WITH PARSER",
                     "type": 1,
-                    "flags": 3,
+                    "flags": 7,
                     "position": 128
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 132
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "PARSER",
-                    "value": "PARSER",
-                    "keyword": "PARSER",
-                    "type": 1,
-                    "flags": 1,
-                    "position": 133
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -612,8 +594,8 @@
                     "position": null
                 }
             ],
-            "count": 67,
-            "idx": 68
+            "count": 65,
+            "idx": 65
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -698,10 +680,72 @@
                             "expr": null,
                             "options": {
                                 "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                "options": []
+                                "options": {
+                                    "3": {
+                                        "name": "WITH PARSER",
+                                        "equals": false,
+                                        "expr": "`ngram`",
+                                        "value": "ngram"
+                                    }
+                                }
                             }
                         },
                         "references": null,
+                        "options": null
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                        "name": "my_constraint_1",
+                        "isConstraint": true,
+                        "type": null,
+                        "key": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Key",
+                            "name": null,
+                            "columns": [
+                                {
+                                    "name": "column_one"
+                                }
+                            ],
+                            "type": "FOREIGN KEY",
+                            "expr": null,
+                            "options": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                "options": []
+                            }
+                        },
+                        "references": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Reference",
+                            "table": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                "database": null,
+                                "table": "other_table",
+                                "column": null,
+                                "expr": "`other_table`",
+                                "alias": null,
+                                "function": null,
+                                "subquery": null
+                            },
+                            "columns": [
+                                "column_two"
+                            ],
+                            "options": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                "options": {
+                                    "2": {
+                                        "name": "ON DELETE",
+                                        "equals": false,
+                                        "expr": "RESTRICT",
+                                        "value": "RESTRICT"
+                                    },
+                                    "3": {
+                                        "name": "ON UPDATE",
+                                        "equals": false,
+                                        "expr": "RESTRICT",
+                                        "value": "RESTRICT"
+                                    }
+                                }
+                            }
+                        },
                         "options": null
                     }
                 ],
@@ -724,7 +768,7 @@
                     }
                 },
                 "first": 0,
-                "last": 44
+                "last": 64
             }
         ],
         "brackets": 0,
@@ -733,28 +777,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "A comma or a closing bracket was expected.",
-                {
-                    "@type": "@31"
-                },
-                0
-            ],
-            [
-                "Unexpected beginning of statement.",
-                {
-                    "@type": "@47"
-                },
-                0
-            ],
-            [
-                "Unrecognized statement type.",
-                {
-                    "@type": "@50"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
