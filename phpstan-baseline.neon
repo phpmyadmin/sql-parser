@@ -951,6 +951,11 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
+			message: "#^Parameter \\#1 \\$str of function strtoupper expects string, mixed given\\.$#"
+			count: 1
+			path: src/Utils/Query.php
+
+		-
 			message: "#^Cannot access offset 'value' on mixed\\.$#"
 			count: 3
 			path: src/Utils/Routine.php
