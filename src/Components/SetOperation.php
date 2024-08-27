@@ -139,11 +139,6 @@ class SetOperation extends Component
             $parser->error('Unexpected token.', $commaLastSeenAt);
         }
 
-        // We got a SET operation without any assignment
-        if ($ret === []) {
-            $parser->error('Missing assignment in SET operation.', $list->tokens[$list->idx]);
-        }
-
         return $ret;
     }
 
