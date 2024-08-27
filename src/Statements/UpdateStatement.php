@@ -146,6 +146,7 @@ class UpdateStatement extends Statement
      * query like `UPDATE acme SET WHERE 1;` is parsed.
      *
      * @throws ParserException throws the exception, if strict mode is enabled.
+     *
      * @return void
      */
     public function after(Parser $parser, TokensList $list, Token $token)
