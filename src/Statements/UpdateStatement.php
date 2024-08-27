@@ -145,7 +145,8 @@ class UpdateStatement extends Statement
      * In the update statement, this is used to check that at least one assignment has been set to throw an error if a
      * query like `UPDATE acme SET WHERE 1;` is parsed.
      *
-     * @throws ParserException
+     * @throws ParserException throws the exception, if strict mode is enabled.
+     * @return void
      */
     public function after(Parser $parser, TokensList $list, Token $token)
     {
