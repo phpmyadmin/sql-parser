@@ -801,6 +801,16 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string, 2\\?\\: numeric\\-string\\}\\.$#"
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
+			message: "#^Offset 2 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-empty\\-string, 2\\?\\: numeric\\-string\\}\\.$#"
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\<int, string\\>\\|false given\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
