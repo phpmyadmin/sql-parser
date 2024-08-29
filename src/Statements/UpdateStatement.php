@@ -10,7 +10,11 @@ use PhpMyAdmin\SqlParser\Components\JoinKeyword;
 use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
 use PhpMyAdmin\SqlParser\Components\SetOperation;
+use PhpMyAdmin\SqlParser\Exceptions\ParserException;
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokensList;
 
 /**
  * `UPDATE` statement.
@@ -132,4 +136,23 @@ class UpdateStatement extends Statement
      * @var JoinKeyword[]|null
      */
     public array|null $join = null;
+
+    /**
+     * Function called after the token was processed.
+     * In the update statement, this is used to check that at least one assignment has been set to throw an error if a
+     * query like `UPDATE acme SET WHERE 1;` is parsed.
+     *
+     * @throws ParserException throws the exception, if strict mode is enabled.
+     */
+    public function after(Parser $parser, TokensList $list, Token $token): void
+    {
+        /** @psalm-var string $tokenValue */
+        $tokenValue = $token->value;
+        // Ensure we finished to parse the "SET" token, and if yes, ensure that assignments are defined.
+        if ($this->set !== [] || (Parser::KEYWORD_PARSERS[$tokenValue]['field'] ?? null) !== 'set') {
+            return;
+        }
+
+        $parser->error('Missing assignment in SET operation.', $list->tokens[$list->idx]);
+    }
 }

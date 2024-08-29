@@ -6,12 +6,18 @@
 - Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
 - Drop `USE_UTF_STRINGS` constant (#471)
 
-## [5.10.0] - YYYY-MM-DD
+## [5.10.0] - 2024-08-29
 
-- Improve context files by using constants (#570)
-- Support parsing KILL statements (#556)
-- Fix query flags for lower-case functions (#564)
+- Fix parsing of UPDATE ... SET (#577)
+- Fix parsing of WITH PARSER (#563)
+- Fix context files for MySQL and MariaDB (#572) (#576)
 - Allow using `::class` keyword to load a context (#571)
+- Fix query flags for lower-case functions (#564)
+- Improve context files by using constants (#570)
+- Fix case when a condition is not parsed correctly (#560)
+- Support parsing KILL statements (#556)
+- Fix replace clause of select statement with FOR UPDATE (#555)
+- Add support for ALTER FUNCTION and ALTER PROCEDURE statements (#553)
 
 ## [5.9.1] - 2024-08-13
 
@@ -580,5 +586,6 @@ __Breaking changes:__
 
 * First release of this library.
 
+[5.10.0]: https://github.com/phpmyadmin/sql-parser/compare/5.9.1...5.10.0
 [5.9.1]: https://github.com/phpmyadmin/sql-parser/compare/5.9.0...5.9.1
 [5.9.0]: https://github.com/phpmyadmin/sql-parser/compare/5.8.2...5.9.0
