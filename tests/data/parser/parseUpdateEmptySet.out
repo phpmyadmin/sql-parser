@@ -1,10 +1,10 @@
 {
-    "query": "UPDATE foo SET bar =  WHERE baz = 0\n",
+    "query": "UPDATE test SET WHERE 1;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "UPDATE foo SET bar =  WHERE baz = 0\n",
-        "len": 36,
-        "last": 36,
+        "str": "UPDATE test SET WHERE 1;\n",
+        "len": 25,
+        "last": 25,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -28,8 +28,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "foo",
-                    "value": "foo",
+                    "token": "test",
+                    "value": "test",
                     "keyword": null,
                     "type": 0,
                     "flags": 0,
@@ -42,7 +42,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 10
+                    "position": 11
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -51,7 +51,7 @@
                     "keyword": "SET",
                     "type": 1,
                     "flags": 11,
-                    "position": 11
+                    "position": 12
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -59,44 +59,8 @@
                     "value": " ",
                     "keyword": null,
                     "type": 3,
-                    "flags": 0,
-                    "position": 14
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "bar",
-                    "value": "bar",
-                    "keyword": null,
-                    "type": 0,
                     "flags": 0,
                     "position": 15
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 18
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "=",
-                    "value": "=",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 2,
-                    "position": 19
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "  ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 20
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -105,61 +69,34 @@
                     "keyword": "WHERE",
                     "type": 1,
                     "flags": 3,
+                    "position": 16
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 21
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "1",
+                    "value": 1,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
                     "position": 22
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
+                    "token": ";",
+                    "value": ";",
                     "keyword": null,
-                    "type": 3,
+                    "type": 9,
                     "flags": 0,
-                    "position": 27
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "baz",
-                    "value": "baz",
-                    "keyword": null,
-                    "type": 0,
-                    "flags": 0,
-                    "position": 28
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 31
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "=",
-                    "value": "=",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 2,
-                    "position": 32
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 33
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "0",
-                    "value": 0,
-                    "keyword": null,
-                    "type": 6,
-                    "flags": 0,
-                    "position": 34
+                    "position": 23
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -168,7 +105,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 35
+                    "position": 24
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -180,8 +117,8 @@
                     "position": null
                 }
             ],
-            "count": 19,
-            "idx": 19
+            "count": 12,
+            "idx": 12
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -200,9 +137,9 @@
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
-                        "table": "foo",
+                        "table": "test",
                         "column": null,
-                        "expr": "foo",
+                        "expr": "test",
                         "alias": null,
                         "function": null,
                         "subquery": null
@@ -212,11 +149,9 @@
                 "where": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
-                        "identifiers": [
-                            "baz"
-                        ],
+                        "identifiers": [],
                         "isOperator": false,
-                        "expr": "baz = 0"
+                        "expr": "1"
                     }
                 ],
                 "order": null,
@@ -227,7 +162,7 @@
                     "options": []
                 },
                 "first": 0,
-                "last": 17
+                "last": 8
             }
         ],
         "brackets": 0,
@@ -238,16 +173,9 @@
         "lexer": [],
         "parser": [
             [
-                "Missing expression.",
-                {
-                    "@type": "@12"
-                },
-                0
-            ],
-            [
                 "Missing assignment in SET operation.",
                 {
-                    "@type": "@11"
+                    "@type": "@7"
                 },
                 0
             ]
