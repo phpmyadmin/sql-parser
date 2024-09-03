@@ -948,8 +948,10 @@ class Lexer extends Core
                 break;
             } elseif ($state === 10) {
                 $flags |= Token::FLAG_NUMBER_FLOAT;
-                if ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
+                if ($this->str[$this->last] >= '0' && $this->str[$this->last] <= '9') {
                     // Just digits are valid characters.
+                    $state = 4;
+                } else {
                     break;
                 }
             }
