@@ -264,7 +264,6 @@ class Lexer extends Core
                 $token = $this->$method();
 
                 if ($token) {
-                    var_dump($token, $method);
                     break;
                 }
             }
