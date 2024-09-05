@@ -272,9 +272,10 @@ class TokensList implements ArrayAccess
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
-        if (!$this->offsetExists($offset)) {
+        if (! $this->offsetExists($offset)) {
             return;
         }
+
         array_splice($this->tokens, $offset, 1);
         --$this->count;
     }
