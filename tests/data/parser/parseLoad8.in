@@ -1,0 +1,8 @@
+-- Query from https://github.com/phpmyadmin/sql-parser/issues/578
+-- Issue was that Lexer detected ".e1" as number token.
+
+LOAD DATA LOCAL INFILE '/home/user/myloadfile.csv'
+IGNORE INTO TABLE erp.e1_table
+FIELDS TERMINATED BY '\t'
+LINES TERMINATED BY '\n'
+IGNORE 0 LINES;

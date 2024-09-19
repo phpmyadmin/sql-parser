@@ -1,10 +1,10 @@
 {
-    "query": "SELECT 12, 34, 5.67, 0x89, -10, --11, +12, .15, 0xFFa, 0xfFA, +0xfFA, -0xFFa, -0xfFA, 1e-10, 1e10, .5e10, b'10';\n-- invalid numbers\nSELECT 12ex10, b'15', 0XFfA, -0XFfA, +0XFfA;",
+    "query": "SELECT 12, 34, 5.67, 0x89, -10, --11, +12, .15, 0xFFa, 0xfFA, +0xfFA, -0xFFa, -0xfFA, 1e-10, 1e10, .5e10, b'10';\n-- invalid numbers\nSELECT 12ex10, b'15', 0XFfA, -0XFfA, +0XFfA, .e4;\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "SELECT 12, 34, 5.67, 0x89, -10, --11, +12, .15, 0xFFa, 0xfFA, +0xfFA, -0xFFa, -0xfFA, 1e-10, 1e10, .5e10, b'10';\n-- invalid numbers\nSELECT 12ex10, b'15', 0XFfA, -0XFfA, +0XFfA;",
-        "len": 176,
-        "last": 176,
+        "str": "SELECT 12, 34, 5.67, 0x89, -10, --11, +12, .15, 0xFFa, 0xfFA, +0xfFA, -0xFFa, -0xfFA, 1e-10, 1e10, .5e10, b'10';\n-- invalid numbers\nSELECT 12ex10, b'15', 0XFfA, -0XFfA, +0XFfA, .e4;\n",
+        "len": 182,
+        "last": 182,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -667,12 +667,57 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 175
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 176
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 177
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "e4",
+                    "value": "e4",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 178
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
                     "type": 9,
                     "flags": 0,
-                    "position": 175
+                    "position": 180
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 181
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -684,7 +729,7 @@
                     "position": null
                 }
             ],
-            "count": 75,
+            "count": 80,
             "idx": 0
         },
         "delimiter": ";",
