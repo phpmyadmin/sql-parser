@@ -1,12 +1,12 @@
 {
-    "query": "ALTER TABLE `demo` ADD KEY `IDX_REPAIR` (`REPAIR`);",
+    "query": "ALTER TABLE `transactions` RENAME KEY `fk_transactions_catalog_entries1_idx` TO `fk_transactions_catalog_entries2_idx`\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "strict": false,
         "errors": [],
-        "str": "ALTER TABLE `demo` ADD KEY `IDX_REPAIR` (`REPAIR`);",
-        "len": 51,
-        "last": 51,
+        "str": "ALTER TABLE `transactions` RENAME KEY `fk_transactions_catalog_entries1_idx` TO `fk_transactions_catalog_entries2_idx`\n",
+        "len": 119,
+        "last": 119,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "count": 17,
@@ -62,8 +62,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`demo`",
-                    "value": "demo",
+                    "token": "`transactions`",
+                    "value": "transactions",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -82,61 +82,17 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 18
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "ADD",
-                    "value": "ADD",
-                    "keyword": "ADD",
-                    "type": {
-                        "@type": "@3"
-                    },
-                    "flags": 3,
-                    "position": 19
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": {
-                        "@type": "@5"
-                    },
-                    "flags": 0,
-                    "position": 22
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "KEY",
-                    "value": "KEY",
-                    "keyword": "KEY",
-                    "type": {
-                        "@type": "@3"
-                    },
-                    "flags": 19,
-                    "position": 23
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": {
-                        "@type": "@5"
-                    },
-                    "flags": 0,
                     "position": 26
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`IDX_REPAIR`",
-                    "value": "IDX_REPAIR",
-                    "keyword": null,
+                    "token": "RENAME",
+                    "value": "RENAME",
+                    "keyword": "RENAME",
                     "type": {
-                        "@type": "@9"
+                        "@type": "@3"
                     },
-                    "flags": 2,
+                    "flags": 3,
                     "position": 27
                 },
                 {
@@ -148,55 +104,95 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 39
+                    "position": 33
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "(",
-                    "value": "(",
+                    "token": "KEY",
+                    "value": "KEY",
+                    "keyword": "KEY",
+                    "type": {
+                        "@type": "@3"
+                    },
+                    "flags": 19,
+                    "position": 34
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
-                        "name": "Operator",
-                        "value": 2
+                        "@type": "@5"
                     },
-                    "flags": 16,
-                    "position": 40
+                    "flags": 0,
+                    "position": 37
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`REPAIR`",
-                    "value": "REPAIR",
+                    "token": "`fk_transactions_catalog_entries1_idx`",
+                    "value": "fk_transactions_catalog_entries1_idx",
                     "keyword": null,
                     "type": {
                         "@type": "@9"
                     },
                     "flags": 2,
-                    "position": 41
+                    "position": 38
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ")",
-                    "value": ")",
+                    "token": " ",
+                    "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "@18"
-                    },
-                    "flags": 16,
-                    "position": 49
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ";",
-                    "value": ";",
-                    "keyword": null,
-                    "type": {
-                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
-                        "name": "Delimiter",
-                        "value": 9
+                        "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 50
+                    "position": 76
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "TO",
+                    "value": "TO",
+                    "keyword": "TO",
+                    "type": {
+                        "@type": "@3"
+                    },
+                    "flags": 3,
+                    "position": 77
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@5"
+                    },
+                    "flags": 0,
+                    "position": 79
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "`fk_transactions_catalog_entries2_idx`",
+                    "value": "fk_transactions_catalog_entries2_idx",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@9"
+                    },
+                    "flags": 2,
+                    "position": 80
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@5"
+                    },
+                    "flags": 0,
+                    "position": 118
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -204,7 +200,9 @@
                     "value": "",
                     "keyword": null,
                     "type": {
-                        "@type": "@22"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
                     },
                     "flags": 0,
                     "position": null
@@ -227,9 +225,9 @@
                 "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
-                    "table": "demo",
+                    "table": "transactions",
                     "column": null,
-                    "expr": "`demo`",
+                    "expr": "`transactions`",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -240,28 +238,24 @@
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
-                                "1": "ADD",
+                                "1": "RENAME",
                                 "2": {
                                     "name": "KEY",
                                     "equals": false,
-                                    "expr": "`IDX_REPAIR`",
-                                    "value": "IDX_REPAIR"
+                                    "expr": "`fk_transactions_catalog_entries1_idx`",
+                                    "value": "fk_transactions_catalog_entries1_idx"
+                                },
+                                "3": {
+                                    "name": "TO",
+                                    "equals": false,
+                                    "expr": "`fk_transactions_catalog_entries2_idx`",
+                                    "value": "fk_transactions_catalog_entries2_idx"
                                 }
                             }
                         },
                         "field": null,
                         "partitions": null,
-                        "unknown": [
-                            {
-                                "@type": "@17"
-                            },
-                            {
-                                "@type": "@19"
-                            },
-                            {
-                                "@type": "@20"
-                            }
-                        ]
+                        "unknown": []
                     }
                 ],
                 "options": {
@@ -271,7 +265,7 @@
                     }
                 },
                 "first": 0,
-                "last": 15
+                "last": 16
             }
         ],
         "brackets": 0

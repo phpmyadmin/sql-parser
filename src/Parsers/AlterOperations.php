@@ -124,7 +124,7 @@ final class AlterOperations implements Parseable
         'BY' => 2,
         'FOREIGN' => 2,
         'FULLTEXT' => 2,
-        'KEY' => 2,
+        'KEY' => [2, 'var'],
         'KEYS' => 2,
         'PARTITION' => 2,
         'PARTITION BY' => 2,

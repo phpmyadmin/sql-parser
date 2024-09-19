@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Statements;
 
 use PhpMyAdmin\SqlParser\Components\ArrayObj;
+use PhpMyAdmin\SqlParser\Components\CaseExpression;
 use PhpMyAdmin\SqlParser\Components\Condition;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\FunctionCall;
@@ -233,7 +234,7 @@ class SelectStatement extends Statement
     /**
      * Expressions that are being selected by this statement.
      *
-     * @var Expression[]
+     * @var (CaseExpression|Expression)[]
      */
     public array $expr = [];
 

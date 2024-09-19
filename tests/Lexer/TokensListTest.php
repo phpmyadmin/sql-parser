@@ -140,17 +140,41 @@ class TokensListTest extends TestCase
         // offsetSet($offset, $value)
         $list[2] = $this->tokens[2];
 
+        // offsetSet($offset, $value) with overflowed offset
+        $list[$list->count] = $this->tokens[1];
+        $this->assertSame($list[$list->count - 1], $this->tokens[1]);
+        $this->assertSame($list->count, count($this->tokens) + 1);
+
+        // offsetGet($offset) with negative offset
+        $this->assertNull($list[-1]);
+
+        // offsetGet($offset) with overflow offset
+        $this->assertNull($list[$list->count]);
+
         // offsetGet($offset)
         for ($i = 0, $count = count($this->tokens); $i < $count; ++$i) {
-            $this->assertEquals($this->tokens[$i], $list[$i]);
+            $this->assertSame($this->tokens[$i], $list[$i]);
         }
 
         // offsetExists($offset)
         $this->assertArrayHasKey(2, $list);
-        $this->assertArrayNotHasKey(13, $list);
+        $this->assertArrayNotHasKey(14, $list);
+        $this->assertArrayNotHasKey(-8, $list);
 
         // offsetUnset($offset)
+        $currentCountTokens = $list->count;
         unset($list[2]);
-        $this->assertEquals($this->tokens[3], $list[2]);
+        $newCountTokens = $list->count;
+        $this->assertSame($this->tokens[3], $list[2]);
+        $this->assertSame($currentCountTokens - 1, $newCountTokens);
+
+        // offsetUnset($offset) with invalid offset (negative or overflowed)
+        $currentListTokens = $list->tokens;
+        unset($list[-1]);
+        $this->assertSame($currentListTokens, $list->tokens);
+        $this->assertSame($newCountTokens, $list->count); // No unset actually performed.
+        unset($list[999]);
+        $this->assertSame($currentListTokens, $list->tokens);
+        $this->assertSame($newCountTokens, $list->count); // No unset actually performed.
     }
 }

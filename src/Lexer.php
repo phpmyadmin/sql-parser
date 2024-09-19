@@ -699,7 +699,7 @@ class Lexer
         //      1 --------------------[ + or - ]-------------------> 1
         //      1 -------------------[ 0x or 0X ]------------------> 2
         //      1 --------------------[ 0 to 9 ]-------------------> 3
-        //      1 -----------------------[ . ]---------------------> 4
+        //      1 -----------------------[ . ]---------------------> 10
         //      1 -----------------------[ b ]---------------------> 7
         //
         //      2 --------------------[ 0 to F ]-------------------> 2
@@ -718,11 +718,16 @@ class Lexer
         //      8 --------------------[ 0 or 1 ]-------------------> 8
         //      8 -----------------------[ ' ]---------------------> 9
         //
+        //      10 -------------------[ 0 to 9 ]-------------------> 4
+        //
         // State 1 may be reached by negative numbers.
         // State 2 is reached only by hex numbers.
         // State 4 is reached only by float numbers.
         // State 5 is reached only by numbers in approximate form.
         // State 7 is reached only by numbers in bit representation.
+        // State 10 is a forced proxy to state 4 ensuring a starting dot (= "0.something") precedes a digit, and not "e"
+        // or "E" causing wrongly interpreted scientific notation (".e[0 to 9]" is invalid). Such invalid notation could
+        // break the lexer when table names under a given database context starts with ".e[0-9]".
         //
         // Valid final states are: 2, 3, 4 and 6. Any parsing that finished in a
         // state other than these is invalid.
@@ -745,7 +750,7 @@ class Lexer
                 } elseif ($this->str[$this->last] >= '0' && $this->str[$this->last] <= '9') {
                     $state = 3;
                 } elseif ($this->str[$this->last] === '.') {
-                    $state = 4;
+                    $state = 10;
                 } elseif ($this->str[$this->last] === 'b') {
                     $state = 7;
                 } elseif ($this->str[$this->last] !== '+') {
@@ -772,7 +777,7 @@ class Lexer
                     ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
                     || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')
                 ) {
-                    // A number can't be directly followed by a letter
+                    // A number can't be directly followed by a letter
                     $state = -$state;
                 } elseif ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
                     // Just digits and `.`, `e` and `E` are valid characters.
@@ -786,7 +791,7 @@ class Lexer
                     ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
                     || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')
                 ) {
-                    // A number can't be directly followed by a letter
+                    // A number can't be directly followed by a letter
                     $state = -$state;
                 } elseif ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
                     // Just digits, `e` and `E` are valid characters.
@@ -803,7 +808,7 @@ class Lexer
                     ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
                     || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')
                 ) {
-                    // A number can't be directly followed by a letter
+                    // A number can't be directly followed by a letter
                     $state = -$state;
                 } else {
                     break;
@@ -828,6 +833,13 @@ class Lexer
                 }
             } elseif ($state === 9) {
                 break;
+            } elseif ($state === 10) {
+                $flags |= Token::FLAG_NUMBER_FLOAT;
+                if ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
+                    break;
+                }
+
+                $state = 4;
             }
 
             $token .= $this->str[$this->last];
