@@ -476,6 +476,16 @@ parameters:
 			path: src/Statements/CallStatement.php
 
 		-
+			message: "#^Cannot access property \\$database on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Cannot access property \\$table on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
 			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
 			count: 2
 			path: src/Statements/CreateStatement.php
@@ -497,12 +507,17 @@ parameters:
 
 		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 8
+			count: 11
 			path: src/Statements/CreateStatement.php
 
 		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\ParameterDefinitions\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
 			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
+			count: 2
 			path: src/Statements/CreateStatement.php
 
 		-
@@ -876,28 +891,13 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
-			message: "#^Cannot access property \\$database on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Utils/Table.php
-
-		-
-			message: "#^Cannot access property \\$table on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|null\\.$#"
-			count: 1
-			path: src/Utils/Table.php
-
-		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 4
+			count: 1
 			path: src/Utils/Table.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) should return array\\<string, array\\{type\\: string, timestamp_not_null\\: bool, default_value\\?\\: mixed, default_current_timestamp\\?\\: true, on_update_current_timestamp\\?\\: true, expr\\?\\: mixed\\}\\> but returns array\\<string, array\\{default_current_timestamp\\?\\: true, default_value\\?\\: mixed, expr\\?\\: mixed, on_update_current_timestamp\\?\\: true, timestamp_not_null\\: bool, type\\: string\\|null\\}\\>\\.$#"
 			count: 1
-			path: src/Utils/Table.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
-			count: 2
 			path: src/Utils/Table.php
 
 		-

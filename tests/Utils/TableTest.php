@@ -7,43 +7,24 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Utils\ForeignKeyData;
 use PhpMyAdmin\SqlParser\Utils\Table;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 class TableTest extends TestCase
 {
-    /**
-     * @param array<string, string|string[]|null>[] $expected
-     * @psalm-param list<array{
-     *   constraint: string,
-     *   index_list: string[],
-     *   ref_db_name: null,
-     *   ref_table_name: string,
-     *   ref_index_list: string[],
-     *   on_update: string,
-     *   on_delete?: string
-     * }> $expected
-     */
+    /** @param list<ForeignKeyData> $expected */
     #[DataProvider('getForeignKeysProvider')]
     public function testGetForeignKeys(string $query, array $expected): void
     {
         $parser = new Parser($query);
         $this->assertInstanceOf(CreateStatement::class, $parser->statements[0]);
-        $this->assertEquals($expected, Table::getForeignKeys($parser->statements[0]));
+
+        $result = $parser->statements[0]->getForeignKeys();
+        $this->assertEquals($expected, $result);
     }
 
-    /**
-     * @return array<int, array<int, string|array<string, string|string[]|null>[]>>
-     * @psalm-return list<array{string, list<array{
-     *   constraint: string,
-     *   index_list: string[],
-     *   ref_db_name: null,
-     *   ref_table_name: string,
-     *   ref_index_list: string[],
-     *   on_update: string,
-     *   on_delete?: string
-     * }>}>
-     */
+    /** @return list<array{string, list<ForeignKeyData>}> */
     public static function getForeignKeysProvider(): array
     {
         return [
@@ -72,31 +53,28 @@ class TableTest extends TestCase
                       REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE
                 ) ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8',
                 [
-                    [
-                        'constraint' => 'fk_payment_customer',
-                        'index_list' => ['customer_id'],
-                        'ref_db_name' => null,
-                        'ref_table_name' => 'customer',
-                        'ref_index_list' => ['customer_id'],
-                        'on_update' => 'CASCADE',
-                    ],
-                    [
-                        'constraint' => 'fk_payment_rental',
-                        'index_list' => ['rental_id'],
-                        'ref_db_name' => null,
-                        'ref_table_name' => 'rental',
-                        'ref_index_list' => ['rental_id'],
-                        'on_delete' => 'SET_NULL',
-                        'on_update' => 'CASCADE',
-                    ],
-                    [
-                        'constraint' => 'fk_payment_staff',
-                        'index_list' => ['staff_id'],
-                        'ref_db_name' => null,
-                        'ref_table_name' => 'staff',
-                        'ref_index_list' => ['staff_id'],
-                        'on_update' => 'CASCADE',
-                    ],
+                    new ForeignKeyData(
+                        constraint: 'fk_payment_customer',
+                        indexList: ['customer_id'],
+                        refTableName: 'customer',
+                        refIndexList: ['customer_id'],
+                        onUpdate: 'CASCADE',
+                    ),
+                    new ForeignKeyData(
+                        constraint: 'fk_payment_rental',
+                        indexList: ['rental_id'],
+                        refTableName: 'rental',
+                        refIndexList: ['rental_id'],
+                        onDelete: 'SET_NULL',
+                        onUpdate: 'CASCADE',
+                    ),
+                    new ForeignKeyData(
+                        constraint: 'fk_payment_staff',
+                        indexList: ['staff_id'],
+                        refTableName: 'staff',
+                        refIndexList: ['staff_id'],
+                        onUpdate: 'CASCADE',
+                    ),
                 ],
             ],
             [
@@ -125,14 +103,13 @@ class TableTest extends TestCase
                   CONSTRAINT `fk_address_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON UPDATE CASCADE
                 ) ENGINE=InnoDB AUTO_INCREMENT=606 DEFAULT CHARSET=utf8',
                 [
-                    [
-                        'constraint' => 'fk_address_city',
-                        'index_list' => ['city_id'],
-                        'ref_db_name' => null,
-                        'ref_table_name' => 'city',
-                        'ref_index_list' => ['city_id'],
-                        'on_update' => 'CASCADE',
-                    ],
+                    new ForeignKeyData(
+                        constraint: 'fk_address_city',
+                        indexList: ['city_id'],
+                        refTableName: 'city',
+                        refIndexList: ['city_id'],
+                        onUpdate: 'CASCADE',
+                    ),
                 ],
             ],
         ];

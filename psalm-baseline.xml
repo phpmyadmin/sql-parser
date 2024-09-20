@@ -679,8 +679,14 @@
   </file>
   <file src="src/Statements/CreateStatement.php">
     <MixedArgument>
+      <code><![CDATA[$opt]]></code>
+      <code><![CDATA[$opt]]></code>
       <code><![CDATA[$this->$field]]></code>
     </MixedArgument>
+    <MixedAssignment>
+      <code><![CDATA[$opt]]></code>
+      <code><![CDATA[$opt]]></code>
+    </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$this->$field]]></code>
     </MixedOperand>
@@ -688,10 +694,16 @@
       <code><![CDATA[$brackets]]></code>
       <code><![CDATA[$brackets]]></code>
     </PossiblyFalseOperand>
+    <PossiblyInvalidPropertyAssignmentValue>
+      <code><![CDATA[str_replace(' ', '_', $opt)]]></code>
+      <code><![CDATA[str_replace(' ', '_', $opt)]]></code>
+    </PossiblyInvalidPropertyAssignmentValue>
     <PossiblyNullArgument>
       <code><![CDATA[$this->parameters]]></code>
     </PossiblyNullArgument>
     <PossiblyNullPropertyFetch>
+      <code><![CDATA[$field->references->table->database]]></code>
+      <code><![CDATA[$field->references->table->table]]></code>
       <code><![CDATA[$token->value]]></code>
       <code><![CDATA[$token->value]]></code>
     </PossiblyNullPropertyFetch>
@@ -713,6 +725,8 @@
       <code><![CDATA[build]]></code>
       <code><![CDATA[has]]></code>
       <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
+      <code><![CDATA[has]]></code>
     </PossiblyNullReference>
     <PropertyTypeCoercion>
       <code><![CDATA[$token->value]]></code>
@@ -725,6 +739,7 @@
       <code><![CDATA[ArrayObjs::parse($parser, $list)]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
+      <code><![CDATA[empty($this->fields)]]></code>
       <code><![CDATA[empty($this->partitionBy)]]></code>
       <code><![CDATA[empty($this->partitionBy)]]></code>
       <code><![CDATA[empty($this->partitions)]]></code>
@@ -1022,6 +1037,17 @@
       <code><![CDATA[$obj instanceof Parser]]></code>
     </RedundantConditionGivenDocblockType>
   </file>
+  <file src="src/Utils/ForeignKeyData.php">
+    <PossiblyUnusedProperty>
+      <code><![CDATA[$constraint]]></code>
+      <code><![CDATA[$indexList]]></code>
+      <code><![CDATA[$onDelete]]></code>
+      <code><![CDATA[$onUpdate]]></code>
+      <code><![CDATA[$refDbName]]></code>
+      <code><![CDATA[$refIndexList]]></code>
+      <code><![CDATA[$refTableName]]></code>
+    </PossiblyUnusedProperty>
+  </file>
   <file src="src/Utils/Formatter.php">
     <InvalidArrayOffset>
       <code><![CDATA[JoinKeyword::JOINS[$list->tokens[$list->idx - 2]->value]]]></code>
@@ -1165,13 +1191,7 @@
     <LessSpecificReturnStatement>
       <code><![CDATA[$ret]]></code>
     </LessSpecificReturnStatement>
-    <MixedArgument>
-      <code><![CDATA[$opt]]></code>
-      <code><![CDATA[$opt]]></code>
-    </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$opt]]></code>
-      <code><![CDATA[$opt]]></code>
       <code><![CDATA[$option]]></code>
       <code><![CDATA[$option]]></code>
       <code><![CDATA[$option]]></code>
@@ -1196,17 +1216,10 @@
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
     </PossiblyNullArrayOffset>
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$field->references->table->database]]></code>
-      <code><![CDATA[$field->references->table->table]]></code>
-    </PossiblyNullPropertyFetch>
     <PossiblyNullReference>
-      <code><![CDATA[has]]></code>
-      <code><![CDATA[has]]></code>
       <code><![CDATA[has]]></code>
     </PossiblyNullReference>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($statement->fields)]]></code>
       <code><![CDATA[empty($statement->fields)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

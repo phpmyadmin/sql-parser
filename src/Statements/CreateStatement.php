@@ -23,8 +23,10 @@ use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
+use PhpMyAdmin\SqlParser\Utils\ForeignKeyData;
 
 use function is_array;
+use function str_replace;
 use function trim;
 
 /**
@@ -774,5 +776,56 @@ class CreateStatement extends Statement
                 $this->body[] = $token;
             }
         }
+    }
+
+    /** @return list<ForeignKeyData> */
+    public function getForeignKeys(): array
+    {
+        if (empty($this->fields) || (! is_array($this->fields)) || (! $this->options->has('TABLE'))) {
+            return [];
+        }
+
+        $ret = [];
+
+        foreach ($this->fields as $field) {
+            if ($field->key === null || $field->key->type !== 'FOREIGN KEY') {
+                continue;
+            }
+
+            $columns = [];
+            foreach ($field->key->columns as $column) {
+                if (! isset($column['name'])) {
+                    continue;
+                }
+
+                $columns[] = $column['name'];
+            }
+
+            $foreignKey = new ForeignKeyData();
+            $foreignKey->constraint = $field->name;
+            $foreignKey->indexList = $columns;
+
+            if ($field->references !== null) {
+                $foreignKey->refDbName = $field->references->table->database;
+                $foreignKey->refTableName = $field->references->table->table;
+                $foreignKey->refIndexList = $field->references->columns;
+
+                $opt = $field->references->options->has('ON UPDATE');
+
+                if ($opt) {
+                    $foreignKey->onUpdate = str_replace(' ', '_', $opt);
+                }
+
+                $opt = $field->references->options->has('ON DELETE');
+
+                if ($opt) {
+                    $foreignKey->onDelete = str_replace(' ', '_', $opt);
+                }
+            }
+
+            $ret[] = $foreignKey;
+        }
+
+        return $ret;
     }
 }
