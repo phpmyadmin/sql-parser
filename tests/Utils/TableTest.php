@@ -7,13 +7,13 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
-use PhpMyAdmin\SqlParser\Utils\ForeignKeyData;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\SqlParser\Utils\Table;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 class TableTest extends TestCase
 {
-    /** @param list<ForeignKeyData> $expected */
+    /** @param list<ForeignKey> $expected */
     #[DataProvider('getForeignKeysProvider')]
     public function testGetForeignKeys(string $query, array $expected): void
     {
@@ -24,7 +24,7 @@ class TableTest extends TestCase
         $this->assertEquals($expected, $result);
     }
 
-    /** @return list<array{string, list<ForeignKeyData>}> */
+    /** @return list<array{string, list<ForeignKey>}> */
     public static function getForeignKeysProvider(): array
     {
         return [
@@ -53,14 +53,14 @@ class TableTest extends TestCase
                       REFERENCES `staff` (`staff_id`) ON UPDATE CASCADE
                 ) ENGINE=InnoDB AUTO_INCREMENT=16050 DEFAULT CHARSET=utf8',
                 [
-                    new ForeignKeyData(
+                    new ForeignKey(
                         constraint: 'fk_payment_customer',
                         indexList: ['customer_id'],
                         refTableName: 'customer',
                         refIndexList: ['customer_id'],
                         onUpdate: 'CASCADE',
                     ),
-                    new ForeignKeyData(
+                    new ForeignKey(
                         constraint: 'fk_payment_rental',
                         indexList: ['rental_id'],
                         refTableName: 'rental',
@@ -68,7 +68,7 @@ class TableTest extends TestCase
                         onDelete: 'SET_NULL',
                         onUpdate: 'CASCADE',
                     ),
-                    new ForeignKeyData(
+                    new ForeignKey(
                         constraint: 'fk_payment_staff',
                         indexList: ['staff_id'],
                         refTableName: 'staff',
@@ -103,7 +103,7 @@ class TableTest extends TestCase
                   CONSTRAINT `fk_address_city` FOREIGN KEY (`city_id`) REFERENCES `city` (`city_id`) ON UPDATE CASCADE
                 ) ENGINE=InnoDB AUTO_INCREMENT=606 DEFAULT CHARSET=utf8',
                 [
-                    new ForeignKeyData(
+                    new ForeignKey(
                         constraint: 'fk_address_city',
                         indexList: ['city_id'],
                         refTableName: 'city',

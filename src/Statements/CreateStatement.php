@@ -23,7 +23,7 @@ use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
-use PhpMyAdmin\SqlParser\Utils\ForeignKeyData;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 
 use function is_array;
 use function str_replace;
@@ -778,7 +778,7 @@ class CreateStatement extends Statement
         }
     }
 
-    /** @return list<ForeignKeyData> */
+    /** @return list<ForeignKey> */
     public function getForeignKeys(): array
     {
         if (empty($this->fields) || (! is_array($this->fields)) || (! $this->options->has('TABLE'))) {
@@ -801,7 +801,7 @@ class CreateStatement extends Statement
                 $columns[] = $column['name'];
             }
 
-            $foreignKey = new ForeignKeyData();
+            $foreignKey = new ForeignKey();
             $foreignKey->constraint = $field->name;
             $foreignKey->indexList = $columns;
 
