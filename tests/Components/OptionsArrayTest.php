@@ -58,10 +58,10 @@ class OptionsArrayTest extends TestCase
                 ],
             ],
         );
-        $sumValue = $component->has('SUM', true);
+        $sumValue = $component->get('SUM', true);
         $this->assertInstanceOf(Expression::class, $sumValue);
         $this->assertEquals('(3 + 5)', (string) $sumValue);
-        $this->assertEquals('8', $component->has('RESULT'));
+        $this->assertEquals('8', $component->get('RESULT'));
     }
 
     public function testHas(): void
@@ -79,7 +79,7 @@ class OptionsArrayTest extends TestCase
             ],
         );
         $this->assertTrue($component->has('A'));
-        $this->assertEquals('test', $component->has('B'));
+        $this->assertEquals('test', $component->get('B'));
         $this->assertTrue($component->has('C'));
         $this->assertFalse($component->has('D'));
     }
@@ -105,7 +105,7 @@ class OptionsArrayTest extends TestCase
                 'C' => 3,
             ],
         );
-        $this->assertEquals('test', $component->has('B'));
+        $this->assertEquals('test', $component->get('B'));
         $component->remove('B');
         $this->assertFalse($component->has('B'));
     }
@@ -127,6 +127,7 @@ class OptionsArrayTest extends TestCase
                     'name' => 'MAX_STATEMENT_TIME',
                     'value' => '42',
                     'equals' => true,
+                    'expr' => '',
                 ],
             ],
         );

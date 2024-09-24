@@ -781,7 +781,7 @@ class CreateStatement extends Statement
     /** @return list<ForeignKey> */
     public function getForeignKeys(): array
     {
-        if (empty($this->fields) || (! is_array($this->fields)) || (! $this->options->has('TABLE'))) {
+        if (empty($this->fields) || ! is_array($this->fields) || ! $this->options->has('TABLE')) {
             return [];
         }
 
@@ -810,16 +810,16 @@ class CreateStatement extends Statement
                 $foreignKey->refTableName = $field->references->table->table;
                 $foreignKey->refIndexList = $field->references->columns;
 
-                $opt = $field->references->options->has('ON UPDATE');
+                $opt = $field->references->options->get('ON UPDATE');
 
-                if ($opt) {
-                    $foreignKey->onUpdate = str_replace(' ', '_', $opt);
+                if ($opt !== '') {
+                    $foreignKey->onUpdate = str_replace(' ', '_', (string) $opt);
                 }
 
-                $opt = $field->references->options->has('ON DELETE');
+                $opt = $field->references->options->get('ON DELETE');
 
-                if ($opt) {
-                    $foreignKey->onDelete = str_replace(' ', '_', $opt);
+                if ($opt !== '') {
+                    $foreignKey->onDelete = str_replace(' ', '_', (string) $opt);
                 }
             }
 

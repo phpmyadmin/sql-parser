@@ -16,7 +16,7 @@ class SelectStatementTest extends TestCase
         $parser = new Parser($data['query']);
         $stmt = $parser->statements[0];
         $this->assertNotNull($stmt->options);
-        $this->assertEquals(10, $stmt->options->has('MAX_STATEMENT_TIME'));
+        $this->assertEquals(10, $stmt->options->get('MAX_STATEMENT_TIME'));
     }
 
     #[DataProvider('selectProvider')]
