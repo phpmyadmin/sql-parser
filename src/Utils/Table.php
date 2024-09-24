@@ -30,7 +30,7 @@ class Table
      */
     public static function getFields(CreateStatement $statement): array
     {
-        if (empty($statement->fields) || (! is_array($statement->fields)) || (! $statement->options->has('TABLE'))) {
+        if (empty($statement->fields) || ! is_array($statement->fields) || ! $statement->options->has('TABLE')) {
             return [];
         }
 
@@ -57,24 +57,22 @@ class Table
                 }
             }
 
-            $option = $field->options->has('DEFAULT');
+            $option = $field->options->get('DEFAULT');
 
-            if ($option) {
+            if ($option !== '') {
                 $ret[$field->name]['default_value'] = $option;
                 if ($option === 'CURRENT_TIMESTAMP') {
                     $ret[$field->name]['default_current_timestamp'] = true;
                 }
             }
 
-            $option = $field->options->has('ON UPDATE');
-
-            if ($option === 'CURRENT_TIMESTAMP') {
+            if ($field->options->get('ON UPDATE') === 'CURRENT_TIMESTAMP') {
                 $ret[$field->name]['on_update_current_timestamp'] = true;
             }
 
-            $option = $field->options->has('AS');
+            $option = $field->options->get('AS');
 
-            if (! $option) {
+            if ($option === '') {
                 continue;
             }
 

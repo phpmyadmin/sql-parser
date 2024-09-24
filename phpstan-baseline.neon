@@ -21,11 +21,6 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
-			message: "#^Parameter \\#2 \\$string2 of function strcasecmp expects string, mixed given\\.$#"
-			count: 2
-			path: src/Components/OptionsArray.php
-
-		-
 			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
@@ -256,26 +251,6 @@ parameters:
 			path: src/Parsers/Limits.php
 
 		-
-			message: "#^Cannot access offset 'equals' on mixed\\.$#"
-			count: 1
-			path: src/Parsers/OptionsArrays.php
-
-		-
-			message: "#^Cannot access offset 'expr' on mixed\\.$#"
-			count: 2
-			path: src/Parsers/OptionsArrays.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 1
-			path: src/Parsers/OptionsArrays.php
-
-		-
-			message: "#^Cannot access offset 'value' on mixed\\.$#"
-			count: 2
-			path: src/Parsers/OptionsArrays.php
-
-		-
 			message: "#^Cannot access offset 1 on mixed\\.$#"
 			count: 2
 			path: src/Parsers/OptionsArrays.php
@@ -286,7 +261,22 @@ parameters:
 			path: src/Parsers/OptionsArrays.php
 
 		-
-			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			message: "#^Cannot assign offset 'equals' to array\\<string, bool\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\>\\|string\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Cannot assign offset 'expr' to array\\<string, bool\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\>\\|string\\.$#"
+			count: 2
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Offset 'expr' does not exist on array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Offset 'name' does not exist on array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\.$#"
 			count: 1
 			path: src/Parsers/OptionsArrays.php
 
@@ -296,8 +286,23 @@ parameters:
 			path: src/Parsers/OptionsArrays.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, mixed\\>\\) does not accept array\\<int\\|string, mixed\\>\\.$#"
-			count: 8
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<int\\|string, array\\{name\\: bool\\|float\\|int\\|string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\.$#"
+			count: 2
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<int\\|string, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|bool\\|float\\|int\\|string\\>\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<int\\|string, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\.$#"
+			count: 3
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<int\\|string, mixed\\>\\.$#"
+			count: 3
 			path: src/Parsers/OptionsArrays.php
 
 		-
@@ -506,18 +511,18 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
+			message: "#^Cannot call method get\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
+			count: 2
+			path: src/Statements/CreateStatement.php
+
+		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
-			count: 11
+			count: 9
 			path: src/Statements/CreateStatement.php
 
 		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\ParameterDefinitions\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
 			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^Parameter \\#3 \\$subject of function str_replace expects array\\|string, mixed given\\.$#"
-			count: 2
 			path: src/Statements/CreateStatement.php
 
 		-
@@ -896,7 +901,7 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) should return array\\<string, array\\{type\\: string, timestamp_not_null\\: bool, default_value\\?\\: mixed, default_current_timestamp\\?\\: true, on_update_current_timestamp\\?\\: true, expr\\?\\: mixed\\}\\> but returns array\\<string, array\\{default_current_timestamp\\?\\: true, default_value\\?\\: mixed, expr\\?\\: mixed, on_update_current_timestamp\\?\\: true, timestamp_not_null\\: bool, type\\: string\\|null\\}\\>\\.$#"
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) should return array\\<string, array\\{type\\: string, timestamp_not_null\\: bool, default_value\\?\\: mixed, default_current_timestamp\\?\\: true, on_update_current_timestamp\\?\\: true, expr\\?\\: mixed\\}\\> but returns array\\<string, array\\{default_current_timestamp\\?\\: true, default_value\\?\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|non\\-empty\\-string, expr\\?\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|non\\-empty\\-string, on_update_current_timestamp\\?\\: true, timestamp_not_null\\: bool, type\\: string\\|null\\}\\>\\.$#"
 			count: 1
 			path: src/Utils/Table.php
 

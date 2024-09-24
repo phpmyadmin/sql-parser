@@ -161,6 +161,8 @@ final class OptionsArrays implements Parseable
                         'equals' => $lastOption[1] === 'expr=',
                         // @var Expression The parsed expression.
                         'expr' => '',
+                        // No value when it is an expression.
+                        'value' => null,
                     ];
                     $state = 1;
                 }
@@ -179,14 +181,15 @@ final class OptionsArrays implements Parseable
             }
 
             if ($lastOption[1] === 'expr' || $lastOption[1] === 'expr=') {
-                $ret->options[$lastOptionId]['expr'] = Expressions::parse(
+                $expression = Expressions::parse(
                     $parser,
                     $list,
                     empty($lastOption[2]) ? [] : $lastOption[2],
                 );
-                if ($ret->options[$lastOptionId]['expr'] !== null) {
-                    $ret->options[$lastOptionId]['value']
-                        = $ret->options[$lastOptionId]['expr']->expr;
+                $ret->options[$lastOptionId]['expr'] = '';
+                if ($expression !== null) {
+                    $ret->options[$lastOptionId]['value'] = $expression->expr;
+                    $ret->options[$lastOptionId]['expr'] = $expression;
                 }
 
                 $lastOption = null;
