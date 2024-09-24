@@ -1161,68 +1161,6 @@
       <code><![CDATA[empty($statement->order)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Utils/Routine.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[[
-            $type->name,
-            implode(',', $type->parameters),
-            implode(' ', $options),
-        ]]]></code>
-      <code><![CDATA[[
-            empty($param->inOut) ? '' : $param->inOut,
-            $param->name,
-            $param->type->name,
-            implode(',', $param->type->parameters),
-            implode(' ', $options),
-        ]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[string[]]]></code>
-      <code><![CDATA[string[]]]></code>
-    </InvalidReturnType>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$options]]></code>
-      <code><![CDATA[$options]]></code>
-      <code><![CDATA[$retval['opts'][$idx]]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$opt['value']]]></code>
-      <code><![CDATA[$opt['value']]]></code>
-      <code><![CDATA[$opt['value']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$opt]]></code>
-      <code><![CDATA[$opt]]></code>
-      <code><![CDATA[$opt]]></code>
-      <code><![CDATA[$options[]]]></code>
-      <code><![CDATA[$options[]]]></code>
-      <code><![CDATA[$retval['opts'][$idx][]]]></code>
-    </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$param->type->parameters]]></code>
-      <code><![CDATA[$param->type->parameters]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullIterator>
-      <code><![CDATA[$param->type->options->options]]></code>
-      <code><![CDATA[$param->type->options->options]]></code>
-      <code><![CDATA[$type->options->options]]></code>
-    </PossiblyNullIterator>
-    <PossiblyNullPropertyFetch>
-      <code><![CDATA[$param->type->name]]></code>
-      <code><![CDATA[$param->type->name]]></code>
-      <code><![CDATA[$param->type->options]]></code>
-      <code><![CDATA[$param->type->options]]></code>
-      <code><![CDATA[$param->type->options->options]]></code>
-      <code><![CDATA[$param->type->options->options]]></code>
-      <code><![CDATA[$param->type->parameters]]></code>
-      <code><![CDATA[$param->type->parameters]]></code>
-      <code><![CDATA[$type->options->options]]></code>
-    </PossiblyNullPropertyFetch>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($param->inOut)]]></code>
-      <code><![CDATA[empty($statement->parameters)]]></code>
-    </RiskyTruthyFalsyComparison>
-  </file>
   <file src="src/Utils/Table.php">
     <LessSpecificReturnStatement>
       <code><![CDATA[$ret]]></code>
@@ -1498,13 +1436,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[getFlagsProvider]]></code>
       <code><![CDATA[getTablesProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Utils/RoutineTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getParameterProvider]]></code>
-      <code><![CDATA[getParametersProvider]]></code>
-      <code><![CDATA[getReturnTypeProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Utils/TableTest.php">
