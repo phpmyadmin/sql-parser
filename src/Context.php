@@ -79,10 +79,8 @@ abstract class Context
 
     /**
      * List of operators and their flags.
-     *
-     * @var array<string, int>
      */
-    public static array $operators = [
+    private const OPERATORS = [
         // Some operators (*, =) may have ambiguous flags, because they depend on
         // the context they are being used in.
         // For example: 1. SELECT * FROM table; # SQL specific (wildcard)
@@ -367,7 +365,7 @@ abstract class Context
      */
     public static function isOperator(string $string): int|null
     {
-        return static::$operators[$string] ?? null;
+        return self::OPERATORS[$string] ?? null;
     }
 
     /**
