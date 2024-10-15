@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Contexts;
 
-use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Token;
 
 /**
@@ -15,7 +14,7 @@ use PhpMyAdmin\SqlParser\Token;
  *
  * @see https://dev.mysql.com/doc/refman/5.5/en/keywords.html
  */
-class ContextMySql50500 extends Context
+final class ContextMySql50500
 {
     /**
      * List of keywords.
@@ -24,11 +23,10 @@ class ContextMySql50500 extends Context
      *
      * @see Token
      *
-     * @var array<string,int>
      * @psalm-var non-empty-array<string,Token::FLAG_KEYWORD_*|int>
      * @phpstan-var non-empty-array<non-empty-string,Token::FLAG_KEYWORD_*|int>
      */
-    public static array $keywords = [
+    public const KEYWORDS = [
         'ACTION' => Token::FLAG_KEYWORD,
         'AFTER' => Token::FLAG_KEYWORD,
         'AGGREGATE' => Token::FLAG_KEYWORD,

@@ -27,7 +27,7 @@ use function substr;
  *
  * Holds the configuration of the context that is currently used.
  */
-abstract class Context
+final class Context
 {
     /**
      * The maximum length of a keyword.
@@ -55,7 +55,7 @@ abstract class Context
      * The prefix concatenated to the context name when an incomplete class name
      * is specified.
      */
-    public static string $contextPrefix = 'PhpMyAdmin\\SqlParser\\Contexts\\Context';
+    private const CONTEXT_PREFIX = 'PhpMyAdmin\\SqlParser\\Contexts\\Context';
 
     /**
      * List of keywords.
@@ -486,22 +486,19 @@ abstract class Context
             $context = ContextMySql50700::class;
         }
 
-        if (! class_exists($context)) {
-            if (! class_exists(self::$contextPrefix . $context)) {
-                return false;
-            }
-
-            // Could be the fully qualified class name was given, like `ContextDBMS::class`.
-            if (class_exists('\\' . $context)) {
-                $context = '\\' . $context;
-            } else {
-                // Short context name (must be formatted into class name).
-                $context = self::$contextPrefix . $context;
+        $contextClass = $context;
+        if (! class_exists($contextClass)) {
+            $contextClass = self::CONTEXT_PREFIX . $context;
+            if (! class_exists($contextClass)) {
+                $contextClass = '\\' . $context;
+                if (! class_exists($contextClass)) {
+                    return false;
+                }
             }
         }
 
-        self::$loadedContext = $context;
-        self::$keywords = $context::$keywords;
+        self::$loadedContext = $contextClass;
+        self::$keywords = $contextClass::KEYWORDS;
 
         return true;
     }
