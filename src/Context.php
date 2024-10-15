@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Contexts\ContextMySql50700;
 
+use function array_map;
 use function class_exists;
 use function explode;
 use function in_array;
@@ -672,11 +673,7 @@ abstract class Context
      */
     public static function escapeAll(array $strings): array
     {
-        foreach ($strings as $key => $value) {
-            $strings[$key] = static::escape($value);
-        }
-
-        return $strings;
+        return array_map(static::escape(...), $strings);
     }
 
     /**
