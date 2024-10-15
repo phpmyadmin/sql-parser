@@ -388,39 +388,20 @@ abstract class Context
      */
     public static function isComment(string $string, bool $end = false): int|null
     {
-        if ($string === '') {
-            return null;
-        }
-
-        // If comment is Bash style (#):
-        if (str_starts_with($string, '#')) {
-            return Token::FLAG_COMMENT_BASH;
-        }
-
-        // If comment is a MySQL command
-        if (str_starts_with($string, '/*!')) {
-            return Token::FLAG_COMMENT_MYSQL_CMD;
-        }
-
-        // If comment is opening C style (/*) or is closing C style (*/), warning, it could conflict
-        // with wildcard and a real opening C style.
-        // It would look like the following valid SQL statement: "SELECT */* comment */ FROM...".
-        if (str_starts_with($string, '/*') || str_starts_with($string, '*/')) {
-            return Token::FLAG_COMMENT_C;
-        }
-
-        // If comment is SQL style (--\s?):
-        if (
+        return match (true) {
+            str_starts_with($string, '#') => Token::FLAG_COMMENT_BASH,
+            str_starts_with($string, '/*!') => Token::FLAG_COMMENT_MYSQL_CMD,
+            // If comment is opening C style (/*) or is closing C style (*/), warning, it could conflict
+            // with wildcard and a real opening C style.
+            // It would look like the following valid SQL statement: "SELECT */* comment */ FROM...".
+            str_starts_with($string, '/*') || str_starts_with($string, '*/') => Token::FLAG_COMMENT_C,
             str_starts_with($string, '-- ')
-            || str_starts_with($string, "--\r")
-            || str_starts_with($string, "--\n")
-            || str_starts_with($string, "--\t")
-            || ($string === '--' && $end)
-        ) {
-            return Token::FLAG_COMMENT_SQL;
-        }
-
-        return null;
+                || str_starts_with($string, "--\r")
+                || str_starts_with($string, "--\n")
+                || str_starts_with($string, "--\t")
+                || ($string === '--' && $end) => Token::FLAG_COMMENT_SQL,
+            default => null,
+        };
     }
 
     /**
