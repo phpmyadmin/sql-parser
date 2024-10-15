@@ -372,9 +372,12 @@ abstract class Context
     /**
      * Checks if the given character is a whitespace.
      */
-    public static function isWhitespace(string $string): bool
+    public static function isWhitespace(string $character): bool
     {
-        return $string === ' ' || $string === "\r" || $string === "\n" || $string === "\t";
+        return match ($character) {
+            ' ', "\r", "\n", "\t" => true,
+            default => false,
+        };
     }
 
     /**
