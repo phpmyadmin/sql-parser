@@ -868,7 +868,7 @@ class Lexer
         $token = $this->str[$this->last];
         $flags = Context::isString($token);
 
-        if (! $flags && $token !== $quote) {
+        if ($flags === null && $token !== $quote) {
             return null;
         }
 

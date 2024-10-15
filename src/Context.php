@@ -469,25 +469,17 @@ abstract class Context
     /**
      * Checks if the given character is the beginning of a string.
      *
-     * @param string $string string to be checked
+     * @param string $character a character to be checked
      *
      * @return int|null the appropriate flag for the string type
      */
-    public static function isString(string $string): int|null
+    public static function isString(string $character): int|null
     {
-        if ($string === '') {
-            return null;
-        }
-
-        if (str_starts_with($string, '\'')) {
-            return Token::FLAG_STRING_SINGLE_QUOTES;
-        }
-
-        if (str_starts_with($string, '"')) {
-            return Token::FLAG_STRING_DOUBLE_QUOTES;
-        }
-
-        return null;
+        return match ($character) {
+            '\'' => Token::FLAG_STRING_SINGLE_QUOTES,
+            '"' => Token::FLAG_STRING_DOUBLE_QUOTES,
+            default => null,
+        };
     }
 
     /**
