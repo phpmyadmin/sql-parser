@@ -546,7 +546,7 @@ class Lexer
         $token = $this->str[$this->last];
 
         // Bash style comments. (#comment\n)
-        if (Context::isComment($token)) {
+        if (Context::isComment($token) !== null) {
             while (++$this->last < $this->len && $this->str[$this->last] !== "\n") {
                 $token .= $this->str[$this->last];
             }
@@ -562,7 +562,7 @@ class Lexer
         // C style comments. (/*comment*\/)
         if (++$this->last < $this->len) {
             $token .= $this->str[$this->last];
-            if (Context::isComment($token)) {
+            if (Context::isComment($token) !== null) {
                 // There might be a conflict with "*" operator here, when string is "*/*".
                 // This can occurs in the following statements:
                 // - "SELECT */* comment */ FROM ..."
@@ -633,7 +633,7 @@ class Lexer
             $end = true;
         }
 
-        if (Context::isComment($token, $end)) {
+        if (Context::isComment($token, $end) !== null) {
             // Checking if this comment did not end already (```--\n```).
             if ($this->str[$this->last] !== "\n") {
                 while (++$this->last < $this->len && $this->str[$this->last] !== "\n") {

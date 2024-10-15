@@ -33,8 +33,8 @@ class UtfStringTest extends TestCase
 
         // offsetGet
         $this->assertEquals('.', $str[self::TEST_PHRASE_LEN - 1]);
-        $this->assertNull($str[-1]);
-        $this->assertNull($str[self::TEST_PHRASE_LEN]);
+        $this->assertEquals('', $str[-1]);
+        $this->assertEquals('', $str[self::TEST_PHRASE_LEN]);
     }
 
     public function testSet(): void
