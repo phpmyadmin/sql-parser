@@ -445,25 +445,14 @@ abstract class Context
      *
      * @return int|null the appropriate flag for the symbol type
      */
-    public static function isSymbol(string $string): int|null
+    public static function isSymbol(string $character): int|null
     {
-        if ($string === '') {
-            return null;
-        }
-
-        if (str_starts_with($string, '@')) {
-            return Token::FLAG_SYMBOL_VARIABLE;
-        }
-
-        if (str_starts_with($string, '`')) {
-            return Token::FLAG_SYMBOL_BACKTICK;
-        }
-
-        if (str_starts_with($string, ':') || str_starts_with($string, '?')) {
-            return Token::FLAG_SYMBOL_PARAMETER;
-        }
-
-        return null;
+        return match ($character) {
+            '@' => Token::FLAG_SYMBOL_VARIABLE,
+            '`' => Token::FLAG_SYMBOL_BACKTICK,
+            ':', '?' => Token::FLAG_SYMBOL_PARAMETER,
+            default => null,
+        };
     }
 
     /**

@@ -115,12 +115,11 @@ class IsMethodsTest extends TestCase
     {
         $this->assertEquals(Token::FLAG_SYMBOL_VARIABLE, Context::isSymbol('@'));
         $this->assertEquals(Token::FLAG_SYMBOL_BACKTICK, Context::isSymbol('`'));
-
-        $this->assertEquals(Token::FLAG_SYMBOL_VARIABLE, Context::isSymbol('@id'));
-        $this->assertEquals(Token::FLAG_SYMBOL_BACKTICK, Context::isSymbol('`id`'));
+        $this->assertEquals(Token::FLAG_SYMBOL_PARAMETER, Context::isSymbol(':'));
+        $this->assertEquals(Token::FLAG_SYMBOL_PARAMETER, Context::isSymbol('?'));
 
         $this->assertNull(Context::isSymbol(''));
-        $this->assertNull(Context::isSymbol('id'));
+        $this->assertNull(Context::isSymbol('i'));
     }
 
     public function testisSeparator(): void

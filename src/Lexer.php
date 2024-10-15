@@ -918,7 +918,7 @@ class Lexer
         $token = $this->str[$this->last];
         $flags = Context::isSymbol($token);
 
-        if (! $flags) {
+        if ($flags === null) {
             return null;
         }
 
