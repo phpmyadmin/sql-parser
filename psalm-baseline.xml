@@ -1336,6 +1336,9 @@
     <DocblockTypeContradiction occurrences="1">
       <code>! ($statement instanceof SelectStatement)</code>
     </DocblockTypeContradiction>
+    <MixedArrayOffset occurrences="1">
+      <code>$tables[$thisDb][$expr-&gt;table]</code>
+    </MixedArrayOffset>
     <PossiblyNullArrayOffset occurrences="1">
       <code>$tables[$thisDb]</code>
     </PossiblyNullArrayOffset>
@@ -1348,9 +1351,10 @@
       <code>$expr</code>
       <code>$expr-&gt;function</code>
     </MixedArgument>
-    <MixedArrayOffset occurrences="2">
+    <MixedArrayOffset occurrences="3">
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
+      <code>$tableAliases[$expr-&gt;table]</code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion occurrences="2">
       <code>$clauses[$token-&gt;keyword]</code>

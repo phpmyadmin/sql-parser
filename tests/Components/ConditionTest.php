@@ -26,4 +26,16 @@ class ConditionTest extends TestCase
         $this->assertEquals($component[1]->expr, 'OR');
         $this->assertEquals($component[2]->expr, '(id BETWEEN 30 AND 40)');
     }
+
+    public function testParseAnd(): void
+    {
+        $component = Condition::parse(
+            new Parser(),
+            $this->getTokensList("`col` LIKE 'AND'")
+        );
+        $this->assertEquals(
+            "`col` LIKE 'AND'",
+            Condition::build($component)
+        );
+    }
 }
