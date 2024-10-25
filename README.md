@@ -34,26 +34,26 @@ The API documentation is available at
 Command line utility to syntax highlight SQL query:
 
 ```sh
-./vendor/bin/highlight-query --query "SELECT 1"
+./vendor/bin/sql-parser --highlight --query "SELECT 1"
 ```
 
 Command line utility to lint SQL query:
 
 ```sh
-./vendor/bin/lint-query --query "SELECT 1"
+./vendor/bin/sql-parser --lint --query "SELECT 1"
 ```
 
 Command line utility to tokenize SQL query:
 
 ```sh
-./vendor/bin/tokenize-query --query "SELECT 1"
+./vendor/bin/sql-parser --tokenize --query "SELECT 1"
 ```
 
 All commands are able to parse input from stdin (standard in), such as:
 
 ```sh
-echo "SELECT 1" | ./vendor/bin/highlight-query
-cat example.sql | ./vendor/bin/lint-query
+echo "SELECT 1" | ./vendor/bin/sql-parser --highlight
+cat example.sql | ./vendor/bin/sql-parser --lint
 ```
 
 ### Formatting SQL query
@@ -116,7 +116,7 @@ The locale is automatically detected from your environment, you can also set a d
 **From cli**:
 
 ```sh
-LC_ALL=pl ./vendor/bin/lint-query --query "SELECT 1"
+LC_ALL=pl ./vendor/bin/sql-parser --lint --query "SELECT 1"
 ```
 
 **From php**:

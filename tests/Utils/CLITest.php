@@ -101,15 +101,15 @@ class CLITest extends TestCase
             ],
             [
                 ['h' => true],
-                'Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]' . "\n" .
-                '       cat file.sql | highlight-query' . "\n",
+                'Usage: sql-parser --highlight --query SQL [--format html|cli|text] [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --highlight' . "\n",
                 0,
             ],
             [
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]' . "\n" .
-                '       cat file.sql | highlight-query' . "\n",
+                'Usage: sql-parser --highlight --query SQL [--format html|cli|text] [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --highlight' . "\n",
                 1,
             ],
             [
@@ -164,16 +164,16 @@ class CLITest extends TestCase
             [
                 '',
                 ['h' => true],
-                'Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]' . "\n" .
-                '       cat file.sql | highlight-query' . "\n",
+                'Usage: sql-parser --highlight --query SQL [--format html|cli|text] [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --highlight' . "\n",
                 0,
             ],
             [
                 '',
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: highlight-query --query SQL [--format html|cli|text] [--ansi]' . "\n" .
-                '       cat file.sql | highlight-query' . "\n",
+                'Usage: sql-parser --highlight --query SQL [--format html|cli|text] [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --highlight' . "\n",
                 1,
             ],
             [
@@ -227,15 +227,15 @@ class CLITest extends TestCase
                 '',
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: lint-query --query SQL [--ansi]' . "\n" .
-                '       cat file.sql | lint-query' . "\n",
+                'Usage: sql-parser --lint --query SQL [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --lint' . "\n",
                 1,
             ],
             [
                 '',
                 ['h' => true],
-                'Usage: lint-query --query SQL [--ansi]' . "\n" .
-                '       cat file.sql | lint-query' . "\n",
+                'Usage: sql-parser --lint --query SQL [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --lint' . "\n",
                 0,
             ],
             [
@@ -292,15 +292,15 @@ class CLITest extends TestCase
             ],
             [
                 ['h' => true],
-                'Usage: lint-query --query SQL [--ansi]' . "\n" .
-                '       cat file.sql | lint-query' . "\n",
+                'Usage: sql-parser --lint --query SQL [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --lint' . "\n",
                 0,
             ],
             [
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: lint-query --query SQL [--ansi]' . "\n" .
-                '       cat file.sql | lint-query' . "\n",
+                'Usage: sql-parser --lint --query SQL [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --lint' . "\n",
                 1,
             ],
             [
@@ -344,15 +344,15 @@ class CLITest extends TestCase
             ],
             [
                 ['h' => true],
-                'Usage: tokenize-query --query SQL [--ansi]' . "\n" .
-                '       cat file.sql | tokenize-query' . "\n",
+                'Usage: sql-parser --tokenize --query SQL [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --tokenize' . "\n",
                 0,
             ],
             [
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: tokenize-query --query SQL [--ansi]' . "\n" .
-                '       cat file.sql | tokenize-query' . "\n",
+                'Usage: sql-parser --tokenize --query SQL [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --tokenize' . "\n",
                 1,
             ],
             [
@@ -393,16 +393,16 @@ class CLITest extends TestCase
             [
                 '',
                 ['h' => true],
-                'Usage: tokenize-query --query SQL [--ansi]' . "\n" .
-                '       cat file.sql | tokenize-query' . "\n",
+                'Usage: sql-parser --tokenize --query SQL [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --tokenize' . "\n",
                 0,
             ],
             [
                 '',
                 [],
                 'ERROR: Missing parameters!' . "\n" .
-                'Usage: tokenize-query --query SQL [--ansi]' . "\n" .
-                '       cat file.sql | tokenize-query' . "\n",
+                'Usage: sql-parser --tokenize --query SQL [--ansi]' . "\n" .
+                '       cat file.sql | sql-parser --tokenize' . "\n",
                 1,
             ],
             [
@@ -431,27 +431,27 @@ class CLITest extends TestCase
 
         return [
             [
-                'echo "SELECT 1" | ' . $binPath . 'highlight-query',
+                'echo "SELECT 1" | ' . $binPath . 'sql-parser --highlight',
                 0,
             ],
             [
-                'echo "invalid query" | ' . $binPath . 'highlight-query',
+                'echo "invalid query" | ' . $binPath . 'sql-parser --highlight',
                 0,
             ],
             [
-                'echo "SELECT 1" | ' . $binPath . 'lint-query',
+                'echo "SELECT 1" | ' . $binPath . 'sql-parser --lint',
                 0,
             ],
             [
-                'echo "invalid query" | ' . $binPath . 'lint-query',
+                'echo "invalid query" | ' . $binPath . 'sql-parser --lint',
                 10,
             ],
             [
-                'echo "SELECT 1" | ' . $binPath . 'tokenize-query',
+                'echo "SELECT 1" | ' . $binPath . 'sql-parser --tokenize',
                 0,
             ],
             [
-                'echo "invalid query" | ' . $binPath . 'tokenize-query',
+                'echo "invalid query" | ' . $binPath . 'sql-parser --tokenize',
                 0,
             ],
         ];
