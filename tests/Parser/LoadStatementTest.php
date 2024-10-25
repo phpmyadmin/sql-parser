@@ -16,7 +16,7 @@ class LoadStatementTest extends TestCase
         $parser = new Parser($data['query']);
         $stmt = $parser->statements[0];
         $this->assertNotNull($stmt->options);
-        $this->assertEquals(10, $stmt->options->has('CONCURRENT'));
+        $this->assertTrue($stmt->options->has('CONCURRENT'));
     }
 
     #[DataProvider('loadProvider')]
