@@ -61,9 +61,9 @@ class UtfString implements ArrayAccess, Stringable
      *
      * @param int $offset the offset to be returned
      */
-    public function offsetGet(mixed $offset): string|null
+    public function offsetGet(mixed $offset): string
     {
-        return $this->characters[$offset] ?? null;
+        return $this->characters[$offset] ?? '';
     }
 
     /**

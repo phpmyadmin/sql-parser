@@ -135,9 +135,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[[]]]></code>
     </InvalidPropertyAssignmentValue>
-    <InvalidPropertyFetch>
-      <code><![CDATA[$context::$keywords]]></code>
-    </InvalidPropertyFetch>
     <MixedAssignment>
       <code><![CDATA[self::$keywords]]></code>
     </MixedAssignment>
@@ -155,49 +152,6 @@
     <MixedOperand>
       <code><![CDATA[$this->str[$this->last]]]></code>
     </MixedOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->str[$this->last + 1]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$token]]></code>
-      <code><![CDATA[$token]]></code>
-      <code><![CDATA[$token]]></code>
-      <code><![CDATA[$token]]></code>
-      <code><![CDATA[$token]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand>
-      <code><![CDATA[$this->str[$this->last++]]]></code>
-      <code><![CDATA[$this->str[$this->last++]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[$this->last]]]></code>
-      <code><![CDATA[$this->str[++$this->last]]]></code>
-      <code><![CDATA[$this->str[++$this->last]]]></code>
-      <code><![CDATA[$this->str[++$this->last]]]></code>
-      <code><![CDATA[$this->str[++$this->last]]]></code>
-      <code><![CDATA[$this->str[++$this->last]]]></code>
-    </PossiblyNullOperand>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$next->type]]></code>
       <code><![CDATA[$next->value]]></code>
@@ -210,11 +164,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $flags]]></code>
       <code><![CDATA[! $flags]]></code>
-      <code><![CDATA[! $flags]]></code>
-      <code><![CDATA[! $flags]]></code>
-      <code><![CDATA[Context::isComment($token)]]></code>
-      <code><![CDATA[Context::isComment($token)]]></code>
-      <code><![CDATA[Context::isComment($token, $end)]]></code>
       <code><![CDATA[empty($delimiter)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

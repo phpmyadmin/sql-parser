@@ -107,23 +107,19 @@ class IsMethodsTest extends TestCase
         $this->assertEquals(Token::FLAG_STRING_SINGLE_QUOTES, Context::isString("'"));
         $this->assertEquals(Token::FLAG_STRING_DOUBLE_QUOTES, Context::isString('"'));
 
-        $this->assertEquals(Token::FLAG_STRING_SINGLE_QUOTES, Context::isString("'foo bar'"));
-        $this->assertEquals(Token::FLAG_STRING_DOUBLE_QUOTES, Context::isString('"foo bar"'));
-
         $this->assertNull(Context::isString(''));
-        $this->assertNull(Context::isString('foo bar'));
+        $this->assertNull(Context::isString('f'));
     }
 
     public function testIsSymbol(): void
     {
         $this->assertEquals(Token::FLAG_SYMBOL_VARIABLE, Context::isSymbol('@'));
         $this->assertEquals(Token::FLAG_SYMBOL_BACKTICK, Context::isSymbol('`'));
-
-        $this->assertEquals(Token::FLAG_SYMBOL_VARIABLE, Context::isSymbol('@id'));
-        $this->assertEquals(Token::FLAG_SYMBOL_BACKTICK, Context::isSymbol('`id`'));
+        $this->assertEquals(Token::FLAG_SYMBOL_PARAMETER, Context::isSymbol(':'));
+        $this->assertEquals(Token::FLAG_SYMBOL_PARAMETER, Context::isSymbol('?'));
 
         $this->assertNull(Context::isSymbol(''));
-        $this->assertNull(Context::isSymbol('id'));
+        $this->assertNull(Context::isSymbol('i'));
     }
 
     public function testisSeparator(): void

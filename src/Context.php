@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\SqlParser\Contexts\ContextMySql50700;
 
+use function array_map;
 use function class_exists;
 use function explode;
 use function in_array;
@@ -26,7 +27,7 @@ use function substr;
  *
  * Holds the configuration of the context that is currently used.
  */
-abstract class Context
+final class Context
 {
     /**
      * The maximum length of a keyword.
@@ -54,7 +55,7 @@ abstract class Context
      * The prefix concatenated to the context name when an incomplete class name
      * is specified.
      */
-    public static string $contextPrefix = 'PhpMyAdmin\\SqlParser\\Contexts\\Context';
+    private const CONTEXT_PREFIX = 'PhpMyAdmin\\SqlParser\\Contexts\\Context';
 
     /**
      * List of keywords.
@@ -78,10 +79,8 @@ abstract class Context
 
     /**
      * List of operators and their flags.
-     *
-     * @var array<string, int>
      */
-    public static array $operators = [
+    private const OPERATORS = [
         // Some operators (*, =) may have ambiguous flags, because they depend on
         // the context they are being used in.
         // For example: 1. SELECT * FROM table; # SQL specific (wildcard)
@@ -366,15 +365,18 @@ abstract class Context
      */
     public static function isOperator(string $string): int|null
     {
-        return static::$operators[$string] ?? null;
+        return self::OPERATORS[$string] ?? null;
     }
 
     /**
      * Checks if the given character is a whitespace.
      */
-    public static function isWhitespace(string $string): bool
+    public static function isWhitespace(string $character): bool
     {
-        return $string === ' ' || $string === "\r" || $string === "\n" || $string === "\t";
+        return match ($character) {
+            ' ', "\r", "\n", "\t" => true,
+            default => false,
+        };
     }
 
     /**
@@ -384,39 +386,20 @@ abstract class Context
      */
     public static function isComment(string $string, bool $end = false): int|null
     {
-        if ($string === '') {
-            return null;
-        }
-
-        // If comment is Bash style (#):
-        if (str_starts_with($string, '#')) {
-            return Token::FLAG_COMMENT_BASH;
-        }
-
-        // If comment is a MySQL command
-        if (str_starts_with($string, '/*!')) {
-            return Token::FLAG_COMMENT_MYSQL_CMD;
-        }
-
-        // If comment is opening C style (/*) or is closing C style (*/), warning, it could conflict
-        // with wildcard and a real opening C style.
-        // It would look like the following valid SQL statement: "SELECT */* comment */ FROM...".
-        if (str_starts_with($string, '/*') || str_starts_with($string, '*/')) {
-            return Token::FLAG_COMMENT_C;
-        }
-
-        // If comment is SQL style (--\s?):
-        if (
+        return match (true) {
+            str_starts_with($string, '#') => Token::FLAG_COMMENT_BASH,
+            str_starts_with($string, '/*!') => Token::FLAG_COMMENT_MYSQL_CMD,
+            // If comment is opening C style (/*) or is closing C style (*/), warning, it could conflict
+            // with wildcard and a real opening C style.
+            // It would look like the following valid SQL statement: "SELECT */* comment */ FROM...".
+            str_starts_with($string, '/*') || str_starts_with($string, '*/') => Token::FLAG_COMMENT_C,
             str_starts_with($string, '-- ')
-            || str_starts_with($string, "--\r")
-            || str_starts_with($string, "--\n")
-            || str_starts_with($string, "--\t")
-            || ($string === '--' && $end)
-        ) {
-            return Token::FLAG_COMMENT_SQL;
-        }
-
-        return null;
+                || str_starts_with($string, "--\r")
+                || str_starts_with($string, "--\n")
+                || str_starts_with($string, "--\t")
+                || ($string === '--' && $end) => Token::FLAG_COMMENT_SQL,
+            default => null,
+        };
     }
 
     /**
@@ -445,49 +428,30 @@ abstract class Context
      *
      * @return int|null the appropriate flag for the symbol type
      */
-    public static function isSymbol(string $string): int|null
+    public static function isSymbol(string $character): int|null
     {
-        if ($string === '') {
-            return null;
-        }
-
-        if (str_starts_with($string, '@')) {
-            return Token::FLAG_SYMBOL_VARIABLE;
-        }
-
-        if (str_starts_with($string, '`')) {
-            return Token::FLAG_SYMBOL_BACKTICK;
-        }
-
-        if (str_starts_with($string, ':') || str_starts_with($string, '?')) {
-            return Token::FLAG_SYMBOL_PARAMETER;
-        }
-
-        return null;
+        return match ($character) {
+            '@' => Token::FLAG_SYMBOL_VARIABLE,
+            '`' => Token::FLAG_SYMBOL_BACKTICK,
+            ':', '?' => Token::FLAG_SYMBOL_PARAMETER,
+            default => null,
+        };
     }
 
     /**
      * Checks if the given character is the beginning of a string.
      *
-     * @param string $string string to be checked
+     * @param string $character a character to be checked
      *
      * @return int|null the appropriate flag for the string type
      */
-    public static function isString(string $string): int|null
+    public static function isString(string $character): int|null
     {
-        if ($string === '') {
-            return null;
-        }
-
-        if (str_starts_with($string, '\'')) {
-            return Token::FLAG_STRING_SINGLE_QUOTES;
-        }
-
-        if (str_starts_with($string, '"')) {
-            return Token::FLAG_STRING_DOUBLE_QUOTES;
-        }
-
-        return null;
+        return match ($character) {
+            '\'' => Token::FLAG_STRING_SINGLE_QUOTES,
+            '"' => Token::FLAG_STRING_DOUBLE_QUOTES,
+            default => null,
+        };
     }
 
     /**
@@ -522,22 +486,19 @@ abstract class Context
             $context = ContextMySql50700::class;
         }
 
-        if (! class_exists($context)) {
-            if (! class_exists(self::$contextPrefix . $context)) {
-                return false;
-            }
-
-            // Could be the fully qualified class name was given, like `ContextDBMS::class`.
-            if (class_exists('\\' . $context)) {
-                $context = '\\' . $context;
-            } else {
-                // Short context name (must be formatted into class name).
-                $context = self::$contextPrefix . $context;
+        $contextClass = $context;
+        if (! class_exists($contextClass)) {
+            $contextClass = self::CONTEXT_PREFIX . $context;
+            if (! class_exists($contextClass)) {
+                $contextClass = '\\' . $context;
+                if (! class_exists($contextClass)) {
+                    return false;
+                }
             }
         }
 
-        self::$loadedContext = $context;
-        self::$keywords = $context::$keywords;
+        self::$loadedContext = $contextClass;
+        self::$keywords = $contextClass::KEYWORDS;
 
         return true;
     }
@@ -688,11 +649,7 @@ abstract class Context
      */
     public static function escapeAll(array $strings): array
     {
-        foreach ($strings as $key => $value) {
-            $strings[$key] = static::escape($value);
-        }
-
-        return $strings;
+        return array_map(static::escape(...), $strings);
     }
 
     /**
