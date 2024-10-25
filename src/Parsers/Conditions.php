@@ -129,7 +129,10 @@ final class Conditions implements Parseable
             }
 
             // Conditions are delimited by logical operators.
-            if (in_array($token->value, self::DELIMITERS, true)) {
+            if (
+                ($token->type === TokenType::Keyword || $token->type === TokenType::Operator)
+                && in_array($token->value, self::DELIMITERS, true)
+            ) {
                 if ($betweenBefore && ($token->value === 'AND')) {
                     // The syntax of keyword `BETWEEN` is hard-coded.
                     $betweenBefore = false;
