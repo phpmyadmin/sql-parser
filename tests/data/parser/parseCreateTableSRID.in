@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS `public_areas` (
+  `id` INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `kind` enum('COUNTRY','REGION','DEPARTMENT','MUNICIPALITY') NOT NULL,
+  `area` geometry NOT NULL SRID 4326,
+  `properties` json NOT NULL,
+  `title` varchar(100) NOT NULL
+);
