@@ -732,6 +732,58 @@
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
+                                "1": "NOT NULL",
+                                "17": {
+                                    "name": "SRID",
+                                    "equals": false,
+                                    "expr": "4326",
+                                    "value": "4326"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                        "name": "properties",
+                        "isConstraint": null,
+                        "type": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
+                            "name": "JSON",
+                            "parameters": [],
+                            "options": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                "options": []
+                            }
+                        },
+                        "key": null,
+                        "references": null,
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": "NOT NULL"
+                            }
+                        }
+                    },
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
+                        "name": "title",
+                        "isConstraint": null,
+                        "type": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
+                            "name": "VARCHAR",
+                            "parameters": [
+                                "100"
+                            ],
+                            "options": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                "options": []
+                            }
+                        },
+                        "key": null,
+                        "references": null,
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
                                 "1": "NOT NULL"
                             }
                         }
@@ -757,7 +809,7 @@
                     }
                 },
                 "first": 0,
-                "last": 60
+                "last": 67
             }
         ],
         "brackets": 0,
@@ -766,28 +818,6 @@
     },
     "errors": {
         "lexer": [],
-        "parser": [
-            [
-                "A comma or a closing bracket was expected.",
-                {
-                    "@type": "@47"
-                },
-                0
-            ],
-            [
-                "Unexpected beginning of statement.",
-                {
-                    "@type": "@63"
-                },
-                0
-            ],
-            [
-                "Unrecognized statement type.",
-                {
-                    "@type": "@66"
-                },
-                0
-            ]
-        ]
+        "parser": []
     }
 }
