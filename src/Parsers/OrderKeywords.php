@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Parsers;
 
 use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Components\OrderSortKeyword;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\TokensList;
@@ -66,7 +67,7 @@ final class OrderKeywords implements Parseable
                     ($token->type === TokenType::Keyword)
                     && (($token->keyword === 'ASC') || ($token->keyword === 'DESC'))
                 ) {
-                    $expr->type = $token->keyword;
+                    $expr->type = OrderSortKeyword::from($token->keyword);
                 } elseif (($token->type === TokenType::Operator) && ($token->value === ',')) {
                     if (! empty($expr->expr)) {
                         $ret[] = $expr;
