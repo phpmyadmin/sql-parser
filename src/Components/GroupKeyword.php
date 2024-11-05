@@ -13,8 +13,7 @@ use function trim;
  */
 final class GroupKeyword implements Component
 {
-    /** @var 'ASC'|'DESC'|null */
-    public string|null $type = null;
+    public OrderSortKeyword|null $type = null;
 
     /**
      * The expression that is used for grouping.
