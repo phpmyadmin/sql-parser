@@ -1037,7 +1037,11 @@
                             "function": null,
                             "subquery": null
                         },
-                        "type": "DESC"
+                        "type": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OrderSortKeyword",
+                            "name": "Desc",
+                            "value": "DESC"
+                        }
                     },
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
@@ -1051,7 +1055,11 @@
                             "function": null,
                             "subquery": null
                         },
-                        "type": "ASC"
+                        "type": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OrderSortKeyword",
+                            "name": "Asc",
+                            "value": "ASC"
+                        }
                     }
                 ],
                 "limit": {
