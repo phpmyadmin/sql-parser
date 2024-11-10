@@ -677,7 +677,7 @@ class Lexer extends Core
                 // - "SELECT */* comment */ FROM ..."
                 // - "SELECT 2*/* comment */3 AS `six`;"
                 $next = $this->last + 1;
-                if (($next < $this->len) && $this->str[$next] === '*') {
+                if (($next < $this->len) && $this->str[$next] === '*' && $token === '*/') {
                     // Conflict in "*/*": first "*" was not for ending a comment.
                     // Stop here and let other parsing method define the true behavior of that first star.
                     $this->last = $iBak;
