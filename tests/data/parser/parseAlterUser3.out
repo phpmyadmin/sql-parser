@@ -1,15 +1,21 @@
 {
     "query": "ALTER USER 'testosama' REQUIRE SSL WITH MAX_CONNECTIONS_PER_HOUR 20;",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "ALTER USER 'testosama' REQUIRE SSL WITH MAX_CONNECTIONS_PER_HOUR 20;",
         "len": 68,
         "last": 68,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 5
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "USER",
                     "value": "USER",
                     "keyword": "USER",
@@ -36,7 +40,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 10
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'testosama'",
                     "value": "testosama",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 22
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "REQUIRE",
                     "value": "REQUIRE",
                     "keyword": "REQUIRE",
@@ -72,7 +72,6 @@
                     "position": 23
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 30
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SSL",
                     "value": "SSL",
                     "keyword": "SSL",
@@ -90,7 +88,6 @@
                     "position": 31
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 34
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "WITH",
                     "value": "WITH",
                     "keyword": "WITH",
@@ -108,7 +104,6 @@
                     "position": 35
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 39
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "MAX_CONNECTIONS_PER_HOUR",
                     "value": "MAX_CONNECTIONS_PER_HOUR",
                     "keyword": "MAX_CONNECTIONS_PER_HOUR",
@@ -126,7 +120,6 @@
                     "position": 40
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 64
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "20",
                     "value": 20,
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 65
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 67
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -171,15 +161,151 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 5
+                },
+                {
+                    "token": "USER",
+                    "value": "USER",
+                    "keyword": "USER",
+                    "type": 1,
+                    "flags": 33,
+                    "position": 6
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 10
+                },
+                {
+                    "token": "'testosama'",
+                    "value": "testosama",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 11
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 22
+                },
+                {
+                    "token": "REQUIRE",
+                    "value": "REQUIRE",
+                    "keyword": "REQUIRE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 23
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 30
+                },
+                {
+                    "token": "SSL",
+                    "value": "SSL",
+                    "keyword": "SSL",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 31
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 34
+                },
+                {
+                    "token": "WITH",
+                    "value": "WITH",
+                    "keyword": "WITH",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 35
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 39
+                },
+                {
+                    "token": "MAX_CONNECTIONS_PER_HOUR",
+                    "value": "MAX_CONNECTIONS_PER_HOUR",
+                    "keyword": "MAX_CONNECTIONS_PER_HOUR",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 40
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 64
+                },
+                {
+                    "token": "20",
+                    "value": 20,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 65
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 67
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 17,
+            "idx": 17
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
                 "table": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
                     "table": "testosama",
                     "column": null,
@@ -190,23 +316,7 @@
                 },
                 "altered": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "ROUTINE_OPTIONS": {
-                            "COMMENT": [
-                                1,
-                                "var"
-                            ],
-                            "LANGUAGE SQL": 2,
-                            "CONTAINS SQL": 3,
-                            "NO SQL": 3,
-                            "READS SQL DATA": 3,
-                            "MODIFIES SQL DATA": 3,
-                            "SQL SECURITY": 4,
-                            "DEFINER": 5,
-                            "INVOKER": 5
-                        },
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "1": {
                                     "name": "REQUIRE",
@@ -226,13 +336,17 @@
                         "partitions": null,
                         "unknown": [
                             {
-                                "@type": "@16"
+                                "token": "20",
+                                "value": 20,
+                                "keyword": null,
+                                "type": 6,
+                                "flags": 0,
+                                "position": 65
                             }
                         ]
                     }
                 ],
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "3": "USER"
                     }

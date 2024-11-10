@@ -1,15 +1,21 @@
 {
     "query": "ALTER TABLE testtable RENAME KEY my_index TO my_index2, ALGORITHM=INPLACE, LOCK=NONE;\n",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "ALTER TABLE testtable RENAME KEY my_index TO my_index2, ALGORITHM=INPLACE, LOCK=NONE;\n",
         "len": 86,
         "last": 86,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 5
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
@@ -36,7 +40,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "testtable",
                     "value": "testtable",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 12
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 21
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "RENAME",
                     "value": "RENAME",
                     "keyword": "RENAME",
@@ -72,7 +72,6 @@
                     "position": 22
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 28
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "KEY",
                     "value": "KEY",
                     "keyword": "KEY",
@@ -90,7 +88,6 @@
                     "position": 29
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 32
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "my_index",
                     "value": "my_index",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 33
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 41
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TO",
                     "value": "TO",
                     "keyword": "TO",
@@ -126,7 +120,6 @@
                     "position": 42
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 44
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "my_index2",
                     "value": "my_index2",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 45
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 54
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -162,7 +152,6 @@
                     "position": 55
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALGORITHM",
                     "value": "ALGORITHM",
                     "keyword": "ALGORITHM",
@@ -171,7 +160,6 @@
                     "position": 56
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "=",
                     "value": "=",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 65
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INPLACE",
                     "value": "INPLACE",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 66
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 73
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -207,7 +192,6 @@
                     "position": 74
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LOCK",
                     "value": "LOCK",
                     "keyword": "LOCK",
@@ -216,7 +200,6 @@
                     "position": 75
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "=",
                     "value": "=",
                     "keyword": null,
@@ -225,7 +208,6 @@
                     "position": 79
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "NONE",
                     "value": "NONE",
                     "keyword": "NONE",
@@ -234,7 +216,6 @@
                     "position": 80
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -243,7 +224,6 @@
                     "position": 84
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 85
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -270,15 +249,239 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 5
+                },
+                {
+                    "token": "TABLE",
+                    "value": "TABLE",
+                    "keyword": "TABLE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 6
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 11
+                },
+                {
+                    "token": "testtable",
+                    "value": "testtable",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 12
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 21
+                },
+                {
+                    "token": "RENAME",
+                    "value": "RENAME",
+                    "keyword": "RENAME",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 22
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 28
+                },
+                {
+                    "token": "KEY",
+                    "value": "KEY",
+                    "keyword": "KEY",
+                    "type": 1,
+                    "flags": 19,
+                    "position": 29
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 32
+                },
+                {
+                    "token": "my_index",
+                    "value": "my_index",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 33
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 41
+                },
+                {
+                    "token": "TO",
+                    "value": "TO",
+                    "keyword": "TO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 42
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 44
+                },
+                {
+                    "token": "my_index2",
+                    "value": "my_index2",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 45
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 54
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 55
+                },
+                {
+                    "token": "ALGORITHM",
+                    "value": "ALGORITHM",
+                    "keyword": "ALGORITHM",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 56
+                },
+                {
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 65
+                },
+                {
+                    "token": "INPLACE",
+                    "value": "INPLACE",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 66
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 73
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 74
+                },
+                {
+                    "token": "LOCK",
+                    "value": "LOCK",
+                    "keyword": "LOCK",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 75
+                },
+                {
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 79
+                },
+                {
+                    "token": "NONE",
+                    "value": "NONE",
+                    "keyword": "NONE",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 80
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 84
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 85
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 28,
+            "idx": 28
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
                 "table": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
                     "table": "testtable",
                     "column": null,
@@ -289,23 +492,7 @@
                 },
                 "altered": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "ROUTINE_OPTIONS": {
-                            "COMMENT": [
-                                1,
-                                "var"
-                            ],
-                            "LANGUAGE SQL": 2,
-                            "CONTAINS SQL": 3,
-                            "NO SQL": 3,
-                            "READS SQL DATA": 3,
-                            "MODIFIES SQL DATA": 3,
-                            "SQL SECURITY": 4,
-                            "DEFINER": 5,
-                            "INVOKER": 5
-                        },
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "1": "RENAME",
                                 "2": {
@@ -327,23 +514,7 @@
                         "unknown": []
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "ROUTINE_OPTIONS": {
-                            "COMMENT": [
-                                1,
-                                "var"
-                            ],
-                            "LANGUAGE SQL": 2,
-                            "CONTAINS SQL": 3,
-                            "NO SQL": 3,
-                            "READS SQL DATA": 3,
-                            "MODIFIES SQL DATA": 3,
-                            "SQL SECURITY": 4,
-                            "DEFINER": 5,
-                            "INVOKER": 5
-                        },
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "1": {
                                     "name": "ALGORITHM",
@@ -358,23 +529,7 @@
                         "unknown": []
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "ROUTINE_OPTIONS": {
-                            "COMMENT": [
-                                1,
-                                "var"
-                            ],
-                            "LANGUAGE SQL": 2,
-                            "CONTAINS SQL": 3,
-                            "NO SQL": 3,
-                            "READS SQL DATA": 3,
-                            "MODIFIES SQL DATA": 3,
-                            "SQL SECURITY": 4,
-                            "DEFINER": 5,
-                            "INVOKER": 5
-                        },
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "1": {
                                     "name": "LOCK",
@@ -390,7 +545,6 @@
                     }
                 ],
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "3": "TABLE"
                     }

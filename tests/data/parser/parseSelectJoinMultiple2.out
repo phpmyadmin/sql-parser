@@ -1,15 +1,21 @@
 {
     "query": "SELECT * FROM orders\nNATURAL JOIN Items_Orders LEFT JOIN items on orders.item_id = items.id\nWHERE customer= 'username'",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT * FROM orders\nNATURAL JOIN Items_Orders LEFT JOIN items on orders.item_id = items.id\nWHERE customer= 'username'",
         "len": 118,
         "last": 118,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -36,7 +40,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 8
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -54,7 +56,6 @@
                     "position": 9
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 13
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "orders",
                     "value": "orders",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 14
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 20
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "NATURAL JOIN",
                     "value": "NATURAL JOIN",
                     "keyword": "NATURAL JOIN",
@@ -90,7 +88,6 @@
                     "position": 21
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 33
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "Items_Orders",
                     "value": "Items_Orders",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 34
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 46
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LEFT JOIN",
                     "value": "LEFT JOIN",
                     "keyword": "LEFT JOIN",
@@ -126,7 +120,6 @@
                     "position": 47
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 56
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "items",
                     "value": "items",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 57
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 62
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "on",
                     "value": "ON",
                     "keyword": "ON",
@@ -162,7 +152,6 @@
                     "position": 63
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 65
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "orders",
                     "value": "orders",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 66
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 72
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "item_id",
                     "value": "item_id",
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 73
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -207,7 +192,6 @@
                     "position": 80
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "=",
                     "value": "=",
                     "keyword": null,
@@ -216,7 +200,6 @@
                     "position": 81
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -225,7 +208,6 @@
                     "position": 82
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "items",
                     "value": "items",
                     "keyword": null,
@@ -234,7 +216,6 @@
                     "position": 83
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -243,7 +224,6 @@
                     "position": 88
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "id",
                     "value": "id",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 89
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -261,7 +240,6 @@
                     "position": 91
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "WHERE",
                     "value": "WHERE",
                     "keyword": "WHERE",
@@ -270,7 +248,6 @@
                     "position": 92
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -279,7 +256,6 @@
                     "position": 97
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "customer",
                     "value": "customer",
                     "keyword": null,
@@ -288,7 +264,6 @@
                     "position": 98
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "=",
                     "value": "=",
                     "keyword": null,
@@ -297,7 +272,6 @@
                     "position": 106
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -306,7 +280,6 @@
                     "position": 107
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'username'",
                     "value": "username",
                     "keyword": null,
@@ -315,7 +288,6 @@
                     "position": 108
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -333,16 +305,296 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "token": "*",
+                    "value": "*",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 7
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 8
+                },
+                {
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 9
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 13
+                },
+                {
+                    "token": "orders",
+                    "value": "orders",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 14
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 20
+                },
+                {
+                    "token": "NATURAL JOIN",
+                    "value": "NATURAL JOIN",
+                    "keyword": "NATURAL JOIN",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 21
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 33
+                },
+                {
+                    "token": "Items_Orders",
+                    "value": "Items_Orders",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 34
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 46
+                },
+                {
+                    "token": "LEFT JOIN",
+                    "value": "LEFT JOIN",
+                    "keyword": "LEFT JOIN",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 47
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 56
+                },
+                {
+                    "token": "items",
+                    "value": "items",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 57
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 62
+                },
+                {
+                    "token": "on",
+                    "value": "ON",
+                    "keyword": "ON",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 63
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 65
+                },
+                {
+                    "token": "orders",
+                    "value": "orders",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 66
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 72
+                },
+                {
+                    "token": "item_id",
+                    "value": "item_id",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 73
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 80
+                },
+                {
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 81
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 82
+                },
+                {
+                    "token": "items",
+                    "value": "items",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 83
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 88
+                },
+                {
+                    "token": "id",
+                    "value": "id",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 89
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 91
+                },
+                {
+                    "token": "WHERE",
+                    "value": "WHERE",
+                    "keyword": "WHERE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 92
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 97
+                },
+                {
+                    "token": "customer",
+                    "value": "customer",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 98
+                },
+                {
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 106
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 107
+                },
+                {
+                    "token": "'username'",
+                    "value": "username",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 108
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 35,
+            "idx": 35
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
                 "expr": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
                         "column": null,
@@ -354,7 +606,6 @@
                 ],
                 "from": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": "orders",
                         "column": null,
@@ -368,7 +619,6 @@
                 "partition": null,
                 "where": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [
                             "customer",
                             "username"
@@ -386,10 +636,8 @@
                 "into": null,
                 "join": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
                         "type": "NATURAL",
                         "expr": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": "Items_Orders",
                             "column": null,
@@ -402,10 +650,8 @@
                         "using": null
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
                         "type": "LEFT",
                         "expr": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": "items",
                             "column": null,
@@ -416,7 +662,6 @@
                         },
                         "on": [
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                                 "identifiers": [
                                     "orders",
                                     "item_id",
@@ -433,7 +678,6 @@
                 "union": [],
                 "end_options": null,
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "first": 0,

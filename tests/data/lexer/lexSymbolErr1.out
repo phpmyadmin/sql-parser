@@ -1,15 +1,21 @@
 {
     "query": "SET @idx := 1;\nSELECT @idx, @`idx`, @'idx",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SET @idx := 1;\nSELECT @idx, @`idx`, @'idx",
         "len": 41,
         "last": 42,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SET",
                     "value": "SET",
                     "keyword": "SET",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 3
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "@idx",
                     "value": "idx",
                     "keyword": null,
@@ -36,7 +40,6 @@
                     "position": 4
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 8
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ":=",
                     "value": ":=",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 9
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 12
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 13
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -90,7 +88,6 @@
                     "position": 14
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -99,7 +96,6 @@
                     "position": 15
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 21
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "@idx",
                     "value": "idx",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 22
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -126,7 +120,6 @@
                     "position": 26
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 27
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "@`idx`",
                     "value": "idx",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 28
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 34
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -162,7 +152,6 @@
                     "position": 35
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "@'idx",
                     "value": "id",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 36
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,

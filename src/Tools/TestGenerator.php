@@ -18,7 +18,6 @@ use function file_get_contents;
 use function file_put_contents;
 use function in_array;
 use function is_dir;
-use function json_decode;
 use function json_encode;
 use function mkdir;
 use function print_r;
@@ -171,12 +170,9 @@ class TestGenerator
 
         // unset mode, reset to default every time, to be sure
         Context::setMode();
-        $serializer = new CustomJsonSerializer();
-        // Writing test's data.
-        $encoded = $serializer->serialize($test);
 
         $encoded = (string) json_encode(
-            json_decode($encoded),
+            $test,
             JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION | JSON_UNESCAPED_SLASHES
         );
 

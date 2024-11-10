@@ -7,12 +7,15 @@ namespace PhpMyAdmin\SqlParser\Tests\Parser;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
+use function file_get_contents;
+
 class LoadStatementTest extends TestCase
 {
     public function testLoadOptions(): void
     {
-        $data = $this->getData('parser/parseLoad1');
-        $parser = new Parser($data['query']);
+        $sql = file_get_contents('tests/data/parser/parseLoad1.in');
+        self::assertIsString($sql);
+        $parser = new Parser($sql);
         $stmt = $parser->statements[0];
         $this->assertEquals(10, $stmt->options->has('CONCURRENT'));
     }

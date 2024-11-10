@@ -1,15 +1,21 @@
 {
     "query": "ALTER EVENT old_db.old_event RENAME TO new_db.new_event;\nALTER EVENT `old_db`.`old_event` RENAME TO `new_db`.`new_event`;\n",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "ALTER EVENT old_db.old_event RENAME TO new_db.new_event;\nALTER EVENT `old_db`.`old_event` RENAME TO `new_db`.`new_event`;\n",
         "len": 122,
         "last": 122,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 5
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "EVENT",
                     "value": "EVENT",
                     "keyword": "EVENT",
@@ -36,7 +40,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "old_db",
                     "value": "old_db",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 12
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 18
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "old_event",
                     "value": "old_event",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 19
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 28
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "RENAME",
                     "value": "RENAME",
                     "keyword": "RENAME",
@@ -90,7 +88,6 @@
                     "position": 29
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 35
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TO",
                     "value": "TO",
                     "keyword": "TO",
@@ -108,7 +104,6 @@
                     "position": 36
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 38
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "new_db",
                     "value": "new_db",
                     "keyword": null,
@@ -126,7 +120,6 @@
                     "position": 39
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 45
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "new_event",
                     "value": "new_event",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 46
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 55
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -162,7 +152,6 @@
                     "position": 56
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
@@ -171,7 +160,6 @@
                     "position": 57
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 62
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "EVENT",
                     "value": "EVENT",
                     "keyword": "EVENT",
@@ -189,7 +176,6 @@
                     "position": 63
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 68
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`old_db`",
                     "value": "old_db",
                     "keyword": null,
@@ -207,7 +192,6 @@
                     "position": 69
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -216,7 +200,6 @@
                     "position": 77
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`old_event`",
                     "value": "old_event",
                     "keyword": null,
@@ -225,7 +208,6 @@
                     "position": 78
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -234,7 +216,6 @@
                     "position": 89
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "RENAME",
                     "value": "RENAME",
                     "keyword": "RENAME",
@@ -243,7 +224,6 @@
                     "position": 90
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 96
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TO",
                     "value": "TO",
                     "keyword": "TO",
@@ -261,7 +240,6 @@
                     "position": 97
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -270,7 +248,6 @@
                     "position": 99
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`new_db`",
                     "value": "new_db",
                     "keyword": null,
@@ -279,7 +256,6 @@
                     "position": 100
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -288,7 +264,6 @@
                     "position": 108
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`new_event`",
                     "value": "new_event",
                     "keyword": null,
@@ -297,7 +272,6 @@
                     "position": 109
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -306,7 +280,6 @@
                     "position": 120
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -315,7 +288,6 @@
                     "position": 121
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -333,15 +305,295 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 5
+                },
+                {
+                    "token": "EVENT",
+                    "value": "EVENT",
+                    "keyword": "EVENT",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 6
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 11
+                },
+                {
+                    "token": "old_db",
+                    "value": "old_db",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 12
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 18
+                },
+                {
+                    "token": "old_event",
+                    "value": "old_event",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 19
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 28
+                },
+                {
+                    "token": "RENAME",
+                    "value": "RENAME",
+                    "keyword": "RENAME",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 29
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 35
+                },
+                {
+                    "token": "TO",
+                    "value": "TO",
+                    "keyword": "TO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 36
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 38
+                },
+                {
+                    "token": "new_db",
+                    "value": "new_db",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 39
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 45
+                },
+                {
+                    "token": "new_event",
+                    "value": "new_event",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 46
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 55
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 56
+                },
+                {
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 57
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 62
+                },
+                {
+                    "token": "EVENT",
+                    "value": "EVENT",
+                    "keyword": "EVENT",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 63
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 68
+                },
+                {
+                    "token": "`old_db`",
+                    "value": "old_db",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 69
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 77
+                },
+                {
+                    "token": "`old_event`",
+                    "value": "old_event",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 78
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 89
+                },
+                {
+                    "token": "RENAME",
+                    "value": "RENAME",
+                    "keyword": "RENAME",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 90
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 96
+                },
+                {
+                    "token": "TO",
+                    "value": "TO",
+                    "keyword": "TO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 97
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 99
+                },
+                {
+                    "token": "`new_db`",
+                    "value": "new_db",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 100
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 108
+                },
+                {
+                    "token": "`new_event`",
+                    "value": "new_event",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 109
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 120
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 121
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 35,
+            "idx": 35
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
                 "table": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": "old_db",
                     "table": "old_event",
                     "column": null,
@@ -352,30 +604,13 @@
                 },
                 "altered": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "ROUTINE_OPTIONS": {
-                            "COMMENT": [
-                                1,
-                                "var"
-                            ],
-                            "LANGUAGE SQL": 2,
-                            "CONTAINS SQL": 3,
-                            "NO SQL": 3,
-                            "READS SQL DATA": 3,
-                            "MODIFIES SQL DATA": 3,
-                            "SQL SECURITY": 4,
-                            "DEFINER": 5,
-                            "INVOKER": 5
-                        },
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "6": "RENAME",
                                 "7": {
                                     "name": "TO",
                                     "equals": false,
                                     "expr": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                         "database": "new_db",
                                         "table": "new_event",
                                         "column": null,
@@ -394,7 +629,6 @@
                     }
                 ],
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "3": "EVENT"
                     }
@@ -403,9 +637,7 @@
                 "last": 15
             },
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
                 "table": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": "old_db",
                     "table": "old_event",
                     "column": null,
@@ -416,30 +648,13 @@
                 },
                 "altered": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "ROUTINE_OPTIONS": {
-                            "COMMENT": [
-                                1,
-                                "var"
-                            ],
-                            "LANGUAGE SQL": 2,
-                            "CONTAINS SQL": 3,
-                            "NO SQL": 3,
-                            "READS SQL DATA": 3,
-                            "MODIFIES SQL DATA": 3,
-                            "SQL SECURITY": 4,
-                            "DEFINER": 5,
-                            "INVOKER": 5
-                        },
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "6": "RENAME",
                                 "7": {
                                     "name": "TO",
                                     "equals": false,
                                     "expr": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                         "database": "new_db",
                                         "table": "new_event",
                                         "column": null,
@@ -458,7 +673,6 @@
                     }
                 ],
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "3": "EVENT"
                     }

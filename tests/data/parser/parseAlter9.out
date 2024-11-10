@@ -1,15 +1,21 @@
 {
     "query": "ALTER TABLE place CHANGE COLUMN plc_location_type gplc_location_type ENUM('LOCATION') CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL;",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "ALTER TABLE place CHANGE COLUMN plc_location_type gplc_location_type ENUM('LOCATION') CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL;",
         "len": 142,
         "last": 142,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 5
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
@@ -36,7 +40,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "place",
                     "value": "place",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 12
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 17
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "CHANGE",
                     "value": "CHANGE",
                     "keyword": "CHANGE",
@@ -72,7 +72,6 @@
                     "position": 18
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 24
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COLUMN",
                     "value": "COLUMN",
                     "keyword": "COLUMN",
@@ -90,7 +88,6 @@
                     "position": 25
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 31
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "plc_location_type",
                     "value": "plc_location_type",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 32
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 49
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "gplc_location_type",
                     "value": "gplc_location_type",
                     "keyword": null,
@@ -126,7 +120,6 @@
                     "position": 50
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 68
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ENUM",
                     "value": "ENUM",
                     "keyword": "ENUM",
@@ -144,7 +136,6 @@
                     "position": 69
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 73
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'LOCATION'",
                     "value": "LOCATION",
                     "keyword": null,
@@ -162,7 +152,6 @@
                     "position": 74
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 84
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 85
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "CHARACTER SET",
                     "value": "CHARACTER SET",
                     "keyword": "CHARACTER SET",
@@ -189,7 +176,6 @@
                     "position": 86
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 99
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'utf8'",
                     "value": "utf8",
                     "keyword": null,
@@ -207,7 +192,6 @@
                     "position": 100
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -216,7 +200,6 @@
                     "position": 106
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COLLATE",
                     "value": "COLLATE",
                     "keyword": "COLLATE",
@@ -225,7 +208,6 @@
                     "position": 107
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -234,7 +216,6 @@
                     "position": 114
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'utf8_unicode_ci'",
                     "value": "utf8_unicode_ci",
                     "keyword": null,
@@ -243,7 +224,6 @@
                     "position": 115
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 132
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "NOT NULL",
                     "value": "NOT NULL",
                     "keyword": "NOT NULL",
@@ -261,7 +240,6 @@
                     "position": 133
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -270,7 +248,6 @@
                     "position": 141
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -288,15 +265,255 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 5
+                },
+                {
+                    "token": "TABLE",
+                    "value": "TABLE",
+                    "keyword": "TABLE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 6
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 11
+                },
+                {
+                    "token": "place",
+                    "value": "place",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 12
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 17
+                },
+                {
+                    "token": "CHANGE",
+                    "value": "CHANGE",
+                    "keyword": "CHANGE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 18
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 24
+                },
+                {
+                    "token": "COLUMN",
+                    "value": "COLUMN",
+                    "keyword": "COLUMN",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 25
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 31
+                },
+                {
+                    "token": "plc_location_type",
+                    "value": "plc_location_type",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 32
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 49
+                },
+                {
+                    "token": "gplc_location_type",
+                    "value": "gplc_location_type",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 50
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 68
+                },
+                {
+                    "token": "ENUM",
+                    "value": "ENUM",
+                    "keyword": "ENUM",
+                    "type": 1,
+                    "flags": 9,
+                    "position": 69
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 73
+                },
+                {
+                    "token": "'LOCATION'",
+                    "value": "LOCATION",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 74
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 84
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 85
+                },
+                {
+                    "token": "CHARACTER SET",
+                    "value": "CHARACTER SET",
+                    "keyword": "CHARACTER SET",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 86
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 99
+                },
+                {
+                    "token": "'utf8'",
+                    "value": "utf8",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 100
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 106
+                },
+                {
+                    "token": "COLLATE",
+                    "value": "COLLATE",
+                    "keyword": "COLLATE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 107
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 114
+                },
+                {
+                    "token": "'utf8_unicode_ci'",
+                    "value": "utf8_unicode_ci",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 115
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 132
+                },
+                {
+                    "token": "NOT NULL",
+                    "value": "NOT NULL",
+                    "keyword": "NOT NULL",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 133
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 141
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 30,
+            "idx": 30
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
                 "table": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
                     "table": "place",
                     "column": null,
@@ -307,30 +524,13 @@
                 },
                 "altered": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "ROUTINE_OPTIONS": {
-                            "COMMENT": [
-                                1,
-                                "var"
-                            ],
-                            "LANGUAGE SQL": 2,
-                            "CONTAINS SQL": 3,
-                            "NO SQL": 3,
-                            "READS SQL DATA": 3,
-                            "MODIFIES SQL DATA": 3,
-                            "SQL SECURITY": 4,
-                            "DEFINER": 5,
-                            "INVOKER": 5
-                        },
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "1": "CHANGE",
                                 "2": "COLUMN"
                             }
                         },
                         "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
                             "column": "plc_location_type",
@@ -342,58 +542,137 @@
                         "partitions": null,
                         "unknown": [
                             {
-                                "@type": "@14"
+                                "token": "gplc_location_type",
+                                "value": "gplc_location_type",
+                                "keyword": null,
+                                "type": 0,
+                                "flags": 0,
+                                "position": 50
                             },
                             {
-                                "@type": "@15"
+                                "token": " ",
+                                "value": " ",
+                                "keyword": null,
+                                "type": 3,
+                                "flags": 0,
+                                "position": 68
                             },
                             {
-                                "@type": "@16"
+                                "token": "ENUM",
+                                "value": "ENUM",
+                                "keyword": "ENUM",
+                                "type": 1,
+                                "flags": 9,
+                                "position": 69
                             },
                             {
-                                "@type": "@17"
+                                "token": "(",
+                                "value": "(",
+                                "keyword": null,
+                                "type": 2,
+                                "flags": 16,
+                                "position": 73
                             },
                             {
-                                "@type": "@18"
+                                "token": "'LOCATION'",
+                                "value": "LOCATION",
+                                "keyword": null,
+                                "type": 7,
+                                "flags": 1,
+                                "position": 74
                             },
                             {
-                                "@type": "@19"
+                                "token": ")",
+                                "value": ")",
+                                "keyword": null,
+                                "type": 2,
+                                "flags": 16,
+                                "position": 84
                             },
                             {
-                                "@type": "@20"
+                                "token": " ",
+                                "value": " ",
+                                "keyword": null,
+                                "type": 3,
+                                "flags": 0,
+                                "position": 85
                             },
                             {
-                                "@type": "@21"
+                                "token": "CHARACTER SET",
+                                "value": "CHARACTER SET",
+                                "keyword": "CHARACTER SET",
+                                "type": 1,
+                                "flags": 7,
+                                "position": 86
                             },
                             {
-                                "@type": "@22"
+                                "token": " ",
+                                "value": " ",
+                                "keyword": null,
+                                "type": 3,
+                                "flags": 0,
+                                "position": 99
                             },
                             {
-                                "@type": "@23"
+                                "token": "'utf8'",
+                                "value": "utf8",
+                                "keyword": null,
+                                "type": 7,
+                                "flags": 1,
+                                "position": 100
                             },
                             {
-                                "@type": "@24"
+                                "token": " ",
+                                "value": " ",
+                                "keyword": null,
+                                "type": 3,
+                                "flags": 0,
+                                "position": 106
                             },
                             {
-                                "@type": "@25"
+                                "token": "COLLATE",
+                                "value": "COLLATE",
+                                "keyword": "COLLATE",
+                                "type": 1,
+                                "flags": 3,
+                                "position": 107
                             },
                             {
-                                "@type": "@26"
+                                "token": " ",
+                                "value": " ",
+                                "keyword": null,
+                                "type": 3,
+                                "flags": 0,
+                                "position": 114
                             },
                             {
-                                "@type": "@27"
+                                "token": "'utf8_unicode_ci'",
+                                "value": "utf8_unicode_ci",
+                                "keyword": null,
+                                "type": 7,
+                                "flags": 1,
+                                "position": 115
                             },
                             {
-                                "@type": "@28"
+                                "token": " ",
+                                "value": " ",
+                                "keyword": null,
+                                "type": 3,
+                                "flags": 0,
+                                "position": 132
                             },
                             {
-                                "@type": "@29"
+                                "token": "NOT NULL",
+                                "value": "NOT NULL",
+                                "keyword": "NOT NULL",
+                                "type": 1,
+                                "flags": 7,
+                                "position": 133
                             }
                         ]
                     }
                 ],
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "3": "TABLE"
                     }

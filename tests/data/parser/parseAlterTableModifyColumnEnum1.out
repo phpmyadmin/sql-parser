@@ -1,15 +1,21 @@
 {
     "query": "-- ENUM with a string that is a database option.\nALTER TABLE `test_table` MODIFY `COL` ENUM(\"COLLATE\") NULL;\n",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "-- ENUM with a string that is a database option.\nALTER TABLE `test_table` MODIFY `COL` ENUM(\"COLLATE\") NULL;\n",
         "len": 109,
         "last": 109,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- ENUM with a string that is a database option.",
                     "value": "-- ENUM with a string that is a database option.",
                     "keyword": null,
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 48
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ALTER",
                     "value": "ALTER",
                     "keyword": "ALTER",
@@ -36,7 +40,6 @@
                     "position": 49
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 54
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
@@ -54,7 +56,6 @@
                     "position": 55
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 60
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`test_table`",
                     "value": "test_table",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 61
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 73
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "MODIFY",
                     "value": "MODIFY",
                     "keyword": "MODIFY",
@@ -90,7 +88,6 @@
                     "position": 74
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 80
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`COL`",
                     "value": "COL",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 81
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 86
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ENUM",
                     "value": "ENUM",
                     "keyword": "ENUM",
@@ -126,7 +120,6 @@
                     "position": 87
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 91
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\"COLLATE\"",
                     "value": "COLLATE",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 92
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 101
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -162,7 +152,6 @@
                     "position": 102
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "NULL",
                     "value": "NULL",
                     "keyword": "NULL",
@@ -171,7 +160,6 @@
                     "position": 103
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 107
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 108
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -207,15 +193,183 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "-- ENUM with a string that is a database option.",
+                    "value": "-- ENUM with a string that is a database option.",
+                    "keyword": null,
+                    "type": 4,
+                    "flags": 4,
+                    "position": 0
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 48
+                },
+                {
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 49
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 54
+                },
+                {
+                    "token": "TABLE",
+                    "value": "TABLE",
+                    "keyword": "TABLE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 55
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 60
+                },
+                {
+                    "token": "`test_table`",
+                    "value": "test_table",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 61
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 73
+                },
+                {
+                    "token": "MODIFY",
+                    "value": "MODIFY",
+                    "keyword": "MODIFY",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 74
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 80
+                },
+                {
+                    "token": "`COL`",
+                    "value": "COL",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 81
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 86
+                },
+                {
+                    "token": "ENUM",
+                    "value": "ENUM",
+                    "keyword": "ENUM",
+                    "type": 1,
+                    "flags": 9,
+                    "position": 87
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 91
+                },
+                {
+                    "token": "\"COLLATE\"",
+                    "value": "COLLATE",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 2,
+                    "position": 92
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 101
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 102
+                },
+                {
+                    "token": "NULL",
+                    "value": "NULL",
+                    "keyword": "NULL",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 103
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 107
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 108
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 21,
+            "idx": 21
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
                 "table": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
                     "table": "test_table",
                     "column": null,
@@ -226,29 +380,12 @@
                 },
                 "altered": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
-                        "ROUTINE_OPTIONS": {
-                            "COMMENT": [
-                                1,
-                                "var"
-                            ],
-                            "LANGUAGE SQL": 2,
-                            "CONTAINS SQL": 3,
-                            "NO SQL": 3,
-                            "READS SQL DATA": 3,
-                            "MODIFIES SQL DATA": 3,
-                            "SQL SECURITY": 4,
-                            "DEFINER": 5,
-                            "INVOKER": 5
-                        },
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "1": "MODIFY"
                             }
                         },
                         "field": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
                             "column": "COL",
@@ -260,28 +397,57 @@
                         "partitions": null,
                         "unknown": [
                             {
-                                "@type": "@14"
+                                "token": "ENUM",
+                                "value": "ENUM",
+                                "keyword": "ENUM",
+                                "type": 1,
+                                "flags": 9,
+                                "position": 87
                             },
                             {
-                                "@type": "@15"
+                                "token": "(",
+                                "value": "(",
+                                "keyword": null,
+                                "type": 2,
+                                "flags": 16,
+                                "position": 91
                             },
                             {
-                                "@type": "@16"
+                                "token": "\"COLLATE\"",
+                                "value": "COLLATE",
+                                "keyword": null,
+                                "type": 7,
+                                "flags": 2,
+                                "position": 92
                             },
                             {
-                                "@type": "@17"
+                                "token": ")",
+                                "value": ")",
+                                "keyword": null,
+                                "type": 2,
+                                "flags": 16,
+                                "position": 101
                             },
                             {
-                                "@type": "@18"
+                                "token": " ",
+                                "value": " ",
+                                "keyword": null,
+                                "type": 3,
+                                "flags": 0,
+                                "position": 102
                             },
                             {
-                                "@type": "@19"
+                                "token": "NULL",
+                                "value": "NULL",
+                                "keyword": "NULL",
+                                "type": 1,
+                                "flags": 3,
+                                "position": 103
                             }
                         ]
                     }
                 ],
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "3": "TABLE"
                     }

@@ -1,15 +1,21 @@
 {
     "query": "SELECT `one space`  -- this is the SELECT\n    FROM `Une table espace`  -- this is the FROM\n    ORDER BY `one space` ASC -- this is the order by",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT `one space`  -- this is the SELECT\n    FROM `Une table espace`  -- this is the FROM\n    ORDER BY `one space` ASC -- this is the order by",
         "len": 143,
         "last": 144,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`one space`",
                     "value": "one space",
                     "keyword": null,
@@ -36,7 +40,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "  ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 18
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- this is the SELECT",
                     "value": "-- this is the SELECT",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 20
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 41
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -72,7 +72,6 @@
                     "position": 46
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 50
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`Une table espace`",
                     "value": "Une table espace",
                     "keyword": null,
@@ -90,7 +88,6 @@
                     "position": 51
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "  ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 69
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- this is the FROM",
                     "value": "-- this is the FROM",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 71
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 90
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ORDER BY",
                     "value": "ORDER BY",
                     "keyword": "ORDER BY",
@@ -126,7 +120,6 @@
                     "position": 95
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 103
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`one space`",
                     "value": "one space",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 104
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 115
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ASC",
                     "value": "ASC",
                     "keyword": "ASC",
@@ -162,7 +152,6 @@
                     "position": 116
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 119
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- this is the order by",
                     "value": "-- this is the order by",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 120
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -198,16 +185,176 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "token": "`one space`",
+                    "value": "one space",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 7
+                },
+                {
+                    "token": "  ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 18
+                },
+                {
+                    "token": "-- this is the SELECT",
+                    "value": "-- this is the SELECT",
+                    "keyword": null,
+                    "type": 4,
+                    "flags": 4,
+                    "position": 20
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 41
+                },
+                {
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 46
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 50
+                },
+                {
+                    "token": "`Une table espace`",
+                    "value": "Une table espace",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 51
+                },
+                {
+                    "token": "  ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 69
+                },
+                {
+                    "token": "-- this is the FROM",
+                    "value": "-- this is the FROM",
+                    "keyword": null,
+                    "type": 4,
+                    "flags": 4,
+                    "position": 71
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 90
+                },
+                {
+                    "token": "ORDER BY",
+                    "value": "ORDER BY",
+                    "keyword": "ORDER BY",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 95
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 103
+                },
+                {
+                    "token": "`one space`",
+                    "value": "one space",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 104
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 115
+                },
+                {
+                    "token": "ASC",
+                    "value": "ASC",
+                    "keyword": "ASC",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 116
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 119
+                },
+                {
+                    "token": "-- this is the order by",
+                    "value": "-- this is the order by",
+                    "keyword": null,
+                    "type": 4,
+                    "flags": 4,
+                    "position": 120
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 20,
+            "idx": 20
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
                 "expr": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
                         "column": "one space",
@@ -219,7 +366,6 @@
                 ],
                 "from": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": "Une table espace",
                         "column": null,
@@ -237,9 +383,7 @@
                 "having": null,
                 "order": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
                         "expr": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
                             "column": "one space",
@@ -258,7 +402,6 @@
                 "union": [],
                 "end_options": null,
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "first": 0,

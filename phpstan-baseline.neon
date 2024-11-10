@@ -21,11 +21,6 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
-			count: 3
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/Array2d.php
@@ -636,11 +631,6 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
-			count: 4
-			path: src/Statements/CreateStatement.php
-
-		-
 			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Statements/DeleteStatement.php
@@ -814,11 +804,6 @@ parameters:
 			message: "#^Parameter \\#2 \\.\\.\\.\\$args of function array_merge expects array, array\\<int, string\\>\\|false given\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\CustomJsonSerializer\\:\\:extractObjectData\\(\\) has parameter \\$ref with generic class ReflectionClass but does not specify its types\\: T$#"
-			count: 1
-			path: src/Tools/CustomJsonSerializer.php
 
 		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"

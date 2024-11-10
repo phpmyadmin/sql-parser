@@ -11,13 +11,18 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
-use PhpMyAdmin\SqlParser\Tools\CustomJsonSerializer;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 use function file_get_contents;
+use function json_encode;
 use function str_contains;
 use function strpos;
 use function substr;
+
+use const JSON_PRESERVE_ZERO_FRACTION;
+use const JSON_PRETTY_PRINT;
+use const JSON_UNESCAPED_SLASHES;
+use const JSON_UNESCAPED_UNICODE;
 
 /**
  * Implements useful methods for testing.
@@ -79,60 +84,14 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
-     * Gets test's input and expected output.
-     *
-     * @param string $name the name of the test
-     *
-     * @return array<string, string|Lexer|Parser|array<string, array<int, int|string|Token>[]>|null>
-     * @psalm-return array{
-     *   query: string,
-     *   lexer: Lexer,
-     *   parser: Parser|null,
-     *   errors: array{lexer: list<array{string, string, int, int}>, parser: list<array{string, Token, int}>}
-     * }
-     */
-    public function getData(string $name): array
-    {
-        $serializedData = file_get_contents('tests/data/' . $name . '.out');
-        $this->assertIsString($serializedData);
-
-        $serializer = new CustomJsonSerializer();
-        $data = $serializer->unserialize($serializedData);
-
-        $this->assertIsArray($data);
-        $this->assertArrayHasKey('query', $data);
-        $this->assertArrayHasKey('lexer', $data);
-        $this->assertArrayHasKey('parser', $data);
-        $this->assertArrayHasKey('errors', $data);
-        $this->assertIsString($data['query']);
-        $this->assertInstanceOf(Lexer::class, $data['lexer']);
-        if ($data['parser'] !== null) {
-            $this->assertInstanceOf(Parser::class, $data['parser']);
-        }
-
-        $this->assertIsArray($data['errors']);
-        $this->assertArrayHasKey('lexer', $data['errors']);
-        $this->assertArrayHasKey('parser', $data['errors']);
-        $this->assertIsArray($data['errors']['lexer']);
-        $this->assertIsArray($data['errors']['parser']);
-
-        $data['query'] = file_get_contents('tests/data/' . $name . '.in');
-        $this->assertIsString($data['query']);
-
-        return $data;
-    }
-
-    /**
      * Runs a test.
      *
      * @param string $name the name of the test
      */
     public function runParserTest(string $name): void
     {
-        /**
-         * Test's data.
-         */
-        $data = $this->getData($name);
+        $sql = file_get_contents('tests/data/' . $name . '.in');
+        self::assertIsString($sql);
 
         if (str_contains($name, '/ansi/')) {
             // set mode if appropriate
@@ -144,28 +103,34 @@ abstract class TestCase extends BaseTestCase
             // set context
             $mariaDbVersion = (int) substr($name, $mariaDbPos + 9, 6);
             Context::load('MariaDb' . $mariaDbVersion);
+        } else {
+            Context::load('');
         }
 
         // Lexer.
-        $lexer = new Lexer($data['query']);
+        $lexer = new Lexer($sql);
         $lexerErrors = $this->getErrorsAsArray($lexer);
         $lexer->errors = [];
 
         // Parser.
-        $parser = empty($data['parser']) ? null : new Parser($lexer->list);
+        $parser = str_contains($name, 'lex') ? null : new Parser($lexer->list);
         $parserErrors = [];
         if ($parser !== null) {
             $parserErrors = $this->getErrorsAsArray($parser);
             $parser->errors = [];
         }
 
-        // Testing objects.
-        $this->assertEquals($data['lexer'], $lexer);
-        $this->assertEquals($data['parser'], $parser);
+        $encoded = (string) json_encode(
+            [
+                'query' => $sql,
+                'lexer' => $lexer,
+                'parser' => $parser,
+                'errors' => ['lexer' => $lexerErrors, 'parser' => $parserErrors],
+            ],
+            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION | JSON_UNESCAPED_SLASHES
+        );
 
-        // Testing errors.
-        $this->assertEquals($data['errors']['parser'], $parserErrors);
-        $this->assertEquals($data['errors']['lexer'], $lexerErrors);
+        self::assertJsonStringEqualsJsonFile('tests/data/' . $name . '.out', $encoded);
 
         // reset mode after test run
         Context::setMode();

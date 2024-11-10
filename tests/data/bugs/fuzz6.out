@@ -1,15 +1,21 @@
 {
     "query": "-+0x!",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "-+0x!",
         "len": 5,
         "last": 5,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-+0x",
                     "value": 0,
                     "keyword": null,
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "!",
                     "value": "!",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 4
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -45,9 +49,35 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "-+0x",
+                    "value": 0,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 9,
+                    "position": 0
+                },
+                {
+                    "token": "!",
+                    "value": "!",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 4
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 3,
+            "idx": 3
         },
         "statements": [],
         "brackets": 0,
@@ -60,7 +90,12 @@
             [
                 "Unexpected beginning of statement.",
                 {
-                    "@type": "@2"
+                    "token": "-+0x",
+                    "value": 0,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 9,
+                    "position": 0
                 },
                 0
             ]

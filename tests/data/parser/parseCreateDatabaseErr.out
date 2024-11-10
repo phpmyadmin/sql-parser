@@ -1,15 +1,21 @@
 {
     "query": "CREATE DATABASE IF NOT EXISTS pma ENGINE='InnoDB' DEFAULT CHARSET 'utf8'",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE DATABASE IF NOT EXISTS pma ENGINE='InnoDB' DEFAULT CHARSET 'utf8'",
         "len": 72,
         "last": 72,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "CREATE",
                     "value": "CREATE",
                     "keyword": "CREATE",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "DATABASE",
                     "value": "DATABASE",
                     "keyword": "DATABASE",
@@ -36,7 +40,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 15
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "IF NOT EXISTS",
                     "value": "IF NOT EXISTS",
                     "keyword": "IF NOT EXISTS",
@@ -54,7 +56,6 @@
                     "position": 16
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 29
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "pma",
                     "value": "pma",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 30
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 33
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ENGINE",
                     "value": "ENGINE",
                     "keyword": "ENGINE",
@@ -90,7 +88,6 @@
                     "position": 34
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "=",
                     "value": "=",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 40
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'InnoDB'",
                     "value": "InnoDB",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 41
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 49
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "DEFAULT CHARSET",
                     "value": "DEFAULT CHARSET",
                     "keyword": "DEFAULT CHARSET",
@@ -126,7 +120,6 @@
                     "position": 50
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 65
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'utf8'",
                     "value": "utf8",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 66
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -162,15 +153,143 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "CREATE",
+                    "value": "CREATE",
+                    "keyword": "CREATE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "token": "DATABASE",
+                    "value": "DATABASE",
+                    "keyword": "DATABASE",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 7
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 15
+                },
+                {
+                    "token": "IF NOT EXISTS",
+                    "value": "IF NOT EXISTS",
+                    "keyword": "IF NOT EXISTS",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 16
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 29
+                },
+                {
+                    "token": "pma",
+                    "value": "pma",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 30
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 33
+                },
+                {
+                    "token": "ENGINE",
+                    "value": "ENGINE",
+                    "keyword": "ENGINE",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 34
+                },
+                {
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 40
+                },
+                {
+                    "token": "'InnoDB'",
+                    "value": "InnoDB",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 41
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 49
+                },
+                {
+                    "token": "DEFAULT CHARSET",
+                    "value": "DEFAULT CHARSET",
+                    "keyword": "DEFAULT CHARSET",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 50
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 65
+                },
+                {
+                    "token": "'utf8'",
+                    "value": "utf8",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 66
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 16,
+            "idx": 17
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
                 "name": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": "pma",
                     "table": null,
                     "column": null,
@@ -180,7 +299,6 @@
                     "subquery": null
                 },
                 "entityOptions": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "fields": null,
@@ -197,7 +315,6 @@
                 "parameters": null,
                 "body": [],
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "6": "DATABASE",
                         "7": "IF NOT EXISTS"
@@ -217,7 +334,12 @@
             [
                 "Unrecognized statement type.",
                 {
-                    "@type": "@10"
+                    "token": "ENGINE",
+                    "value": "ENGINE",
+                    "keyword": "ENGINE",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 34
                 },
                 0
             ]

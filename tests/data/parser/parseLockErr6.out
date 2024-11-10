@@ -1,15 +1,21 @@
 {
     "query": "-- missing lock type\nLOCK TABLES table1",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "-- missing lock type\nLOCK TABLES table1",
         "len": 39,
         "last": 39,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- missing lock type",
                     "value": "-- missing lock type",
                     "keyword": null,
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 20
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LOCK",
                     "value": "LOCK",
                     "keyword": "LOCK",
@@ -36,7 +40,6 @@
                     "position": 21
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 25
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TABLES",
                     "value": "TABLES",
                     "keyword": "TABLES",
@@ -54,7 +56,6 @@
                     "position": 26
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 32
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "table1",
                     "value": "table1",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 33
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -90,18 +89,81 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "-- missing lock type",
+                    "value": "-- missing lock type",
+                    "keyword": null,
+                    "type": 4,
+                    "flags": 4,
+                    "position": 0
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 20
+                },
+                {
+                    "token": "LOCK",
+                    "value": "LOCK",
+                    "keyword": "LOCK",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 21
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 25
+                },
+                {
+                    "token": "TABLES",
+                    "value": "TABLES",
+                    "keyword": "TABLES",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 26
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 32
+                },
+                {
+                    "token": "table1",
+                    "value": "table1",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 33
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 8,
+            "idx": 8
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
                 "locked": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\LockExpression",
                         "table": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": "table1",
                             "column": null,
@@ -129,7 +191,12 @@
             [
                 "Unexpected end of LOCK expression.",
                 {
-                    "@type": "@8"
+                    "token": "table1",
+                    "value": "table1",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 33
                 },
                 0
             ]

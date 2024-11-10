@@ -1171,18 +1171,6 @@
       <code>is_array($list)</code>
     </RedundantConditionGivenDocblockType>
   </file>
-  <file src="src/Tools/CustomJsonSerializer.php">
-    <MixedAssignment occurrences="2">
-      <code>$data[$property]</code>
-      <code>$data[$property]</code>
-    </MixedAssignment>
-    <MoreSpecificImplementedParamType occurrences="1">
-      <code>$properties</code>
-    </MoreSpecificImplementedParamType>
-    <PropertyNotSetInConstructor occurrences="1">
-      <code>CustomJsonSerializer</code>
-    </PropertyNotSetInConstructor>
-  </file>
   <file src="src/Tools/TestGenerator.php">
     <MixedOperand occurrences="1">
       <code>$debug</code>
@@ -1624,12 +1612,6 @@
     <InvalidArgument occurrences="1">
       <code>new stdClass()</code>
     </InvalidArgument>
-  </file>
-  <file src="tests/TestCase.php">
-    <LessSpecificReturnStatement occurrences="1">
-      <code>$data</code>
-    </LessSpecificReturnStatement>
-    <MoreSpecificReturnType occurrences="1"/>
   </file>
   <file src="tests/Utils/MiscTest.php">
     <ArgumentTypeCoercion occurrences="1">

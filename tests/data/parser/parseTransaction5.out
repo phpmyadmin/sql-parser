@@ -1,15 +1,21 @@
 {
     "query": "BEGIN;\n    INSERT INTO t2 VALUES (3);\n    SAVEPOINT my_savepoint;\n    INSERT INTO t2 VALUES (4);\n    RELEASE SAVEPOINT my_savepoint;\nCOMMIT;",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "BEGIN;\n    INSERT INTO t2 VALUES (3);\n    SAVEPOINT my_savepoint;\n    INSERT INTO t2 VALUES (4);\n    RELEASE SAVEPOINT my_savepoint;\nCOMMIT;",
         "len": 140,
         "last": 140,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "BEGIN",
                     "value": "BEGIN",
                     "keyword": "BEGIN",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 5
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -36,7 +40,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INSERT",
                     "value": "INSERT",
                     "keyword": "INSERT",
@@ -45,7 +48,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 17
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INTO",
                     "value": "INTO",
                     "keyword": "INTO",
@@ -63,7 +64,6 @@
                     "position": 18
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 22
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "t2",
                     "value": "t2",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 23
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -90,7 +88,6 @@
                     "position": 25
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "VALUES",
                     "value": "VALUES",
                     "keyword": "VALUES",
@@ -99,7 +96,6 @@
                     "position": 26
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 32
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 33
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -126,7 +120,6 @@
                     "position": 34
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 35
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 36
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 37
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SAVEPOINT",
                     "value": "SAVEPOINT",
                     "keyword": "SAVEPOINT",
@@ -162,7 +152,6 @@
                     "position": 42
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 51
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "my_savepoint",
                     "value": "my_savepoint",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 52
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 64
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 65
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INSERT",
                     "value": "INSERT",
                     "keyword": "INSERT",
@@ -207,7 +192,6 @@
                     "position": 70
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -216,7 +200,6 @@
                     "position": 76
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INTO",
                     "value": "INTO",
                     "keyword": "INTO",
@@ -225,7 +208,6 @@
                     "position": 77
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -234,7 +216,6 @@
                     "position": 81
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "t2",
                     "value": "t2",
                     "keyword": null,
@@ -243,7 +224,6 @@
                     "position": 82
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 84
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "VALUES",
                     "value": "VALUES",
                     "keyword": "VALUES",
@@ -261,7 +240,6 @@
                     "position": 85
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -270,7 +248,6 @@
                     "position": 91
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -279,7 +256,6 @@
                     "position": 92
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "4",
                     "value": 4,
                     "keyword": null,
@@ -288,7 +264,6 @@
                     "position": 93
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -297,7 +272,6 @@
                     "position": 94
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -306,7 +280,6 @@
                     "position": 95
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -315,7 +288,6 @@
                     "position": 96
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "RELEASE",
                     "value": "RELEASE",
                     "keyword": "RELEASE",
@@ -324,7 +296,6 @@
                     "position": 101
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -333,7 +304,6 @@
                     "position": 108
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SAVEPOINT",
                     "value": "SAVEPOINT",
                     "keyword": "SAVEPOINT",
@@ -342,7 +312,6 @@
                     "position": 109
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -351,7 +320,6 @@
                     "position": 118
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "my_savepoint",
                     "value": "my_savepoint",
                     "keyword": null,
@@ -360,7 +328,6 @@
                     "position": 119
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -369,7 +336,6 @@
                     "position": 131
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -378,7 +344,6 @@
                     "position": 132
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COMMIT",
                     "value": "COMMIT",
                     "keyword": "COMMIT",
@@ -387,7 +352,6 @@
                     "position": 133
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -396,7 +360,6 @@
                     "position": 139
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -414,22 +377,372 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "BEGIN",
+                    "value": "BEGIN",
+                    "keyword": "BEGIN",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 0
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 5
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "token": "INSERT",
+                    "value": "INSERT",
+                    "keyword": "INSERT",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 11
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 17
+                },
+                {
+                    "token": "INTO",
+                    "value": "INTO",
+                    "keyword": "INTO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 18
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 22
+                },
+                {
+                    "token": "t2",
+                    "value": "t2",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 23
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 25
+                },
+                {
+                    "token": "VALUES",
+                    "value": "VALUES",
+                    "keyword": "VALUES",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 26
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 32
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 33
+                },
+                {
+                    "token": "3",
+                    "value": 3,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 34
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 35
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 36
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 37
+                },
+                {
+                    "token": "SAVEPOINT",
+                    "value": "SAVEPOINT",
+                    "keyword": "SAVEPOINT",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 42
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 51
+                },
+                {
+                    "token": "my_savepoint",
+                    "value": "my_savepoint",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 52
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 64
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 65
+                },
+                {
+                    "token": "INSERT",
+                    "value": "INSERT",
+                    "keyword": "INSERT",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 70
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 76
+                },
+                {
+                    "token": "INTO",
+                    "value": "INTO",
+                    "keyword": "INTO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 77
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 81
+                },
+                {
+                    "token": "t2",
+                    "value": "t2",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 82
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 84
+                },
+                {
+                    "token": "VALUES",
+                    "value": "VALUES",
+                    "keyword": "VALUES",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 85
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 91
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 92
+                },
+                {
+                    "token": "4",
+                    "value": 4,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 93
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 94
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 95
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 96
+                },
+                {
+                    "token": "RELEASE",
+                    "value": "RELEASE",
+                    "keyword": "RELEASE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 101
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 108
+                },
+                {
+                    "token": "SAVEPOINT",
+                    "value": "SAVEPOINT",
+                    "keyword": "SAVEPOINT",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 109
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 118
+                },
+                {
+                    "token": "my_savepoint",
+                    "value": "my_savepoint",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 119
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 131
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 132
+                },
+                {
+                    "token": "COMMIT",
+                    "value": "COMMIT",
+                    "keyword": "COMMIT",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 133
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 139
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 44,
+            "idx": 44
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
                 "type": 1,
                 "statements": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
                         "into": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
                             "type": null,
                             "dest": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                 "database": null,
                                 "table": "t2",
                                 "column": null,
@@ -446,7 +759,6 @@
                         },
                         "values": [
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
                                 "raw": [
                                     "3"
                                 ],
@@ -460,19 +772,15 @@
                         "with": null,
                         "onDuplicateSet": null,
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": []
                         },
                         "first": 1,
                         "last": 13
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
                         "into": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
                             "type": null,
                             "dest": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                 "database": null,
                                 "table": "t2",
                                 "column": null,
@@ -489,7 +797,6 @@
                         },
                         "values": [
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
                                 "raw": [
                                     "4"
                                 ],
@@ -503,7 +810,6 @@
                         "with": null,
                         "onDuplicateSet": null,
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": []
                         },
                         "first": 21,
@@ -511,12 +817,10 @@
                     }
                 ],
                 "end": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Statements\\TransactionStatement",
                     "type": 2,
                     "statements": null,
                     "end": null,
                     "options": {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                         "options": {
                             "1": "COMMIT"
                         }
@@ -525,7 +829,6 @@
                     "last": 41
                 },
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "1": "BEGIN"
                     }
@@ -544,14 +847,24 @@
             [
                 "Unrecognized statement type.",
                 {
-                    "@type": "@18"
+                    "token": "SAVEPOINT",
+                    "value": "SAVEPOINT",
+                    "keyword": "SAVEPOINT",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 42
                 },
                 0
             ],
             [
                 "Unrecognized statement type.",
                 {
-                    "@type": "@36"
+                    "token": "RELEASE",
+                    "value": "RELEASE",
+                    "keyword": "RELEASE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 101
                 },
                 0
             ]

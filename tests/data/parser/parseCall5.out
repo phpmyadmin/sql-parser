@@ -1,15 +1,21 @@
 {
     "query": "call e;call f",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "call e;call f",
         "len": 13,
         "last": 13,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "call",
                     "value": "CALL",
                     "keyword": "CALL",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 4
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "e",
                     "value": "e",
                     "keyword": null,
@@ -36,7 +40,6 @@
                     "position": 5
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "call",
                     "value": "CALL",
                     "keyword": "CALL",
@@ -54,7 +56,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "f",
                     "value": "f",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 12
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -90,15 +89,79 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "call",
+                    "value": "CALL",
+                    "keyword": "CALL",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 4
+                },
+                {
+                    "token": "e",
+                    "value": "e",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 5
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "token": "call",
+                    "value": "CALL",
+                    "keyword": "CALL",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 7
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 11
+                },
+                {
+                    "token": "f",
+                    "value": "f",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 12
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 8,
+            "idx": 8
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CallStatement",
                 "call": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
                     "name": "e",
                     "parameters": null
                 },
@@ -107,9 +170,7 @@
                 "last": 2
             },
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CallStatement",
                 "call": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\FunctionCall",
                     "name": "f",
                     "parameters": null
                 },

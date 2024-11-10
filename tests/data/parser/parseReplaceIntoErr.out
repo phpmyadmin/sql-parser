@@ -1,15 +1,21 @@
 {
     "query": "REPLACE INTO x INSERT\n\n",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "REPLACE INTO x INSERT\n\n",
         "len": 23,
         "last": 23,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "REPLACE",
                     "value": "REPLACE",
                     "keyword": "REPLACE",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INTO",
                     "value": "INTO",
                     "keyword": "INTO",
@@ -36,7 +40,6 @@
                     "position": 8
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 12
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "x",
                     "value": "x",
                     "keyword": "X",
@@ -54,7 +56,6 @@
                     "position": 13
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 14
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INSERT",
                     "value": "INSERT",
                     "keyword": "INSERT",
@@ -72,7 +72,6 @@
                     "position": 15
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 21
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -99,18 +97,89 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "REPLACE",
+                    "value": "REPLACE",
+                    "keyword": "REPLACE",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 7
+                },
+                {
+                    "token": "INTO",
+                    "value": "INTO",
+                    "keyword": "INTO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 8
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 12
+                },
+                {
+                    "token": "x",
+                    "value": "x",
+                    "keyword": "X",
+                    "type": 1,
+                    "flags": 33,
+                    "position": 13
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 14
+                },
+                {
+                    "token": "INSERT",
+                    "value": "INSERT",
+                    "keyword": "INSERT",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 15
+                },
+                {
+                    "token": "\n\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 21
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 9,
+            "idx": 9
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\ReplaceStatement",
                 "into": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
                     "type": null,
                     "dest": {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": "x",
                         "column": null,
@@ -129,14 +198,12 @@
                 "set": null,
                 "select": null,
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "first": 0,
                 "last": 5
             },
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
                 "into": null,
                 "values": null,
                 "set": null,
@@ -144,7 +211,6 @@
                 "with": null,
                 "onDuplicateSet": null,
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "first": 6,
@@ -161,7 +227,12 @@
             [
                 "Unexpected keyword.",
                 {
-                    "@type": "@8"
+                    "token": "INSERT",
+                    "value": "INSERT",
+                    "keyword": "INSERT",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 15
                 },
                 0
             ]

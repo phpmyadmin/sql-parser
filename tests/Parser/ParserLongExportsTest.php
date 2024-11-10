@@ -9,6 +9,8 @@ use PhpMyAdmin\SqlParser\Statements\SetStatement;
 use PhpMyAdmin\SqlParser\Statements\TransactionStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
+use function file_get_contents;
+
 class ParserLongExportsTest extends TestCase
 {
     public function testMysqldump(): void
@@ -58,8 +60,9 @@ SQL;
 
     public function testParsephpMyAdminDump(): void
     {
-        $data = $this->getData('parser/parsephpMyAdminExport1');
-        $parser = new Parser($data['query']);
+        $sql = file_get_contents('tests/data/parser/parsephpMyAdminExport1.in');
+        self::assertIsString($sql);
+        $parser = new Parser($sql);
         $collectedSetStatements = [];
         foreach ($parser->statements as $statement) {
             if ($statement instanceof TransactionStatement) {

@@ -1,15 +1,21 @@
 {
     "query": "ANALYZE SELECT FROM",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "ANALYZE SELECT FROM",
         "len": 19,
         "last": 19,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ANALYZE",
                     "value": "ANALYZE",
                     "keyword": "ANALYZE",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -36,7 +40,6 @@
                     "position": 8
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 14
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -54,7 +56,6 @@
                     "position": 15
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -72,29 +73,96 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "ANALYZE",
+                    "value": "ANALYZE",
+                    "keyword": "ANALYZE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 7
+                },
+                {
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 8
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 14
+                },
+                {
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 15
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 6,
+            "idx": 7
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
                 "bodyParser": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Parser",
                     "list": {
-                        "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                         "tokens": [
                             {
-                                "@type": "@4"
+                                "token": "SELECT",
+                                "value": "SELECT",
+                                "keyword": "SELECT",
+                                "type": 1,
+                                "flags": 3,
+                                "position": 8
                             },
                             {
-                                "@type": "@5"
+                                "token": " ",
+                                "value": " ",
+                                "keyword": null,
+                                "type": 3,
+                                "flags": 0,
+                                "position": 14
                             },
                             {
-                                "@type": "@6"
+                                "token": "FROM",
+                                "value": "FROM",
+                                "keyword": "FROM",
+                                "type": 1,
+                                "flags": 3,
+                                "position": 15
                             },
                             {
-                                "@type": "@7"
+                                "token": null,
+                                "value": null,
+                                "keyword": null,
+                                "type": 9,
+                                "flags": 0,
+                                "position": null
                             }
                         ],
                         "count": 4,
@@ -102,7 +170,6 @@
                     },
                     "statements": [
                         {
-                            "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
                             "expr": [],
                             "from": [],
                             "index_hints": null,
@@ -119,7 +186,6 @@
                             "union": [],
                             "end_options": null,
                             "options": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                 "options": []
                             },
                             "first": 0,
@@ -130,24 +196,24 @@
                     "strict": false,
                     "errors": [
                         {
-                            "@type": "PhpMyAdmin\\SqlParser\\Exceptions\\ParserException",
                             "token": {
-                                "@type": "@6"
-                            },
-                            "message": "An expression was expected.",
-                            "code": 0,
-                            "file": "<project-root>/src/Parser.php",
-                            "line": 628
+                                "token": "FROM",
+                                "value": "FROM",
+                                "keyword": "FROM",
+                                "type": 1,
+                                "flags": 3,
+                                "position": 15
+                            }
                         },
                         {
-                            "@type": "PhpMyAdmin\\SqlParser\\Exceptions\\ParserException",
                             "token": {
-                                "@type": "@7"
-                            },
-                            "message": "An expression was expected.",
-                            "code": 0,
-                            "file": "<project-root>/src/Parser.php",
-                            "line": 628
+                                "token": null,
+                                "value": null,
+                                "keyword": null,
+                                "type": 9,
+                                "flags": 0,
+                                "position": null
+                            }
                         }
                     ]
                 },
@@ -157,7 +223,6 @@
                 "explainedTable": null,
                 "explainedColumn": null,
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "first": 0,
@@ -174,21 +239,36 @@
             [
                 "An expression was expected.",
                 {
-                    "@type": "@6"
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 15
                 },
                 0
             ],
             [
                 "An expression was expected.",
                 {
-                    "@type": "@7"
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
                 },
                 0
             ],
             [
                 "Unrecognized statement type.",
                 {
-                    "@type": "@6"
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 15
                 },
                 0
             ]

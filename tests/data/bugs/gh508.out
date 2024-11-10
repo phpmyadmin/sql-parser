@@ -1,15 +1,21 @@
 {
     "query": "0X0F",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "0X0F",
         "len": 4,
         "last": 4,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0X0F",
                     "value": "0X0F",
                     "keyword": null,
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -36,9 +41,27 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "0X0F",
+                    "value": "0X0F",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 0
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 2,
+            "idx": 2
         },
         "statements": [],
         "brackets": 0,
@@ -51,7 +74,12 @@
             [
                 "Unexpected beginning of statement.",
                 {
-                    "@type": "@2"
+                    "token": "0X0F",
+                    "value": "0X0F",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 0
                 },
                 0
             ]

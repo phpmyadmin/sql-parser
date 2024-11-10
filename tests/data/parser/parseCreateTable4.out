@@ -1,15 +1,21 @@
 {
     "query": "CREATE TABLE ts(id INT, purchased DATE)\nPARTITION BY /* comment */ RANGE(YEAR(purchased))\nPARTITIONS 3\nSUBPARTITION BY HASH(TO_DAYS(purchased))\nSUBPARTITIONS 2(\nPARTITION p0\nVALUES LESS THAN(1990)(\n    SUBPARTITION s0,\n    SUBPARTITION s1\n),\nPARTITION p1\nVALUES LESS THAN(2000)(\n    SUBPARTITION s2,\n    SUBPARTITION s3\n),\nPARTITION p2\nVALUES LESS THAN MAXVALUE(\n    SUBPARTITION s4,\n    SUBPARTITION s5\n)\n);",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "CREATE TABLE ts(id INT, purchased DATE)\nPARTITION BY /* comment */ RANGE(YEAR(purchased))\nPARTITIONS 3\nSUBPARTITION BY HASH(TO_DAYS(purchased))\nSUBPARTITIONS 2(\nPARTITION p0\nVALUES LESS THAN(1990)(\n    SUBPARTITION s0,\n    SUBPARTITION s1\n),\nPARTITION p1\nVALUES LESS THAN(2000)(\n    SUBPARTITION s2,\n    SUBPARTITION s3\n),\nPARTITION p2\nVALUES LESS THAN MAXVALUE(\n    SUBPARTITION s4,\n    SUBPARTITION s5\n)\n);",
         "len": 408,
         "last": 408,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "CREATE",
                     "value": "CREATE",
                     "keyword": "CREATE",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
@@ -36,7 +40,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 12
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ts",
                     "value": "ts",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 13
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 15
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "id",
                     "value": "id",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 16
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 18
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INT",
                     "value": "INT",
                     "keyword": "INT",
@@ -90,7 +88,6 @@
                     "position": 19
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 22
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 23
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "purchased",
                     "value": "purchased",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 24
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -126,7 +120,6 @@
                     "position": 33
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "DATE",
                     "value": "DATE",
                     "keyword": "DATE",
@@ -135,7 +128,6 @@
                     "position": 34
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 38
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 39
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "PARTITION BY",
                     "value": "PARTITION BY",
                     "keyword": "PARTITION BY",
@@ -162,7 +152,6 @@
                     "position": 40
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 52
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 53
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 66
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "RANGE",
                     "value": "RANGE",
                     "keyword": "RANGE",
@@ -198,7 +184,6 @@
                     "position": 67
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -207,7 +192,6 @@
                     "position": 72
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "YEAR",
                     "value": "YEAR",
                     "keyword": "YEAR",
@@ -216,7 +200,6 @@
                     "position": 73
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -225,7 +208,6 @@
                     "position": 77
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "purchased",
                     "value": "purchased",
                     "keyword": null,
@@ -234,7 +216,6 @@
                     "position": 78
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -243,7 +224,6 @@
                     "position": 87
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 88
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -261,7 +240,6 @@
                     "position": 89
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "PARTITIONS",
                     "value": "PARTITIONS",
                     "keyword": "PARTITIONS",
@@ -270,7 +248,6 @@
                     "position": 90
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -279,7 +256,6 @@
                     "position": 100
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -288,7 +264,6 @@
                     "position": 101
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -297,7 +272,6 @@
                     "position": 102
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SUBPARTITION BY",
                     "value": "SUBPARTITION BY",
                     "keyword": "SUBPARTITION BY",
@@ -306,7 +280,6 @@
                     "position": 103
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -315,7 +288,6 @@
                     "position": 118
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "HASH",
                     "value": "HASH",
                     "keyword": "HASH",
@@ -324,7 +296,6 @@
                     "position": 119
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -333,7 +304,6 @@
                     "position": 123
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TO_DAYS",
                     "value": "TO_DAYS",
                     "keyword": "TO_DAYS",
@@ -342,7 +312,6 @@
                     "position": 124
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -351,7 +320,6 @@
                     "position": 131
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "purchased",
                     "value": "purchased",
                     "keyword": null,
@@ -360,7 +328,6 @@
                     "position": 132
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -369,7 +336,6 @@
                     "position": 141
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -378,7 +344,6 @@
                     "position": 142
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -387,7 +352,6 @@
                     "position": 143
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SUBPARTITIONS",
                     "value": "SUBPARTITIONS",
                     "keyword": "SUBPARTITIONS",
@@ -396,7 +360,6 @@
                     "position": 144
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -405,7 +368,6 @@
                     "position": 157
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -414,7 +376,6 @@
                     "position": 158
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -423,7 +384,6 @@
                     "position": 159
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -432,7 +392,6 @@
                     "position": 160
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "PARTITION",
                     "value": "PARTITION",
                     "keyword": "PARTITION",
@@ -441,7 +400,6 @@
                     "position": 161
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -450,7 +408,6 @@
                     "position": 170
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "p0",
                     "value": "p0",
                     "keyword": null,
@@ -459,7 +416,6 @@
                     "position": 171
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -468,7 +424,6 @@
                     "position": 173
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "VALUES",
                     "value": "VALUES",
                     "keyword": "VALUES",
@@ -477,7 +432,6 @@
                     "position": 174
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -486,7 +440,6 @@
                     "position": 180
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LESS THAN",
                     "value": "LESS THAN",
                     "keyword": "LESS THAN",
@@ -495,7 +448,6 @@
                     "position": 181
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -504,7 +456,6 @@
                     "position": 190
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1990",
                     "value": 1990,
                     "keyword": null,
@@ -513,7 +464,6 @@
                     "position": 191
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -522,7 +472,6 @@
                     "position": 195
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -531,7 +480,6 @@
                     "position": 196
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -540,7 +488,6 @@
                     "position": 197
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SUBPARTITION",
                     "value": "SUBPARTITION",
                     "keyword": "SUBPARTITION",
@@ -549,7 +496,6 @@
                     "position": 202
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -558,7 +504,6 @@
                     "position": 214
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "s0",
                     "value": "s0",
                     "keyword": null,
@@ -567,7 +512,6 @@
                     "position": 215
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -576,7 +520,6 @@
                     "position": 217
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -585,7 +528,6 @@
                     "position": 218
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SUBPARTITION",
                     "value": "SUBPARTITION",
                     "keyword": "SUBPARTITION",
@@ -594,7 +536,6 @@
                     "position": 223
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -603,7 +544,6 @@
                     "position": 235
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "s1",
                     "value": "s1",
                     "keyword": null,
@@ -612,7 +552,6 @@
                     "position": 236
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -621,7 +560,6 @@
                     "position": 238
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -630,7 +568,6 @@
                     "position": 239
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -639,7 +576,6 @@
                     "position": 240
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -648,7 +584,6 @@
                     "position": 241
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "PARTITION",
                     "value": "PARTITION",
                     "keyword": "PARTITION",
@@ -657,7 +592,6 @@
                     "position": 242
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -666,7 +600,6 @@
                     "position": 251
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "p1",
                     "value": "p1",
                     "keyword": null,
@@ -675,7 +608,6 @@
                     "position": 252
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -684,7 +616,6 @@
                     "position": 254
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "VALUES",
                     "value": "VALUES",
                     "keyword": "VALUES",
@@ -693,7 +624,6 @@
                     "position": 255
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -702,7 +632,6 @@
                     "position": 261
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LESS THAN",
                     "value": "LESS THAN",
                     "keyword": "LESS THAN",
@@ -711,7 +640,6 @@
                     "position": 262
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -720,7 +648,6 @@
                     "position": 271
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2000",
                     "value": 2000,
                     "keyword": null,
@@ -729,7 +656,6 @@
                     "position": 272
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -738,7 +664,6 @@
                     "position": 276
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -747,7 +672,6 @@
                     "position": 277
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -756,7 +680,6 @@
                     "position": 278
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SUBPARTITION",
                     "value": "SUBPARTITION",
                     "keyword": "SUBPARTITION",
@@ -765,7 +688,6 @@
                     "position": 283
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -774,7 +696,6 @@
                     "position": 295
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "s2",
                     "value": "s2",
                     "keyword": null,
@@ -783,7 +704,6 @@
                     "position": 296
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -792,7 +712,6 @@
                     "position": 298
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -801,7 +720,6 @@
                     "position": 299
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SUBPARTITION",
                     "value": "SUBPARTITION",
                     "keyword": "SUBPARTITION",
@@ -810,7 +728,6 @@
                     "position": 304
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -819,7 +736,6 @@
                     "position": 316
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "s3",
                     "value": "s3",
                     "keyword": null,
@@ -828,7 +744,6 @@
                     "position": 317
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -837,7 +752,6 @@
                     "position": 319
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -846,7 +760,6 @@
                     "position": 320
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -855,7 +768,6 @@
                     "position": 321
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -864,7 +776,6 @@
                     "position": 322
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "PARTITION",
                     "value": "PARTITION",
                     "keyword": "PARTITION",
@@ -873,7 +784,6 @@
                     "position": 323
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -882,7 +792,6 @@
                     "position": 332
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "p2",
                     "value": "p2",
                     "keyword": null,
@@ -891,7 +800,6 @@
                     "position": 333
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -900,7 +808,6 @@
                     "position": 335
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "VALUES",
                     "value": "VALUES",
                     "keyword": "VALUES",
@@ -909,7 +816,6 @@
                     "position": 336
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -918,7 +824,6 @@
                     "position": 342
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LESS THAN",
                     "value": "LESS THAN",
                     "keyword": "LESS THAN",
@@ -927,7 +832,6 @@
                     "position": 343
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -936,7 +840,6 @@
                     "position": 352
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "MAXVALUE",
                     "value": "MAXVALUE",
                     "keyword": "MAXVALUE",
@@ -945,7 +848,6 @@
                     "position": 353
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -954,7 +856,6 @@
                     "position": 361
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -963,7 +864,6 @@
                     "position": 362
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SUBPARTITION",
                     "value": "SUBPARTITION",
                     "keyword": "SUBPARTITION",
@@ -972,7 +872,6 @@
                     "position": 367
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -981,7 +880,6 @@
                     "position": 379
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "s4",
                     "value": "s4",
                     "keyword": null,
@@ -990,7 +888,6 @@
                     "position": 380
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -999,7 +896,6 @@
                     "position": 382
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n    ",
                     "value": " ",
                     "keyword": null,
@@ -1008,7 +904,6 @@
                     "position": 383
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SUBPARTITION",
                     "value": "SUBPARTITION",
                     "keyword": "SUBPARTITION",
@@ -1017,7 +912,6 @@
                     "position": 388
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1026,7 +920,6 @@
                     "position": 400
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "s5",
                     "value": "s5",
                     "keyword": null,
@@ -1035,7 +928,6 @@
                     "position": 401
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1044,7 +936,6 @@
                     "position": 403
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1053,7 +944,6 @@
                     "position": 404
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1062,7 +952,6 @@
                     "position": 405
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1071,7 +960,6 @@
                     "position": 406
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -1080,7 +968,6 @@
                     "position": 407
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -1098,15 +985,975 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "CREATE",
+                    "value": "CREATE",
+                    "keyword": "CREATE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "token": "TABLE",
+                    "value": "TABLE",
+                    "keyword": "TABLE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 7
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 12
+                },
+                {
+                    "token": "ts",
+                    "value": "ts",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 13
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 15
+                },
+                {
+                    "token": "id",
+                    "value": "id",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 16
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 18
+                },
+                {
+                    "token": "INT",
+                    "value": "INT",
+                    "keyword": "INT",
+                    "type": 1,
+                    "flags": 11,
+                    "position": 19
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 22
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 23
+                },
+                {
+                    "token": "purchased",
+                    "value": "purchased",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 24
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 33
+                },
+                {
+                    "token": "DATE",
+                    "value": "DATE",
+                    "keyword": "DATE",
+                    "type": 1,
+                    "flags": 41,
+                    "position": 34
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 38
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 39
+                },
+                {
+                    "token": "PARTITION BY",
+                    "value": "PARTITION BY",
+                    "keyword": "PARTITION BY",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 40
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 52
+                },
+                {
+                    "token": "/* comment */",
+                    "value": "/* comment */",
+                    "keyword": null,
+                    "type": 4,
+                    "flags": 2,
+                    "position": 53
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 66
+                },
+                {
+                    "token": "RANGE",
+                    "value": "RANGE",
+                    "keyword": "RANGE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 67
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 72
+                },
+                {
+                    "token": "YEAR",
+                    "value": "YEAR",
+                    "keyword": "YEAR",
+                    "type": 1,
+                    "flags": 41,
+                    "position": 73
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 77
+                },
+                {
+                    "token": "purchased",
+                    "value": "purchased",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 78
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 87
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 88
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 89
+                },
+                {
+                    "token": "PARTITIONS",
+                    "value": "PARTITIONS",
+                    "keyword": "PARTITIONS",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 90
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 100
+                },
+                {
+                    "token": "3",
+                    "value": 3,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 101
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 102
+                },
+                {
+                    "token": "SUBPARTITION BY",
+                    "value": "SUBPARTITION BY",
+                    "keyword": "SUBPARTITION BY",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 103
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 118
+                },
+                {
+                    "token": "HASH",
+                    "value": "HASH",
+                    "keyword": "HASH",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 119
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 123
+                },
+                {
+                    "token": "TO_DAYS",
+                    "value": "TO_DAYS",
+                    "keyword": "TO_DAYS",
+                    "type": 1,
+                    "flags": 33,
+                    "position": 124
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 131
+                },
+                {
+                    "token": "purchased",
+                    "value": "purchased",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 132
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 141
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 142
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 143
+                },
+                {
+                    "token": "SUBPARTITIONS",
+                    "value": "SUBPARTITIONS",
+                    "keyword": "SUBPARTITIONS",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 144
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 157
+                },
+                {
+                    "token": "2",
+                    "value": 2,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 158
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 159
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 160
+                },
+                {
+                    "token": "PARTITION",
+                    "value": "PARTITION",
+                    "keyword": "PARTITION",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 161
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 170
+                },
+                {
+                    "token": "p0",
+                    "value": "p0",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 171
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 173
+                },
+                {
+                    "token": "VALUES",
+                    "value": "VALUES",
+                    "keyword": "VALUES",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 174
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 180
+                },
+                {
+                    "token": "LESS THAN",
+                    "value": "LESS THAN",
+                    "keyword": "LESS THAN",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 181
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 190
+                },
+                {
+                    "token": "1990",
+                    "value": 1990,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 191
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 195
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 196
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 197
+                },
+                {
+                    "token": "SUBPARTITION",
+                    "value": "SUBPARTITION",
+                    "keyword": "SUBPARTITION",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 202
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 214
+                },
+                {
+                    "token": "s0",
+                    "value": "s0",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 215
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 217
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 218
+                },
+                {
+                    "token": "SUBPARTITION",
+                    "value": "SUBPARTITION",
+                    "keyword": "SUBPARTITION",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 223
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 235
+                },
+                {
+                    "token": "s1",
+                    "value": "s1",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 236
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 238
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 239
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 240
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 241
+                },
+                {
+                    "token": "PARTITION",
+                    "value": "PARTITION",
+                    "keyword": "PARTITION",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 242
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 251
+                },
+                {
+                    "token": "p1",
+                    "value": "p1",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 252
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 254
+                },
+                {
+                    "token": "VALUES",
+                    "value": "VALUES",
+                    "keyword": "VALUES",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 255
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 261
+                },
+                {
+                    "token": "LESS THAN",
+                    "value": "LESS THAN",
+                    "keyword": "LESS THAN",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 262
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 271
+                },
+                {
+                    "token": "2000",
+                    "value": 2000,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 272
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 276
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 277
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 278
+                },
+                {
+                    "token": "SUBPARTITION",
+                    "value": "SUBPARTITION",
+                    "keyword": "SUBPARTITION",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 283
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 295
+                },
+                {
+                    "token": "s2",
+                    "value": "s2",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 296
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 298
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 299
+                },
+                {
+                    "token": "SUBPARTITION",
+                    "value": "SUBPARTITION",
+                    "keyword": "SUBPARTITION",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 304
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 316
+                },
+                {
+                    "token": "s3",
+                    "value": "s3",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 317
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 319
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 320
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 321
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 322
+                },
+                {
+                    "token": "PARTITION",
+                    "value": "PARTITION",
+                    "keyword": "PARTITION",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 323
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 332
+                },
+                {
+                    "token": "p2",
+                    "value": "p2",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 333
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 335
+                },
+                {
+                    "token": "VALUES",
+                    "value": "VALUES",
+                    "keyword": "VALUES",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 336
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 342
+                },
+                {
+                    "token": "LESS THAN",
+                    "value": "LESS THAN",
+                    "keyword": "LESS THAN",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 343
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 352
+                },
+                {
+                    "token": "MAXVALUE",
+                    "value": "MAXVALUE",
+                    "keyword": "MAXVALUE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 353
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 361
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 362
+                },
+                {
+                    "token": "SUBPARTITION",
+                    "value": "SUBPARTITION",
+                    "keyword": "SUBPARTITION",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 367
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 379
+                },
+                {
+                    "token": "s4",
+                    "value": "s4",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 380
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 382
+                },
+                {
+                    "token": "\n    ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 383
+                },
+                {
+                    "token": "SUBPARTITION",
+                    "value": "SUBPARTITION",
+                    "keyword": "SUBPARTITION",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 388
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 400
+                },
+                {
+                    "token": "s5",
+                    "value": "s5",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 401
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 403
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 404
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 405
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 406
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 407
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 120,
+            "idx": 120
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
                 "name": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
                     "table": "ts",
                     "column": null,
@@ -1116,47 +1963,38 @@
                     "subquery": null
                 },
                 "entityOptions": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "fields": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
                         "name": "id",
                         "isConstraint": null,
                         "type": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
                             "name": "INT",
                             "parameters": [],
                             "options": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                 "options": []
                             }
                         },
                         "key": null,
                         "references": null,
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": []
                         }
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\CreateDefinition",
                         "name": "purchased",
                         "isConstraint": null,
                         "type": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\DataType",
                             "name": "DATE",
                             "parameters": [],
                             "options": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                 "options": []
                             }
                         },
                         "key": null,
                         "references": null,
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": []
                         }
                     }
@@ -1170,12 +2008,10 @@
                 "subpartitionsNum": 2,
                 "partitions": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                         "isSubpartition": false,
                         "name": "p0",
                         "type": "LESS THAN",
                         "expr": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
                             "column": null,
@@ -1186,42 +2022,35 @@
                         },
                         "subpartitions": [
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                                 "isSubpartition": true,
                                 "name": "s0",
                                 "type": null,
                                 "expr": null,
                                 "subpartitions": null,
                                 "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": []
                                 }
                             },
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                                 "isSubpartition": true,
                                 "name": "s1",
                                 "type": null,
                                 "expr": null,
                                 "subpartitions": null,
                                 "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": []
                                 }
                             }
                         ],
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": []
                         }
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                         "isSubpartition": false,
                         "name": "p1",
                         "type": "LESS THAN",
                         "expr": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
                             "column": null,
@@ -1232,69 +2061,58 @@
                         },
                         "subpartitions": [
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                                 "isSubpartition": true,
                                 "name": "s2",
                                 "type": null,
                                 "expr": null,
                                 "subpartitions": null,
                                 "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": []
                                 }
                             },
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                                 "isSubpartition": true,
                                 "name": "s3",
                                 "type": null,
                                 "expr": null,
                                 "subpartitions": null,
                                 "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": []
                                 }
                             }
                         ],
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": []
                         }
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                         "isSubpartition": false,
                         "name": "p2",
                         "type": "LESS THAN",
                         "expr": "MAXVALUE",
                         "subpartitions": [
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                                 "isSubpartition": true,
                                 "name": "s4",
                                 "type": null,
                                 "expr": null,
                                 "subpartitions": null,
                                 "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": []
                                 }
                             },
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\PartitionDefinition",
                                 "isSubpartition": true,
                                 "name": "s5",
                                 "type": null,
                                 "expr": null,
                                 "subpartitions": null,
                                 "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": []
                                 }
                             }
                         ],
                         "options": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": []
                         }
                     }
@@ -1304,7 +2122,6 @@
                 "parameters": null,
                 "body": [],
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "6": "TABLE"
                     }

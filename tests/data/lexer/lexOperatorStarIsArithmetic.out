@@ -1,15 +1,21 @@
 {
     "query": "SELECT 2*3\nSELECT 2 * 3\nSELECT field * 8\nSELECT 8 * field\nSELECT foo * bar\nSELECT `escaped_field` * 16\nSELECT 16 * `escaped_field`\nSELECT `foo` * `bar`\nSELECT `foo`*`bar`\nSELECT 1 * (SELECT COUNT(1) FROM nb_rows)\nSELECT (SELECT COUNT(1) FROM nb_rows) * 1\nSELECT (SELECT COUNT(1) FROM nb_rows) * (SELECT COUNT(1) FROM nb_rows)\nSELECT (1 * 1) * (2 * 2)\nSELECT 1 * (2 * (3 * (4 * 5)))\nSELECT 2.71 * 3.14\nSELECT 2.71 * -3.14\nSELECT -2.71 * 3.14\nSELECT -2.71 * -3.14\nSELECT 0xABC * 0xCBA\nSELECT 0xABC * -0xCBA\nSELECT -0xABC * 0xCBA\nSELECT -0xABC * -0xCBA\n\n-- Now same but with comments inside (C style comments could conflicts with operator if lexer is failing)\nSELECT 2 * /* comment */3\nSELECT 2/* comment */ * 3\nSELECT 2/* comment with * inside */ * 3\nSELECT /* comment */ field /* comment */ * /* comment */ 8 /* comment */\nSELECT /* comment */ 8 /* comment */ * /* comment */ field /* comment */\nSELECT /* comment */ foo /* comment */ * /* comment */ bar /* comment */\nSELECT /* comment */ `escaped_field` /* comment */ * /* comment */ 16 /* comment */\nSELECT /* comment */ 16 /* comment */ * /* comment */ `escaped_field` /* comment */\nSELECT /* comment */ `foo` /* comment */ * /* comment */ `bar` /* comment */\nSELECT /* `comment` */ `foo` /* `comment` */ * /* `comment` */ `bar` /* `comment` */\nSELECT /* comment */ 1 /* comment */ * /* comment */ (SELECT COUNT(/* comment */1/* comment */) /* comment */ FROM nb_rows)\nSELECT /* comment */ (SELECT COUNT(1) /* comment */FROM/* comment */ nb_rows) /* comment */ * /* comment */ 1\nSELECT (SELECT /* comment */ COUNT(1) /* comment */ FROM /* comment */ nb_rows) /* comment */ * /* comment */ (SELECT COUNT(1) FROM nb_rows)\nSELECT (1 * 1) /* comment */ * /* comment */ (2 * 2)\nSELECT /* comment */ 1 /* comment */ * /* comment */ (2 /* comment */ * /* comment */ (3 /* comment */ * /* comment */ (4 /* comment */ * /* comment */ 5))) /* comment */\nSELECT 2.71 /* comment */ * /* comment */ 3.14\nSELECT 2.71 /* comment */ * /* comment */ -3.14\nSELECT -2.71 /* comment */ * /* comment */ 3.14\nSELECT -2.71 /* comment */ * /* comment */ -3.14\nSELECT 0xABC /* comment */ * /* comment */ 0xCBA\nSELECT 0xABC /* comment */ * /* comment */ -0xCBA\nSELECT -0xABC /* comment */ * /* comment */ 0xCBA\nSELECT -0xABC /* comment */ * /* comment */ -0xCBA\nSELECT 1 /* comment with FROM keyword */ * /* comment with USING keyword */1\nSELECT 1 /* comment with ) */ * /* comment with , keyword */1\n\n",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT 2*3\nSELECT 2 * 3\nSELECT field * 8\nSELECT 8 * field\nSELECT foo * bar\nSELECT `escaped_field` * 16\nSELECT 16 * `escaped_field`\nSELECT `foo` * `bar`\nSELECT `foo`*`bar`\nSELECT 1 * (SELECT COUNT(1) FROM nb_rows)\nSELECT (SELECT COUNT(1) FROM nb_rows) * 1\nSELECT (SELECT COUNT(1) FROM nb_rows) * (SELECT COUNT(1) FROM nb_rows)\nSELECT (1 * 1) * (2 * 2)\nSELECT 1 * (2 * (3 * (4 * 5)))\nSELECT 2.71 * 3.14\nSELECT 2.71 * -3.14\nSELECT -2.71 * 3.14\nSELECT -2.71 * -3.14\nSELECT 0xABC * 0xCBA\nSELECT 0xABC * -0xCBA\nSELECT -0xABC * 0xCBA\nSELECT -0xABC * -0xCBA\n\n-- Now same but with comments inside (C style comments could conflicts with operator if lexer is failing)\nSELECT 2 * /* comment */3\nSELECT 2/* comment */ * 3\nSELECT 2/* comment with * inside */ * 3\nSELECT /* comment */ field /* comment */ * /* comment */ 8 /* comment */\nSELECT /* comment */ 8 /* comment */ * /* comment */ field /* comment */\nSELECT /* comment */ foo /* comment */ * /* comment */ bar /* comment */\nSELECT /* comment */ `escaped_field` /* comment */ * /* comment */ 16 /* comment */\nSELECT /* comment */ 16 /* comment */ * /* comment */ `escaped_field` /* comment */\nSELECT /* comment */ `foo` /* comment */ * /* comment */ `bar` /* comment */\nSELECT /* `comment` */ `foo` /* `comment` */ * /* `comment` */ `bar` /* `comment` */\nSELECT /* comment */ 1 /* comment */ * /* comment */ (SELECT COUNT(/* comment */1/* comment */) /* comment */ FROM nb_rows)\nSELECT /* comment */ (SELECT COUNT(1) /* comment */FROM/* comment */ nb_rows) /* comment */ * /* comment */ 1\nSELECT (SELECT /* comment */ COUNT(1) /* comment */ FROM /* comment */ nb_rows) /* comment */ * /* comment */ (SELECT COUNT(1) FROM nb_rows)\nSELECT (1 * 1) /* comment */ * /* comment */ (2 * 2)\nSELECT /* comment */ 1 /* comment */ * /* comment */ (2 /* comment */ * /* comment */ (3 /* comment */ * /* comment */ (4 /* comment */ * /* comment */ 5))) /* comment */\nSELECT 2.71 /* comment */ * /* comment */ 3.14\nSELECT 2.71 /* comment */ * /* comment */ -3.14\nSELECT -2.71 /* comment */ * /* comment */ 3.14\nSELECT -2.71 /* comment */ * /* comment */ -3.14\nSELECT 0xABC /* comment */ * /* comment */ 0xCBA\nSELECT 0xABC /* comment */ * /* comment */ -0xCBA\nSELECT -0xABC /* comment */ * /* comment */ 0xCBA\nSELECT -0xABC /* comment */ * /* comment */ -0xCBA\nSELECT 1 /* comment with FROM keyword */ * /* comment with USING keyword */1\nSELECT 1 /* comment with ) */ * /* comment with , keyword */1\n\n",
         "len": 2429,
         "last": 2429,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -36,7 +40,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 8
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 9
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 10
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -72,7 +72,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 17
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -90,7 +88,6 @@
                     "position": 18
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 19
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 20
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 21
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -126,7 +120,6 @@
                     "position": 22
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 23
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -144,7 +136,6 @@
                     "position": 24
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 30
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "field",
                     "value": "field",
                     "keyword": "FIELD",
@@ -162,7 +152,6 @@
                     "position": 31
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 36
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 37
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 38
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "8",
                     "value": 8,
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 39
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -207,7 +192,6 @@
                     "position": 40
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -216,7 +200,6 @@
                     "position": 41
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -225,7 +208,6 @@
                     "position": 47
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "8",
                     "value": 8,
                     "keyword": null,
@@ -234,7 +216,6 @@
                     "position": 48
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -243,7 +224,6 @@
                     "position": 49
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 50
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -261,7 +240,6 @@
                     "position": 51
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "field",
                     "value": "field",
                     "keyword": "FIELD",
@@ -270,7 +248,6 @@
                     "position": 52
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -279,7 +256,6 @@
                     "position": 57
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -288,7 +264,6 @@
                     "position": 58
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -297,7 +272,6 @@
                     "position": 64
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "foo",
                     "value": "foo",
                     "keyword": null,
@@ -306,7 +280,6 @@
                     "position": 65
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -315,7 +288,6 @@
                     "position": 68
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -324,7 +296,6 @@
                     "position": 69
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -333,7 +304,6 @@
                     "position": 70
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "bar",
                     "value": "bar",
                     "keyword": null,
@@ -342,7 +312,6 @@
                     "position": 71
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -351,7 +320,6 @@
                     "position": 74
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -360,7 +328,6 @@
                     "position": 75
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -369,7 +336,6 @@
                     "position": 81
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`escaped_field`",
                     "value": "escaped_field",
                     "keyword": null,
@@ -378,7 +344,6 @@
                     "position": 82
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -387,7 +352,6 @@
                     "position": 97
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -396,7 +360,6 @@
                     "position": 98
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -405,7 +368,6 @@
                     "position": 99
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "16",
                     "value": 16,
                     "keyword": null,
@@ -414,7 +376,6 @@
                     "position": 100
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -423,7 +384,6 @@
                     "position": 102
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -432,7 +392,6 @@
                     "position": 103
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -441,7 +400,6 @@
                     "position": 109
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "16",
                     "value": 16,
                     "keyword": null,
@@ -450,7 +408,6 @@
                     "position": 110
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -459,7 +416,6 @@
                     "position": 112
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -468,7 +424,6 @@
                     "position": 113
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -477,7 +432,6 @@
                     "position": 114
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`escaped_field`",
                     "value": "escaped_field",
                     "keyword": null,
@@ -486,7 +440,6 @@
                     "position": 115
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -495,7 +448,6 @@
                     "position": 130
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -504,7 +456,6 @@
                     "position": 131
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -513,7 +464,6 @@
                     "position": 137
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`foo`",
                     "value": "foo",
                     "keyword": null,
@@ -522,7 +472,6 @@
                     "position": 138
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -531,7 +480,6 @@
                     "position": 143
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -540,7 +488,6 @@
                     "position": 144
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -549,7 +496,6 @@
                     "position": 145
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`bar`",
                     "value": "bar",
                     "keyword": null,
@@ -558,7 +504,6 @@
                     "position": 146
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -567,7 +512,6 @@
                     "position": 151
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -576,7 +520,6 @@
                     "position": 152
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -585,7 +528,6 @@
                     "position": 158
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`foo`",
                     "value": "foo",
                     "keyword": null,
@@ -594,7 +536,6 @@
                     "position": 159
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -603,7 +544,6 @@
                     "position": 164
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`bar`",
                     "value": "bar",
                     "keyword": null,
@@ -612,7 +552,6 @@
                     "position": 165
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -621,7 +560,6 @@
                     "position": 170
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -630,7 +568,6 @@
                     "position": 171
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -639,7 +576,6 @@
                     "position": 177
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -648,7 +584,6 @@
                     "position": 178
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -657,7 +592,6 @@
                     "position": 179
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -666,7 +600,6 @@
                     "position": 180
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -675,7 +608,6 @@
                     "position": 181
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -684,7 +616,6 @@
                     "position": 182
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -693,7 +624,6 @@
                     "position": 183
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -702,7 +632,6 @@
                     "position": 189
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COUNT",
                     "value": "COUNT",
                     "keyword": "COUNT",
@@ -711,7 +640,6 @@
                     "position": 190
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -720,7 +648,6 @@
                     "position": 195
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -729,7 +656,6 @@
                     "position": 196
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -738,7 +664,6 @@
                     "position": 197
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -747,7 +672,6 @@
                     "position": 198
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -756,7 +680,6 @@
                     "position": 199
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -765,7 +688,6 @@
                     "position": 203
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "nb_rows",
                     "value": "nb_rows",
                     "keyword": null,
@@ -774,7 +696,6 @@
                     "position": 204
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -783,7 +704,6 @@
                     "position": 211
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -792,7 +712,6 @@
                     "position": 212
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -801,7 +720,6 @@
                     "position": 213
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -810,7 +728,6 @@
                     "position": 219
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -819,7 +736,6 @@
                     "position": 220
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -828,7 +744,6 @@
                     "position": 221
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -837,7 +752,6 @@
                     "position": 227
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COUNT",
                     "value": "COUNT",
                     "keyword": "COUNT",
@@ -846,7 +760,6 @@
                     "position": 228
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -855,7 +768,6 @@
                     "position": 233
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -864,7 +776,6 @@
                     "position": 234
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -873,7 +784,6 @@
                     "position": 235
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -882,7 +792,6 @@
                     "position": 236
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -891,7 +800,6 @@
                     "position": 237
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -900,7 +808,6 @@
                     "position": 241
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "nb_rows",
                     "value": "nb_rows",
                     "keyword": null,
@@ -909,7 +816,6 @@
                     "position": 242
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -918,7 +824,6 @@
                     "position": 249
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -927,7 +832,6 @@
                     "position": 250
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -936,7 +840,6 @@
                     "position": 251
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -945,7 +848,6 @@
                     "position": 252
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -954,7 +856,6 @@
                     "position": 253
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -963,7 +864,6 @@
                     "position": 254
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -972,7 +872,6 @@
                     "position": 255
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -981,7 +880,6 @@
                     "position": 261
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -990,7 +888,6 @@
                     "position": 262
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -999,7 +896,6 @@
                     "position": 263
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1008,7 +904,6 @@
                     "position": 269
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COUNT",
                     "value": "COUNT",
                     "keyword": "COUNT",
@@ -1017,7 +912,6 @@
                     "position": 270
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -1026,7 +920,6 @@
                     "position": 275
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -1035,7 +928,6 @@
                     "position": 276
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1044,7 +936,6 @@
                     "position": 277
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1053,7 +944,6 @@
                     "position": 278
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -1062,7 +952,6 @@
                     "position": 279
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1071,7 +960,6 @@
                     "position": 283
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "nb_rows",
                     "value": "nb_rows",
                     "keyword": null,
@@ -1080,7 +968,6 @@
                     "position": 284
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1089,7 +976,6 @@
                     "position": 291
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1098,7 +984,6 @@
                     "position": 292
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1107,7 +992,6 @@
                     "position": 293
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1116,7 +1000,6 @@
                     "position": 294
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -1125,7 +1008,6 @@
                     "position": 295
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -1134,7 +1016,6 @@
                     "position": 296
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1143,7 +1024,6 @@
                     "position": 302
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COUNT",
                     "value": "COUNT",
                     "keyword": "COUNT",
@@ -1152,7 +1032,6 @@
                     "position": 303
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -1161,7 +1040,6 @@
                     "position": 308
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -1170,7 +1048,6 @@
                     "position": 309
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1179,7 +1056,6 @@
                     "position": 310
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1188,7 +1064,6 @@
                     "position": 311
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -1197,7 +1072,6 @@
                     "position": 312
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1206,7 +1080,6 @@
                     "position": 316
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "nb_rows",
                     "value": "nb_rows",
                     "keyword": null,
@@ -1215,7 +1088,6 @@
                     "position": 317
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1224,7 +1096,6 @@
                     "position": 324
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1233,7 +1104,6 @@
                     "position": 325
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -1242,7 +1112,6 @@
                     "position": 326
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1251,7 +1120,6 @@
                     "position": 332
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -1260,7 +1128,6 @@
                     "position": 333
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -1269,7 +1136,6 @@
                     "position": 334
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1278,7 +1144,6 @@
                     "position": 335
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1287,7 +1152,6 @@
                     "position": 336
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1296,7 +1160,6 @@
                     "position": 337
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -1305,7 +1168,6 @@
                     "position": 338
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1314,7 +1176,6 @@
                     "position": 339
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1323,7 +1184,6 @@
                     "position": 340
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1332,7 +1192,6 @@
                     "position": 341
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1341,7 +1200,6 @@
                     "position": 342
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -1350,7 +1208,6 @@
                     "position": 343
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -1359,7 +1216,6 @@
                     "position": 344
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1368,7 +1224,6 @@
                     "position": 345
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1377,7 +1232,6 @@
                     "position": 346
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1386,7 +1240,6 @@
                     "position": 347
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -1395,7 +1248,6 @@
                     "position": 348
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1404,7 +1256,6 @@
                     "position": 349
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1413,7 +1264,6 @@
                     "position": 350
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -1422,7 +1272,6 @@
                     "position": 351
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1431,7 +1280,6 @@
                     "position": 357
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -1440,7 +1288,6 @@
                     "position": 358
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1449,7 +1296,6 @@
                     "position": 359
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1458,7 +1304,6 @@
                     "position": 360
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1467,7 +1312,6 @@
                     "position": 361
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -1476,7 +1320,6 @@
                     "position": 362
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -1485,7 +1328,6 @@
                     "position": 363
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1494,7 +1336,6 @@
                     "position": 364
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1503,7 +1344,6 @@
                     "position": 365
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1512,7 +1352,6 @@
                     "position": 366
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -1521,7 +1360,6 @@
                     "position": 367
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -1530,7 +1368,6 @@
                     "position": 368
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1539,7 +1376,6 @@
                     "position": 369
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1548,7 +1384,6 @@
                     "position": 370
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1557,7 +1392,6 @@
                     "position": 371
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -1566,7 +1400,6 @@
                     "position": 372
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "4",
                     "value": 4,
                     "keyword": null,
@@ -1575,7 +1408,6 @@
                     "position": 373
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1584,7 +1416,6 @@
                     "position": 374
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1593,7 +1424,6 @@
                     "position": 375
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1602,7 +1432,6 @@
                     "position": 376
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "5",
                     "value": 5,
                     "keyword": null,
@@ -1611,7 +1440,6 @@
                     "position": 377
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1620,7 +1448,6 @@
                     "position": 378
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1629,7 +1456,6 @@
                     "position": 379
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -1638,7 +1464,6 @@
                     "position": 380
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1647,7 +1472,6 @@
                     "position": 381
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -1656,7 +1480,6 @@
                     "position": 382
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1665,7 +1488,6 @@
                     "position": 388
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2.71",
                     "value": 2.71,
                     "keyword": null,
@@ -1674,7 +1496,6 @@
                     "position": 389
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1683,7 +1504,6 @@
                     "position": 393
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1692,7 +1512,6 @@
                     "position": 394
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1701,7 +1520,6 @@
                     "position": 395
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3.14",
                     "value": 3.14,
                     "keyword": null,
@@ -1710,7 +1528,6 @@
                     "position": 396
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1719,7 +1536,6 @@
                     "position": 400
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -1728,7 +1544,6 @@
                     "position": 401
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1737,7 +1552,6 @@
                     "position": 407
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2.71",
                     "value": 2.71,
                     "keyword": null,
@@ -1746,7 +1560,6 @@
                     "position": 408
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1755,7 +1568,6 @@
                     "position": 412
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1764,7 +1576,6 @@
                     "position": 413
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1773,7 +1584,6 @@
                     "position": 414
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-3.14",
                     "value": -3.14,
                     "keyword": null,
@@ -1782,7 +1592,6 @@
                     "position": 415
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1791,7 +1600,6 @@
                     "position": 420
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -1800,7 +1608,6 @@
                     "position": 421
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1809,7 +1616,6 @@
                     "position": 427
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-2.71",
                     "value": -2.71,
                     "keyword": null,
@@ -1818,7 +1624,6 @@
                     "position": 428
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1827,7 +1632,6 @@
                     "position": 433
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1836,7 +1640,6 @@
                     "position": 434
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1845,7 +1648,6 @@
                     "position": 435
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3.14",
                     "value": 3.14,
                     "keyword": null,
@@ -1854,7 +1656,6 @@
                     "position": 436
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1863,7 +1664,6 @@
                     "position": 440
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -1872,7 +1672,6 @@
                     "position": 441
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1881,7 +1680,6 @@
                     "position": 447
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-2.71",
                     "value": -2.71,
                     "keyword": null,
@@ -1890,7 +1688,6 @@
                     "position": 448
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1899,7 +1696,6 @@
                     "position": 453
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1908,7 +1704,6 @@
                     "position": 454
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1917,7 +1712,6 @@
                     "position": 455
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-3.14",
                     "value": -3.14,
                     "keyword": null,
@@ -1926,7 +1720,6 @@
                     "position": 456
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -1935,7 +1728,6 @@
                     "position": 461
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -1944,7 +1736,6 @@
                     "position": 462
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1953,7 +1744,6 @@
                     "position": 468
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0xABC",
                     "value": 2748,
                     "keyword": null,
@@ -1962,7 +1752,6 @@
                     "position": 469
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1971,7 +1760,6 @@
                     "position": 474
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -1980,7 +1768,6 @@
                     "position": 475
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -1989,7 +1776,6 @@
                     "position": 476
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0xCBA",
                     "value": 3258,
                     "keyword": null,
@@ -1998,7 +1784,6 @@
                     "position": 477
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2007,7 +1792,6 @@
                     "position": 482
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2016,7 +1800,6 @@
                     "position": 483
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2025,7 +1808,6 @@
                     "position": 489
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0xABC",
                     "value": 2748,
                     "keyword": null,
@@ -2034,7 +1816,6 @@
                     "position": 490
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2043,7 +1824,6 @@
                     "position": 495
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2052,7 +1832,6 @@
                     "position": 496
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2061,7 +1840,6 @@
                     "position": 497
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-0xCBA",
                     "value": -3258,
                     "keyword": null,
@@ -2070,7 +1848,6 @@
                     "position": 498
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2079,7 +1856,6 @@
                     "position": 504
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2088,7 +1864,6 @@
                     "position": 505
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2097,7 +1872,6 @@
                     "position": 511
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-0xABC",
                     "value": -2748,
                     "keyword": null,
@@ -2106,7 +1880,6 @@
                     "position": 512
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2115,7 +1888,6 @@
                     "position": 518
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2124,7 +1896,6 @@
                     "position": 519
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2133,7 +1904,6 @@
                     "position": 520
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0xCBA",
                     "value": 3258,
                     "keyword": null,
@@ -2142,7 +1912,6 @@
                     "position": 521
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2151,7 +1920,6 @@
                     "position": 526
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2160,7 +1928,6 @@
                     "position": 527
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2169,7 +1936,6 @@
                     "position": 533
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-0xABC",
                     "value": -2748,
                     "keyword": null,
@@ -2178,7 +1944,6 @@
                     "position": 534
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2187,7 +1952,6 @@
                     "position": 540
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2196,7 +1960,6 @@
                     "position": 541
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2205,7 +1968,6 @@
                     "position": 542
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-0xCBA",
                     "value": -3258,
                     "keyword": null,
@@ -2214,7 +1976,6 @@
                     "position": 543
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
@@ -2223,7 +1984,6 @@
                     "position": 549
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- Now same but with comments inside (C style comments could conflicts with operator if lexer is failing)",
                     "value": "-- Now same but with comments inside (C style comments could conflicts with operator if lexer is failing)",
                     "keyword": null,
@@ -2232,7 +1992,6 @@
                     "position": 551
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2241,7 +2000,6 @@
                     "position": 656
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2250,7 +2008,6 @@
                     "position": 657
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2259,7 +2016,6 @@
                     "position": 663
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -2268,7 +2024,6 @@
                     "position": 664
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2277,7 +2032,6 @@
                     "position": 665
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2286,7 +2040,6 @@
                     "position": 666
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2295,7 +2048,6 @@
                     "position": 667
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2304,7 +2056,6 @@
                     "position": 668
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -2313,7 +2064,6 @@
                     "position": 681
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2322,7 +2072,6 @@
                     "position": 682
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2331,7 +2080,6 @@
                     "position": 683
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2340,7 +2088,6 @@
                     "position": 689
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -2349,7 +2096,6 @@
                     "position": 690
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2358,7 +2104,6 @@
                     "position": 691
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2367,7 +2112,6 @@
                     "position": 704
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2376,7 +2120,6 @@
                     "position": 705
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2385,7 +2128,6 @@
                     "position": 706
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -2394,7 +2136,6 @@
                     "position": 707
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2403,7 +2144,6 @@
                     "position": 708
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2412,7 +2152,6 @@
                     "position": 709
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2421,7 +2160,6 @@
                     "position": 715
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -2430,7 +2168,6 @@
                     "position": 716
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment with * inside */",
                     "value": "/* comment with * inside */",
                     "keyword": null,
@@ -2439,7 +2176,6 @@
                     "position": 717
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2448,7 +2184,6 @@
                     "position": 744
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2457,7 +2192,6 @@
                     "position": 745
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2466,7 +2200,6 @@
                     "position": 746
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -2475,7 +2208,6 @@
                     "position": 747
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2484,7 +2216,6 @@
                     "position": 748
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2493,7 +2224,6 @@
                     "position": 749
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2502,7 +2232,6 @@
                     "position": 755
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2511,7 +2240,6 @@
                     "position": 756
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2520,7 +2248,6 @@
                     "position": 769
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "field",
                     "value": "field",
                     "keyword": "FIELD",
@@ -2529,7 +2256,6 @@
                     "position": 770
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2538,7 +2264,6 @@
                     "position": 775
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2547,7 +2272,6 @@
                     "position": 776
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2556,7 +2280,6 @@
                     "position": 789
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2565,7 +2288,6 @@
                     "position": 790
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2574,7 +2296,6 @@
                     "position": 791
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2583,7 +2304,6 @@
                     "position": 792
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2592,7 +2312,6 @@
                     "position": 805
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "8",
                     "value": 8,
                     "keyword": null,
@@ -2601,7 +2320,6 @@
                     "position": 806
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2610,7 +2328,6 @@
                     "position": 807
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2619,7 +2336,6 @@
                     "position": 808
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2628,7 +2344,6 @@
                     "position": 821
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2637,7 +2352,6 @@
                     "position": 822
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2646,7 +2360,6 @@
                     "position": 828
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2655,7 +2368,6 @@
                     "position": 829
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2664,7 +2376,6 @@
                     "position": 842
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "8",
                     "value": 8,
                     "keyword": null,
@@ -2673,7 +2384,6 @@
                     "position": 843
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2682,7 +2392,6 @@
                     "position": 844
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2691,7 +2400,6 @@
                     "position": 845
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2700,7 +2408,6 @@
                     "position": 858
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2709,7 +2416,6 @@
                     "position": 859
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2718,7 +2424,6 @@
                     "position": 860
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2727,7 +2432,6 @@
                     "position": 861
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2736,7 +2440,6 @@
                     "position": 874
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "field",
                     "value": "field",
                     "keyword": "FIELD",
@@ -2745,7 +2448,6 @@
                     "position": 875
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2754,7 +2456,6 @@
                     "position": 880
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2763,7 +2464,6 @@
                     "position": 881
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2772,7 +2472,6 @@
                     "position": 894
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2781,7 +2480,6 @@
                     "position": 895
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2790,7 +2488,6 @@
                     "position": 901
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2799,7 +2496,6 @@
                     "position": 902
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2808,7 +2504,6 @@
                     "position": 915
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "foo",
                     "value": "foo",
                     "keyword": null,
@@ -2817,7 +2512,6 @@
                     "position": 916
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2826,7 +2520,6 @@
                     "position": 919
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2835,7 +2528,6 @@
                     "position": 920
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2844,7 +2536,6 @@
                     "position": 933
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2853,7 +2544,6 @@
                     "position": 934
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2862,7 +2552,6 @@
                     "position": 935
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2871,7 +2560,6 @@
                     "position": 936
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2880,7 +2568,6 @@
                     "position": 949
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "bar",
                     "value": "bar",
                     "keyword": null,
@@ -2889,7 +2576,6 @@
                     "position": 950
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2898,7 +2584,6 @@
                     "position": 953
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2907,7 +2592,6 @@
                     "position": 954
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -2916,7 +2600,6 @@
                     "position": 967
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -2925,7 +2608,6 @@
                     "position": 968
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2934,7 +2616,6 @@
                     "position": 974
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2943,7 +2624,6 @@
                     "position": 975
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2952,7 +2632,6 @@
                     "position": 988
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`escaped_field`",
                     "value": "escaped_field",
                     "keyword": null,
@@ -2961,7 +2640,6 @@
                     "position": 989
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2970,7 +2648,6 @@
                     "position": 1004
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -2979,7 +2656,6 @@
                     "position": 1005
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -2988,7 +2664,6 @@
                     "position": 1018
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -2997,7 +2672,6 @@
                     "position": 1019
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3006,7 +2680,6 @@
                     "position": 1020
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3015,7 +2688,6 @@
                     "position": 1021
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3024,7 +2696,6 @@
                     "position": 1034
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "16",
                     "value": 16,
                     "keyword": null,
@@ -3033,7 +2704,6 @@
                     "position": 1035
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3042,7 +2712,6 @@
                     "position": 1037
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3051,7 +2720,6 @@
                     "position": 1038
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -3060,7 +2728,6 @@
                     "position": 1051
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -3069,7 +2736,6 @@
                     "position": 1052
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3078,7 +2744,6 @@
                     "position": 1058
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3087,7 +2752,6 @@
                     "position": 1059
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3096,7 +2760,6 @@
                     "position": 1072
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "16",
                     "value": 16,
                     "keyword": null,
@@ -3105,7 +2768,6 @@
                     "position": 1073
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3114,7 +2776,6 @@
                     "position": 1075
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3123,7 +2784,6 @@
                     "position": 1076
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3132,7 +2792,6 @@
                     "position": 1089
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -3141,7 +2800,6 @@
                     "position": 1090
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3150,7 +2808,6 @@
                     "position": 1091
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3159,7 +2816,6 @@
                     "position": 1092
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3168,7 +2824,6 @@
                     "position": 1105
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`escaped_field`",
                     "value": "escaped_field",
                     "keyword": null,
@@ -3177,7 +2832,6 @@
                     "position": 1106
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3186,7 +2840,6 @@
                     "position": 1121
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3195,7 +2848,6 @@
                     "position": 1122
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -3204,7 +2856,6 @@
                     "position": 1135
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -3213,7 +2864,6 @@
                     "position": 1136
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3222,7 +2872,6 @@
                     "position": 1142
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3231,7 +2880,6 @@
                     "position": 1143
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3240,7 +2888,6 @@
                     "position": 1156
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`foo`",
                     "value": "foo",
                     "keyword": null,
@@ -3249,7 +2896,6 @@
                     "position": 1157
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3258,7 +2904,6 @@
                     "position": 1162
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3267,7 +2912,6 @@
                     "position": 1163
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3276,7 +2920,6 @@
                     "position": 1176
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -3285,7 +2928,6 @@
                     "position": 1177
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3294,7 +2936,6 @@
                     "position": 1178
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3303,7 +2944,6 @@
                     "position": 1179
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3312,7 +2952,6 @@
                     "position": 1192
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`bar`",
                     "value": "bar",
                     "keyword": null,
@@ -3321,7 +2960,6 @@
                     "position": 1193
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3330,7 +2968,6 @@
                     "position": 1198
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3339,7 +2976,6 @@
                     "position": 1199
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -3348,7 +2984,6 @@
                     "position": 1212
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -3357,7 +2992,6 @@
                     "position": 1213
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3366,7 +3000,6 @@
                     "position": 1219
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* `comment` */",
                     "value": "/* `comment` */",
                     "keyword": null,
@@ -3375,7 +3008,6 @@
                     "position": 1220
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3384,7 +3016,6 @@
                     "position": 1235
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`foo`",
                     "value": "foo",
                     "keyword": null,
@@ -3393,7 +3024,6 @@
                     "position": 1236
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3402,7 +3032,6 @@
                     "position": 1241
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* `comment` */",
                     "value": "/* `comment` */",
                     "keyword": null,
@@ -3411,7 +3040,6 @@
                     "position": 1242
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3420,7 +3048,6 @@
                     "position": 1257
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -3429,7 +3056,6 @@
                     "position": 1258
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3438,7 +3064,6 @@
                     "position": 1259
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* `comment` */",
                     "value": "/* `comment` */",
                     "keyword": null,
@@ -3447,7 +3072,6 @@
                     "position": 1260
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3456,7 +3080,6 @@
                     "position": 1275
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`bar`",
                     "value": "bar",
                     "keyword": null,
@@ -3465,7 +3088,6 @@
                     "position": 1276
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3474,7 +3096,6 @@
                     "position": 1281
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* `comment` */",
                     "value": "/* `comment` */",
                     "keyword": null,
@@ -3483,7 +3104,6 @@
                     "position": 1282
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -3492,7 +3112,6 @@
                     "position": 1297
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -3501,7 +3120,6 @@
                     "position": 1298
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3510,7 +3128,6 @@
                     "position": 1304
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3519,7 +3136,6 @@
                     "position": 1305
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3528,7 +3144,6 @@
                     "position": 1318
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -3537,7 +3152,6 @@
                     "position": 1319
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3546,7 +3160,6 @@
                     "position": 1320
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3555,7 +3168,6 @@
                     "position": 1321
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3564,7 +3176,6 @@
                     "position": 1334
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -3573,7 +3184,6 @@
                     "position": 1335
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3582,7 +3192,6 @@
                     "position": 1336
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3591,7 +3200,6 @@
                     "position": 1337
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3600,7 +3208,6 @@
                     "position": 1350
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -3609,7 +3216,6 @@
                     "position": 1351
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -3618,7 +3224,6 @@
                     "position": 1352
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3627,7 +3232,6 @@
                     "position": 1358
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COUNT",
                     "value": "COUNT",
                     "keyword": "COUNT",
@@ -3636,7 +3240,6 @@
                     "position": 1359
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -3645,7 +3248,6 @@
                     "position": 1364
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3654,7 +3256,6 @@
                     "position": 1365
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -3663,7 +3264,6 @@
                     "position": 1378
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3672,7 +3272,6 @@
                     "position": 1379
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -3681,7 +3280,6 @@
                     "position": 1392
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3690,7 +3288,6 @@
                     "position": 1393
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3699,7 +3296,6 @@
                     "position": 1394
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3708,7 +3304,6 @@
                     "position": 1407
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -3717,7 +3312,6 @@
                     "position": 1408
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3726,7 +3320,6 @@
                     "position": 1412
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "nb_rows",
                     "value": "nb_rows",
                     "keyword": null,
@@ -3735,7 +3328,6 @@
                     "position": 1413
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -3744,7 +3336,6 @@
                     "position": 1420
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -3753,7 +3344,6 @@
                     "position": 1421
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -3762,7 +3352,6 @@
                     "position": 1422
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3771,7 +3360,6 @@
                     "position": 1428
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3780,7 +3368,6 @@
                     "position": 1429
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3789,7 +3376,6 @@
                     "position": 1442
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -3798,7 +3384,6 @@
                     "position": 1443
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -3807,7 +3392,6 @@
                     "position": 1444
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3816,7 +3400,6 @@
                     "position": 1450
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COUNT",
                     "value": "COUNT",
                     "keyword": "COUNT",
@@ -3825,7 +3408,6 @@
                     "position": 1451
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -3834,7 +3416,6 @@
                     "position": 1456
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -3843,7 +3424,6 @@
                     "position": 1457
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -3852,7 +3432,6 @@
                     "position": 1458
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3861,7 +3440,6 @@
                     "position": 1459
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3870,7 +3448,6 @@
                     "position": 1460
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -3879,7 +3456,6 @@
                     "position": 1473
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3888,7 +3464,6 @@
                     "position": 1477
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3897,7 +3472,6 @@
                     "position": 1490
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "nb_rows",
                     "value": "nb_rows",
                     "keyword": null,
@@ -3906,7 +3480,6 @@
                     "position": 1491
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -3915,7 +3488,6 @@
                     "position": 1498
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3924,7 +3496,6 @@
                     "position": 1499
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3933,7 +3504,6 @@
                     "position": 1500
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3942,7 +3512,6 @@
                     "position": 1513
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -3951,7 +3520,6 @@
                     "position": 1514
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3960,7 +3528,6 @@
                     "position": 1515
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -3969,7 +3536,6 @@
                     "position": 1516
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -3978,7 +3544,6 @@
                     "position": 1529
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -3987,7 +3552,6 @@
                     "position": 1530
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -3996,7 +3560,6 @@
                     "position": 1531
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -4005,7 +3568,6 @@
                     "position": 1532
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4014,7 +3576,6 @@
                     "position": 1538
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4023,7 +3584,6 @@
                     "position": 1539
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -4032,7 +3592,6 @@
                     "position": 1540
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4041,7 +3600,6 @@
                     "position": 1546
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4050,7 +3608,6 @@
                     "position": 1547
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4059,7 +3616,6 @@
                     "position": 1560
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COUNT",
                     "value": "COUNT",
                     "keyword": "COUNT",
@@ -4068,7 +3624,6 @@
                     "position": 1561
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4077,7 +3632,6 @@
                     "position": 1566
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -4086,7 +3640,6 @@
                     "position": 1567
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4095,7 +3648,6 @@
                     "position": 1568
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4104,7 +3656,6 @@
                     "position": 1569
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4113,7 +3664,6 @@
                     "position": 1570
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4122,7 +3672,6 @@
                     "position": 1583
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -4131,7 +3680,6 @@
                     "position": 1584
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4140,7 +3688,6 @@
                     "position": 1588
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4149,7 +3696,6 @@
                     "position": 1589
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4158,7 +3704,6 @@
                     "position": 1602
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "nb_rows",
                     "value": "nb_rows",
                     "keyword": null,
@@ -4167,7 +3712,6 @@
                     "position": 1603
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4176,7 +3720,6 @@
                     "position": 1610
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4185,7 +3728,6 @@
                     "position": 1611
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4194,7 +3736,6 @@
                     "position": 1612
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4203,7 +3744,6 @@
                     "position": 1625
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -4212,7 +3752,6 @@
                     "position": 1626
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4221,7 +3760,6 @@
                     "position": 1627
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4230,7 +3768,6 @@
                     "position": 1628
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4239,7 +3776,6 @@
                     "position": 1641
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4248,7 +3784,6 @@
                     "position": 1642
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -4257,7 +3792,6 @@
                     "position": 1643
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4266,7 +3800,6 @@
                     "position": 1649
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "COUNT",
                     "value": "COUNT",
                     "keyword": "COUNT",
@@ -4275,7 +3808,6 @@
                     "position": 1650
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4284,7 +3816,6 @@
                     "position": 1655
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -4293,7 +3824,6 @@
                     "position": 1656
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4302,7 +3832,6 @@
                     "position": 1657
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4311,7 +3840,6 @@
                     "position": 1658
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -4320,7 +3848,6 @@
                     "position": 1659
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4329,7 +3856,6 @@
                     "position": 1663
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "nb_rows",
                     "value": "nb_rows",
                     "keyword": null,
@@ -4338,7 +3864,6 @@
                     "position": 1664
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4347,7 +3872,6 @@
                     "position": 1671
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -4356,7 +3880,6 @@
                     "position": 1672
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -4365,7 +3888,6 @@
                     "position": 1673
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4374,7 +3896,6 @@
                     "position": 1679
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4383,7 +3904,6 @@
                     "position": 1680
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -4392,7 +3912,6 @@
                     "position": 1681
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4401,7 +3920,6 @@
                     "position": 1682
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -4410,7 +3928,6 @@
                     "position": 1683
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4419,7 +3936,6 @@
                     "position": 1684
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -4428,7 +3944,6 @@
                     "position": 1685
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4437,7 +3952,6 @@
                     "position": 1686
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4446,7 +3960,6 @@
                     "position": 1687
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4455,7 +3968,6 @@
                     "position": 1688
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4464,7 +3976,6 @@
                     "position": 1701
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -4473,7 +3984,6 @@
                     "position": 1702
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4482,7 +3992,6 @@
                     "position": 1703
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4491,7 +4000,6 @@
                     "position": 1704
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4500,7 +4008,6 @@
                     "position": 1717
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4509,7 +4016,6 @@
                     "position": 1718
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -4518,7 +4024,6 @@
                     "position": 1719
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4527,7 +4032,6 @@
                     "position": 1720
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -4536,7 +4040,6 @@
                     "position": 1721
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4545,7 +4048,6 @@
                     "position": 1722
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -4554,7 +4056,6 @@
                     "position": 1723
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4563,7 +4064,6 @@
                     "position": 1724
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -4572,7 +4072,6 @@
                     "position": 1725
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -4581,7 +4080,6 @@
                     "position": 1726
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4590,7 +4088,6 @@
                     "position": 1732
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4599,7 +4096,6 @@
                     "position": 1733
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4608,7 +4104,6 @@
                     "position": 1746
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -4617,7 +4112,6 @@
                     "position": 1747
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4626,7 +4120,6 @@
                     "position": 1748
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4635,7 +4128,6 @@
                     "position": 1749
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4644,7 +4136,6 @@
                     "position": 1762
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -4653,7 +4144,6 @@
                     "position": 1763
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4662,7 +4152,6 @@
                     "position": 1764
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4671,7 +4160,6 @@
                     "position": 1765
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4680,7 +4168,6 @@
                     "position": 1778
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4689,7 +4176,6 @@
                     "position": 1779
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -4698,7 +4184,6 @@
                     "position": 1780
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4707,7 +4192,6 @@
                     "position": 1781
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4716,7 +4200,6 @@
                     "position": 1782
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4725,7 +4208,6 @@
                     "position": 1795
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -4734,7 +4216,6 @@
                     "position": 1796
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4743,7 +4224,6 @@
                     "position": 1797
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4752,7 +4232,6 @@
                     "position": 1798
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4761,7 +4240,6 @@
                     "position": 1811
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4770,7 +4248,6 @@
                     "position": 1812
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3",
                     "value": 3,
                     "keyword": null,
@@ -4779,7 +4256,6 @@
                     "position": 1813
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4788,7 +4264,6 @@
                     "position": 1814
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4797,7 +4272,6 @@
                     "position": 1815
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4806,7 +4280,6 @@
                     "position": 1828
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -4815,7 +4288,6 @@
                     "position": 1829
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4824,7 +4296,6 @@
                     "position": 1830
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4833,7 +4304,6 @@
                     "position": 1831
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4842,7 +4312,6 @@
                     "position": 1844
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -4851,7 +4320,6 @@
                     "position": 1845
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "4",
                     "value": 4,
                     "keyword": null,
@@ -4860,7 +4328,6 @@
                     "position": 1846
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4869,7 +4336,6 @@
                     "position": 1847
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4878,7 +4344,6 @@
                     "position": 1848
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4887,7 +4352,6 @@
                     "position": 1861
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -4896,7 +4360,6 @@
                     "position": 1862
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4905,7 +4368,6 @@
                     "position": 1863
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4914,7 +4376,6 @@
                     "position": 1864
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4923,7 +4384,6 @@
                     "position": 1877
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "5",
                     "value": 5,
                     "keyword": null,
@@ -4932,7 +4392,6 @@
                     "position": 1878
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4941,7 +4400,6 @@
                     "position": 1879
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4950,7 +4408,6 @@
                     "position": 1880
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -4959,7 +4416,6 @@
                     "position": 1881
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -4968,7 +4424,6 @@
                     "position": 1882
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -4977,7 +4432,6 @@
                     "position": 1883
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -4986,7 +4440,6 @@
                     "position": 1896
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -4995,7 +4448,6 @@
                     "position": 1897
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5004,7 +4456,6 @@
                     "position": 1903
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2.71",
                     "value": 2.71,
                     "keyword": null,
@@ -5013,7 +4464,6 @@
                     "position": 1904
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5022,7 +4472,6 @@
                     "position": 1908
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5031,7 +4480,6 @@
                     "position": 1909
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5040,7 +4488,6 @@
                     "position": 1922
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5049,7 +4496,6 @@
                     "position": 1923
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5058,7 +4504,6 @@
                     "position": 1924
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5067,7 +4512,6 @@
                     "position": 1925
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5076,7 +4520,6 @@
                     "position": 1938
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3.14",
                     "value": 3.14,
                     "keyword": null,
@@ -5085,7 +4528,6 @@
                     "position": 1939
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5094,7 +4536,6 @@
                     "position": 1943
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5103,7 +4544,6 @@
                     "position": 1944
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5112,7 +4552,6 @@
                     "position": 1950
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2.71",
                     "value": 2.71,
                     "keyword": null,
@@ -5121,7 +4560,6 @@
                     "position": 1951
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5130,7 +4568,6 @@
                     "position": 1955
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5139,7 +4576,6 @@
                     "position": 1956
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5148,7 +4584,6 @@
                     "position": 1969
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5157,7 +4592,6 @@
                     "position": 1970
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5166,7 +4600,6 @@
                     "position": 1971
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5175,7 +4608,6 @@
                     "position": 1972
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5184,7 +4616,6 @@
                     "position": 1985
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-3.14",
                     "value": -3.14,
                     "keyword": null,
@@ -5193,7 +4624,6 @@
                     "position": 1986
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5202,7 +4632,6 @@
                     "position": 1991
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5211,7 +4640,6 @@
                     "position": 1992
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5220,7 +4648,6 @@
                     "position": 1998
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-2.71",
                     "value": -2.71,
                     "keyword": null,
@@ -5229,7 +4656,6 @@
                     "position": 1999
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5238,7 +4664,6 @@
                     "position": 2004
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5247,7 +4672,6 @@
                     "position": 2005
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5256,7 +4680,6 @@
                     "position": 2018
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5265,7 +4688,6 @@
                     "position": 2019
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5274,7 +4696,6 @@
                     "position": 2020
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5283,7 +4704,6 @@
                     "position": 2021
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5292,7 +4712,6 @@
                     "position": 2034
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "3.14",
                     "value": 3.14,
                     "keyword": null,
@@ -5301,7 +4720,6 @@
                     "position": 2035
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5310,7 +4728,6 @@
                     "position": 2039
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5319,7 +4736,6 @@
                     "position": 2040
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5328,7 +4744,6 @@
                     "position": 2046
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-2.71",
                     "value": -2.71,
                     "keyword": null,
@@ -5337,7 +4752,6 @@
                     "position": 2047
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5346,7 +4760,6 @@
                     "position": 2052
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5355,7 +4768,6 @@
                     "position": 2053
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5364,7 +4776,6 @@
                     "position": 2066
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5373,7 +4784,6 @@
                     "position": 2067
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5382,7 +4792,6 @@
                     "position": 2068
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5391,7 +4800,6 @@
                     "position": 2069
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5400,7 +4808,6 @@
                     "position": 2082
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-3.14",
                     "value": -3.14,
                     "keyword": null,
@@ -5409,7 +4816,6 @@
                     "position": 2083
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5418,7 +4824,6 @@
                     "position": 2088
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5427,7 +4832,6 @@
                     "position": 2089
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5436,7 +4840,6 @@
                     "position": 2095
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0xABC",
                     "value": 2748,
                     "keyword": null,
@@ -5445,7 +4848,6 @@
                     "position": 2096
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5454,7 +4856,6 @@
                     "position": 2101
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5463,7 +4864,6 @@
                     "position": 2102
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5472,7 +4872,6 @@
                     "position": 2115
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5481,7 +4880,6 @@
                     "position": 2116
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5490,7 +4888,6 @@
                     "position": 2117
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5499,7 +4896,6 @@
                     "position": 2118
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5508,7 +4904,6 @@
                     "position": 2131
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0xCBA",
                     "value": 3258,
                     "keyword": null,
@@ -5517,7 +4912,6 @@
                     "position": 2132
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5526,7 +4920,6 @@
                     "position": 2137
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5535,7 +4928,6 @@
                     "position": 2138
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5544,7 +4936,6 @@
                     "position": 2144
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0xABC",
                     "value": 2748,
                     "keyword": null,
@@ -5553,7 +4944,6 @@
                     "position": 2145
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5562,7 +4952,6 @@
                     "position": 2150
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5571,7 +4960,6 @@
                     "position": 2151
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5580,7 +4968,6 @@
                     "position": 2164
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5589,7 +4976,6 @@
                     "position": 2165
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5598,7 +4984,6 @@
                     "position": 2166
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5607,7 +4992,6 @@
                     "position": 2167
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5616,7 +5000,6 @@
                     "position": 2180
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-0xCBA",
                     "value": -3258,
                     "keyword": null,
@@ -5625,7 +5008,6 @@
                     "position": 2181
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5634,7 +5016,6 @@
                     "position": 2187
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5643,7 +5024,6 @@
                     "position": 2188
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5652,7 +5032,6 @@
                     "position": 2194
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-0xABC",
                     "value": -2748,
                     "keyword": null,
@@ -5661,7 +5040,6 @@
                     "position": 2195
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5670,7 +5048,6 @@
                     "position": 2201
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5679,7 +5056,6 @@
                     "position": 2202
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5688,7 +5064,6 @@
                     "position": 2215
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5697,7 +5072,6 @@
                     "position": 2216
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5706,7 +5080,6 @@
                     "position": 2217
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5715,7 +5088,6 @@
                     "position": 2218
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5724,7 +5096,6 @@
                     "position": 2231
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0xCBA",
                     "value": 3258,
                     "keyword": null,
@@ -5733,7 +5104,6 @@
                     "position": 2232
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5742,7 +5112,6 @@
                     "position": 2237
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5751,7 +5120,6 @@
                     "position": 2238
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5760,7 +5128,6 @@
                     "position": 2244
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-0xABC",
                     "value": -2748,
                     "keyword": null,
@@ -5769,7 +5136,6 @@
                     "position": 2245
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5778,7 +5144,6 @@
                     "position": 2251
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5787,7 +5152,6 @@
                     "position": 2252
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5796,7 +5160,6 @@
                     "position": 2265
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5805,7 +5168,6 @@
                     "position": 2266
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5814,7 +5176,6 @@
                     "position": 2267
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment */",
                     "value": "/* comment */",
                     "keyword": null,
@@ -5823,7 +5184,6 @@
                     "position": 2268
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5832,7 +5192,6 @@
                     "position": 2281
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-0xCBA",
                     "value": -3258,
                     "keyword": null,
@@ -5841,7 +5200,6 @@
                     "position": 2282
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5850,7 +5208,6 @@
                     "position": 2288
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5859,7 +5216,6 @@
                     "position": 2289
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5868,7 +5224,6 @@
                     "position": 2295
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -5877,7 +5232,6 @@
                     "position": 2296
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5886,7 +5240,6 @@
                     "position": 2297
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment with FROM keyword */",
                     "value": "/* comment with FROM keyword */",
                     "keyword": null,
@@ -5895,7 +5248,6 @@
                     "position": 2298
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5904,7 +5256,6 @@
                     "position": 2329
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -5913,7 +5264,6 @@
                     "position": 2330
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5922,7 +5272,6 @@
                     "position": 2331
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment with USING keyword */",
                     "value": "/* comment with USING keyword */",
                     "keyword": null,
@@ -5931,7 +5280,6 @@
                     "position": 2332
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -5940,7 +5288,6 @@
                     "position": 2364
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -5949,7 +5296,6 @@
                     "position": 2365
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -5958,7 +5304,6 @@
                     "position": 2366
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5967,7 +5312,6 @@
                     "position": 2372
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -5976,7 +5320,6 @@
                     "position": 2373
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -5985,7 +5328,6 @@
                     "position": 2374
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment with ) */",
                     "value": "/* comment with ) */",
                     "keyword": null,
@@ -5994,7 +5336,6 @@
                     "position": 2375
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -6003,7 +5344,6 @@
                     "position": 2395
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "*",
                     "value": "*",
                     "keyword": null,
@@ -6012,7 +5352,6 @@
                     "position": 2396
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -6021,7 +5360,6 @@
                     "position": 2397
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "/* comment with , keyword */",
                     "value": "/* comment with , keyword */",
                     "keyword": null,
@@ -6030,7 +5368,6 @@
                     "position": 2398
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -6039,7 +5376,6 @@
                     "position": 2426
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
@@ -6048,7 +5384,6 @@
                     "position": 2427
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,

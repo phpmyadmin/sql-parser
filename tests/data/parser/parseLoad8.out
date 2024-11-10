@@ -1,15 +1,21 @@
 {
     "query": "-- Query from https://github.com/phpmyadmin/sql-parser/issues/578\n-- Issue was that Lexer detected \".e1\" as number token.\n\nLOAD DATA LOCAL INFILE '/home/user/myloadfile.csv'\nIGNORE INTO TABLE erp.e1_table\nFIELDS TERMINATED BY '\\t'\nLINES TERMINATED BY '\\n'\nIGNORE 0 LINES;\n",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "-- Query from https://github.com/phpmyadmin/sql-parser/issues/578\n-- Issue was that Lexer detected \".e1\" as number token.\n\nLOAD DATA LOCAL INFILE '/home/user/myloadfile.csv'\nIGNORE INTO TABLE erp.e1_table\nFIELDS TERMINATED BY '\\t'\nLINES TERMINATED BY '\\n'\nIGNORE 0 LINES;\n",
         "len": 272,
         "last": 272,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- Query from https://github.com/phpmyadmin/sql-parser/issues/578",
                     "value": "-- Query from https://github.com/phpmyadmin/sql-parser/issues/578",
                     "keyword": null,
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 65
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "-- Issue was that Lexer detected \".e1\" as number token.",
                     "value": "-- Issue was that Lexer detected \".e1\" as number token.",
                     "keyword": null,
@@ -36,7 +40,6 @@
                     "position": 66
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n\n",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 121
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LOAD DATA",
                     "value": "LOAD DATA",
                     "keyword": "LOAD DATA",
@@ -54,7 +56,6 @@
                     "position": 123
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 132
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LOCAL",
                     "value": "LOCAL",
                     "keyword": "LOCAL",
@@ -72,7 +72,6 @@
                     "position": 133
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 138
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INFILE",
                     "value": "INFILE",
                     "keyword": "INFILE",
@@ -90,7 +88,6 @@
                     "position": 139
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 145
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'/home/user/myloadfile.csv'",
                     "value": "/home/user/myloadfile.csv",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 146
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 173
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "IGNORE",
                     "value": "IGNORE",
                     "keyword": "IGNORE",
@@ -126,7 +120,6 @@
                     "position": 174
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 180
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INTO",
                     "value": "INTO",
                     "keyword": "INTO",
@@ -144,7 +136,6 @@
                     "position": 181
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 185
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TABLE",
                     "value": "TABLE",
                     "keyword": "TABLE",
@@ -162,7 +152,6 @@
                     "position": 186
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 191
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "erp",
                     "value": "erp",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 192
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 195
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "e1_table",
                     "value": "e1_table",
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 196
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -207,7 +192,6 @@
                     "position": 204
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FIELDS",
                     "value": "FIELDS",
                     "keyword": "FIELDS",
@@ -216,7 +200,6 @@
                     "position": 205
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -225,7 +208,6 @@
                     "position": 211
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TERMINATED BY",
                     "value": "TERMINATED BY",
                     "keyword": "TERMINATED BY",
@@ -234,7 +216,6 @@
                     "position": 212
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -243,7 +224,6 @@
                     "position": 225
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'\\t'",
                     "value": "\t",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 226
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -261,7 +240,6 @@
                     "position": 230
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LINES",
                     "value": "LINES",
                     "keyword": "LINES",
@@ -270,7 +248,6 @@
                     "position": 231
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -279,7 +256,6 @@
                     "position": 236
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "TERMINATED BY",
                     "value": "TERMINATED BY",
                     "keyword": "TERMINATED BY",
@@ -288,7 +264,6 @@
                     "position": 237
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -297,7 +272,6 @@
                     "position": 250
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'\\n'",
                     "value": "\n",
                     "keyword": null,
@@ -306,7 +280,6 @@
                     "position": 251
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -315,7 +288,6 @@
                     "position": 255
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "IGNORE",
                     "value": "IGNORE",
                     "keyword": "IGNORE",
@@ -324,7 +296,6 @@
                     "position": 256
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -333,7 +304,6 @@
                     "position": 262
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "0",
                     "value": 0,
                     "keyword": null,
@@ -342,7 +312,6 @@
                     "position": 263
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -351,7 +320,6 @@
                     "position": 264
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "LINES",
                     "value": "LINES",
                     "keyword": "LINES",
@@ -360,7 +328,6 @@
                     "position": 265
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ";",
                     "value": ";",
                     "keyword": null,
@@ -369,7 +336,6 @@
                     "position": 270
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -378,7 +344,6 @@
                     "position": 271
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -396,15 +361,351 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "-- Query from https://github.com/phpmyadmin/sql-parser/issues/578",
+                    "value": "-- Query from https://github.com/phpmyadmin/sql-parser/issues/578",
+                    "keyword": null,
+                    "type": 4,
+                    "flags": 4,
+                    "position": 0
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 65
+                },
+                {
+                    "token": "-- Issue was that Lexer detected \".e1\" as number token.",
+                    "value": "-- Issue was that Lexer detected \".e1\" as number token.",
+                    "keyword": null,
+                    "type": 4,
+                    "flags": 4,
+                    "position": 66
+                },
+                {
+                    "token": "\n\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 121
+                },
+                {
+                    "token": "LOAD DATA",
+                    "value": "LOAD DATA",
+                    "keyword": "LOAD DATA",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 123
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 132
+                },
+                {
+                    "token": "LOCAL",
+                    "value": "LOCAL",
+                    "keyword": "LOCAL",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 133
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 138
+                },
+                {
+                    "token": "INFILE",
+                    "value": "INFILE",
+                    "keyword": "INFILE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 139
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 145
+                },
+                {
+                    "token": "'/home/user/myloadfile.csv'",
+                    "value": "/home/user/myloadfile.csv",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 146
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 173
+                },
+                {
+                    "token": "IGNORE",
+                    "value": "IGNORE",
+                    "keyword": "IGNORE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 174
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 180
+                },
+                {
+                    "token": "INTO",
+                    "value": "INTO",
+                    "keyword": "INTO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 181
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 185
+                },
+                {
+                    "token": "TABLE",
+                    "value": "TABLE",
+                    "keyword": "TABLE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 186
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 191
+                },
+                {
+                    "token": "erp",
+                    "value": "erp",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 192
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 195
+                },
+                {
+                    "token": "e1_table",
+                    "value": "e1_table",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 196
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 204
+                },
+                {
+                    "token": "FIELDS",
+                    "value": "FIELDS",
+                    "keyword": "FIELDS",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 205
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 211
+                },
+                {
+                    "token": "TERMINATED BY",
+                    "value": "TERMINATED BY",
+                    "keyword": "TERMINATED BY",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 212
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 225
+                },
+                {
+                    "token": "'\\t'",
+                    "value": "\t",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 226
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 230
+                },
+                {
+                    "token": "LINES",
+                    "value": "LINES",
+                    "keyword": "LINES",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 231
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 236
+                },
+                {
+                    "token": "TERMINATED BY",
+                    "value": "TERMINATED BY",
+                    "keyword": "TERMINATED BY",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 237
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 250
+                },
+                {
+                    "token": "'\\n'",
+                    "value": "\n",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 251
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 255
+                },
+                {
+                    "token": "IGNORE",
+                    "value": "IGNORE",
+                    "keyword": "IGNORE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 256
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 262
+                },
+                {
+                    "token": "0",
+                    "value": 0,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 263
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 264
+                },
+                {
+                    "token": "LINES",
+                    "value": "LINES",
+                    "keyword": "LINES",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 265
+                },
+                {
+                    "token": ";",
+                    "value": ";",
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": 270
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 271
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 42,
+            "idx": 42
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\LoadStatement",
                 "file_name": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
                     "table": null,
                     "column": null,
@@ -415,7 +716,6 @@
                     "file": "/home/user/myloadfile.csv"
                 },
                 "table": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": "erp",
                     "table": "e1_table",
                     "column": null,
@@ -427,13 +727,11 @@
                 "partition": null,
                 "charset_name": null,
                 "fields_options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "1": {
                             "name": "TERMINATED BY",
                             "equals": false,
                             "expr": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                 "database": null,
                                 "table": null,
                                 "column": "\t",
@@ -448,13 +746,11 @@
                 },
                 "fields_keyword": "FIELDS",
                 "lines_options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "2": {
                             "name": "TERMINATED BY",
                             "equals": false,
                             "expr": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                 "database": null,
                                 "table": null,
                                 "column": "\n",
@@ -470,7 +766,6 @@
                 "col_name_or_user_var": null,
                 "set": null,
                 "ignore_number": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
                     "table": null,
                     "column": null,
@@ -482,7 +777,6 @@
                 "replace_ignore": "IGNORE",
                 "lines_rows": "LINES",
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": {
                         "2": "LOCAL"
                     }

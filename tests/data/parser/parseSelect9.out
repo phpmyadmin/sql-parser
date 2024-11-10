@@ -1,15 +1,21 @@
 {
     "query": "SELECT casein_pipe, email_cp, name_first_cp, name_last_cp, purpose_pipe\nFROM (tbl_comp_person INNER JOIN `tbl_pipelist` ON tbl_comp_person.IDp = tbl_pipelist.IDp)\nWHERE casein_pipe > '2016-03-01' AND  `campaign_id_pipe` = 24569 AND `weeksonlist_pipe` = 1\nORDER BY `tbl_pipelist`.`casein_pipe` ASC",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "SELECT casein_pipe, email_cp, name_first_cp, name_last_cp, purpose_pipe\nFROM (tbl_comp_person INNER JOIN `tbl_pipelist` ON tbl_comp_person.IDp = tbl_pipelist.IDp)\nWHERE casein_pipe > '2016-03-01' AND  `campaign_id_pipe` = 24569 AND `weeksonlist_pipe` = 1\nORDER BY `tbl_pipelist`.`casein_pipe` ASC",
         "len": 296,
         "last": 296,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "casein_pipe",
                     "value": "casein_pipe",
                     "keyword": null,
@@ -36,7 +40,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 18
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -54,7 +56,6 @@
                     "position": 19
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "email_cp",
                     "value": "email_cp",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 20
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -72,7 +72,6 @@
                     "position": 28
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 29
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "name_first_cp",
                     "value": "name_first_cp",
                     "keyword": null,
@@ -90,7 +88,6 @@
                     "position": 30
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 43
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 44
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "name_last_cp",
                     "value": "name_last_cp",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 45
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ",",
                     "value": ",",
                     "keyword": null,
@@ -126,7 +120,6 @@
                     "position": 57
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 58
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "purpose_pipe",
                     "value": "purpose_pipe",
                     "keyword": null,
@@ -144,7 +136,6 @@
                     "position": 59
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 71
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -162,7 +152,6 @@
                     "position": 72
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 76
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -180,7 +168,6 @@
                     "position": 77
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "tbl_comp_person",
                     "value": "tbl_comp_person",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 78
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 93
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INNER JOIN",
                     "value": "INNER JOIN",
                     "keyword": "INNER JOIN",
@@ -207,7 +192,6 @@
                     "position": 94
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -216,7 +200,6 @@
                     "position": 104
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`tbl_pipelist`",
                     "value": "tbl_pipelist",
                     "keyword": null,
@@ -225,7 +208,6 @@
                     "position": 105
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -234,7 +216,6 @@
                     "position": 119
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ON",
                     "value": "ON",
                     "keyword": "ON",
@@ -243,7 +224,6 @@
                     "position": 120
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 122
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "tbl_comp_person",
                     "value": "tbl_comp_person",
                     "keyword": null,
@@ -261,7 +240,6 @@
                     "position": 123
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -270,7 +248,6 @@
                     "position": 138
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "IDp",
                     "value": "IDp",
                     "keyword": null,
@@ -279,7 +256,6 @@
                     "position": 139
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -288,7 +264,6 @@
                     "position": 142
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "=",
                     "value": "=",
                     "keyword": null,
@@ -297,7 +272,6 @@
                     "position": 143
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -306,7 +280,6 @@
                     "position": 144
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "tbl_pipelist",
                     "value": "tbl_pipelist",
                     "keyword": null,
@@ -315,7 +288,6 @@
                     "position": 145
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -324,7 +296,6 @@
                     "position": 157
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "IDp",
                     "value": "IDp",
                     "keyword": null,
@@ -333,7 +304,6 @@
                     "position": 158
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -342,7 +312,6 @@
                     "position": 161
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -351,7 +320,6 @@
                     "position": 162
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "WHERE",
                     "value": "WHERE",
                     "keyword": "WHERE",
@@ -360,7 +328,6 @@
                     "position": 163
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -369,7 +336,6 @@
                     "position": 168
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "casein_pipe",
                     "value": "casein_pipe",
                     "keyword": null,
@@ -378,7 +344,6 @@
                     "position": 169
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -387,7 +352,6 @@
                     "position": 180
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ">",
                     "value": ">",
                     "keyword": null,
@@ -396,7 +360,6 @@
                     "position": 181
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -405,7 +368,6 @@
                     "position": 182
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "'2016-03-01'",
                     "value": "2016-03-01",
                     "keyword": null,
@@ -414,7 +376,6 @@
                     "position": 183
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -423,7 +384,6 @@
                     "position": 195
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "AND",
                     "value": "AND",
                     "keyword": "AND",
@@ -432,7 +392,6 @@
                     "position": 196
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "  ",
                     "value": " ",
                     "keyword": null,
@@ -441,7 +400,6 @@
                     "position": 199
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`campaign_id_pipe`",
                     "value": "campaign_id_pipe",
                     "keyword": null,
@@ -450,7 +408,6 @@
                     "position": 201
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -459,7 +416,6 @@
                     "position": 219
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "=",
                     "value": "=",
                     "keyword": null,
@@ -468,7 +424,6 @@
                     "position": 220
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -477,7 +432,6 @@
                     "position": 221
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "24569",
                     "value": 24569,
                     "keyword": null,
@@ -486,7 +440,6 @@
                     "position": 222
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -495,7 +448,6 @@
                     "position": 227
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "AND",
                     "value": "AND",
                     "keyword": "AND",
@@ -504,7 +456,6 @@
                     "position": 228
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -513,7 +464,6 @@
                     "position": 231
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`weeksonlist_pipe`",
                     "value": "weeksonlist_pipe",
                     "keyword": null,
@@ -522,7 +472,6 @@
                     "position": 232
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -531,7 +480,6 @@
                     "position": 250
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "=",
                     "value": "=",
                     "keyword": null,
@@ -540,7 +488,6 @@
                     "position": 251
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -549,7 +496,6 @@
                     "position": 252
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -558,7 +504,6 @@
                     "position": 253
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "\n",
                     "value": " ",
                     "keyword": null,
@@ -567,7 +512,6 @@
                     "position": 254
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ORDER BY",
                     "value": "ORDER BY",
                     "keyword": "ORDER BY",
@@ -576,7 +520,6 @@
                     "position": 255
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -585,7 +528,6 @@
                     "position": 263
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`tbl_pipelist`",
                     "value": "tbl_pipelist",
                     "keyword": null,
@@ -594,7 +536,6 @@
                     "position": 264
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ".",
                     "value": ".",
                     "keyword": null,
@@ -603,7 +544,6 @@
                     "position": 278
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`casein_pipe`",
                     "value": "casein_pipe",
                     "keyword": null,
@@ -612,7 +552,6 @@
                     "position": 279
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -621,7 +560,6 @@
                     "position": 292
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "ASC",
                     "value": "ASC",
                     "keyword": "ASC",
@@ -630,7 +568,6 @@
                     "position": 293
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -648,16 +585,576 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "token": "casein_pipe",
+                    "value": "casein_pipe",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 7
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 18
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 19
+                },
+                {
+                    "token": "email_cp",
+                    "value": "email_cp",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 20
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 28
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 29
+                },
+                {
+                    "token": "name_first_cp",
+                    "value": "name_first_cp",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 30
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 43
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 44
+                },
+                {
+                    "token": "name_last_cp",
+                    "value": "name_last_cp",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 45
+                },
+                {
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 57
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 58
+                },
+                {
+                    "token": "purpose_pipe",
+                    "value": "purpose_pipe",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 59
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 71
+                },
+                {
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 72
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 76
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 77
+                },
+                {
+                    "token": "tbl_comp_person",
+                    "value": "tbl_comp_person",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 78
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 93
+                },
+                {
+                    "token": "INNER JOIN",
+                    "value": "INNER JOIN",
+                    "keyword": "INNER JOIN",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 94
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 104
+                },
+                {
+                    "token": "`tbl_pipelist`",
+                    "value": "tbl_pipelist",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 105
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 119
+                },
+                {
+                    "token": "ON",
+                    "value": "ON",
+                    "keyword": "ON",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 120
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 122
+                },
+                {
+                    "token": "tbl_comp_person",
+                    "value": "tbl_comp_person",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 123
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 138
+                },
+                {
+                    "token": "IDp",
+                    "value": "IDp",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 139
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 142
+                },
+                {
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 143
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 144
+                },
+                {
+                    "token": "tbl_pipelist",
+                    "value": "tbl_pipelist",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 145
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 157
+                },
+                {
+                    "token": "IDp",
+                    "value": "IDp",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 158
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 161
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 162
+                },
+                {
+                    "token": "WHERE",
+                    "value": "WHERE",
+                    "keyword": "WHERE",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 163
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 168
+                },
+                {
+                    "token": "casein_pipe",
+                    "value": "casein_pipe",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 169
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 180
+                },
+                {
+                    "token": ">",
+                    "value": ">",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 181
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 182
+                },
+                {
+                    "token": "'2016-03-01'",
+                    "value": "2016-03-01",
+                    "keyword": null,
+                    "type": 7,
+                    "flags": 1,
+                    "position": 183
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 195
+                },
+                {
+                    "token": "AND",
+                    "value": "AND",
+                    "keyword": "AND",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 196
+                },
+                {
+                    "token": "  ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 199
+                },
+                {
+                    "token": "`campaign_id_pipe`",
+                    "value": "campaign_id_pipe",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 201
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 219
+                },
+                {
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 220
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 221
+                },
+                {
+                    "token": "24569",
+                    "value": 24569,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 222
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 227
+                },
+                {
+                    "token": "AND",
+                    "value": "AND",
+                    "keyword": "AND",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 228
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 231
+                },
+                {
+                    "token": "`weeksonlist_pipe`",
+                    "value": "weeksonlist_pipe",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 232
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 250
+                },
+                {
+                    "token": "=",
+                    "value": "=",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 2,
+                    "position": 251
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 252
+                },
+                {
+                    "token": "1",
+                    "value": 1,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 253
+                },
+                {
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 254
+                },
+                {
+                    "token": "ORDER BY",
+                    "value": "ORDER BY",
+                    "keyword": "ORDER BY",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 255
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 263
+                },
+                {
+                    "token": "`tbl_pipelist`",
+                    "value": "tbl_pipelist",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 264
+                },
+                {
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 278
+                },
+                {
+                    "token": "`casein_pipe`",
+                    "value": "casein_pipe",
+                    "keyword": null,
+                    "type": 8,
+                    "flags": 2,
+                    "position": 279
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 292
+                },
+                {
+                    "token": "ASC",
+                    "value": "ASC",
+                    "keyword": "ASC",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 293
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 70,
+            "idx": 70
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
                 "expr": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
                         "column": "casein_pipe",
@@ -667,7 +1164,6 @@
                         "subquery": null
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
                         "column": "email_cp",
@@ -677,7 +1173,6 @@
                         "subquery": null
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
                         "column": "name_first_cp",
@@ -687,7 +1182,6 @@
                         "subquery": null
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
                         "column": "name_last_cp",
@@ -697,7 +1191,6 @@
                         "subquery": null
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
                         "column": "purpose_pipe",
@@ -709,7 +1202,6 @@
                 ],
                 "from": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": null,
                         "column": null,
@@ -723,7 +1215,6 @@
                 "partition": null,
                 "where": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [
                             "casein_pipe",
                             "2016-03-01"
@@ -732,13 +1223,11 @@
                         "expr": "casein_pipe > '2016-03-01'"
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
                         "expr": "AND"
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [
                             "campaign_id_pipe"
                         ],
@@ -746,13 +1235,11 @@
                         "expr": "`campaign_id_pipe` = 24569"
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [],
                         "isOperator": true,
                         "expr": "AND"
                     },
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Condition",
                         "identifiers": [
                             "weeksonlist_pipe"
                         ],
@@ -765,9 +1252,7 @@
                 "having": null,
                 "order": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OrderKeyword",
                         "expr": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": "tbl_pipelist",
                             "column": "casein_pipe",
@@ -786,7 +1271,6 @@
                 "union": [],
                 "end_options": null,
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "first": 0,

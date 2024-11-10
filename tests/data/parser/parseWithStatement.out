@@ -1,15 +1,21 @@
 {
     "query": "INSERT INTO table_name WITH cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 ) SELECT col1 FROM cte",
     "lexer": {
-        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "KEYWORD_NAME_INDICATORS": [
+            "FROM",
+            "SET",
+            "WHERE"
+        ],
+        "OPERATOR_NAME_INDICATORS": [
+            ",",
+            "."
+        ],
         "str": "INSERT INTO table_name WITH cte (col1) AS ( SELECT 1 UNION ALL SELECT 2 ) SELECT col1 FROM cte",
         "len": 94,
         "last": 94,
         "list": {
-            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INSERT",
                     "value": "INSERT",
                     "keyword": "INSERT",
@@ -18,7 +24,6 @@
                     "position": 0
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -27,7 +32,6 @@
                     "position": 6
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "INTO",
                     "value": "INTO",
                     "keyword": "INTO",
@@ -36,7 +40,6 @@
                     "position": 7
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -45,7 +48,6 @@
                     "position": 11
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "table_name",
                     "value": "table_name",
                     "keyword": "TABLE_NAME",
@@ -54,7 +56,6 @@
                     "position": 12
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -63,7 +64,6 @@
                     "position": 22
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "WITH",
                     "value": "WITH",
                     "keyword": "WITH",
@@ -72,7 +72,6 @@
                     "position": 23
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -81,7 +80,6 @@
                     "position": 27
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "cte",
                     "value": "cte",
                     "keyword": null,
@@ -90,7 +88,6 @@
                     "position": 28
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -99,7 +96,6 @@
                     "position": 31
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -108,7 +104,6 @@
                     "position": 32
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "col1",
                     "value": "col1",
                     "keyword": null,
@@ -117,7 +112,6 @@
                     "position": 33
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -126,7 +120,6 @@
                     "position": 37
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -135,7 +128,6 @@
                     "position": 38
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "AS",
                     "value": "AS",
                     "keyword": "AS",
@@ -144,7 +136,6 @@
                     "position": 39
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -153,7 +144,6 @@
                     "position": 41
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
                     "keyword": null,
@@ -162,7 +152,6 @@
                     "position": 42
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -171,7 +160,6 @@
                     "position": 43
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -180,7 +168,6 @@
                     "position": 44
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -189,7 +176,6 @@
                     "position": 50
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "1",
                     "value": 1,
                     "keyword": null,
@@ -198,7 +184,6 @@
                     "position": 51
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -207,7 +192,6 @@
                     "position": 52
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "UNION ALL",
                     "value": "UNION ALL",
                     "keyword": "UNION ALL",
@@ -216,7 +200,6 @@
                     "position": 53
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -225,7 +208,6 @@
                     "position": 62
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -234,7 +216,6 @@
                     "position": 63
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -243,7 +224,6 @@
                     "position": 69
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "2",
                     "value": 2,
                     "keyword": null,
@@ -252,7 +232,6 @@
                     "position": 70
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -261,7 +240,6 @@
                     "position": 71
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
@@ -270,7 +248,6 @@
                     "position": 72
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -279,7 +256,6 @@
                     "position": 73
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "SELECT",
                     "value": "SELECT",
                     "keyword": "SELECT",
@@ -288,7 +264,6 @@
                     "position": 74
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -297,7 +272,6 @@
                     "position": 80
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "col1",
                     "value": "col1",
                     "keyword": null,
@@ -306,7 +280,6 @@
                     "position": 81
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -315,7 +288,6 @@
                     "position": 85
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "FROM",
                     "value": "FROM",
                     "keyword": "FROM",
@@ -324,7 +296,6 @@
                     "position": 86
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": " ",
                     "value": " ",
                     "keyword": null,
@@ -333,7 +304,6 @@
                     "position": 90
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "cte",
                     "value": "cte",
                     "keyword": null,
@@ -342,7 +312,6 @@
                     "position": 91
                 },
                 {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": null,
                     "value": null,
                     "keyword": null,
@@ -360,18 +329,321 @@
         "errors": []
     },
     "parser": {
-        "@type": "PhpMyAdmin\\SqlParser\\Parser",
         "list": {
-            "@type": "@1"
+            "tokens": [
+                {
+                    "token": "INSERT",
+                    "value": "INSERT",
+                    "keyword": "INSERT",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 0
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 6
+                },
+                {
+                    "token": "INTO",
+                    "value": "INTO",
+                    "keyword": "INTO",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 7
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 11
+                },
+                {
+                    "token": "table_name",
+                    "value": "table_name",
+                    "keyword": "TABLE_NAME",
+                    "type": 1,
+                    "flags": 1,
+                    "position": 12
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 22
+                },
+                {
+                    "token": "WITH",
+                    "value": "WITH",
+                    "keyword": "WITH",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 23
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 27
+                },
+                {
+                    "token": "cte",
+                    "value": "cte",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 28
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 31
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 32
+                },
+                {
+                    "token": "col1",
+                    "value": "col1",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 33
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 37
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 38
+                },
+                {
+                    "token": "AS",
+                    "value": "AS",
+                    "keyword": "AS",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 39
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 41
+                },
+                {
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 42
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 43
+                },
+                {
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 44
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 50
+                },
+                {
+                    "token": "1",
+                    "value": 1,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 51
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 52
+                },
+                {
+                    "token": "UNION ALL",
+                    "value": "UNION ALL",
+                    "keyword": "UNION ALL",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 53
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 62
+                },
+                {
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 63
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 69
+                },
+                {
+                    "token": "2",
+                    "value": 2,
+                    "keyword": null,
+                    "type": 6,
+                    "flags": 0,
+                    "position": 70
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 71
+                },
+                {
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": 2,
+                    "flags": 16,
+                    "position": 72
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 73
+                },
+                {
+                    "token": "SELECT",
+                    "value": "SELECT",
+                    "keyword": "SELECT",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 74
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 80
+                },
+                {
+                    "token": "col1",
+                    "value": "col1",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 81
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 85
+                },
+                {
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 86
+                },
+                {
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 90
+                },
+                {
+                    "token": "cte",
+                    "value": "cte",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 91
+                },
+                {
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 38,
+            "idx": 38
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\InsertStatement",
                 "into": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\IntoKeyword",
                     "type": null,
                     "dest": {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                         "database": null,
                         "table": "table_name",
                         "column": null,
@@ -390,14 +662,11 @@
                 "set": null,
                 "select": null,
                 "with": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
                     "withers": {
                         "cte": {
-                            "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
                             "name": "cte",
                             "columns": [
                                 {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\ArrayObj",
                                     "raw": [
                                         "col1"
                                     ],
@@ -407,42 +676,95 @@
                                 }
                             ],
                             "statement": {
-                                "@type": "PhpMyAdmin\\SqlParser\\Parser",
                                 "list": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                                     "tokens": [
                                         {
-                                            "@type": "@19"
+                                            "token": " ",
+                                            "value": " ",
+                                            "keyword": null,
+                                            "type": 3,
+                                            "flags": 0,
+                                            "position": 43
                                         },
                                         {
-                                            "@type": "@20"
+                                            "token": "SELECT",
+                                            "value": "SELECT",
+                                            "keyword": "SELECT",
+                                            "type": 1,
+                                            "flags": 3,
+                                            "position": 44
                                         },
                                         {
-                                            "@type": "@21"
+                                            "token": " ",
+                                            "value": " ",
+                                            "keyword": null,
+                                            "type": 3,
+                                            "flags": 0,
+                                            "position": 50
                                         },
                                         {
-                                            "@type": "@22"
+                                            "token": "1",
+                                            "value": 1,
+                                            "keyword": null,
+                                            "type": 6,
+                                            "flags": 0,
+                                            "position": 51
                                         },
                                         {
-                                            "@type": "@23"
+                                            "token": " ",
+                                            "value": " ",
+                                            "keyword": null,
+                                            "type": 3,
+                                            "flags": 0,
+                                            "position": 52
                                         },
                                         {
-                                            "@type": "@24"
+                                            "token": "UNION ALL",
+                                            "value": "UNION ALL",
+                                            "keyword": "UNION ALL",
+                                            "type": 1,
+                                            "flags": 7,
+                                            "position": 53
                                         },
                                         {
-                                            "@type": "@25"
+                                            "token": " ",
+                                            "value": " ",
+                                            "keyword": null,
+                                            "type": 3,
+                                            "flags": 0,
+                                            "position": 62
                                         },
                                         {
-                                            "@type": "@26"
+                                            "token": "SELECT",
+                                            "value": "SELECT",
+                                            "keyword": "SELECT",
+                                            "type": 1,
+                                            "flags": 3,
+                                            "position": 63
                                         },
                                         {
-                                            "@type": "@27"
+                                            "token": " ",
+                                            "value": " ",
+                                            "keyword": null,
+                                            "type": 3,
+                                            "flags": 0,
+                                            "position": 69
                                         },
                                         {
-                                            "@type": "@28"
+                                            "token": "2",
+                                            "value": 2,
+                                            "keyword": null,
+                                            "type": 6,
+                                            "flags": 0,
+                                            "position": 70
                                         },
                                         {
-                                            "@type": "@29"
+                                            "token": " ",
+                                            "value": " ",
+                                            "keyword": null,
+                                            "type": 3,
+                                            "flags": 0,
+                                            "position": 71
                                         }
                                     ],
                                     "count": 11,
@@ -450,10 +772,8 @@
                                 },
                                 "statements": [
                                     {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
                                         "expr": [
                                             {
-                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                                 "database": null,
                                                 "table": null,
                                                 "column": null,
@@ -479,10 +799,8 @@
                                             [
                                                 "UNION ALL",
                                                 {
-                                                    "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
                                                     "expr": [
                                                         {
-                                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                                             "database": null,
                                                             "table": null,
                                                             "column": null,
@@ -507,7 +825,6 @@
                                                     "union": [],
                                                     "end_options": null,
                                                     "options": {
-                                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                                         "options": []
                                                     },
                                                     "first": 5,
@@ -517,7 +834,6 @@
                                         ],
                                         "end_options": null,
                                         "options": {
-                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                             "options": []
                                         },
                                         "first": 0,
@@ -531,33 +847,71 @@
                         }
                     },
                     "cteStatementParser": {
-                        "@type": "PhpMyAdmin\\SqlParser\\Parser",
                         "list": {
-                            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
                             "tokens": [
                                 {
-                                    "@type": "@32"
+                                    "token": "SELECT",
+                                    "value": "SELECT",
+                                    "keyword": "SELECT",
+                                    "type": 1,
+                                    "flags": 3,
+                                    "position": 74
                                 },
                                 {
-                                    "@type": "@33"
+                                    "token": " ",
+                                    "value": " ",
+                                    "keyword": null,
+                                    "type": 3,
+                                    "flags": 0,
+                                    "position": 80
                                 },
                                 {
-                                    "@type": "@34"
+                                    "token": "col1",
+                                    "value": "col1",
+                                    "keyword": null,
+                                    "type": 0,
+                                    "flags": 0,
+                                    "position": 81
                                 },
                                 {
-                                    "@type": "@35"
+                                    "token": " ",
+                                    "value": " ",
+                                    "keyword": null,
+                                    "type": 3,
+                                    "flags": 0,
+                                    "position": 85
                                 },
                                 {
-                                    "@type": "@36"
+                                    "token": "FROM",
+                                    "value": "FROM",
+                                    "keyword": "FROM",
+                                    "type": 1,
+                                    "flags": 3,
+                                    "position": 86
                                 },
                                 {
-                                    "@type": "@37"
+                                    "token": " ",
+                                    "value": " ",
+                                    "keyword": null,
+                                    "type": 3,
+                                    "flags": 0,
+                                    "position": 90
                                 },
                                 {
-                                    "@type": "@38"
+                                    "token": "cte",
+                                    "value": "cte",
+                                    "keyword": null,
+                                    "type": 0,
+                                    "flags": 0,
+                                    "position": 91
                                 },
                                 {
-                                    "@type": "@39"
+                                    "token": null,
+                                    "value": null,
+                                    "keyword": null,
+                                    "type": 9,
+                                    "flags": 0,
+                                    "position": null
                                 }
                             ],
                             "count": 8,
@@ -565,10 +919,8 @@
                         },
                         "statements": [
                             {
-                                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
                                 "expr": [
                                     {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                         "database": null,
                                         "table": null,
                                         "column": "col1",
@@ -580,7 +932,6 @@
                                 ],
                                 "from": [
                                     {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                                         "database": null,
                                         "table": "cte",
                                         "column": null,
@@ -604,7 +955,6 @@
                                 "union": [],
                                 "end_options": null,
                                 "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": []
                                 },
                                 "first": 0,
@@ -616,7 +966,6 @@
                         "errors": []
                     },
                     "options": {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                         "options": []
                     },
                     "first": null,
@@ -624,7 +973,6 @@
                 },
                 "onDuplicateSet": null,
                 "options": {
-                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "first": 0,
