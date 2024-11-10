@@ -1,5 +1,16 @@
 # Change Log
 
+## [5.10.1] - 2024-11-10
+
+### Fixed
+
+- Fix parsing of ALTER TABLE … RENAME KEY (#580)
+- Fix parsing table names that start with "e1" (#578)
+- Improve handling of negative and overflowed offsets on TokensList (#582)
+- Fix parsing of queries with 'AND' (#590)
+- Fix C style comments with two asterisks (#597)
+- Fix parsing of SRID in column definition (#595)
+
 ## [5.10.0] - 2024-08-29
 
 - Fix parsing of UPDATE ... SET (#577)
@@ -579,6 +590,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[5.10.1]: https://github.com/phpmyadmin/sql-parser/compare/5.10.0...5.10.1
 [5.10.0]: https://github.com/phpmyadmin/sql-parser/compare/5.9.1...5.10.0
 [5.9.1]: https://github.com/phpmyadmin/sql-parser/compare/5.9.0...5.9.1
 [5.9.0]: https://github.com/phpmyadmin/sql-parser/compare/5.8.2...5.9.0
