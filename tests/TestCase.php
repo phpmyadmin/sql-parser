@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Tools\CustomJsonSerializer;
+use PhpMyAdmin\SqlParser\Translator;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 use function file_get_contents;
@@ -26,13 +27,12 @@ abstract class TestCase extends BaseTestCase
 {
     public function setUp(): void
     {
-        global $lang;
         // This line makes sure the test suite uses English so we can assert
         // on the error messages, if it is not here you will need to use
         // LC_ALL=C ./vendor/bin/phpunit
         // Users can have French language as default on their OS
         // That would make the assertions fail
-        $lang = 'en';
+        Translator::setLocale('en');
         Context::load();
     }
 
