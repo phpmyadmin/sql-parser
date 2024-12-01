@@ -911,12 +911,6 @@
       <code><![CDATA[empty($query)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Translator.php">
-    <RedundantPropertyInitializationCheck>
-      <code><![CDATA[isset(self::$loader)]]></code>
-      <code><![CDATA[isset(self::$translator)]]></code>
-    </RedundantPropertyInitializationCheck>
-  </file>
   <file src="src/Utils/BufferedQuery.php">
     <PossiblyNullOperand>
       <code><![CDATA[$this->status]]></code>

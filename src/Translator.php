@@ -6,7 +6,9 @@ namespace PhpMyAdmin\SqlParser;
 
 use PhpMyAdmin\MoTranslator\Loader;
 use PhpMyAdmin\MoTranslator\Translator as MoTranslator;
+use RuntimeException;
 
+use function assert;
 use function class_exists;
 
 /**
@@ -17,26 +19,35 @@ class Translator
     /**
      * The MoTranslator loader object.
      */
-    private static Loader $loader;
+    private static Loader|null $loader = null;
 
     /**
      * The MoTranslator translator object.
      */
-    private static MoTranslator $translator;
+    private static MoTranslator|null $translator = null;
+
+    private static string $locale = '';
 
     /**
      * Loads translator.
+     *
+     * @internal This method is not covered by the backward compatibility promise for SQL-Parser
      */
     public static function load(): void
     {
+        if (! class_exists(Loader::class)) {
+            throw new RuntimeException('The phpmyadmin/motranslator package is missing.');
+        }
+
         if (! isset(self::$loader)) {
             // Create loader object
             self::$loader = new Loader();
 
-            // Set locale
-            self::$loader->setlocale(
-                self::$loader->detectlocale(),
-            );
+            if (self::$locale === '') {
+                self::$locale = self::$loader->detectlocale();
+            }
+
+            self::$loader->setlocale(self::$locale);
 
             // Set default text domain
             self::$loader->textdomain('sqlparser');
@@ -62,12 +73,23 @@ class Translator
      */
     public static function gettext(string $msgid): string
     {
-        if (! class_exists(Loader::class, true)) {
+        if (! class_exists(Loader::class)) {
             return $msgid;
         }
 
         self::load();
+        assert(self::$translator instanceof MoTranslator);
 
         return self::$translator->gettext($msgid);
+    }
+
+    public static function setLocale(string $locale): void
+    {
+        self::$locale = $locale;
+    }
+
+    public static function getLocale(): string
+    {
+        return self::$locale;
     }
 }

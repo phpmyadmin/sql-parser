@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\Tools\CustomJsonSerializer;
+use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\SqlParser\UtfString;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
@@ -32,7 +33,7 @@ abstract class TestCase extends BaseTestCase
         // LC_ALL=C ./vendor/bin/phpunit
         // Users can have French language as default on their OS
         // That would make the assertions fail
-        $GLOBALS['lang'] = 'en';
+        Translator::setLocale('en');
         Context::load();
     }
 

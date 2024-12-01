@@ -21,12 +21,22 @@ parameters:
 			path: src/Components/DataType.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept array\\.$#"
+			count: 1
+			path: src/Components/OptionsArray.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
 
 		-
 			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$keywords \\(non\\-empty\\-array\\<non\\-empty\\-string, int\\>\\) does not accept default value of type array\\{\\}\\.$#"
+			count: 1
+			path: src/Context.php
+
+		-
+			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$keywords \\(non\\-empty\\-array\\<non\\-empty\\-string, int\\>\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Context.php
 
@@ -38,6 +48,46 @@ parameters:
 		-
 			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
 			count: 3
+			path: src/Lexer.php
+
+		-
+			message: "#^Parameter \\#1 \\$character of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isString\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
+			message: "#^Parameter \\#1 \\$character of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isSymbol\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
+			message: "#^Parameter \\#1 \\$character of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isWhitespace\\(\\) expects string, mixed given\\.$#"
+			count: 5
+			path: src/Lexer.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isComment\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/Lexer.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:isSeparator\\(\\) expects string, mixed given\\.$#"
+			count: 4
+			path: src/Lexer.php
+
+		-
+			message: "#^Parameter \\#1 \\$token of class PhpMyAdmin\\\\SqlParser\\\\Token constructor expects string, mixed given\\.$#"
+			count: 7
+			path: src/Lexer.php
+
+		-
+			message: "#^Parameter \\#2 \\$str of method PhpMyAdmin\\\\SqlParser\\\\Lexer\\:\\:error\\(\\) expects string, mixed given\\.$#"
+			count: 2
+			path: src/Lexer.php
+
+		-
+			message: "#^Parameter \\#2 \\.\\.\\.\\$values of function sprintf expects bool\\|float\\|int\\|string\\|null, mixed given\\.$#"
+			count: 1
 			path: src/Lexer.php
 
 		-
@@ -56,8 +106,18 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Cannot access property \\$first on mixed\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
 			message: "#^Cannot access property \\$idx on PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null\\.$#"
 			count: 12
+			path: src/Parser.php
+
+		-
+			message: "#^Cannot access property \\$last on mixed\\.$#"
+			count: 1
 			path: src/Parser.php
 
 		-
@@ -71,6 +131,11 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Cannot call method validateClauseOrder\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
 			message: "#^Instantiated class  not found\\.$#"
 			count: 1
 			path: src/Parser.php
@@ -81,7 +146,17 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Parser\\:\\:\\$statements \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Statement\\>\\) does not accept array\\<mixed\\>\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$union \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\) does not accept array\\<array\\<int, PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\|string\\>\\|PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\>\\.$#"
+			count: 1
+			path: src/Parser.php
+
+		-
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\TransactionStatement\\:\\:\\$statements \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Statement\\>\\|null\\) does not accept array\\<mixed\\>\\.$#"
 			count: 1
 			path: src/Parser.php
 
@@ -127,6 +202,11 @@ parameters:
 
 		-
 			message: "#^Cannot call static method parse\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Parsers/ArrayObjs.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\ArrayObjs\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj but returns array\\<int\\<0, max\\>, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/ArrayObjs.php
 
@@ -332,112 +412,112 @@ parameters:
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$call\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$endOptions\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$expr\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$fields\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$from\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$group\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$groupOptions\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$having\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$indexHints\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$into\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$join\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$limit\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$order\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$partition\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$procedure\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$renames\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$set\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$table\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$tables\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$union\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$values\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$where\\.$#"
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
@@ -446,7 +526,17 @@ parameters:
 			path: src/Statement.php
 
 		-
+			message: "#^Cannot call method build\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:getClauseOrder\\(\\) should return array\\<string, int\\> but returns array\\<int\\|string, int\\>\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_keys expects array, mixed given\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -567,6 +657,11 @@ parameters:
 
 		-
 			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
+			count: 1
+			path: src/Statements/ExplainStatement.php
+
+		-
+			message: "#^Class PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement has an uninitialized property \\$statementAlias\\. Give it default value or assign it in the constructor\\.$#"
 			count: 1
 			path: src/Statements/ExplainStatement.php
 
@@ -786,6 +881,11 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
+			message: "#^Parameter \\#1 \\$string of function trim expects string, mixed given\\.$#"
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
 			message: "#^Parameter \\#2 \\.\\.\\.\\$arrays of function array_merge expects array, array\\<int, string\\>\\|false given\\.$#"
 			count: 1
 			path: src/Tools/ContextGenerator.php
@@ -814,6 +914,31 @@ parameters:
 			message: "#^Parameter \\#1 \\$string of function substr expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
+
+		-
+			message: "#^Cannot access offset 'f' on mixed\\.$#"
+			count: 2
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:getopt\\(\\) should return array\\<string\\|false\\>\\|false but returns \\(array\\<string, array\\<int, mixed\\>\\|string\\|false\\>\\|false\\)\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:parseHighlight\\(\\) should return array\\<string\\|false\\>\\|false but returns mixed\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:parseLint\\(\\) should return array\\<string\\|false\\>\\|false but returns mixed\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:parseTokenize\\(\\) should return array\\<string\\|false\\>\\|false but returns mixed\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
 
 		-
 			message: "#^Parameter \\#1 \\$context of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:load\\(\\) expects string, string\\|false given\\.$#"
@@ -851,8 +976,28 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:getMergedOptions\\(\\) should return array\\<string, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string\\> but returns array\\<string, mixed\\>\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:toString\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function htmlspecialchars expects string, mixed given\\.$#"
+			count: 2
+			path: src/Utils/Formatter.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function str_repeat expects string, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string given\\.$#"
 			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:escapeConsole\\(\\) expects string, mixed given\\.$#"
+			count: 4
 			path: src/Utils/Formatter.php
 
 		-
@@ -904,6 +1049,11 @@ parameters:
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) should return array\\<string, array\\{type\\: string, timestamp_not_null\\: bool, default_value\\?\\: mixed, default_current_timestamp\\?\\: true, on_update_current_timestamp\\?\\: true, expr\\?\\: mixed\\}\\> but returns array\\<string, array\\{default_current_timestamp\\?\\: true, default_value\\?\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|non\\-empty\\-string, expr\\?\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|non\\-empty\\-string, on_update_current_timestamp\\?\\: true, timestamp_not_null\\: bool, type\\: string\\|null\\}\\>\\.$#"
 			count: 1
 			path: src/Utils/Table.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getData\\(\\) should return array\\{query\\: string, lexer\\: PhpMyAdmin\\\\SqlParser\\\\Lexer, parser\\: PhpMyAdmin\\\\SqlParser\\\\Parser\\|null, errors\\: array\\{lexer\\: array\\<int, array\\{string, string, int, int\\}\\>, parser\\: array\\<int, array\\{string, PhpMyAdmin\\\\SqlParser\\\\Token, int\\}\\>\\}\\} but returns non\\-empty\\-array\\.$#"
+			count: 1
+			path: tests/TestCase.php
 
 		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
