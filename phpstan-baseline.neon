@@ -21,11 +21,6 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
-			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
-			count: 3
-			path: src/Components/AlterOperation.php
-
-		-
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Components/Array2d.php
@@ -633,11 +628,6 @@ parameters:
 		-
 			message: "#^Strict comparison using \\=\\=\\= between PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression and '' will always evaluate to false\\.$#"
 			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: "#^array\\<PhpMyAdmin\\\\SqlParser\\\\Token\\>\\|string does not accept PhpMyAdmin\\\\SqlParser\\\\Token\\.$#"
-			count: 4
 			path: src/Statements/CreateStatement.php
 
 		-
