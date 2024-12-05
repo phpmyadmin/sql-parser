@@ -6,6 +6,13 @@
 - Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
 - Drop `USE_UTF_STRINGS` constant (#471)
 
+## [5.10.2] - 2024-12-05
+
+### Added
+
+- Add MariaDb 11.6 and 11.7 contexts (#601)
+- Add context files for MySQL 9.1 (#603)
+
 ## [5.10.1] - 2024-11-10
 
 ### Fixed
@@ -597,6 +604,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[5.10.2]: https://github.com/phpmyadmin/sql-parser/compare/5.10.1...5.10.2
 [5.10.1]: https://github.com/phpmyadmin/sql-parser/compare/5.10.0...5.10.1
 [5.10.0]: https://github.com/phpmyadmin/sql-parser/compare/5.9.1...5.10.0
 [5.9.1]: https://github.com/phpmyadmin/sql-parser/compare/5.9.0...5.9.1

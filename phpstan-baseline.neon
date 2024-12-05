@@ -16,9 +16,54 @@ parameters:
 			path: src/Components/AlterOperation.php
 
 		-
+			message: "#^Only booleans are allowed in an if condition, string\\|null given\\.$#"
+			count: 1
+			path: src/Components/CaseExpression.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 3
+			path: src/Components/CreateDefinition.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, bool\\|null given\\.$#"
+			count: 1
+			path: src/Components/CreateDefinition.php
+
+		-
 			message: "#^Parameter \\#1 \\$string of function strtolower expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Components/DataType.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Components/Expression.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Only booleans are allowed in a ternary operator condition, bool\\|null given\\.$#"
+			count: 1
+			path: src/Components/IntoKeyword.php
+
+		-
+			message: "#^Call to function array_search\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: src/Components/JoinKeyword.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/Components/JoinKeyword.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Components/Key.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept array\\.$#"
@@ -26,9 +71,54 @@ parameters:
 			path: src/Components/OptionsArray.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Components/ParameterDefinition.php
+
+		-
 			message: "#^Parameter \\#1 \\$str of static method PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:escape\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Components/ParameterDefinition.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 4
+			path: src/Components/PartitionDefinition.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, bool\\|null given\\.$#"
+			count: 1
+			path: src/Components/PartitionDefinition.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\> given\\.$#"
+			count: 1
+			path: src/Components/WithKeyword.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Context.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 1073741824\\> given on the left side\\.$#"
+			count: 1
+			path: src/Context.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 2\\> given\\.$#"
+			count: 1
+			path: src/Context.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\<0, 2\\> given\\.$#"
+			count: 1
+			path: src/Context.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\|null given on the left side\\.$#"
+			count: 1
+			path: src/Context.php
 
 		-
 			message: "#^Static property PhpMyAdmin\\\\SqlParser\\\\Context\\:\\:\\$keywords \\(non\\-empty\\-array\\<non\\-empty\\-string, int\\>\\) does not accept default value of type array\\{\\}\\.$#"
@@ -48,6 +138,41 @@ parameters:
 		-
 			message: "#^Cannot access property \\$value on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
 			count: 3
+			path: src/Lexer.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 1\\> given on the right side\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 16\\> given\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\|null given\\.$#"
+			count: 2
+			path: src/Lexer.php
+
+		-
+			message: "#^Only booleans are allowed in an elseif condition, int\\<0, 16\\> given\\.$#"
+			count: 1
+			path: src/Lexer.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\<0, 1\\> given\\.$#"
+			count: 1
 			path: src/Lexer.php
 
 		-
@@ -136,8 +261,18 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/Parser.php
+
+		-
 			message: "#^Instantiated class  not found\\.$#"
 			count: 1
+			path: src/Parser.php
+
+		-
+			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given on the left side\\.$#"
+			count: 2
 			path: src/Parser.php
 
 		-
@@ -166,6 +301,11 @@ parameters:
 			path: src/Parser.php
 
 		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: src/Parsers/AlterOperations.php
+
+		-
 			message: "#^Cannot call method has\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 2
 			path: src/Parsers/AlterOperations.php
@@ -181,9 +321,24 @@ parameters:
 			path: src/Parsers/AlterOperations.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Parsers/AlterOperations.php
+
+		-
+			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given on the right side\\.$#"
+			count: 2
+			path: src/Parsers/AlterOperations.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\AlterOperation\\:\\:\\$partitions \\(array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\PartitionDefinition\\>\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/AlterOperations.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Array2d.php
 
 		-
 			message: "#^Cannot access an offset on array\\<int\\<0, max\\>, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
@@ -206,9 +361,39 @@ parameters:
 			path: src/Parsers/ArrayObjs.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 5
+			path: src/Parsers/ArrayObjs.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\ArrayObjs\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj but returns array\\<int\\<0, max\\>, mixed\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/ArrayObjs.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/Parsers/CaseExpressions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 1\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/CaseExpressions.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
+			count: 1
+			path: src/Parsers/CaseExpressions.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\<0, 2\\> given on the left side\\.$#"
+			count: 1
+			path: src/Parsers/CaseExpressions.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\<0, 32\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/CaseExpressions.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\:\\:\\$alias \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
@@ -226,6 +411,51 @@ parameters:
 			path: src/Parsers/CaseExpressions.php
 
 		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: src/Parsers/Conditions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Conditions.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 32\\> given\\.$#"
+			count: 1
+			path: src/Parsers/Conditions.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\<0, 16\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Conditions.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Conditions.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 4
+			path: src/Parsers/CreateDefinitions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 16\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/CreateDefinitions.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, bool\\|null given\\.$#"
+			count: 1
+			path: src/Parsers/CreateDefinitions.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\<0, 2\\> given\\.$#"
+			count: 1
+			path: src/Parsers/CreateDefinitions.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\CreateDefinition\\:\\:\\$name \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 2
 			path: src/Parsers/CreateDefinitions.php
@@ -241,7 +471,32 @@ parameters:
 			path: src/Parsers/DataTypes.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Parsers/DataTypes.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 8\\> given\\.$#"
+			count: 1
+			path: src/Parsers/DataTypes.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\ExpressionArray\\:\\:parse\\(\\) should return array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\> but returns array\\<int\\<0, max\\>, PhpMyAdmin\\\\SqlParser\\\\Components\\\\CaseExpression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\>\\.$#"
+			count: 1
+			path: src/Parsers/ExpressionArray.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/ExpressionArray.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 32\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/ExpressionArray.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\|false given\\.$#"
 			count: 1
 			path: src/Parsers/ExpressionArray.php
 
@@ -266,6 +521,56 @@ parameters:
 			path: src/Parsers/Expressions.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 16
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 16\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 1\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the left side\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 32\\> given on the left side\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 32\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 16\\> given\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 1\\> given\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 2\\> given\\.$#"
+			count: 1
+			path: src/Parsers/Expressions.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\:\\:\\$alias \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 3
 			path: src/Parsers/Expressions.php
@@ -276,9 +581,19 @@ parameters:
 			path: src/Parsers/Expressions.php
 
 		-
+			message: "#^Variable property access on PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\.$#"
+			count: 2
+			path: src/Parsers/Expressions.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\:\\:\\$parameters \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/FunctionCalls.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/Parsers/GroupKeywords.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IndexHint\\:\\:\\$type \\(string\\|null\\) does not accept mixed\\.$#"
@@ -291,6 +606,16 @@ parameters:
 			path: src/Parsers/IntoKeywords.php
 
 		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/IntoKeywords.php
+
+		-
+			message: "#^Only booleans are allowed in &&, mixed given on the right side\\.$#"
+			count: 2
+			path: src/Parsers/IntoKeywords.php
+
+		-
 			message: "#^Parameter \\#3 \\$keyword of method PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:parseFileOptions\\(\\) expects string, string\\|null given\\.$#"
 			count: 2
 			path: src/Parsers/IntoKeywords.php
@@ -299,6 +624,11 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\:\\:\\$dest \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/IntoKeywords.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 3
+			path: src/Parsers/JoinKeywords.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\JoinKeyword\\:\\:\\$using \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
@@ -319,6 +649,16 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Key\\:\\:\\$type \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/Keys.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 16\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Limits.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/Limits.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\:\\:\\$offset \\(int\\|string\\) does not accept bool\\|float\\|int\\|string\\.$#"
@@ -351,12 +691,22 @@ parameters:
 			path: src/Parsers/OptionsArrays.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/Parsers/OptionsArrays.php
+
+		-
 			message: "#^Offset 'expr' does not exist on array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\.$#"
 			count: 1
 			path: src/Parsers/OptionsArrays.php
 
 		-
 			message: "#^Offset 'name' does not exist on array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\.$#"
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: "#^Only booleans are allowed in &&, mixed given on the right side\\.$#"
 			count: 1
 			path: src/Parsers/OptionsArrays.php
 
@@ -386,6 +736,11 @@ parameters:
 			path: src/Parsers/OptionsArrays.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/Parsers/OrderKeywords.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\:\\:\\$name \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Parsers/ParameterDefinitions.php
@@ -404,6 +759,16 @@ parameters:
 			message: "#^Cannot access property \\$values on array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\.$#"
 			count: 1
 			path: src/Parsers/References.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 3
+			path: src/Parsers/RenameOperations.php
+
+		-
+			message: "#^Only booleans are allowed in &&, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Parsers/SetOperations.php
 
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\SetOperation\\:\\:\\$value \\(string\\) does not accept string\\|null\\.$#"
@@ -531,7 +896,27 @@ parameters:
 			path: src/Statement.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/Statement.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:getClauseOrder\\(\\) should return array\\<string, int\\> but returns array\\<int\\|string, int\\>\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int given\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\<0, 1\\> given\\.$#"
+			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\<0, 2\\> given\\.$#"
 			count: 1
 			path: src/Statement.php
 
@@ -543,6 +928,11 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statement\\:\\:\\$options \\(PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\) does not accept array\\<PhpMyAdmin\\\\SqlParser\\\\Component\\>\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\IntoKeyword\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\Limit\\|PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
+			path: src/Statement.php
+
+		-
+			message: "#^Variable property access on \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Statement\\)\\.$#"
+			count: 5
 			path: src/Statement.php
 
 		-
@@ -568,6 +958,11 @@ parameters:
 		-
 			message: "#^Cannot access property \\$parameters on PhpMyAdmin\\\\SqlParser\\\\Components\\\\FunctionCall\\|null\\.$#"
 			count: 2
+			path: src/Statements/CallStatement.php
+
+		-
+			message: "#^Only booleans are allowed in a ternary operator condition, PhpMyAdmin\\\\SqlParser\\\\Components\\\\ArrayObj\\|null given\\.$#"
+			count: 1
 			path: src/Statements/CallStatement.php
 
 		-
@@ -611,6 +1006,16 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 8
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Only numeric types are allowed in pre\\-decrement, int\\|false given\\.$#"
+			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\ParameterDefinitions\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\ParameterDefinition\\>\\|null given\\.$#"
 			count: 1
 			path: src/Statements/CreateStatement.php
@@ -633,6 +1038,11 @@ parameters:
 		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\:\\:\\$subpartitionsNum \\(int\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
+			path: src/Statements/CreateStatement.php
+
+		-
+			message: "#^Variable property access on \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Statements\\\\CreateStatement\\)\\.$#"
+			count: 3
 			path: src/Statements/CreateStatement.php
 
 		-
@@ -666,6 +1076,21 @@ parameters:
 			path: src/Statements/ExplainStatement.php
 
 		-
+			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given on the left side\\.$#"
+			count: 1
+			path: src/Statements/ExplainStatement.php
+
+		-
+			message: "#^Only booleans are allowed in an elseif condition, int\\|null given\\.$#"
+			count: 1
+			path: src/Statements/ExplainStatement.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\SqlParser\\\\Parser\\|null given\\.$#"
+			count: 1
+			path: src/Statements/ExplainStatement.php
+
+		-
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$connectionId \\(int\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Statements/ExplainStatement.php
@@ -679,6 +1104,16 @@ parameters:
 			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\ExplainStatement\\:\\:\\$explainedTable \\(string\\|null\\) does not accept bool\\|float\\|int\\|string\\.$#"
 			count: 1
 			path: src/Statements/ExplainStatement.php
+
+		-
+			message: "#^Strict comparison using \\!\\=\\= between bool\\|float\\|int\\|string and null will always evaluate to true\\.$#"
+			count: 1
+			path: src/Statements/ExplainStatement.php
+
+		-
+			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given on the left side\\.$#"
+			count: 1
+			path: src/Statements/KillStatement.php
 
 		-
 			message: "#^Cannot access property \\$keyword on PhpMyAdmin\\\\SqlParser\\\\Token\\|null\\.$#"
@@ -714,6 +1149,11 @@ parameters:
 			message: "#^Cannot call method merge\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Statements/MaintenanceStatement.php
+
+		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: src/Statements/PurgeStatement.php
 
 		-
 			message: "#^Parameter \\#1 \\$component of static method PhpMyAdmin\\\\SqlParser\\\\Parsers\\\\RenameOperations\\:\\:buildAll\\(\\) expects array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>, array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null given\\.$#"
@@ -753,6 +1193,21 @@ parameters:
 		-
 			message: "#^Access to an undefined property PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\:\\:\\$values\\.$#"
 			count: 1
+			path: src/Statements/SelectStatement.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Statements/SelectStatement.php
+
+		-
+			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given on the left side\\.$#"
+			count: 1
+			path: src/Statements/SelectStatement.php
+
+		-
+			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given on the right side\\.$#"
+			count: 2
 			path: src/Statements/SelectStatement.php
 
 		-
@@ -836,6 +1291,11 @@ parameters:
 			path: src/Statements/SelectStatement.php
 
 		-
+			message: "#^Variable property access on \\$this\\(PhpMyAdmin\\\\SqlParser\\\\Statements\\\\SelectStatement\\)\\.$#"
+			count: 1
+			path: src/Statements/SelectStatement.php
+
+		-
 			message: "#^Cannot call method build\\(\\) on PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null\\.$#"
 			count: 1
 			path: src/Statements/SetStatement.php
@@ -861,9 +1321,64 @@ parameters:
 			path: src/Statements/TransactionStatement.php
 
 		-
+			message: "#^Only booleans are allowed in &&, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given on the left side\\.$#"
+			count: 4
+			path: src/Statements/WithStatement.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\|false given\\.$#"
+			count: 1
+			path: src/Statements/WithStatement.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\SqlParser\\\\Parser\\|null given\\.$#"
+			count: 1
+			path: src/Statements/WithStatement.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, PhpMyAdmin\\\\SqlParser\\\\Token\\|null given\\.$#"
+			count: 1
+			path: src/Statements/WithStatement.php
+
+		-
 			message: "#^Parameter \\#1 \\$name of class PhpMyAdmin\\\\SqlParser\\\\Components\\\\WithKeyword constructor expects string, bool\\|float\\|int\\|string given\\.$#"
 			count: 1
 			path: src/Statements/WithStatement.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: src/Token.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 16\\> given\\.$#"
+			count: 1
+			path: src/Token.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 2\\> given\\.$#"
+			count: 1
+			path: src/Token.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\<0, 1\\> given\\.$#"
+			count: 1
+			path: src/Token.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, int\\<0, 8\\> given\\.$#"
+			count: 1
+			path: src/Token.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\<0, 2\\> given on the right side\\.$#"
+			count: 1
+			path: src/Token.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\<0, 4\\> given on the left side\\.$#"
+			count: 1
+			path: src/Token.php
 
 		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
@@ -896,8 +1411,28 @@ parameters:
 			path: src/Tools/CustomJsonSerializer.php
 
 		-
+			message: "#^Parameter \\#3 \\$properties \\(array\\<string\\>\\) of method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\CustomJsonSerializer\\:\\:extractObjectData\\(\\) should be contravariant with parameter \\$properties \\(array\\) of method Zumba\\\\JsonSerializer\\\\JsonSerializer\\:\\:extractObjectData\\(\\)$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Variable property access on object\\.$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
 			message: "#^Argument of an invalid type array\\<int, string\\>\\|false supplied for foreach, only iterables are supported\\.$#"
 			count: 1
+			path: src/Tools/TestGenerator.php
+
+		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: src/Tools/TestGenerator.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 4
 			path: src/Tools/TestGenerator.php
 
 		-
@@ -914,6 +1449,21 @@ parameters:
 			message: "#^Parameter \\#1 \\$string of function substr expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Tools/TestGenerator.php
+
+		-
+			message: "#^Parameter \\#1 \\$offset \\(int\\) of method PhpMyAdmin\\\\SqlParser\\\\UtfString\\:\\:offsetSet\\(\\) should be contravariant with parameter \\$offset \\(int\\|null\\) of method ArrayAccess\\<int,string\\>\\:\\:offsetSet\\(\\)$#"
+			count: 1
+			path: src/UtfString.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 3
+			path: src/Utils/BufferedQuery.php
+
+		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: src/Utils/CLI.php
 
 		-
 			message: "#^Cannot access offset 'f' on mixed\\.$#"
@@ -938,6 +1488,11 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\CLI\\:\\:parseTokenize\\(\\) should return array\\<string\\|false\\>\\|false but returns mixed\\.$#"
 			count: 1
+			path: src/Utils/CLI.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, string\\|false\\|null given\\.$#"
+			count: 3
 			path: src/Utils/CLI.php
 
 		-
@@ -976,6 +1531,16 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 4
+			path: src/Utils/Formatter.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:getMergedOptions\\(\\) should return array\\<string, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string\\> but returns array\\<string, mixed\\>\\.$#"
 			count: 1
 			path: src/Utils/Formatter.php
@@ -983,6 +1548,36 @@ parameters:
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Formatter\\:\\:toString\\(\\) should return string but returns mixed\\.$#"
 			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Only booleans are allowed in &&, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string given on the left side\\.$#"
+			count: 2
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Only booleans are allowed in &&, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string given on the right side\\.$#"
+			count: 2
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Only booleans are allowed in an if condition, bool\\|int given\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, array\\<int, array\\<string, int\\|string\\>\\>\\|bool\\|string given on the right side\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Only booleans are allowed in \\|\\|, int\\<0, 32\\> given on the right side\\.$#"
+			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: "#^Only numeric types are allowed in pre\\-increment, int\\<0, max\\>\\|null given\\.$#"
+			count: 3
 			path: src/Utils/Formatter.php
 
 		-
@@ -1011,6 +1606,46 @@ parameters:
 			path: src/Utils/Formatter.php
 
 		-
+			message: """
+				#^Access to deprecated property \\$isDelete of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isExplain of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isReplace of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isSelect of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isShow of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: src/Utils/Query.php
+
+		-
 			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string\\|null\\>\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
 			path: src/Utils/Query.php
@@ -1018,6 +1653,11 @@ parameters:
 		-
 			message: "#^Argument of an invalid type array\\<PhpMyAdmin\\\\SqlParser\\\\Components\\\\RenameOperation\\>\\|null supplied for foreach, only iterables are supported\\.$#"
 			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
+			count: 2
 			path: src/Utils/Query.php
 
 		-
@@ -1036,8 +1676,18 @@ parameters:
 			path: src/Utils/Query.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 14
+			path: src/Utils/Query.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:getClauseStartOffset\\(\\) should return int but returns int\\|null\\.$#"
 			count: 1
+			path: src/Utils/Query.php
+
+		-
+			message: "#^Only numeric types are allowed in pre\\-increment, int\\|null given\\.$#"
+			count: 2
 			path: src/Utils/Query.php
 
 		-
@@ -1046,9 +1696,564 @@ parameters:
 			path: src/Utils/Table.php
 
 		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 2
+			path: src/Utils/Table.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Table\\:\\:getFields\\(\\) should return array\\<string, array\\{type\\: string, timestamp_not_null\\: bool, default_value\\?\\: mixed, default_current_timestamp\\?\\: true, on_update_current_timestamp\\?\\: true, expr\\?\\: mixed\\}\\> but returns array\\<string, array\\{default_current_timestamp\\?\\: true, default_value\\?\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|non\\-empty\\-string, expr\\?\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|non\\-empty\\-string, on_update_current_timestamp\\?\\: true, timestamp_not_null\\: bool, type\\: string\\|null\\}\\>\\.$#"
 			count: 1
 			path: src/Utils/Table.php
+
+		-
+			message: "#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\|null given\\.$#"
+			count: 1
+			path: src/Utils/Table.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 13
+			path: tests/Builder/AlterStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 11
+			path: tests/Builder/CallStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 33
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 4
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 5
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\)\\.$#"
+			count: 2
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 8
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 13
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 10
+			path: tests/Builder/DeleteStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 10
+			path: tests/Builder/ExplainStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 6
+			path: tests/Builder/InsertStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 6
+			path: tests/Builder/LoadStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 7
+			path: tests/Builder/LockStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 2
+			path: tests/Builder/PurgeStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 3
+			path: tests/Builder/RenameStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 4
+			path: tests/Builder/ReplaceStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 28
+			path: tests/Builder/SelectStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 15
+			path: tests/Builder/SetStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 2
+			path: tests/Builder/StatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 1
+			path: tests/Builder/StatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 1
+			path: tests/Builder/TransactionStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 3
+			path: tests/Builder/TruncateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 3
+			path: tests/Builder/UpdateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
+			count: 6
+			path: tests/Components/Array2dTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 8
+			path: tests/Components/Array2dTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 4
+			path: tests/Components/ArrayObjTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/ArrayObjTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\)\\.$#"
+			count: 1
+			path: tests/Components/ArrayObjTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 9
+			path: tests/Components/CaseExpressionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 5
+			path: tests/Components/ConditionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
+			count: 1
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 15
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 4
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\)\\.$#"
+			count: 4
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 3
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/CreateDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
+			count: 3
+			path: tests/Components/ExpressionArrayTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 4
+			path: tests/Components/ExpressionArrayTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 10
+			path: tests/Components/ExpressionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 6
+			path: tests/Components/ExpressionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/FunctionCallTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/GroupKeywordTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 6
+			path: tests/Components/IntoKeywordTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/JoinKeywordTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 4
+			path: tests/Components/JoinKeywordTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 3
+			path: tests/Components/JoinKeywordTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 3
+			path: tests/Components/JoinKeywordTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 42
+			path: tests/Components/KeyTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 11
+			path: tests/Components/KeyTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 27
+			path: tests/Components/KeyTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/LimitTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 7
+			path: tests/Components/LockExpressionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/LockExpressionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 8
+			path: tests/Components/OptionsArrayTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 3
+			path: tests/Components/OptionsArrayTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 1
+			path: tests/Components/OptionsArrayTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 3
+			path: tests/Components/OptionsArrayTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 1
+			path: tests/Components/OrderKeywordTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 3
+			path: tests/Components/ParameterDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 6
+			path: tests/Components/PartitionDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/PartitionDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 2
+			path: tests/Components/PartitionDefinitionTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 3
+			path: tests/Components/ReferenceTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 1
+			path: tests/Components/ReferenceTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 1
+			path: tests/Components/RenameOperationTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\)\\.$#"
+			count: 2
+			path: tests/Lexer/ContextTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\)\\.$#"
+			count: 2
+			path: tests/Lexer/ContextTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 14
+			path: tests/Lexer/ContextTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 5
+			path: tests/Lexer/ContextTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 7
+			path: tests/Lexer/ContextTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 5
+			path: tests/Lexer/ContextTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 28
+			path: tests/Lexer/IsMethodsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 8
+			path: tests/Lexer/IsMethodsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 10
+			path: tests/Lexer/IsMethodsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 23
+			path: tests/Lexer/IsMethodsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 1
+			path: tests/Lexer/LexerTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 18
+			path: tests/Lexer/TokenTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertFalse\\(\\)\\.$#"
+			count: 1
+			path: tests/Lexer/TokenTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 1
+			path: tests/Lexer/TokenTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\)\\.$#"
+			count: 1
+			path: tests/Lexer/TokensListTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\)\\.$#"
+			count: 2
+			path: tests/Lexer/TokensListTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 26
+			path: tests/Lexer/TokensListTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 8
+			path: tests/Lexer/TokensListTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 9
+			path: tests/Lexer/TokensListTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\)\\.$#"
+			count: 1
+			path: tests/Misc/UtfStringTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\)\\.$#"
+			count: 2
+			path: tests/Misc/UtfStringTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 7
+			path: tests/Misc/UtfStringTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/KillStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/KillStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/KillStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/LoadStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertTrue\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/LoadStatementTest.php
+
+		-
+			message: "#^Call to method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\) with string will always evaluate to true\\.$#"
+			count: 1
+			path: tests/Parser/ParserLongExportsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 2
+			path: tests/Parser/ParserLongExportsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/ParserLongExportsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/ParserLongExportsTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 3
+			path: tests/Parser/ParserTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/SelectStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/SelectStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 1
+			path: tests/Parser/TransactionStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
+			count: 8
+			path: tests/Parser/WithStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 3
+			path: tests/Parser/WithStatementTest.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: tests/TestCase.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\)\\.$#"
+			count: 6
+			path: tests/TestCase.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 4
+			path: tests/TestCase.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 2
+			path: tests/TestCase.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsArray\\(\\)\\.$#"
+			count: 2
+			path: tests/TestCase.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsList\\(\\)\\.$#"
+			count: 2
+			path: tests/TestCase.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsString\\(\\)\\.$#"
+			count: 3
+			path: tests/TestCase.php
 
 		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tests\\\\TestCase\\:\\:getData\\(\\) should return array\\{query\\: string, lexer\\: PhpMyAdmin\\\\SqlParser\\\\Lexer, parser\\: PhpMyAdmin\\\\SqlParser\\\\Parser\\|null, errors\\: array\\{lexer\\: array\\<int, array\\{string, string, int, int\\}\\>, parser\\: array\\<int, array\\{string, PhpMyAdmin\\\\SqlParser\\\\Token, int\\}\\>\\}\\} but returns non\\-empty\\-array\\.$#"
@@ -1056,7 +2261,127 @@ parameters:
 			path: tests/TestCase.php
 
 		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 8
+			path: tests/Tools/ContextGeneratorTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 1
+			path: tests/Utils/BufferedQueryTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 7
+			path: tests/Utils/CLITest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 1
+			path: tests/Utils/CLITest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 3
+			path: tests/Utils/ErrorTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 1
+			path: tests/Utils/ErrorTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 4
+			path: tests/Utils/FormatterTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
+			count: 2
+			path: tests/Utils/FormatterTest.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isDelete of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isExplain of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isReplace of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isSelect of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: """
+				#^Access to deprecated property \\$isShow of class PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\:
+				Use \\{@see self\\:\\:\\$queryType\\} instead\\.$#
+			"""
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 25
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNotNull\\(\\)\\.$#"
+			count: 9
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertNull\\(\\)\\.$#"
+			count: 2
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertSame\\(\\)\\.$#"
+			count: 3
+			path: tests/Utils/QueryTest.php
+
+		-
 			message: "#^Parameter \\#2 \\$list of static method PhpMyAdmin\\\\SqlParser\\\\Utils\\\\Query\\:\\:replaceClause\\(\\) expects PhpMyAdmin\\\\SqlParser\\\\TokensList, PhpMyAdmin\\\\SqlParser\\\\TokensList\\|null given\\.$#"
 			count: 1
 			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Variable property access on PhpMyAdmin\\\\SqlParser\\\\Utils\\\\StatementFlags\\.$#"
+			count: 1
+			path: tests/Utils/QueryTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
+			count: 2
+			path: tests/Utils/TableTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\)\\.$#"
+			count: 2
+			path: tests/Utils/TableTest.php
+
+		-
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			count: 1
+			path: tools/TestGenerator.php
 
