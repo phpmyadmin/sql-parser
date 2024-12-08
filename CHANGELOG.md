@@ -6,6 +6,12 @@
 - Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
 - Drop `USE_UTF_STRINGS` constant (#471)
 
+# [5.11.0] - YYYY-MM-DD
+
+### Added
+
+- Add Translator::setLocale() method (#599)
+
 ## [5.10.2] - 2024-12-05
 
 ### Added
