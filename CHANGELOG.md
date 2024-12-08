@@ -1,5 +1,11 @@
 # Change Log
 
+# [5.11.0] - YYYY-MM-DD
+
+### Added
+
+- Add Translator::setLocale() method (#599)
+
 ## [5.10.2] - 2024-12-05
 
 ### Added
