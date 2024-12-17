@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 22:46+0100\n"
-"PO-Revision-Date: 2023-01-26 07:10+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
-"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/sql-"
-"parser/fi/>\n"
+"PO-Revision-Date: 2024-12-18 10:00+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
+"sql-parser/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.9.2-dev\n"
 
 #: src/Component.php:39 src/Component.php:59
 msgid "Not implemented yet."
@@ -27,7 +27,7 @@ msgstr ""
 
 #: src/Components/AlterOperation.php:427
 msgid "Missing comma before start of a new alter operation."
-msgstr ""
+msgstr "Pilkku puuttuu ennen uuden muutostoiminnon aloittamista."
 
 #: src/Components/AlterOperation.php:472
 msgid "Unrecognized alter operation."
@@ -39,9 +39,8 @@ msgid "%1$d values were expected, but found %2$d."
 msgstr "Odotettiin arvoa %1$d , mutta löydettiin %2$d."
 
 #: src/Components/Array2d.php:108
-#, fuzzy
 msgid "An opening bracket followed by a set of values was expected."
-msgstr "Odotettiin avausmerkki ja sitä odotettiin seuraavan arvoja."
+msgstr "Odotettiin aloitussulkua, jota seuraa joukko arvoja."
 
 #: src/Components/ArrayObj.php:106 src/Components/CreateDefinition.php:233
 msgid "An opening bracket was expected."
@@ -69,34 +68,29 @@ msgid "Unexpected end of CASE expression"
 msgstr "Odottamaton loppu CASE-ilmaisulle"
 
 #: src/Components/CaseExpression.php:212
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Potential duplicate alias of CASE expression."
-msgstr "Odottamaton loppu CASE-ilmaisulle"
+msgstr "CASE-lausekkeen mahdollinen kaksoisalias."
 
 #: src/Components/CaseExpression.php:225
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "Alias odotettiin AS:n jälkeen, mutta sai "
 
 #: src/Components/CaseExpression.php:238 src/Components/Expression.php:352
 #: src/Components/Expression.php:372 src/Components/Expression.php:424
 msgid "An alias was previously found."
-msgstr ""
+msgstr "Alias löytyi aiemmin."
 
 #: src/Components/CaseExpression.php:252
-#, fuzzy
-#| msgid "An alias was expected."
 msgid "An alias was expected after AS."
-msgstr "Odotettiin aliasta."
+msgstr "AS:n jälkeen odotettiin alias."
 
 #: src/Components/CreateDefinition.php:255
-#, fuzzy
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
-"Odotettiin symbolin nimeä! Varattua avainsanaa ei voida käyttää palstan "
-"nimenä ilman lainausmerkkejä."
+"Symbolinimeä odotettiin! Varattua avainsanaa ei voi käyttää sarakkeen nimenä "
+"ilman lainausmerkkejä."
 
 #: src/Components/CreateDefinition.php:268
 msgid "A symbol name was expected!"
@@ -153,7 +147,7 @@ msgstr "Odottamaton loppu LOCK-ilmaisulle."
 #: src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Tämä vaihtoehto on ristiriidassa \"%1$s\":n kanssa."
 
 #: src/Components/RenameOperation.php:103
 msgid "The old name of the table was expected."
@@ -161,7 +155,7 @@ msgstr "Odotettiin vanhaa taulunimeä."
 
 #: src/Components/RenameOperation.php:109
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Avainsanaa \"TO\" odotettiin."
 
 #: src/Components/RenameOperation.php:124
 msgid "The new name of the table was expected."
@@ -172,10 +166,8 @@ msgid "A rename operation was expected."
 msgstr "Odotettiin uudelleennimeämistoimintoa."
 
 #: src/Components/SetOperation.php:121
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "regexp-haku"
+msgstr "Puuttuva lauseke."
 
 #: src/Lexer.php:274
 msgid "Unexpected character."
@@ -183,11 +175,11 @@ msgstr "Odottamatton merkki."
 
 #: src/Lexer.php:313
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Odotettu välilyöntejä ennen erotinta."
 
 #: src/Lexer.php:329 src/Lexer.php:348
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Odotettu erotin."
 
 #: src/Lexer.php:1004
 #, php-format
@@ -204,91 +196,71 @@ msgstr "Odottamaton ilmaisun alku."
 
 #: src/Parser.php:499
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Tuntematon lausuntotyyppi."
 
 #: src/Parser.php:587
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "Tapahtumaa ei ole aloitettu aiemmin."
 
 #: src/Statement.php:327
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "Tämän tyyppinen lauseke jäsennettiin aiemmin."
 
 #: src/Statement.php:398
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Tuntematon avainsana."
 
 #: src/Statement.php:409
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Keyword at end of statement."
-msgstr "Odottamaton ilmaisun alku."
+msgstr "Avainsana lausunnon lopussa."
 
 #: src/Statement.php:555
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "Taulun alkuun"
+msgstr "Lausekkeiden odottamaton järjestys."
 
 #: src/Statements/CreateStatement.php:549
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the entity was expected."
-msgstr "Avoinna olevien taulujen määrä."
+msgstr "Entiteetin nimeä odotettiin."
 
 #: src/Statements/CreateStatement.php:598
-#, fuzzy
-#| msgid "Table name template"
 msgid "A table name was expected."
-msgstr "Taulunimen pohja"
+msgstr "Taulukon nimeä odotettiin."
 
 #: src/Statements/CreateStatement.php:603
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Rivi on nyt poistettu."
+msgstr "Ainakin yksi sarakemäärittely odotettiin."
 
 #: src/Statements/CreateStatement.php:707
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Avainsanaa \"RETURNS\" odotettiin."
 
 #: src/Statements/DeleteStatement.php:329
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "Tämäntyyppinen lauseke ei kelpaa usean taulukon kyselyissä."
 
 #: src/Statements/LockStatement.php:120
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of LOCK statement."
-msgstr "Odottamaton ilmaisun alku."
+msgstr "LOCK-lausekkeen odottamaton loppu."
 
 #: src/Statements/PurgeStatement.php:138
 msgid "Unexpected keyword"
 msgstr "Odottamaton avainsana"
 
 #: src/Statements/WithStatement.php:118
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "The name of the CTE was expected."
-msgstr "Avoinna olevien taulujen määrä."
+msgstr "CTE:n nimeä odotettiin."
 
 #: src/Statements/WithStatement.php:137
-#, fuzzy
-#| msgid "An expression was expected."
 msgid "AS keyword was expected."
-msgstr "Odotettiin ilmaisua."
+msgstr "AS-avainsana odotettiin."
 
 #: src/Statements/WithStatement.php:149
-#, fuzzy
-#| msgid "The number of tables that are open."
 msgid "Subquery of the CTE was expected."
-msgstr "Avoinna olevien taulujen määrä."
+msgstr "CTE:n alikyselyä odotettiin."
 
 #: src/Statements/WithStatement.php:266
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of the WITH CTE."
-msgstr "Odottamaton ilmaisun alku."
+msgstr "WITH CTE:n odottamaton loppu."
 
 #~ msgid "Unexpected end of Lock expression."
 #~ msgstr "Odottamaton loppu LOCK-ilmaisulle."
