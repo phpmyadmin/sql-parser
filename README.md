@@ -4,7 +4,7 @@ A validating SQL lexer and parser with a focus on MySQL dialect.
 
 ## Code status
 
-![Tests](https://github.com/phpmyadmin/sql-parser/workflows/Run%20tests/badge.svg?branch=master)
+[![Tests](https://github.com/phpmyadmin/sql-parser/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/phpmyadmin/sql-parser/actions/workflows/tests.yml?query=branch%3Amaster)
 [![Code Coverage](https://scrutinizer-ci.com/g/phpmyadmin/sql-parser/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/phpmyadmin/sql-parser/?branch=master)
 [![codecov.io](https://codecov.io/github/phpmyadmin/sql-parser/coverage.svg?branch=master)](https://codecov.io/github/phpmyadmin/sql-parser?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phpmyadmin/sql-parser/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phpmyadmin/sql-parser/?branch=master)
