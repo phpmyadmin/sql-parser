@@ -716,22 +716,22 @@ parameters:
 			path: src/Parsers/OptionsArrays.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<int\\|string, array\\{name\\: bool\\|float\\|int\\|string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<array\\{name\\: bool\\|float\\|int\\|string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\.$#"
 			count: 2
 			path: src/Parsers/OptionsArrays.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<int\\|string, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|bool\\|float\\|int\\|string\\>\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|bool\\|float\\|int\\|string\\>\\.$#"
 			count: 1
 			path: src/Parsers/OptionsArrays.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<int\\|string, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\.$#"
 			count: 3
 			path: src/Parsers/OptionsArrays.php
 
 		-
-			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<int\\|string, mixed\\>\\.$#"
+			message: "#^Property PhpMyAdmin\\\\SqlParser\\\\Components\\\\OptionsArray\\:\\:\\$options \\(array\\<int, array\\{name\\: string, equals\\: bool, expr\\: PhpMyAdmin\\\\SqlParser\\\\Components\\\\Expression\\|string, value\\: string\\|null\\}\\|string\\>\\) does not accept non\\-empty\\-array\\<mixed\\>\\.$#"
 			count: 3
 			path: src/Parsers/OptionsArrays.php
 
@@ -1722,7 +1722,7 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
-			count: 33
+			count: 34
 			path: tests/Builder/CreateStatementTest.php
 
 		-
@@ -1977,7 +1977,7 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
-			count: 8
+			count: 9
 			path: tests/Components/OptionsArrayTest.php
 
 		-
@@ -2212,12 +2212,12 @@ parameters:
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertCount\\(\\)\\.$#"
-			count: 8
+			count: 14
 			path: tests/Parser/WithStatementTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
-			count: 3
+			count: 5
 			path: tests/Parser/WithStatementTest.php
 
 		-

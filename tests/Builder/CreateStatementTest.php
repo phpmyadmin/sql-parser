@@ -19,6 +19,8 @@ use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 use PHPUnit\Framework\Attributes\DataProvider;
 
+use function implode;
+
 class CreateStatementTest extends TestCase
 {
     public function testBuilder(): void
@@ -399,6 +401,33 @@ class CreateStatementTest extends TestCase
         $this->assertEquals(
             'CREATE view view_name  AS WITH aa(col1)'
             . ' AS (SELECT 1 UNION ALL SELECT 2) SELECT col1 FROM cte AS `d`  ',
+            $stmt->build(),
+        );
+
+        $parser = new Parser(
+            implode("\n", [
+                'CREATE VIEW number_sequence_view AS',
+                'WITH RECURSIVE number_sequence AS (',
+                '    SELECT 1 AS `number`',
+                '    UNION ALL',
+                '    SELECT `number` + 1',
+                '    FROM number_sequence',
+                '    WHERE `number` < 5',
+                ')',
+                'SELECT * FROM number_sequence;',
+            ]),
+        );
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            'CREATE VIEW number_sequence_view  AS'
+                . ' WITH RECURSIVE number_sequence AS ('
+                . 'SELECT 1 AS `number`'
+                . ' UNION ALL'
+                . ' SELECT `number`+ 1'
+                . ' FROM number_sequence'
+                . ' WHERE `number` < 5'
+                . ')'
+                . ' SELECT * FROM number_sequence ',
             $stmt->build(),
         );
     }

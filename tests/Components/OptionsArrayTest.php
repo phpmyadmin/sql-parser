@@ -136,4 +136,17 @@ class OptionsArrayTest extends TestCase
             $component->build(),
         );
     }
+
+    public function testBuildWithRecursive(): void
+    {
+        $component = OptionsArrays::parse(
+            new Parser(),
+            $this->getTokensList('RECURSIVE'),
+            ['RECURSIVE' => 1],
+        );
+        $this->assertEquals(
+            'RECURSIVE',
+            $component->build(),
+        );
+    }
 }

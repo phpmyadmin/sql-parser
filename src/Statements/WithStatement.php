@@ -269,11 +269,17 @@ final class WithStatement extends Statement
 
     public function build(): string
     {
-        $str = 'WITH ';
+        $initial = true;
+        $str = 'WITH';
+
+        if ($this->options !== null && $this->options->options !== []) {
+            $str .= ' ' . $this->options->build();
+        }
 
         foreach ($this->withers as $wither) {
-            $str .= $str === 'WITH ' ? '' : ', ';
+            $str .= $initial ? ' ' : ', ';
             $str .= $wither->build();
+            $initial = false;
         }
 
         $str .= ' ';

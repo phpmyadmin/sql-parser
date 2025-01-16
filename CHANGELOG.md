@@ -12,6 +12,12 @@
 
 - Add Translator::setLocale() method (#599)
 
+# [5.10.3] - YYYY-MM-DD
+
+### Fixed
+
+- Add "RECURSIVE" on build() for "WITH RECURSIVE" on the WithStatement class (#605)
+
 ## [5.10.2] - 2024-12-05
 
 ### Added
