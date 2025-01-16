@@ -280,11 +280,17 @@ final class WithStatement extends Statement
      */
     public function build()
     {
-        $str = 'WITH ';
+        $initial = true;
+        $str = 'WITH';
+
+        if ($this->options !== null && $this->options->options !== []) {
+            $str .= ' ' . OptionsArray::build($this->options);
+        }
 
         foreach ($this->withers as $wither) {
-            $str .= $str === 'WITH ' ? '' : ', ';
+            $str .= $initial ? ' ' : ', ';
             $str .= WithKeyword::build($wither);
+            $initial = false;
         }
 
         $str .= ' ';
