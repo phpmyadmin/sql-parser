@@ -131,4 +131,17 @@ class OptionsArrayTest extends TestCase
             'ALL SQL_CALC_FOUND_ROWS MAX_STATEMENT_TIME=42'
         );
     }
+
+    public function testBuildWithRecursive(): void
+    {
+        $component = OptionsArray::parse(
+            new Parser(),
+            $this->getTokensList('RECURSIVE'),
+            ['RECURSIVE' => 1]
+        );
+        $this->assertEquals(
+            OptionsArray::build($component),
+            'RECURSIVE'
+        );
+    }
 }
