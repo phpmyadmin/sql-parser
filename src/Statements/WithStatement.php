@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Translator;
 
 use function array_slice;
+use function implode;
 use function preg_match;
 
 /**
@@ -269,25 +270,18 @@ final class WithStatement extends Statement
 
     public function build(): string
     {
-        $initial = true;
-        $str = 'WITH';
+        $str = 'WITH ';
 
         if ($this->options !== null && $this->options->options !== []) {
-            $str .= ' ' . $this->options->build();
+            $str .= $this->options->build() . ' ';
         }
 
-        foreach ($this->withers as $wither) {
-            $str .= $initial ? ' ' : ', ';
-            $str .= $wither->build();
-            $initial = false;
+        if ($this->withers !== []) {
+            $str .= implode(', ', $this->withers) . ' ';
         }
-
-        $str .= ' ';
 
         if ($this->cteStatementParser) {
-            foreach ($this->cteStatementParser->statements as $statement) {
-                    $str .= $statement->build();
-            }
+            $str .= implode('', $this->cteStatementParser->statements);
         }
 
         return $str;
