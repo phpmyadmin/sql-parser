@@ -1,11 +1,11 @@
 # Change Log
 
-# [5.10.3] - YYYY-MM-DD
+## [5.10.3] - 2024-01-18
 
 ### Fixed
 
 - Add "RECURSIVE" on build() for "WITH RECURSIVE" on the WithStatement class (#605)
-- Fix for quadratic complexity in certain queries, which could have caused long execution times. Thanks to Maximilian Krög (GitHub user MoonE) for this security-related fix.
+- Fix for quadratic complexity in certain queries, which could have caused long execution times. Thanks to Maximilian Krög (GitHub user MoonE) for this fix to help improve security.
 
 ## [5.10.2] - 2024-12-05
 
@@ -604,6 +604,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[5.10.3]: https://github.com/phpmyadmin/sql-parser/compare/5.10.2...5.10.3
 [5.10.2]: https://github.com/phpmyadmin/sql-parser/compare/5.10.1...5.10.2
 [5.10.1]: https://github.com/phpmyadmin/sql-parser/compare/5.10.0...5.10.1
 [5.10.0]: https://github.com/phpmyadmin/sql-parser/compare/5.9.1...5.10.0
