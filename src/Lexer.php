@@ -779,6 +779,7 @@ class Lexer
                 ) {
                     // A number can't be directly followed by a letter
                     $state = -$state;
+                    break;
                 } elseif ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
                     // Just digits and `.`, `e` and `E` are valid characters.
                     break;
@@ -793,6 +794,7 @@ class Lexer
                 ) {
                     // A number can't be directly followed by a letter
                     $state = -$state;
+                    break;
                 } elseif ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
                     // Just digits, `e` and `E` are valid characters.
                     break;
@@ -810,6 +812,7 @@ class Lexer
                 ) {
                     // A number can't be directly followed by a letter
                     $state = -$state;
+                    break;
                 } else {
                     break;
                 }
