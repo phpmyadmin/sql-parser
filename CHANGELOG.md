@@ -5,6 +5,7 @@
 ### Fixed
 
 - Add "RECURSIVE" on build() for "WITH RECURSIVE" on the WithStatement class (#605)
+- Fix for quadratic complexity in certain queries, which could have caused long execution times. Thanks to Maximilian Krög (GitHub user MoonE) for this security-related fix.
 
 ## [5.10.2] - 2024-12-05
 
