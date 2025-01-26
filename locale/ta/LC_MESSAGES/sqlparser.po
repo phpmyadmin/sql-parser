@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 22:46+0100\n"
-"PO-Revision-Date: 2023-12-03 14:05+0000\n"
-"Last-Translator: Viswalinga Surya S <surya10633@gmail.com>\n"
+"PO-Revision-Date: 2025-01-28 00:01+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/"
 "sql-parser/ta/>\n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: src/Component.php:39 src/Component.php:59
 msgid "Not implemented yet."
@@ -26,6 +26,8 @@ msgstr "இன்னும் அமுலாக்கப்படவில்�
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"ஒரு புதிய அறிக்கை கண்டுபிடிக்கப்பட்டது, ஆனால் அதற்கும் முந்தைய இடத்திற்கும் இடையில் எந்த "
+"டிலிமிட்டரும் இல்லை."
 
 #: src/Components/AlterOperation.php:427
 msgid "Missing comma before start of a new alter operation."
@@ -33,16 +35,17 @@ msgstr "மாற்றம் செய்விக்கும் முன்�
 
 #: src/Components/AlterOperation.php:472
 msgid "Unrecognized alter operation."
-msgstr ""
+msgstr "அங்கீகரிக்கப்படாத மாற்று செயல்பாடு."
 
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "%1$d மதிப்புகள் எதிர்பார்க்கப்பட்டன, ஆனால் %2$d ஐக் கண்டறிந்தது."
 
 #: src/Components/Array2d.php:108
 msgid "An opening bracket followed by a set of values was expected."
 msgstr ""
+"ஒரு தொடக்க அடைப்புக்குறி மதிப்புகளின் தொகுப்பைத் தொடர்ந்து எதிர்பார்க்கப்பட்டது."
 
 #: src/Components/ArrayObj.php:106 src/Components/CreateDefinition.php:233
 msgid "An opening bracket was expected."
@@ -67,32 +70,32 @@ msgstr "எதிர்பாராத சிறப்புச்சொல்."
 
 #: src/Components/CaseExpression.php:192
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "வழக்கு வெளிப்பாட்டின் எதிர்பாராத முடிவு"
 
 #: src/Components/CaseExpression.php:212
 msgid "Potential duplicate alias of CASE expression."
-msgstr ""
+msgstr "வழக்கு வெளிப்பாட்டின் சாத்தியமான நகல் மாற்றுப்பெயர்."
 
 #: src/Components/CaseExpression.php:225
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "ஒரு மாற்றுப்பெயர் எதிர்பார்க்கப்பட்டது ஆனால் கிடைத்தது "
 
 #: src/Components/CaseExpression.php:238 src/Components/Expression.php:352
 #: src/Components/Expression.php:372 src/Components/Expression.php:424
 msgid "An alias was previously found."
-msgstr ""
+msgstr "ஒரு மாற்றுப்பெயர் முன்பு கண்டுபிடிக்கப்பட்டது."
 
 #: src/Components/CaseExpression.php:252
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected after AS."
-msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "அச் க்குப் பிறகு ஒரு மாற்றுப்பெயர் எதிர்பார்க்கப்பட்டது."
 
 #: src/Components/CreateDefinition.php:255
 msgid ""
 "A symbol name was expected! A reserved keyword can not be used as a column "
 "name without backquotes."
 msgstr ""
+"ஒரு குறியீட்டு பெயர் எதிர்பார்க்கப்பட்டது! முன்பதிவு செய்யப்பட்ட முக்கிய சொல்லை பின்னணி "
+"இல்லாமல் நெடுவரிசை பெயராகப் பயன்படுத்த முடியாது."
 
 #: src/Components/CreateDefinition.php:268
 msgid "A symbol name was expected!"
@@ -108,21 +111,19 @@ msgstr "ஒரு மூடும் அடைப்புக்குறி எ
 
 #: src/Components/DataType.php:130
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "அங்கீகரிக்கப்படாத தரவு வகை."
 
 #: src/Components/ExpressionArray.php:106 src/Statements/WithStatement.php:197
 msgid "An expression was expected."
 msgstr "ஒரு வெளிப்பாடு எதிர்பார்க்கப்பட்டது."
 
 #: src/Components/Expression.php:257 src/Components/Expression.php:435
-#, fuzzy
-#| msgid "No tables selected."
 msgid "An alias was expected."
-msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "ஒரு மாற்றுப்பெயர் எதிர்பார்க்கப்பட்டது."
 
 #: src/Components/Expression.php:403
 msgid "Unexpected dot."
-msgstr ""
+msgstr "எதிர்பாராத புள்ளி."
 
 #: src/Components/IndexHint.php:140 src/Components/IndexHint.php:170
 #: src/Components/Key.php:259 src/Components/LockExpression.php:161
@@ -137,37 +138,33 @@ msgstr ""
 #: src/Statements/PurgeStatement.php:106 src/Statements/PurgeStatement.php:119
 #: src/Statements/PurgeStatement.php:140
 #: src/Statements/ReplaceStatement.php:163 src/Statements/WithStatement.php:132
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected token."
-msgstr "%sம் வரியில் எதிர்பாராத எழுத்துக்கள் உள்ளன."
+msgstr "எதிர்பாராத கிள்ளாக்கு."
 
 #: src/Components/Limit.php:78 src/Components/Limit.php:105
 msgid "An offset was expected."
-msgstr ""
+msgstr "ஒரு ஆஃப்செட் எதிர்பார்க்கப்பட்டது."
 
 #: src/Components/LockExpression.php:91 src/Components/LockExpression.php:201
-#, fuzzy
-#| msgid "Rate of table open"
 msgid "Unexpected end of LOCK expression."
-msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
+msgstr "பூட்டு வெளிப்பாட்டின் எதிர்பாராத முடிவு."
 
 #: src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "இந்த விருப்பம் \"%1$s\" உடன் முரண்படுகிறது."
 
 #: src/Components/RenameOperation.php:103
 msgid "The old name of the table was expected."
-msgstr ""
+msgstr "அட்டவணையின் பழைய பெயர் எதிர்பார்க்கப்பட்டது."
 
 #: src/Components/RenameOperation.php:109
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "\"To\" என்ற முக்கிய சொல் எதிர்பார்க்கப்பட்டது."
 
 #: src/Components/RenameOperation.php:124
 msgid "The new name of the table was expected."
-msgstr ""
+msgstr "அட்டவணையின் புதிய பெயர் எதிர்பார்க்கப்பட்டது."
 
 #: src/Components/RenameOperation.php:140
 msgid "A rename operation was expected."
@@ -178,121 +175,97 @@ msgid "Missing expression."
 msgstr "காணப்படாத வெளிப்பாடு."
 
 #: src/Lexer.php:274
-#, fuzzy
-#| msgid "Unexpected characters on line %s."
 msgid "Unexpected character."
-msgstr "%sம் வரியில் எதிர்பாராத எழுத்துக்கள் உள்ளன."
+msgstr "எதிர்பாராத தன்மை."
 
 #: src/Lexer.php:313
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "டிலிமிட்டருக்கு முன் எதிர்பார்க்கப்படும் இடைவெளி (கள்)."
 
 #: src/Lexer.php:329 src/Lexer.php:348
 msgid "Expected delimiter."
-msgstr ""
+msgstr "எதிர்பார்க்கப்படும் டிலிமிட்டர்."
 
 #: src/Lexer.php:1004
 #, php-format
 msgid "Ending quote %1$s was expected."
-msgstr ""
+msgstr "முடிவு மேற்கோள் %1$s எதிர்பார்க்கப்பட்டது."
 
 #: src/Lexer.php:1056
 msgid "Variable name was expected."
-msgstr ""
+msgstr "மாறி பெயர் எதிர்பார்க்கப்பட்டது."
 
 #: src/Parser.php:456
-#, fuzzy
-#| msgid "Rate of table open"
 msgid "Unexpected beginning of statement."
-msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
+msgstr "அறிக்கையின் எதிர்பாராத துவக்கம்."
 
 #: src/Parser.php:499
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "அங்கீகரிக்கப்படாத அறிக்கை வகை."
 
 #: src/Parser.php:587
 msgid "No transaction was previously started."
-msgstr ""
+msgstr "எந்த பரிவர்த்தனையும் முன்பு தொடங்கப்படவில்லை."
 
 #: src/Statement.php:327
 msgid "This type of clause was previously parsed."
-msgstr ""
+msgstr "இந்த வகை பிரிவு முன்பு பாகுபடுத்தப்பட்டது."
 
 #: src/Statement.php:398
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "அங்கீகரிக்கப்படாத முக்கிய சொல்."
 
 #: src/Statement.php:409
-#, fuzzy
-#| msgid "Rate of table open"
 msgid "Keyword at end of statement."
-msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
+msgstr "அறிக்கையின் முடிவில் முக்கிய சொல்."
 
 #: src/Statement.php:555
-#, fuzzy
-#| msgid "Rate of table open"
 msgid "Unexpected ordering of clauses."
-msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
+msgstr "உட்பிரிவுகளின் எதிர்பாராத வரிசைப்படுத்தல்."
 
 #: src/Statements/CreateStatement.php:549
 msgid "The name of the entity was expected."
-msgstr ""
+msgstr "நிறுவனத்தின் பெயர் எதிர்பார்க்கப்பட்டது."
 
 #: src/Statements/CreateStatement.php:598
-#, fuzzy
-#| msgid "No tables selected."
 msgid "A table name was expected."
-msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "ஒரு அட்டவணை பெயர் எதிர்பார்க்கப்பட்டது."
 
 #: src/Statements/CreateStatement.php:603
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "இந்நிரைவரிசை அழிக்கப்பட்டது."
+msgstr "குறைந்தது ஒரு நெடுவரிசை வரையறை எதிர்பார்க்கப்பட்டது."
 
 #: src/Statements/CreateStatement.php:707
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "ஒரு \"வருமானம்\" முக்கிய சொல் எதிர்பார்க்கப்பட்டது."
 
 #: src/Statements/DeleteStatement.php:329
 msgid "This type of clause is not valid in Multi-table queries."
-msgstr ""
+msgstr "பல அட்டவணை வினவல்களில் இந்த வகை பிரிவு செல்லுபடியாகாது."
 
 #: src/Statements/LockStatement.php:120
-#, fuzzy
-#| msgid "Rate of table open"
 msgid "Unexpected end of LOCK statement."
-msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
+msgstr "பூட்டு அறிக்கையின் எதிர்பாராத முடிவு."
 
 #: src/Statements/PurgeStatement.php:138
-#, fuzzy
-#| msgid "Unexpected keyword."
 msgid "Unexpected keyword"
-msgstr "எதிர்பாராத சிறப்புச்சொல்."
+msgstr "எதிர்பாராத முக்கிய சொல்"
 
 #: src/Statements/WithStatement.php:118
-#, fuzzy
-#| msgid "No tables selected."
 msgid "The name of the CTE was expected."
-msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "CTE இன் பெயர் எதிர்பார்க்கப்பட்டது."
 
 #: src/Statements/WithStatement.php:137
-#, fuzzy
-#| msgid "No rows selected"
 msgid "AS keyword was expected."
-msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
+msgstr "முக்கிய சொல் எதிர்பார்க்கப்பட்டது."
 
 #: src/Statements/WithStatement.php:149
-#, fuzzy
-#| msgid "No tables selected."
 msgid "Subquery of the CTE was expected."
-msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "CTE இன் துணைக்குழு எதிர்பார்க்கப்பட்டது."
 
 #: src/Statements/WithStatement.php:266
-#, fuzzy
-#| msgid "Rate of table open"
 msgid "Unexpected end of the WITH CTE."
-msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
+msgstr "CTE உடன் எதிர்பாராத முடிவு."
 
 #, fuzzy
 #~| msgid "Rate of table open"
