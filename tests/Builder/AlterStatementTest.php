@@ -243,7 +243,7 @@ class AlterStatementTest extends TestCase
         yield 'Procedure with all remaining options #2' => [$query];
     }
 
-    /** @dataProvider provideBuilderForAlterRoutine */
+    #[DataProvider('provideBuilderForAlterRoutine')]
     public function testBuilderForAlterRoutine(string $query): void
     {
         $parser = new Parser($query);

@@ -1163,6 +1163,7 @@
   </file>
   <file src="tests/Builder/AlterStatementTest.php">
     <PossiblyUnusedMethod>
+      <code><![CDATA[provideBuilderForAlterRoutine]]></code>
       <code><![CDATA[provideBuilderForRenameColumn]]></code>
     </PossiblyUnusedMethod>
   </file>
@@ -1204,6 +1205,7 @@
   </file>
   <file src="tests/Lexer/ContextTest.php">
     <PossiblyUnusedMethod>
+      <code><![CDATA[contextClassesProvider]]></code>
       <code><![CDATA[contextLoadingProvider]]></code>
       <code><![CDATA[contextNamesProvider]]></code>
       <code><![CDATA[providerForTestMode]]></code>
@@ -1213,6 +1215,13 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[lexProvider]]></code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/Lexer/TokensListTest.php">
+    <InvalidArgument>
+      <code><![CDATA[$list]]></code>
+      <code><![CDATA[$list]]></code>
+      <code><![CDATA[$list]]></code>
+    </InvalidArgument>
   </file>
   <file src="tests/Misc/BugsTest.php">
     <PossiblyUnusedMethod>
@@ -1230,6 +1239,11 @@
     </PossiblyFalseOperand>
   </file>
   <file src="tests/Misc/UtfStringTest.php">
+    <InvalidArgument>
+      <code><![CDATA[$str]]></code>
+      <code><![CDATA[$str]]></code>
+      <code><![CDATA[$str]]></code>
+    </InvalidArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[utf8StringsProvider]]></code>
     </PossiblyUnusedMethod>
@@ -1275,9 +1289,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Parser/KillStatementTest.php">
-    <InvalidArgument>
-      <code><![CDATA[testBuildKill]]></code>
-    </InvalidArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[buildKillProvider]]></code>
+      <code><![CDATA[killProvider]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/Parser/LoadStatementTest.php">
     <PossiblyUnusedMethod>

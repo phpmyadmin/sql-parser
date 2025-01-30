@@ -2131,6 +2131,16 @@ parameters:
 			path: tests/Lexer/TokensListTest.php
 
 		-
+			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess\\<\\(int\\|string\\), mixed\\>, PhpMyAdmin\\\\SqlParser\\\\TokensList given\\.$#"
+			count: 1
+			path: tests/Lexer/TokensListTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess\\<\\(int\\|string\\), mixed\\>, PhpMyAdmin\\\\SqlParser\\\\TokensList given\\.$#"
+			count: 2
+			path: tests/Lexer/TokensListTest.php
+
+		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\)\\.$#"
 			count: 1
 			path: tests/Misc/UtfStringTest.php
@@ -2143,6 +2153,16 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
 			count: 7
+			path: tests/Misc/UtfStringTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayHasKey\\(\\) expects array\\|ArrayAccess\\<\\(int\\|string\\), mixed\\>, PhpMyAdmin\\\\SqlParser\\\\UtfString given\\.$#"
+			count: 1
+			path: tests/Misc/UtfStringTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$array of method PHPUnit\\\\Framework\\\\Assert\\:\\:assertArrayNotHasKey\\(\\) expects array\\|ArrayAccess\\<\\(int\\|string\\), mixed\\>, PhpMyAdmin\\\\SqlParser\\\\UtfString given\\.$#"
+			count: 2
 			path: tests/Misc/UtfStringTest.php
 
 		-
@@ -2293,11 +2313,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
 			count: 4
-			path: tests/Utils/FormatterTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:once\\(\\)\\.$#"
-			count: 2
 			path: tests/Utils/FormatterTest.php
 
 		-
