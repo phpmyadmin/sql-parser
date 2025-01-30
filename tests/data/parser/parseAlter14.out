@@ -325,24 +325,22 @@
                         "options": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
-                                "1": "ADD"
+                                "1": "ADD",
+                                "2": "UNIQUE KEY"
                             }
                         },
-                        "field": null,
+                        "field": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                            "database": null,
+                            "table": null,
+                            "column": "functional_index",
+                            "expr": "`functional_index`",
+                            "alias": null,
+                            "function": null,
+                            "subquery": null
+                        },
                         "partitions": null,
                         "unknown": [
-                            {
-                                "@type": "@10"
-                            },
-                            {
-                                "@type": "@11"
-                            },
-                            {
-                                "@type": "@12"
-                            },
-                            {
-                                "@type": "@13"
-                            },
                             {
                                 "@type": "@14"
                             },
