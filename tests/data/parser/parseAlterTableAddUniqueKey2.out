@@ -1,10 +1,10 @@
 {
-    "query": "ALTER TABLE `table` ADD UNIQUE KEY `functional_index` (`field1`,`field2`, (IFNULL(`field3`,0)));\n",
+    "query": "ALTER TABLE testtable ADD UNIQUE name_of_the_unique_constraint (`UNIQUE_COLUMN`);\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
-        "str": "ALTER TABLE `table` ADD UNIQUE KEY `functional_index` (`field1`,`field2`, (IFNULL(`field3`,0)));\n",
-        "len": 97,
-        "last": 97,
+        "str": "ALTER TABLE testtable ADD UNIQUE name_of_the_unique_constraint (`UNIQUE_COLUMN`);\n",
+        "len": 82,
+        "last": 82,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
             "tokens": [
@@ -46,11 +46,11 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`table`",
-                    "value": "table",
+                    "token": "testtable",
+                    "value": "testtable",
                     "keyword": null,
-                    "type": 8,
-                    "flags": 2,
+                    "type": 0,
+                    "flags": 0,
                     "position": 12
                 },
                 {
@@ -60,7 +60,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 19
+                    "position": 21
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -69,7 +69,7 @@
                     "keyword": "ADD",
                     "type": 1,
                     "flags": 3,
-                    "position": 20
+                    "position": 22
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -78,16 +78,16 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 23
+                    "position": 25
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "UNIQUE KEY",
-                    "value": "UNIQUE KEY",
-                    "keyword": "UNIQUE KEY",
+                    "token": "UNIQUE",
+                    "value": "UNIQUE",
+                    "keyword": "UNIQUE",
                     "type": 1,
-                    "flags": 23,
-                    "position": 24
+                    "flags": 19,
+                    "position": 26
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -96,16 +96,16 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 34
+                    "position": 32
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`functional_index`",
-                    "value": "functional_index",
+                    "token": "name_of_the_unique_constraint",
+                    "value": "name_of_the_unique_constraint",
                     "keyword": null,
-                    "type": 8,
-                    "flags": 2,
-                    "position": 35
+                    "type": 0,
+                    "flags": 0,
+                    "position": 33
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -114,30 +114,12 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 53
+                    "position": 62
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "(",
                     "value": "(",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 54
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`field1`",
-                    "value": "field1",
-                    "keyword": null,
-                    "type": 8,
-                    "flags": 2,
-                    "position": 55
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ",",
-                    "value": ",",
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
@@ -145,8 +127,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`field2`",
-                    "value": "field2",
+                    "token": "`UNIQUE_COLUMN`",
+                    "value": "UNIQUE_COLUMN",
                     "keyword": null,
                     "type": 8,
                     "flags": 2,
@@ -154,102 +136,12 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ",",
-                    "value": ",",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 72
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": 3,
-                    "flags": 0,
-                    "position": 73
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "(",
-                    "value": "(",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 74
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "IFNULL",
-                    "value": "IFNULL",
-                    "keyword": "IFNULL",
-                    "type": 1,
-                    "flags": 33,
-                    "position": 75
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "(",
-                    "value": "(",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 81
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`field3`",
-                    "value": "field3",
-                    "keyword": null,
-                    "type": 8,
-                    "flags": 2,
-                    "position": 82
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ",",
-                    "value": ",",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 90
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "0",
-                    "value": 0,
-                    "keyword": null,
-                    "type": 6,
-                    "flags": 0,
-                    "position": 91
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": ")",
                     "value": ")",
                     "keyword": null,
                     "type": 2,
                     "flags": 16,
-                    "position": 92
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ")",
-                    "value": ")",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 93
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ")",
-                    "value": ")",
-                    "keyword": null,
-                    "type": 2,
-                    "flags": 16,
-                    "position": 94
+                    "position": 79
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -258,7 +150,7 @@
                     "keyword": null,
                     "type": 9,
                     "flags": 0,
-                    "position": 95
+                    "position": 80
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -267,7 +159,7 @@
                     "keyword": null,
                     "type": 3,
                     "flags": 0,
-                    "position": 96
+                    "position": 81
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -279,8 +171,8 @@
                     "position": null
                 }
             ],
-            "count": 30,
-            "idx": 30
+            "count": 18,
+            "idx": 18
         },
         "delimiter": ";",
         "delimiterLen": 1,
@@ -298,9 +190,9 @@
                 "table": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                     "database": null,
-                    "table": "table",
+                    "table": "testtable",
                     "column": null,
-                    "expr": "`table`",
+                    "expr": "testtable",
                     "alias": null,
                     "function": null,
                     "subquery": null
@@ -326,15 +218,15 @@
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                             "options": {
                                 "1": "ADD",
-                                "2": "UNIQUE KEY"
+                                "2": "UNIQUE"
                             }
                         },
                         "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
-                            "column": "functional_index",
-                            "expr": "`functional_index`",
+                            "column": "name_of_the_unique_constraint",
+                            "expr": "name_of_the_unique_constraint",
                             "alias": null,
                             "function": null,
                             "subquery": null
@@ -349,42 +241,6 @@
                             },
                             {
                                 "@type": "@16"
-                            },
-                            {
-                                "@type": "@17"
-                            },
-                            {
-                                "@type": "@18"
-                            },
-                            {
-                                "@type": "@19"
-                            },
-                            {
-                                "@type": "@20"
-                            },
-                            {
-                                "@type": "@21"
-                            },
-                            {
-                                "@type": "@22"
-                            },
-                            {
-                                "@type": "@23"
-                            },
-                            {
-                                "@type": "@24"
-                            },
-                            {
-                                "@type": "@25"
-                            },
-                            {
-                                "@type": "@26"
-                            },
-                            {
-                                "@type": "@27"
-                            },
-                            {
-                                "@type": "@28"
                             }
                         ]
                     }
@@ -396,7 +252,7 @@
                     }
                 },
                 "first": 0,
-                "last": 27
+                "last": 15
             }
         ],
         "brackets": 0,

@@ -5401,24 +5401,22 @@
                                 "options": {
                                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                                     "options": {
-                                        "1": "ADD"
+                                        "1": "ADD",
+                                        "2": "UNIQUE KEY"
                                     }
                                 },
-                                "field": null,
+                                "field": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                    "database": null,
+                                    "table": null,
+                                    "column": "idServer",
+                                    "expr": "`idServer`",
+                                    "alias": null,
+                                    "function": null,
+                                    "subquery": null
+                                },
                                 "partitions": null,
                                 "unknown": [
-                                    {
-                                        "@type": "@394"
-                                    },
-                                    {
-                                        "@type": "@395"
-                                    },
-                                    {
-                                        "@type": "@396"
-                                    },
-                                    {
-                                        "@type": "@397"
-                                    },
                                     {
                                         "@type": "@398"
                                     },
