@@ -7,10 +7,11 @@ namespace PhpMyAdmin\SqlParser\Tests\Parser;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\KillStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class KillStatementTest extends TestCase
 {
-    /** @dataProvider killProvider */
+    #[DataProvider('killProvider')]
     public function testKill(string $test): void
     {
         $this->runParserTest($test);
@@ -32,7 +33,7 @@ class KillStatementTest extends TestCase
         ];
     }
 
-    /** @dataProvider buildKillProvider */
+    #[DataProvider('buildKillProvider')]
     public function testBuildKill(string $sql): void
     {
         $parser = new Parser($sql);

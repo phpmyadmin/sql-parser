@@ -134,7 +134,7 @@ class ContextTest extends TestCase
         ];
     }
 
-    /** @dataProvider contextClassesProvider */
+    #[DataProvider('contextClassesProvider')]
     public function testLoadAllByClass(string $context): void
     {
         Context::load($context);

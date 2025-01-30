@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
+<files psalm-version="6.0.0@b8e96bb617bf59382113b1b56cef751f648a7dc9">
   <file src="src/Components/AlterOperation.php">
     <PossiblyNullReference>
       <code><![CDATA[has]]></code>
@@ -161,6 +161,9 @@
     <PropertyTypeCoercion>
       <code><![CDATA[$keywordToken->value]]></code>
     </PropertyTypeCoercion>
+    <RedundantCondition>
+      <code><![CDATA[$state === 10]]></code>
+    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $flags]]></code>
       <code><![CDATA[! $flags]]></code>
@@ -876,11 +879,30 @@
     <InvalidArrayOffset>
       <code><![CDATA[$version[count($version) - 1]]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$words[$i]]]></code>
+    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[static function (int $num) use ($type): bool {
                 return ($type & $num) !== 0;
             }]]></code>
     </MixedArgumentTypeCoercion>
+    <MixedArrayAccess>
+      <code><![CDATA[$file[0]]]></code>
+    </MixedArrayAccess>
+    <MixedAssignment>
+      <code><![CDATA[$file]]></code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$file]]></code>
+    </MixedOperand>
+    <PossiblyFalseArgument>
+      <code><![CDATA[file($file)]]></code>
+    </PossiblyFalseArgument>
+    <PossiblyFalseIterator>
+      <code><![CDATA[$files]]></code>
+    </PossiblyFalseIterator>
   </file>
   <file src="src/Tools/CustomJsonSerializer.php">
     <MixedAssignment>
@@ -898,9 +920,18 @@
     </UnusedMethodCall>
   </file>
   <file src="src/Tools/TestGenerator.php">
+    <MixedAssignment>
+      <code><![CDATA[$file]]></code>
+    </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$debug]]></code>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$file]]></code>
     </MixedOperand>
+    <PossiblyFalseIterator>
+      <code><![CDATA[$files]]></code>
+    </PossiblyFalseIterator>
     <PossiblyNullArgument>
       <code><![CDATA[$debugFile]]></code>
       <code><![CDATA[$debugFile]]></code>
@@ -1005,9 +1036,6 @@
     <MixedFunctionCall>
       <code><![CDATA[$func($text)]]></code>
     </MixedFunctionCall>
-    <MixedInferredReturnType>
-      <code><![CDATA[string]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$format['cli']]]></code>
       <code><![CDATA[$format['flags']]]></code>
@@ -1025,6 +1053,12 @@
     <PossiblyInvalidIterator>
       <code><![CDATA[$this->options['formats']]]></code>
     </PossiblyInvalidIterator>
+    <PossiblyNullOperand>
+      <code><![CDATA[$indent]]></code>
+      <code><![CDATA[$indent]]></code>
+      <code><![CDATA[$indent]]></code>
+      <code><![CDATA[array_pop($blocksLineEndings)]]></code>
+    </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$lineEnded]]></code>
       <code><![CDATA[$this->options['clause_newline']]]></code>
@@ -1129,6 +1163,7 @@
   </file>
   <file src="tests/Builder/AlterStatementTest.php">
     <PossiblyUnusedMethod>
+      <code><![CDATA[provideBuilderForAlterRoutine]]></code>
       <code><![CDATA[provideBuilderForRenameColumn]]></code>
     </PossiblyUnusedMethod>
   </file>
@@ -1170,6 +1205,7 @@
   </file>
   <file src="tests/Lexer/ContextTest.php">
     <PossiblyUnusedMethod>
+      <code><![CDATA[contextClassesProvider]]></code>
       <code><![CDATA[contextLoadingProvider]]></code>
       <code><![CDATA[contextNamesProvider]]></code>
       <code><![CDATA[providerForTestMode]]></code>
@@ -1179,6 +1215,13 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[lexProvider]]></code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/Lexer/TokensListTest.php">
+    <InvalidArgument>
+      <code><![CDATA[$list]]></code>
+      <code><![CDATA[$list]]></code>
+      <code><![CDATA[$list]]></code>
+    </InvalidArgument>
   </file>
   <file src="tests/Misc/BugsTest.php">
     <PossiblyUnusedMethod>
@@ -1190,7 +1233,17 @@
       <code><![CDATA[parameterProvider]]></code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="tests/Misc/TranslatorTest.php">
+    <PossiblyFalseOperand>
+      <code><![CDATA[realpath(__DIR__ . '/../../src/')]]></code>
+    </PossiblyFalseOperand>
+  </file>
   <file src="tests/Misc/UtfStringTest.php">
+    <InvalidArgument>
+      <code><![CDATA[$str]]></code>
+      <code><![CDATA[$str]]></code>
+      <code><![CDATA[$str]]></code>
+    </InvalidArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[utf8StringsProvider]]></code>
     </PossiblyUnusedMethod>
@@ -1236,9 +1289,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/Parser/KillStatementTest.php">
-    <InvalidArgument>
-      <code><![CDATA[testBuildKill]]></code>
-    </InvalidArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[buildKillProvider]]></code>
+      <code><![CDATA[killProvider]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/Parser/LoadStatementTest.php">
     <PossiblyUnusedMethod>
@@ -1317,6 +1371,13 @@
      *   errors: array{lexer: list<array{string, string, int, int}>, parser: list<array{string, Token, int}>}
      * }]]></code>
     </InvalidReturnType>
+  </file>
+  <file src="tests/Tools/ContextGeneratorTest.php">
+    <PossiblyFalseOperand>
+      <code><![CDATA[getcwd()]]></code>
+      <code><![CDATA[getcwd()]]></code>
+      <code><![CDATA[getcwd()]]></code>
+    </PossiblyFalseOperand>
   </file>
   <file src="tests/UtfStringSerializer.php">
     <PossiblyUnusedMethod>
