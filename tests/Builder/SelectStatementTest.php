@@ -353,4 +353,65 @@ class SelectStatementTest extends TestCase
             $stmt->build()
         );
     }
+
+    public function testBuilderSelectFromWithForceIndex(): void
+    {
+        $query = 'SELECT *'
+            . ' FROM uno FORCE INDEX (id)';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        self::assertSame($query, $stmt->build());
+    }
+
+    /**
+     * Ensures issue #497 is fixed.
+     */
+    public function testBuilderSelectFromJoinWithForceIndex(): void
+    {
+        $query = 'SELECT *'
+            . ' FROM uno'
+            . ' JOIN dos FORCE INDEX (two_id) ON dos.id = uno.id';
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        self::assertSame($query, $stmt->build());
+    }
+
+    /**
+     * Ensures issue #593 is fixed.
+     */
+    public function testBuilderSelectFromInnerJoinWithForceIndex(): void
+    {
+        $query = 'SELECT a.id, a.name, b.order_id, b.total'
+            . ' FROM customers a'
+            . ' INNER JOIN orders b FORCE INDEX (idx_customer_id)'
+            . ' ON a.id = b.customer_id'
+            . " WHERE a.status = 'active'";
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        $expectedQuery = 'SELECT a.id, a.name, b.order_id, b.total'
+            . ' FROM customers AS `a`'
+            . ' INNER JOIN orders AS `b` FORCE INDEX (idx_customer_id)'
+            . ' ON a.id = b.customer_id'
+            . " WHERE a.status = 'active'";
+
+        self::assertSame($expectedQuery, $stmt->build());
+    }
+
+    public function testBuilderSelectAllFormsOfIndexHints(): void
+    {
+        $query = 'SELECT *'
+            . ' FROM one USE INDEX (col1) IGNORE INDEX (col1, col2) FORCE INDEX (col1, col2, col3)'
+            . ' INNER JOIN two USE INDEX (col3) IGNORE INDEX (col2, col3) FORCE INDEX (col1, col2, col3)'
+            . ' ON one.col1 = two.col2'
+            . ' WHERE 1 = 1';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        self::assertSame($query, $stmt->build());
+    }
 }
