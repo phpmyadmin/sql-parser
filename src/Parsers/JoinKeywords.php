@@ -31,24 +31,6 @@ final class JoinKeywords implements Parseable
         $expr = new JoinKeyword();
 
         /**
-         * TODO: OLD
-         * The state of the parser.
-         *
-         * Below are the states of the parser.
-         *
-         *      0 -----------------------[ JOIN ]----------------------> 1
-         *
-         *      1 -----------------------[ expr ]----------------------> 2
-         *
-         *      2 ------------------------[ ON ]-----------------------> 3
-         *      2 -----------------------[ USING ]---------------------> 4
-         *
-         *      3 --------------------[ conditions ]-------------------> 0
-         *
-         *      4 ----------------------[ columns ]--------------------> 0
-         */
-        /**
-         * TODO: NEW
          * The state of the parser.
          *
          * Below are the states of the parser.
