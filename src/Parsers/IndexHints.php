@@ -28,7 +28,7 @@ final class IndexHints implements Parseable
     {
         $ret = [];
         $expr = new IndexHint();
-        $expr->type = $options['type'] ?? null;
+        $expr->type = $options['type'] ?? '';
         /**
          * The state of the parser.
          *
