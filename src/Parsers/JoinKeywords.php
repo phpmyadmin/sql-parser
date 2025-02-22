@@ -39,6 +39,7 @@ final class JoinKeywords implements Parseable
          *
          *      1 -----------------------[ expr ]----------------------> 2
          *
+         *      2 -------------------[ index_hints ]-------------------> 2
          *      2 ------------------------[ ON ]-----------------------> 3
          *      2 -----------------------[ USING ]---------------------> 4
          *
@@ -89,6 +90,12 @@ final class JoinKeywords implements Parseable
                             break;
                         case 'USING':
                             $state = 4;
+                            break;
+                        case 'USE':
+                        case 'IGNORE':
+                        case 'FORCE':
+                            // Adding index hint on the JOIN clause.
+                            $expr->indexHints = IndexHints::parse($parser, $list);
                             break;
                         default:
                             if (empty(JoinKeyword::JOINS[$token->keyword])) {

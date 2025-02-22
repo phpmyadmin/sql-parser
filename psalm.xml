@@ -8,6 +8,8 @@
     resolveFromConfigFile="true"
     findUnusedBaselineEntry="true"
     findUnusedCode="true"
+    ensureOverrideAttribute="false"
+    strictBinaryOperands="false"
 >
     <projectFiles>
         <file name="bin/sql-parser"/>
@@ -25,6 +27,7 @@
     </plugins>
 
     <issueHandlers>
+        <ClassMustBeFinal errorLevel="suppress"/>
         <UnusedClass>
             <errorLevel type="suppress">
                 <file name="tests/benchmarks/UtfStringBench.php"/>

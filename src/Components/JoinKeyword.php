@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parsers\Conditions;
+use PhpMyAdmin\SqlParser\Parsers\IndexHints;
 
 use function array_search;
 
@@ -60,28 +61,39 @@ final class JoinKeyword implements Component
     public ArrayObj|null $using = null;
 
     /**
+     * Index hints
+     *
+     * @var IndexHint[]
+     */
+    public array $indexHints = [];
+
+    /**
      * @see JoinKeyword::JOINS
      *
-     * @param string|null      $type  Join type
-     * @param Expression|null  $expr  join expression
-     * @param Condition[]|null $on    join conditions
-     * @param ArrayObj|null    $using columns joined
+     * @param string|null      $type       Join type
+     * @param Expression|null  $expr       join expression
+     * @param Condition[]|null $on         join conditions
+     * @param ArrayObj|null    $using      columns joined
+     * @param IndexHint[]      $indexHints index hints
      */
     public function __construct(
         string|null $type = null,
         Expression|null $expr = null,
         array|null $on = null,
         ArrayObj|null $using = null,
+        array $indexHints = [],
     ) {
         $this->type = $type;
         $this->expr = $expr;
         $this->on = $on;
         $this->using = $using;
+        $this->indexHints = $indexHints;
     }
 
     public function build(): string
     {
         return array_search($this->type, self::JOINS) . ' ' . $this->expr
+            . ($this->indexHints !== [] ? ' ' . IndexHints::buildAll($this->indexHints) : '')
             . (! empty($this->on) ? ' ON ' . Conditions::buildAll($this->on) : '')
             . (! empty($this->using) ? ' USING ' . $this->using->build() : '');
     }
