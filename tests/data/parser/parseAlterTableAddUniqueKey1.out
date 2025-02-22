@@ -1,22 +1,22 @@
 {
-    "query": "SELECT * FROM actor NATURAL RIGHT JOIN film_actor;\n",
+    "query": "ALTER TABLE testtable ADD UNIQUE KEY name_of_the_unique_constraint (`UNIQUE_COLUMN`);\n",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "strict": false,
         "errors": [],
-        "str": "SELECT * FROM actor NATURAL RIGHT JOIN film_actor;\n",
-        "len": 51,
-        "last": 51,
+        "str": "ALTER TABLE testtable ADD UNIQUE KEY name_of_the_unique_constraint (`UNIQUE_COLUMN`);\n",
+        "len": 86,
+        "last": 86,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
-            "count": 14,
-            "idx": 14,
+            "count": 18,
+            "idx": 18,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "SELECT",
-                    "value": "SELECT",
-                    "keyword": "SELECT",
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
                         "name": "Keyword",
@@ -36,42 +36,18 @@
                         "value": 3
                     },
                     "flags": 0,
-                    "position": 6
+                    "position": 5
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "*",
-                    "value": "*",
-                    "keyword": null,
-                    "type": {
-                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
-                        "name": "Operator",
-                        "value": 2
-                    },
-                    "flags": 16,
-                    "position": 7
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": " ",
-                    "value": " ",
-                    "keyword": null,
-                    "type": {
-                        "@type": "@5"
-                    },
-                    "flags": 0,
-                    "position": 8
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "FROM",
-                    "value": "FROM",
-                    "keyword": "FROM",
+                    "token": "TABLE",
+                    "value": "TABLE",
+                    "keyword": "TABLE",
                     "type": {
                         "@type": "@3"
                     },
                     "flags": 3,
-                    "position": 9
+                    "position": 6
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -82,12 +58,12 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 13
+                    "position": 11
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "actor",
-                    "value": "actor",
+                    "token": "testtable",
+                    "value": "testtable",
                     "keyword": null,
                     "type": {
                         "@type": "PhpMyAdmin\\SqlParser\\TokenType",
@@ -95,7 +71,7 @@
                         "value": 0
                     },
                     "flags": 0,
-                    "position": 14
+                    "position": 12
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -106,18 +82,18 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 19
+                    "position": 21
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "NATURAL RIGHT JOIN",
-                    "value": "NATURAL RIGHT JOIN",
-                    "keyword": "NATURAL RIGHT JOIN",
+                    "token": "ADD",
+                    "value": "ADD",
+                    "keyword": "ADD",
                     "type": {
                         "@type": "@3"
                     },
-                    "flags": 7,
-                    "position": 20
+                    "flags": 3,
+                    "position": 22
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -128,18 +104,88 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 38
+                    "position": 25
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "film_actor",
-                    "value": "film_actor",
+                    "token": "UNIQUE KEY",
+                    "value": "UNIQUE KEY",
+                    "keyword": "UNIQUE KEY",
+                    "type": {
+                        "@type": "@3"
+                    },
+                    "flags": 23,
+                    "position": 26
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "@12"
+                        "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 39
+                    "position": 36
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "name_of_the_unique_constraint",
+                    "value": "name_of_the_unique_constraint",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@9"
+                    },
+                    "flags": 0,
+                    "position": 37
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@5"
+                    },
+                    "flags": 0,
+                    "position": 66
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "(",
+                    "value": "(",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
+                    "flags": 16,
+                    "position": 67
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "`UNIQUE_COLUMN`",
+                    "value": "UNIQUE_COLUMN",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Symbol",
+                        "value": 8
+                    },
+                    "flags": 2,
+                    "position": 68
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ")",
+                    "value": ")",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@18"
+                    },
+                    "flags": 16,
+                    "position": 83
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -152,7 +198,7 @@
                         "value": 9
                     },
                     "flags": 0,
-                    "position": 49
+                    "position": 84
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -163,7 +209,7 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 50
+                    "position": 85
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -171,7 +217,7 @@
                     "value": "",
                     "keyword": null,
                     "type": {
-                        "@type": "@18"
+                        "@type": "@23"
                     },
                     "flags": 0,
                     "position": null
@@ -190,68 +236,59 @@
         },
         "statements": [
             {
-                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                "expr": [
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                "table": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                    "database": null,
+                    "table": "testtable",
+                    "column": null,
+                    "expr": "testtable",
+                    "alias": null,
+                    "function": null,
+                    "subquery": null
+                },
+                "altered": [
                     {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "database": null,
-                        "table": null,
-                        "column": null,
-                        "expr": "*",
-                        "alias": null,
-                        "function": null,
-                        "subquery": null
-                    }
-                ],
-                "from": [
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "database": null,
-                        "table": "actor",
-                        "column": null,
-                        "expr": "actor",
-                        "alias": null,
-                        "function": null,
-                        "subquery": null
-                    }
-                ],
-                "indexHints": null,
-                "partition": null,
-                "where": null,
-                "group": null,
-                "groupOptions": null,
-                "having": null,
-                "order": null,
-                "limit": null,
-                "procedure": null,
-                "into": null,
-                "join": [
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                        "type": "NATURAL RIGHT",
-                        "expr": {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": "ADD",
+                                "2": "UNIQUE KEY"
+                            }
+                        },
+                        "field": {
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
-                            "table": "film_actor",
-                            "column": null,
-                            "expr": "film_actor",
+                            "table": null,
+                            "column": "name_of_the_unique_constraint",
+                            "expr": "name_of_the_unique_constraint",
                             "alias": null,
                             "function": null,
                             "subquery": null
                         },
-                        "on": null,
-                        "using": null,
-                        "indexHints": []
+                        "partitions": null,
+                        "unknown": [
+                            {
+                                "@type": "@17"
+                            },
+                            {
+                                "@type": "@19"
+                            },
+                            {
+                                "@type": "@21"
+                            }
+                        ]
                     }
                 ],
-                "union": [],
-                "endOptions": null,
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                    "options": []
+                    "options": {
+                        "3": "TABLE"
+                    }
                 },
                 "first": 0,
-                "last": 10
+                "last": 15
             }
         ],
         "brackets": 0

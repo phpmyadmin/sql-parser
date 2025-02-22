@@ -136,6 +136,8 @@ final class AlterOperations implements Parseable
             2,
             'var',
         ],
+        'UNIQUE' => 2,
+        'UNIQUE KEY' => 2,
 
         'CHARACTER SET' => 3,
         'TO' => [
