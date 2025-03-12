@@ -4,46 +4,50 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 22:46+0100\n"
-"PO-Revision-Date: 2016-01-23 11:11+0000\n"
-"Last-Translator: Arturs Nikolajevs <nikidijs@gmail.com>\n"
+"PO-Revision-Date: 2025-03-12 13:20+0000\n"
+"Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
-"master/lv/>\n"
+"sql-parser/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: src/Component.php:39 src/Component.php:59
+#, fuzzy
 msgid "Not implemented yet."
-msgstr ""
+msgstr "Vēl nav īstenots (uzkodēts)."
 
 #: src/Components/AlterOperation.php:415 src/Statement.php:359
+#, fuzzy
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
+"Tika atrasta jauna instrukcija (nosacījums), bet nebija atdalītāja starp "
+"viņu un iepriekšējo."
 
 #: src/Components/AlterOperation.php:427
 msgid "Missing comma before start of a new alter operation."
-msgstr ""
+msgstr "Trūkst komata pirms jaunas izmaiņas (ALTER) darbības sākšanas."
 
 #: src/Components/AlterOperation.php:472
 msgid "Unrecognized alter operation."
-msgstr ""
+msgstr "Neatpazīta izmaiņu (ALTER) darbība."
 
 #: src/Components/Array2d.php:88
 #, php-format
 msgid "%1$d values were expected, but found %2$d."
-msgstr ""
+msgstr "Sagaidīja %1$d vērtības, bet atrada %2$d."
 
 #: src/Components/Array2d.php:108
 msgid "An opening bracket followed by a set of values was expected."
-msgstr ""
+msgstr "Sagaidīja atverošo iekavu, pēc kuras seko vērtību kopums."
 
 #: src/Components/ArrayObj.php:106 src/Components/CreateDefinition.php:233
 msgid "An opening bracket was expected."
-msgstr ""
+msgstr "Sagaidīja atverošo iekavu."
 
 #: src/Components/CaseExpression.php:133 src/Components/CaseExpression.php:161
 #: src/Components/CaseExpression.php:172 src/Components/CaseExpression.php:184
@@ -60,11 +64,12 @@ msgstr ""
 #: src/Statements/LockStatement.php:85 src/Statements/ReplaceStatement.php:149
 #: src/Statements/ReplaceStatement.php:178
 msgid "Unexpected keyword."
-msgstr ""
+msgstr "Negaidīts atslēgvārds."
 
 #: src/Components/CaseExpression.php:192
+#, fuzzy
 msgid "Unexpected end of CASE expression"
-msgstr ""
+msgstr "Negaidītas CASE izteiksmes (funkcijas) beigas"
 
 #: src/Components/CaseExpression.php:212
 msgid "Potential duplicate alias of CASE expression."
@@ -72,7 +77,7 @@ msgstr ""
 
 #: src/Components/CaseExpression.php:225
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "Sagaidīja aizstājvārdu pēc AS, bet saņemts "
 
 #: src/Components/CaseExpression.php:238 src/Components/Expression.php:352
 #: src/Components/Expression.php:372 src/Components/Expression.php:424
@@ -80,10 +85,8 @@ msgid "An alias was previously found."
 msgstr ""
 
 #: src/Components/CaseExpression.php:252
-#, fuzzy
-#| msgid "No databases selected."
 msgid "An alias was expected after AS."
-msgstr "Datubāze nav izvēlēta."
+msgstr "Sagaidīja aizstājvārdu pēc AS."
 
 #: src/Components/CreateDefinition.php:255
 msgid ""
@@ -97,34 +100,30 @@ msgid "A symbol name was expected!"
 msgstr "Faila nosaukuma šablons"
 
 #: src/Components/CreateDefinition.php:300
-#, fuzzy
-#| msgid "No databases selected."
 msgid "A comma or a closing bracket was expected."
-msgstr "Datubāze nav izvēlēta."
+msgstr "Sagaidīja komatu vai aizverošo iekavu."
 
 #: src/Components/CreateDefinition.php:313 src/Statements/WithStatement.php:328
 msgid "A closing bracket was expected."
-msgstr ""
+msgstr "Sagaidīja aizverošo iekavu."
 
 #: src/Components/DataType.php:130
 msgid "Unrecognized data type."
-msgstr ""
+msgstr "Neatpazīts datu tips."
 
 #: src/Components/ExpressionArray.php:106 src/Statements/WithStatement.php:197
 #, fuzzy
 #| msgid "No rows selected"
 msgid "An expression was expected."
-msgstr "Rindas nav iezīmētas"
+msgstr "Sagaidīja izteiksmi."
 
 #: src/Components/Expression.php:257 src/Components/Expression.php:435
-#, fuzzy
-#| msgid "No databases selected."
 msgid "An alias was expected."
-msgstr "Datubāze nav izvēlēta."
+msgstr "Sagaidīja aizstājvārdu."
 
 #: src/Components/Expression.php:403
 msgid "Unexpected dot."
-msgstr ""
+msgstr "Negaidīts punkts."
 
 #: src/Components/IndexHint.php:140 src/Components/IndexHint.php:170
 #: src/Components/Key.php:259 src/Components/LockExpression.php:161
@@ -139,12 +138,13 @@ msgstr ""
 #: src/Statements/PurgeStatement.php:106 src/Statements/PurgeStatement.php:119
 #: src/Statements/PurgeStatement.php:140
 #: src/Statements/ReplaceStatement.php:163 src/Statements/WithStatement.php:132
+#, fuzzy
 msgid "Unexpected token."
-msgstr ""
+msgstr "Negaidīta marķiera zīme."
 
 #: src/Components/Limit.php:78 src/Components/Limit.php:105
 msgid "An offset was expected."
-msgstr ""
+msgstr "Sagaidīja nobīdi."
 
 #: src/Components/LockExpression.php:91 src/Components/LockExpression.php:201
 #, fuzzy
@@ -155,35 +155,31 @@ msgstr "Tabulas sākumā"
 #: src/Components/OptionsArray.php:146
 #, php-format
 msgid "This option conflicts with \"%1$s\"."
-msgstr ""
+msgstr "Šis parametrs konfliktē ar \"%1$s\"."
 
 #: src/Components/RenameOperation.php:103
 msgid "The old name of the table was expected."
-msgstr ""
+msgstr "Sagaidīja sākotnējās (vecās) tabulas nosaukumu."
 
 #: src/Components/RenameOperation.php:109
 msgid "Keyword \"TO\" was expected."
-msgstr ""
+msgstr "Sagaidīja \"TO\" atslēgvārdu."
 
 #: src/Components/RenameOperation.php:124
 msgid "The new name of the table was expected."
-msgstr ""
+msgstr "Sagaidīja jaunās tabulas nosaukumu."
 
 #: src/Components/RenameOperation.php:140
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "A rename operation was expected."
-msgstr "Ieraksts tika dzēsts"
+msgstr "Sagaidīja pārdēvēšanas operāciju."
 
 #: src/Components/SetOperation.php:121
-#, fuzzy
-#| msgid "as regular expression"
 msgid "Missing expression."
-msgstr "kā regulārā izteiksme"
+msgstr "Trūkst izteiksmes."
 
 #: src/Lexer.php:274
 msgid "Unexpected character."
-msgstr ""
+msgstr "Negaidīta rakstzīme."
 
 #: src/Lexer.php:313
 msgid "Expected whitespace(s) before delimiter."
