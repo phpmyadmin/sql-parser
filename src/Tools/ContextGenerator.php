@@ -87,6 +87,8 @@ class ContextGenerator
         'MariaDb110500' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb110600' => 'https://mariadb.com/kb/en/reserved-words/',
         'MariaDb110700' => 'https://mariadb.com/kb/en/reserved-words/',
+        'MariaDb110800' => 'https://mariadb.com/kb/en/reserved-words/',
+        'MariaDb120000' => 'https://mariadb.com/kb/en/reserved-words/',
     ];
 
     /**

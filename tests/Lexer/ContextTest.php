@@ -137,6 +137,8 @@ class ContextTest extends TestCase
             ['MariaDb110500'],
             ['MariaDb110600'],
             ['MariaDb110700'],
+            ['MariaDb110800'],
+            ['MariaDb120000'],
         ];
     }
 
@@ -190,6 +192,8 @@ class ContextTest extends TestCase
             [Contexts\ContextMariaDb110500::class],
             [Contexts\ContextMariaDb110600::class],
             [Contexts\ContextMariaDb110700::class],
+            [Contexts\ContextMariaDb110800::class],
+            [Contexts\ContextMariaDb120000::class],
         ];
     }
 
