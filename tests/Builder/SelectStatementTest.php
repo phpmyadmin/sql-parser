@@ -414,4 +414,40 @@ class SelectStatementTest extends TestCase
 
         self::assertSame($query, $stmt->build());
     }
+
+    public function testBuilderSelectRowNumberOverAlias(): void
+    {
+        $query = 'SELECT id, pid, appid, appname, row_number() over (partition by pid, appid) as `group_row_number`'
+            . ' FROM game group by appname';
+        $expected = 'SELECT id, pid, appid, appname, row_number() over (partition by pid, appid) AS `group_row_number`'
+            . ' FROM game GROUP BY appname';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        self::assertSame($expected, $stmt->build());
+    }
+
+    public function testBuilderSelectWindowFunctions(): void
+    {
+        $queryVsExpected = [
+            'SELECT row_number() over (ORDER BY NULL) x' => 'SELECT row_number() over (ORDER BY NULL) AS `x`',
+            'SELECT rank() over (ORDER BY NULL) x' => 'SELECT rank() over (ORDER BY NULL) AS `x`',
+            'SELECT dense_rank() over (ORDER BY NULL) x' => 'SELECT dense_rank() over (ORDER BY NULL) AS `x`',
+            'SELECT cume_dist() over (ORDER BY NULL) x' => 'SELECT cume_dist() over (ORDER BY NULL) AS `x`',
+            'SELECT ntile(3) over (ORDER BY NULL) x' => 'SELECT ntile(3) over (ORDER BY NULL) AS `x`',
+            'SELECT ROW_NUMBER() OVER(ORDER BY NULL) x' => 'SELECT ROW_NUMBER() OVER(ORDER BY NULL) AS `x`',
+            'SELECT RANK()OVER(ORDER BY NULL) x' => 'SELECT RANK()OVER(ORDER BY NULL) AS `x`',
+            'SELECT DENSE_RANK()OVER(ORDER BY NULL) x' => 'SELECT DENSE_RANK()OVER(ORDER BY NULL) AS `x`',
+            'SELECT CUME_DIST()OVER(ORDER BY NULL) x' => 'SELECT CUME_DIST()OVER(ORDER BY NULL) AS `x`',
+            'SELECT NTILE(3)OVER(ORDER BY NULL) x' => 'SELECT NTILE(3)OVER(ORDER BY NULL) AS `x`',
+        ];
+
+        foreach ($queryVsExpected as $query => $expected) {
+            $parser = new Parser($query);
+            $stmt = $parser->statements[0];
+
+            self::assertSame($expected, $stmt->build());
+        }
+    }
 }
