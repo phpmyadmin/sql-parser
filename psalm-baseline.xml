@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.1.0@827971f8bc7a28bb4f842f34bf8901521de1cea3">
+<files psalm-version="6.10.3@90b5b9f5e7c8e441b191d3c82c58214753d7c7c1">
   <file src="src/Components/AlterOperation.php">
     <PossiblyNullReference>
       <code><![CDATA[has]]></code>
@@ -1155,77 +1155,12 @@
       <code><![CDATA[empty($statement->fields)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="tests/Builder/AlterStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[provideBuilderForAlterRoutine]]></code>
-      <code><![CDATA[provideBuilderForRenameColumn]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Builder/CreateStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[partitionQueriesProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Builder/StatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getAliasesProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Components/ArrayObjTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[parseProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Components/ExpressionTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[mysqlCommandsProvider]]></code>
-      <code><![CDATA[parseErrProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Components/GroupKeywordTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[provideExpressions]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Components/LimitTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[parseProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Components/LockExpressionTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[parseErrProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Lexer/ContextTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[contextClassesProvider]]></code>
-      <code><![CDATA[contextLoadingProvider]]></code>
-      <code><![CDATA[contextNamesProvider]]></code>
-      <code><![CDATA[providerForTestMode]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Lexer/LexerTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[lexProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="tests/Lexer/TokensListTest.php">
     <InvalidArgument>
       <code><![CDATA[$list]]></code>
       <code><![CDATA[$list]]></code>
       <code><![CDATA[$list]]></code>
     </InvalidArgument>
-  </file>
-  <file src="tests/Misc/BugsTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[bugProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Misc/ParameterTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[parameterProvider]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="tests/Misc/TranslatorTest.php">
     <PossiblyFalseOperand>
@@ -1238,120 +1173,11 @@
       <code><![CDATA[$str]]></code>
       <code><![CDATA[$str]]></code>
     </InvalidArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[utf8StringsProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/AlterStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[alterProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/AnalyzeStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[analyzeProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/CallStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[callProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/CreateStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[createProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/DeleteStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[deleteProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/DropStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[dropProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/ExplainStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[explainProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/InsertStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[insertProvider]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="tests/Parser/KillStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[buildKillProvider]]></code>
-      <code><![CDATA[killProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/LoadStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[loadProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/LockStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[lockProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/ParserLongExportsTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[exportFileProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/ParserTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[parseProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/PurgeStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[purgeProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/RenameStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[renameProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/ReplaceStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[replaceProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/RestoreStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[restoreProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/SelectStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[selectProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/SetStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[setProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/TransactionStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[transactionProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/UpdateStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[updateProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Parser/WithStatementTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[parseWith]]></code>
-    </PossiblyUnusedMethod>
+    <InvalidArgument>
+      <code><![CDATA[testBuildKill]]></code>
+    </InvalidArgument>
   </file>
   <file src="tests/TestCase.php">
     <InvalidReturnStatement>
@@ -1379,42 +1205,10 @@
       <code><![CDATA[unserialize]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/Utils/BufferedQueryTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[extractProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Utils/CLITest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[highlightParamsProvider]]></code>
-      <code><![CDATA[highlightParamsStdInProvider]]></code>
-      <code><![CDATA[lintParamsProvider]]></code>
-      <code><![CDATA[lintParamsStdInProvider]]></code>
-      <code><![CDATA[stdinParamsProvider]]></code>
-      <code><![CDATA[tokenizeParamsProvider]]></code>
-      <code><![CDATA[tokenizeParamsStdInProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Utils/FormatterTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[formatQueriesProviders]]></code>
-      <code><![CDATA[mergeFormatsProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
   <file src="tests/Utils/QueryTest.php">
     <PossiblyNullArgument>
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getFlagsProvider]]></code>
-      <code><![CDATA[getTablesProvider]]></code>
-    </PossiblyUnusedMethod>
-  </file>
-  <file src="tests/Utils/TableTest.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getFieldsProvider]]></code>
-      <code><![CDATA[getForeignKeysProvider]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="tools/TestGenerator.php">
     <RiskyTruthyFalsyComparison>

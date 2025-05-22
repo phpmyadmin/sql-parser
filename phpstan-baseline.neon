@@ -1195,12 +1195,6 @@ parameters:
 			path: src/Statements/CallStatement.php
 
 		-
-			message: '#^Binary operation "\.\=" between mixed and string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
 			message: '#^Cannot access property \$database on PhpMyAdmin\\SqlParser\\Components\\Expression\|null\.$#'
 			identifier: property.nonObject
 			count: 1
@@ -1707,18 +1701,6 @@ parameters:
 		-
 			message: '#^Argument of an invalid type list\<string\>\|false supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: '#^Offset 1 might not exist on array\{0\?\: string, 1\?\: non\-empty\-string, 2\?\: numeric\-string\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Tools/ContextGenerator.php
-
-		-
-			message: '#^Offset 2 might not exist on array\{0\?\: string, 1\?\: non\-empty\-string, 2\?\: numeric\-string\}\.$#'
-			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
@@ -2909,6 +2891,12 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 2
 			path: tests/Utils/TableTest.php
+
+		-
+			message: '#^Call to method PhpMyAdmin\\SqlParser\\UtfString\:\:offsetGet\(\) on a separate line has no effect\.$#'
+			identifier: method.resultUnused
+			count: 4
+			path: tests/benchmarks/UtfStringBench.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'

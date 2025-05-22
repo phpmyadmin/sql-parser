@@ -7,8 +7,8 @@ namespace PhpMyAdmin\SqlParser\Utils;
 final class ForeignKey
 {
     /**
-     * @param (int|string)[] $indexList
-     * @param string[]       $refIndexList
+     * @param string[] $indexList
+     * @param string[] $refIndexList
      */
     public function __construct(
         public string|null $constraint = null,

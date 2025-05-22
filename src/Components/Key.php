@@ -25,8 +25,7 @@ final class Key implements Component
     /**
      * The key columns
      *
-     * @var array<int, array<string, int|string>>
-     * @phpstan-var array{name?: string, length?: int, order?: string}[]
+     * @var array{name?: string, length?: int, order?: string}[]
      */
     public array $columns;
 
