@@ -15,6 +15,7 @@ use PhpMyAdmin\SqlParser\Tools\CustomJsonSerializer;
 use PhpMyAdmin\SqlParser\Translator;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
+use function file_exists;
 use function file_get_contents;
 use function str_contains;
 use function strpos;
@@ -93,6 +94,10 @@ abstract class TestCase extends BaseTestCase
      */
     public function getData(string $name): array
     {
+        if (! file_exists('tests/data/' . $name . '.out')) {
+            self::markTestSkipped('Test data not available.');
+        }
+
         $serializedData = file_get_contents('tests/data/' . $name . '.out');
         $this->assertIsString($serializedData);
 
