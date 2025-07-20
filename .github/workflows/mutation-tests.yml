@@ -2,54 +2,37 @@ name: Mutation tests
 
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
 jobs:
   tests:
     name: Mutation tests with PHP ${{ matrix.php-version }}
-
     runs-on: ${{ matrix.operating-system }}
-
     strategy:
       matrix:
-        php-version: ["8.1"]
-        operating-system: [ubuntu-latest]
-
+        php-version: [ '8.1' ]
+        operating-system: [ ubuntu-latest ]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Fetch github.base_ref (for diffing)
         if: ${{ github.base_ref != '' }}
         run: |
           git fetch --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/remotes/origin/${{ github.base_ref }}
 
-      - name: Install PHP ${{ matrix.php-version }}
+      - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
           ini-values: memory_limit=-1
-          tools: composer:v2, infection
+          tools: infection
 
-      - name: Get Composer cache directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('**/composer.*') }}
-          restore-keys: |
-            composer-${{ runner.os }}-${{ matrix.php-version }}-
-
-      - name: Install dependencies
-        run: |
-          composer update --no-interaction --no-progress
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v3
 
       - name: Collect coverage report
         run: composer run phpunit -- --stop-on-failure
