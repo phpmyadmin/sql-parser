@@ -7,14 +7,14 @@ namespace PhpMyAdmin\SqlParser\Contexts;
 use PhpMyAdmin\SqlParser\Token;
 
 /**
- * Context for MariaDB 11.7.
+ * Context for MariaDB 12.0.
  *
  * This class was auto-generated from tools/contexts/*.txt.
  * Use tools/run_generators.sh for update.
  *
  * @see https://mariadb.com/kb/en/reserved-words/
  */
-final class ContextMariaDb110700
+final class ContextMariaDb120000
 {
     /**
      * List of keywords.
@@ -754,6 +754,7 @@ final class ContextMariaDb110700
         'FIND_IN_SET' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'FLOOR' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'FORMAT' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
+        'FORMAT_BYTES' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'FOUND_ROWS' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'FROM_BASE64' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'FROM_DAYS' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
@@ -1044,6 +1045,7 @@ final class ContextMariaDb110700
         'VARIANCE' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'VAR_POP' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'VAR_SAMP' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
+        'VEC_DISTANCE' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'VEC_DISTANCE_COSINE' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'VEC_DISTANCE_EUCLIDEAN' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,
         'VEC_FROMTEXT' => Token::FLAG_KEYWORD | Token::FLAG_KEYWORD_FUNCTION,

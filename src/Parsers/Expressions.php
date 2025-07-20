@@ -17,6 +17,7 @@ use function implode;
 use function in_array;
 use function rtrim;
 use function strlen;
+use function strtoupper;
 use function trim;
 
 /**
@@ -281,7 +282,7 @@ final class Expressions implements Parseable
                             && ! ($prev[1]->flags & Token::FLAG_SYMBOL_VARIABLE)
                             && ! ($prev[1]->flags & Token::FLAG_SYMBOL_PARAMETER))
                         || ($prev[1]->type === TokenType::None
-                            && $prev[1]->token !== 'OVER'))
+                            && strtoupper($prev[1]->token) !== 'OVER'))
                 ) {
                     if (! empty($ret->alias)) {
                         $parser->error('An alias was previously found.', $token);
