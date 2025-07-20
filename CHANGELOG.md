@@ -1,5 +1,16 @@
 # Change Log
 
+## [5.11.1] - YYYY-MM-DD
+
+### Added
+
+- Add context files for MySQL 9.2, MySQL 9.3 and MariaDB 12.1 (#628)
+- Add context files for MariaDB 11.8 and MariaDB 12.0 (#620)
+
+### Fixed
+
+-  Fix Window function handling that failed because of "OVER" keyword case-sensitive comparison (#623)
+
 ## [5.11.0] - 2025-02-22
 
 ### Added
@@ -615,6 +626,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[5.11.1]: https://github.com/phpmyadmin/sql-parser/compare/5.11.0...5.11.x
 [5.11.0]: https://github.com/phpmyadmin/sql-parser/compare/5.10.3...5.11.0
 [5.10.3]: https://github.com/phpmyadmin/sql-parser/compare/5.10.2...5.10.3
 [5.10.2]: https://github.com/phpmyadmin/sql-parser/compare/5.10.1...5.10.2
