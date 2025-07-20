@@ -1,18 +1,20 @@
-name: lint php documentation
+name: Lint PHP documentation
 
 on:
   push:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
 
 jobs:
-    lint-docs:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - name: lint php documentation
-              uses: sudo-bot/action-doctum@v5
-              with:
-                  config-file: tools/doctum-config.php
-                  method: "parse"
-                  cli-args: "--output-format=github --no-ansi --no-progress -v --ignore-parse-errors"
+  lint-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: lint php documentation
+        uses: sudo-bot/action-doctum@v5
+        with:
+          config-file: tools/doctum-config.php
+          method: "parse"
+          cli-args: "--output-format=github --no-ansi --no-progress -v --ignore-parse-errors"
