@@ -1,6 +1,6 @@
 # Change Log
 
-## [5.11.1] - YYYY-MM-DD
+## [5.11.1] - 2025-07-20
 
 ### Added
 
@@ -626,7 +626,7 @@ __Breaking changes:__
 
 * First release of this library.
 
-[5.11.1]: https://github.com/phpmyadmin/sql-parser/compare/5.11.0...5.11.x
+[5.11.1]: https://github.com/phpmyadmin/sql-parser/compare/5.11.0...5.11.1
 [5.11.0]: https://github.com/phpmyadmin/sql-parser/compare/5.10.3...5.11.0
 [5.10.3]: https://github.com/phpmyadmin/sql-parser/compare/5.10.2...5.10.3
 [5.10.2]: https://github.com/phpmyadmin/sql-parser/compare/5.10.1...5.10.2
