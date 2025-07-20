@@ -117,6 +117,8 @@ class ContextTest extends TestCase
             ['MySql80400'],
             ['MySql90000'],
             ['MySql90100'],
+            ['MySql90200'],
+            ['MySql90300'],
             ['MariaDb100000'],
             ['MariaDb100100'],
             ['MariaDb100200'],
@@ -139,6 +141,7 @@ class ContextTest extends TestCase
             ['MariaDb110700'],
             ['MariaDb110800'],
             ['MariaDb120000'],
+            ['MariaDb120100'],
         ];
     }
 
@@ -172,6 +175,8 @@ class ContextTest extends TestCase
             [Contexts\ContextMySql80400::class],
             [Contexts\ContextMySql90000::class],
             [Contexts\ContextMySql90100::class],
+            [Contexts\ContextMySql90200::class],
+            [Contexts\ContextMySql90300::class],
             [Contexts\ContextMariaDb100000::class],
             [Contexts\ContextMariaDb100100::class],
             [Contexts\ContextMariaDb100200::class],
@@ -194,6 +199,7 @@ class ContextTest extends TestCase
             [Contexts\ContextMariaDb110700::class],
             [Contexts\ContextMariaDb110800::class],
             [Contexts\ContextMariaDb120000::class],
+            [Contexts\ContextMariaDb120100::class],
         ];
     }
 
