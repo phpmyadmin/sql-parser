@@ -486,7 +486,7 @@ parameters:
 			path: src/Components/IntoKeyword.php
 
 		-
-			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
+			message: "#^Parameter \\#2 \\$pieces of function implode expects array, array\\<string\\>\\|string given\\.$#"
 			count: 1
 			path: src/Components/IntoKeyword.php
 
@@ -2139,11 +2139,6 @@ parameters:
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
 			count: 10
 			path: tests/Builder/ExplainStatementTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
-			count: 6
-			path: tests/Builder/InsertStatementTest.php
 
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
