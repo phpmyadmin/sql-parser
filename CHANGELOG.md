@@ -1,10 +1,34 @@
 # Change Log
 
-## [6.0.x] - YYYY-MM-DD
+## [6.0.0] - 2025-10-31
 
-- Drop support for PHP 7.2, 7.3, 7.4, 8.0 and 8.1
-- Move `Misc::getAliases()` into `SelectStatement::getAliases()` (#454)
-- Drop `USE_UTF_STRINGS` constant (#471)
+### Added
+
+* [#550](https://github.com/phpmyadmin/sql-parser/pull/550): Create the `StatementInfo` class
+* [#549](https://github.com/phpmyadmin/sql-parser/pull/549): Add `leftOperand`, `operator` and `rightOperand` properties to the `Condition` component
+
+### Changed
+
+* Add native type declarations
+* [#365](https://github.com/phpmyadmin/sql-parser/pull/365): Change `Component` abstract class to an interface
+* [#368](https://github.com/phpmyadmin/sql-parser/pull/368): Rename class members to use camel case format
+* [#384](https://github.com/phpmyadmin/sql-parser/pull/384): Change `Context::load()` error handling from throwing an exception to returning a boolean value
+* [#454](https://github.com/phpmyadmin/sql-parser/pull/454): Move `Misc::getAliases()` into `SelectStatement::getAliases()`
+* [#480](https://github.com/phpmyadmin/sql-parser/pull/480): Split up Context::escape()
+* [#470](https://github.com/phpmyadmin/sql-parser/pull/470): Restrict parameter type of `OptionsArray::merge`
+* [#483](https://github.com/phpmyadmin/sql-parser/pull/483): Split build into buildAll
+* [#505](https://github.com/phpmyadmin/sql-parser/pull/505): Change some static properties into class constants
+* [#504](https://github.com/phpmyadmin/sql-parser/pull/504): Change `TokensList` class to add the `buildFromArray` method
+* [#507](https://github.com/phpmyadmin/sql-parser/pull/507): Replace the `Token::TYPE_*` constants with the `TokenType` enum
+* [#543](https://github.com/phpmyadmin/sql-parser/pull/543): Extract `parse` method from components into Parsers
+
+### Removed
+
+* Drop support for PHP 7.2, 7.3, 7.4, 8.0 and 8.1
+* [#471](https://github.com/phpmyadmin/sql-parser/pull/471): Drop `USE_UTF_STRINGS` constant
+* [#482](https://github.com/phpmyadmin/sql-parser/pull/482): Drop `$options` parameter from `Component::build`
+* [#585](https://github.com/phpmyadmin/sql-parser/pull/585): Drop `Utils\Routine` class
+* [#594](https://github.com/phpmyadmin/sql-parser/pull/594): Remove alternative executable files
 
 ## [5.11.1] - 2025-07-20
 
@@ -633,6 +657,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[6.0.0]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...6.0.0
 [5.11.1]: https://github.com/phpmyadmin/sql-parser/compare/5.11.0...5.11.1
 [5.11.0]: https://github.com/phpmyadmin/sql-parser/compare/5.10.3...5.11.0
 [5.10.3]: https://github.com/phpmyadmin/sql-parser/compare/5.10.2...5.10.3
