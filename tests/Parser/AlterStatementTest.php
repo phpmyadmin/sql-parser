@@ -51,6 +51,7 @@ class AlterStatementTest extends TestCase
             ['parser/parseAlterTableAddSpatialIndex1'],
             ['parser/parseAlterTableAddUniqueKey1'],
             ['parser/parseAlterTableAddUniqueKey2'],
+            ['parser/parseAlterTableAddUniqueKeyDesc'],
             ['parser/parseAlterTableDropAddIndex1'],
             ['parser/parseAlterTableDropColumn1'],
             ['parser/parseAlterTableModifyColumn'],
