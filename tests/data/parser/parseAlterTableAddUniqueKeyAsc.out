@@ -1,16 +1,16 @@
 {
-    "query": "ALTER TABLE `bad_table_is_bad` ADD UNIQUE KEY `column1` (`column1`,`column2` DESC);",
+    "query": "ALTER TABLE `bad_table_is_bad` ADD UNIQUE KEY `column1` (`column1`, `column2` ASC);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "strict": false,
         "errors": [],
-        "str": "ALTER TABLE `bad_table_is_bad` ADD UNIQUE KEY `column1` (`column1`,`column2` DESC);",
+        "str": "ALTER TABLE `bad_table_is_bad` ADD UNIQUE KEY `column1` (`column1`, `column2` ASC);",
         "len": 83,
         "last": 83,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
-            "count": 21,
-            "idx": 21,
+            "count": 22,
+            "idx": 22,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -187,6 +187,17 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@5"
+                    },
+                    "flags": 0,
+                    "position": 67
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
                     "token": "`column2`",
                     "value": "column2",
                     "keyword": null,
@@ -194,7 +205,7 @@
                         "@type": "@9"
                     },
                     "flags": 2,
-                    "position": 67
+                    "position": 68
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -205,18 +216,18 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 76
+                    "position": 77
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "DESC",
-                    "value": "DESC",
-                    "keyword": "DESC",
+                    "token": "ASC",
+                    "value": "ASC",
+                    "keyword": "ASC",
                     "type": {
                         "@type": "@3"
                     },
                     "flags": 3,
-                    "position": 77
+                    "position": 78
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -248,7 +259,7 @@
                     "value": "",
                     "keyword": null,
                     "type": {
-                        "@type": "@26"
+                        "@type": "@27"
                     },
                     "flags": 0,
                     "position": null
@@ -320,6 +331,9 @@
                             },
                             {
                                 "@type": "@24"
+                            },
+                            {
+                                "@type": "@25"
                             }
                         ]
                     }
@@ -331,7 +345,7 @@
                     }
                 },
                 "first": 0,
-                "last": 19
+                "last": 20
             }
         ],
         "brackets": 0
