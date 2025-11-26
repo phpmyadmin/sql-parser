@@ -370,7 +370,11 @@ final class AlterOperations implements Parseable
                         break;
                     }
                 } elseif (! self::checkIfTokenQuotedSymbol($token) && $token->type !== TokenType::String) {
-                    if (isset(Parser::STATEMENT_PARSERS[$arrayKey]) && Parser::STATEMENT_PARSERS[$arrayKey] !== '' && ! in_array($arrayKey, ['ASC', 'DESC'], true)) {
+                    if (
+                        isset(Parser::STATEMENT_PARSERS[$arrayKey]) 
+                        && Parser::STATEMENT_PARSERS[$arrayKey] !== '' 
+                        && ! in_array($arrayKey, ['ASC', 'DESC'], true)
+                    ) {
                         $list->idx++; // Ignore the current token
                         $nextToken = $list->getNext();
 
