@@ -1,16 +1,16 @@
 {
-    "query": "ALTER TABLE `bad_table_is_bad` ADD UNIQUE KEY `column1` (`column1`,`column2` DESC);",
+    "query": "ALTER TABLE `bad_table_is_bad` ADD UNIQUE KEY `lower_desc_key` (`column1` desc, `column2` desc);",
     "lexer": {
         "@type": "PhpMyAdmin\\SqlParser\\Lexer",
         "strict": false,
         "errors": [],
-        "str": "ALTER TABLE `bad_table_is_bad` ADD UNIQUE KEY `column1` (`column1`,`column2` DESC);",
-        "len": 83,
-        "last": 83,
+        "str": "ALTER TABLE `bad_table_is_bad` ADD UNIQUE KEY `lower_desc_key` (`column1` desc, `column2` desc);",
+        "len": 96,
+        "last": 96,
         "list": {
             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
-            "count": 21,
-            "idx": 21,
+            "count": 24,
+            "idx": 24,
             "tokens": [
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -130,8 +130,8 @@
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`column1`",
-                    "value": "column1",
+                    "token": "`lower_desc_key`",
+                    "value": "lower_desc_key",
                     "keyword": null,
                     "type": {
                         "@type": "@9"
@@ -148,7 +148,7 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 55
+                    "position": 62
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -161,7 +161,7 @@
                         "value": 2
                     },
                     "flags": 16,
-                    "position": 56
+                    "position": 63
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -172,29 +172,7 @@
                         "@type": "@9"
                     },
                     "flags": 2,
-                    "position": 57
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": ",",
-                    "value": ",",
-                    "keyword": null,
-                    "type": {
-                        "@type": "@18"
-                    },
-                    "flags": 16,
-                    "position": 66
-                },
-                {
-                    "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "`column2`",
-                    "value": "column2",
-                    "keyword": null,
-                    "type": {
-                        "@type": "@9"
-                    },
-                    "flags": 2,
-                    "position": 67
+                    "position": 64
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -205,18 +183,73 @@
                         "@type": "@5"
                     },
                     "flags": 0,
-                    "position": 76
+                    "position": 73
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
-                    "token": "DESC",
+                    "token": "desc",
                     "value": "DESC",
                     "keyword": "DESC",
                     "type": {
                         "@type": "@3"
                     },
                     "flags": 3,
-                    "position": 77
+                    "position": 74
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ",",
+                    "value": ",",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@18"
+                    },
+                    "flags": 16,
+                    "position": 78
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@5"
+                    },
+                    "flags": 0,
+                    "position": 79
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "`column2`",
+                    "value": "column2",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@9"
+                    },
+                    "flags": 2,
+                    "position": 80
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "@5"
+                    },
+                    "flags": 0,
+                    "position": 89
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "desc",
+                    "value": "DESC",
+                    "keyword": "DESC",
+                    "type": {
+                        "@type": "@3"
+                    },
+                    "flags": 3,
+                    "position": 90
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -227,7 +260,7 @@
                         "@type": "@18"
                     },
                     "flags": 16,
-                    "position": 81
+                    "position": 94
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -240,7 +273,7 @@
                         "value": 9
                     },
                     "flags": 0,
-                    "position": 82
+                    "position": 95
                 },
                 {
                     "@type": "PhpMyAdmin\\SqlParser\\Token",
@@ -248,7 +281,7 @@
                     "value": "",
                     "keyword": null,
                     "type": {
-                        "@type": "@26"
+                        "@type": "@29"
                     },
                     "flags": 0,
                     "position": null
@@ -292,8 +325,8 @@
                             "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
                             "database": null,
                             "table": null,
-                            "column": "column1",
-                            "expr": "`column1`",
+                            "column": "lower_desc_key",
+                            "expr": "`lower_desc_key`",
                             "alias": null,
                             "function": null,
                             "subquery": null
@@ -320,6 +353,15 @@
                             },
                             {
                                 "@type": "@24"
+                            },
+                            {
+                                "@type": "@25"
+                            },
+                            {
+                                "@type": "@26"
+                            },
+                            {
+                                "@type": "@27"
                             }
                         ]
                     }
@@ -331,7 +373,7 @@
                     }
                 },
                 "first": 0,
-                "last": 19
+                "last": 22
             }
         ],
         "brackets": 0
