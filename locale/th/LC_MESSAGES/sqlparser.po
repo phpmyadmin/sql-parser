@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 22:46+0100\n"
-"PO-Revision-Date: 2023-01-26 07:10+0000\n"
-"Last-Translator: liviuconcioiu <liviu.concioiu@gmail.com>\n"
+"PO-Revision-Date: 2026-01-19 00:55+0000\n"
+"Last-Translator: Jiraroj Leelarattanawong <legendarybuilder@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/th/>\n"
 "Language: th\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.15.2\n"
 
 #: src/Component.php:39 src/Component.php:59
 msgid "Not implemented yet."
@@ -22,11 +22,11 @@ msgstr "ยังไม่มีการดำเนินการ"
 #: src/Components/AlterOperation.php:415 src/Statement.php:359
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
-msgstr "ตรวจพบประพจน์ใหม่ แต่ไม่มีตัวคั่นระหว่างข้อความนี้กับข้อความก่อนหน้า"
+msgstr "พบข้อความใหม่ แต่ไม่มีตัวคั่นระหว่างข้อความใหม่กับข้อความก่อนหน้า"
 
 #: src/Components/AlterOperation.php:427
 msgid "Missing comma before start of a new alter operation."
-msgstr ""
+msgstr "ขาดเครื่องหมายจุลภาคก่อนเริ่มต้นการดำเนินการแก้ไขใหม่"
 
 #: src/Components/AlterOperation.php:472
 msgid "Unrecognized alter operation."
@@ -67,14 +67,12 @@ msgid "Unexpected end of CASE expression"
 msgstr "จุดสิ้นสุดนิพจน์ CASE ไม่ได้รับการคาดเดา"
 
 #: src/Components/CaseExpression.php:212
-#, fuzzy
-#| msgid "Unexpected end of CASE expression"
 msgid "Potential duplicate alias of CASE expression."
-msgstr "จุดสิ้นสุดนิพจน์ CASE ไม่ได้รับการคาดเดา"
+msgstr "ชื่อเรียกซ้ำที่เป็นไปได้ของนิพจน์ CASE"
 
 #: src/Components/CaseExpression.php:225
 msgid "An alias expected after AS but got "
-msgstr ""
+msgstr "คาดว่าจะใช้นามแฝงหลัง AS แต่กลับได้ชื่อแทนอื่น "
 
 #: src/Components/CaseExpression.php:238 src/Components/Expression.php:352
 #: src/Components/Expression.php:372 src/Components/Expression.php:424
@@ -82,10 +80,8 @@ msgid "An alias was previously found."
 msgstr "ชื่อ alias มีอยู่ก่อนแล้ว"
 
 #: src/Components/CaseExpression.php:252
-#, fuzzy
-#| msgid "An alias was expected."
 msgid "An alias was expected after AS."
-msgstr "ตัวแทนได้รับการคาดเดา"
+msgstr "คาดว่าจะมีการใช้นามแฝงต่อท้าย AS"
 
 #: src/Components/CreateDefinition.php:255
 msgid ""
@@ -242,38 +238,28 @@ msgid "This type of clause is not valid in Multi-table queries."
 msgstr "ประโยคชนิดนี้ไม่ถูกต้องในการเรียกใช้แบบหลายตาราง"
 
 #: src/Statements/LockStatement.php:120
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of LOCK statement."
-msgstr "ไม่อาจคาดเดาจุดเริ่มต้นของประพจน์"
+msgstr "สิ้นสุดการทำงานของคำสั่ง LOCK อย่างไม่คาดคิด"
 
 #: src/Statements/PurgeStatement.php:138
 msgid "Unexpected keyword"
 msgstr "คำสำคัญที่ไม่ได้รับการคาดเดา"
 
 #: src/Statements/WithStatement.php:118
-#, fuzzy
-#| msgid "The name of the entity was expected."
 msgid "The name of the CTE was expected."
-msgstr "ชื่อเอนทิติได้รับการคาดหวัง"
+msgstr "ชื่อของ CTE นั้นเป็นไปตามที่คาดไว้"
 
 #: src/Statements/WithStatement.php:137
-#, fuzzy
-#| msgid "A \"RETURNS\" keyword was expected."
 msgid "AS keyword was expected."
-msgstr "คีย์เวิร์ด \"RETURNS\" ได้รับการคาดหวัง"
+msgstr "คาดว่าจะใช้คีย์เวิร์ด AS"
 
 #: src/Statements/WithStatement.php:149
-#, fuzzy
-#| msgid "The name of the entity was expected."
 msgid "Subquery of the CTE was expected."
-msgstr "ชื่อเอนทิติได้รับการคาดหวัง"
+msgstr "คาดว่าจะมีการใช้คำสั่งรองของ CTE"
 
 #: src/Statements/WithStatement.php:266
-#, fuzzy
-#| msgid "Unexpected beginning of statement."
 msgid "Unexpected end of the WITH CTE."
-msgstr "ไม่อาจคาดเดาจุดเริ่มต้นของประพจน์"
+msgstr "ไม่คาดว่าจะมีการจบท้ายด้วย WITH CTE"
 
 #~ msgid "Unexpected end of Lock expression."
 #~ msgstr "จุดสิ้นสุดนิพจน์ LOCK ไม่ได้รับการคาดเดา."
