@@ -518,12 +518,15 @@ class Formatter
                 } elseif (
                     $prev->keyword === 'DELIMITER'
                     || ! (
-                    ($prev->type === TokenType::Operator && ($prev->value === '.' || $prev->value === '('))
-                    // No space after . (
+                    ($prev->type === TokenType::Operator
+                        && ($prev->value === '.' || $prev->value === '('
+                            || $prev->value === '->' || $prev->value === '->>'))
+                    // No space after punctuation and JSON operators.
                     || ($curr->type === TokenType::Operator
                         && ($curr->value === '.' || $curr->value === ','
-                            || $curr->value === '(' || $curr->value === ')'))
-                    // No space before . , ( )
+                            || $curr->value === '(' || $curr->value === ')'
+                            || $curr->value === '->' || $curr->value === '->>'))
+                    // No space before punctuation and JSON operators.
                     || $curr->type === TokenType::Delimiter && mb_strlen((string) $curr->value, 'UTF-8') < 2
                     )
                 ) {
