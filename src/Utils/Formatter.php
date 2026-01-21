@@ -533,19 +533,21 @@ class Formatter
 
                     $lineEnded = false;
                 } else {
-                    // If the line ended there is no point in adding whitespaces.
+                    // If the line ended, there is no point in adding whitespaces.
                     // Also, some tokens do not have spaces before or after them.
                     if (
-                        // A space after delimiters that are longer than 2 characters.
                         $prev->keyword === 'DELIMITER'
                         || ! (
-                            ($prev->type === Token::TYPE_OPERATOR && ($prev->value === '.' || $prev->value === '('))
-                            // No space after . (
-                            || ($curr->type === Token::TYPE_OPERATOR
-                                && ($curr->value === '.' || $curr->value === ','
-                                    || $curr->value === '(' || $curr->value === ')'))
-                            // No space before . , ( )
-                            || $curr->type === Token::TYPE_DELIMITER && mb_strlen((string) $curr->value, 'UTF-8') < 2
+                        ($prev->type === Token::TYPE_OPERATOR
+                            && ($prev->value === '.' || $prev->value === '('
+                                || $prev->value === '->' || $prev->value === '->>'))
+                        // No space after punctuation and JSON operators.
+                        || ($curr->type === Token::TYPE_OPERATOR
+                            && ($curr->value === '.' || $curr->value === ','
+                                || $curr->value === '(' || $curr->value === ')'
+                                || $curr->value === '->' || $curr->value === '->>'))
+                        // No space before punctuation and JSON operators.
+                        || $curr->type === Token::TYPE_DELIMITER && mb_strlen((string) $curr->value, 'UTF-8') < 2
                         )
                     ) {
                         $ret .= ' ';

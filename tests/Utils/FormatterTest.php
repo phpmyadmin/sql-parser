@@ -321,6 +321,36 @@ class FormatterTest extends TestCase
                     '<span class="sql-reserved">WHERE</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
             ],
+            'json operator' => [
+                'query' => 'SELECT details->\'$."first_name"\' FROM users',
+                'text' => 'SELECT' . "\n" .
+                    '    details->\'$."first_name"\'' . "\n" .
+                    'FROM' . "\n" .
+                    '    users',
+                'cli' => "\x1b[35mSELECT\n" .
+                    "    \x1b[39mdetails->\x1b[91m'$.\"first_name\"'\n" .
+                    "\x1b[35mFROM\n" .
+                    "    \x1b[39musers\x1b[0m",
+                'html' => '<span class="sql-reserved">SELECT</span><br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;details-&gt;<span class="sql-string">\'$."first_name"\'</span><br/>' .
+                    '<span class="sql-reserved">FROM</span><br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;users',
+            ],
+            'json operator (unquoted)' => [
+                'query' => 'SELECT metadata->>"$.url" FROM `alerts`;',
+                'text' => 'SELECT' . "\n" .
+                    '    metadata->>"$.url"' . "\n" .
+                    'FROM' . "\n" .
+                    '    `alerts`;',
+                'cli' => "\x1b[35mSELECT\n" .
+                    "    \x1b[39mmetadata->>\x1b[91m\"$.url\"\n" .
+                    "\x1b[35mFROM\n" .
+                    "    \x1b[36m`alerts`\x1b[39m;\x1b[0m",
+                'html' => '<span class="sql-reserved">SELECT</span><br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;metadata-&gt;&gt;<span class="sql-string">"$.url"</span><br/>' .
+                    '<span class="sql-reserved">FROM</span><br/>' .
+                    '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-variable">`alerts`</span>;',
+            ],
             'typical' => [
                 'query' => 'SELECT id, if(id=1,"Si","No") from `tbl` where id = 0 or ' .
                     'id = 1 group by id order by id desc limit 1 offset 0',
