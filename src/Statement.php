@@ -84,10 +84,10 @@ abstract class Statement
     /**
      * Constructor.
      *
-     * @param Parser     $parser the instance that requests parsing
-     * @param TokensList $list   the list of tokens to be parsed
+     * @param Parser|null     $parser the instance that requests parsing
+     * @param TokensList|null $list   the list of tokens to be parsed
      */
-    public function __construct(Parser $parser = null, TokensList $list = null)
+    public function __construct($parser = null, $list = null)
     {
         if (($parser !== null) && ($list !== null)) {
             $this->parse($parser, $list);

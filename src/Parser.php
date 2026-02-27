@@ -595,12 +595,12 @@ class Parser extends Core
      * Creates a new error log.
      *
      * @param string $msg   the error message
-     * @param Token  $token the token that produced the error
+     * @param Token|null  $token the token that produced the error
      * @param int    $code  the code of the error
      *
      * @throws ParserException throws the exception, if strict mode is enabled
      */
-    public function error($msg, Token $token = null, $code = 0)
+    public function error($msg, $token = null, $code = 0)
     {
         $error = new ParserException(
             Translator::gettext($msg),
