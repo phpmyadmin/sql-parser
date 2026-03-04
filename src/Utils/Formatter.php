@@ -19,6 +19,7 @@ use function mb_strlen;
 use function str_contains;
 use function str_repeat;
 use function str_replace;
+use function strtolower;
 use function strtoupper;
 
 use const ENT_NOQUOTES;
@@ -82,7 +83,7 @@ class Formatter
      * The styles used for HTML formatting.
      * [$type, $flags, $span, $callback].
      *
-     * @return list<array{type: int, flags: int, html: string, cli: string, function: string}>
+     * @return list<array{type: int, flags: int, html: string, cli: string, function: callable|''}>
      */
     protected function getDefaultFormats(): array
     {
@@ -92,14 +93,14 @@ class Formatter
                 'flags' => Token::FLAG_KEYWORD_RESERVED,
                 'html' => 'class="sql-reserved"',
                 'cli' => "\x1b[35m",
-                'function' => 'strtoupper',
+                'function' => strtoupper(...),
             ],
             [
                 'type' => TokenType::Keyword->value,
                 'flags' => 0,
                 'html' => 'class="sql-keyword"',
                 'cli' => "\x1b[95m",
-                'function' => 'strtoupper',
+                'function' => strtoupper(...),
             ],
             [
                 'type' => TokenType::Comment->value,
@@ -113,14 +114,14 @@ class Formatter
                 'flags' => 0,
                 'html' => 'class="sql-atom"',
                 'cli' => "\x1b[36m",
-                'function' => 'strtoupper',
+                'function' => strtoupper(...),
             ],
             [
                 'type' => TokenType::Number->value,
                 'flags' => 0,
                 'html' => 'class="sql-number"',
                 'cli' => "\x1b[92m",
-                'function' => 'strtolower',
+                'function' => strtolower(...),
             ],
             [
                 'type' => TokenType::String->value,
