@@ -83,64 +83,64 @@ class Formatter
      * The styles used for HTML formatting.
      * [$type, $flags, $span, $callback].
      *
-     * @return list<array{type: int, flags: int, html: string, cli: string, function: callable|''}>
+     * @return list<array{type: TokenType, flags: int, html: string, cli: string, function: callable|''}>
      */
     protected function getDefaultFormats(): array
     {
         return [
             [
-                'type' => TokenType::Keyword->value,
+                'type' => TokenType::Keyword,
                 'flags' => Token::FLAG_KEYWORD_RESERVED,
-                'html' => 'class="sql-reserved"',
+                'html' => 'sql-reserved',
                 'cli' => "\x1b[35m",
                 'function' => strtoupper(...),
             ],
             [
-                'type' => TokenType::Keyword->value,
+                'type' => TokenType::Keyword,
                 'flags' => 0,
-                'html' => 'class="sql-keyword"',
+                'html' => 'sql-keyword',
                 'cli' => "\x1b[95m",
                 'function' => strtoupper(...),
             ],
             [
-                'type' => TokenType::Comment->value,
+                'type' => TokenType::Comment,
                 'flags' => 0,
-                'html' => 'class="sql-comment"',
+                'html' => 'sql-comment',
                 'cli' => "\x1b[37m",
                 'function' => '',
             ],
             [
-                'type' => TokenType::Bool->value,
+                'type' => TokenType::Bool,
                 'flags' => 0,
-                'html' => 'class="sql-atom"',
+                'html' => 'sql-atom',
                 'cli' => "\x1b[36m",
                 'function' => strtoupper(...),
             ],
             [
-                'type' => TokenType::Number->value,
+                'type' => TokenType::Number,
                 'flags' => 0,
-                'html' => 'class="sql-number"',
+                'html' => 'sql-number',
                 'cli' => "\x1b[92m",
                 'function' => strtolower(...),
             ],
             [
-                'type' => TokenType::String->value,
+                'type' => TokenType::String,
                 'flags' => 0,
-                'html' => 'class="sql-string"',
+                'html' => 'sql-string',
                 'cli' => "\x1b[91m",
                 'function' => '',
             ],
             [
-                'type' => TokenType::Symbol->value,
+                'type' => TokenType::Symbol,
                 'flags' => Token::FLAG_SYMBOL_PARAMETER,
-                'html' => 'class="sql-parameter"',
+                'html' => 'sql-parameter',
                 'cli' => "\x1b[31m",
                 'function' => '',
             ],
             [
-                'type' => TokenType::Symbol->value,
+                'type' => TokenType::Symbol,
                 'flags' => 0,
-                'html' => 'class="sql-variable"',
+                'html' => 'sql-variable',
                 'cli' => "\x1b[36m",
                 'function' => '',
             ],
@@ -454,21 +454,16 @@ class Formatter
         static $prev;
 
         foreach ($this->getDefaultFormats() as $format) {
-            if (
-                $token->type->value !== $format['type'] || ! (($token->flags & $format['flags']) === $format['flags'])
-            ) {
+            if ($token->type !== $format['type'] || ! (($token->flags & $format['flags']) === $format['flags'])) {
                 continue;
             }
 
-            // Running transformation function.
             if ($format['function'] !== '') {
-                $func = $format['function'];
-                $text = $func($text);
+                $text = $format['function']($text);
             }
 
-            // Formatting HTML.
             if ($this->options->type === 'html') {
-                return '<span ' . $format['html'] . '>' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
+                return '<span class="' . $format['html'] . '">' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
             }
 
             if ($this->options->type === 'cli') {
