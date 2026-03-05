@@ -5,12 +5,71 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Utils\Formatter;
 use PhpMyAdmin\SqlParser\Utils\FormattingOptions;
 use PHPUnit\Framework\Attributes\DataProvider;
 
+use function strtoupper;
+
 class FormatterTest extends TestCase
 {
+    public function testMergeFormats(): void
+    {
+        $object = new FormattingOptions(formats: []);
+        self::assertEquals($object->formats, FormattingOptions::getDefaultFormats());
+
+        $object = new FormattingOptions(formats: [
+            [
+                'type' => TokenType::Keyword,
+                'flags' => Token::FLAG_KEYWORD_RESERVED,
+                'html' => 'sql-foo',
+                'cli' => "\x1b[35m",
+                'function' => strtoupper(...),
+            ],
+            [
+                'type' => TokenType::Keyword,
+                'flags' => 0,
+                'html' => 'sql-bar',
+                'cli' => "\x1b[95m",
+                'function' => strtoupper(...),
+            ],
+            [
+                'type' => TokenType::Keyword,
+                'flags' => Token::FLAG_KEYWORD_COMPOSED,
+                'html' => 'sql-baz',
+                'cli' => "\x1b[95m",
+                'function' => strtoupper(...),
+            ],
+
+        ]);
+
+        self::assertContainsEquals([
+            'type' => TokenType::Keyword,
+            'flags' => Token::FLAG_KEYWORD_RESERVED,
+            'html' => 'sql-foo',
+            'cli' => "\x1b[35m",
+            'function' => strtoupper(...),
+        ], $object->formats);
+
+        self::assertContainsEquals([
+            'type' => TokenType::Keyword,
+            'flags' => 0,
+            'html' => 'sql-bar',
+            'cli' => "\x1b[95m",
+            'function' => strtoupper(...),
+        ], $object->formats);
+
+        self::assertContainsEquals([
+            'type' => TokenType::Keyword,
+            'flags' => Token::FLAG_KEYWORD_COMPOSED,
+            'html' => 'sql-baz',
+            'cli' => "\x1b[95m",
+            'function' => strtoupper(...),
+        ], $object->formats);
+    }
+
     /** @param array{removeComments?: bool, lineEnding?: string, indentation?: string} $options */
     #[DataProvider('formatQueriesProviders')]
     public function testFormat(
