@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.13.0@70cdf647255a1362b426bb0f522a85817b8c791c">
+<files psalm-version="6.15.1@28dc127af1b5aecd52314f6f645bafc10d0e11f9">
   <file src="src/Components/AlterOperation.php">
     <PossiblyNullReference>
       <code><![CDATA[has]]></code>
@@ -185,6 +185,7 @@
     <PossiblyNullArrayOffset>
       <code><![CDATA[$list->tokens]]></code>
       <code><![CDATA[self::STATEMENT_PARSERS]]></code>
+      <code><![CDATA[self::STATEMENT_PARSERS]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$list->idx]]></code>
@@ -337,6 +338,9 @@
       <code><![CDATA[$field]]></code>
       <code><![CDATA[$options['field']]]></code>
     </MixedAssignment>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[Parser::STATEMENT_PARSERS]]></code>
+    </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$ret->expr]]></code>
       <code><![CDATA[$ret->expr]]></code>
@@ -395,6 +399,10 @@
     <PossiblyInvalidPropertyAssignmentValue>
       <code><![CDATA[ArrayObjs::parse($parser, $list)]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[JoinKeyword::JOINS]]></code>
+      <code><![CDATA[JoinKeyword::JOINS]]></code>
+    </PossiblyNullArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($expr->type)]]></code>
     </RiskyTruthyFalsyComparison>
@@ -550,6 +558,9 @@
       <code><![CDATA[array<string, int>]]></code>
       <code><![CDATA[array_flip($clauses)]]></code>
     </MixedReturnTypeCoercion>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[Parser::STATEMENT_PARSERS]]></code>
+    </PossiblyNullArrayOffset>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
@@ -799,6 +810,7 @@
     </MixedReturnTypeCoercion>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$tables[$thisDb]]]></code>
+      <code><![CDATA[Parser::STATEMENT_PARSERS]]></code>
     </PossiblyNullArrayOffset>
     <PossiblyUnusedProperty>
       <code><![CDATA[$endOptions]]></code>
@@ -942,6 +954,9 @@
     </PossiblyNullOperand>
   </file>
   <file src="src/Utils/CLI.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$params['f']]]></code>
+    </ArgumentTypeCoercion>
     <InvalidReturnStatement>
       <code><![CDATA[getopt($opt, $long)]]></code>
     </InvalidReturnStatement>
@@ -953,7 +968,7 @@
     </MixedArgumentTypeCoercion>
     <PossiblyFalseArgument>
       <code><![CDATA[$params['c']]]></code>
-      <code><![CDATA[$params['q']]]></code>
+      <code><![CDATA[$params['f']]]></code>
       <code><![CDATA[$params['q']]]></code>
       <code><![CDATA[$params['q']]]></code>
     </PossiblyFalseArgument>
@@ -999,16 +1014,6 @@
       <code><![CDATA[$text]]></code>
       <code><![CDATA[$text]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$format['cli']]]></code>
-      <code><![CDATA[$format['cli']]]></code>
-      <code><![CDATA[$format['cli']]]></code>
-      <code><![CDATA[$format['flags']]]></code>
-      <code><![CDATA[$format['flags']]]></code>
-      <code><![CDATA[$format['function']]]></code>
-      <code><![CDATA[$format['html']]]></code>
-      <code><![CDATA[$format['type']]]></code>
-    </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[self::$inlineClauses[$lastClause]]]></code>
       <code><![CDATA[self::$inlineClauses[$lastClause]]]></code>
@@ -1021,32 +1026,20 @@
     </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$blocksLineEndings[]]]></code>
-      <code><![CDATA[$format]]></code>
-      <code><![CDATA[$func]]></code>
       <code><![CDATA[$lineEnded]]></code>
-      <code><![CDATA[$prev]]></code>
       <code><![CDATA[$text]]></code>
     </MixedAssignment>
-    <MixedFunctionCall>
-      <code><![CDATA[$func($text)]]></code>
-    </MixedFunctionCall>
     <MixedOperand>
-      <code><![CDATA[$format['cli']]]></code>
-      <code><![CDATA[$format['flags']]]></code>
-      <code><![CDATA[$format['html']]]></code>
       <code><![CDATA[$lineEnded]]></code>
     </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[$text]]></code>
       <code><![CDATA[$text]]></code>
     </MixedReturnStatement>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$options['formats']]]></code>
-      <code><![CDATA[$this->options['indentation']]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidIterator>
-      <code><![CDATA[$this->options['formats']]]></code>
-    </PossiblyInvalidIterator>
+    <PossiblyNullArrayOffset>
+      <code><![CDATA[Parser::KEYWORD_PARSERS]]></code>
+      <code><![CDATA[Parser::STATEMENT_PARSERS]]></code>
+    </PossiblyNullArrayOffset>
     <PossiblyNullOperand>
       <code><![CDATA[$indent]]></code>
       <code><![CDATA[$indent]]></code>
@@ -1055,11 +1048,6 @@
     </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$lineEnded]]></code>
-      <code><![CDATA[$this->options['clause_newline']]]></code>
-      <code><![CDATA[$this->options['parts_newline']]]></code>
-      <code><![CDATA[$this->options['parts_newline']]]></code>
-      <code><![CDATA[$this->options['parts_newline']]]></code>
-      <code><![CDATA[$this->options['remove_comments']]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Utils/Query.php">
@@ -1094,6 +1082,9 @@
       <code><![CDATA[$i]]></code>
     </NullableReturnStatement>
     <PossiblyNullArrayOffset>
+      <code><![CDATA[$clauses]]></code>
+      <code><![CDATA[$clauses]]></code>
+      <code><![CDATA[$clauses]]></code>
       <code><![CDATA[$list->tokens]]></code>
       <code><![CDATA[$list->tokens]]></code>
     </PossiblyNullArrayOffset>

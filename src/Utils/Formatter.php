@@ -11,7 +11,6 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 
-use function array_merge;
 use function array_pop;
 use function end;
 use function htmlspecialchars;
@@ -23,20 +22,12 @@ use function str_replace;
 use function strtoupper;
 
 use const ENT_NOQUOTES;
-use const PHP_SAPI;
 
 /**
  * Utilities that are used for formatting queries.
  */
 class Formatter
 {
-    /**
-     * The formatting options.
-     *
-     * @var array<string, bool|string|array<int, array<string, int|string>>>
-     */
-    public array $options;
-
     /**
      * Clauses that are usually short.
      *
@@ -83,245 +74,8 @@ class Formatter
         'SUBPARTITION BY',
     ];
 
-    /** @param array<string, bool|string|array<int, array<string, int|string>>> $options the formatting options */
-    public function __construct(array $options = [])
+    protected function __construct(protected FormattingOptions $options = new FormattingOptions())
     {
-        $this->options = $this->getMergedOptions($options);
-    }
-
-    /**
-     * The specified formatting options are merged with the default values.
-     *
-     * @param array<string, bool|string|array<int, array<string, int|string>>> $options
-     *
-     * @return array<string, bool|string|array<int, array<string, int|string>>>
-     */
-    protected function getMergedOptions(array $options): array
-    {
-        $options = array_merge(
-            $this->getDefaultOptions(),
-            $options,
-        );
-
-        if (isset($options['formats'])) {
-            $options['formats'] = self::mergeFormats($this->getDefaultFormats(), $options['formats']);
-        } else {
-            $options['formats'] = $this->getDefaultFormats();
-        }
-
-        if ($options['line_ending'] === null) {
-            $options['line_ending'] = $options['type'] === 'html' ? '<br/>' : "\n";
-        }
-
-        if ($options['indentation'] === null) {
-            $options['indentation'] = $options['type'] === 'html' ? '&nbsp;&nbsp;&nbsp;&nbsp;' : '    ';
-        }
-
-        // `parts_newline` requires `clause_newline`
-        $options['parts_newline'] &= $options['clause_newline'];
-
-        return $options;
-    }
-
-    /**
-     * The default formatting options.
-     *
-     * @return array<string, bool|string|null>
-     * @psalm-return array{
-     *   type: ('cli'|'text'),
-     *   line_ending: null,
-     *   indentation: null,
-     *   remove_comments: false,
-     *   clause_newline: true,
-     *   parts_newline: true,
-     *   indent_parts: true
-     * }
-     */
-    protected function getDefaultOptions(): array
-    {
-        return [
-            /*
-             * The format of the result.
-             *
-             * @var string The type ('text', 'cli' or 'html')
-             */
-            'type' => PHP_SAPI === 'cli' ? 'cli' : 'text',
-
-            /*
-             * The line ending used.
-             * By default, for text this is "\n" and for HTML this is "<br/>".
-             *
-             * @var string
-             */
-            'line_ending' => null,
-
-            /*
-             * The string used for indentation.
-             *
-             * @var string
-             */
-            'indentation' => null,
-
-            /*
-             * Whether comments should be removed or not.
-             *
-             * @var bool
-             */
-            'remove_comments' => false,
-
-            /*
-             * Whether each clause should be on a new line.
-             *
-             * @var bool
-             */
-            'clause_newline' => true,
-
-            /*
-             * Whether each part should be on a new line.
-             * Parts are delimited by brackets and commas.
-             *
-             * @var bool
-             */
-            'parts_newline' => true,
-
-            /*
-             * Whether each part of each clause should be indented.
-             *
-             * @var bool
-             */
-            'indent_parts' => true,
-        ];
-    }
-
-    /**
-     * The styles used for HTML formatting.
-     * [$type, $flags, $span, $callback].
-     *
-     * @return array<int, array<string, int|string>>
-     * @psalm-return list<array{type: int, flags: int, html: string, cli: string, function: string}>
-     */
-    protected function getDefaultFormats(): array
-    {
-        return [
-            [
-                'type' => TokenType::Keyword->value,
-                'flags' => Token::FLAG_KEYWORD_RESERVED,
-                'html' => 'class="sql-reserved"',
-                'cli' => "\x1b[35m",
-                'function' => 'strtoupper',
-            ],
-            [
-                'type' => TokenType::Keyword->value,
-                'flags' => 0,
-                'html' => 'class="sql-keyword"',
-                'cli' => "\x1b[95m",
-                'function' => 'strtoupper',
-            ],
-            [
-                'type' => TokenType::Comment->value,
-                'flags' => 0,
-                'html' => 'class="sql-comment"',
-                'cli' => "\x1b[37m",
-                'function' => '',
-            ],
-            [
-                'type' => TokenType::Bool->value,
-                'flags' => 0,
-                'html' => 'class="sql-atom"',
-                'cli' => "\x1b[36m",
-                'function' => 'strtoupper',
-            ],
-            [
-                'type' => TokenType::Number->value,
-                'flags' => 0,
-                'html' => 'class="sql-number"',
-                'cli' => "\x1b[92m",
-                'function' => 'strtolower',
-            ],
-            [
-                'type' => TokenType::String->value,
-                'flags' => 0,
-                'html' => 'class="sql-string"',
-                'cli' => "\x1b[91m",
-                'function' => '',
-            ],
-            [
-                'type' => TokenType::Symbol->value,
-                'flags' => Token::FLAG_SYMBOL_PARAMETER,
-                'html' => 'class="sql-parameter"',
-                'cli' => "\x1b[31m",
-                'function' => '',
-            ],
-            [
-                'type' => TokenType::Symbol->value,
-                'flags' => 0,
-                'html' => 'class="sql-variable"',
-                'cli' => "\x1b[36m",
-                'function' => '',
-            ],
-        ];
-    }
-
-    /**
-     * @param array<int, array<string, int|string>> $formats
-     * @param array<int, array<string, int|string>> $newFormats
-     *
-     * @return array<int, array<string, int|string>>
-     */
-    private static function mergeFormats(array $formats, array $newFormats): array
-    {
-        $added = [];
-        $integers = [
-            'flags',
-            'type',
-        ];
-        $strings = [
-            'html',
-            'cli',
-            'function',
-        ];
-
-        /* Sanitize the array so that we do not have to care later */
-        foreach ($newFormats as $j => $new) {
-            foreach ($integers as $name) {
-                if (isset($new[$name])) {
-                    continue;
-                }
-
-                $newFormats[$j][$name] = 0;
-            }
-
-            foreach ($strings as $name) {
-                if (isset($new[$name])) {
-                    continue;
-                }
-
-                $newFormats[$j][$name] = '';
-            }
-        }
-
-        /* Process changes to existing formats */
-        foreach ($formats as $i => $original) {
-            foreach ($newFormats as $j => $new) {
-                if ($new['type'] !== $original['type'] || $original['flags'] !== $new['flags']) {
-                    continue;
-                }
-
-                $formats[$i] = $new;
-                $added[] = $j;
-            }
-        }
-
-        /* Add not already handled formats */
-        foreach ($newFormats as $j => $new) {
-            if (in_array($j, $added)) {
-                continue;
-            }
-
-            $formats[] = $new;
-        }
-
-        return $formats;
     }
 
     /**
@@ -408,7 +162,7 @@ class Formatter
                 continue;
             }
 
-            if ($curr->type === TokenType::Comment && $this->options['remove_comments']) {
+            if ($curr->type === TokenType::Comment && $this->options->removeComments) {
                 // Skip Comments if option `remove_comments` is enabled
                 continue;
             }
@@ -423,7 +177,7 @@ class Formatter
 
                 // The options of a clause should stay on the same line and everything that follows.
                 if (
-                    $this->options['parts_newline']
+                    $this->options->clauseNewline
                     && ! $formattedOptions
                     && empty(self::$inlineClauses[$lastClause])
                     && (
@@ -440,12 +194,9 @@ class Formatter
                 $isClause = static::isClause($curr);
 
                 if ($isClause !== false) {
-                    if (
-                        ($isClause === 2 || $this->options['clause_newline'])
-                        && empty(self::$shortClauses[$lastClause])
-                    ) {
+                    if (($isClause === 2 || $this->options->clauseNewline) && empty(self::$shortClauses[$lastClause])) {
                         $lineEnded = true;
-                        if ($this->options['parts_newline'] && $indent > 0) {
+                        if ($this->options->clauseNewline && $indent > 0) {
                             --$indent;
                         }
                     }
@@ -482,7 +233,7 @@ class Formatter
                         || (
                             empty(self::$inlineClauses[$lastClause])
                             && ! $shortGroup
-                            && $this->options['parts_newline']
+                            && $this->options->clauseNewline
                         )
                     ) {
                         $lineEnded = true;
@@ -513,7 +264,7 @@ class Formatter
 
                 // Finishing the line.
                 if ($lineEnded) {
-                    $ret .= $this->options['line_ending'] . str_repeat($this->options['indentation'], (int) $indent);
+                    $ret .= $this->options->lineEnding . str_repeat($this->options->indentation, (int) $indent);
                     $lineEnded = false;
                 } elseif (
                     $prev->keyword === 'DELIMITER'
@@ -538,7 +289,7 @@ class Formatter
             $prev = $curr;
         }
 
-        if ($this->options['type'] === 'cli') {
+        if ($this->options->type === 'cli') {
             return $ret . "\x1b[0m";
         }
 
@@ -630,25 +381,20 @@ class Formatter
         $text = $token->token;
         static $prev;
 
-        foreach ($this->options['formats'] as $format) {
-            if (
-                $token->type->value !== $format['type'] || ! (($token->flags & $format['flags']) === $format['flags'])
-            ) {
+        foreach ($this->options->formats as $format) {
+            if ($token->type !== $format['type'] || ! (($token->flags & $format['flags']) === $format['flags'])) {
                 continue;
             }
 
-            // Running transformation function.
-            if (! empty($format['function'])) {
-                $func = $format['function'];
-                $text = $func($text);
+            if ($format['function'] !== '') {
+                $text = $format['function']($text);
             }
 
-            // Formatting HTML.
-            if ($this->options['type'] === 'html') {
-                return '<span ' . $format['html'] . '>' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
+            if ($this->options->type === 'html') {
+                return '<span class="' . $format['html'] . '">' . htmlspecialchars($text, ENT_NOQUOTES) . '</span>';
             }
 
-            if ($this->options['type'] === 'cli') {
+            if ($this->options->type === 'cli') {
                 if ($prev !== $format['cli']) {
                     $prev = $format['cli'];
 
@@ -661,7 +407,7 @@ class Formatter
             break;
         }
 
-        if ($this->options['type'] === 'cli') {
+        if ($this->options->type === 'cli') {
             if ($prev !== "\x1b[39m") {
                 $prev = "\x1b[39m";
 
@@ -671,7 +417,7 @@ class Formatter
             return $this->escapeConsole($text);
         }
 
-        if ($this->options['type'] === 'html') {
+        if ($this->options->type === 'html') {
             return htmlspecialchars($text, ENT_NOQUOTES);
         }
 
@@ -681,12 +427,12 @@ class Formatter
     /**
      * Formats a query.
      *
-     * @param string                                                           $query   The query to be formatted
-     * @param array<string, bool|string|array<int, array<string, int|string>>> $options the formatting options
+     * @param string            $query   The query to be formatted
+     * @param FormattingOptions $options the formatting options
      *
      * @return string the formatted string
      */
-    public static function format(string $query, array $options = []): string
+    public static function format(string $query, FormattingOptions $options = new FormattingOptions()): string
     {
         $lexer = new Lexer($query);
         $formatter = new self($options);
