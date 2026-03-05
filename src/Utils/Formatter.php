@@ -19,7 +19,6 @@ use function mb_strlen;
 use function str_contains;
 use function str_repeat;
 use function str_replace;
-use function strtolower;
 use function strtoupper;
 
 use const ENT_NOQUOTES;
@@ -77,74 +76,6 @@ class Formatter
 
     protected function __construct(protected FormattingOptions $options = new FormattingOptions())
     {
-    }
-
-    /**
-     * The styles used for HTML formatting.
-     * [$type, $flags, $span, $callback].
-     *
-     * @return list<array{type: TokenType, flags: int, html: string, cli: string, function: callable|''}>
-     */
-    protected function getDefaultFormats(): array
-    {
-        return [
-            [
-                'type' => TokenType::Keyword,
-                'flags' => Token::FLAG_KEYWORD_RESERVED,
-                'html' => 'sql-reserved',
-                'cli' => "\x1b[35m",
-                'function' => strtoupper(...),
-            ],
-            [
-                'type' => TokenType::Keyword,
-                'flags' => 0,
-                'html' => 'sql-keyword',
-                'cli' => "\x1b[95m",
-                'function' => strtoupper(...),
-            ],
-            [
-                'type' => TokenType::Comment,
-                'flags' => 0,
-                'html' => 'sql-comment',
-                'cli' => "\x1b[37m",
-                'function' => '',
-            ],
-            [
-                'type' => TokenType::Bool,
-                'flags' => 0,
-                'html' => 'sql-atom',
-                'cli' => "\x1b[36m",
-                'function' => strtoupper(...),
-            ],
-            [
-                'type' => TokenType::Number,
-                'flags' => 0,
-                'html' => 'sql-number',
-                'cli' => "\x1b[92m",
-                'function' => strtolower(...),
-            ],
-            [
-                'type' => TokenType::String,
-                'flags' => 0,
-                'html' => 'sql-string',
-                'cli' => "\x1b[91m",
-                'function' => '',
-            ],
-            [
-                'type' => TokenType::Symbol,
-                'flags' => Token::FLAG_SYMBOL_PARAMETER,
-                'html' => 'sql-parameter',
-                'cli' => "\x1b[31m",
-                'function' => '',
-            ],
-            [
-                'type' => TokenType::Symbol,
-                'flags' => 0,
-                'html' => 'sql-variable',
-                'cli' => "\x1b[36m",
-                'function' => '',
-            ],
-        ];
     }
 
     /**
@@ -453,7 +384,7 @@ class Formatter
         $text = $token->token;
         static $prev;
 
-        foreach ($this->getDefaultFormats() as $format) {
+        foreach ($this->options->formats as $format) {
             if ($token->type !== $format['type'] || ! (($token->flags & $format['flags']) === $format['flags'])) {
                 continue;
             }
