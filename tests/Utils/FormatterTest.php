@@ -5,277 +5,109 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PhpMyAdmin\SqlParser\Token;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Utils\Formatter;
+use PhpMyAdmin\SqlParser\Utils\FormattingOptions;
 use PHPUnit\Framework\Attributes\DataProvider;
-use ReflectionMethod;
+
+use function strtoupper;
 
 class FormatterTest extends TestCase
 {
-    /**
-     * @param array<int, array<string, int|string>> $default
-     * @param array<int, array<string, int|string>> $overriding
-     * @param array<int, array<string, int|string>> $expected
-     * @psalm-param list<array{type: int, flags: int, html: string, cli: string, function?: string}> $default
-     * @psalm-param list<array{type?: int, flags?: int, html?: string, cli?: string, function?: string}> $overriding
-     * @psalm-param list<array{type: int, flags: int, html: string, cli: string, function?: string}> $expected
-     */
-    #[DataProvider('mergeFormatsProvider')]
-    public function testMergeFormats(array $default, array $overriding, array $expected): void
+    public function testMergeFormats(): void
     {
-        $formatter = $this->createPartialMock(Formatter::class, ['getDefaultOptions', 'getDefaultFormats']);
+        $object = new FormattingOptions(formats: []);
+        self::assertEquals($object->formats, FormattingOptions::getDefaultFormats());
 
-        $formatter->expects($this->once())
-            ->method('getDefaultOptions')
-            ->willReturn([
-                'type' => 'text',
-                'line_ending' => null,
-                'indentation' => null,
-                'clause_newline' => null,
-                'parts_newline' => null,
-            ]);
+        $object = new FormattingOptions(formats: [
+            [
+                'type' => TokenType::Keyword,
+                'flags' => Token::FLAG_KEYWORD_RESERVED,
+                'html' => 'sql-foo',
+                'cli' => "\x1b[35m",
+                'function' => strtoupper(...),
+            ],
+            [
+                'type' => TokenType::Keyword,
+                'flags' => 0,
+                'html' => 'sql-bar',
+                'cli' => "\x1b[95m",
+                'function' => strtoupper(...),
+            ],
+            [
+                'type' => TokenType::Keyword,
+                'flags' => Token::FLAG_KEYWORD_COMPOSED,
+                'html' => 'sql-baz',
+                'cli' => "\x1b[95m",
+                'function' => strtoupper(...),
+            ],
 
-        $formatter->expects($this->once())
-            ->method('getDefaultFormats')
-            ->willReturn($default);
+        ]);
 
-        $expectedOptions = [
-            'type' => 'test-type',
-            'line_ending' => '<br>',
-            'indentation' => '    ',
-            'clause_newline' => null,
-            'parts_newline' => 0,
-            'formats' => $expected,
-        ];
+        self::assertContainsEquals([
+            'type' => TokenType::Keyword,
+            'flags' => Token::FLAG_KEYWORD_RESERVED,
+            'html' => 'sql-foo',
+            'cli' => "\x1b[35m",
+            'function' => strtoupper(...),
+        ], $object->formats);
 
-        $overridingOptions = [
-            'type' => 'test-type',
-            'line_ending' => '<br>',
-            'formats' => $overriding,
-        ];
+        self::assertContainsEquals([
+            'type' => TokenType::Keyword,
+            'flags' => 0,
+            'html' => 'sql-bar',
+            'cli' => "\x1b[95m",
+            'function' => strtoupper(...),
+        ], $object->formats);
 
-        $reflectionMethod = new ReflectionMethod($formatter, 'getMergedOptions');
-        $this->assertEquals($expectedOptions, $reflectionMethod->invoke($formatter, $overridingOptions));
+        self::assertContainsEquals([
+            'type' => TokenType::Keyword,
+            'flags' => Token::FLAG_KEYWORD_COMPOSED,
+            'html' => 'sql-baz',
+            'cli' => "\x1b[95m",
+            'function' => strtoupper(...),
+        ], $object->formats);
     }
 
-    /**
-     * @return array<string, array<string, array<int, array<string, int|string>>>>
-     * @psalm-return array<string, array{
-     *     default: list<array{type: int, flags: int, html: string, cli: string, function?: string}>,
-     *     overriding: list<array{type?: int, flags?: int, html?: string, cli?: string, function?: string}>,
-     *     expected: list<array{type: int, flags: int, html: string, cli: string, function?: string}>
-     * }>
-     */
-    public static function mergeFormatsProvider(): array
-    {
-        // [default[], overriding[], expected[]]
-        return [
-            'empty formats' => [
-                'default' => [
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => '',
-                        'cli' => '',
-                        'function' => '',
-                    ],
-                ],
-                'overriding' => [
-                    [],
-                ],
-                'expected' => [
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => '',
-                        'cli' => '',
-                        'function' => '',
-                    ],
-                ],
-            ],
-            'no flags' => [
-                'default' => [
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                    [
-                        'type' => 0,
-                        'flags' => 1,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                ],
-                'overriding' => [
-                    [
-                        'type' => 0,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                    ],
-                ],
-                'expected' => [
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                        'function' => '',
-                    ],
-                    [
-                        'type' => 0,
-                        'flags' => 1,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                ],
-            ],
-            'with flags' => [
-                'default' => [
-                    [
-                        'type' => -1,
-                        'flags' => 0,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                    [
-                        'type' => 0,
-                        'flags' => 1,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                ],
-                'overriding' => [
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                    ],
-                ],
-                'expected' => [
-                    [
-                        'type' => -1,
-                        'flags' => 0,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                        'function' => '',
-                    ],
-                    [
-                        'type' => 0,
-                        'flags' => 1,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                ],
-            ],
-            'with extra formats' => [
-                'default' => [
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                ],
-                'overriding' => [
-                    [
-                        'type' => 0,
-                        'flags' => 1,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                    ],
-                    [
-                        'type' => 1,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                    ],
-                    [
-                        'type' => 1,
-                        'flags' => 1,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                    ],
-                ],
-                'expected' => [
-                    [
-                        'type' => 0,
-                        'flags' => 0,
-                        'html' => 'html',
-                        'cli' => 'cli',
-                    ],
-                    [
-                        'type' => 0,
-                        'flags' => 1,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                        'function' => '',
-                    ],
-                    [
-                        'type' => 1,
-                        'flags' => 0,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                        'function' => '',
-                    ],
-                    [
-                        'type' => 1,
-                        'flags' => 1,
-                        'html' => 'new html',
-                        'cli' => 'new cli',
-                        'function' => '',
-                    ],
-                ],
-            ],
-        ];
-    }
-
-    /** @param array<string, bool> $options */
+    /** @param array{removeComments?: bool, lineEnding?: string, indentation?: string} $options */
     #[DataProvider('formatQueriesProviders')]
-    public function testFormat(string $query, string $text, string $cli, string $html, array $options = []): void
-    {
-        // Test TEXT format
+    public function testFormat(
+        string $query,
+        string $text,
+        string $cli,
+        string $html,
+        array $options = [],
+    ): void {
+        $options['type'] = 'text';
         $this->assertEquals(
             $text,
-            Formatter::format($query, ['type' => 'text'] + $options),
+            Formatter::format($query, new FormattingOptions(...$options)),
             'Text formatting failed.',
         );
 
-        // Test CLI format
+        $options['type'] = 'cli';
         $this->assertEquals(
             $cli,
-            Formatter::format($query, ['type' => 'cli'] + $options),
+            Formatter::format($query, new FormattingOptions(...$options)),
             'CLI formatting failed.',
         );
 
-        // Test HTML format
+        $options['type'] = 'html';
         $this->assertEquals(
             $html,
-            Formatter::format($query, ['type' => 'html'] + $options),
+            Formatter::format($query, new FormattingOptions(...$options)),
             'HTML formatting failed.',
         );
     }
 
     /**
-     * @return array<string, array<string, string|array<string, string|bool>>>
-     * @psalm-return array<string, array{
+     * @return array<string, array{
      *     query: string,
      *     text: string,
      *     cli: string,
      *     html: string,
-     *     options?: array<string, bool>
+     *     options?: array{removeComments?: bool, lineEnding?: string, indentation?: string}
      * }>
      */
     public static function formatQueriesProviders(): array
@@ -410,7 +242,7 @@ class FormatterTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl<br/>' .
                     '<span class="sql-reserved">WHERE</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql-number">1</span>',
-                'options' => ['remove_comments' => true],
+                'options' => ['removeComments' => true],
             ],
             'keywords' => [
                 'query' => 'select hex("1")',
@@ -603,6 +435,30 @@ class FormatterTest extends TestCase
                     '&nbsp;&nbsp;&nbsp;&nbsp;tbl<br/>' .
                     '<span class="sql-reserved">WHERE</span><br/>' .
                     '&nbsp;&nbsp;&nbsp;&nbsp;col = <span class="sql-parameter">?</span>',
+            ],
+            'single line' => [
+                'query' => 'select *' . "\n" .
+                    'from tbl # Comment' . "\n" .
+                    'where 1 -- Comment',
+                'text' => 'SELECT ' .
+                    '* ' .
+                    'FROM ' .
+                    'tbl ' .
+                    'WHERE ' .
+                    '1',
+                'cli' => "\x1b[35mSELECT " .
+                    "\x1b[39m* " .
+                    "\x1b[35mFROM " .
+                    "\x1b[39mtbl " .
+                    "\x1b[35mWHERE " .
+                    "\x1b[92m1\x1b[0m",
+                'html' => '<span class="sql-reserved">SELECT</span> ' .
+                    '* ' .
+                    '<span class="sql-reserved">FROM</span> ' .
+                    'tbl ' .
+                    '<span class="sql-reserved">WHERE</span> ' .
+                    '<span class="sql-number">1</span>',
+                'options' => ['lineEnding' => ' ', 'indentation' => '', 'removeComments' => true],
             ],
         ];
     }
