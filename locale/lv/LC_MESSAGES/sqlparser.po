@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 22:46+0100\n"
-"PO-Revision-Date: 2025-03-12 13:20+0000\n"
+"PO-Revision-Date: 2026-04-01 05:09+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
-"Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/"
-"sql-parser/lv/>\n"
+"Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
+"parser/lv/>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: src/Component.php:39 src/Component.php:59
 #, fuzzy
@@ -30,7 +30,7 @@ msgstr ""
 
 #: src/Components/AlterOperation.php:427
 msgid "Missing comma before start of a new alter operation."
-msgstr "Trūkst komata pirms jaunas izmaiņas (ALTER) darbības sākšanas."
+msgstr "Trūkst komata pirms jaunas izmaiņas (ALTER) darbības sākuma."
 
 #: src/Components/AlterOperation.php:472
 msgid "Unrecognized alter operation."
@@ -67,9 +67,8 @@ msgid "Unexpected keyword."
 msgstr "Negaidīts atslēgvārds."
 
 #: src/Components/CaseExpression.php:192
-#, fuzzy
 msgid "Unexpected end of CASE expression"
-msgstr "Negaidītas CASE izteiksmes (funkcijas) beigas"
+msgstr "Negaidīta CASE nosacījuma izteiksmes beigas"
 
 #: src/Components/CaseExpression.php:212
 msgid "Potential duplicate alias of CASE expression."
@@ -95,9 +94,8 @@ msgid ""
 msgstr ""
 
 #: src/Components/CreateDefinition.php:268
-#, fuzzy
 msgid "A symbol name was expected!"
-msgstr "Faila nosaukuma šablons"
+msgstr "Sagaidīja simbola nosaukumu!"
 
 #: src/Components/CreateDefinition.php:300
 msgid "A comma or a closing bracket was expected."
@@ -112,8 +110,6 @@ msgid "Unrecognized data type."
 msgstr "Neatpazīts datu tips."
 
 #: src/Components/ExpressionArray.php:106 src/Statements/WithStatement.php:197
-#, fuzzy
-#| msgid "No rows selected"
 msgid "An expression was expected."
 msgstr "Sagaidīja izteiksmi."
 
@@ -138,19 +134,16 @@ msgstr "Negaidīts punkts."
 #: src/Statements/PurgeStatement.php:106 src/Statements/PurgeStatement.php:119
 #: src/Statements/PurgeStatement.php:140
 #: src/Statements/ReplaceStatement.php:163 src/Statements/WithStatement.php:132
-#, fuzzy
 msgid "Unexpected token."
-msgstr "Negaidīta marķiera zīme."
+msgstr "Negaidīta pilnvara."
 
 #: src/Components/Limit.php:78 src/Components/Limit.php:105
 msgid "An offset was expected."
-msgstr "Sagaidīja nobīdi."
+msgstr "Sagaidīja rindu skaita nobīdi."
 
 #: src/Components/LockExpression.php:91 src/Components/LockExpression.php:201
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected end of LOCK expression."
-msgstr "Tabulas sākumā"
+msgstr "Negaidīta LOCK izteiksmes beigas."
 
 #: src/Components/OptionsArray.php:146
 #, php-format
@@ -171,7 +164,7 @@ msgstr "Sagaidīja jaunās tabulas nosaukumu."
 
 #: src/Components/RenameOperation.php:140
 msgid "A rename operation was expected."
-msgstr "Sagaidīja pārdēvēšanas operāciju."
+msgstr "Sagaidīja pārdēvēšanas darbību."
 
 #: src/Components/SetOperation.php:121
 msgid "Missing expression."
@@ -183,27 +176,25 @@ msgstr "Negaidīta rakstzīme."
 
 #: src/Lexer.php:313
 msgid "Expected whitespace(s) before delimiter."
-msgstr ""
+msgstr "Sagaidīja atstarpi pirms atdalītāja."
 
 #: src/Lexer.php:329 src/Lexer.php:348
 msgid "Expected delimiter."
-msgstr ""
+msgstr "Sagaidīja atdalītāju."
 
 #: src/Lexer.php:1004
-#, fuzzy, php-format
+#, php-format
 msgid "Ending quote %1$s was expected."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "Sagaidīja %1$s aizverošās pēdiņas."
 
 #: src/Lexer.php:1056
-#, fuzzy
 msgid "Variable name was expected."
-msgstr "Faila nosaukuma šablons"
+msgstr "Sagaidīja mainīgā nosaukumu."
 
 #: src/Parser.php:456
 #, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected beginning of statement."
-msgstr "Tabulas sākumā"
+msgstr "Negaidīts izteiksmes sākums."
 
 #: src/Parser.php:499
 msgid "Unrecognized statement type."
@@ -222,35 +213,29 @@ msgid "Unrecognized keyword."
 msgstr ""
 
 #: src/Statement.php:409
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Keyword at end of statement."
-msgstr "Tabulas sākumā"
+msgstr "Atslēgvārds izteiksmes beigās."
 
 #: src/Statement.php:555
 #, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected ordering of clauses."
-msgstr "Tabulas sākumā"
+msgstr "Negaidīta klauzulu secība."
 
 #: src/Statements/CreateStatement.php:549
 msgid "The name of the entity was expected."
-msgstr ""
+msgstr "Sagaidīja vienuma nosaukumu."
 
 #: src/Statements/CreateStatement.php:598
-#, fuzzy
 msgid "A table name was expected."
-msgstr "Faila nosaukuma šablons"
+msgstr "Sagaidīja tabulas nosaukumu."
 
 #: src/Statements/CreateStatement.php:603
-#, fuzzy
-#| msgid "The row has been deleted."
 msgid "At least one column definition was expected."
-msgstr "Ieraksts tika dzēsts"
+msgstr "Sagaidīja vismaz vienas kolonnas definīciju."
 
 #: src/Statements/CreateStatement.php:707
 msgid "A \"RETURNS\" keyword was expected."
-msgstr ""
+msgstr "Sagaidīja \"RETURNS\" atslēgvārdu."
 
 #: src/Statements/DeleteStatement.php:329
 msgid "This type of clause is not valid in Multi-table queries."
@@ -258,35 +243,30 @@ msgstr ""
 
 #: src/Statements/LockStatement.php:120
 #, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected end of LOCK statement."
-msgstr "Tabulas sākumā"
+msgstr "Negaidīta LOCK instrukcijas beigas."
 
 #: src/Statements/PurgeStatement.php:138
 msgid "Unexpected keyword"
-msgstr ""
+msgstr "Negaidīts atslēgvārds"
 
 #: src/Statements/WithStatement.php:118
 #, fuzzy
 msgid "The name of the CTE was expected."
-msgstr "Faila nosaukuma šablons"
+msgstr "Sagaidīja KTI nosaukumu."
 
 #: src/Statements/WithStatement.php:137
-#, fuzzy
-#| msgid "No rows selected"
 msgid "AS keyword was expected."
-msgstr "Rindas nav iezīmētas"
+msgstr "Sagaidīja AS atslēgvārdu."
 
 #: src/Statements/WithStatement.php:149
 #, fuzzy
 msgid "Subquery of the CTE was expected."
-msgstr "Tabula %s tika izdzēsta"
+msgstr "Sagaidīja KTI apakšvaicājumu."
 
 #: src/Statements/WithStatement.php:266
-#, fuzzy
-#| msgid "At Beginning of Table"
 msgid "Unexpected end of the WITH CTE."
-msgstr "Tabulas sākumā"
+msgstr "Negaidīta WITH CTE beigas."
 
 #, fuzzy
 #~| msgid "At Beginning of Table"
