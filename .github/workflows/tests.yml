@@ -20,7 +20,7 @@ jobs:
           - { php-version: '8.5', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-req=php+' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -50,7 +50,26 @@ jobs:
         run: composer run phpunit
 
       - name: Send coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v5
+        # Do not run this step on forked versions of the main repository (example: contributor forks)
+        if: github.repository == 'phpmyadmin/sql-parser'
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
+          name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
+          report_type: coverage
+
+      - name: Upload test results
+        uses: codecov/codecov-action@v5
+        # Do not run this step on forked versions of the main repository (example: contributor forks)
+        if: ${{ github.repository == 'phpmyadmin/sql-parser' && !cancelled() }}
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unit-${{ matrix.php-version }}-${{ matrix.os }}
+          name: phpunit-${{ matrix.php-version }}-${{ matrix.os }}
+          report_type: test_results
 
       - name: Send coverage to Scrutinizer
         uses: sudo-bot/action-scrutinizer@latest
@@ -73,7 +92,7 @@ jobs:
           - { php-version: '8.5', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-req=php+' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
