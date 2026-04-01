@@ -21,6 +21,8 @@ build:
         php: 7.2
       dependencies:
         before:
+          - sudo /home/scrutinizer/.phpenv/shims/php -f /usr/bin/composer.phar self-update --2
+          - composer --version
           - composer install
       tests:
         override:
