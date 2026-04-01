@@ -14,12 +14,15 @@ tools:
     runs: 2 # php 8.x versions
     timeout: 480 # 8 min
 build:
+  image: default-bionic # Needed to make PHP 8.2 compile
   nodes:
     analysis:
       environment:
         php: 8.2
       dependencies:
         before:
+          - sudo /home/scrutinizer/.phpenv/shims/php -f /usr/bin/composer.phar self-update --2
+          - composer --version
           - composer install
       tests:
         override:
