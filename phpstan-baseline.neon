@@ -9,7 +9,7 @@ parameters:
 		-
 			message: '#^Cannot call method remove\(\) on PhpMyAdmin\\SqlParser\\Components\\OptionsArray\|null\.$#'
 			identifier: method.nonObject
-			count: 3
+			count: 1
 			path: src/Components/AlterOperation.php
 
 		-
@@ -157,36 +157,6 @@ parameters:
 			path: src/Context.php
 
 		-
-			message: '#^Binary operation "\." between mixed and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Lexer.php
-
-		-
-			message: '#^Binary operation "\." between string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Lexer.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 9
-			path: src/Lexer.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 2
-			path: src/Lexer.php
-
-		-
-			message: '#^Binary operation "\.\=" between string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 11
-			path: src/Lexer.php
-
-		-
 			message: '#^Cannot access property \$type on PhpMyAdmin\\SqlParser\\Token\|null\.$#'
 			identifier: property.nonObject
 			count: 2
@@ -237,54 +207,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, int\<0, 1\> given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: src/Lexer.php
-
-		-
-			message: '#^Parameter \#1 \$character of static method PhpMyAdmin\\SqlParser\\Context\:\:isString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Lexer.php
-
-		-
-			message: '#^Parameter \#1 \$character of static method PhpMyAdmin\\SqlParser\\Context\:\:isSymbol\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Lexer.php
-
-		-
-			message: '#^Parameter \#1 \$character of static method PhpMyAdmin\\SqlParser\\Context\:\:isWhitespace\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 5
-			path: src/Lexer.php
-
-		-
-			message: '#^Parameter \#1 \$string of static method PhpMyAdmin\\SqlParser\\Context\:\:isComment\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Lexer.php
-
-		-
-			message: '#^Parameter \#1 \$string of static method PhpMyAdmin\\SqlParser\\Context\:\:isSeparator\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Lexer.php
-
-		-
-			message: '#^Parameter \#1 \$token of class PhpMyAdmin\\SqlParser\\Token constructor expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 7
-			path: src/Lexer.php
-
-		-
-			message: '#^Parameter \#2 \$str of method PhpMyAdmin\\SqlParser\\Lexer\:\:error\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Lexer.php
-
-		-
-			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Lexer.php
 
@@ -877,6 +799,12 @@ parameters:
 			path: src/Parsers/OptionsArrays.php
 
 		-
+			message: '#^Offset ''value'' might not exist on array\{expr\: string\}\|array\{name\: string, equals\: bool, expr\: string, value\: string\|null\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
 			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
 			count: 1
@@ -885,6 +813,30 @@ parameters:
 		-
 			message: '#^Parameter \#3 \$options of static method PhpMyAdmin\\SqlParser\\Parsers\\Expressions\:\:parse\(\) expects array\<string, mixed\>, mixed given\.$#'
 			identifier: argument.type
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 14
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\OptionsArray\:\:\$options \(array\<int, array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\) does not accept non\-empty\-array\<array\{expr\: '''', value\: string\|null\}\|array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\OptionsArray\:\:\$options \(array\<int, array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\) does not accept non\-empty\-array\<array\{expr\: PhpMyAdmin\\SqlParser\\Components\\Expression, value\: string\|null\}\|array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Parsers/OptionsArrays.php
+
+		-
+			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\OptionsArray\:\:\$options \(array\<int, array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\) does not accept non\-empty\-array\<array\{expr\: string, value\: string\}\|array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\.$#'
+			identifier: assign.propertyType
 			count: 1
 			path: src/Parsers/OptionsArrays.php
 
@@ -898,12 +850,6 @@ parameters:
 			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\OptionsArray\:\:\$options \(array\<int, array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\) does not accept non\-empty\-array\<array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|bool\|float\|int\|string\>\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Parsers/OptionsArrays.php
-
-		-
-			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\OptionsArray\:\:\$options \(array\<int, array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\) does not accept non\-empty\-array\<array\{name\: string, equals\: bool, expr\: PhpMyAdmin\\SqlParser\\Components\\Expression\|string, value\: string\|null\}\|string\>\.$#'
-			identifier: assign.propertyType
-			count: 3
 			path: src/Parsers/OptionsArrays.php
 
 		-
@@ -1129,15 +1075,9 @@ parameters:
 			path: src/Statement.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, int\<0, 1\> given\.$#'
+			message: '#^Only booleans are allowed in an if condition, int given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: src/Statement.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, int\<0, 2\> given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
+			count: 2
 			path: src/Statement.php
 
 		-
@@ -1150,12 +1090,6 @@ parameters:
 			message: '#^Property PhpMyAdmin\\SqlParser\\Statement\:\:\$options \(PhpMyAdmin\\SqlParser\\Components\\OptionsArray\|null\) does not accept array\<PhpMyAdmin\\SqlParser\\Component\>\|PhpMyAdmin\\SqlParser\\Components\\ArrayObj\|PhpMyAdmin\\SqlParser\\Components\\Expression\|PhpMyAdmin\\SqlParser\\Components\\FunctionCall\|PhpMyAdmin\\SqlParser\\Components\\IntoKeyword\|PhpMyAdmin\\SqlParser\\Components\\Limit\|PhpMyAdmin\\SqlParser\\Components\\OptionsArray\|null\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Statement.php
-
-		-
-			message: '#^Variable property access on \$this\(PhpMyAdmin\\SqlParser\\Statement\)\.$#'
-			identifier: property.dynamicName
-			count: 5
 			path: src/Statement.php
 
 		-
@@ -1249,13 +1183,13 @@ parameters:
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: '#^Only numeric types are allowed in \+, int\|false given on the left side\.$#'
+			message: '#^Only numeric types are allowed in \+, int\<0, 2\>\|false given on the left side\.$#'
 			identifier: plus.leftNonNumeric
 			count: 1
 			path: src/Statements/CreateStatement.php
 
 		-
-			message: '#^Only numeric types are allowed in pre\-decrement, int\|false given\.$#'
+			message: '#^Only numeric types are allowed in pre\-decrement, int\<0, 2\>\|false given\.$#'
 			identifier: preDec.nonNumeric
 			count: 1
 			path: src/Statements/CreateStatement.php
@@ -1288,12 +1222,6 @@ parameters:
 			message: '#^Property PhpMyAdmin\\SqlParser\\Statements\\CreateStatement\:\:\$subpartitionsNum \(int\|null\) does not accept bool\|float\|int\|string\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Statements/CreateStatement.php
-
-		-
-			message: '#^Variable property access on \$this\(PhpMyAdmin\\SqlParser\\Statements\\CreateStatement\)\.$#'
-			identifier: property.dynamicName
-			count: 3
 			path: src/Statements/CreateStatement.php
 
 		-
@@ -1591,12 +1519,6 @@ parameters:
 			path: src/Statements/SelectStatement.php
 
 		-
-			message: '#^Variable property access on \$this\(PhpMyAdmin\\SqlParser\\Statements\\SelectStatement\)\.$#'
-			identifier: property.dynamicName
-			count: 1
-			path: src/Statements/SelectStatement.php
-
-		-
 			message: '#^Cannot call method build\(\) on PhpMyAdmin\\SqlParser\\Components\\OptionsArray\|null\.$#'
 			identifier: method.nonObject
 			count: 1
@@ -1657,6 +1579,18 @@ parameters:
 			path: src/Statements/WithStatement.php
 
 		-
+			message: '#^Possibly invalid array key type bool\|float\|int\|string\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: src/Statements/WithStatement.php
+
+		-
+			message: '#^Possibly invalid array key type bool\|float\|int\|string\|null\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 2
+			path: src/Statements/WithStatement.php
+
+		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -1701,6 +1635,18 @@ parameters:
 		-
 			message: '#^Argument of an invalid type list\<string\>\|false supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
+			message: '#^Offset 1 might not exist on array\{\}\|array\{non\-falsy\-string, non\-empty\-string, numeric\-string\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: src/Tools/ContextGenerator.php
+
+		-
+			message: '#^Offset 2 might not exist on array\{\}\|array\{non\-falsy\-string, non\-empty\-string, numeric\-string\}\.$#'
+			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Tools/ContextGenerator.php
 
@@ -1942,6 +1888,12 @@ parameters:
 			message: '#^Parameter \#2 \$newFormats of static method PhpMyAdmin\\SqlParser\\Utils\\Formatter\:\:mergeFormats\(\) expects array\<int, array\<string, int\|string\>\>, array\<int, array\<string, int\|string\>\>\|bool\|string given\.$#'
 			identifier: argument.type
 			count: 1
+			path: src/Utils/Formatter.php
+
+		-
+			message: '#^Possibly invalid array key type bool\|float\|int\|string\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 7
 			path: src/Utils/Formatter.php
 
 		-
