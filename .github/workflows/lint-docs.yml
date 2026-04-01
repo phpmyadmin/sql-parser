@@ -1,5 +1,8 @@
 name: Lint PHP documentation
 
+permissions:
+  contents: read
+
 on:
   push:
   pull_request:
@@ -10,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: lint php documentation
         uses: sudo-bot/action-doctum@v5

@@ -1,5 +1,8 @@
 name: Lint and analyse PHP files
 
+permissions:
+  contents: read
+
 on:
   push:
   pull_request:
@@ -13,7 +16,7 @@ jobs:
         php-version: [ '8.2' ]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -36,7 +39,7 @@ jobs:
         php-version: [ '8.2' ]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
