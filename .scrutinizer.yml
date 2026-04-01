@@ -18,7 +18,8 @@ build:
   nodes:
     analysis:
       environment:
-        php: 8.2
+        php:
+          version: 8.2.29 # vimeo/psalm needs a newer version
       dependencies:
         before:
           - sudo /home/scrutinizer/.phpenv/shims/php -f /usr/bin/composer.phar self-update --2
