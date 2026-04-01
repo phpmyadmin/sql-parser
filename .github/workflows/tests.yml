@@ -53,7 +53,7 @@ jobs:
         run: composer run phpunit
 
       - name: Send coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         # Do not run this step on forked versions of the main repository (example: contributor forks)
         if: github.repository == 'phpmyadmin/sql-parser'
         with:
@@ -64,7 +64,7 @@ jobs:
           report_type: coverage
 
       - name: Upload test results
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         # Do not run this step on forked versions of the main repository (example: contributor forks)
         if: ${{ github.repository == 'phpmyadmin/sql-parser' && !cancelled() }}
         with:
