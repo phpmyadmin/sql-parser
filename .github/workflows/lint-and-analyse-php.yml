@@ -24,7 +24,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Check coding-standard
         run: composer run phpcs
@@ -47,7 +47,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Analyse files with PHPStan
         run: composer run phpstan

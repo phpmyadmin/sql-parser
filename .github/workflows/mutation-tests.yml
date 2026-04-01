@@ -35,7 +35,7 @@ jobs:
           tools: infection
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Collect coverage report
         run: composer run phpunit -- --stop-on-failure
