@@ -144,7 +144,7 @@ final class IntoKeyword implements Component
         if ($this->dest instanceof Expression) {
             $columns = $this->columns === null || $this->columns === []
                  ? ''
-                 : '(' . implode(', ', Context::escape($this->columns)) . ')';
+                 : '(' . implode(', ', Context::escapeAll($this->columns)) . ')';
 
             return $this->dest . $columns;
         }
