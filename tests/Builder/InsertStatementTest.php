@@ -11,8 +11,7 @@ use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class InsertStatementTest extends TestCase
 {
-    /** @var int */
-    private $sqlMode;
+    private int $sqlMode;
 
     public function setUp(): void
     {
