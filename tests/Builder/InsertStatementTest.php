@@ -8,6 +8,7 @@ use Generator;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class InsertStatementTest extends TestCase
 {
@@ -27,7 +28,7 @@ class InsertStatementTest extends TestCase
         parent::tearDown();
     }
 
-    /** @dataProvider providerForTestBuilder */
+    #[DataProvider('providerForTestBuilder')]
     public function testBuilder(string $sql): void
     {
         $parser = new Parser($sql);
