@@ -49,9 +49,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$this->dest]]></code>
     </PossiblyNullOperand>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($this->columns)]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Components/JoinKeyword.php">
     <PossiblyFalseOperand>
@@ -1173,6 +1170,11 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($statement->fields)]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="tests/Builder/InsertStatementTest.php">
+    <InvalidArgument>
+      <code><![CDATA[testBuilder]]></code>
+    </InvalidArgument>
   </file>
   <file src="tests/Lexer/TokensListTest.php">
     <InvalidArgument>

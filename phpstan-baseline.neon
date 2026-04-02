@@ -49,12 +49,6 @@ parameters:
 			path: src/Components/Expression.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Components/IntoKeyword.php
-
-		-
 			message: '#^Only booleans are allowed in a ternary operator condition, bool\|null given\.$#'
 			identifier: ternary.condNotBoolean
 			count: 1
@@ -2086,9 +2080,9 @@ parameters:
 			path: tests/Builder/ExplainStatementTest.php
 
 		-
-			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
-			identifier: staticMethod.dynamicCall
-			count: 6
+			message: '#^@dataProvider providerForTestBuilder related method must be static in PHPUnit 10 and newer\.$#'
+			identifier: phpunit.dataProviderStatic
+			count: 1
 			path: tests/Builder/InsertStatementTest.php
 
 		-
