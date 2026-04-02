@@ -37,7 +37,7 @@ class InsertStatementTest extends TestCase
     }
 
     /** @return Generator<string, list<string>> */
-    public function providerForTestBuilder(): Generator
+    public static function providerForTestBuilder(): Generator
     {
         yield 'INSERT ... VALUES ...' => ['INSERT INTO tbl(`col1`, `col2`, `col3`) VALUES (1, "str", 3.14)'];
 
