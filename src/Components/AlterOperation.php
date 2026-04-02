@@ -453,7 +453,11 @@ class AlterOperation extends Component
                     $token->type !== Token::TYPE_STRING &&
                     $token->value !== 'CHECK'
                 ) {
-                    if (isset(Parser::$STATEMENT_PARSERS[$arrayKey]) && Parser::$STATEMENT_PARSERS[$arrayKey] !== '') {
+                    if (
+                        isset(Parser::$STATEMENT_PARSERS[$arrayKey])
+                        && Parser::$STATEMENT_PARSERS[$arrayKey] !== ''
+                        && ! in_array($arrayKey, ['ASC', 'DESC'], true)
+                    ) {
                         $list->idx++; // Ignore the current token
                         $nextToken = $list->getNext();
 
