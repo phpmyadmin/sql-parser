@@ -2080,12 +2080,6 @@ parameters:
 			path: tests/Builder/ExplainStatementTest.php
 
 		-
-			message: '#^@dataProvider providerForTestBuilder related method must be static in PHPUnit 10 and newer\.$#'
-			identifier: phpunit.dataProviderStatic
-			count: 1
-			path: tests/Builder/InsertStatementTest.php
-
-		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 6
