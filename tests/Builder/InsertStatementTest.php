@@ -4,64 +4,61 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Builder;
 
+use Generator;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 
 class InsertStatementTest extends TestCase
 {
-    public function testBuilder(): void
+    /** @var int */
+    private $sqlMode;
+
+    public function setUp(): void
     {
-        /* Assertion 1 */
-        $parser = new Parser('INSERT INTO tbl(`col1`, `col2`, `col3`) VALUES (1, "str", 3.14)');
-        $stmt = $parser->statements[0];
-        $this->assertEquals(
-            'INSERT INTO tbl(`col1`, `col2`, `col3`) VALUES (1, "str", 3.14)',
-            $stmt->build()
-        );
+        parent::setUp();
 
-        /* Assertion 2 */
-        /* Reserved keywords (with backquotes as field name) */
-        $parser = new Parser('INSERT INTO tbl(`order`) VALUES (1)');
-        $stmt = $parser->statements[0];
-        $this->assertEquals(
-            'INSERT INTO tbl(`order`) VALUES (1)',
-            $stmt->build()
-        );
+        $this->sqlMode = Context::getMode();
+    }
 
-        /* Assertion 3 */
-        /* INSERT ... SET ... */
-        $parser = new Parser('INSERT INTO tbl SET FOO = 1');
-        $stmt = $parser->statements[0];
-        $this->assertEquals(
-            'INSERT INTO tbl SET FOO = 1',
-            $stmt->build()
-        );
+    protected function tearDown(): void
+    {
+        Context::setMode($this->sqlMode);
 
-        /* Assertion 4 */
-        /* INSERT ... SELECT ... */
-        $parser = new Parser('INSERT INTO tbl SELECT * FROM bar');
-        $stmt = $parser->statements[0];
-        $this->assertEquals(
-            'INSERT INTO tbl SELECT * FROM bar',
-            $stmt->build()
-        );
+        parent::tearDown();
+    }
 
-        /* Assertion 5 */
-        /* INSERT ... ON DUPLICATE KEY UPDATE ... */
-        $parser = new Parser('INSERT INTO tbl SELECT * FROM bar ON DUPLICATE KEY UPDATE baz = 1');
+    /** @dataProvider providerForTestBuilder */
+    public function testBuilder(string $sql): void
+    {
+        $parser = new Parser($sql);
         $stmt = $parser->statements[0];
-        $this->assertEquals(
-            'INSERT INTO tbl SELECT * FROM bar ON DUPLICATE KEY UPDATE baz = 1',
-            $stmt->build()
-        );
+        self::assertEquals($sql, $stmt->build());
+    }
 
-        /* Assertion 6 */
-        /* INSERT [OPTIONS] INTO ... */
-        $parser = new Parser('INSERT DELAYED IGNORE INTO tbl SELECT * FROM bar');
+    /** @return Generator<string, list<string>> */
+    public function providerForTestBuilder(): Generator
+    {
+        yield 'INSERT ... VALUES ...' => ['INSERT INTO tbl(`col1`, `col2`, `col3`) VALUES (1, "str", 3.14)'];
+
+        yield 'Reserved keywords (with backquotes as field name)' => ['INSERT INTO tbl(`order`) VALUES (1)'];
+
+        yield 'INSERT ... SET ...' => ['INSERT INTO tbl SET FOO = 1'];
+
+        yield 'INSERT ... SELECT ... ' => ['INSERT INTO tbl SELECT * FROM bar'];
+
+        yield 'INSERT ... ON DUPLICATE KEY UPDATE ...' =>
+            ['INSERT INTO tbl SELECT * FROM bar ON DUPLICATE KEY UPDATE baz = 1'];
+
+        yield 'INSERT [OPTIONS] INTO ...' => ['INSERT DELAYED IGNORE INTO tbl SELECT * FROM bar'];
+    }
+
+    public function testBuilderAnsi(): void
+    {
+        Context::setMode(Context::SQL_MODE_ANSI_QUOTES);
+        $sql = "INSERT INTO foo (bar, baz) VALUES ('bar', 'baz')";
+        $parser = new Parser($sql);
         $stmt = $parser->statements[0];
-        $this->assertEquals(
-            'INSERT DELAYED IGNORE INTO tbl SELECT * FROM bar',
-            $stmt->build()
-        );
+        self::assertEquals('INSERT INTO foo("bar", "baz") VALUES (\'bar\', \'baz\')', $stmt->build());
     }
 }
