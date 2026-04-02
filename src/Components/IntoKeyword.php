@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
@@ -141,7 +142,9 @@ final class IntoKeyword implements Component
     public function build(): string
     {
         if ($this->dest instanceof Expression) {
-            $columns = ! empty($this->columns) ? '(`' . implode('`, `', $this->columns) . '`)' : '';
+            $columns = $this->columns === null || $this->columns === []
+                 ? ''
+                 : '(' . implode(', ', Context::escape($this->columns)) . ')';
 
             return $this->dest . $columns;
         }
