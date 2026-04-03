@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Parsers;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Parseable;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Translator;
@@ -86,7 +87,24 @@ final class OptionsArrays implements Parseable
             }
 
             if ($lastOption === null) {
-                $upper = strtoupper($token->token);
+                // Backtick-enclosed option names (e.g. `PAGE_COMPRESSED`=1) are
+                // produced by MariaDB.  We accept them only when followed by '='
+                // so that regular quoted identifiers are not mistaken for options.
+                if ($token->type === TokenType::Symbol && $token->flags === Token::FLAG_SYMBOL_BACKTICK) {
+                    $nextIdx = $list->idx + 1;
+                    while ($nextIdx < $list->count && $list->tokens[$nextIdx]->type === TokenType::Whitespace) {
+                        ++$nextIdx;
+                    }
+
+                    if ($nextIdx >= $list->count || $list->tokens[$nextIdx]->token !== '=') {
+                        break;
+                    }
+
+                    $upper = strtoupper((string) $token->value);
+                } else {
+                    $upper = strtoupper($token->token);
+                }
+
                 if (! isset($options[$upper])) {
                     // There is no option to be processed.
                     break;
