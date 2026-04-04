@@ -139,11 +139,13 @@ class CLI
             Context::setMode(Context::SQL_MODE_ANSI_QUOTES);
         }
 
-        if (isset($params['q'])) {
+        if (isset($params['q']) && $params['q'] !== false) {
+            // $params['f'] is guaranteed to be set and valid at this point. @see parseHighlight()
             echo Formatter::format(
                 $params['q'],
-                ['type' => $params['f']],
+                new FormattingOptions(type: $params['f']),
             );
+
             echo "\n";
 
             return 0;
