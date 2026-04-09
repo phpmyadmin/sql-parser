@@ -1371,12 +1371,14 @@
       <code>$expr</code>
       <code>$expr-&gt;function</code>
     </MixedArgument>
-    <MixedArrayOffset occurrences="3">
+    <MixedArrayOffset occurrences="4">
+      <code>$clauses[$clauseType-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$tableAliases[$expr-&gt;table]</code>
     </MixedArrayOffset>
-    <MixedArrayTypeCoercion occurrences="2">
+    <MixedArrayTypeCoercion occurrences="3">
+      <code>$clauses[$clauseType-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
       <code>$clauses[$token-&gt;keyword]</code>
     </MixedArrayTypeCoercion>
@@ -1408,8 +1410,7 @@
       <code>$i</code>
       <code>$i</code>
     </PossiblyNullOperand>
-    <PossiblyNullPropertyFetch occurrences="2">
-      <code>$lexer-&gt;list-&gt;getNextOfType(Token::TYPE_KEYWORD)-&gt;keyword</code>
+    <PossiblyNullPropertyFetch occurrences="1">
       <code>$statement-&gt;into-&gt;dest</code>
     </PossiblyNullPropertyFetch>
     <PossiblyNullReference occurrences="3">
@@ -1417,6 +1418,9 @@
       <code>has</code>
       <code>has</code>
     </PossiblyNullReference>
+    <UnnecessaryVarAnnotation occurrences="1">
+      <code>Token|null</code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Utils/Routine.php">
     <MixedArgumentTypeCoercion occurrences="3">
@@ -1661,7 +1665,7 @@
     </PossiblyNullArgument>
   </file>
   <file src="tests/Utils/QueryTest.php">
-    <PossiblyNullArgument occurrences="17">
+    <PossiblyNullArgument occurrences="24">
       <code>$parser-&gt;list</code>
       <code>$parser-&gt;list</code>
       <code>$parser-&gt;list</code>
@@ -1679,7 +1683,20 @@
       <code>$parser-&gt;list</code>
       <code>$parser-&gt;list</code>
       <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$parser-&gt;list</code>
+      <code>$statements['parser']-&gt;list</code>
+      <code>$statements['parser']-&gt;list</code>
+      <code>$statements['parser']-&gt;list</code>
+      <code>$statements['parser']-&gt;list</code>
     </PossiblyNullArgument>
+    <PossiblyUndefinedArrayOffset occurrences="4">
+      <code>$statements['parser']</code>
+      <code>$statements['parser']</code>
+      <code>$statements['statement']</code>
+      <code>$statements['statement']</code>
+    </PossiblyUndefinedArrayOffset>
     <UnusedVariable occurrences="3">
       <code>$delimiter</code>
       <code>$delimiter</code>

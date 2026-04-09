@@ -656,14 +656,14 @@ class Query
         /**
          * The type of this clause.
          *
-         * @var string
+         * @var Token|null
          */
-        $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD)->keyword;
+        $clauseType = $lexer->list->getNextOfType(Token::TYPE_KEYWORD);
 
         /**
          * The index of this clause.
          */
-        $clauseIdx = $clauses[$clauseType] ?? -1;
+        $clauseIdx = $clauseType !== null ? $clauses[$clauseType->keyword] ?? -1 : -1;
 
         $firstClauseIdx = $clauseIdx;
         $lastClauseIdx = $clauseIdx;
