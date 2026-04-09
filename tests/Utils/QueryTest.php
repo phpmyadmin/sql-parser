@@ -390,14 +390,14 @@ class QueryTest extends TestCase
         self::assertNotNull($statements->parser->list);
 
         $fromClause = Query::replaceClause($statements->statement, $statements->parser->list, 'ORDER BY', '');
-        self::assertEquals('SELECT * FROM `test.2024-11-01`  ', $fromClause);
+        self::assertEquals('SELECT * FROM `test.2024-11-01`', $fromClause);
 
         $fromClause = Query::replaceClause($statements->statement, $statements->parser->list, 'ORDER BY');
-        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY ', $fromClause);
+        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY', $fromClause);
 
         // With spaces
         $fromClause = Query::replaceClause($statements->statement, $statements->parser->list, 'ORDER BY  ');
-        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY   ', $fromClause);
+        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY  ', $fromClause);
     }
 
     public function testGetAllTableWithDotsAndReplaceClauseEmptyName(): void
@@ -411,7 +411,7 @@ class QueryTest extends TestCase
 
         // No clause name
         $result = Query::replaceClause($statements->statement, $statements->parser->list, '');
-        self::assertEquals('  SELECT * FROM `test.2024-11-01` ORDER BY `test.2024-11-01`.`id` ASC', $result);
+        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY `test.2024-11-01`.`id` ASC', $result);
     }
 
     /** @param string[] $expected */
@@ -670,14 +670,14 @@ class QueryTest extends TestCase
         self::assertNotNull($parser->list);
 
         $fromClause = Query::replaceClause($parser->statements[0], $parser->list, 'ORDER BY', '');
-        self::assertEquals('SELECT * FROM `test.2024-11-01`  ', $fromClause);
+        self::assertEquals('SELECT * FROM `test.2024-11-01`', $fromClause);
 
         $fromClause = Query::replaceClause($parser->statements[0], $parser->list, 'ORDER BY');
-        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY ', $fromClause);
+        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY', $fromClause);
 
         // With spaces
         $fromClause = Query::replaceClause($parser->statements[0], $parser->list, 'ORDER BY  ', '');
-        self::assertEquals('SELECT * FROM `test.2024-11-01`  ', $fromClause);
+        self::assertEquals('SELECT * FROM `test.2024-11-01`', $fromClause);
     }
 
     public function testReplaceClauses(): void
