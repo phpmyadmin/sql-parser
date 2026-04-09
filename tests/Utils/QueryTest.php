@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementFlags;
@@ -379,6 +380,40 @@ class QueryTest extends TestCase
         );
     }
 
+    public function testGetAllTableWithDotsAndReplaceClause(): void
+    {
+        $query = 'SELECT * FROM `test.2024-11-01` ORDER BY `test.2024-11-01`.`id` ASC;';
+
+        $statements = Query::getAll($query);
+
+        self::assertInstanceOf(Statement::class, $statements->statement);
+        self::assertNotNull($statements->parser->list);
+
+        $fromClause = Query::replaceClause($statements->statement, $statements->parser->list, 'ORDER BY', '');
+        self::assertEquals('SELECT * FROM `test.2024-11-01`  ', $fromClause);
+
+        $fromClause = Query::replaceClause($statements->statement, $statements->parser->list, 'ORDER BY');
+        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY ', $fromClause);
+
+        // With spaces
+        $fromClause = Query::replaceClause($statements->statement, $statements->parser->list, 'ORDER BY  ');
+        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY   ', $fromClause);
+    }
+
+    public function testGetAllTableWithDotsAndReplaceClauseEmptyName(): void
+    {
+        $query = 'SELECT * FROM `test.2024-11-01` ORDER BY `test.2024-11-01`.`id` ASC;';
+
+        $statements = Query::getAll($query);
+
+        self::assertInstanceOf(Statement::class, $statements->statement);
+        self::assertNotNull($statements->parser->list);
+
+        // No clause name
+        $result = Query::replaceClause($statements->statement, $statements->parser->list, '');
+        self::assertEquals('  SELECT * FROM `test.2024-11-01` ORDER BY `test.2024-11-01`.`id` ASC', $result);
+    }
+
     /** @param string[] $expected */
     #[DataProvider('getTablesProvider')]
     public function testGetTables(string $query, array $expected): void
@@ -624,6 +659,25 @@ class QueryTest extends TestCase
                 '',
             ),
         );
+    }
+
+    public function testReplaceClauseTableWithDots(): void
+    {
+        $query = 'SELECT * FROM `test.2024-11-01` ORDER BY `test.2024-11-01`.`id` ASC;';
+
+        $parser = new Parser($query);
+
+        self::assertNotNull($parser->list);
+
+        $fromClause = Query::replaceClause($parser->statements[0], $parser->list, 'ORDER BY', '');
+        self::assertEquals('SELECT * FROM `test.2024-11-01`  ', $fromClause);
+
+        $fromClause = Query::replaceClause($parser->statements[0], $parser->list, 'ORDER BY');
+        self::assertEquals('SELECT * FROM `test.2024-11-01` ORDER BY ', $fromClause);
+
+        // With spaces
+        $fromClause = Query::replaceClause($parser->statements[0], $parser->list, 'ORDER BY  ', '');
+        self::assertEquals('SELECT * FROM `test.2024-11-01`  ', $fromClause);
     }
 
     public function testReplaceClauses(): void

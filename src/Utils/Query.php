@@ -410,12 +410,12 @@ class Query
         /**
          * The type of this clause.
          */
-        $clauseType = $lexer->list->getNextOfType(TokenType::Keyword)->keyword;
+        $clauseType = $lexer->list->getNextOfType(TokenType::Keyword);
 
         /**
          * The index of this clause.
          */
-        $clauseIdx = $clauses[$clauseType] ?? -1;
+        $clauseIdx = $clauseType !== null ? $clauses[$clauseType->keyword] ?? -1 : -1;
 
         $firstClauseIdx = $clauseIdx;
         $lastClauseIdx = $clauseIdx;
