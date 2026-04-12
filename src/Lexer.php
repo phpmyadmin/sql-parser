@@ -833,11 +833,17 @@ class Lexer extends Core
         //
         //      10 -------------------[ 0 to 9 ]-------------------> 4
         //
+        //      11 ----------------------[ ' ]---------------------> 12
+        //
+        //      12 --------[ 0 to 9, A to F, a to f ]--------------> 12
+        //      12 ----------------------[ ' ]---------------------> 13
+        //
         // State 1 may be reached by negative numbers.
         // State 2 is reached only by hex numbers.
         // State 4 is reached only by float numbers.
         // State 5 is reached only by numbers in approximate form.
         // State 7 is reached only by numbers in bit representation.
+        // State 11 is reached only by hex string literals (x'...').
         // State 10 is a forced proxy to state 4 ensuring a starting dot (= "0.something") precedes a digit, and not "e"
         // or "E" causing wrongly interpreted scientific notation (".e[0 to 9]" is invalid). Such invalid notation could
         // break the lexer when table names under a given database context starts with ".e[0-9]".
@@ -866,6 +872,8 @@ class Lexer extends Core
                     $state = 10;
                 } elseif ($this->str[$this->last] === 'b') {
                     $state = 7;
+                } elseif ($this->str[$this->last] === 'x' || $this->str[$this->last] === 'X') {
+                    $state = 11;
                 } elseif ($this->str[$this->last] !== '+') {
                     // `+` is a valid character in a number.
                     break;
@@ -949,6 +957,29 @@ class Lexer extends Core
                 }
             } elseif ($state === 9) {
                 break;
+            } elseif ($state === 11) {
+                // x'...' hex string literal - expect opening quote
+                $flags |= Token::FLAG_NUMBER_HEX_STRING;
+                if ($this->str[$this->last] !== '\'') {
+                    break;
+                }
+
+                $state = 12;
+            } elseif ($state === 12) {
+                // x'...' hex string literal - hex digits or closing quote
+                if ($this->str[$this->last] === '\'') {
+                    $state = 13;
+                } elseif (
+                    ! (
+                        ($this->str[$this->last] >= '0' && $this->str[$this->last] <= '9')
+                        || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'F')
+                        || ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'f')
+                    )
+                ) {
+                    break;
+                }
+            } elseif ($state === 13) {
+                break;
             } elseif ($state === 10) {
                 $flags |= Token::FLAG_NUMBER_FLOAT;
                 if ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
@@ -961,7 +992,7 @@ class Lexer extends Core
             $token .= $this->str[$this->last];
         }
 
-        if ($state === 2 || $state === 3 || ($token !== '.' && $state === 4) || $state === 6 || $state === 9) {
+        if ($state === 2 || $state === 3 || ($token !== '.' && $state === 4) || $state === 6 || $state === 9 || $state === 13) {
             --$this->last;
 
             return new Token($token, Token::TYPE_NUMBER, $flags);

@@ -142,6 +142,7 @@ class Token
     public const FLAG_NUMBER_APPROXIMATE = 4;
     public const FLAG_NUMBER_NEGATIVE = 8;
     public const FLAG_NUMBER_BINARY = 16;
+    public const FLAG_NUMBER_HEX_STRING = 32;
 
     // Strings related flags.
     public const FLAG_STRING_SINGLE_QUOTES = 1;
@@ -263,7 +264,7 @@ class Token
                     }
                 } elseif (($this->flags & self::FLAG_NUMBER_APPROXIMATE) || ($this->flags & self::FLAG_NUMBER_FLOAT)) {
                     $ret = (float) $ret;
-                } elseif (! ($this->flags & self::FLAG_NUMBER_BINARY)) {
+                } elseif (! ($this->flags & self::FLAG_NUMBER_BINARY) && ! ($this->flags & self::FLAG_NUMBER_HEX_STRING)) {
                     $ret = (int) $ret;
                 }
 
