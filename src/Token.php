@@ -264,7 +264,10 @@ class Token
                     }
                 } elseif (($this->flags & self::FLAG_NUMBER_APPROXIMATE) || ($this->flags & self::FLAG_NUMBER_FLOAT)) {
                     $ret = (float) $ret;
-                } elseif (! ($this->flags & self::FLAG_NUMBER_BINARY) && ! ($this->flags & self::FLAG_NUMBER_HEX_STRING)) {
+                } elseif (
+                    ($this->flags & self::FLAG_NUMBER_BINARY) === 0
+                    && ($this->flags & self::FLAG_NUMBER_HEX_STRING) === 0
+                ) {
                     $ret = (int) $ret;
                 }
 
