@@ -992,7 +992,10 @@ class Lexer extends Core
             $token .= $this->str[$this->last];
         }
 
-        if ($state === 2 || $state === 3 || ($token !== '.' && $state === 4) || $state === 6 || $state === 9 || $state === 13) {
+        if (
+            $state === 2 || $state === 3 || ($token !== '.' && $state === 4)
+            || $state === 6 || $state === 9 || $state === 13
+        ) {
             --$this->last;
 
             return new Token($token, Token::TYPE_NUMBER, $flags);
