@@ -113,12 +113,21 @@ class SetOperation extends Component
                     $commaLastSeenAt = $token;
                 }
             } elseif ($state === 1) {
+                // Reserved keywords like ON are valid values in SET statements
+                // (e.g. SET @@sql_log_bin = ON). Try parsing as expression first,
+                // and if that fails, accept reserved keywords as literal values.
                 $tmp = Expression::parse(
                     $parser,
                     $list,
                     ['breakOnAlias' => true]
                 );
-                if ($tmp === null) {
+                if (
+                    $tmp === null
+                    && $token->type === Token::TYPE_KEYWORD
+                    && $token->value === 'ON'
+                ) {
+                    $tmp = new Expression($token->token);
+                } elseif ($tmp === null) {
                     $parser->error('Missing expression.', $token);
                     break;
                 }
