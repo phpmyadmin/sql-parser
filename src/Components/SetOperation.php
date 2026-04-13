@@ -121,11 +121,7 @@ class SetOperation extends Component
                     $list,
                     ['breakOnAlias' => true]
                 );
-                if (
-                    $tmp === null
-                    && $token->type === Token::TYPE_KEYWORD
-                    && $token->value === 'ON'
-                ) {
+                if ($tmp === null && $token->type === Token::TYPE_KEYWORD && $token->value === 'ON') {
                     $tmp = new Expression($token->token);
                 } elseif ($tmp === null) {
                     $parser->error('Missing expression.', $token);
