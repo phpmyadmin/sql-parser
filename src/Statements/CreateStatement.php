@@ -465,7 +465,7 @@ class CreateStatement extends Statement
             $body = TokensList::buildFromArray($this->body);
             // Body tokens (e.g. trailing `UNION ALL (SELECT ...)` after the
             // primary SELECT) are concatenated raw, so without a separator
-            // the rebuilt SQL collides with the SELECT's last token —
+            // the rebuilt SQL collides with the SELECT's last token,
             // `WHERE 3 = 3union all` instead of `WHERE 3 = 3 union all`.
             // Only insert a space when neither side already has one to
             // avoid double-spacing the WITH...AS path.
