@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: SQL parser 5\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2023-02-26 22:46+0100\n"
-"PO-Revision-Date: 2026-04-05 12:09+0000\n"
+"PO-Revision-Date: 2026-06-20 09:01+0000\n"
 "Last-Translator: \"ℂ𝕠𝕠𝕠𝕝 (𝕘𝕚𝕥𝕙𝕦𝕓.𝕔𝕠𝕞/ℂ𝕠𝕠𝕠𝕝)\" <coool@mail.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/sql-"
 "parser/lv/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 5.17-dev\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: src/Component.php:39 src/Component.php:59
 #, fuzzy
@@ -21,12 +21,10 @@ msgid "Not implemented yet."
 msgstr "Vēl nav īstenots (uzkodēts)."
 
 #: src/Components/AlterOperation.php:415 src/Statement.php:359
-#, fuzzy
 msgid ""
 "A new statement was found, but no delimiter between it and the previous one."
 msgstr ""
-"Tika atrasta jauna instrukcija (nosacījums), bet nebija atdalītāja starp "
-"viņu un iepriekšējo."
+"Tika atrasta jauna izteiksme, taču trūkst atdalītāja starp to un iepriekšējo."
 
 #: src/Components/AlterOperation.php:427
 msgid "Missing comma before start of a new alter operation."
@@ -111,6 +109,7 @@ msgid "Unrecognized data type."
 msgstr "Neatpazīts datu tips."
 
 #: src/Components/ExpressionArray.php:106 src/Statements/WithStatement.php:197
+#, fuzzy
 msgid "An expression was expected."
 msgstr "Sagaidīja izteiksmi."
 
@@ -168,6 +167,7 @@ msgid "A rename operation was expected."
 msgstr "Sagaidīja pārdēvēšanas darbību."
 
 #: src/Components/SetOperation.php:121
+#, fuzzy
 msgid "Missing expression."
 msgstr "Trūkst izteiksmes."
 
@@ -193,13 +193,13 @@ msgid "Variable name was expected."
 msgstr "Sagaidīja mainīgā nosaukumu."
 
 #: src/Parser.php:456
-#, fuzzy
 msgid "Unexpected beginning of statement."
 msgstr "Negaidīts izteiksmes sākums."
 
 #: src/Parser.php:499
+#, fuzzy
 msgid "Unrecognized statement type."
-msgstr ""
+msgstr "Nezināma/Neatpazīta izteiksme."
 
 #: src/Parser.php:587
 msgid "No transaction was previously started."
@@ -211,7 +211,7 @@ msgstr ""
 
 #: src/Statement.php:398
 msgid "Unrecognized keyword."
-msgstr ""
+msgstr "Neatpazīts atslēgvārds."
 
 #: src/Statement.php:409
 msgid "Keyword at end of statement."
@@ -243,9 +243,8 @@ msgid "This type of clause is not valid in Multi-table queries."
 msgstr ""
 
 #: src/Statements/LockStatement.php:120
-#, fuzzy
 msgid "Unexpected end of LOCK statement."
-msgstr "Negaidīta LOCK instrukcijas beigas."
+msgstr "Negaidītas LOCK izteiksmes beigas."
 
 #: src/Statements/PurgeStatement.php:138
 msgid "Unexpected keyword"
