@@ -68,6 +68,10 @@ class Misc
                 ];
             }
 
+            if (null === $expr->alias || $expr->alias === '') {
+                continue;
+            }
+
             if (! isset($tables[$thisDb])) {
                 $tables[$thisDb] = [];
             }
