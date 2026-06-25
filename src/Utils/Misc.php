@@ -68,7 +68,7 @@ class Misc
                 ];
             }
 
-            if (null === $expr->alias || $expr->alias === '') {
+            if ($expr->alias === null || $expr->alias === '') {
                 continue;
             }
 
