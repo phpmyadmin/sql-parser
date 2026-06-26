@@ -607,6 +607,10 @@ class SelectStatement extends Statement
                 ];
             }
 
+            if ($expr->alias === null || $expr->alias === '') {
+                continue;
+            }
+
             if (! isset($tables[$thisDb])) {
                 $tables[$thisDb] = [];
             }
