@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
@@ -870,5 +871,24 @@ SQL;
             . ' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci',
             $stmt->build()
         );
+    }
+
+    public function testBuildCreateTableWithVectorType(): void
+    {
+        Context::load('MySql90000');
+
+        $sql = "CREATE TABLE `t1` (\n"
+            . "  `id` int AUTO_INCREMENT PRIMARY KEY,\n"
+            . "  `v` vector(5) NOT NULL,\n"
+            . "  VECTOR INDEX (`v`)\n"
+            . ')';
+
+        $parser = new Parser($sql);
+        $this->assertEmpty($parser->errors);
+        $rebuilt = $parser->statements[0]->build();
+        $this->assertStringContainsString('`v` vector(5) NOT NULL', $rebuilt);
+        $this->assertStringContainsString('VECTOR INDEX (`v`)', $rebuilt);
+
+        Context::load();
     }
 }
