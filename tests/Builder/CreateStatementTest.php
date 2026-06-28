@@ -871,4 +871,26 @@ SQL;
             $stmt->build()
         );
     }
+
+    public function testBuildCreateTableWithHexDefault(): void
+    {
+        $sql = "CREATE TABLE `test` (\n"
+            . "  `IP` binary(16) NOT NULL DEFAULT x'00000000000000000000000000000000'\n"
+            . ') ENGINE=InnoDB';
+
+        $parser = new Parser($sql);
+        $this->assertEmpty($parser->errors);
+        $this->assertEquals($sql, $parser->statements[0]->build());
+    }
+
+    public function testBuildCreateTableWithUppercaseHexDefault(): void
+    {
+        $sql = "CREATE TABLE `test` (\n"
+            . "  `IP` binary(16) NOT NULL DEFAULT X'FF'\n"
+            . ')';
+
+        $parser = new Parser($sql);
+        $this->assertEmpty($parser->errors);
+        $this->assertStringContainsString("DEFAULT X'FF'", $parser->statements[0]->build());
+    }
 }
