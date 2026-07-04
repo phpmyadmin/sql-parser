@@ -1,5 +1,8 @@
 name: Mutation tests
 
+permissions:
+  contents: read
+
 on:
   push:
     branches:
@@ -20,7 +23,7 @@ jobs:
         operating-system: [ ubuntu-latest ]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Fetch github.base_ref (for diffing)
         if: ${{ github.base_ref != '' }}
@@ -36,7 +39,7 @@ jobs:
           tools: infection
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Collect coverage report
         run: composer run phpunit -- --stop-on-failure

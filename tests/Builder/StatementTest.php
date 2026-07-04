@@ -155,6 +155,19 @@ class StatementTest extends TestCase
                     ],
                 ],
             ],
+            [
+                'SELECT mytable.a x, o.b y FROM mytable JOIN other o ON o.id = mytable.id',
+                'shop',
+                [
+                    'shop' => [
+                        'alias' => null,
+                        'tables' => [
+                            'mytable' => ['alias' => null, 'columns' => ['a' => 'x']],
+                            'other' => ['alias' => 'o', 'columns' => ['b' => 'y']],
+                        ],
+                    ],
+                ],
+            ],
         ];
     }
 }
