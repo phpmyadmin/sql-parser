@@ -162,14 +162,8 @@ class StatementTest extends TestCase
                     'shop' => [
                         'alias' => null,
                         'tables' => [
-                            'mytable' => [
-                                'alias' => null,
-                                'columns' => ['a' => 'x'],
-                            ],
-                            'other' => [
-                                'alias' => 'o',
-                                'columns' => ['b' => 'y'],
-                            ],
+                            'mytable' => ['alias' => null, 'columns' => ['a' => 'x']],
+                            'other' => ['alias' => 'o', 'columns' => ['b' => 'y']],
                         ],
                     ],
                 ],

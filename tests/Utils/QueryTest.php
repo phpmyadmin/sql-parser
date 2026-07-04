@@ -666,7 +666,6 @@ class QueryTest extends TestCase
         $query = 'SELECT * FROM `test.2024-11-01` ORDER BY `test.2024-11-01`.`id` ASC;';
 
         $parser = new Parser($query);
-
         self::assertNotNull($parser->list);
 
         $fromClause = Query::replaceClause($parser->statements[0], $parser->list, 'ORDER BY', '');
