@@ -1621,11 +1621,6 @@ parameters:
 			path: src/Token.php
 
 		-
-			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 16\\> given\\.$#"
-			count: 1
-			path: src/Token.php
-
-		-
 			message: "#^Only booleans are allowed in a negated boolean, int\\<0, 2\\> given\\.$#"
 			count: 1
 			path: src/Token.php
@@ -2101,8 +2096,18 @@ parameters:
 			path: tests/Builder/CreateStatementTest.php
 
 		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEmpty\\(\\)\\.$#"
+			count: 2
+			path: tests/Builder/CreateStatementTest.php
+
+		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
-			count: 34
+			count: 35
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\)\\.$#"
+			count: 1
 			path: tests/Builder/CreateStatementTest.php
 
 		-
