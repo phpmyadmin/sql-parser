@@ -430,6 +430,49 @@ EOT;
         );
     }
 
+    public function testBuilderViewWithUnion(): void
+    {
+        // Regression test for https://github.com/phpmyadmin/phpmyadmin/issues/19692
+        // The token before UNION is not a closing parenthesis, so the SELECT parser
+        // consumes tokens up to UNION while the trailing tokens (UNION ALL ...) end
+        // up in $this->body. Without a separator, build() glued them together as
+        // "3 = 3union all ...", producing invalid SQL.
+        $parser = new Parser(
+            'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER '
+            . 'VIEW `v1` AS select 1 AS `a` where 3 = 3 union all (select 2 AS `a`)'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER '
+            . 'VIEW `v1`  AS SELECT 1 AS `a` WHERE 3 = 3 union all (select 2 AS `a`) ',
+            $stmt->build()
+        );
+
+        $parser = new Parser(
+            'CREATE VIEW `v2` AS select `t`.`id` AS `id` from `t` where `t`.`id` = `t`.`id` '
+            . 'union all select `u`.`id` AS `id` from `u`'
+        );
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE VIEW `v2`  AS SELECT `t`.`id` AS `id` FROM `t` WHERE `t`.`id` = `t`.`id` '
+            . 'union all select `u`.`id` AS `id` from `u` ',
+            $stmt->build()
+        );
+
+        // Paren-wrapped LHS: the SELECT is not parsed into $this->select, the whole
+        // tail lives in $this->body verbatim (whitespace preserved). Make sure the
+        // separator logic doesn't introduce a double space here.
+        $parser = new Parser('CREATE VIEW `v3` AS (select 1 AS `a`) union all (select 2 AS `a`)');
+        $stmt = $parser->statements[0];
+
+        $this->assertEquals(
+            'CREATE VIEW `v3`  AS  (select 1 AS `a`) union all (select 2 AS `a`) ',
+            $stmt->build()
+        );
+    }
+
     public function testBuilderViewComplex(): void
     {
         $parser = new Parser(
