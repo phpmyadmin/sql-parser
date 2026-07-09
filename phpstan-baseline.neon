@@ -2101,8 +2101,18 @@ parameters:
 			path: tests/Builder/CreateStatementTest.php
 
 		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEmpty\\(\\)\\.$#"
+			count: 1
+			path: tests/Builder/CreateStatementTest.php
+
+		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertEquals\\(\\)\\.$#"
 			count: 34
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertStringContainsString\\(\\)\\.$#"
+			count: 2
 			path: tests/Builder/CreateStatementTest.php
 
 		-
