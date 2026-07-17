@@ -61,6 +61,8 @@ class IsMethodsTest extends TestCase
     {
         $this->assertEquals(Token::FLAG_COMMENT_BASH, Context::isComment('#'));
         $this->assertEquals(Token::FLAG_COMMENT_C, Context::isComment('/*'));
+        $this->assertEquals(Token::FLAG_COMMENT_MYSQL_CMD, Context::isComment('/*!'));
+        $this->assertEquals(Token::FLAG_COMMENT_MYSQL_CMD, Context::isComment('/*!50000'));
         $this->assertEquals(Token::FLAG_COMMENT_C, Context::isComment('*/'));
         $this->assertEquals(Token::FLAG_COMMENT_SQL, Context::isComment('-- '));
         $this->assertEquals(Token::FLAG_COMMENT_SQL, Context::isComment("--\t"));
