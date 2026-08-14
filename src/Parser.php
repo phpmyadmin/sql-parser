@@ -49,6 +49,7 @@ class Parser
         'EXPLAIN' => Statements\ExplainStatement::class,
         'FLUSH' => '',
         'GRANT' => '',
+        'REVOKE' => '',
         'HELP' => '',
         'SET PASSWORD' => '',
         'STATUS' => '',
