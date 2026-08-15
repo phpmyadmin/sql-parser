@@ -97,6 +97,18 @@ class CreateStatementTest extends TestCase
         );
     }
 
+    public function testBuilderCompressedBackticks(): void
+    {
+        $parser = new Parser(
+            'CREATE TABLE users ( user_id int ) `PAGE_COMPRESSED`=1 `PAGE_COMPRESSION_LEVEL`=9;',
+        );
+        $stmt = $parser->statements[0];
+        $this->assertEquals(
+            "CREATE TABLE users (\n  `user_id` int\n) PAGE_COMPRESSED=1 PAGE_COMPRESSION_LEVEL=9",
+            $stmt->build(),
+        );
+    }
+
     public function testBuilderCollate(): void
     {
         $parser = new Parser(
