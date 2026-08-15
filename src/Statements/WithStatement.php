@@ -213,10 +213,34 @@ final class WithStatement extends Statement
                 // Length of expression tokens is null by default, in order for the $subList to start
                 // from $list->idx to the end of the $list.
                 $lengthOfExpressionTokens = null;
+                $idxOfDelimiter = null;
 
-                if ($list->getNextOfTypeAndValue(TokenType::Keyword, 'ON')) {
-                    // (-1) because getNextOfTypeAndValue returned ON and increased the index.
-                    $idxOfOn = $list->idx - 1;
+                // Keep a terminal delimiter in the subparser, but stop before a delimiter
+                // that separates this CTE expression from another statement.
+                if ($list->getNextOfType(TokenType::Delimiter)) {
+                    $delimiterIndex = $list->idx - 1;
+                    $nextToken = $list->getNext();
+                    if ($nextToken !== null && $nextToken->token !== '') {
+                        $idxOfDelimiter = $delimiterIndex;
+                        $idxOfLastParsedToken = $idxOfDelimiter + 1;
+                        $lengthOfExpressionTokens = $idxOfDelimiter - $idxBeforeSearch;
+                    }
+                }
+
+                $list->idx = $idxBeforeSearch;
+
+                $idxOfOn = null;
+                $searchEnd = $idxOfDelimiter ?? $list->count;
+                for ($i = $idxBeforeSearch; $i < $searchEnd; ++$i) {
+                    $candidate = $list->tokens[$i];
+                    if ($candidate->type === TokenType::Keyword && $candidate->keyword === 'ON') {
+                        $idxOfOn = $i;
+                        $list->idx = $idxOfOn + 1;
+                        break;
+                    }
+                }
+
+                if ($idxOfOn !== null) {
                     // We want to make sure that it's `ON DUPLICATE KEY UPDATE`
                     $dubplicateToken = $list->getNext();
                     $keyToken = $list->getNext();
@@ -228,7 +252,7 @@ final class WithStatement extends Statement
                     ) {
                         // Index of the last parsed token will be the token before the ON Keyword
                         $idxOfLastParsedToken = $idxOfOn - 1;
-                        // The length of the expression tokens would be the difference
+                        // The length of expression tokens would be the difference
                         // between the first unrelated token `ON` and the idx
                         // before skipping the CTE tokens.
                         $lengthOfExpressionTokens = $idxOfOn - $idxBeforeSearch;

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Tests\Parser;
 
+use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -81,5 +82,30 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateViewAsWithAs'],
             ['parser/parseCreateOrReplaceView1'],
         ];
+    }
+
+    public function testCreateViewsWithCteRemainSeparate(): void
+    {
+        $sql = <<<'SQL'
+CREATE VIEW view1 AS
+WITH foo AS (SELECT 1 AS id)
+SELECT * FROM foo;
+CREATE VIEW view2 AS
+WITH bar AS (SELECT 2 AS id)
+SELECT * FROM bar;
+SQL;
+
+        $parser = new Parser($sql);
+
+        self::assertSame([], $this->getErrorsAsArray($parser));
+        self::assertCount(2, $parser->statements);
+        self::assertSame(
+            'CREATE VIEW view1  AS WITH foo AS (SELECT 1 AS `id`) SELECT * FROM foo ',
+            $parser->statements[0]->build(),
+        );
+        self::assertSame(
+            'CREATE VIEW view2  AS WITH bar AS (SELECT 2 AS `id`) SELECT * FROM bar ',
+            $parser->statements[1]->build(),
+        );
     }
 }
