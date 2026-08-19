@@ -152,6 +152,7 @@ class Token
     public const FLAG_COMMENT_C = 2;
     public const FLAG_COMMENT_SQL = 4;
     public const FLAG_COMMENT_MYSQL_CMD = 8;
+    public const FLAG_COMMENT_MARIADB_CMD = 16;
 
     // Operators related flags.
     public const FLAG_OPERATOR_ARITHMETIC = 1;

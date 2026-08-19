@@ -443,10 +443,19 @@ abstract class Context
             return Token::FLAG_COMMENT_BASH;
         }
 
-        // If comment is opening C style (/*), warning, it could be a MySQL command (/*!)
+        // If comment is opening C style (/*), warning, it could be
+        // - a MySQL command (/*!)
+        // - a MariaDB command (/*M!)
         if (($len > 1) && ($str[0] === '/') && ($str[1] === '*')) {
-            return ($len > 2) && ($str[2] === '!') ?
-                Token::FLAG_COMMENT_MYSQL_CMD : Token::FLAG_COMMENT_C;
+            if ($len > 2 && $str[2] === '!') {
+                return Token::FLAG_COMMENT_MYSQL_CMD;
+            }
+
+            if ($len > 3 && $str[2] === 'M' && $str[3] === '!') {
+                return Token::FLAG_COMMENT_MARIADB_CMD;
+            }
+
+            return Token::FLAG_COMMENT_C;
         }
 
         // If comment is closing C style (*/), warning, it could conflicts with wildcard and a real opening C style.
