@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
+use function preg_match;
 use function strtolower;
 use function strtoupper;
 use function trim;
@@ -133,7 +134,39 @@ class DataType extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
+                    $parametersStart = $list->idx + 1;
                     $parameters = ArrayObj::parse($parser, $list);
+                    if ($ret->name === 'VARCHAR') {
+                        $hasLength = false;
+                        for ($idx = $parametersStart; $idx < $list->idx; ++$idx) {
+                            $parameter = $list->tokens[$idx];
+                            if (
+                                $parameter->type === Token::TYPE_WHITESPACE || $parameter->type === Token::TYPE_COMMENT
+                            ) {
+                                continue;
+                            }
+
+                            // Check the original lexeme: conversion can turn 20.0 or '20' into 20.
+                            if (
+                                $hasLength || $parameter->type !== Token::TYPE_NUMBER
+                                || preg_match('/^[0-9]+$/D', $parameter->token) !== 1
+                            ) {
+                                $parser->error('VARCHAR length must be a single nonnegative integer.', $parameter);
+                                $hasLength = true;
+                                break;
+                            }
+
+                            $hasLength = true;
+                        }
+
+                        if (! $hasLength) {
+                            $parser->error(
+                                'VARCHAR length must be a single nonnegative integer.',
+                                $list->tokens[$list->idx] ?? null
+                            );
+                        }
+                    }
+
                     ++$list->idx;
                     $ret->parameters = ($ret->name === 'ENUM') || ($ret->name === 'SET') ?
                         $parameters->raw : $parameters->values;
