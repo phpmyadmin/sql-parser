@@ -1,5 +1,21 @@
 # Change Log
 
+## [5.11.2] - 2026-10-07
+
+### Added
+
+- Add support for PHP 8.6 (#659)
+- Add support for PHPUnit 13 (#669)
+
+### Fixed
+
+- Build insert statement with context's quote style (#631)
+- Fix formatter spacing for JSON path operators (->, ->>) (#637)
+- Fix error when validating index with sort order (#636)
+- Fix attempt to read property "keyword" on null (#609)
+- Avoid using a null alias as an array offset in getAliases() (#658)
+- Fix PHP 8.5 deprecations (#664)
+
 ## [5.11.1] - 2025-07-20
 
 ### Added
@@ -626,6 +642,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[5.11.2]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...5.11.2
 [5.11.1]: https://github.com/phpmyadmin/sql-parser/compare/5.11.0...5.11.1
 [5.11.0]: https://github.com/phpmyadmin/sql-parser/compare/5.10.3...5.11.0
 [5.10.3]: https://github.com/phpmyadmin/sql-parser/compare/5.10.2...5.10.3
