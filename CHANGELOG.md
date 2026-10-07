@@ -1,5 +1,21 @@
 # Change Log
 
+## [6.0.1] - 2026-10-07
+
+### Added
+
+- [#659](https://github.com/phpmyadmin/sql-parser/pull/659): Add support for PHP 8.6
+- [#669](https://github.com/phpmyadmin/sql-parser/pull/669): Add support for PHPUnit 13
+
+### Fixed
+
+- [#631](https://github.com/phpmyadmin/sql-parser/pull/631): Build insert statement with context's quote style
+- [#637](https://github.com/phpmyadmin/sql-parser/pull/637): Fix formatter spacing for JSON path operators (->, ->>)
+- [#636](https://github.com/phpmyadmin/sql-parser/pull/636): Fix error when validating index with sort order
+- [#609](https://github.com/phpmyadmin/sql-parser/issues/609): Fix attempt to read property "keyword" on null
+- [#658](https://github.com/phpmyadmin/sql-parser/pull/658): Avoid using a null alias as an array offset in getAliases()
+- [#664](https://github.com/phpmyadmin/sql-parser/pull/664): Fix PHP 8.5 deprecations
+
 ## [6.0.0] - 2025-10-31
 
 ### Added
@@ -673,6 +689,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[6.0.1]: https://github.com/phpmyadmin/sql-parser/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...6.0.0
 [5.11.2]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...5.11.2
 [5.11.1]: https://github.com/phpmyadmin/sql-parser/compare/5.11.0...5.11.1
