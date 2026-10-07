@@ -77,6 +77,42 @@ jobs:
         with:
           cli-args: "--format=php-clover build/logs/clover.xml --revision=${{ github.event.pull_request.head.sha || github.sha }}"
 
+  test-php-with-newer-phpunit:
+    name: Test on PHP ${{ matrix.php }} with PHPUnit ${{ matrix.phpunit }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {php: '8.2', phpunit: '11'}
+          - {php: '8.3', phpunit: '12'}
+          - {php: '8.4', phpunit: '13'}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - name: Update composer.json
+        shell: bash
+        env:
+          PHPUNIT_VERSION: ${{ matrix.phpunit }}
+        run: |
+          composer remove --dev vimeo/psalm psalm/plugin-phpunit --no-update --no-interaction --ansi
+          composer require --dev phpunit/phpunit:^"$PHPUNIT_VERSION" --no-update --no-interaction --ansi
+
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v4
+
+      - name: Run PHP tests
+        run: vendor/bin/phpunit --no-coverage --no-logging --display-all-issues
+
   php-benchmark:
     name: Benchmark on PHP ${{ matrix.php-version }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
