@@ -1645,8 +1645,68 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
+			message: '#^Binary operation "\." between ''Unable to find…'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Cannot call method unserialize\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
 			message: '#^Method PhpMyAdmin\\SqlParser\\Tools\\CustomJsonSerializer\:\:extractObjectData\(\) has parameter \$ref with generic class ReflectionClass but does not specify its types\: T$#'
 			identifier: missingType.generics
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Method PhpMyAdmin\\SqlParser\\Tools\\CustomJsonSerializer\:\:unserializeObject\(\) should return object but returns mixed\.$#'
+			identifier: return.type
+			count: 4
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Parameter \#1 \$class of function class_exists expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Parameter \#1 \$data of method SplDoublyLinkedList\<mixed\>\:\:unserialize\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Parameter \#1 \$key of function array_key_exists expects int\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: '#^Parameter \#2 \$name of method Zumba\\JsonSerializer\\JsonSerializer\:\:getReflectionProperty\(\) expects string, \(int\|string\) given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Tools/CustomJsonSerializer.php
 
@@ -1657,9 +1717,15 @@ parameters:
 			path: src/Tools/CustomJsonSerializer.php
 
 		-
+			message: '#^Variable \$ref might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
 			message: '#^Variable property access on object\.$#'
 			identifier: property.dynamicName
-			count: 1
+			count: 2
 			path: src/Tools/CustomJsonSerializer.php
 
 		-
@@ -2612,6 +2678,12 @@ parameters:
 			identifier: staticMethod.dynamicCall
 			count: 1
 			path: tests/Utils/BufferedQueryTest.php
+
+		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/Utils/CLITest.php
 
 		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'

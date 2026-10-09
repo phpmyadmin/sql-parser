@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Utils;
 
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PhpMyAdmin\SqlParser\Utils\CLI;
+use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 use function dirname;
@@ -13,6 +14,7 @@ use function exec;
 
 use const PHP_BINARY;
 
+#[AllowMockObjectsWithoutExpectations]
 class CLITest extends TestCase
 {
     /** @param array<string, bool|string>|false $getopt */
