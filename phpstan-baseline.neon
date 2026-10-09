@@ -1686,7 +1686,52 @@ parameters:
 			path: src/Tools/ContextGenerator.php
 
 		-
+			message: "#^Cannot access offset 0 on mixed\\.$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Cannot call method unserialize\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Class UnitEnum not found\\.$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
 			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\CustomJsonSerializer\\:\\:extractObjectData\\(\\) has parameter \\$ref with generic class ReflectionClass but does not specify its types\\: T$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\SqlParser\\\\Tools\\\\CustomJsonSerializer\\:\\:unserializeObject\\(\\) should return object but returns mixed\\.$#"
+			count: 4
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Parameter \\#1 \\$classname of function class_exists expects string, mixed given\\.$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Parameter \\#1 \\$data of method SplDoublyLinkedList\\<mixed\\>\\:\\:unserialize\\(\\) expects string, mixed given\\.$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Parameter \\#1 \\$key of function array_key_exists expects int\\|string, mixed given\\.$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Parameter \\#1 \\$string of function substr expects string, mixed given\\.$#"
+			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Parameter \\#2 \\$name of method Zumba\\\\JsonSerializer\\\\JsonSerializer\\:\\:getReflectionProperty\\(\\) expects string, \\(int\\|string\\) given\\.$#"
 			count: 1
 			path: src/Tools/CustomJsonSerializer.php
 
@@ -1696,8 +1741,13 @@ parameters:
 			path: src/Tools/CustomJsonSerializer.php
 
 		-
-			message: "#^Variable property access on object\\.$#"
+			message: "#^Variable \\$ref might not be defined\\.$#"
 			count: 1
+			path: src/Tools/CustomJsonSerializer.php
+
+		-
+			message: "#^Variable property access on object\\.$#"
+			count: 2
 			path: src/Tools/CustomJsonSerializer.php
 
 		-
