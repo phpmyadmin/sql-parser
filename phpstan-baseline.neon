@@ -2758,6 +2758,12 @@ parameters:
 			path: tests/Utils/BufferedQueryTest.php
 
 		-
+			message: '#^Attribute class PHPUnit\\Framework\\Attributes\\AllowMockObjectsWithoutExpectations does not exist\.$#'
+			identifier: attribute.notFound
+			count: 1
+			path: tests/Utils/CLITest.php
+
+		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 7
