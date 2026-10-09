@@ -391,6 +391,7 @@ final class Context
         return match (true) {
             str_starts_with($string, '#') => Token::FLAG_COMMENT_BASH,
             str_starts_with($string, '/*!') => Token::FLAG_COMMENT_MYSQL_CMD,
+            str_starts_with($string, '/*M!') => Token::FLAG_COMMENT_MARIADB_CMD,
             // If comment is opening C style (/*) or is closing C style (*/), warning, it could conflict
             // with wildcard and a real opening C style.
             // It would look like the following valid SQL statement: "SELECT */* comment */ FROM...".
