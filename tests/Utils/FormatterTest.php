@@ -11,14 +11,12 @@ use PhpMyAdmin\SqlParser\Utils\Formatter;
 use PhpMyAdmin\SqlParser\Utils\FormattingOptions;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-use function strtoupper;
-
 class FormatterTest extends TestCase
 {
     public function testMergeFormats(): void
     {
         $object = new FormattingOptions(formats: []);
-        self::assertEquals($object->formats, FormattingOptions::getDefaultFormats());
+        self::assertSame($object->formats, FormattingOptions::getDefaultFormats());
 
         $object = new FormattingOptions(formats: [
             [
@@ -26,47 +24,47 @@ class FormatterTest extends TestCase
                 'flags' => Token::FLAG_KEYWORD_RESERVED,
                 'html' => 'sql-foo',
                 'cli' => "\x1b[35m",
-                'function' => strtoupper(...),
+                'function' => 'strtoupper',
             ],
             [
                 'type' => TokenType::Keyword,
                 'flags' => 0,
                 'html' => 'sql-bar',
                 'cli' => "\x1b[95m",
-                'function' => strtoupper(...),
+                'function' => 'strtoupper',
             ],
             [
                 'type' => TokenType::Keyword,
                 'flags' => Token::FLAG_KEYWORD_COMPOSED,
                 'html' => 'sql-baz',
                 'cli' => "\x1b[95m",
-                'function' => strtoupper(...),
+                'function' => 'strtoupper',
             ],
 
         ]);
 
-        self::assertContainsEquals([
+        self::assertContains([
             'type' => TokenType::Keyword,
             'flags' => Token::FLAG_KEYWORD_RESERVED,
             'html' => 'sql-foo',
             'cli' => "\x1b[35m",
-            'function' => strtoupper(...),
+            'function' => 'strtoupper',
         ], $object->formats);
 
-        self::assertContainsEquals([
+        self::assertContains([
             'type' => TokenType::Keyword,
             'flags' => 0,
             'html' => 'sql-bar',
             'cli' => "\x1b[95m",
-            'function' => strtoupper(...),
+            'function' => 'strtoupper',
         ], $object->formats);
 
-        self::assertContainsEquals([
+        self::assertContains([
             'type' => TokenType::Keyword,
             'flags' => Token::FLAG_KEYWORD_COMPOSED,
             'html' => 'sql-baz',
             'cli' => "\x1b[95m",
-            'function' => strtoupper(...),
+            'function' => 'strtoupper',
         ], $object->formats);
     }
 
