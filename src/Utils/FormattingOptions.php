@@ -7,9 +7,6 @@ namespace PhpMyAdmin\SqlParser\Utils;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokenType;
 
-use function strtolower;
-use function strtoupper;
-
 use const PHP_SAPI;
 
 final class FormattingOptions
@@ -71,14 +68,14 @@ final class FormattingOptions
                 'flags' => Token::FLAG_KEYWORD_RESERVED,
                 'html' => 'sql-reserved',
                 'cli' => "\x1b[35m",
-                'function' => strtoupper(...),
+                'function' => 'strtoupper',
             ],
             [
                 'type' => TokenType::Keyword,
                 'flags' => 0,
                 'html' => 'sql-keyword',
                 'cli' => "\x1b[95m",
-                'function' => strtoupper(...),
+                'function' => 'strtoupper',
             ],
             [
                 'type' => TokenType::Comment,
@@ -92,14 +89,14 @@ final class FormattingOptions
                 'flags' => 0,
                 'html' => 'sql-atom',
                 'cli' => "\x1b[36m",
-                'function' => strtoupper(...),
+                'function' => 'strtoupper',
             ],
             [
                 'type' => TokenType::Number,
                 'flags' => 0,
                 'html' => 'sql-number',
                 'cli' => "\x1b[92m",
-                'function' => strtolower(...),
+                'function' => 'strtolower',
             ],
             [
                 'type' => TokenType::String,
