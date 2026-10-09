@@ -9,6 +9,7 @@ use ReflectionException;
 use Zumba\JsonSerializer\JsonSerializer;
 
 use function in_array;
+use function method_exists;
 
 use const PHP_VERSION_ID;
 
@@ -45,6 +46,7 @@ class CustomJsonSerializer extends JsonSerializer
         'EVENT_OPTIONS',
         'USER_OPTIONS',
         'asciiMap',
+        'trace',
     ];
 
     /**
@@ -65,9 +67,13 @@ class CustomJsonSerializer extends JsonSerializer
             }
 
             try {
-                $propRef = $ref->getProperty($property);
+                $propRef = $this->getReflectionProperty($ref, $property);
                 if (PHP_VERSION_ID < 80100) {
                     $propRef->setAccessible(true);
+                }
+
+                if (method_exists($propRef, 'isInitialized') && ! $propRef->isInitialized($value)) {
+                    continue;
                 }
 
                 $data[$property] = $propRef->getValue($value);
