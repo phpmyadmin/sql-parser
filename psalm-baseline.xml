@@ -1201,16 +1201,61 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Tools/CustomJsonSerializer.php">
-    <MixedAssignment occurrences="2">
+    <MixedArgument occurrences="6">
+      <code>$className</code>
+      <code>$className</code>
+      <code>$className</code>
+      <code>$ref</code>
+      <code>$value['value']</code>
+      <code>UnitEnum::class</code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion occurrences="1">
+      <code>$property</code>
+    </MixedArgumentTypeCoercion>
+    <MixedArrayAccess occurrences="1">
+      <code>$className[0]</code>
+    </MixedArrayAccess>
+    <MixedAssignment occurrences="6">
       <code>$data[$property]</code>
       <code>$data[$property]</code>
+      <code>$obj</code>
+      <code>$obj</code>
+      <code>$obj</code>
+      <code>$propertyValue</code>
     </MixedAssignment>
+    <MixedInferredReturnType occurrences="1">
+      <code>object</code>
+    </MixedInferredReturnType>
+    <MixedMethodCall occurrences="2">
+      <code>new $className()</code>
+      <code>unserialize</code>
+    </MixedMethodCall>
+    <MixedOperand occurrences="2">
+      <code>$className</code>
+      <code>$value['name']</code>
+    </MixedOperand>
+    <MixedReturnStatement occurrences="4">
+      <code>$obj</code>
+      <code>$obj</code>
+      <code>$obj</code>
+      <code>$this-&gt;objectMapping[$index]</code>
+    </MixedReturnStatement>
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$properties</code>
     </MoreSpecificImplementedParamType>
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$ref</code>
+    </PossiblyUndefinedVariable>
     <PropertyNotSetInConstructor occurrences="1">
       <code>CustomJsonSerializer</code>
     </PropertyNotSetInConstructor>
+    <TypeDoesNotContainType occurrences="2">
+      <code>$className === 'DateTime'</code>
+      <code>$className === 'DateTimeImmutable'</code>
+    </TypeDoesNotContainType>
+    <UndefinedClass occurrences="1">
+      <code>UnitEnum</code>
+    </UndefinedClass>
   </file>
   <file src="src/Tools/TestGenerator.php">
     <MixedOperand occurrences="1">
