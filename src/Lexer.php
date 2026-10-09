@@ -693,10 +693,21 @@ class Lexer extends Core
                     return new Token($token, Token::TYPE_COMMENT, $flags);
                 }
 
-                // Checking if this is a MySQL-specific command.
-                if ($this->last + 1 < $this->len && $this->str[$this->last + 1] === '!') {
-                    $flags |= Token::FLAG_COMMENT_MYSQL_CMD;
+                // Checking if this is a MySQL (/*!) or MariaDB (/*M!) specific command.
+                if (
+                    $this->last + 1 < $this->len &&
+                    ($this->str[$this->last + 1] === '!' ||
+                        ($this->str[$this->last + 1] === 'M' &&
+                            $this->last + 2 < $this->len &&
+                            $this->str[$this->last + 2] === '!'))
+                ) {
                     $token .= $this->str[++$this->last];
+                    if ($this->str[$this->last] === '!') {
+                        $flags |= Token::FLAG_COMMENT_MYSQL_CMD;
+                    } else {
+                        $flags |= Token::FLAG_COMMENT_MARIADB_CMD;
+                        $token .= $this->str[++$this->last];
+                    }
 
                     while (
                         ++$this->last < $this->len
