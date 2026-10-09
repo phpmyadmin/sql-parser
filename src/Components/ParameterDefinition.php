@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function trim;
 
 /**
  * The definition of a parameter of a function or procedure.
  */
-final class ParameterDefinition implements Component
+final class ParameterDefinition extends SerializableComponent
 {
     /**
      * The name of the new column.
@@ -51,10 +51,5 @@ final class ParameterDefinition implements Component
         return trim(
             $tmp . Context::escape($this->name) . ' ' . $this->type,
         );
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function implode;
 
 /**
  * Parses an array.
  */
-final class ArrayObj implements Component
+final class ArrayObj extends SerializableComponent
 {
     /**
      * The array that contains the unprocessed value of each token.
@@ -44,10 +44,5 @@ final class ArrayObj implements Component
         }
 
         return '(' . implode(', ', $this->values) . ')';
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

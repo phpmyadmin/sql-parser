@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function is_array;
 
 /**
  * Parses a function call.
  */
-final class FunctionCall implements Component
+final class FunctionCall extends SerializableComponent
 {
     /**
      * The name of this function.
@@ -40,10 +40,5 @@ final class FunctionCall implements Component
     public function build(): string
     {
         return $this->name . $this->parameters;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

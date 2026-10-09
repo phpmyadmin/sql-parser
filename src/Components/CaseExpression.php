@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parsers\Conditions;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function count;
 
 /**
  * Parses a reference to a CASE expression.
  */
-final class CaseExpression implements Component
+final class CaseExpression extends SerializableComponent
 {
     /**
      * The value to be compared.
@@ -89,10 +89,5 @@ final class CaseExpression implements Component
         }
 
         return $ret;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

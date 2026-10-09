@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parsers\PartitionDefinitions;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
@@ -14,7 +14,7 @@ use function trim;
 /**
  * Parses an alter operation.
  */
-final class AlterOperation implements Component
+final class AlterOperation extends SerializableComponent
 {
     /**
      * Options of this operation.
@@ -74,10 +74,5 @@ final class AlterOperation implements Component
         }
 
         return trim($ret);
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

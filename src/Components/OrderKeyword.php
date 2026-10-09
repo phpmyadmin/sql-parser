@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 /**
  * `ORDER BY` keyword parser.
  */
-final class OrderKeyword implements Component
+final class OrderKeyword extends SerializableComponent
 {
     /**
      * The expression that is used for ordering.
@@ -34,10 +34,5 @@ final class OrderKeyword implements Component
     public function build(): string
     {
         return $this->expr . ' ' . $this->type->value;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

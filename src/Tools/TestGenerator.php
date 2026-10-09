@@ -10,9 +10,7 @@ use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Tests\UtfStringSerializer;
 use PhpMyAdmin\SqlParser\Token;
-use PhpMyAdmin\SqlParser\UtfString;
 
 use function dirname;
 use function file_exists;
@@ -20,7 +18,6 @@ use function file_get_contents;
 use function file_put_contents;
 use function in_array;
 use function is_dir;
-use function json_decode;
 use function json_encode;
 use function mkdir;
 use function print_r;
@@ -34,6 +31,7 @@ use function substr;
 
 use const JSON_PRESERVE_ZERO_FRACTION;
 use const JSON_PRETTY_PRINT;
+use const JSON_THROW_ON_ERROR;
 use const JSON_UNESCAPED_SLASHES;
 use const JSON_UNESCAPED_UNICODE;
 
@@ -170,20 +168,8 @@ class TestGenerator
 
         // unset mode, reset to default every time, to be sure
         Context::setMode();
-        $serializer = new CustomJsonSerializer(null, [
-            UtfString::class => new UtfStringSerializer(),
-        ]);
-        // Writing test's data.
-        $encoded = $serializer->serialize($test);
 
-        $encoded = (string) json_encode(
-            json_decode($encoded),
-            JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION | JSON_UNESCAPED_SLASHES,
-        );
-
-        // Remove the project path from .out file, it changes for each dev
-        $projectFolder = dirname(__DIR__, 2);// Jump to root
-        $encoded = str_replace($projectFolder, '<project-root>', $encoded);
+        $encoded = self::serialize($test);
 
         file_put_contents($output, $encoded);
 
@@ -252,5 +238,18 @@ class TestGenerator
                 }
             }
         }
+    }
+
+    /** @param array<string, string|Lexer|Parser|array<string, array<int, array<int, int|string|Token|null>>>|null> $test */
+    public static function serialize(array $test): string
+    {
+        $flags = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_PRESERVE_ZERO_FRACTION | JSON_UNESCAPED_SLASHES
+            | JSON_THROW_ON_ERROR;
+        $encoded = json_encode($test, $flags);
+
+        // Remove the project path from .out file, it changes for each dev
+        $projectFolder = dirname(__DIR__, 2);
+
+        return str_replace($projectFolder, '<project-root>', $encoded);
     }
 }

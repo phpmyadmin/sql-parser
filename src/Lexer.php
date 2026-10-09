@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use Exception;
+use JsonSerializable;
 use PhpMyAdmin\SqlParser\Exceptions\LexerException;
 
+use function array_merge;
+use function get_object_vars;
 use function in_array;
 use function mb_strlen;
 use function sprintf;
@@ -27,7 +30,7 @@ use function substr;
  *
  * @see Context
  */
-class Lexer
+class Lexer implements JsonSerializable
 {
     /**
      * Whether errors should throw exceptions or just be stored.
@@ -1053,5 +1056,11 @@ class Lexer
             ?? $this->parseKeyword()
             ?? $this->parseLabel()
             ?? $this->parseUnknown();
+    }
+
+    /** @return array<mixed> */
+    public function jsonSerialize(): array
+    {
+        return array_merge(['@type' => self::class], get_object_vars($this));
     }
 }

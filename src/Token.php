@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser;
 
+use JsonSerializable;
+
+use function array_merge;
+use function get_mangled_object_vars;
 use function hexdec;
 use function mb_strlen;
 use function mb_substr;
@@ -18,7 +22,7 @@ use function strtoupper;
  *
  * A structure representing a lexeme that explicitly indicates its categorization for the purpose of parsing.
  */
-class Token
+class Token implements JsonSerializable
 {
     public const FLAG_NONE = 0;
 
@@ -221,5 +225,14 @@ class Token
             ],
             $this->token,
         );
+    }
+
+    /** @return array<mixed> */
+    public function jsonSerialize(): array
+    {
+        $token = array_merge(['@type' => self::class], get_mangled_object_vars($this));
+        $token['type'] = array_merge(['@type' => $this->type::class], get_mangled_object_vars($this->type));
+
+        return $token;
     }
 }

@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use ArrayAccess;
+use JsonSerializable;
 
+use function array_merge;
 use function array_splice;
 use function count;
+use function get_mangled_object_vars;
 use function in_array;
 use function is_array;
 
@@ -18,7 +21,7 @@ use function is_array;
  *
  * @implements ArrayAccess<int, Token>
  */
-class TokensList implements ArrayAccess
+class TokensList implements ArrayAccess, JsonSerializable
 {
     /**
      * The count of tokens.
@@ -232,5 +235,11 @@ class TokensList implements ArrayAccess
 
         array_splice($this->tokens, $offset, 1);
         --$this->count;
+    }
+
+    /** @return array<mixed> */
+    public function jsonSerialize(): array
+    {
+        return array_merge(['@type' => self::class], get_mangled_object_vars($this));
     }
 }

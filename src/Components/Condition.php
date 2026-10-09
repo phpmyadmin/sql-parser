@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function trim;
 
-final class Condition implements Component
+final class Condition extends SerializableComponent
 {
     /**
      * Identifiers recognized.
@@ -40,10 +40,5 @@ final class Condition implements Component
     public function build(): string
     {
         return $this->expr;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

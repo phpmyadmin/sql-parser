@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use AllowDynamicProperties;
+use JsonSerializable;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
@@ -16,7 +17,9 @@ use Stringable;
 use function array_flip;
 use function array_key_exists;
 use function array_keys;
+use function array_merge;
 use function array_push;
+use function get_mangled_object_vars;
 use function is_array;
 use function is_string;
 use function str_contains;
@@ -31,7 +34,7 @@ use function trim;
  * Abstract statement definition.
  */
 #[AllowDynamicProperties]
-abstract class Statement implements Stringable
+abstract class Statement implements Stringable, JsonSerializable
 {
     /**
      * Options for this statement.
@@ -484,5 +487,11 @@ abstract class Statement implements Stringable
         }
 
         return true;
+    }
+
+    /** @return array<mixed> */
+    public function jsonSerialize(): array
+    {
+        return array_merge(['@type' => static::class], get_mangled_object_vars($this));
     }
 }

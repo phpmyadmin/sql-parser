@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\Expressions;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 use PhpMyAdmin\SqlParser\TokensList;
 
 use function implode;
@@ -17,7 +17,7 @@ use function trim;
 /**
  * `INTO` keyword parser.
  */
-final class IntoKeyword implements Component
+final class IntoKeyword extends SerializableComponent
 {
     /**
      * FIELDS/COLUMNS Options for `SELECT...INTO` statements.
@@ -167,10 +167,5 @@ final class IntoKeyword implements Component
         }
 
         return $ret;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }
