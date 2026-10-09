@@ -55,6 +55,8 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateTable16'],
             ['parser/parseCreateTable17'],
             ['parser/parseCreateTable18'],
+            ['parser/parseCreateTable19_mariadb_100500'],
+            ['parser/parseCreateTable20_mariadb_101000'],
             ['parser/parseCreateTableErr1'],
             ['parser/parseCreateTableErr2'],
             ['parser/parseCreateTableErr3'],
