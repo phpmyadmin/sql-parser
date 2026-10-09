@@ -19,6 +19,7 @@ class CustomJsonSerializer extends JsonSerializer
         'defaultDelimiter',
         'clauses',
         'statementOptions',
+        'trace',
     ];
 
     /**
@@ -40,7 +41,12 @@ class CustomJsonSerializer extends JsonSerializer
             }
 
             try {
-                $data[$property] = $ref->getProperty($property)->getValue($value);
+                $propRef = $this->getReflectionProperty($ref, $property);
+                if (! $propRef->isInitialized($value)) {
+                    continue;
+                }
+
+                $data[$property] = $propRef->getValue($value);
             } catch (ReflectionException) {
                 $data[$property] = $value->$property;
             }
