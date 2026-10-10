@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser\Components;
 
 use AllowDynamicProperties;
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function implode;
 
@@ -15,7 +15,7 @@ use function implode;
  * call, mathematical expression, etc.).
  */
 #[AllowDynamicProperties]
-final class Expression implements Component
+final class Expression extends SerializableComponent
 {
     /**
      * The name of this database.
@@ -110,10 +110,5 @@ final class Expression implements Component
         }
 
         return $ret;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

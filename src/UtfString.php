@@ -6,6 +6,7 @@ namespace PhpMyAdmin\SqlParser;
 
 use ArrayAccess;
 use Exception;
+use JsonSerializable;
 use Stringable;
 
 use function count;
@@ -27,7 +28,7 @@ use function mb_str_split;
  *
  * @implements ArrayAccess<int, string>
  */
-class UtfString implements ArrayAccess, Stringable
+class UtfString implements ArrayAccess, Stringable, JsonSerializable
 {
     /**
      * The multi-byte characters.
@@ -105,5 +106,11 @@ class UtfString implements ArrayAccess, Stringable
     public function __toString(): string
     {
         return implode('', $this->characters);
+    }
+
+    /** @return array<mixed> */
+    public function jsonSerialize(): array
+    {
+        return ['@type' => static::class, 'str' => (string) $this];
     }
 }

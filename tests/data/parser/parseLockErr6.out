@@ -57,7 +57,9 @@
                     "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "@5"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
                     },
                     "flags": 0,
                     "position": 25
@@ -68,7 +70,9 @@
                     "value": "TABLES",
                     "keyword": "TABLES",
                     "type": {
-                        "@type": "@7"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
                     },
                     "flags": 1,
                     "position": 26
@@ -79,7 +83,9 @@
                     "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "@5"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
                     },
                     "flags": 0,
                     "position": 32
@@ -120,11 +126,122 @@
         "strict": false,
         "errors": [],
         "list": {
-            "@type": "@1"
+            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 8,
+            "idx": 8,
+            "tokens": [
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "-- missing lock type",
+                    "value": "-- missing lock type",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Comment",
+                        "value": 4
+                    },
+                    "flags": 4,
+                    "position": 0
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\n",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 20
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "LOCK",
+                    "value": "LOCK",
+                    "keyword": "LOCK",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 3,
+                    "position": 21
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 25
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "TABLES",
+                    "value": "TABLES",
+                    "keyword": "TABLES",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 1,
+                    "position": 26
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 32
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "table1",
+                    "value": "table1",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
+                    "flags": 0,
+                    "position": 33
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "",
+                    "value": "",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
+                    "flags": 0,
+                    "position": null
+                }
+            ]
         },
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\LockStatement",
+                "options": null,
+                "first": 0,
+                "last": 7,
                 "locked": [
                     {
                         "@type": "PhpMyAdmin\\SqlParser\\Components\\LockExpression",
@@ -141,10 +258,7 @@
                         "type": null
                     }
                 ],
-                "isLock": true,
-                "options": null,
-                "first": 0,
-                "last": 7
+                "isLock": true
             }
         ],
         "brackets": 0
@@ -155,7 +269,17 @@
             [
                 "Unexpected end of LOCK expression.",
                 {
-                    "@type": "@11"
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "table1",
+                    "value": "table1",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
+                    "flags": 0,
+                    "position": 33
                 },
                 0
             ]

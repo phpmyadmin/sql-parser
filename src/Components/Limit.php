@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 /**
  * `LIMIT` keyword parser.
  */
-final class Limit implements Component
+final class Limit extends SerializableComponent
 {
     /**
      * The number of rows skipped.
@@ -34,10 +34,5 @@ final class Limit implements Component
     public function build(): string
     {
         return $this->offset . ', ' . $this->rowCount;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

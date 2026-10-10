@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
-final class SetOperation implements Component
+final class SetOperation extends SerializableComponent
 {
     /**
      * The name of the column that is being updated.
@@ -31,10 +31,5 @@ final class SetOperation implements Component
     public function build(): string
     {
         return $this->column . ' = ' . $this->value;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

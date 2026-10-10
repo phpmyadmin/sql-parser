@@ -44,7 +44,9 @@
                     "value": "TABLE",
                     "keyword": "TABLE",
                     "type": {
-                        "@type": "@3"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
                     },
                     "flags": 3,
                     "position": 8
@@ -55,7 +57,9 @@
                     "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "@5"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
                     },
                     "flags": 0,
                     "position": 13
@@ -79,7 +83,9 @@
                     "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "@5"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
                     },
                     "flags": 0,
                     "position": 22
@@ -90,7 +96,9 @@
                     "value": "FROM",
                     "keyword": "FROM",
                     "type": {
-                        "@type": "@3"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
                     },
                     "flags": 3,
                     "position": 23
@@ -101,7 +109,9 @@
                     "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "@5"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
                     },
                     "flags": 0,
                     "position": 27
@@ -142,23 +152,145 @@
         "strict": false,
         "errors": [],
         "list": {
-            "@type": "@1"
+            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 10,
+            "idx": 10,
+            "tokens": [
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "RESTORE",
+                    "value": "RESTORE",
+                    "keyword": "RESTORE",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 1,
+                    "position": 0
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 7
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "TABLE",
+                    "value": "TABLE",
+                    "keyword": "TABLE",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 3,
+                    "position": 8
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 13
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "my_table",
+                    "value": "my_table",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "None",
+                        "value": 0
+                    },
+                    "flags": 0,
+                    "position": 14
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 22
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "FROM",
+                    "value": "FROM",
+                    "keyword": "FROM",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 3,
+                    "position": 23
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 27
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "\"/path/to/backup/directory\"",
+                    "value": "/path/to/backup/directory",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "String",
+                        "value": 7
+                    },
+                    "flags": 2,
+                    "position": 28
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "",
+                    "value": "",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
+                    "flags": 0,
+                    "position": null
+                }
+            ]
         },
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\RestoreStatement",
-                "tables": [
-                    {
-                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                        "database": null,
-                        "table": "my_table",
-                        "column": null,
-                        "expr": "my_table",
-                        "alias": null,
-                        "function": null,
-                        "subquery": null
-                    }
-                ],
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": [
@@ -172,7 +304,19 @@
                     ]
                 },
                 "first": 0,
-                "last": 8
+                "last": 8,
+                "tables": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                        "database": null,
+                        "table": "my_table",
+                        "column": null,
+                        "expr": "my_table",
+                        "alias": null,
+                        "function": null,
+                        "subquery": null
+                    }
+                ]
             }
         ],
         "brackets": 0

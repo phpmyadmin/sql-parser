@@ -74,16 +74,72 @@
         "strict": false,
         "errors": [],
         "list": {
-            "@type": "@1"
+            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 4,
+            "idx": 4,
+            "tokens": [
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ".",
+                    "value": ".",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Operator",
+                        "value": 2
+                    },
+                    "flags": 16,
+                    "position": 5
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ".2",
+                    "value": 0.2,
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Number",
+                        "value": 6
+                    },
+                    "flags": 2,
+                    "position": 6
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "",
+                    "value": "",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
+                    "flags": 0,
+                    "position": null
+                }
+            ]
         },
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
-                "table": null,
-                "altered": [],
                 "options": null,
                 "first": 0,
-                "last": 0
+                "last": 0,
+                "table": null,
+                "altered": []
             }
         ],
         "brackets": 0
@@ -94,14 +150,34 @@
             [
                 "Unrecognized alter operation.",
                 {
-                    "@type": "@2"
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 3,
+                    "position": 0
                 },
                 0
             ],
             [
                 "Unexpected beginning of statement.",
                 {
-                    "@type": "@6"
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": ".2",
+                    "value": 0.2,
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Number",
+                        "value": 6
+                    },
+                    "flags": 2,
+                    "position": 6
                 },
                 0
             ]

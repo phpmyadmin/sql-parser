@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parsers\Conditions;
 use PhpMyAdmin\SqlParser\Parsers\IndexHints;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function array_search;
 
 /**
  * `JOIN` keyword parser.
  */
-final class JoinKeyword implements Component
+final class JoinKeyword extends SerializableComponent
 {
     /**
      * Types of join.
@@ -96,10 +96,5 @@ final class JoinKeyword implements Component
             . ($this->indexHints !== [] ? ' ' . IndexHints::buildAll($this->indexHints) : '')
             . (! empty($this->on) ? ' ON ' . Conditions::buildAll($this->on) : '')
             . (! empty($this->using) ? ' USING ' . $this->using->build() : '');
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

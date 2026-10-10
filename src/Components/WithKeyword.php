@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\ArrayObjs;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 use RuntimeException;
 
 /**
  * `WITH` keyword builder.
  */
-final class WithKeyword implements Component
+final class WithKeyword extends SerializableComponent
 {
     /** @var ArrayObj[] */
     public array $columns = [];
@@ -44,10 +44,5 @@ final class WithKeyword implements Component
         $str .= ')';
 
         return $str;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

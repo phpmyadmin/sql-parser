@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function array_merge_recursive;
 use function implode;
 use function is_array;
 use function strcasecmp;
 
-final class OptionsArray implements Component
+final class OptionsArray extends SerializableComponent
 {
     /**
      * @param array<int, string|array<string, string|bool|null>> $options $options The array of options.
@@ -125,10 +125,5 @@ final class OptionsArray implements Component
     public function isEmpty(): bool
     {
         return $this->options === [];
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

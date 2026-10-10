@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function trim;
 
@@ -14,7 +14,7 @@ use function trim;
  *
  * Used for parsing `CREATE TABLE` statement.
  */
-final class CreateDefinition implements Component
+final class CreateDefinition extends SerializableComponent
 {
     /**
      * The name of the new column.
@@ -99,10 +99,5 @@ final class CreateDefinition implements Component
         $tmp .= $this->options;
 
         return trim($tmp);
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

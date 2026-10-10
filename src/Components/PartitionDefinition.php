@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parsers\PartitionDefinitions;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function trim;
 
@@ -14,7 +14,7 @@ use function trim;
  *
  * Used for parsing `CREATE TABLE` statement.
  */
-final class PartitionDefinition implements Component
+final class PartitionDefinition extends SerializableComponent
 {
     /**
      * All field options.
@@ -107,10 +107,5 @@ final class PartitionDefinition implements Component
             . (! empty($this->options) && ! empty($this->type) ? '' : ' ')
             . $this->options . $subpartitions,
         );
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

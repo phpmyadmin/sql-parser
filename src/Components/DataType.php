@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function implode;
 use function strtolower;
@@ -13,7 +13,7 @@ use function trim;
 /**
  * Parses a data type.
  */
-final class DataType implements Component
+final class DataType extends SerializableComponent
 {
     /**
      * The name of the data type.
@@ -67,10 +67,5 @@ final class DataType implements Component
         }
 
         return trim($name . $parameters . ' ' . $this->options);
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

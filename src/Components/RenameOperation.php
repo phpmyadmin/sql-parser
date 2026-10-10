@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 /**
  * `RENAME TABLE` keyword parser.
  */
-final class RenameOperation implements Component
+final class RenameOperation extends SerializableComponent
 {
     /**
      * The old table name.
@@ -34,10 +34,5 @@ final class RenameOperation implements Component
     public function build(): string
     {
         return $this->old . ' TO ' . $this->new;
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function implode;
 use function trim;
@@ -13,7 +13,7 @@ use function trim;
 /**
  * `REFERENCES` keyword parser.
  */
-final class Reference implements Component
+final class Reference extends SerializableComponent
 {
     /**
      * The referenced table.
@@ -51,10 +51,5 @@ final class Reference implements Component
             . ' (' . implode(', ', Context::escapeAll($this->columns)) . ') '
             . $this->options,
         );
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

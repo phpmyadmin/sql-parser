@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function implode;
 use function trim;
@@ -15,7 +15,7 @@ use function trim;
  *
  * Used for parsing `CREATE TABLE` statement.
  */
-final class Key implements Component
+final class Key extends SerializableComponent
 {
     /**
      * The name of this key.
@@ -95,10 +95,5 @@ final class Key implements Component
         $ret .= '(' . implode(',', $columns) . ') ' . $this->options;
 
         return trim($ret);
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

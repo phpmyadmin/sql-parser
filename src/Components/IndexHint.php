@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
 use PhpMyAdmin\SqlParser\Parsers\Expressions;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 /**
  * Parses an Index hint.
  */
-final class IndexHint implements Component
+final class IndexHint extends SerializableComponent
 {
     /**
      * @param string       $type       The type of hint (USE/FORCE/IGNORE)
@@ -34,10 +34,5 @@ final class IndexHint implements Component
         }
 
         return $ret . Expressions::buildAll($this->indexes);
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

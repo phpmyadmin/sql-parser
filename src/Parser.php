@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\SqlParser;
 
 use Exception;
+use JsonSerializable;
 use PhpMyAdmin\SqlParser\Exceptions\ParserException;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Statements\TransactionStatement;
 
+use function array_merge;
+use function get_object_vars;
 use function is_string;
 use function strtoupper;
 
@@ -19,7 +22,7 @@ use function strtoupper;
  *
  * Takes multiple tokens (contained in a Lexer instance) as input and builds a parse tree.
  */
-class Parser
+class Parser implements JsonSerializable
 {
     /**
      * Whether errors should throw exceptions or just be stored.
@@ -627,5 +630,11 @@ class Parser
         }
 
         $this->errors[] = $error;
+    }
+
+    /** @return array<mixed> */
+    public function jsonSerialize(): array
+    {
+        return array_merge(['@type' => self::class], get_object_vars($this));
     }
 }

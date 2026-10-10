@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\SqlParser\Components;
 
-use PhpMyAdmin\SqlParser\Component;
+use PhpMyAdmin\SqlParser\SerializableComponent;
 
 use function trim;
 
 /**
  * `GROUP BY` keyword parser.
  */
-final class GroupKeyword implements Component
+final class GroupKeyword extends SerializableComponent
 {
     public OrderSortKeyword|null $type = null;
 
@@ -29,10 +29,5 @@ final class GroupKeyword implements Component
     public function build(): string
     {
         return trim((string) $this->expr);
-    }
-
-    public function __toString(): string
-    {
-        return $this->build();
     }
 }

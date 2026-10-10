@@ -122,6 +122,11 @@
       <code><![CDATA[$this->old]]></code>
     </PossiblyNullOperand>
   </file>
+  <file src="src/Components/WithKeyword.php">
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[string]]></code>
+    </PossiblyUnusedReturnValue>
+  </file>
   <file src="src/Context.php">
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[[]]]></code>
@@ -906,56 +911,6 @@
       <code><![CDATA[$files]]></code>
     </PossiblyFalseIterator>
   </file>
-  <file src="src/Tools/CustomJsonSerializer.php">
-    <MixedArgument>
-      <code><![CDATA[$className]]></code>
-      <code><![CDATA[$className]]></code>
-      <code><![CDATA[$className]]></code>
-      <code><![CDATA[$ref]]></code>
-      <code><![CDATA[$value['value']]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$property]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$className[0]]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$data[$property]]]></code>
-      <code><![CDATA[$data[$property]]]></code>
-      <code><![CDATA[$obj]]></code>
-      <code><![CDATA[$obj]]></code>
-      <code><![CDATA[$obj]]></code>
-      <code><![CDATA[$propertyValue]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[new $className()]]></code>
-      <code><![CDATA[unserialize]]></code>
-    </MixedMethodCall>
-    <MixedOperand>
-      <code><![CDATA[$className]]></code>
-      <code><![CDATA[$value['name']]]></code>
-    </MixedOperand>
-    <MixedReturnStatement>
-      <code><![CDATA[$obj]]></code>
-      <code><![CDATA[$obj]]></code>
-      <code><![CDATA[$obj]]></code>
-      <code><![CDATA[$this->objectMapping[$index]]]></code>
-    </MixedReturnStatement>
-    <MoreSpecificImplementedParamType>
-      <code><![CDATA[$properties]]></code>
-    </MoreSpecificImplementedParamType>
-    <PossiblyUndefinedVariable>
-      <code><![CDATA[$ref]]></code>
-    </PossiblyUndefinedVariable>
-    <PropertyNotSetInConstructor>
-      <code><![CDATA[CustomJsonSerializer]]></code>
-    </PropertyNotSetInConstructor>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$className === 'DateTime']]></code>
-      <code><![CDATA[$className === 'DateTimeImmutable']]></code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="src/Tools/TestGenerator.php">
     <MixedAssignment>
       <code><![CDATA[$file]]></code>
@@ -1205,31 +1160,12 @@
       <code><![CDATA[testBuildKill]]></code>
     </InvalidArgument>
   </file>
-  <file src="tests/TestCase.php">
-    <InvalidReturnStatement>
-      <code><![CDATA[$data]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{
-     *   query: string,
-     *   lexer: Lexer,
-     *   parser: Parser|null,
-     *   errors: array{lexer: list<array{string, string, int, int}>, parser: list<array{string, Token, int}>}
-     * }]]></code>
-    </InvalidReturnType>
-  </file>
   <file src="tests/Tools/ContextGeneratorTest.php">
     <PossiblyFalseOperand>
       <code><![CDATA[getcwd()]]></code>
       <code><![CDATA[getcwd()]]></code>
       <code><![CDATA[getcwd()]]></code>
     </PossiblyFalseOperand>
-  </file>
-  <file src="tests/UtfStringSerializer.php">
-    <PossiblyUnusedMethod>
-      <code><![CDATA[serialize]]></code>
-      <code><![CDATA[unserialize]]></code>
-    </PossiblyUnusedMethod>
   </file>
   <file src="tests/Utils/CLITest.php">
     <UndefinedAttributeClass>

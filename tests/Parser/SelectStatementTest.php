@@ -8,12 +8,15 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
+use function file_get_contents;
+
 class SelectStatementTest extends TestCase
 {
     public function testSelectOptions(): void
     {
-        $data = $this->getData('parser/parseSelect');
-        $parser = new Parser($data['query']);
+        $sql = file_get_contents('tests/data/parser/parseSelect.in');
+        self::assertIsString($sql);
+        $parser = new Parser($sql);
         $stmt = $parser->statements[0];
         $this->assertNotNull($stmt->options);
         $this->assertEquals(10, $stmt->options->get('MAX_STATEMENT_TIME'));
