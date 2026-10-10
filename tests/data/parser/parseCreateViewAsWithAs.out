@@ -1847,8 +1847,8 @@
                         "errors": [],
                         "list": {
                             "@type": "PhpMyAdmin\\SqlParser\\TokensList",
-                            "count": 111,
-                            "idx": 111,
+                            "count": 13,
+                            "idx": 13,
                             "tokens": [
                                 {
                                     "@type": "@46"
@@ -1888,238 +1888,427 @@
                                 },
                                 {
                                     "@type": "@58"
-                                },
-                                {
-                                    "@type": "@59"
-                                },
-                                {
-                                    "@type": "@61"
-                                },
-                                {
-                                    "@type": "@62"
-                                },
-                                {
-                                    "@type": "@63"
-                                },
-                                {
-                                    "@type": "@64"
-                                },
-                                {
-                                    "@type": "@65"
-                                },
-                                {
-                                    "@type": "@66"
-                                },
-                                {
-                                    "@type": "@67"
-                                },
-                                {
-                                    "@type": "@68"
-                                },
-                                {
-                                    "@type": "@69"
-                                },
-                                {
-                                    "@type": "@70"
-                                },
-                                {
-                                    "@type": "@71"
-                                },
-                                {
-                                    "@type": "@72"
-                                },
-                                {
-                                    "@type": "@73"
-                                },
-                                {
-                                    "@type": "@74"
-                                },
-                                {
-                                    "@type": "@75"
-                                },
-                                {
-                                    "@type": "@76"
-                                },
-                                {
-                                    "@type": "@77"
-                                },
-                                {
-                                    "@type": "@78"
-                                },
-                                {
-                                    "@type": "@79"
-                                },
-                                {
-                                    "@type": "@80"
-                                },
-                                {
-                                    "@type": "@81"
-                                },
-                                {
-                                    "@type": "@82"
-                                },
-                                {
-                                    "@type": "@83"
-                                },
-                                {
-                                    "@type": "@84"
-                                },
-                                {
-                                    "@type": "@85"
-                                },
-                                {
-                                    "@type": "@86"
-                                },
-                                {
-                                    "@type": "@87"
-                                },
-                                {
-                                    "@type": "@88"
-                                },
-                                {
-                                    "@type": "@89"
-                                },
-                                {
-                                    "@type": "@90"
-                                },
-                                {
-                                    "@type": "@91"
-                                },
-                                {
-                                    "@type": "@92"
-                                },
-                                {
-                                    "@type": "@93"
-                                },
-                                {
-                                    "@type": "@94"
-                                },
-                                {
-                                    "@type": "@95"
-                                },
-                                {
-                                    "@type": "@96"
-                                },
-                                {
-                                    "@type": "@97"
-                                },
-                                {
-                                    "@type": "@98"
-                                },
-                                {
-                                    "@type": "@99"
-                                },
-                                {
-                                    "@type": "@100"
-                                },
-                                {
-                                    "@type": "@101"
-                                },
-                                {
-                                    "@type": "@102"
-                                },
-                                {
-                                    "@type": "@103"
-                                },
-                                {
-                                    "@type": "@104"
-                                },
-                                {
-                                    "@type": "@105"
-                                },
-                                {
-                                    "@type": "@106"
-                                },
-                                {
-                                    "@type": "@107"
-                                },
-                                {
-                                    "@type": "@108"
-                                },
-                                {
-                                    "@type": "@109"
-                                },
-                                {
-                                    "@type": "@110"
-                                },
-                                {
-                                    "@type": "@111"
-                                },
-                                {
-                                    "@type": "@112"
-                                },
-                                {
-                                    "@type": "@113"
-                                },
-                                {
-                                    "@type": "@114"
-                                },
-                                {
-                                    "@type": "@115"
-                                },
-                                {
-                                    "@type": "@116"
-                                },
-                                {
-                                    "@type": "@117"
-                                },
-                                {
-                                    "@type": "@118"
-                                },
-                                {
-                                    "@type": "@119"
-                                },
-                                {
-                                    "@type": "@120"
-                                },
-                                {
-                                    "@type": "@121"
-                                },
-                                {
-                                    "@type": "@122"
-                                },
-                                {
-                                    "@type": "@123"
-                                },
-                                {
-                                    "@type": "@124"
-                                },
-                                {
-                                    "@type": "@125"
-                                },
-                                {
-                                    "@type": "@126"
-                                },
-                                {
-                                    "@type": "@127"
-                                },
-                                {
-                                    "@type": "@128"
-                                },
-                                {
-                                    "@type": "@129"
-                                },
-                                {
-                                    "@type": "@130"
-                                },
-                                {
-                                    "@type": "@131"
-                                },
-                                {
-                                    "@type": "@132"
-                                },
-                                {
-                                    "@type": "@133"
-                                },
-                                {
-                                    "@type": "@134"
-                                },
-                                {
-                                    "@type": "@135"
-                                },
-                                {
-                                    "@type": "@136"
-                                },
+                                }
+                            ]
+                        },
+                        "statements": [
+                            {
+                                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
+                                "expr": [
+                                    {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                        "database": null,
+                                        "table": "cte",
+                                        "column": null,
+                                        "expr": "cte.*",
+                                        "alias": null,
+                                        "function": null,
+                                        "subquery": null
+                                    }
+                                ],
+                                "from": [
+                                    {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                        "database": null,
+                                        "table": "cte",
+                                        "column": null,
+                                        "expr": "cte",
+                                        "alias": null,
+                                        "function": null,
+                                        "subquery": null
+                                    }
+                                ],
+                                "indexHints": null,
+                                "partition": null,
+                                "where": null,
+                                "group": null,
+                                "groupOptions": null,
+                                "having": null,
+                                "order": null,
+                                "limit": null,
+                                "procedure": null,
+                                "into": null,
+                                "join": [
+                                    {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
+                                        "type": "CROSS",
+                                        "expr": {
+                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                            "database": null,
+                                            "table": "gis_all",
+                                            "column": null,
+                                            "expr": "gis_all",
+                                            "alias": null,
+                                            "function": null,
+                                            "subquery": null
+                                        },
+                                        "on": null,
+                                        "using": null,
+                                        "indexHints": []
+                                    }
+                                ],
+                                "union": [],
+                                "endOptions": null,
+                                "options": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                    "options": []
+                                },
+                                "first": 0,
+                                "last": 12
+                            }
+                        ],
+                        "brackets": 0
+                    },
+                    "options": {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                        "options": []
+                    },
+                    "first": null,
+                    "last": null
+                },
+                "select": null,
+                "like": null,
+                "partitionBy": null,
+                "partitionsNum": null,
+                "subpartitionBy": null,
+                "subpartitionsNum": null,
+                "partitions": null,
+                "table": null,
+                "return": null,
+                "parameters": null,
+                "body": [],
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": {
+                        "6": "VIEW"
+                    }
+                },
+                "first": 0,
+                "last": 52
+            },
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
+                "name": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                    "database": null,
+                    "table": "withclause2",
+                    "column": null,
+                    "expr": "withclause2",
+                    "alias": null,
+                    "function": null,
+                    "subquery": null
+                },
+                "entityOptions": null,
+                "fields": null,
+                "with": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
+                    "withers": {
+                        "cte": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
+                            "columns": [],
+                            "statement": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                                "strict": false,
+                                "errors": [],
+                                "list": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+                                    "count": 20,
+                                    "idx": 20,
+                                    "tokens": [
+                                        {
+                                            "@type": "@79"
+                                        },
+                                        {
+                                            "@type": "@80"
+                                        },
+                                        {
+                                            "@type": "@81"
+                                        },
+                                        {
+                                            "@type": "@82"
+                                        },
+                                        {
+                                            "@type": "@83"
+                                        },
+                                        {
+                                            "@type": "@84"
+                                        },
+                                        {
+                                            "@type": "@85"
+                                        },
+                                        {
+                                            "@type": "@86"
+                                        },
+                                        {
+                                            "@type": "@87"
+                                        },
+                                        {
+                                            "@type": "@88"
+                                        },
+                                        {
+                                            "@type": "@89"
+                                        },
+                                        {
+                                            "@type": "@90"
+                                        },
+                                        {
+                                            "@type": "@91"
+                                        },
+                                        {
+                                            "@type": "@92"
+                                        },
+                                        {
+                                            "@type": "@93"
+                                        },
+                                        {
+                                            "@type": "@94"
+                                        },
+                                        {
+                                            "@type": "@95"
+                                        },
+                                        {
+                                            "@type": "@96"
+                                        },
+                                        {
+                                            "@type": "@97"
+                                        },
+                                        {
+                                            "@type": "@98"
+                                        }
+                                    ]
+                                },
+                                "statements": [
+                                    {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
+                                        "expr": [
+                                            {
+                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                "database": null,
+                                                "table": "p",
+                                                "column": "name",
+                                                "expr": "p.name",
+                                                "alias": null,
+                                                "function": null,
+                                                "subquery": null
+                                            },
+                                            {
+                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                "database": null,
+                                                "table": "p",
+                                                "column": "shape",
+                                                "expr": "p.shape",
+                                                "alias": null,
+                                                "function": null,
+                                                "subquery": null
+                                            }
+                                        ],
+                                        "from": [
+                                            {
+                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                "database": null,
+                                                "table": "gis_all",
+                                                "column": null,
+                                                "expr": "gis_all",
+                                                "alias": "p",
+                                                "function": null,
+                                                "subquery": null
+                                            }
+                                        ],
+                                        "indexHints": null,
+                                        "partition": null,
+                                        "where": null,
+                                        "group": null,
+                                        "groupOptions": null,
+                                        "having": null,
+                                        "order": null,
+                                        "limit": null,
+                                        "procedure": null,
+                                        "into": null,
+                                        "join": null,
+                                        "union": [],
+                                        "endOptions": null,
+                                        "options": {
+                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                            "options": []
+                                        },
+                                        "first": 0,
+                                        "last": 19
+                                    }
+                                ],
+                                "brackets": 0
+                            },
+                            "name": "cte"
+                        },
+                        "cte2": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
+                            "columns": [],
+                            "statement": {
+                                "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                                "strict": false,
+                                "errors": [],
+                                "list": {
+                                    "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+                                    "count": 28,
+                                    "idx": 28,
+                                    "tokens": [
+                                        {
+                                            "@type": "@107"
+                                        },
+                                        {
+                                            "@type": "@108"
+                                        },
+                                        {
+                                            "@type": "@109"
+                                        },
+                                        {
+                                            "@type": "@110"
+                                        },
+                                        {
+                                            "@type": "@111"
+                                        },
+                                        {
+                                            "@type": "@112"
+                                        },
+                                        {
+                                            "@type": "@113"
+                                        },
+                                        {
+                                            "@type": "@114"
+                                        },
+                                        {
+                                            "@type": "@115"
+                                        },
+                                        {
+                                            "@type": "@116"
+                                        },
+                                        {
+                                            "@type": "@117"
+                                        },
+                                        {
+                                            "@type": "@118"
+                                        },
+                                        {
+                                            "@type": "@119"
+                                        },
+                                        {
+                                            "@type": "@120"
+                                        },
+                                        {
+                                            "@type": "@121"
+                                        },
+                                        {
+                                            "@type": "@122"
+                                        },
+                                        {
+                                            "@type": "@123"
+                                        },
+                                        {
+                                            "@type": "@124"
+                                        },
+                                        {
+                                            "@type": "@125"
+                                        },
+                                        {
+                                            "@type": "@126"
+                                        },
+                                        {
+                                            "@type": "@127"
+                                        },
+                                        {
+                                            "@type": "@128"
+                                        },
+                                        {
+                                            "@type": "@129"
+                                        },
+                                        {
+                                            "@type": "@130"
+                                        },
+                                        {
+                                            "@type": "@131"
+                                        },
+                                        {
+                                            "@type": "@132"
+                                        },
+                                        {
+                                            "@type": "@133"
+                                        },
+                                        {
+                                            "@type": "@134"
+                                        }
+                                    ]
+                                },
+                                "statements": [
+                                    {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
+                                        "expr": [
+                                            {
+                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                "database": null,
+                                                "table": "p",
+                                                "column": "name",
+                                                "expr": "p.name",
+                                                "alias": "n2",
+                                                "function": null,
+                                                "subquery": null
+                                            },
+                                            {
+                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                "database": null,
+                                                "table": "p",
+                                                "column": "shape",
+                                                "expr": "p.shape",
+                                                "alias": "sh2",
+                                                "function": null,
+                                                "subquery": null
+                                            }
+                                        ],
+                                        "from": [
+                                            {
+                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                                "database": null,
+                                                "table": "gis_all",
+                                                "column": null,
+                                                "expr": "gis_all",
+                                                "alias": "p",
+                                                "function": null,
+                                                "subquery": null
+                                            }
+                                        ],
+                                        "indexHints": null,
+                                        "partition": null,
+                                        "where": null,
+                                        "group": null,
+                                        "groupOptions": null,
+                                        "having": null,
+                                        "order": null,
+                                        "limit": null,
+                                        "procedure": null,
+                                        "into": null,
+                                        "join": null,
+                                        "union": [],
+                                        "endOptions": null,
+                                        "options": {
+                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                                            "options": []
+                                        },
+                                        "first": 0,
+                                        "last": 27
+                                    }
+                                ],
+                                "brackets": 0
+                            },
+                            "name": "cte2"
+                        }
+                    },
+                    "cteStatementParser": {
+                        "@type": "PhpMyAdmin\\SqlParser\\Parser",
+                        "strict": false,
+                        "errors": [],
+                        "list": {
+                            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+                            "count": 21,
+                            "idx": 21,
+                            "tokens": [
                                 {
                                     "@type": "@137"
                                 },
@@ -2198,6 +2387,16 @@
                                         "alias": null,
                                         "function": null,
                                         "subquery": null
+                                    },
+                                    {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                        "database": null,
+                                        "table": "cte2",
+                                        "column": null,
+                                        "expr": "cte2.*",
+                                        "alias": null,
+                                        "function": null,
+                                        "subquery": null
                                     }
                                 ],
                                 "from": [
@@ -2207,6 +2406,16 @@
                                         "table": "cte",
                                         "column": null,
                                         "expr": "cte",
+                                        "alias": null,
+                                        "function": null,
+                                        "subquery": null
+                                    },
+                                    {
+                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
+                                        "database": null,
+                                        "table": "cte2",
+                                        "column": null,
+                                        "expr": "cte2",
                                         "alias": null,
                                         "function": null,
                                         "subquery": null
@@ -2248,510 +2457,7 @@
                                     "options": []
                                 },
                                 "first": 0,
-                                "last": 12
-                            },
-                            {
-                                "@type": "PhpMyAdmin\\SqlParser\\Statements\\CreateStatement",
-                                "name": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                    "database": null,
-                                    "table": "withclause2",
-                                    "column": null,
-                                    "expr": "withclause2",
-                                    "alias": null,
-                                    "function": null,
-                                    "subquery": null
-                                },
-                                "entityOptions": null,
-                                "fields": null,
-                                "with": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Statements\\WithStatement",
-                                    "withers": {
-                                        "cte": {
-                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
-                                            "columns": [],
-                                            "statement": {
-                                                "@type": "PhpMyAdmin\\SqlParser\\Parser",
-                                                "strict": false,
-                                                "errors": [],
-                                                "list": {
-                                                    "@type": "PhpMyAdmin\\SqlParser\\TokensList",
-                                                    "count": 20,
-                                                    "idx": 20,
-                                                    "tokens": [
-                                                        {
-                                                            "@type": "@79"
-                                                        },
-                                                        {
-                                                            "@type": "@80"
-                                                        },
-                                                        {
-                                                            "@type": "@81"
-                                                        },
-                                                        {
-                                                            "@type": "@82"
-                                                        },
-                                                        {
-                                                            "@type": "@83"
-                                                        },
-                                                        {
-                                                            "@type": "@84"
-                                                        },
-                                                        {
-                                                            "@type": "@85"
-                                                        },
-                                                        {
-                                                            "@type": "@86"
-                                                        },
-                                                        {
-                                                            "@type": "@87"
-                                                        },
-                                                        {
-                                                            "@type": "@88"
-                                                        },
-                                                        {
-                                                            "@type": "@89"
-                                                        },
-                                                        {
-                                                            "@type": "@90"
-                                                        },
-                                                        {
-                                                            "@type": "@91"
-                                                        },
-                                                        {
-                                                            "@type": "@92"
-                                                        },
-                                                        {
-                                                            "@type": "@93"
-                                                        },
-                                                        {
-                                                            "@type": "@94"
-                                                        },
-                                                        {
-                                                            "@type": "@95"
-                                                        },
-                                                        {
-                                                            "@type": "@96"
-                                                        },
-                                                        {
-                                                            "@type": "@97"
-                                                        },
-                                                        {
-                                                            "@type": "@98"
-                                                        }
-                                                    ]
-                                                },
-                                                "statements": [
-                                                    {
-                                                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                                                        "expr": [
-                                                            {
-                                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                                "database": null,
-                                                                "table": "p",
-                                                                "column": "name",
-                                                                "expr": "p.name",
-                                                                "alias": null,
-                                                                "function": null,
-                                                                "subquery": null
-                                                            },
-                                                            {
-                                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                                "database": null,
-                                                                "table": "p",
-                                                                "column": "shape",
-                                                                "expr": "p.shape",
-                                                                "alias": null,
-                                                                "function": null,
-                                                                "subquery": null
-                                                            }
-                                                        ],
-                                                        "from": [
-                                                            {
-                                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                                "database": null,
-                                                                "table": "gis_all",
-                                                                "column": null,
-                                                                "expr": "gis_all",
-                                                                "alias": "p",
-                                                                "function": null,
-                                                                "subquery": null
-                                                            }
-                                                        ],
-                                                        "indexHints": null,
-                                                        "partition": null,
-                                                        "where": null,
-                                                        "group": null,
-                                                        "groupOptions": null,
-                                                        "having": null,
-                                                        "order": null,
-                                                        "limit": null,
-                                                        "procedure": null,
-                                                        "into": null,
-                                                        "join": null,
-                                                        "union": [],
-                                                        "endOptions": null,
-                                                        "options": {
-                                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                                            "options": []
-                                                        },
-                                                        "first": 0,
-                                                        "last": 19
-                                                    }
-                                                ],
-                                                "brackets": 0
-                                            },
-                                            "name": "cte"
-                                        },
-                                        "cte2": {
-                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\WithKeyword",
-                                            "columns": [],
-                                            "statement": {
-                                                "@type": "PhpMyAdmin\\SqlParser\\Parser",
-                                                "strict": false,
-                                                "errors": [],
-                                                "list": {
-                                                    "@type": "PhpMyAdmin\\SqlParser\\TokensList",
-                                                    "count": 28,
-                                                    "idx": 28,
-                                                    "tokens": [
-                                                        {
-                                                            "@type": "@107"
-                                                        },
-                                                        {
-                                                            "@type": "@108"
-                                                        },
-                                                        {
-                                                            "@type": "@109"
-                                                        },
-                                                        {
-                                                            "@type": "@110"
-                                                        },
-                                                        {
-                                                            "@type": "@111"
-                                                        },
-                                                        {
-                                                            "@type": "@112"
-                                                        },
-                                                        {
-                                                            "@type": "@113"
-                                                        },
-                                                        {
-                                                            "@type": "@114"
-                                                        },
-                                                        {
-                                                            "@type": "@115"
-                                                        },
-                                                        {
-                                                            "@type": "@116"
-                                                        },
-                                                        {
-                                                            "@type": "@117"
-                                                        },
-                                                        {
-                                                            "@type": "@118"
-                                                        },
-                                                        {
-                                                            "@type": "@119"
-                                                        },
-                                                        {
-                                                            "@type": "@120"
-                                                        },
-                                                        {
-                                                            "@type": "@121"
-                                                        },
-                                                        {
-                                                            "@type": "@122"
-                                                        },
-                                                        {
-                                                            "@type": "@123"
-                                                        },
-                                                        {
-                                                            "@type": "@124"
-                                                        },
-                                                        {
-                                                            "@type": "@125"
-                                                        },
-                                                        {
-                                                            "@type": "@126"
-                                                        },
-                                                        {
-                                                            "@type": "@127"
-                                                        },
-                                                        {
-                                                            "@type": "@128"
-                                                        },
-                                                        {
-                                                            "@type": "@129"
-                                                        },
-                                                        {
-                                                            "@type": "@130"
-                                                        },
-                                                        {
-                                                            "@type": "@131"
-                                                        },
-                                                        {
-                                                            "@type": "@132"
-                                                        },
-                                                        {
-                                                            "@type": "@133"
-                                                        },
-                                                        {
-                                                            "@type": "@134"
-                                                        }
-                                                    ]
-                                                },
-                                                "statements": [
-                                                    {
-                                                        "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                                                        "expr": [
-                                                            {
-                                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                                "database": null,
-                                                                "table": "p",
-                                                                "column": "name",
-                                                                "expr": "p.name",
-                                                                "alias": "n2",
-                                                                "function": null,
-                                                                "subquery": null
-                                                            },
-                                                            {
-                                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                                "database": null,
-                                                                "table": "p",
-                                                                "column": "shape",
-                                                                "expr": "p.shape",
-                                                                "alias": "sh2",
-                                                                "function": null,
-                                                                "subquery": null
-                                                            }
-                                                        ],
-                                                        "from": [
-                                                            {
-                                                                "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                                "database": null,
-                                                                "table": "gis_all",
-                                                                "column": null,
-                                                                "expr": "gis_all",
-                                                                "alias": "p",
-                                                                "function": null,
-                                                                "subquery": null
-                                                            }
-                                                        ],
-                                                        "indexHints": null,
-                                                        "partition": null,
-                                                        "where": null,
-                                                        "group": null,
-                                                        "groupOptions": null,
-                                                        "having": null,
-                                                        "order": null,
-                                                        "limit": null,
-                                                        "procedure": null,
-                                                        "into": null,
-                                                        "join": null,
-                                                        "union": [],
-                                                        "endOptions": null,
-                                                        "options": {
-                                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                                            "options": []
-                                                        },
-                                                        "first": 0,
-                                                        "last": 27
-                                                    }
-                                                ],
-                                                "brackets": 0
-                                            },
-                                            "name": "cte2"
-                                        }
-                                    },
-                                    "cteStatementParser": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Parser",
-                                        "strict": false,
-                                        "errors": [],
-                                        "list": {
-                                            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
-                                            "count": 21,
-                                            "idx": 21,
-                                            "tokens": [
-                                                {
-                                                    "@type": "@137"
-                                                },
-                                                {
-                                                    "@type": "@138"
-                                                },
-                                                {
-                                                    "@type": "@139"
-                                                },
-                                                {
-                                                    "@type": "@140"
-                                                },
-                                                {
-                                                    "@type": "@141"
-                                                },
-                                                {
-                                                    "@type": "@142"
-                                                },
-                                                {
-                                                    "@type": "@143"
-                                                },
-                                                {
-                                                    "@type": "@144"
-                                                },
-                                                {
-                                                    "@type": "@145"
-                                                },
-                                                {
-                                                    "@type": "@146"
-                                                },
-                                                {
-                                                    "@type": "@147"
-                                                },
-                                                {
-                                                    "@type": "@148"
-                                                },
-                                                {
-                                                    "@type": "@149"
-                                                },
-                                                {
-                                                    "@type": "@150"
-                                                },
-                                                {
-                                                    "@type": "@151"
-                                                },
-                                                {
-                                                    "@type": "@152"
-                                                },
-                                                {
-                                                    "@type": "@153"
-                                                },
-                                                {
-                                                    "@type": "@154"
-                                                },
-                                                {
-                                                    "@type": "@155"
-                                                },
-                                                {
-                                                    "@type": "@156"
-                                                },
-                                                {
-                                                    "@type": "@157"
-                                                }
-                                            ]
-                                        },
-                                        "statements": [
-                                            {
-                                                "@type": "PhpMyAdmin\\SqlParser\\Statements\\SelectStatement",
-                                                "expr": [
-                                                    {
-                                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                        "database": null,
-                                                        "table": "cte",
-                                                        "column": null,
-                                                        "expr": "cte.*",
-                                                        "alias": null,
-                                                        "function": null,
-                                                        "subquery": null
-                                                    },
-                                                    {
-                                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                        "database": null,
-                                                        "table": "cte2",
-                                                        "column": null,
-                                                        "expr": "cte2.*",
-                                                        "alias": null,
-                                                        "function": null,
-                                                        "subquery": null
-                                                    }
-                                                ],
-                                                "from": [
-                                                    {
-                                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                        "database": null,
-                                                        "table": "cte",
-                                                        "column": null,
-                                                        "expr": "cte",
-                                                        "alias": null,
-                                                        "function": null,
-                                                        "subquery": null
-                                                    },
-                                                    {
-                                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                        "database": null,
-                                                        "table": "cte2",
-                                                        "column": null,
-                                                        "expr": "cte2",
-                                                        "alias": null,
-                                                        "function": null,
-                                                        "subquery": null
-                                                    }
-                                                ],
-                                                "indexHints": null,
-                                                "partition": null,
-                                                "where": null,
-                                                "group": null,
-                                                "groupOptions": null,
-                                                "having": null,
-                                                "order": null,
-                                                "limit": null,
-                                                "procedure": null,
-                                                "into": null,
-                                                "join": [
-                                                    {
-                                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\JoinKeyword",
-                                                        "type": "CROSS",
-                                                        "expr": {
-                                                            "@type": "PhpMyAdmin\\SqlParser\\Components\\Expression",
-                                                            "database": null,
-                                                            "table": "gis_all",
-                                                            "column": null,
-                                                            "expr": "gis_all",
-                                                            "alias": null,
-                                                            "function": null,
-                                                            "subquery": null
-                                                        },
-                                                        "on": null,
-                                                        "using": null,
-                                                        "indexHints": []
-                                                    }
-                                                ],
-                                                "union": [],
-                                                "endOptions": null,
-                                                "options": {
-                                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                                    "options": []
-                                                },
-                                                "first": 0,
-                                                "last": 18
-                                            }
-                                        ],
-                                        "brackets": 0
-                                    },
-                                    "options": {
-                                        "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                        "options": []
-                                    },
-                                    "first": null,
-                                    "last": null
-                                },
-                                "select": null,
-                                "like": null,
-                                "partitionBy": null,
-                                "partitionsNum": null,
-                                "subpartitionBy": null,
-                                "subpartitionsNum": null,
-                                "partitions": null,
-                                "table": null,
-                                "return": null,
-                                "parameters": null,
-                                "body": [],
-                                "options": {
-                                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
-                                    "options": {
-                                        "6": "VIEW"
-                                    }
-                                },
-                                "first": 13,
-                                "last": 109
+                                "last": 18
                             }
                         ],
                         "brackets": 0
@@ -2780,7 +2486,7 @@
                         "6": "VIEW"
                     }
                 },
-                "first": 0,
+                "first": 53,
                 "last": 148
             }
         ],
