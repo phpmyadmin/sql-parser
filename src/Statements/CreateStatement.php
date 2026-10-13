@@ -16,7 +16,9 @@ use PhpMyAdmin\SqlParser\Statement;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
+use function ctype_space;
 use function is_array;
+use function substr;
 use function trim;
 
 /**
@@ -487,11 +489,16 @@ class CreateStatement extends Statement
                 $builtStatement = $this->with->build();
             }
 
+            $bodyTokens = ! empty($this->body) ? TokensList::build($this->body) : '';
+            $needsSeparator = $builtStatement !== '' && $bodyTokens !== ''
+                && ! ctype_space(substr($builtStatement, -1))
+                && ! ctype_space($bodyTokens[0]);
+
             return 'CREATE '
                 . OptionsArray::build($this->options) . ' '
                 . Expression::build($this->name) . ' '
                 . $fields . ' AS ' . $builtStatement
-                . (! empty($this->body) ? TokensList::build($this->body) : '') . ' '
+                . ($needsSeparator ? ' ' : '') . $bodyTokens . ' '
                 . OptionsArray::build($this->entityOptions);
         } elseif ($this->options->has('TRIGGER')) {
             return 'CREATE '
