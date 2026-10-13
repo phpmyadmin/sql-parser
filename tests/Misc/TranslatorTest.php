@@ -30,7 +30,7 @@ final class TranslatorTest extends TestCase
             return;
         }
 
-        $this->markTestSkipped('The phpmyadmin/motranslator package is missing.');
+        self::markTestSkipped('The phpmyadmin/motranslator package is missing.');
     }
 
     public static function tearDownAfterClass(): void
