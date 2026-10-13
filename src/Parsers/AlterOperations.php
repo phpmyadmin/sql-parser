@@ -262,6 +262,7 @@ final class AlterOperations implements Parseable
          * Counts brackets.
          */
         $brackets = 0;
+        $isFirstUnknownToken = true;
 
         /**
          * The state of the parser.
@@ -355,6 +356,12 @@ final class AlterOperations implements Parseable
 
                 $state = 2;
             } elseif ($state === 2) {
+                if ($isFirstUnknownToken && $ret->options?->has('ADD') === true && $token->keyword === 'VARCHAR') {
+                    // Validate the column type while preserving the original tokens used to build ALTER.
+                    DataTypes::parse($parser, clone $list);
+                }
+
+                $isFirstUnknownToken = false;
                 if (is_string($token->value) || is_int($token->value)) {
                     $arrayKey = $token->value;
                 } else {

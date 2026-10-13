@@ -11,6 +11,7 @@ use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 
+use function preg_match;
 use function strtoupper;
 
 /**
@@ -79,7 +80,37 @@ final class DataTypes implements Parseable
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === TokenType::Operator) && ($token->value === '(')) {
+                    $parametersStart = $list->idx + 1;
                     $parameters = ArrayObjs::parse($parser, $list);
+                    if ($ret->name === 'VARCHAR') {
+                        $hasLength = false;
+                        for ($idx = $parametersStart; $idx < $list->idx; ++$idx) {
+                            $parameter = $list->tokens[$idx];
+                            if ($parameter->type === TokenType::Whitespace || $parameter->type === TokenType::Comment) {
+                                continue;
+                            }
+
+                            // Check the original lexeme: conversion can turn 20.0 or '20' into 20.
+                            if (
+                                $hasLength || $parameter->type !== TokenType::Number
+                                || preg_match('/^[0-9]+$/D', $parameter->token) !== 1
+                            ) {
+                                $parser->error('VARCHAR length must be a single nonnegative integer.', $parameter);
+                                $hasLength = true;
+                                break;
+                            }
+
+                            $hasLength = true;
+                        }
+
+                        if (! $hasLength) {
+                            $parser->error(
+                                'VARCHAR length must be a single nonnegative integer.',
+                                $list->tokens[$list->idx] ?? null,
+                            );
+                        }
+                    }
+
                     ++$list->idx;
                     $ret->parameters = ($ret->name === 'ENUM') || ($ret->name === 'SET') ?
                         $parameters->raw : $parameters->values;
