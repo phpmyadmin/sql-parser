@@ -34,6 +34,7 @@ class SetStatementTest extends TestCase
             ['parser/parseSetVariable'],
             ['parser/parseSetVariable2'],
             ['parser/parseSetGlobalVariable'],
+            ['parser/parseSetVariableOn'],
         ];
     }
 }
