@@ -23,10 +23,11 @@ jobs:
           - { php-version: '8.6', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-req=php+' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
+          persist-credentials: false
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
@@ -53,7 +54,7 @@ jobs:
         run: composer run phpunit
 
       - name: Send coverage
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         # Do not run this step on forked versions of the main repository (example: contributor forks)
         if: github.repository == 'phpmyadmin/sql-parser'
         with:
@@ -64,7 +65,7 @@ jobs:
           report_type: coverage
 
       - name: Upload test results
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         # Do not run this step on forked versions of the main repository (example: contributor forks)
         if: ${{ github.repository == 'phpmyadmin/sql-parser' && !cancelled() }}
         with:
@@ -133,10 +134,11 @@ jobs:
           - { php-version: '8.6', experimental: true, os: ubuntu-latest, composer-options: '--ignore-platform-req=php+' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
+          persist-credentials: false
 
       - name: Set up PHP ${{ matrix.php-version }}
         uses: shivammathur/setup-php@v2
