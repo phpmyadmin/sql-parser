@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\Key;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Components\ParameterDefinition;
+use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
@@ -894,5 +895,36 @@ SQL;
         $parser = new Parser($sql);
         $this->assertEmpty($parser->errors);
         $this->assertStringContainsString("DEFAULT X'FF'", $parser->statements[0]->build());
+    }
+
+    public function testBuildCreateTableSystemVersioning(): void
+    {
+        Context::load('MariaDb100300');
+
+        $sql = "CREATE TABLE `t` (\n"
+            . "  `x` int(11) DEFAULT NULL,\n"
+            . "  `row_start` timestamp(6) GENERATED ALWAYS AS ROW START INVISIBLE,\n"
+            . "  `row_end` timestamp(6) GENERATED ALWAYS AS ROW END INVISIBLE,\n"
+            . "  `y` int(11) DEFAULT NULL WITHOUT SYSTEM VERSIONING,\n"
+            . "  PERIOD FOR SYSTEM_TIME (`row_start`,`row_end`)\n"
+            . ') ENGINE=InnoDB WITH SYSTEM VERSIONING';
+
+        $parser = new Parser($sql);
+        $this->assertEmpty($parser->errors);
+        $this->assertEquals($sql, $parser->statements[0]->build());
+    }
+
+    public function testBuildCreateTableSequence(): void
+    {
+        Context::load('MariaDb100300');
+
+        $sql = "CREATE TABLE `s` (\n"
+            . "  `next_not_cached_value` bigint(21) NOT NULL,\n"
+            . "  `minimum_value` bigint(21) NOT NULL\n"
+            . ') ENGINE=InnoDB SEQUENCE=1';
+
+        $parser = new Parser($sql);
+        $this->assertEmpty($parser->errors);
+        $this->assertEquals($sql, $parser->statements[0]->build());
     }
 }

@@ -97,6 +97,11 @@ class CreateDefinition extends Component
             17,
             'var',
         ],
+        // MariaDB system-versioned tables.
+        'AS ROW START' => 18,
+        'AS ROW END' => 18,
+        'WITH SYSTEM VERSIONING' => 19,
+        'WITHOUT SYSTEM VERSIONING' => 19,
         // Common entries.
         //
         // NOTE: Some of the common options are not in the same order which
