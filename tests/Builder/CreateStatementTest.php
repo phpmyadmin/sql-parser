@@ -294,7 +294,30 @@ PARTITION p4 ENGINE=InnoDB
 )
 EOT;
 
-        return ['subpartitions' => [$subPartitions], 'partitions' => [$partitions]];
+        $storageEngine = <<<EOT
+CREATE TABLE `ts` (
+  `id` int(11) DEFAULT NULL,
+  `purchased` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+PARTITION BY RANGE (YEAR(purchased))
+SUBPARTITION BY HASH (TO_DAYS(purchased))
+(
+PARTITION p0 VALUES LESS THAN (1990) STORAGE ENGINE=InnoDB COMMENT='p0' (
+SUBPARTITION s0 STORAGE ENGINE=InnoDB,
+SUBPARTITION s1 ENGINE=InnoDB
+),
+PARTITION p1 VALUES LESS THAN MAXVALUE ENGINE=InnoDB (
+SUBPARTITION s2 ENGINE=InnoDB,
+SUBPARTITION s3 STORAGE ENGINE=InnoDB
+)
+)
+EOT;
+
+        return [
+            'subpartitions' => [$subPartitions],
+            'partitions' => [$partitions],
+            'storage engine' => [$storageEngine],
+        ];
     }
 
     /**
