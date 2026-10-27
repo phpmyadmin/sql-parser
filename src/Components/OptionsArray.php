@@ -14,6 +14,7 @@ use function array_merge_recursive;
 use function count;
 use function implode;
 use function is_array;
+use function is_string;
 use function ksort;
 use function sprintf;
 use function strcasecmp;
@@ -118,6 +119,17 @@ class OptionsArray extends Component
 
             if ($lastOption === null) {
                 $upper = strtoupper($token->token);
+                if (
+                    isset($options['_ALLOW_QUOTED'])
+                    && $token->type === Token::TYPE_SYMBOL
+                    && ($token->flags & Token::FLAG_SYMBOL_BACKTICK) !== 0
+                    && is_string($token->value)
+                ) {
+                    // The name of the option is quoted (e.g. MariaDB quotes
+                    // engine-defined table options like `PAGE_COMPRESSED`).
+                    $upper = strtoupper($token->value);
+                }
+
                 if (! isset($options[$upper])) {
                     // There is no option to be processed.
                     break;
