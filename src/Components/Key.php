@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 
+use function count;
 use function implode;
 use function trim;
 
@@ -77,7 +78,7 @@ class Key extends Component
      * The key columns
      *
      * @var array<int, array<string, int|string>>
-     * @phpstan-var array{name?: string, length?: int, order?: string}[]
+     * @phpstan-var array{name?: string, expr?: string, length?: int, order?: string}[]
      */
     public $columns;
 
@@ -107,7 +108,7 @@ class Key extends Component
      * @param array<int, array<string, int|string>> $columns the columns covered by this key
      * @param string                                $type    the type of this key
      * @param OptionsArray                          $options the options of this key
-     * @phpstan-param array{name?: string, length?: int, order?: string}[] $columns
+     * @phpstan-param array{name?: string, expr?: string, length?: int, order?: string}[] $columns
      */
     public function __construct(
         $name = null,
@@ -148,16 +149,22 @@ class Key extends Component
          *
          *      1 ---------------------[ name ]---------------------------> 1
          *      1 ---------------------[ columns ]------------------------> 2
-         *      1 ---------------------[ expression ]---------------------> 5
          *
+         *      2 ---------------------[ expression ]---------------------> 2
          *      2 ---------------------[ column length ]------------------> 3
          *      3 ---------------------[ column length ]------------------> 2
          *      2 ---------------------[ options ]------------------------> 4
-         *      5 ---------------------[ expression ]---------------------> 4
          *
          * @var int
          */
         $state = 0;
+
+        /**
+         * Parentheses depth while skipping an invalid key part, null when not skipping.
+         *
+         * @var int|null
+         */
+        $skipDepth = null;
 
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
@@ -180,23 +187,41 @@ class Key extends Component
                 $state = 1;
             } elseif ($state === 1) {
                 if (($token->type === Token::TYPE_OPERATOR) && ($token->value === '(')) {
-                    $positionBeforeSearch = $list->idx;
-                    $list->idx++;// Ignore the current token "(" or the search condition will always be true
-                    $nextToken = $list->getNext();
-                    $list->idx = $positionBeforeSearch;// Restore the position
-
-                    if ($nextToken !== null && $nextToken->value === '(') {
-                        // Switch to expression mode
-                        $state = 5;
-                    } else {
-                        $state = 2;
-                    }
+                    $state = 2;
                 } else {
                     $ret->name = $token->value;
                 }
             } elseif ($state === 2) {
+                if ($skipDepth !== null) {
+                    // Skips the rest of an invalid key part.
+                    if ($token->type === Token::TYPE_OPERATOR && $token->value === '(') {
+                        ++$skipDepth;
+                        continue;
+                    }
+
+                    if ($token->type === Token::TYPE_OPERATOR && $token->value === ')' && $skipDepth > 0) {
+                        --$skipDepth;
+                        continue;
+                    }
+
+                    $isPartEnd = $token->type === Token::TYPE_OPERATOR
+                        && ($token->value === ',' || $token->value === ')');
+                    if ($skipDepth > 0 || ! $isPartEnd) {
+                        continue;
+                    }
+
+                    $skipDepth = null;
+                }
+
                 if ($token->type === Token::TYPE_OPERATOR) {
-                    if ($token->value === '(') {
+                    if ($token->value === '(' && $lastColumn === []) {
+                        // A functional key part, e.g. `(col * 2)` in `KEY (a, (col * 2), b)`.
+                        $lastColumn['expr'] = (string) Expression::parse(
+                            $parser,
+                            $list,
+                            ['parenthesesDelimited' => true]
+                        );
+                    } elseif ($token->value === '(' && ! isset($lastColumn['expr'])) {
                         $state = 3;
                     } elseif (($token->value === ',') || ($token->value === ')')) {
                         $state = $token->value === ',' ? 2 : 4;
@@ -204,6 +229,14 @@ class Key extends Component
                             $ret->columns[] = $lastColumn;
                             $lastColumn = [];
                         }
+
+                        if ($state === 4) {
+                            static::moveExpressionsOnlyKeyToExpr($ret);
+                        }
+                    } elseif (isset($lastColumn['expr'])) {
+                        $parser->error('Unexpected token.', $token);
+                        // An unexpected "(" is already consumed, so its ")" must not end the key.
+                        $skipDepth = $token->value === '(' ? 1 : 0;
                     }
                 } elseif (
                     (
@@ -215,6 +248,9 @@ class Key extends Component
                     )
                 ) {
                     $lastColumn['order'] = $token->keyword;
+                } elseif (isset($lastColumn['expr'])) {
+                    $parser->error('Unexpected token.', $token);
+                    $skipDepth = 0;
                 } else {
                     $lastColumn['name'] = $token->value;
                 }
@@ -228,41 +264,34 @@ class Key extends Component
                 $ret->options = OptionsArray::parse($parser, $list, static::$KEY_OPTIONS);
                 ++$list->idx;
                 break;
-            } elseif ($state === 5) {
-                if ($token->type === Token::TYPE_OPERATOR) {
-                    // This got back to here and we reached the end of the expression
-                    if ($token->value === ')') {
-                        $state = 4;// go back to state 4 to fetch options
-                        continue;
-                    }
-
-                    // The expression is not finished, adding a separator for the next expression
-                    if ($token->value === ',') {
-                        $ret->expr .= ', ';
-                        continue;
-                    }
-
-                    // Start of the expression
-                    if ($token->value === '(') {
-                        // This is the first expression, set to empty
-                        if ($ret->expr === null) {
-                            $ret->expr = '';
-                        }
-
-                        $ret->expr .= Expression::parse($parser, $list, ['parenthesesDelimited' => true]);
-                        continue;
-                    }
-                    // Another unexpected operator was found
-                }
-
-                // Something else than an operator was found
-                $parser->error('Unexpected token.', $token);
             }
         }
 
         --$list->idx;
 
         return $ret;
+    }
+
+    /**
+     * Keeps the `expr` representation for keys made only of expressions.
+     */
+    private static function moveExpressionsOnlyKeyToExpr(Key $key): void
+    {
+        $expressions = [];
+        foreach ($key->columns as $column) {
+            if (! isset($column['expr']) || count($column) !== 1) {
+                return;
+            }
+
+            $expressions[] = $column['expr'];
+        }
+
+        if ($expressions === []) {
+            return;
+        }
+
+        $key->expr = implode(', ', $expressions);
+        $key->columns = [];
     }
 
     /**
@@ -287,6 +316,10 @@ class Key extends Component
             $tmp = '';
             if (isset($column['name'])) {
                 $tmp .= Context::escape($column['name']);
+            }
+
+            if (isset($column['expr'])) {
+                $tmp .= $column['expr'];
             }
 
             if (isset($column['length'])) {
