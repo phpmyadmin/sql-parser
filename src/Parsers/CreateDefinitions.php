@@ -123,6 +123,7 @@ final class CreateDefinitions implements Parseable
          *      1 --------------------[ CONSTRAINT ]------------------> 1
          *      1 -----------------------[ key ]----------------------> 2
          *      1 -------------[ constraint / column name ]-----------> 2
+         *      1 ----------------------[ CHECK ]---------------------> 4
          *
          *      2 --------------------[ data type ]-------------------> 3
          *
@@ -164,6 +165,14 @@ final class CreateDefinitions implements Parseable
                     $expr->isConstraint = true;
                 } elseif (($token->type === TokenType::Keyword) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
                     $expr->key = Keys::parse($parser, $list);
+                    $state = 4;
+                } elseif ($token->type === TokenType::Keyword && $token->keyword === 'CHECK') {
+                    // Table-level CHECK constraint, optionally named:
+                    // [CONSTRAINT [symbol]] CHECK (expr) [[NOT] ENFORCED]
+                    // It has neither a data type nor a key, so it is
+                    // parsed with the field options, the same way a
+                    // column-level CHECK is parsed in state 3.
+                    $expr->options = OptionsArrays::parse($parser, $list, self::FIELD_OPTIONS);
                     $state = 4;
                 } elseif ($token->type === TokenType::Symbol || $token->type === TokenType::None) {
                     $expr->name = $token->value;
@@ -208,7 +217,7 @@ final class CreateDefinitions implements Parseable
 
                 $state = 5;
             } else {
-                if (! empty($expr->type) || ! empty($expr->key)) {
+                if (! empty($expr->type) || ! empty($expr->key) || ! empty($expr->options)) {
                     $ret[] = $expr;
                 }
 
@@ -228,7 +237,7 @@ final class CreateDefinitions implements Parseable
         }
 
         // Last iteration was not saved.
-        if (! empty($expr->type) || ! empty($expr->key)) {
+        if (! empty($expr->type) || ! empty($expr->key) || ! empty($expr->options)) {
             $ret[] = $expr;
         }
 
