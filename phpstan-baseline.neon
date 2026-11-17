@@ -1231,12 +1231,6 @@ parameters:
 			path: src/Statements/ExplainStatement.php
 
 		-
-			message: '#^Cannot access property \$value on PhpMyAdmin\\SqlParser\\Token\|null\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Statements/ExplainStatement.php
-
-		-
 			message: '#^Class PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement has an uninitialized property \$statementAlias\. Give it default value or assign it in the constructor\.$#'
 			identifier: property.uninitialized
 			count: 1
@@ -1257,12 +1251,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, PhpMyAdmin\\SqlParser\\Parser\|null given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: src/Statements/ExplainStatement.php
-
-		-
-			message: '#^Property PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement\:\:\$connectionId \(int\|null\) does not accept bool\|float\|int\|string\.$#'
-			identifier: assign.propertyType
 			count: 1
 			path: src/Statements/ExplainStatement.php
 
