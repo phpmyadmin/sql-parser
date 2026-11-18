@@ -22,6 +22,7 @@ class InsertStatementTest extends TestCase
             ['parser/parseInsert'],
             ['parser/parseInsertFunction'],
             ['parser/parseInsertSelect'],
+            ['parser/parseInsertSelectWithParenthesis'],
             ['parser/parseInsertOnDuplicateKey'],
             ['parser/parseInsertSetOnDuplicateKey'],
             ['parser/parseInsertSelectOnDuplicateKey'],

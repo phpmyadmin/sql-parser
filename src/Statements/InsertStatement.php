@@ -190,6 +190,13 @@ class InsertStatement extends Statement
 
                 $state = 1;
             } elseif ($state === 1) {
+                // The `SELECT` might be wrapped in brackets, the closing one is
+                // handled by the statement through the bracket counter.
+                if ($token->type === TokenType::Operator && $token->value === '(') {
+                    ++$parser->brackets;
+                    continue;
+                }
+
                 if ($token->type !== TokenType::Keyword) {
                     $parser->error('Unexpected token.', $token);
                     break;
