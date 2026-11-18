@@ -1,5 +1,11 @@
 # Change Log
 
+## [Unreleased]
+
+### Fixed
+
+- [#689](https://github.com/phpmyadmin/sql-parser/pull/689): Fix TypeError on EXPLAIN FOR CONNECTION without integer ID
+
 ## [6.0.1] - 2026-10-07
 
 ### Added
@@ -689,6 +695,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[Unreleased]: https://github.com/phpmyadmin/sql-parser/compare/6.0.1...6.0.x
 [6.0.1]: https://github.com/phpmyadmin/sql-parser/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...6.0.0
 [5.11.2]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...5.11.2
