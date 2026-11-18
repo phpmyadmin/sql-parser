@@ -1,6 +1,12 @@
 # Change Log
 
-## [Unreleased]
+## [6.0.2] - 2026-11-18
+
+### Added
+
+- [#663](https://github.com/phpmyadmin/sql-parser/pull/663): Add INET4 and INET6 data types
+- [#661](https://github.com/phpmyadmin/sql-parser/pull/661): Parse MariaDB comment command
+- [#635](https://github.com/phpmyadmin/sql-parser/pull/635): UUID column type
 
 ### Fixed
 
@@ -695,7 +701,7 @@ __Breaking changes:__
 
 * First release of this library.
 
-[Unreleased]: https://github.com/phpmyadmin/sql-parser/compare/6.0.1...6.0.x
+[6.0.2]: https://github.com/phpmyadmin/sql-parser/compare/6.0.1...6.0.2
 [6.0.1]: https://github.com/phpmyadmin/sql-parser/compare/6.0.0...6.0.1
 [6.0.0]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...6.0.0
 [5.11.2]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...5.11.2
