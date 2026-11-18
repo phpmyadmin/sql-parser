@@ -186,7 +186,8 @@ class DeleteStatement extends Statement
         }
 
         if ($this->limit !== null && strlen((string) $this->limit) > 0) {
-            $ret .= ' LIMIT ' . $this->limit->build();
+            // DELETE only accepts `LIMIT row_count`, so a zero offset is left out.
+            $ret .= ' LIMIT ' . ($this->limit->offset === 0 ? $this->limit->rowCount : $this->limit->build());
         }
 
         return $ret;
