@@ -12,6 +12,7 @@ use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 
 use function array_slice;
+use function is_int;
 
 /**
  * `EXPLAIN` statement.
@@ -161,6 +162,11 @@ class ExplainStatement extends Statement
                     $list->idx++; // Ignore the current token
                     $list->getNext(); // CONNECTION
                     $nextToken = $list->getNext(); // Identifier
+                    if ($nextToken === null || $nextToken->type !== TokenType::Number || ! is_int($nextToken->value)) {
+                        $parser->error('Unexpected token.', $nextToken);
+                        break;
+                    }
+
                     $this->connectionId = $nextToken->value;
                     break;
                 }
