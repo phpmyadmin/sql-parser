@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.20.0@804f03c0c183d149fcd4b8c7c0c9b3fbf836d34c">
+<files psalm-version="6.20.13@9dd07528c4f058df1572d40ab2db5c1566a728f2">
   <file src="src/Components/AlterOperation.php">
     <PossiblyNullReference>
       <code><![CDATA[has]]></code>
@@ -134,12 +134,72 @@
       <code><![CDATA[static::isKeyword($str, true)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
+  <file src="src/Contexts/ContextMariaDb120200.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMariaDb120200]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMariaDb120300.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMariaDb120300]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMariaDb130000.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMariaDb130000]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMariaDb130100.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMariaDb130100]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMariaDb130200.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMariaDb130200]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMariaDb130300.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMariaDb130300]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMySql260700.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMySql260700]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMySql90400.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMySql90400]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMySql90500.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMySql90500]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMySql90600.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMySql90600]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Contexts/ContextMySql90700.php">
+    <UnusedClass>
+      <code><![CDATA[ContextMySql90700]]></code>
+    </UnusedClass>
+  </file>
   <file src="src/Lexer.php">
     <LoopInvalidation>
       <code><![CDATA[$this->last]]></code>
       <code><![CDATA[$this->last]]></code>
       <code><![CDATA[$this->last]]></code>
     </LoopInvalidation>
+    <MixedArgument>
+      <code><![CDATA[$this->str[$this->last]]]></code>
+      <code><![CDATA[$this->str[$this->last]]]></code>
+      <code><![CDATA[$this->str[$this->last]]]></code>
+    </MixedArgument>
     <MixedOperand>
       <code><![CDATA[$this->str[$this->last]]]></code>
     </MixedOperand>
@@ -883,11 +943,6 @@
       <code><![CDATA[$file]]></code>
       <code><![CDATA[$words[$i]]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[static function (int $num) use ($type): bool {
-                return ($type & $num) !== 0;
-            }]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$file[0]]]></code>
     </MixedArrayAccess>

@@ -13,11 +13,23 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionProperty;
 
+use function class_exists;
 use function realpath;
 
 #[CoversClass(Translator::class)]
 final class TranslatorTest extends TestCase
 {
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        if (class_exists(Loader::class)) {
+            return;
+        }
+
+        self::markTestSkipped('The phpmyadmin/motranslator package is missing.');
+    }
+
     public static function tearDownAfterClass(): void
     {
         $loaderProperty = new ReflectionProperty(Translator::class, 'loader');
@@ -78,6 +90,9 @@ final class TranslatorTest extends TestCase
         $translatorProperty = new ReflectionProperty(Translator::class, 'translator');
         $translatorProperty->setValue(null, null);
         Translator::setLocale('pt_BR');
+
+        Translator::load();
+
         self::assertSame(
             'Início de declaração inesperado.',
             Translator::gettext('Unexpected beginning of statement.'),

@@ -731,16 +731,22 @@ class Lexer
         //
         //      10 -------------------[ 0 to 9 ]-------------------> 4
         //
+        //      11 ----------------------[ ' ]---------------------> 12
+        //
+        //      12 --------[ 0 to 9, A to F, a to f ]--------------> 12
+        //      12 ----------------------[ ' ]---------------------> 13
+        //
         // State 1 may be reached by negative numbers.
         // State 2 is reached only by hex numbers.
         // State 4 is reached only by float numbers.
         // State 5 is reached only by numbers in approximate form.
         // State 7 is reached only by numbers in bit representation.
+        // State 11 is reached only by hex string literals (x'...').
         // State 10 is a forced proxy to state 4 ensuring a starting dot (= "0.something") precedes a digit, and not "e"
         // or "E" causing wrongly interpreted scientific notation (".e[0 to 9]" is invalid). Such invalid notation could
         // break the lexer when table names under a given database context starts with ".e[0-9]".
         //
-        // Valid final states are: 2, 3, 4 and 6. Any parsing that finished in a
+        // Valid final states are: 2, 3, 4, 6, and 9. Any parsing that finished in a
         // state other than these is invalid.
         // Also, negative states are invalid states.
         $iBak = $this->last;
@@ -764,6 +770,8 @@ class Lexer
                     $state = 10;
                 } elseif ($this->str[$this->last] === 'b') {
                     $state = 7;
+                } elseif ($this->str[$this->last] === 'x' || $this->str[$this->last] === 'X') {
+                    $state = 11;
                 } elseif ($this->str[$this->last] !== '+') {
                     // `+` is a valid character in a number.
                     break;
@@ -784,14 +792,12 @@ class Lexer
                     $state = 4;
                 } elseif ($this->str[$this->last] === 'e' || $this->str[$this->last] === 'E') {
                     $state = 5;
-                } elseif (
-                    ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
-                    || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')
-                ) {
-                    // A number can't be directly followed by a letter
-                    $state = -$state;
-                    break;
                 } elseif ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
+                    if (! Context::isSeparator($this->str[$this->last])) {
+                        // A number can't be directly followed by a letter _ or $
+                        $state = -$state;
+                    }
+
                     // Just digits and `.`, `e` and `E` are valid characters.
                     break;
                 }
@@ -799,14 +805,12 @@ class Lexer
                 $flags |= Token::FLAG_NUMBER_FLOAT;
                 if ($this->str[$this->last] === 'e' || $this->str[$this->last] === 'E') {
                     $state = 5;
-                } elseif (
-                    ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
-                    || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')
-                ) {
-                    // A number can't be directly followed by a letter
-                    $state = -$state;
-                    break;
                 } elseif ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
+                    if (! Context::isSeparator($this->str[$this->last])) {
+                        // A number can't be directly followed by a letter _ or $
+                        $state = -$state;
+                    }
+
                     // Just digits, `e` and `E` are valid characters.
                     break;
                 }
@@ -817,14 +821,12 @@ class Lexer
                     || ($this->str[$this->last] >= '0' && $this->str[$this->last] <= '9')
                 ) {
                     $state = 6;
-                } elseif (
-                    ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'z')
-                    || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'Z')
-                ) {
-                    // A number can't be directly followed by a letter
-                    $state = -$state;
-                    break;
                 } else {
+                    if (! Context::isSeparator($this->str[$this->last])) {
+                        // A number can't be directly followed by a letter _ or $
+                        $state = -$state;
+                    }
+
                     break;
                 }
             } elseif ($state === 6) {
@@ -847,6 +849,29 @@ class Lexer
                 }
             } elseif ($state === 9) {
                 break;
+            } elseif ($state === 11) {
+                // x'...' hex string literal - expect opening quote
+                $flags |= Token::FLAG_NUMBER_HEX_STRING;
+                if ($this->str[$this->last] !== '\'') {
+                    break;
+                }
+
+                $state = 12;
+            } elseif ($state === 12) {
+                // x'...' hex string literal - hex digits or closing quote
+                if ($this->str[$this->last] === '\'') {
+                    $state = 13;
+                } elseif (
+                    ! (
+                        ($this->str[$this->last] >= '0' && $this->str[$this->last] <= '9')
+                        || ($this->str[$this->last] >= 'A' && $this->str[$this->last] <= 'F')
+                        || ($this->str[$this->last] >= 'a' && $this->str[$this->last] <= 'f')
+                    )
+                ) {
+                    break;
+                }
+            } elseif ($state === 13) {
+                break;
             } elseif ($state === 10) {
                 $flags |= Token::FLAG_NUMBER_FLOAT;
                 if ($this->str[$this->last] < '0' || $this->str[$this->last] > '9') {
@@ -859,7 +884,10 @@ class Lexer
             $token .= $this->str[$this->last];
         }
 
-        if ($state === 2 || $state === 3 || ($token !== '.' && $state === 4) || $state === 6 || $state === 9) {
+        if (
+            $state === 2 || $state === 3 || ($token !== '.' && $state === 4)
+            || $state === 6 || $state === 9 || $state === 13
+        ) {
             --$this->last;
 
             return new Token($token, TokenType::Number, $flags);
