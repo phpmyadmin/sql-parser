@@ -1567,12 +1567,6 @@ parameters:
 			path: src/Token.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, int\<0, 16\> given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Token.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, int\<0, 2\> given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -1906,9 +1900,15 @@ parameters:
 			path: tests/Builder/CallStatementTest.php
 
 		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEmpty\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 2
+			path: tests/Builder/CreateStatementTest.php
+
+		-
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertEquals\(\)\.$#'
 			identifier: staticMethod.dynamicCall
-			count: 34
+			count: 35
 			path: tests/Builder/CreateStatementTest.php
 
 		-
@@ -1939,6 +1939,12 @@ parameters:
 			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\)\.$#'
 			identifier: staticMethod.dynamicCall
 			count: 13
+			path: tests/Builder/CreateStatementTest.php
+
+		-
+			message: '#^Dynamic call to static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\)\.$#'
+			identifier: staticMethod.dynamicCall
+			count: 1
 			path: tests/Builder/CreateStatementTest.php
 
 		-

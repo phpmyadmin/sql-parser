@@ -44,7 +44,9 @@
                     "value": "FOR",
                     "keyword": "FOR",
                     "type": {
-                        "@type": "@3"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
                     },
                     "flags": 3,
                     "position": 8
@@ -55,7 +57,9 @@
                     "value": " ",
                     "keyword": null,
                     "type": {
-                        "@type": "@5"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
                     },
                     "flags": 0,
                     "position": 11
@@ -66,7 +70,9 @@
                     "value": "CONNECTION",
                     "keyword": "CONNECTION",
                     "type": {
-                        "@type": "@3"
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
                     },
                     "flags": 1,
                     "position": 12
@@ -94,23 +100,105 @@
         "strict": false,
         "errors": [],
         "list": {
-            "@type": "@1"
+            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "count": 6,
+            "idx": 7,
+            "tokens": [
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "EXPLAIN",
+                    "value": "EXPLAIN",
+                    "keyword": "EXPLAIN",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 7
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "FOR",
+                    "value": "FOR",
+                    "keyword": "FOR",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 3,
+                    "position": 8
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Whitespace",
+                        "value": 3
+                    },
+                    "flags": 0,
+                    "position": 11
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "CONNECTION",
+                    "value": "CONNECTION",
+                    "keyword": "CONNECTION",
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Keyword",
+                        "value": 1
+                    },
+                    "flags": 1,
+                    "position": 12
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "",
+                    "value": "",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
+                    "flags": 0,
+                    "position": null
+                }
+            ]
         },
         "statements": [
             {
                 "@type": "PhpMyAdmin\\SqlParser\\Statements\\ExplainStatement",
-                "bodyParser": null,
-                "statementAlias": "EXPLAIN",
-                "connectionId": null,
-                "explainedDatabase": null,
-                "explainedTable": null,
-                "explainedColumn": null,
                 "options": {
                     "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
                     "options": []
                 },
                 "first": 0,
-                "last": 6
+                "last": 6,
+                "bodyParser": null,
+                "statementAlias": "EXPLAIN",
+                "connectionId": null,
+                "explainedDatabase": null,
+                "explainedTable": null,
+                "explainedColumn": null
             }
         ],
         "brackets": 0
@@ -121,7 +209,17 @@
             [
                 "Unexpected token.",
                 {
-                    "@type": "@9"
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "",
+                    "value": "",
+                    "keyword": null,
+                    "type": {
+                        "@type": "PhpMyAdmin\\SqlParser\\TokenType",
+                        "name": "Delimiter",
+                        "value": 9
+                    },
+                    "flags": 0,
+                    "position": null
                 },
                 0
             ]
