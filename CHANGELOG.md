@@ -1,5 +1,19 @@
 # Change Log
 
+## [5.11.3] - 2026-11-18
+
+### Added
+
+- [#663](https://github.com/phpmyadmin/sql-parser/pull/663): Add INET4 and INET6 data types
+- [#661](https://github.com/phpmyadmin/sql-parser/pull/661): Parse MariaDB comment command
+- [#635](https://github.com/phpmyadmin/sql-parser/pull/635): UUID column type
+- [#680](https://github.com/phpmyadmin/sql-parser/pull/680): Add new context files
+
+### Fixed
+
+- [#650](https://github.com/phpmyadmin/sql-parser/pull/650): Fix hex string literal (x'...') parsing in CREATE TABLE DEFAULT values
+- [#632](https://github.com/phpmyadmin/sql-parser/pull/632): Fix lex number at start of name followed by _ or $
+
 ## [5.11.2] - 2026-10-07
 
 ### Added
@@ -642,6 +656,7 @@ __Breaking changes:__
 
 * First release of this library.
 
+[5.11.3]: https://github.com/phpmyadmin/sql-parser/compare/5.11.2...5.11.3
 [5.11.2]: https://github.com/phpmyadmin/sql-parser/compare/5.11.1...5.11.2
 [5.11.1]: https://github.com/phpmyadmin/sql-parser/compare/5.11.0...5.11.1
 [5.11.0]: https://github.com/phpmyadmin/sql-parser/compare/5.10.3...5.11.0
