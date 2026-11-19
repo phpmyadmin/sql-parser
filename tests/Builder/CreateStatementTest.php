@@ -84,14 +84,98 @@ class CreateStatementTest extends TestCase
         );
     }
 
-    public function testBuilderCompressed(): void
+    public function testBuilderQuotedTableOptions(): void
     {
-        $parser = new Parser('CREATE TABLE users ( user_id int ) PAGE_COMPRESSED=1 PAGE_COMPRESSION_LEVEL=9;');
+        // MariaDB quotes engine-defined table options in SHOW CREATE TABLE.
+        $parser = new Parser(
+            'CREATE TABLE `t` ( `id` int(11) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4'
+            . " `PAGE_COMPRESSED`='ON' `PAGE_COMPRESSION_LEVEL`=9 `ENCRYPTED`=YES `ENCRYPTION_KEY_ID`=2;"
+        );
+        self::assertEmpty($parser->errors);
         $stmt = $parser->statements[0];
-        $this->assertEquals(
-            "CREATE TABLE users (\n  `user_id` int\n) PAGE_COMPRESSED=1 PAGE_COMPRESSION_LEVEL=9",
+        self::assertInstanceOf(CreateStatement::class, $stmt);
+        self::assertNotNull($stmt->entityOptions);
+        self::assertSame("'ON'", $stmt->entityOptions->has('PAGE_COMPRESSED', true));
+        self::assertEquals(
+            "CREATE TABLE `t` (\n  `id` int(11) NOT NULL\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
+            . " PAGE_COMPRESSED='ON' PAGE_COMPRESSION_LEVEL=9 ENCRYPTED=YES ENCRYPTION_KEY_ID=2",
             $stmt->build()
         );
+    }
+
+    /**
+     * @return string[][]
+     */
+    public static function tableOptionsProvider(): array
+    {
+        return [
+            ['AUTO_INCREMENT=5', 'AUTO_INCREMENT=5'],
+            ['AVG_ROW_LENGTH=100', 'AVG_ROW_LENGTH=100'],
+            ['AVG_ROW_LENGTH 100', 'AVG_ROW_LENGTH 100'],
+            ['CHARACTER SET=utf8mb4', 'CHARACTER SET=utf8mb4'],
+            ['CHARACTER SET utf8mb4', 'CHARACTER SET=utf8mb4'],
+            ['CHARSET=utf8mb4', 'CHARSET=utf8mb4'],
+            ['DEFAULT CHARACTER SET=utf8mb4', 'DEFAULT CHARACTER SET=utf8mb4'],
+            ['DEFAULT CHARSET=utf8mb4', 'DEFAULT CHARSET=utf8mb4'],
+            ['CHECKSUM=1', 'CHECKSUM=1'],
+            ['DEFAULT COLLATE=utf8mb4_bin', 'DEFAULT COLLATE=utf8mb4_bin'],
+            ['COLLATE=utf8mb4_bin', 'COLLATE=utf8mb4_bin'],
+            ["COMMENT='foo'", "COMMENT='foo'"],
+            ["CONNECTION='mysql://user@host/db/t'", "CONNECTION='mysql://user@host/db/t'"],
+            ["DATA DIRECTORY = '/tmp/data'", "DATA DIRECTORY='/tmp/data'"],
+            ['DELAY_KEY_WRITE=1', 'DELAY_KEY_WRITE=1'],
+            ["INDEX DIRECTORY='/tmp/index'", "INDEX DIRECTORY='/tmp/index'"],
+            ['INSERT_METHOD=LAST', 'INSERT_METHOD=LAST'],
+            ['KEY_BLOCK_SIZE=8', 'KEY_BLOCK_SIZE=8'],
+            ['MAX_ROWS=1000', 'MAX_ROWS=1000'],
+            ['MIN_ROWS=10', 'MIN_ROWS=10'],
+            ['PACK_KEYS=DEFAULT', 'PACK_KEYS=DEFAULT'],
+            ["PASSWORD='secret'", "PASSWORD='secret'"],
+            ['ROW_FORMAT=DYNAMIC', 'ROW_FORMAT=DYNAMIC'],
+            ['TABLESPACE `ts` STORAGE DISK', 'TABLESPACE `ts` STORAGE DISK'],
+            ['UNION = (`t1`, `t2`)', 'UNION=(`t1`, `t2`)'],
+            ['PAGE_COMPRESSED=1', 'PAGE_COMPRESSED=1'],
+            ["`PAGE_COMPRESSED`='ON'", "PAGE_COMPRESSED='ON'"],
+            ['PAGE_COMPRESSION_LEVEL=9', 'PAGE_COMPRESSION_LEVEL=9'],
+            ['PAGE_CHECKSUM=1', 'PAGE_CHECKSUM=1'],
+            ['TRANSACTIONAL=1', 'TRANSACTIONAL=1'],
+            ['ENCRYPTED=YES', 'ENCRYPTED=YES'],
+            ['ENCRYPTION_KEY_ID=2', 'ENCRYPTION_KEY_ID=2'],
+            ["ENCRYPTION='Y'", "ENCRYPTION='Y'"],
+            ["COMPRESSION='zlib'", "COMPRESSION='zlib'"],
+            ['STATS_AUTO_RECALC=1', 'STATS_AUTO_RECALC=1'],
+            ['STATS_PERSISTENT=0', 'STATS_PERSISTENT=0'],
+            ['STATS_SAMPLE_PAGES=25', 'STATS_SAMPLE_PAGES=25'],
+            ['AUTOEXTEND_SIZE=4M', 'AUTOEXTEND_SIZE=4M'],
+            ['IETF_QUOTES=YES', 'IETF_QUOTES=YES'],
+            ['SEQUENCE=1', 'SEQUENCE=1'],
+            ["ENGINE_ATTRIBUTE='{}'", "ENGINE_ATTRIBUTE='{}'"],
+            ["SECONDARY_ENGINE_ATTRIBUTE='{}'", "SECONDARY_ENGINE_ATTRIBUTE='{}'"],
+            ['ADAPTIVE_HASH_INDEX=YES', 'ADAPTIVE_HASH_INDEX=YES'],
+        ];
+    }
+
+    /**
+     * @dataProvider tableOptionsProvider
+     */
+    #[DataProvider('tableOptionsProvider')]
+    public function testBuilderTableOption(string $option, string $expected): void
+    {
+        // The trailing ENGINE option checks that the option does not consume the following tokens.
+        $parser = new Parser('CREATE TABLE `t` ( `id` int ) ' . $option . ' ENGINE=InnoDB;');
+        self::assertEmpty($parser->errors);
+        self::assertSame(
+            "CREATE TABLE `t` (\n  `id` int\n) ENGINE=InnoDB " . $expected,
+            $parser->statements[0]->build()
+        );
+    }
+
+    public function testBuilderQuotedNameIsNotAnOption(): void
+    {
+        // Quoted option names are only accepted for table options.
+        $parser = new Parser('SELECT `DISTINCT` FROM `t`');
+        self::assertEmpty($parser->errors);
+        self::assertSame('SELECT `DISTINCT` FROM `t`', $parser->statements[0]->build());
     }
 
     public function testBuilderCollate(): void

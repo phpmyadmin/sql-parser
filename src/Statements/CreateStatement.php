@@ -107,10 +107,14 @@ class CreateStatement extends Statement
     /**
      * All table options.
      *
-     * @var array<string, int|array<int, int|string>>
-     * @psalm-var array<string, (positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
+     * @var array<string, bool|int|array<int, int|string>>
+     * @psalm-var array<string, (bool|positive-int|array{positive-int, ('var'|'var='|'expr'|'expr=')})>
      */
     public static $TABLE_OPTIONS = [
+        // Tells the `OptionsArray` to also accept quoted option names.
+        // MariaDB quotes engine-defined options in `SHOW CREATE TABLE`.
+        '_ALLOW_QUOTED' => true,
+
         'ENGINE' => [
             1,
             'var=',
@@ -217,6 +221,66 @@ class CreateStatement extends Statement
         ],
         'PAGE_COMPRESSION_LEVEL' => [
             23,
+            'var',
+        ],
+        'PAGE_CHECKSUM' => [
+            24,
+            'var',
+        ],
+        'TRANSACTIONAL' => [
+            25,
+            'var',
+        ],
+        'ENCRYPTED' => [
+            26,
+            'var',
+        ],
+        'ENCRYPTION_KEY_ID' => [
+            27,
+            'var',
+        ],
+        'ENCRYPTION' => [
+            28,
+            'var',
+        ],
+        'COMPRESSION' => [
+            29,
+            'var',
+        ],
+        'STATS_AUTO_RECALC' => [
+            30,
+            'var',
+        ],
+        'STATS_PERSISTENT' => [
+            31,
+            'var',
+        ],
+        'STATS_SAMPLE_PAGES' => [
+            32,
+            'var',
+        ],
+        'AUTOEXTEND_SIZE' => [
+            33,
+            'var',
+        ],
+        'IETF_QUOTES' => [
+            34,
+            'var',
+        ],
+        'SEQUENCE' => [
+            35,
+            'var',
+        ],
+        'ENGINE_ATTRIBUTE' => [
+            36,
+            'var',
+        ],
+        'SECONDARY_ENGINE_ATTRIBUTE' => [
+            37,
+            'var',
+        ],
+        'ADAPTIVE_HASH_INDEX' => [
+            38,
             'var',
         ],
     ];
