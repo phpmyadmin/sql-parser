@@ -36,7 +36,7 @@ class DeleteStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
 
         /* Assertion 4 */
-        $query = 'DELETE IGNORE FROM t1 WHERE 1=1 ORDER BY id ASC LIMIT 0, 25';
+        $query = 'DELETE IGNORE FROM t1 WHERE 1=1 ORDER BY id ASC LIMIT 25';
 
         $parser = new Parser($query);
         $stmt = $parser->statements[0];
