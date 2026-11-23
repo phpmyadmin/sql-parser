@@ -1,0 +1,152 @@
+{
+    "query": "ALTER DATABASE CHARACTER SET utf8mb4",
+    "lexer": {
+        "@type": "PhpMyAdmin\\SqlParser\\Lexer",
+        "str": "ALTER DATABASE CHARACTER SET utf8mb4",
+        "len": 36,
+        "last": 36,
+        "list": {
+            "@type": "PhpMyAdmin\\SqlParser\\TokensList",
+            "tokens": [
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "ALTER",
+                    "value": "ALTER",
+                    "keyword": "ALTER",
+                    "type": 1,
+                    "flags": 3,
+                    "position": 0
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 5
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "DATABASE",
+                    "value": "DATABASE",
+                    "keyword": "DATABASE",
+                    "type": 1,
+                    "flags": 35,
+                    "position": 6
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 14
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "CHARACTER SET",
+                    "value": "CHARACTER SET",
+                    "keyword": "CHARACTER SET",
+                    "type": 1,
+                    "flags": 7,
+                    "position": 15
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": " ",
+                    "value": " ",
+                    "keyword": null,
+                    "type": 3,
+                    "flags": 0,
+                    "position": 28
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": "utf8mb4",
+                    "value": "utf8mb4",
+                    "keyword": null,
+                    "type": 0,
+                    "flags": 0,
+                    "position": 29
+                },
+                {
+                    "@type": "PhpMyAdmin\\SqlParser\\Token",
+                    "token": null,
+                    "value": null,
+                    "keyword": null,
+                    "type": 9,
+                    "flags": 0,
+                    "position": null
+                }
+            ],
+            "count": 8,
+            "idx": 8
+        },
+        "delimiter": ";",
+        "delimiterLen": 1,
+        "strict": false,
+        "errors": []
+    },
+    "parser": {
+        "@type": "PhpMyAdmin\\SqlParser\\Parser",
+        "list": {
+            "@type": "@1"
+        },
+        "statements": [
+            {
+                "@type": "PhpMyAdmin\\SqlParser\\Statements\\AlterStatement",
+                "table": null,
+                "altered": [
+                    {
+                        "@type": "PhpMyAdmin\\SqlParser\\Components\\AlterOperation",
+                        "ROUTINE_OPTIONS": {
+                            "COMMENT": [
+                                1,
+                                "var"
+                            ],
+                            "LANGUAGE SQL": 2,
+                            "CONTAINS SQL": 3,
+                            "NO SQL": 3,
+                            "READS SQL DATA": 3,
+                            "MODIFIES SQL DATA": 3,
+                            "SQL SECURITY": 4,
+                            "DEFINER": 5,
+                            "INVOKER": 5
+                        },
+                        "options": {
+                            "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                            "options": {
+                                "1": {
+                                    "name": "CHARACTER SET",
+                                    "equals": false,
+                                    "expr": "utf8mb4",
+                                    "value": "utf8mb4"
+                                }
+                            }
+                        },
+                        "field": null,
+                        "partitions": null,
+                        "unknown": []
+                    }
+                ],
+                "options": {
+                    "@type": "PhpMyAdmin\\SqlParser\\Components\\OptionsArray",
+                    "options": {
+                        "3": "DATABASE"
+                    }
+                },
+                "first": 0,
+                "last": 7
+            }
+        ],
+        "brackets": 0,
+        "strict": false,
+        "errors": []
+    },
+    "errors": {
+        "lexer": [],
+        "parser": []
+    }
+}

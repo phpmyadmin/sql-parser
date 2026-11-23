@@ -23,6 +23,17 @@ class AlterStatementTest extends TestCase
         $this->assertEquals($query, $stmt->build());
     }
 
+    public function testBuilderDatabaseWithoutName(): void
+    {
+        $query = 'ALTER DATABASE DEFAULT CHARACTER SET utf8mb4';
+
+        $parser = new Parser($query);
+        $stmt = $parser->statements[0];
+
+        self::assertSame([], $parser->errors);
+        self::assertSame($query, $stmt->build());
+    }
+
     public function testBuilderWithExpression(): void
     {
         $query = 'ALTER TABLE `table` '
