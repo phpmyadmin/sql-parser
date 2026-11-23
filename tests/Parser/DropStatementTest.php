@@ -21,6 +21,8 @@ class DropStatementTest extends TestCase
         return [
             ['parser/parseDrop'],
             ['parser/parseDrop2'],
+            ['parser/parseDropDatabase'],
+            ['parser/parseDropSchema'],
         ];
     }
 }

@@ -461,6 +461,10 @@ class QueryTest extends TestCase
                 ['`tbl`'],
             ],
             [
+                'ALTER DATABASE db CHARACTER SET utf8mb4',
+                [],
+            ],
+            [
                 'DROP VIEW v',
                 [],
             ],
