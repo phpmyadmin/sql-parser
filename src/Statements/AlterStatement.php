@@ -23,7 +23,7 @@ use function trim;
 class AlterStatement extends Statement
 {
     /**
-     * Table affected.
+     * The altered object. A database name is in `database`, the name of other objects in `table`.
      */
     public Expression|null $table = null;
 
@@ -77,12 +77,12 @@ class AlterStatement extends Statement
         $this->options = $parsedOptions;
         ++$list->idx;
 
-        // Parsing affected table.
+        // Parsing the name of the altered object.
         $this->table = Expressions::parse(
             $parser,
             $list,
             [
-                'parseField' => 'table',
+                'parseField' => $parsedOptions->has('DATABASE') ? 'database' : 'table',
                 'breakOnAlias' => true,
             ],
         );

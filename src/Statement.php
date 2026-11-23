@@ -241,9 +241,9 @@ abstract class Statement implements Stringable, JsonSerializable
             $field = null;
 
             /**
-             * Parser's options.
+             * The keyword of the clause, a key of `Parser::KEYWORD_PARSERS`.
              */
-            $options = [];
+            $keyword = '';
 
             // Looking for duplicated clauses.
             if (
@@ -270,11 +270,9 @@ abstract class Statement implements Stringable, JsonSerializable
             // so let the value use the keyword field for truncate type.
             $tokenValue = $token->keyword === 'TRUNCATE' ? $token->keyword : $token->value;
             if (is_string($tokenValue) && isset(Parser::KEYWORD_PARSERS[$tokenValue]) && $list->idx < $list->count) {
+                $keyword = $tokenValue;
                 $class = Parser::KEYWORD_PARSERS[$tokenValue]['class'];
                 $field = Parser::KEYWORD_PARSERS[$tokenValue]['field'];
-                if (isset(Parser::KEYWORD_PARSERS[$tokenValue]['options'])) {
-                    $options = Parser::KEYWORD_PARSERS[$tokenValue]['options'];
-                }
             }
 
             // Checking if this is the beginning of the statement.
@@ -327,7 +325,7 @@ abstract class Statement implements Stringable, JsonSerializable
                 }
 
                 ++$list->idx; // Skipping keyword or last option.
-                $this->$field = $class::parse($parser, $list, $options);
+                $this->$field = $class::parse($parser, $list, $this->getKeywordParserOptions($keyword));
             }
 
             $this->after($parser, $list, $token);
@@ -357,6 +355,18 @@ abstract class Statement implements Stringable, JsonSerializable
      */
     public function after(Parser $parser, TokensList $list, Token $token): void
     {
+    }
+
+    /**
+     * Gets the options for the parser of a clause. The options of the statement are already parsed.
+     *
+     * @param string $keyword the keyword of the clause, a key of `Parser::KEYWORD_PARSERS`
+     *
+     * @return array<string, mixed>
+     */
+    protected function getKeywordParserOptions(string $keyword): array
+    {
+        return Parser::KEYWORD_PARSERS[$keyword]['options'] ?? [];
     }
 
     /**

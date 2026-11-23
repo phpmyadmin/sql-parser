@@ -76,4 +76,18 @@ class DropStatement extends Statement
      * Table of the dropped index.
      */
     public Expression|null $table = null;
+
+    /** @return array<string, mixed> */
+    protected function getKeywordParserOptions(string $keyword): array
+    {
+        if (
+            $keyword === 'DROP'
+            && $this->options !== null
+            && ($this->options->has('DATABASE') || $this->options->has('SCHEMA'))
+        ) {
+            return ['parseField' => 'database'];
+        }
+
+        return parent::getKeywordParserOptions($keyword);
+    }
 }
