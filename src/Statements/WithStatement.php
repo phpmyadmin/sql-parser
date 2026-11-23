@@ -10,6 +10,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Parsers\Array2d;
 use PhpMyAdmin\SqlParser\Parsers\OptionsArrays;
 use PhpMyAdmin\SqlParser\Statement;
+use PhpMyAdmin\SqlParser\Token;
 use PhpMyAdmin\SqlParser\TokensList;
 use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Translator;
@@ -108,7 +109,16 @@ final class WithStatement extends Statement
             }
 
             if ($state === 0) {
-                if ($token->type !== TokenType::None || ! preg_match('/^[a-zA-Z0-9_$]+$/', $token->token)) {
+                // A CTE name may be a plain identifier, a non-reserved keyword
+                // (e.g. `data`) or a backtick-quoted identifier. MySQL accepts
+                // all three, so none of them should be rejected here (see #662).
+                $isPlainName = $token->type === TokenType::None
+                    && preg_match('/^[a-zA-Z0-9_$]+$/', $token->token) === 1;
+                $isQuotedName = $token->type === TokenType::Symbol
+                    && ($token->flags & Token::FLAG_SYMBOL_BACKTICK) !== 0;
+                $isNonReservedKeyword = $token->type === TokenType::Keyword
+                    && ($token->flags & Token::FLAG_KEYWORD_RESERVED) === 0;
+                if (! ($isPlainName || $isQuotedName || $isNonReservedKeyword)) {
                     $parser->error('The name of the CTE was expected.', $token);
                     break;
                 }

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\SqlParser\Tests\Parser;
 use PhpMyAdmin\SqlParser\Components\WithKeyword;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
+use PhpMyAdmin\SqlParser\Statements\WithStatement;
 use PhpMyAdmin\SqlParser\Tests\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -68,6 +69,35 @@ WITH categories(identifier, name, parent_id) AS (SELECT c.identifier, c.name, c.
 SQL;
         // phpcs:enable
         $this->assertEquals($expected, $parser->statements[0]->build());
+    }
+
+    /** @return array<string, array{string, string}> */
+    public static function cteNameCases(): array
+    {
+        return [
+            'non-reserved keyword' => ['WITH data AS (SELECT 1) SELECT * FROM data', 'data'],
+            'backtick keyword' => ['WITH `data` AS (SELECT 1) SELECT * FROM `data`', 'data'],
+            'backtick identifier with space' => ['WITH `my cte` AS (SELECT 1) SELECT * FROM `my cte`', 'my cte'],
+        ];
+    }
+
+    #[DataProvider('cteNameCases')]
+    public function testWithNonReservedOrQuotedName(string $sql, string $expectedName): void
+    {
+        // https://github.com/phpmyadmin/sql-parser/issues/662
+        // A CTE name may be a non-reserved keyword (e.g. "data") or a
+        // backtick-quoted identifier; both must be accepted instead of being
+        // reported as "The name of the CTE was expected."
+        $lexer = new Lexer($sql);
+        self::assertCount(0, $this->getErrorsAsArray($lexer));
+
+        $parser = new Parser($lexer->list);
+        self::assertCount(0, $this->getErrorsAsArray($parser));
+        self::assertCount(1, $parser->statements);
+
+        $statement = $parser->statements[0];
+        self::assertInstanceOf(WithStatement::class, $statement);
+        self::assertArrayHasKey($expectedName, $statement->withers);
     }
 
     public function testWithRecursive(): void
