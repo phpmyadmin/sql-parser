@@ -24,6 +24,8 @@ class ReplaceStatementTest extends TestCase
             ['parser/parseReplaceValues'],
             ['parser/parseReplaceSet'],
             ['parser/parseReplaceSelect'],
+            ['parser/parseReplaceSelectWithParenthesis'],
+            ['parser/parseReplaceSelectWithParenthesisErr'],
             ['parser/parseReplaceErr'],
             ['parser/parseReplaceErr2'],
             ['parser/parseReplaceErr3'],
