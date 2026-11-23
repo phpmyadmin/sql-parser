@@ -159,6 +159,9 @@ class InsertStatement extends Statement
          */
         $miniState = 0;
 
+        $openBrackets = 0;
+        $firstBracket = 0;
+
         for (; $list->idx < $list->count; ++$list->idx) {
             /**
              * Token parsed at this moment.
@@ -193,8 +196,17 @@ class InsertStatement extends Statement
                 // The `SELECT` might be wrapped in brackets, the closing one is
                 // handled by the statement through the bracket counter.
                 if ($token->type === TokenType::Operator && $token->value === '(') {
+                    if ($openBrackets === 0) {
+                        $firstBracket = $list->idx;
+                    }
+
                     ++$parser->brackets;
+                    ++$openBrackets;
                     continue;
+                }
+
+                if ($openBrackets > 0 && $token->keyword !== 'SELECT') {
+                    break;
                 }
 
                 if ($token->type !== TokenType::Keyword) {
@@ -245,6 +257,12 @@ class InsertStatement extends Statement
                     $state = 3;
                 }
             }
+        }
+
+        if ($openBrackets > 0 && $this->select === null) {
+            $parser->brackets -= $openBrackets;
+            $list->idx = $firstBracket;
+            $parser->error('Unexpected token.', $list->tokens[$firstBracket]);
         }
 
         --$list->idx;
