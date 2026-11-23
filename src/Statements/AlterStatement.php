@@ -86,7 +86,11 @@ class AlterStatement extends Statement
                 'breakOnAlias' => true,
             ]
         );
-        ++$list->idx; // Skipping field.
+
+        // The name is optional in `ALTER DATABASE`. Without it, the current token starts the first alter operation.
+        if ($this->table !== null) {
+            ++$list->idx; // Skipping field.
+        }
 
         /**
          * The state of the parser.
@@ -155,7 +159,7 @@ class AlterStatement extends Statement
 
         return trim(
             'ALTER ' . OptionsArray::build($this->options)
-            . ' ' . Expression::build($this->table)
+            . ($this->table !== null ? ' ' . Expression::build($this->table) : '')
             . ' ' . implode(', ', $tmp)
         );
     }
