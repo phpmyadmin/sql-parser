@@ -275,14 +275,9 @@ class KeyTest extends TestCase
                 $t
             ),
         ], $parser->errors);
-        $expr = new Expression('(convert_tz(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\'))');
-        $expr->function = 'convert_tz';
-        $this->assertEquals('()(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')', $component->expr);
+        $this->assertEquals('()', $component->expr);
         $this->assertSame([], $component->columns);
-        $this->assertSame(
-            'KEY `updated_tz_ind2` (()(`cache_updated`,_utf8mb4\'GMT\',_utf8mb4\'GB\')) ',
-            Key::build($component)
-        );
+        $this->assertSame('KEY `updated_tz_ind2` (()) ', Key::build($component));
     }
 
     public function testParseKeyOneExpressionWithOptions(): void
@@ -370,5 +365,87 @@ class KeyTest extends TestCase
             . ') COMMENT \'my comment\'',
             Key::build($component)
         );
+    }
+
+    public function testParseKeyWithColumnsAndExpressions(): void
+    {
+        $parser = new Parser();
+        $component = Key::parse(
+            $parser,
+            $this->getTokensList('KEY `k` (`a`,`b` DESC,((((`a` % 7) * 3) + `b`)),`c`),')
+        );
+        self::assertSame([], $parser->errors);
+        self::assertEquals('KEY', $component->type);
+        self::assertEquals('k', $component->name);
+        self::assertNull($component->expr);
+        self::assertSame([
+            ['name' => 'a'],
+            ['name' => 'b', 'order' => 'DESC'],
+            ['expr' => '((((`a` % 7) * 3) + `b`))'],
+            ['name' => 'c'],
+        ], $component->columns);
+        self::assertSame(
+            'KEY `k` (`a`,`b` DESC,((((`a` % 7) * 3) + `b`)),`c`)',
+            Key::build($component)
+        );
+    }
+
+    public function testParseKeyWithExpressionBeforeColumns(): void
+    {
+        $parser = new Parser();
+        $component = Key::parse(
+            $parser,
+            $this->getTokensList('UNIQUE KEY `u` ((ifnull(`a`,0)) DESC,`b`) USING BTREE,')
+        );
+        self::assertSame([], $parser->errors);
+        self::assertEquals('UNIQUE KEY', $component->type);
+        self::assertNull($component->expr);
+        self::assertSame([
+            ['expr' => '(ifnull(`a`,0))', 'order' => 'DESC'],
+            ['name' => 'b'],
+        ], $component->columns);
+        self::assertSame(
+            'UNIQUE KEY `u` ((ifnull(`a`,0)) DESC,`b`) USING BTREE',
+            Key::build($component)
+        );
+    }
+
+    public function testParseKeyExpressionWithOrder(): void
+    {
+        $parser = new Parser();
+        $component = Key::parse($parser, $this->getTokensList('KEY `expr_desc` (((`a` + 1)) DESC),'));
+        self::assertSame([], $parser->errors);
+        self::assertNull($component->expr);
+        self::assertSame([['expr' => '((`a` + 1))', 'order' => 'DESC']], $component->columns);
+        self::assertSame('KEY `expr_desc` (((`a` + 1)) DESC)', Key::build($component));
+    }
+
+    public function testParseKeyWithColumnsAndExpressionsError(): void
+    {
+        $parser = new Parser();
+        $component = Key::parse($parser, $this->getTokensList('KEY `k` (`a`,((`b` * 2)) `c`(5),`d`),'));
+        $t = new Token('`c`', Token::TYPE_SYMBOL, Token::FLAG_SYMBOL_BACKTICK);
+        $t->value = 'c';
+        $t->position = 25;
+        self::assertEquals([new ParserException('Unexpected token.', $t)], $parser->errors);
+        self::assertSame([
+            ['name' => 'a'],
+            ['expr' => '((`b` * 2))'],
+            ['name' => 'd'],
+        ], $component->columns);
+    }
+
+    public function testParseKeyWithUnexpectedParenthesisAfterExpression(): void
+    {
+        $parser = new Parser();
+        $component = Key::parse($parser, $this->getTokensList('KEY `k` (`a`,((`b` + 1))(5),`d`),'));
+        $t = new Token('(', Token::TYPE_OPERATOR, Token::FLAG_OPERATOR_SQL);
+        $t->position = 24;
+        self::assertEquals([new ParserException('Unexpected token.', $t)], $parser->errors);
+        self::assertSame([
+            ['name' => 'a'],
+            ['expr' => '((`b` + 1))'],
+            ['name' => 'd'],
+        ], $component->columns);
     }
 }

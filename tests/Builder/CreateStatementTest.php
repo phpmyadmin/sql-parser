@@ -895,4 +895,22 @@ SQL;
         $this->assertEmpty($parser->errors);
         $this->assertStringContainsString("DEFAULT X'FF'", $parser->statements[0]->build());
     }
+
+    public function testBuildCreateTableWithColumnsAndExpressionsInIndexes(): void
+    {
+        $sql = <<<'SQL'
+CREATE TABLE `t` (
+  `a` int NOT NULL,
+  `b` int NOT NULL,
+  `c` varchar(20) DEFAULT NULL,
+  UNIQUE KEY `u` (`a`,(ifnull(`c`,_utf8mb4'x'))) USING BTREE,
+  KEY `k` (`a`,`b` DESC,((((`a` % 7) * 3) + `b`)),`c`),
+  KEY `e` (((`b` * 2)) DESC,`a`)
+) ENGINE=InnoDB
+SQL;
+
+        $parser = new Parser($sql);
+        self::assertEmpty($parser->errors);
+        self::assertEquals($sql, $parser->statements[0]->build());
+    }
 }
