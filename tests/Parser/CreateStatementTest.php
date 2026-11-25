@@ -71,6 +71,7 @@ class CreateStatementTest extends TestCase
             ['parser/parseCreateTableTimestampWithPrecision'],
             ['parser/parseCreateTableEnforcedCheck'],
             ['parser/parseCreateTableNotEnforcedCheck'],
+            ['parser/parseCreateTableCheckConstraint'],
             ['parser/parseCreateTableWithInvisibleKey'],
             ['parser/parseCreateTableWithParser'],
             ['parser/parseCreateTableUuidColumn_mariadb_100700'],

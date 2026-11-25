@@ -201,6 +201,7 @@ class CreateDefinition extends Component
          *      0 -----------------------[ ( ]------------------------> 1
          *
          *      1 --------------------[ CONSTRAINT ]------------------> 1
+         *      1 ----------------------[ CHECK ]---------------------> 4
          *      1 -----------------------[ key ]----------------------> 2
          *      1 -------------[ constraint / column name ]-----------> 2
          *
@@ -244,6 +245,10 @@ class CreateDefinition extends Component
             } elseif ($state === 1) {
                 if ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'CONSTRAINT') {
                     $expr->isConstraint = true;
+                } elseif ($token->type === Token::TYPE_KEYWORD && $token->keyword === 'CHECK') {
+                    // Table check constraint: [CONSTRAINT [symbol]] CHECK (expr)
+                    $expr->options = OptionsArray::parse($parser, $list, static::$FIELD_OPTIONS);
+                    $state = 4;
                 } elseif (($token->type === Token::TYPE_KEYWORD) && ($token->flags & Token::FLAG_KEYWORD_KEY)) {
                     $expr->key = Key::parse($parser, $list);
                     $state = 4;
@@ -290,7 +295,7 @@ class CreateDefinition extends Component
 
                 $state = 5;
             } elseif ($state === 5) {
-                if (! empty($expr->type) || ! empty($expr->key)) {
+                if (! empty($expr->type) || ! empty($expr->key) || $expr->options !== null) {
                     $ret[] = $expr;
                 }
 
@@ -310,7 +315,7 @@ class CreateDefinition extends Component
         }
 
         // Last iteration was not saved.
-        if (! empty($expr->type) || ! empty($expr->key)) {
+        if (! empty($expr->type) || ! empty($expr->key) || $expr->options !== null) {
             $ret[] = $expr;
         }
 

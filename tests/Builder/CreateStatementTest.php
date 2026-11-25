@@ -895,4 +895,19 @@ SQL;
         $this->assertEmpty($parser->errors);
         $this->assertStringContainsString("DEFAULT X'FF'", $parser->statements[0]->build());
     }
+
+    public function testBuildCreateTableCheckConstraint(): void
+    {
+        $sql = "CREATE TABLE `t` (\n"
+            . "  `a` int(11) DEFAULT NULL,\n"
+            . "  `b` int(11) DEFAULT NULL,\n"
+            . "  CONSTRAINT `chk_ab` CHECK (`a` < `b`),\n"
+            . "  CHECK (`b` > 0),\n"
+            . "  `c` int(11) DEFAULT NULL\n"
+            . ') ENGINE=InnoDB';
+
+        $parser = new Parser($sql);
+        $this->assertEmpty($parser->errors);
+        $this->assertEquals($sql, $parser->statements[0]->build());
+    }
 }
