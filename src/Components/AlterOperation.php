@@ -337,6 +337,7 @@ class AlterOperation extends Component
          * @var int
          */
         $brackets = 0;
+        $isFirstUnknownToken = true;
 
         /**
          * The state of the parser.
@@ -434,6 +435,12 @@ class AlterOperation extends Component
 
                 $state = 2;
             } elseif ($state === 2) {
+                if ($isFirstUnknownToken && $ret->options->has('ADD') === true && $token->keyword === 'VARCHAR') {
+                    // Validate the column type while preserving the original tokens used to build ALTER.
+                    DataType::parse($parser, clone $list);
+                }
+
+                $isFirstUnknownToken = false;
                 if (is_string($token->value) || is_int($token->value)) {
                     $arrayKey = $token->value;
                 } else {
