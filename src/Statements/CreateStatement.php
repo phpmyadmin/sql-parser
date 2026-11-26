@@ -27,6 +27,7 @@ use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 
 use function is_array;
 use function str_replace;
+use function substr;
 use function trim;
 
 /**
@@ -463,15 +464,11 @@ class CreateStatement extends Statement
             }
 
             $body = TokensList::buildFromArray($this->body);
-            // Body tokens (e.g. trailing `UNION ALL (SELECT ...)` after the
-            // primary SELECT) are concatenated raw, so without a separator
-            // the rebuilt SQL collides with the SELECT's last token,
-            // `WHERE 3 = 3union all` instead of `WHERE 3 = 3 union all`.
-            // Only insert a space when neither side already has one to
-            // avoid double-spacing the WITH...AS path.
-            $separator = ($builtStatement !== '' && $body !== ''
+            // Trailing body tokens (e.g. `UNION ALL ...`) need a space after the SELECT,
+            // unless one side already has it (the WITH ... AS path does).
+            $separator = $builtStatement !== '' && $body !== ''
                 && substr($builtStatement, -1) !== ' '
-                && $body[0] !== ' ') ? ' ' : '';
+                && $body[0] !== ' ' ? ' ' : '';
 
             return 'CREATE '
                 . $this->options->build() . ' '

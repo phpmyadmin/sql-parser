@@ -921,27 +921,20 @@ SQL;
     }
 
     /**
-     * Regression for #655: `CREATE VIEW ... AS SELECT ... WHERE ... UNION ALL (...)`
-     * used to lose the whitespace between the SELECT body and the trailing
-     * UNION clause, producing invalid SQL like `WHERE 3 = 3union all (...)`.
+     * Regression for #655: the UNION body used to be glued to the SELECT,
+     * producing invalid SQL like `WHERE 3 = 3union all (...)`.
      */
     public function testBuilderViewWithUnionPreservesWhitespace(): void
     {
-        $sql = "CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER "
-            . "VIEW `v1` AS select 1 AS `a` where 3 = 3 union all (select 2 AS `a`)";
-
-        $parser = new Parser($sql);
-        $built = $parser->statements[0]->build();
-
-        $this->assertStringNotContainsString(
-            '3union all',
-            $built,
-            'rebuilt CREATE VIEW must keep the space between WHERE clause and UNION',
+        $parser = new Parser(
+            'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER '
+            . 'VIEW `v1` AS select 1 AS `a` where 3 = 3 union all (select 2 AS `a`)',
         );
-        $this->assertStringContainsString(
-            '3 union all',
-            // case-insensitive match: builder may upper-case the keyword
-            preg_replace('/UNION\s+ALL/i', 'union all', $built),
+
+        $this->assertEquals(
+            'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER '
+            . 'VIEW `v1`  AS SELECT 1 AS `a` WHERE 3 = 3 union all (select 2 AS `a`) ',
+            $parser->statements[0]->build(),
         );
     }
 }
