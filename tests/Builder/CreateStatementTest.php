@@ -919,4 +919,22 @@ SQL;
         $this->assertEmpty($parser->errors);
         $this->assertStringContainsString("DEFAULT X'FF'", $parser->statements[0]->build());
     }
+
+    /**
+     * Regression for #655: the UNION body used to be glued to the SELECT,
+     * producing invalid SQL like `WHERE 3 = 3union all (...)`.
+     */
+    public function testBuilderViewWithUnionPreservesWhitespace(): void
+    {
+        $parser = new Parser(
+            'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER '
+            . 'VIEW `v1` AS select 1 AS `a` where 3 = 3 union all (select 2 AS `a`)',
+        );
+
+        $this->assertEquals(
+            'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER '
+            . 'VIEW `v1`  AS SELECT 1 AS `a` WHERE 3 = 3 union all (select 2 AS `a`) ',
+            $parser->statements[0]->build(),
+        );
+    }
 }

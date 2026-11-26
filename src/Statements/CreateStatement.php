@@ -27,6 +27,7 @@ use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 
 use function is_array;
 use function str_replace;
+use function substr;
 use function trim;
 
 /**
@@ -462,11 +463,18 @@ class CreateStatement extends Statement
                 $builtStatement = $this->with->build();
             }
 
+            $body = TokensList::buildFromArray($this->body);
+            // Trailing body tokens (e.g. `UNION ALL ...`) need a space after the SELECT,
+            // unless one side already has it (the WITH ... AS path does).
+            $separator = $builtStatement !== '' && $body !== ''
+                && substr($builtStatement, -1) !== ' '
+                && $body[0] !== ' ' ? ' ' : '';
+
             return 'CREATE '
                 . $this->options->build() . ' '
                 . $this->name->build() . ' '
                 . $fields . ' AS ' . $builtStatement
-                . TokensList::buildFromArray($this->body) . ' '
+                . $separator . $body . ' '
                 . ($this->entityOptions?->build() ?? '');
         }
 
